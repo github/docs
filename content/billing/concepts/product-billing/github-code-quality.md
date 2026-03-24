@@ -4,13 +4,10 @@ intro: 'Learn how usage of {% data variables.product.prodname_code_quality_short
 product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
-topics:
-  - Code Quality
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: GitHub Code Quality
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 > [!NOTE]

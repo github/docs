@@ -26,8 +26,7 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [`learningTracks`](#learningtracks)
   - [`includeGuides`](#includeguides)
   - [`journeyTracks`](#journeytracks)
-  - [`type`](#type)
-  - [`topics`](#topics)
+  - [`contentType`](#contenttype)
   - [`communityRedirect`](#communityRedirect)
   - [`effectiveDate`](#effectiveDate)
   - [Escaping single quotes](#escaping-single-quotes)
@@ -239,7 +238,7 @@ defaultTool: cli
 **Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
 
 ### `includeGuides`
-- Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
+- Purpose: Render a list of articles, filterable by `contentType`. Only applicable when used with `layout: product-guides`.
 - Type: `Array`
 - Optional.
 
@@ -285,15 +284,10 @@ journeyTracks:
       - href: '/actions/deployment/deploying-with-github-actions'
 ```
 
-### `type`
+### `contentType`
 - Purpose: Indicate the type of article.
-- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`.
+- Type: `String`, one of `get-started`, `concepts`, `how-tos`, `reference`, `tutorials`, `rai`, `landing` (only applies to `content/<product>/index.md` files).
 - Optional.
-
-### `topics`
-- Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](/data/allowed-topics.ts). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/src/search/tests/topics.ts) will fail.
-- Type: Array of `String`s
-- Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
 ### `communityRedirect`
 - Purpose: Set a custom link and link name for `Ask the GitHub community` link in the footer.
@@ -448,4 +442,4 @@ To create a product guides page (e.g. [Actions' Guide page](https://docs.github.
 1. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
 
 If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-If using `includeGuides`, make sure each of the articles in this list has [`topics`](#topics) and [`type`](#type) in its frontmatter.
+If using `includeGuides`, make sure each of the articles in this list has [`contentType`](#contenttype) in its frontmatter.

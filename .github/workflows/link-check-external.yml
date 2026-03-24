@@ -1,11 +1,8 @@
-name: Check External Links
-
-# Runs weekly (Wednesday) at 16:20 UTC
-# Validates external URLs in content files
+name: 'Link Check: External'
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST — link & content quality theme
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
   workflow_dispatch:
     inputs:
       max_urls:
@@ -43,7 +40,7 @@ jobs:
 
       - name: Upload report artifact
         if: always()
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: external-link-report
           path: artifacts/external-link-report.*
@@ -56,6 +53,15 @@ jobs:
         run: |
           if [ -f "artifacts/external-link-report.md" ]; then
             echo "has_report=true" >> $GITHUB_OUTPUT
+            # Prepend disclaimer banner
+            tmp=$(mktemp)
+            {
+              echo "> [!NOTE]"
+              echo "> **No action needed right now.** The link checker is being actively worked on and may produce false positives. You can safely ignore this report for now. We'll let you know when it's reliable."
+              echo ""
+              cat "artifacts/external-link-report.md"
+            } > "$tmp"
+            mv "$tmp" "artifacts/external-link-report.md"
           else
             echo "has_report=false" >> $GITHUB_OUTPUT
             echo "No broken link report generated - all links valid!"
@@ -63,7 +69,7 @@ jobs:
 
       - name: Create issue if broken links found
         if: always() && steps.check_report.outputs.has_report == 'true'
-        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
+        uses: peter-evans/create-issue-from-file@65115121ba9a3573cbaded4dc66b90ba1f9b69dc
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/docs-content
@@ -76,3 +82,8 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

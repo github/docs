@@ -7,9 +7,9 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
-topics:
-  - Repositories
 shortTitle: Manage a ruleset
+category:
+  - Manage branches and protect code
 ---
 
 After creating a ruleset, you can still make changes to it. For example, you can add rules to better protect your branches or tags, or you can {% ifversion repo-rules-enterprise %}switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repository{% else %}temporarily disable a ruleset to troubleshoot any unintended effects on the contributor experience for your repository{% endif %}.

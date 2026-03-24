@@ -6,13 +6,6 @@ intro: You can use security overview to see which teams and repositories are aff
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
-  - Teams
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,6 +13,8 @@ versions:
 redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
   - /code-security/security-overview/assessing-code-security-risk
+category:
+  - Secure at scale
 ---
 
 ## Exploring the security risks in your code

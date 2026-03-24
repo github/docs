@@ -8,6 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/using-template-repos-for-assignments
   - /education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository
 shortTitle: Template repository
+category:
+  - Create and manage assignments
 ---
 
 You can use a template repository on {% data variables.product.github %} as starter code for an assignment on {% data variables.product.prodname_classroom %}. Your template repository can contain boilerplate code, documentation, and other resources for your students. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository).

@@ -4,14 +4,13 @@ shortTitle: Hooks configuration
 intro: 'Find information about configuring hooks for use with {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_coding_agent %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 category:
   - Configure Copilot
+  - Configure Copilot CLI
 ---
 
-This reference article describes the available hook types with examples, including their input and output formats, script best practices, and advanced patterns for logging, security enforcement, and external integrations. For general information about creating hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks).
+This reference article describes the available hook types with examples, including their input and output formats, script best practices, and advanced patterns for logging, security enforcement, and external integrations. For general information about creating hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks). For a tutorial on creating hooks for the CLI, see [AUTOTITLE](/copilot/tutorials/copilot-cli-hooks).
 
 ## Hook types
 
@@ -197,7 +196,7 @@ TOOL_NAME=$(echo "$INPUT" | jq -r '.toolName')
 # Only allow editing specific directories
 if [ "$TOOL_NAME" = "edit" ]; then
   PATH_ARG=$(echo "$INPUT" | jq -r '.toolArgs' | jq -r '.path')
-  
+
   if [[ ! "$PATH_ARG" =~ ^(src/|test/) ]]; then
     echo '{"permissionDecision":"deny","permissionDecisionReason":"Can only edit files in src/ or test/ directories"}'
     exit 0
@@ -356,7 +355,7 @@ $output | ConvertTo-Json -Compress
 
 ### Error handling
 
-This script example demonstrates how to handle errors in hook scripts. 
+This script example demonstrates how to handle errors in hook scripts.
 
 **Bash:**
 
@@ -415,7 +414,7 @@ You can define multiple hooks for the same event. They execute in order:
         "comment": "Security validation - runs first"
       },
       {
-        "type": "command", 
+        "type": "command",
         "bash": "./scripts/audit-log.sh",
         "comment": "Audit logging - runs second"
       },
@@ -550,3 +549,9 @@ if echo "$PROMPT" | grep -iq "production"; then
   echo "ALERT: Production-related prompt: $PROMPT" | mail -s "Agent Alert" team@example.com
 fi
 ```
+
+## Further reading
+
+* [AUTOTITLE](/copilot/concepts/agents/coding-agent)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

@@ -516,6 +516,172 @@
     "docs_reference_titles": "Managing your payment and billing information"
   },
   {
+    "action": "billing.cost_center_create",
+    "description": "A cost center was created for a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "billing.cost_center_delete",
+    "description": "A cost center was deleted from a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "billing.cost_center_resource_added",
+    "description": "A resource was added to a cost center for a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "resource_id",
+      "resource_type",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "billing.cost_center_resource_removed",
+    "description": "A resource was removed from a cost center for a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "resource_id",
+      "resource_type",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "billing.cost_center_update",
+    "description": "A cost center was updated for a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "billing_customer.azure_subscription_linked",
     "description": "Azure subscription has been linked on this account.",
     "docs_reference_links": "N/A",
@@ -8929,6 +9095,72 @@
     ]
   },
   {
+    "action": "org.delete_custom_image",
+    "description": "A custom image was deleted for an organization.",
+    "docs_reference_links": "/actions/how-tos/manage-runners/larger-runners/use-custom-images",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/actions/how-tos/manage-runners/larger-runners/use-custom-images"
+  },
+  {
+    "action": "org.delete_custom_image_version",
+    "description": "A custom image version was deleted for an organization.",
+    "docs_reference_links": "/actions/how-tos/manage-runners/larger-runners/use-custom-images",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/actions/how-tos/manage-runners/larger-runners/use-custom-images"
+  },
+  {
     "action": "org.disable_member_team_creation_permission",
     "description": "Team creation was limited to owners.",
     "docs_reference_links": "/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization",
@@ -9565,6 +9797,40 @@
       "user_agent",
       "operation_type",
       "created_at"
+    ]
+  },
+  {
+    "action": "org.members_limit_warning",
+    "description": "An organization is approaching its members limit.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "limit",
+      "count",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
@@ -12462,6 +12728,41 @@
     "docs_reference_titles": "Store information in variables"
   },
   {
+    "action": "org.update_custom_images_policy",
+    "description": "The enterprise updated GitHub Actions custom image policy settings for an organization.",
+    "docs_reference_links": "/actions/how-tos/manage-runners/larger-runners/use-custom-images",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "old_policy",
+      "new_policy",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/actions/how-tos/manage-runners/larger-runners/use-custom-images"
+  },
+  {
     "action": "org.update_default_repository_permission",
     "description": "The default repository permission level for organization members was changed.",
     "docs_reference_links": "N/A",
@@ -13349,7 +13650,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.create",
@@ -13386,7 +13687,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.destroy",
@@ -13422,7 +13723,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.revoke",
@@ -13456,7 +13757,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.update",
@@ -13495,7 +13796,7 @@
       "actor_is_bot",
       "old_base_role"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_wide_project_base_role.update",
@@ -23495,7 +23796,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {
@@ -23619,7 +23921,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {
@@ -23707,7 +24010,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {

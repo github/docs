@@ -6,20 +6,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
-  - Advanced Security
-  - Enterprise
 contentType: concepts
 children:
   - /about-enabling-security-features-at-scale
-  - /security-configurations
   - /about-security-overview
   - /about-security-campaigns
   - /auditing-security-alerts
+  - /delegated-alert-dismissal
   - /about-supply-chain-security-for-your-enterprise
 redirect_from:
   - /admin/managing-code-security/managing-supply-chain-security-for-your-enterprise

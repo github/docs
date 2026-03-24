@@ -6,15 +6,14 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 children:
   - /setting-up-the-codeql-cli
-  - /advanced-setup-of-the-codeql-cli
-  - /using-custom-queries-with-the-codeql-cli
+  - /write-custom-queries
+  - /publish-and-use-packs
+  - /testing-custom-queries
   - /testing-query-help-files
+  - /download-databases
+  - /check-out-source-code
   - /specifying-command-options-in-a-codeql-configuration-file
   - /creating-database-bundle-for-troubleshooting
 redirect_from:

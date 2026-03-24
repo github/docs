@@ -4,8 +4,6 @@ shortTitle: Tutorials
 intro: 'Build skills and knowledge about {% data variables.product.prodname_copilot %} through examples and hands-on activities.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /copilot-chat-cookbook
   - /customization-library
@@ -31,6 +29,7 @@ children:
   - /plan-a-project
   - /vibe-coding
   - /upgrade-projects
+  - /copilot-cli-hooks
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials

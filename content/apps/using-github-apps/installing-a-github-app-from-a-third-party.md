@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Install from third party
+category:
+  - Install and authorize apps
 ---
 
 {% ifversion ghes < 3.16 %}

@@ -5,16 +5,11 @@ shortTitle: Dependabot on Actions
 product: '{% data reusables.gated-features.dependabot-on-actions %}'
 versions:
   feature: dependabot-on-actions-opt-in
-topics:
-  - Dependabot
-  - Security updates
-  - Version updates
-  - Actions
-  - Dependencies
-  - Repositories
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
@@ -42,6 +37,16 @@ You can run {% data variables.product.prodname_dependabot %} on {% data variable
 Running {% data variables.product.prodname_dependabot %} on standard {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For {% data variables.product.prodname_dependabot %} on {% data variables.actions.hosted_runners %}, {% data variables.product.prodname_dotcom %} will bill your organization at the regular rate. See [AUTOTITLE](/billing/reference/actions-minute-multipliers).
 
 {% data reusables.dependabot.vnet-arc-note %}
+
+## How runner settings interact
+
+The {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners and {% data variables.product.prodname_dependabot %} on self-hosted runners settings are interdependent:
+
+* Enabling "{% data variables.product.prodname_dependabot %} on self-hosted runners" automatically enables "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners". Disabling "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" automatically disables "{% data variables.product.prodname_dependabot %} on self-hosted runners".
+* When both settings are enabled, {% data variables.product.prodname_dependabot %} jobs run **only** on self-hosted runners or {% data variables.actions.hosted_runners %} with a `dependabot` label—not on standard {% data variables.product.prodname_dotcom %}-hosted runners.
+
+> [!WARNING]
+> If both settings are enabled but no self-hosted runners or {% data variables.actions.hosted_runners %} with a `dependabot` label are available, {% data variables.product.prodname_dependabot %} jobs will remain queued indefinitely. Ensure runners with this label are configured before enabling "{% data variables.product.prodname_dependabot %} on self-hosted runners".
 
 ## Access and permissions
 

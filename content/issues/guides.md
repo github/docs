@@ -31,4 +31,6 @@ includeGuides:
   - /issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project
   - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
 
+category:
+  - Create and work with issues
 ---

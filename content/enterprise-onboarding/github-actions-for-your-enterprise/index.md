@@ -4,11 +4,6 @@ intro: Plan and implement a rollout of {% data variables.product.prodname_action
 shortTitle: Set up CI/CD with Actions
 versions:
   ghec: '*'
-topics:
-  - Administrator
-  - Enterprise
-  - Set up
-  - Actions
 children:
   - /about-github-actions-for-enterprises
   - /actions-components

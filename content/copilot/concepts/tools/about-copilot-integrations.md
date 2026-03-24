@@ -4,8 +4,6 @@ shortTitle: About Copilot integrations
 intro: 'Integrate Copilot with other tools and platforms to streamline your workflow.'
 versions:
   feature: copilot
-topics:
-  - Copilot  
 product: '{% data reusables.gated-features.copilot-integrations %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 contentType: concepts
 category:
@@ -27,6 +25,7 @@ Currently, {% data variables.copilot.copilot_coding_agent %} supports integratio
 * **Slack**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack) - Learn how to set up the Slack integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Slack workspace.
 * **Linear**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-linear) - Learn how to set up the Linear integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Linear issues.
 * **Azure Boards**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-azure-boards) - Learn how to set up the Azure Boards integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Azure Boards work items.
+* **Jira**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira) - Learn how to set up the Jira integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Jira workspace.
 
 ## Benefits of integrations
 

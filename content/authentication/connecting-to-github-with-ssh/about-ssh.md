@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
+category:
+  - Learn about authentication
 ---
 
 {% data reusables.ssh.about-ssh %} For more information about SSH, see [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) on Wikipedia.

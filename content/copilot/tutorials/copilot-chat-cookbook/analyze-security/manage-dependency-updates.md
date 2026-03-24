@@ -7,11 +7,10 @@ versions:
 category:
   - Security analysis
   - Author and optimize with Copilot
+  - Improve quality and maintainability
 complexity:
   - Simple
 octicon: code
-topics:
-  - Copilot
 redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis/managing-dependency-updates
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis/manage-dependency-updates

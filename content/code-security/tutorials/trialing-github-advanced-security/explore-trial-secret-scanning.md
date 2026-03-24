@@ -3,8 +3,6 @@ title: Exploring your enterprise trial of {% data variables.product.prodname_GH_
 shortTitle: Trial Secret Protection
 allowTitleToDifferFromFilename: true
 intro: Introduction to the features available with {% data variables.product.prodname_GH_secret_protection_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.
-topics:
-  - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/explore-trial-secret-scanning
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account. See [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).

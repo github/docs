@@ -5,13 +5,11 @@ intro: You can apply your {% data variables.product.prodname_custom_security_con
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
 versions:
   feature: security-configuration-enterprise-level
-topics:
-  - Advanced Security
-  - Organizations
-  - Security
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/applying-a-custom-security-configuration-to-your-enterprise
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About applying a {% data variables.product.prodname_custom_security_configuration %}

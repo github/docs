@@ -6,10 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension
   - /code-security/codeql-for-vs-code
@@ -27,4 +23,6 @@ children:
   - /customizing-settings
   - /setting-up-a-codeql-workspace
   - /configuring-access-to-the-codeql-cli
+  - /accessing-logs
 ---
+

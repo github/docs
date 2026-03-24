@@ -6,11 +6,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 layout: inline
 redirect_from:
   - /webhooks/using-webhooks/creating-a-script-to-automatically-redeliver-failed-deliveries-for-a-github-app-webhook
+category:
+  - Handle webhook deliveries
 ---
 
 ## About automatically redelivering failed deliveries

@@ -7,15 +7,12 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 shortTitle: Monitor alerts
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts
+category:
+  - Protect your secrets
 ---
 
 When {% data variables.product.prodname_secret_scanning %} detects a potential secret leak in your repository, staying informed about these alerts is crucial for maintaining your code's security. {% data variables.product.github %} provides multiple notification channels to ensure you and your team are promptly alerted when secrets are found. You can customize how and when you receive these notifications based on your role and preferences.
@@ -36,7 +33,7 @@ In addition to displaying an alert in the **Security** tab of the repository, {%
    ![Screenshot of the repository's main page. A dropdown menu, titled "Watch", is highlighted with an orange outline.](/assets/images/help/repository/repository-watch-dropdown.png)
 
 1. In the dropdown menu, click **All Activity**. Alternatively, to only subscribe to security alerts, click **Custom**, then click **Security alerts**.
-1. Navigate to the notification settings for your personal account. These are available at [https://github.com/settings/notifications](https://github.com/settings/notifications).
+1. Navigate to the notification settings for your personal account. These are available at [https://github.com/settings/notifications](https://github.com/settings/notifications?ref_product=secret-scanning&ref_type=engagement&ref_style=text).
 1. On your notification settings page, under "Subscriptions", then under "Watching", select the **Notify me** dropdown.
 1. Select "Email" as a notification option, then click **Save**.
 

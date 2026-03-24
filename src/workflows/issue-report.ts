@@ -30,8 +30,10 @@ export async function createReportIssue({
     })
     newReport = data
     core.info(`Created new report issue at ${newReport.html_url}\n`)
-  } catch (error: any) {
-    core.error(error)
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      core.error(error)
+    }
     core.setFailed('Error creating new issue')
     throw error
   }
@@ -42,7 +44,7 @@ export async function createReportIssue({
 type LRArgs = {
   core: typeof coreLib
   octokit: Octokit
-  newReport: any
+  newReport: { number: number; html_url: string }
   reportRepository: string
   reportAuthor: string
   reportLabel: string

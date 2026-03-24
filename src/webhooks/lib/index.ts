@@ -82,8 +82,10 @@ export async function getWebhooks(version: string): Promise<Record<string, any>>
     // will check for both a .br and .json extension.
     webhooksCache.set(
       openApiVersion,
-      readCompressedJsonFileFallback(
-        path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME),
+      Promise.resolve(
+        readCompressedJsonFileFallback(
+          path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME),
+        ) as Record<string, any>,
       ),
     )
   }

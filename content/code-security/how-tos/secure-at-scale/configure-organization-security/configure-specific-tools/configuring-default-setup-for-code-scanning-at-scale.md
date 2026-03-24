@@ -8,14 +8,13 @@ redirect_from:
   - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
-topics:
-  - Code Security
-  - Code scanning
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/setup-types).

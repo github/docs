@@ -9,10 +9,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Disable projects
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 After you disable organization-wide projects, it won’t be possible to create new projects at the organization level, and any existing organization-level projects will become inaccessible at their previous URLs. {% ifversion projects-v1 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}. {% data variables.projects.projects_v1_boards_caps %} in repositories in the organization are not affected.{% endif %}
 

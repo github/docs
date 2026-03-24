@@ -5,13 +5,12 @@ product: '{% data reusables.gated-features.secret-scanning-partner-alerts %}'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
 shortTitle: Secret scanning for partners
 redirect_from:
   - /code-security/secret-scanning/introduction/about-secret-scanning-for-partners
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 ## About {% data variables.secret-scanning.partner_alerts %}

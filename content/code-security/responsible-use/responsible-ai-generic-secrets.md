@@ -7,11 +7,6 @@ product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-fe
 versions:
   feature: secret-scanning-ai-generic-secret-detection
   fpt: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
-  - AI
-  - Copilot
 redirect_from:
   - /code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning
@@ -19,6 +14,8 @@ redirect_from:
   - /code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets
   - /code-security/secret-scanning/copilot-secret-scanning
 contentType: rai
+category:
+  - Protect your secrets
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->

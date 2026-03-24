@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 redirect_from:
   - /admin/overview/best-practices-for-enterprises
   - /admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
@@ -17,6 +13,8 @@ redirect_from:
   - /admin/concepts/best-practices-for-enterprises
   - /admin/concepts/best-practices
 allowTitleToDifferFromFilename: true
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.best-practices %}

@@ -3,8 +3,6 @@ title: Exploring your enterprise trial of {% data variables.product.prodname_GH_
 shortTitle: Trial {% data variables.product.prodname_code_security %}
 allowTitleToDifferFromFilename: true
 intro: Introduction to the features of code and dependency scanning available with {% data variables.product.prodname_GH_code_security_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.
-topics:
-  - Code Security
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/explore-trial-code-scanning
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
@@ -84,11 +84,11 @@ Most enterprises put automatic checks in place to block the use of dependencies 
 
 This allows you to update the configuration in a single location, but use the workflow in many repositories. You may want to use this central repository to maintain other workflows. For more information, see [AUTOTITLE](/actions/sharing-automations/reusing-workflows).
 
-### {% data variables.product.prodname_copilot_short %} review
+### {% data variables.copilot.copilot_code-review_short %}
 
 > [!NOTE]
 >
-> * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled **Copilot in GitHub.com > Opt in to preview features** in the **{% data variables.product.prodname_copilot %} policies** page of the organization or enterprise settings. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+> * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled {% data variables.copilot.copilot_code-review_short %}. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#opting-in-to-previews-or-feedback) and [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 By default, users request a review from {% data variables.product.prodname_copilot_short %} in the same way as they do from human reviewers. However, you can update or create an organization-level branch ruleset to automatically add {% data variables.product.prodname_copilot_short %} as a reviewer to all pull requests made to selected branches in all or selected repositories. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/agents/copilot-code-review/automatic-code-review){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 

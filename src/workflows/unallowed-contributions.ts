@@ -19,7 +19,7 @@ const {
 const [owner, repo] = (REPO_OWNER_AND_NAME || '').split('/') || []
 const filters = yaml.load(
   readFileSync('src/workflows/unallowed-contribution-filters.yml', 'utf8'),
-) as Record<string, any>
+) as { notAllowed: string[] }
 
 main()
 
@@ -46,7 +46,7 @@ async function main() {
   const listUnallowedChangedFiles = unallowedChangedFiles.map((file) => `\n - ${file}`).join('')
   const listUnallowedFiles = filters.notAllowed.map((file: string) => `\n - ${file}`).join('')
 
-  const reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions:${listUnallowedChangedFiles}\n\nYou'll need to revert all of the files you changed that match that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit-in-github-desktop) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:\n\nThe complete list of files we can't accept are:${listUnallowedFiles}\n\nWe also can't accept contributions to files in the content directory with frontmatter \`type: rai\` or \`contentType: rai\`.`
+  const reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions:${listUnallowedChangedFiles}\n\nYou'll need to revert all of the files you changed that match that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit-in-github-desktop) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:\n\nThe complete list of files we can't accept are:${listUnallowedFiles}\n\nWe also can't accept contributions to files in the content directory with frontmatter \`contentType: rai\`.`
 
   let workflowFailMessage =
     "It looks like you've modified some files that we can't accept as contributions."

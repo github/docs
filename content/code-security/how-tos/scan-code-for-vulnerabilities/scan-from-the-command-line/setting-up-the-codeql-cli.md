@@ -7,10 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli
   - /code-security/secure-coding/running-codeql-cli-in-your-ci-system
@@ -19,6 +15,8 @@ redirect_from:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Setting up the {% data variables.product.prodname_codeql_cli %}
@@ -29,7 +27,7 @@ To run {% data variables.product.prodname_codeql %} commands, you need to set up
 
 The {% data variables.product.prodname_codeql_cli %} supports a range of use cases and directory structures. This article walks through a simple setup that works for most users and environments.
 
-If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may need a more advanced setup. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli).
+If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may need a more advanced setup. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/about-the-codeql-cli#getting-started).
 
 ### Before you begin
 

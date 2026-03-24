@@ -7,6 +7,8 @@ permissions: 'Organization owners who are admins for a classroom can create and 
 redirect_from:
   - /education/manage-coursework-with-github-classroom/create-group-assignments
   - /education/manage-coursework-with-github-classroom/create-a-group-assignment
+category:
+  - Create and manage assignments
 ---
 
 ## About group assignments

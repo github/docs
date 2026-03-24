@@ -11,11 +11,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 shortTitle: Emails from GitHub
 contentType: reference
+category:
+  - Understand notifications
 ---
 ## Notification emails
 

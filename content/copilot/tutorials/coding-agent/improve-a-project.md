@@ -6,8 +6,6 @@ intro: 'Find and fix problems in a project with {% data variables.copilot.copilo
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: tutorials
 category:
   - Author and optimize with Copilot
@@ -124,6 +122,7 @@ Creating this file is optional but is a good idea if you use {% data variables.c
 ## 3. Let {% data variables.product.prodname_copilot_short %} find technical debt
 
 Now that {% data variables.product.prodname_copilot_short %} has the right context and (optionally) a ready-to-use environment, you can use it to surface and prioritize technical debt in your repository.
+
 1. Click the **{% octicon "copilot" aria-label="Run this prompt in Copilot Chat" %}** button in the following prompt box to send this prompt to {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}.
 
    ```copilot copy prompt
@@ -163,6 +162,7 @@ Now that {% data variables.product.prodname_copilot_short %} has the right conte
 ## 4. Get {% data variables.product.prodname_copilot_short %} to fix an issue
 
 Now that you have created issues, the next step is to delegate an issue to {% data variables.product.prodname_copilot_short %} and review the resulting pull request.
+
 1. Open one of the issues that {% data variables.product.prodname_copilot_short %} created for you in the previous section.
 1. Check that the issue contains acceptance criteria that {% data variables.product.prodname_copilot_short %} can use to verify it has completed the task.
 1. Make any changes you feel are necessary to accurately describe the problem that needs to be fixed, and the expected outcome of the work on this issue.

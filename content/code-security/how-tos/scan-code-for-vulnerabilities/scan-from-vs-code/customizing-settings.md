@@ -5,15 +5,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can edit the settings for the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension to suit your needs.
 redirect_from:
   - /code-security/codeql-for-vs-code/customizing-settings
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About settings in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension

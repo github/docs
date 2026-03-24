@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /early-access/admin/data-residency-for-github-enterprise-cloud/feature-overview-for-github-enterprise-cloud-with-data-residency
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.data-residency.data-resident-enterprise-feature-availability %} Some features work differently or require additional configuration compared to the equivalent feature on {% data variables.product.prodname_dotcom_the_website %}.
@@ -25,9 +27,10 @@ The following features are currently unavailable on {% data variables.enterprise
 | Repository traffic metrics | Currently unavailable through both the UI and REST API. | [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository) |
 | {% data variables.product.prodname_spark_short %} | Currently unavailable. | [AUTOTITLE](/copilot/concepts/spark) |
 | {% data variables.product.prodname_marketplace %} | {% data variables.product.prodname_marketplace %}, as a means of searching for, purchasing, and directly installing apps and actions, is unavailable. Ecosystem apps and actions can still be discovered and installed from their source, but they may require modification to work on {% data variables.enterprise.data_residency_site %}. | [{% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}](#github-actions-workflows-from-github-marketplace) |
-| Certain features of {% data variables.product.prodname_github_connect %} | Although you can connect an enterprise on {% data variables.enterprise.data_residency_site %} to a {% data variables.product.prodname_ghe_server %} instance, certain features of {% data variables.product.prodname_github_connect %} are not available, including resolution of actions from {% data variables.product.prodname_dotcom_the_website %}. | [{% data variables.product.prodname_github_connect %}](#github-connect) |
+| Certain features of {% data variables.product.prodname_github_connect %} | Although you can connect an enterprise on {% data variables.enterprise.data_residency_site %} to a {% data variables.product.prodname_ghe_server %} instance, certain features of {% data variables.product.prodname_github_connect %} are not available. | [{% data variables.product.prodname_github_connect %}](#github-connect) |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} until GA. | |
 | Migrations REST API | Currently unavailable. | [AUTOTITLE](/rest/migrations) |
+| Streaming audit logs to Amazon S3 with OpenID Connect (OIDC) | Currently unavailable. | [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) |
 
 ## Permanently unavailable features
 
@@ -100,4 +103,4 @@ Some features on {% data variables.enterprise.data_residency_site %} are current
 
 ### {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %}.
+{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %} and are available in all {% data variables.enterprise.data_residency %} regions: EU, Australia, US, and Japan.

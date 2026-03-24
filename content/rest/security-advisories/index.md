@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>=3.11'
-topics:
-  - API
 children:
   - /global-advisories
   - /repository-advisories

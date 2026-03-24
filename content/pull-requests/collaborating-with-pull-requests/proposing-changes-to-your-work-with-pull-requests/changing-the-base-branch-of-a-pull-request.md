@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Change the base branch
+category:
+  - Create pull requests
 ---
 
 > [!WARNING]

@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Mercurial
+category:
+  - Import source code
 ---
 
 ## Prerequisites

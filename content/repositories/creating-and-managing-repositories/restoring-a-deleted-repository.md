@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 shortTitle: Restore deleted repository
+category:
+  - Manage, move, and archive a repository
 ---
 
 {% ifversion ghes %}

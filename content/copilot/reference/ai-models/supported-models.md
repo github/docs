@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn about the supported AI models in {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 redirect_from:
@@ -36,8 +34,6 @@ For all of the default AI models, input prompts and output completions run throu
 ## Supported AI models in {% data variables.product.prodname_copilot_short %}
 
 This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status and availability in different modes.
-
-{% data reusables.copilot.grok-promo-period %}
 
 {% rowheaders %}
 
@@ -78,11 +74,11 @@ The following table shows which models are available in each client.
 
 {% rowheaders %}
 
-| Model | {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | Eclipse | Xcode | JetBrains IDEs |
-|--------|-----------------------------------------------------------|-----------------------------------------------|-------------------------------------------|----------|--------|----------------|
+| Model | {% data variables.product.prodname_dotcom_the_website %} | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | Eclipse | Xcode | JetBrains IDEs |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | {% for model in tables.copilot.model-supported-clients %} |
-| {{ model.name }}                                          | {% if model.dotcom == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.vscode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.vs == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.eclipse == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.xcode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.jetbrains == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
-| {% endfor %}                                              |
+| {{ model.name }} | {% if model.dotcom == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.cli == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.vscode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.vs == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.eclipse == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.xcode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.jetbrains == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {% endfor %} |
 
 {% endrowheaders %}
 
@@ -94,13 +90,21 @@ The following table shows which AI models are available in each {% data variable
 
 ## Model multipliers
 
-> [!NOTE] Promotional pricing for {% data variables.copilot.copilot_claude_opus_46_fast %} is available from February 7, 2026 through February 16, 2026. During this period, {% data variables.copilot.copilot_claude_opus_46_fast %} uses a 9x premium request multiplier. 
+> [!NOTE]
+> The multiplier for these models are subject to change.
+>
+> * {% data variables.copilot.copilot_claude_sonnet_46 %}
+> * {% data variables.copilot.copilot_gpt_54_mini %}
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 
 For more information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
 {% data reusables.copilot.model-multipliers %}
+
+## Fallback and long-term support (LTS) models
+
+For more information about fallback and LTS models, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
 
 ## Next steps
 

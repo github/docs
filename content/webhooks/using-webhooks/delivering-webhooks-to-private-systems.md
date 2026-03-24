@@ -5,8 +5,8 @@ shortTitle: Deliver to private systems
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Webhooks
+category:
+  - Set up and manage webhooks
 ---
 ## About integrating with private systems via reverse proxy
 

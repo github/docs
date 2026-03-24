@@ -5,13 +5,11 @@ intro: 'A quick overview of your role and how you can work with organization and
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Organizations
 contentType: get-started
 audience:
   - driver
+category:
+  - Get started with billing
 ---
 
 <!--

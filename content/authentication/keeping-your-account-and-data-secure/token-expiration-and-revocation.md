@@ -5,12 +5,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Token expiration
 redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation
+category:
+  - Manage access credentials
 ---
 
 When a token has expired or has been revoked, it can no longer be used to authenticate Git and API requests. It is not possible to restore an expired or revoked token, you or the application will need to create a new token.

@@ -22934,7 +22934,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {
@@ -23058,7 +23059,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {
@@ -23146,7 +23148,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {

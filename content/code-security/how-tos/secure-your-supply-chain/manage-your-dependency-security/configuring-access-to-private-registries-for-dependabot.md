@@ -12,14 +12,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Secret store
-  - Repositories
-  - Dependencies
 shortTitle: Configure access to private registries
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About private registries
@@ -47,7 +43,7 @@ The top-level `registries` key is optional and specifies authentication details.
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
-For more information about the configuration options that are available and about the supported types, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#top-level-registries-key).
+For more information about the configuration options that are available and about the supported types, see [AUTOTITLE](/code-security/reference/supply-chain-security/dependabot-options-reference#top-level-registries-key).
 
 ## Storing credentials for Dependabot to use
 

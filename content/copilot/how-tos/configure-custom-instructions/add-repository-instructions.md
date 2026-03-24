@@ -4,8 +4,6 @@ shortTitle: Add repository instructions
 intro: 'Create repository custom instructions files that give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 redirect_from:
   - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
@@ -45,11 +43,13 @@ This version of this article is for using repository custom instructions on the 
 
 * **Agent instructions** are used by AI agents.
 
-  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence over other agent instructions files. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
+  {% data reusables.copilot.custom-instructions-agents %}
 
   Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
 
 ## Creating repository-wide custom instructions
+
+You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_coding_agent %} to generate one for you.
 
 You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_coding_agent %} to generate one for you.
 
@@ -183,6 +183,9 @@ Custom instructions are enabled for {% data variables.copilot.copilot_code-revie
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Toggle the “Use custom instructions when reviewing pull requests” option on or off.
+
+> [!NOTE]
+> {% data reusables.copilot.code-review.custom-instructions-branch %}
 
 ## Further reading
 
@@ -412,7 +415,7 @@ Whitespace between instructions is ignored, so the instructions can be written a
 ### Using the settings page
 
 {% data reusables.copilot.jetbrains-settings %}
-{% data reusables.copilot.jetbrains-tools %}
+{% data reusables.copilot.jetbrains-tools %}, then click **Customizations**.
 1. Under "{% data variables.product.prodname_copilot_short %} Instructions", click **Workspace** or **Global** to choose whether the custom instructions apply to the current workspace or all workspaces.
 
 ### Manually creating a workspace custom instructions file

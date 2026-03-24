@@ -8,8 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
+category:
+  - Block users and report abuse
 ---
 
 ## About reporting abuse or spam

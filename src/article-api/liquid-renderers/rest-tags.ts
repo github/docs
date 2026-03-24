@@ -150,8 +150,6 @@ export class RestStatusCode {
       if (description.trim()) {
         lines.push(`  ${description.trim()}`)
       }
-    } else if (statusCode.httpStatusMessage) {
-      lines.push(`- **${statusCode.httpStatusCode}** - ${statusCode.httpStatusMessage}`)
     } else {
       lines.push(`- **${statusCode.httpStatusCode}**`)
     }

@@ -4,8 +4,6 @@ shortTitle: Pull request summaries
 intro: 'Learn how to use {% data variables.copilot.copilot_for_prs %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-pull-request-summaries

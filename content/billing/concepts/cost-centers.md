@@ -4,12 +4,10 @@ intro: 'Attribute spending to specific parts of your business.'
 shortTitle: Cost centers
 versions:
   feature: enhanced-billing-platform
-topics:
-  - Billing
-  - Enterprise
-  - Team
 contentType: concepts
 product: '{% data variables.product.prodname_ghe_cloud %}'
+category:
+  - Track spending and control costs
 ---
 
 Cost centers allow you to attribute usage and spending to business units, improving accountability, forecasting, and cost allocation. You can also apply one or more budgets to them to control costs.
@@ -35,4 +33,4 @@ For more details, see [AUTOTITLE](/billing/reference/cost-center-allocation).
 * The maximum number of resources per cost center is 25,000.
 * A maximum of 50 resources can be added to or removed from a cost center at a time.
 * Azure subscriptions can only be added to or removed from cost centers through the UI.
-* Outside collaborators can only be added to cost centers via the cost center API. For more information, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale#add-resources-to-the-cost-center).
+* Outside collaborators or unaffiliated users can only be added to cost centers via the cost center API. For more information, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale#add-resources-to-the-cost-center).

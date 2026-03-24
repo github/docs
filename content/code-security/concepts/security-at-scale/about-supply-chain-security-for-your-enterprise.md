@@ -5,14 +5,12 @@ shortTitle: Supply chain security
 permissions: ''
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Security
-  - Dependency graph
 redirect_from:
   - /admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise
   - /admin/managing-code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 You can allow users to identify their projects' dependencies by enabling the dependency graph for {% data variables.product.prodname_ghe_server %}. For more information, see [Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).

@@ -7,16 +7,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Customize Dependabot PRs
 redirect_from:
   - /code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Preparing to customize pull requests

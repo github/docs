@@ -10,8 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 children:
   - /rest-endpoints-for-the-github-marketplace-api
   - /webhook-events-for-the-github-marketplace-api

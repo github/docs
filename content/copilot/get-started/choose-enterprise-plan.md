@@ -4,8 +4,6 @@ shortTitle: Choose enterprise plan
 intro: 'Choose between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/choosing-your-enterprises-plan-for-github-copilot
   - /copilot/rolling-out-github-copilot-at-scale/planning-your-rollout/choosing-your-enterprises-plan-for-github-copilot

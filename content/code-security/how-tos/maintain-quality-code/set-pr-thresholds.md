@@ -6,11 +6,11 @@ versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
-topics:
-  - Code Quality
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/set-pr-thresholds
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

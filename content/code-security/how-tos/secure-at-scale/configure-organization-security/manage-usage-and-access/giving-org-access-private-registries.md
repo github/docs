@@ -5,13 +5,11 @@ intro: If your organization uses private registries, you can improve the results
 allowTitleToDifferFromFilename: true
 versions:
   feature: org-private-registry
-topics:
-  - Code Security
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About the importance of providing access to private registries
@@ -59,7 +57,9 @@ When you enable {% data variables.product.prodname_code_scanning %} default setu
 
 When configuring private registries for the first time, you need to disable and re-enable {% data variables.product.prodname_code_scanning %} default setup for any repositories that you want to use the new definition. New or modified configurations will be automatically picked up on subsequent runs.
 
-You can confirm whether private registries were used successfully by {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions log files, see [Determining whether code scanning default setup used any private registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#determining-whether-code-scanning-default-setup-used-any-private-registries).
+For languages supporting private package registries, {% data variables.product.prodname_code_scanning %} default setup will produce information on the {% data variables.code-scanning.tool_status_page %}. This shows you which private registry configurations were available to an analysis, but not whether {% data variables.product.prodname_code_scanning %} default setup was able to successfully download private dependencies from them. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
+
+Alternatively, you can confirm whether private registries were used successfully by {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions log files, see [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).
 
 ## {% data variables.product.prodname_code_scanning_caps %} advanced setup access to private registries
 

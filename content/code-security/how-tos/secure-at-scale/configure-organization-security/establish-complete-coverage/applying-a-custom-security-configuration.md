@@ -5,15 +5,12 @@ intro: You can apply your {% data variables.product.prodname_custom_security_con
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About applying a {% data variables.product.prodname_custom_security_configuration %}
@@ -38,7 +35,7 @@ After you create a {% data variables.product.prodname_custom_security_configurat
 
 ## Next steps
 
-To learn how to interpret security findings from your {% data variables.product.prodname_custom_security_configuration %} on a repository, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings).
+To learn how to monitor security alerts in your organization, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/find-insecure-repositories).
 
 {% data reusables.security-configurations.edit-configuration-next-step %}
 

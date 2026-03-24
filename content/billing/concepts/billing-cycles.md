@@ -11,12 +11,10 @@ redirect_from:
   - /billing/using-the-new-billing-platform/viewing-your-subscriptions-and-billing-date
   - /billing/using-the-new-billing-platform/about-the-billing-cycle
   - /billing/managing-your-billing/about-the-billing-cycle
-topics:
-  - Billing
-  - Enterprise
-  - Team
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: concepts
+category:
+  - Get started with billing
 ---
 
 Your billing experience depends on whether your products are metered, volume-based, or a combination of both. Some products, like {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GHAS %}, can be either volume-based or metered, depending on when and how your account was created.

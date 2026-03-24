@@ -5,6 +5,8 @@ shortTitle: Reuse people's code
 versions:
   fpt: '*'
 allowTitleToDifferFromFilename: true
+category:
+  - Learn to code
 ---
 
 One of the best things about open source software is the ability to reuse other people's code. Repurposing code helps you save time, discover new functionality, and learn other programming styles. There are two main ways to reuse code:

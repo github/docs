@@ -5,12 +5,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: GHES license files
 contentType: concepts
+category:
+  - Manage enterprise licenses
 ---
 
 ## About license files

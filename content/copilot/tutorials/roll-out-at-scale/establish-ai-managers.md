@@ -4,14 +4,15 @@ intro: 'Reduce your administrative burden and empower your SMEs by creating a te
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Establish AI managers
+category:
+  - Roll Copilot out at scale
+  - Manage Copilot for a team
 contentType: tutorials
 ---
 
 > [!NOTE]
-> Enterprise custom roles, enterprise teams, and the AI Controls view are in public preview and subject to change.
+> Enterprise custom roles and enterprise teams are in public preview and subject to change.
 
 ## Overview
 

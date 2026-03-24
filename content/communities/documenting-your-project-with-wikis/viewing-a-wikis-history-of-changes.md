@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: View a history of changes
+category:
+  - Document your project with wikis
 ---
 
 ## Viewing wiki history

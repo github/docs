@@ -5,15 +5,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: When you're working with {% data variables.product.prodname_codeql %}, you need access to the standard libraries and queries.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/setting-up-a-codeql-workspace
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Setting up a {% data variables.product.prodname_codeql %} workspace
@@ -31,7 +29,7 @@ There are several different ways to give the extension access to the standard li
 > [!NOTE]
 > The {% data variables.product.prodname_codeql %} repository is included as a submodule in the starter workspace. You should use `git submodule update --remote` regularly to keep the submodules up to date, and ensure that they remain compatible with newer versions of the {% data variables.product.prodname_vscode_shortname %} extension and the {% data variables.product.prodname_codeql_cli %}.
 
-1. Clone the [vscode-codeql-starter repository](https://github.com/github/vscode-codeql-starter/) to your computer. Make sure you include the submodules, either by using `git clone --recursive`, or by using `git submodule update --init --remote` after cloning.
+1. Clone the [vscode-codeql-starter repository](https://github.com/github/vscode-codeql-starter/?ref_product=code-scanning&ref_type=engagement&ref_style=text) to your computer. Make sure you include the submodules, either by using `git clone --recursive`, or by using `git submodule update --init --remote` after cloning.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, click **File** then **Open Workspace from File...** to open the `vscode-codeql-starter.code-workspace` file from your checkout of the workspace repository.
 

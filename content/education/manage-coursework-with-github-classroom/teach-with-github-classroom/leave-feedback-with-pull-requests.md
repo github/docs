@@ -8,6 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/leaving-feedback-in-github
   - /education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests
 shortTitle: Pull requests
+category:
+  - Track assignment progress
 ---
 ## About feedback pull requests for assignments
 

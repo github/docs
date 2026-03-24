@@ -11,10 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: 'Disable projects'
 allowTitleToDifferFromFilename: true
+category:
+  - Customize and configure a repository
 ---
 
 ## Disabling {% data variables.projects.projects_v2 %} in a repository

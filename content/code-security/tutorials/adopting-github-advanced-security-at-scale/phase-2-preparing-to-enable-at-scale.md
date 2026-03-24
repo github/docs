@@ -4,13 +4,12 @@ intro: In this phase you will prepare developers and collect data about your rep
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: 2. Preparation
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 > [!TIP]

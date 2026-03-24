@@ -5,9 +5,6 @@ permissions: Enterprise owners and organization owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - Enterprise
 shortTitle: Configure MCP server access
 redirect_from:
   - /copilot/how-tos/administer-copilot/configure-mcp-server-access

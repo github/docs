@@ -18,11 +18,8 @@ redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository
   - /code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - Alerts
-  - Repositories
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% ifversion copilot-chat-ghas-alerts %}
@@ -37,7 +34,7 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 
 ## Generating suggested fixes for {% data variables.product.prodname_code_scanning %} alerts
 
-{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
+{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported. See [AUTOTITLE](/code-security/concepts/code-scanning/copilot-autofix-for-code-scanning).
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 

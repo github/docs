@@ -4,8 +4,6 @@ shortTitle: Review activity
 intro: 'Organization owners can review {% data variables.product.prodname_copilot_short %} usage in their organization.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /review-user-activity-data
   - /review-audit-logs

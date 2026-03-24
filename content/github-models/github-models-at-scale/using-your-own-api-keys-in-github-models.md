@@ -5,11 +5,11 @@ intro: 'Learn how to integrate your preferred custom models with {% data variabl
 versions:
   feature: github-models
 permissions: 'Organization owners can add custom models to {% data variables.product.prodname_github_models %} for their organization'
-topics:
-  - Enterprise
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /github-models/github-models-at-scale/set-up-custom-model-integration-models-byok
+category:
+  - Manage GitHub Models for your organization
 ---
 
 {% data reusables.models.byok-preview-note %}

@@ -4,8 +4,6 @@ shortTitle: Configure access to AI models
 intro: 'Learn how to configure access to AI models in {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/ai-models/configuring-access-to-ai-models-in-copilot
   - /copilot/how-tos/ai-models/configuring-access-to-ai-models-in-copilot

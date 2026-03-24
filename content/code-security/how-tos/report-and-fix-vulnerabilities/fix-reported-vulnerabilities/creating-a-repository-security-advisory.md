@@ -14,10 +14,9 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Vulnerabilities
 shortTitle: Create repository advisory
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}

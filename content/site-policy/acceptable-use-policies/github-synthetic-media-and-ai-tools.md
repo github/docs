@@ -3,9 +3,6 @@ title: GitHub Synthetic Media and AI Tools
 shortTitle: Synthetic Media and AI Tools
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /ai-tools
   - /github/site-policy/github-synthetic-media-and-ai-tools

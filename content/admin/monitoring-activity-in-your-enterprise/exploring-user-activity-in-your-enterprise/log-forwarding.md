@@ -11,12 +11,9 @@ redirect_from:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Security
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About log forwarding

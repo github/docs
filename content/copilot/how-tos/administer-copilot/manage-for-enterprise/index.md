@@ -1,19 +1,15 @@
 ---
 title: Managing GitHub Copilot in your enterprise
 shortTitle: Manage for enterprise
-intro: 'Enterprise owners can subscribe to {% data variables.product.prodname_copilot_short %}, manage {% data variables.product.prodname_copilot_short %} for organizations in the enterprise, and control {% data variables.product.prodname_copilot_short %} policies.'
+intro: Manage and govern {% data variables.product.prodname_copilot %} across your enterprise by controlling licensing and access, setting policies and guardrails, and monitoring adoption and usage.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /manage-plan
   - /manage-access
   - /manage-enterprise-policies
   - /manage-agents
   - /manage-spark
-  - /view-usage-and-adoption
-  - /view-code-generation
   - /use-your-own-api-keys
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise

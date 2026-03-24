@@ -3,17 +3,13 @@ title: Configuring Dependabot to work with limited internet access
 intro: You can configure {% data variables.product.prodname_dependabot %} to generate pull requests for version and security updates using private registries when {% data variables.product.prodname_ghe_server %} has limited, or no, internet access.
 versions:
   feature: dependabot-ghes-no-public-internet
-topics:
-  - Dependabot
-  - Version updates
-  - Security updates
-  - Repositories
-  - Dependencies
 shortTitle: Limited internet access
 redirect_from:
   - /admin/code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access
   - /admin/managing-code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About {% data variables.product.prodname_dependabot %} updates

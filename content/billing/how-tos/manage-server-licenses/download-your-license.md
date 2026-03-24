@@ -5,10 +5,6 @@ permissions: 'Enterprise owners can download license files for {% data variables
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Download your license
 redirect_from:
   - /free-pro-team@latest/billing/managing-your-license-for-github-enterprise
@@ -25,6 +21,8 @@ redirect_from:
   - /billing/managing-your-license-for-github-enterprise
   - /billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 

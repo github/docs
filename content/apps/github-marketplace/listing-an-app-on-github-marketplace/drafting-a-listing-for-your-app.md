@@ -18,9 +18,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 shortTitle: Draft an app listing
+category:
+  - List your app on GitHub Marketplace
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

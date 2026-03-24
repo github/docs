@@ -6,16 +6,12 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: tutorials
-topics:
-  - Code Security
-  - Dependabot
-  - Code scanning
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-production-context
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code
   - /code-security/tutorials/secure-your-organization/alerts-in-production-code
+category:
+  - Secure at scale
 ---
 
 Application Security (AppSec) managers are often overwhelmed by a high volume of alerts, many of which may not represent real risk because the affected code never makes it to production. By associating production context with your alerts, you can filter and prioritize vulnerabilities that impact artifacts actually approved for production environments. This enables your team to focus remediation efforts on the vulnerabilities that matter most, reducing noise and improving your security posture.

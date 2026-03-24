@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Write and format content
 ---
 
 ## About videos in {% data variables.product.prodname_docs %}

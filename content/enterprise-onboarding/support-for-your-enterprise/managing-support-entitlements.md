@@ -1,15 +1,11 @@
 ---
-title: 'Managing support entitlements'
-intro: 'Manage support entitlements for your enterprise.'
+title: Managing support entitlements
+intro: Manage support entitlements for your enterprise.
 versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
-type: how_to
-topics:
-  - Enterprise
-  - Set up
-  - Support
 shortTitle: Manage support entitlements
+contentType: how-tos
 ---
 
 ## About support entitlements

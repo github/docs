@@ -1,4 +1,4 @@
-name: 'Link Checker: On PR'
+name: 'Link Check: On PR'
 
 # **What it does**: Checks internal links in changed content files.
 # **Why we have it**: To catch broken links before they're merged.
@@ -6,8 +6,9 @@ name: 'Link Checker: On PR'
 
 on:
   workflow_dispatch:
-  merge_group:
+  # merge_group:
   pull_request:
+    types: [labeled, opened, synchronize, reopened]
 
 permissions:
   contents: read
@@ -23,10 +24,15 @@ jobs:
   check-links:
     name: Check links
     runs-on: ubuntu-latest
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    if: |
+      (github.repository == 'github/docs-internal' || github.repository == 'github/docs') &&
+      (github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'check-links'))
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          fetch-depth: 2
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -37,7 +43,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@e0021407031f5be11a464abee9a0776171c79891 # v45
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: |
             content/**/*.md

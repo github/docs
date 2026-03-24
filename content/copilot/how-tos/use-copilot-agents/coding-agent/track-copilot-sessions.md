@@ -5,8 +5,6 @@ intro: 'You can use the agents panel or page, {% data variables.product.prodname
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-the-copilot-coding-agent-logs
   - /copilot/using-github-copilot/coding-agent/using-the-copilot-coding-agent-logs

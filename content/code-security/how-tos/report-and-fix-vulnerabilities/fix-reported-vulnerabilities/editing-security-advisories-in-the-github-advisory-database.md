@@ -13,13 +13,9 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Alerts
-  - Dependabot
-  - Vulnerabilities
-  - CVEs
 shortTitle: Edit Advisory Database
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% ifversion ghes %}
@@ -28,7 +24,7 @@ shortTitle: Edit Advisory Database
 
 {% endif %}
 
-1. Navigate to https://github.com/advisories.
+1. Navigate to [https://github.com/advisories](https://github.com/advisories?ref_product=security-advisories&ref_type=engagement&ref_style=text).
 1. Select the security advisory you would like to contribute to.
 1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link.
 1. In the "Improve security advisory" form, make the desired improvements. You can edit or add any detail.{% ifversion fpt or ghec %} For information about correctly specifying information on the form, including affected versions, see [AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories).{% endif %}

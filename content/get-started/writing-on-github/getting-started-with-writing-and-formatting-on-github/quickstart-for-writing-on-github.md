@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Quickstart
+category:
+  - Write and format content
 ---
 
 ## Introduction

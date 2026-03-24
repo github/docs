@@ -17,7 +17,7 @@ export function useQueryParam(queryParamKey: string, isBoolean?: false): UseQuer
 export function useQueryParam(
   queryParamKey: string,
   isBoolean?: boolean,
-): UseQueryParamReturn<any> {
+): UseQueryParamReturn<boolean> | UseQueryParamReturn<string> {
   const router = useRouter()
 
   const [queryParamString, setQueryParamState] = useState<string>('')
@@ -59,9 +59,16 @@ export function useQueryParam(
     setQueryParamState(newValue)
   }
 
+  if (isBoolean) {
+    return {
+      debug,
+      queryParam: queryParam as boolean,
+      setQueryParam: setQueryParam as (value: boolean) => void,
+    }
+  }
   return {
     debug,
-    queryParam: queryParam as any, // Type will be set based on overloads
-    setQueryParam,
+    queryParam: queryParam as string,
+    setQueryParam: setQueryParam as (value: string) => void,
   }
 }

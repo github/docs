@@ -1,7 +1,7 @@
 ---
 title: Configuring rate limits
-intro: 'You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.'
-permissions: 'Site administrators can configure rate limits for a {% data variables.product.prodname_ghe_server %} instance.'
+intro: You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.
+permissions: Site administrators can configure rate limits for a {% data variables.product.prodname_ghe_server %} instance.
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
@@ -10,11 +10,9 @@ redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Performance
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About rate limits for {% data variables.product.prodname_ghe_server %}

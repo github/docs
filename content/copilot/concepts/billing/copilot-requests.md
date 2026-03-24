@@ -4,8 +4,6 @@ shortTitle: Copilot requests
 intro: 'Learn about requests in {% data variables.product.prodname_copilot_short %}, including premium requests, how they work, and how to manage your usage effectively.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
@@ -27,7 +25,7 @@ category:
 
 ## What is a request?
 
-A request is any interaction where you ask {% data variables.product.prodname_copilot_short %} to do something for you—whether it’s generating code, answering a question, or helping you through an extension. Each time you send a prompt in a chat window or trigger a response from {% data variables.product.prodname_copilot_short %}, you’re making a request.
+A request is any interaction where you ask {% data variables.product.prodname_copilot_short %} to do something for you—whether it's generating code, answering a question, or helping you through an extension. Each time you send a prompt in a chat window or trigger a response from {% data variables.product.prodname_copilot_short %}, you're making a request. For agentic features, only the prompts you send count as premium requests; actions {% data variables.product.prodname_copilot_short %} takes autonomously to complete your task, such as tool calls, do not. For example, using `/plan` in {% data variables.copilot.copilot_cli_short %} counts as one premium request, and any follow-up prompt you send counts as another.
 
 ## What are premium requests?
 
@@ -36,6 +34,8 @@ Some {% data variables.product.prodname_copilot_short %} features use more advan
 ### Premium features
 
 The following {% data variables.product.prodname_copilot_short %} features can use premium requests.
+
+{% rowheaders %}
 
 | Feature | Premium request consumption | SKU Attribution |
 | ------- | ----------- | ----------- |
@@ -48,6 +48,8 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 | [{% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode %} integration](/copilot/concepts/agents/openai-codex) | While in preview, each prompt to {% data variables.product.prodname_openai_codex %} uses **one premium request** multiplied by the model multiplier rates. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [Third-party coding agents](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents) | While in preview, each prompt to a third-party coding agent uses **one premium request**. | {% data variables.product.prodname_copilot_short %} premium requests |
 
+{% endrowheaders %}
+
 
 > [!TIP]
 > For instructions on viewing how many premium requests you have used and advice on how to optimize usage, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests).
@@ -56,9 +58,9 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 If you use **{% data variables.copilot.copilot_free_short %}**, your plan comes with up to 2,000 inline suggestion requests and up to 50 premium requests per month. All chat interactions count as premium requests.
 
-If you're on a **paid plan**, you get unlimited inline suggestions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
+If you're on a **paid plan** or **{% data variables.copilot.copilot_student_short %}**, you get unlimited inline suggestions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
 
-Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, inline suggestions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
+Paid plans and {% data variables.copilot.copilot_student_short %} also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, inline suggestions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
 {% data reusables.copilot.premium-request-entity-selection %}
 
@@ -81,8 +83,6 @@ If you need more premium requests beyond your monthly allowance:
 * For an individual subscription, set a budget for additional premium requests or upgrade to a higher plan. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 * If you're an enterprise or organization owner, ensure that the "Premium request paid usage" policy is enabled and that extra spending is not prevented by a budget. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-{% data reusables.copilot.zero-budget-changes-link %}
-
 ## Model multipliers
 
 The available models vary depending on your {% data variables.product.prodname_copilot_short %} plan. See [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot#models).
@@ -92,7 +92,7 @@ The available models vary depending on your {% data variables.product.prodname_c
 > * Discounted multipliers are available for using {% data variables.copilot.copilot_auto_model_selection %} in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 >   * {% data reusables.copilot.auto-model-multiplier-discount %} For example, Sonnet 4 would be billed at .9x rather than 1x when using {% data variables.copilot.copilot_auto_model_selection_short %}.
 >   * Discounted multipliers are not available for {% data variables.copilot.copilot_free_short %}.
-> * Promotional pricing for {% data variables.copilot.copilot_claude_opus_46_fast %} is available from February 7, 2026 through February 16, 2026. During this period, {% data variables.copilot.copilot_claude_opus_46_fast %} uses a 9x premium request multiplier. 
+> * The multiplier for {% data variables.copilot.copilot_claude_sonnet_46 %} may be subject to change.
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 

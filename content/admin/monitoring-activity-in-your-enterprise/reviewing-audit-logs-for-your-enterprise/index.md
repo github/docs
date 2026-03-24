@@ -5,8 +5,6 @@ shortTitle: Review audit logs
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /accessing-the-audit-log-for-your-enterprise
   - /configuring-the-audit-log-for-your-enterprise

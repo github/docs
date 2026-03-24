@@ -13,16 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - Repositories
-  - Pull requests
-  - Integration
-  - CI
-  - SARIF
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}

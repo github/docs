@@ -111,11 +111,11 @@ childGroups:
     children:
       - copilot
       - copilot/get-started/plans
-      - copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
       - copilot/how-tos/use-copilot-agents/coding-agent
       - copilot/tutorials
       - copilot/tutorials/copilot-chat-cookbook
       - copilot/tutorials/customization-library
+      - copilot/how-tos/copilot-cli
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:

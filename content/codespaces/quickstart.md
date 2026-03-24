@@ -12,8 +12,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
+category:
+  - Get started
 ---
 
 ## Introduction

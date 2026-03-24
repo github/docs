@@ -41,6 +41,7 @@ export const liquidIfversionVersions = {
             | string
             | Record<string, string>
             | undefined)
+    if (!fileVersionsFm) return
     // This will only contain valid (non-deprecated) and future versions
     const fileVersions = getApplicableVersions(fileVersionsFm, '', {
       doNotThrow: true,

@@ -50,9 +50,8 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     // Process carousels (each carousel becomes a section)
     const carousels = discoveryPage.carousels ?? discoveryPage.rawCarousels
     if (carousels && typeof carousels === 'object') {
-      const { default: getLearningTrackLinkData } = await import(
-        '@/learning-track/lib/get-link-data'
-      )
+      const { default: getLearningTrackLinkData } =
+        await import('@/learning-track/lib/get-link-data')
 
       for (const [carouselKey, articles] of Object.entries(carousels)) {
         if (!Array.isArray(articles) || articles.length === 0) continue
@@ -95,9 +94,8 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     // Intro links (getting started)
     const rawIntroLinks = discoveryPage.introLinks ?? discoveryPage.rawIntroLinks
     if (rawIntroLinks) {
-      const { default: getLearningTrackLinkData } = await import(
-        '@/learning-track/lib/get-link-data'
-      )
+      const { default: getLearningTrackLinkData } =
+        await import('@/learning-track/lib/get-link-data')
       const links = await Promise.all(
         Object.values(rawIntroLinks).map(async (href): Promise<LinkData> => {
           if (typeof href === 'string') {
@@ -131,12 +129,17 @@ export class DiscoveryLandingTransformer implements PageTransformer {
       }
     }
 
-    // Articles section: recursively gather ALL descendant articles
-    // This matches the behavior of the site which uses genericTocFlat/genericTocNested
+    // Articles section: recursively gather descendant articles within
+    // this product section. Uses Liquid-only rendering for titles and intros
+    // instead of the full Markdown/unified pipeline, which would take 30s+
+    // for large sections like /rest (297 descendants × 2 renderContent calls).
+    // The basePath guard prevents cross-product recursion (e.g. /rest listing
+    // /enterprise-admin children that point outside the /rest hierarchy).
     if (discoveryPage.children && discoveryPage.children.length > 0) {
       const tocItems = await getAllTocItems(page, context, {
         recurse: true,
         renderIntros: true,
+        liquidOnly: true,
       })
 
       // Flatten to get all leaf articles (excludeParents: true means only get articles, not category pages)
@@ -145,21 +148,31 @@ export class DiscoveryLandingTransformer implements PageTransformer {
       // Apply includedCategories filter if specified
       if (discoveryPage.includedCategories && discoveryPage.includedCategories.length > 0) {
         const includedCategories = discoveryPage.includedCategories.map((c) => c.toLowerCase())
-        // Filter tocItems before flattening to preserve category info
-        const filterByCategory = (items: typeof tocItems): typeof tocItems => {
-          return items.filter((item) => {
-            const itemCategories = (item.category || []).map((c: string) => c.toLowerCase())
-            return itemCategories.some((cat) => includedCategories.includes(cat))
-          })
-        }
 
-        // Re-flatten with category filtering
-        const filteredTocItems = filterByCategory(flattenTocItemsWithCategory(tocItems))
-        allArticles = filteredTocItems.map((item) => ({
-          href: item.href,
-          title: item.title,
-          intro: item.intro,
-        }))
+        // Build a map of href → category from the full tree
+        const categoryMap = new Map<string, string[]>()
+        interface TocNode {
+          href: string
+          category?: string[]
+          childTocItems?: TocNode[]
+        }
+        function collectCategories(items: TocNode[]) {
+          for (const item of items) {
+            if (item.category && item.category.length > 0) {
+              categoryMap.set(item.href, item.category)
+            }
+            if (item.childTocItems) collectCategories(item.childTocItems)
+          }
+        }
+        collectCategories(tocItems)
+
+        allArticles = allArticles.filter((item) => {
+          const itemCategories = (categoryMap.get(item.href) || []).map((c) => c.toLowerCase())
+          return (
+            itemCategories.length === 0 ||
+            itemCategories.some((cat) => includedCategories.includes(cat))
+          )
+        })
       }
 
       if (allArticles.length > 0) {
@@ -179,37 +192,4 @@ export class DiscoveryLandingTransformer implements PageTransformer {
       sections,
     }
   }
-}
-
-/**
- * Helper to flatten TOC items while preserving category info for filtering
- */
-interface TocItemWithCategory {
-  href: string
-  title: string
-  intro?: string
-  category?: string[]
-  childTocItems?: TocItemWithCategory[]
-}
-
-function flattenTocItemsWithCategory(tocItems: TocItemWithCategory[]): TocItemWithCategory[] {
-  const result: TocItemWithCategory[] = []
-
-  function recurse(items: TocItemWithCategory[]) {
-    for (const item of items) {
-      const hasChildren = item.childTocItems && item.childTocItems.length > 0
-
-      // Only include leaf nodes (articles, not category pages)
-      if (!hasChildren) {
-        result.push(item)
-      }
-
-      if (hasChildren) {
-        recurse(item.childTocItems!)
-      }
-    }
-  }
-
-  recurse(tocItems)
-  return result
 }

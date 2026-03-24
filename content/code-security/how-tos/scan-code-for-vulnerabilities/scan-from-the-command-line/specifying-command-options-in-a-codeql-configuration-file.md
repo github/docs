@@ -1,53 +1,39 @@
 ---
 title: Specifying command options in a CodeQL configuration file
 shortTitle: Specify command options in a CodeQL configuration file
-intro: You can save default command options in a {% data variables.product.prodname_codeql %} configuration file.
+intro: Save time by adding your frequently used command options and custom {% data variables.product.prodname_codeql %} packs to a {% data variables.product.prodname_codeql %} configuration file.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/specifying-command-options-in-a-codeql-configuration-file
   - /code-security/codeql-cli/using-the-codeql-cli/specifying-command-options-in-a-codeql-configuration-file
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/specifying-command-options-in-a-codeql-configuration-file
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
-
-## About specifying command options in a {% data variables.product.prodname_codeql %} configuration file
-
-You can save default or frequently used options for your commands in a per-user configuration file.
-
-You can specify {% data variables.product.prodname_codeql_cli %} command options in two ways:
-
-* Directly in the command line, using the appropriate flag.
-* In a configuration (or `config`) file that {% data variables.product.prodname_codeql %} scans for relevant options each time a command is executed.
-
-For options that are likely to change each time you execute a command, specifying the value on the command line is the most convenient way of passing the information to {% data variables.product.prodname_codeql %}. Saving options in a `config` file is a good way to specify options you use frequently. It’s also a good way to add custom {% data variables.product.prodname_codeql %} packs that you use regularly to your search path.
 
 ## Using a {% data variables.product.prodname_codeql %} configuration file
 
-You need to save the `config` file under your home (Linux and macOS) or user profile (Windows) directory in the `.config/codeql/` subdirectory. For example, `$HOME/.config/codeql/config`.
+1. Create and save a `config` file under your home (Linux and macOS) or user profile (Windows) directory in the `.config/codeql/` subdirectory. For example, `$HOME/.config/codeql/config`.
+1. In the `config` file, specify the options you want to apply to your {% data variables.product.prodname_codeql %} commands. The syntax for specifying options is as follows:
 
-The syntax for specifying options is as follows:
+    ```shell
+    <command> <subcommand> <option> <value>
+    ```
 
-```shell
-<command> <subcommand> <option> <value>
-```
+1. To apply the same options to more than one command, you can:
 
-To apply the same options to more than one command you can:
-
-* Omit the `<subcommand>`, which will specify the option for every `<subcommand>` to which it’s relevant.
-* Omit both `<command>` and `<subcommand>`, which will globally specify the option for every `<command>` and `<subcommand>` to which it’s relevant.
+    * Omit `<subcommand>`, which will specify the option for every relevant `<subcommand>`
+    * Omit both `<command>` and `<subcommand>`, which will specify the option globally for every relevant `<command>` and `<subcommand>`
 
 > [!NOTE]
-> * `config` files only accept spaces between option flags and values—{% data variables.product.prodname_codeql %} will throw an error if you use `=` to specify an option value.
-> * If you specify an option in the command line, this overrides the `config` value defined for that option.
-> * If you want to specify more than one option for a `<command>`, `<subcommand>` or globally, use one line per option.
+> * `config` files only accept spaces, not `=`, between option flags and values.
+> * Specifying an option on the command line overrides any `config` value defined for that option.
+> * To specify more than one option for a `<command>`, `<subcommand>`, or globally, use one line per option.
 
 ### Examples
 

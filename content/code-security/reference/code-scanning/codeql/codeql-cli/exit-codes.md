@@ -6,15 +6,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/exit-codes
   - /code-security/codeql-cli/codeql-cli-reference/exit-codes
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/exit-codes
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 ## About exit codes

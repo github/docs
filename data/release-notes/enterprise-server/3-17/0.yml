@@ -125,9 +125,6 @@ sections:
         # https://github.com/github/releases/issues/5129
         - |
           Repository administrators can easily convert a fork into a standalone repository by leaving the fork network, which stops automatic syncing with the upstream repository. This is useful for taking a project in a new direction or maintaining separate versions.
-        # https://github.com/github/releases/issues/5273
-        - |
-          Users can more easily explore contributors and code frequency insights with improved navigation, interactive chart legends for hiding data series, and options to view or download the data as a CSV or PNG. See [Repositories - Updated insight views (General Availability)](https://github.blog/changelog/2025-02-25-repositories-updated-insight-views-general-availability/) on the GitHub Blog.
 
     - heading: Pull requests
       notes:
@@ -243,3 +240,7 @@ sections:
     # https://github.com/github/releases/issues/5204
     - |
       Dependabot is no longer supporting NPM version 6, which has reached its end-of-life. If you continue to use NPM version 6, Dependabot will be unable to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of NPM. As of December 2024, NPM 9 is the newest supported release.
+
+  errata:
+    - |
+      The "Features" section incorrectly indicated that updated insight views for repositories are available in this release. This feature is unavailable in GitHub Enterprise Server 3.17, and is available from GitHub Enterprise Server 3.19.0. [Updated: 2026-01-12]

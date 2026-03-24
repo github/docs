@@ -5,24 +5,19 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can work from a template to write your own code to create a custom query to analyze a specific language.
 redirect_from:
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/creating-a-custom-query
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
-## About custom queries
-
-> [!NOTE]
-> Creating a custom query is optional, and the [`github/codeql`](https://github.com/github/codeql) repository contains a large number of example queries you can use instead.
-
-You create a new query file from a template for a given language, which imports the standard libraries for analyzing that language. For more information, see [About {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
+You can write custom {% data variables.product.prodname_codeql %} queries to find specific issues relevant to your own project. This is optional, and the [`github/codeql`](https://github.com/github/codeql) repository contains a large number of example queries you can use instead.
 
 ## Creating a custom query
+
+You create a new query file from a template for a given language, which imports the standard libraries for analyzing that language.
 
 1. In the extension sidebar, open the "Queries" view, then click the **Create query** icon.
 
@@ -32,7 +27,7 @@ You create a new query file from a template for a given language, which imports 
 
 ## Further reading
 
-You can read about how to create queries for supported languages in the {% data variables.product.prodname_codeql %} documentation:
+You can read about how to write queries for supported languages in the {% data variables.product.prodname_codeql %} documentation:
 
 * [{% data variables.product.prodname_codeql %} for C and C++](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
 * [{% data variables.product.prodname_codeql %} for C#](https://codeql.github.com/docs/codeql-language-guides/codeql-for-csharp/)

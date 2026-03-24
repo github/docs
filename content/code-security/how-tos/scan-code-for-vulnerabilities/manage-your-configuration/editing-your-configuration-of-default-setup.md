@@ -7,17 +7,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 
-After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs. For more information on setup types and customization options, see [AUTOTITLE](/code-security/concepts/code-scanning/setup-types).
-
-If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
+After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs. See [AUTOTITLE](/code-security/concepts/code-scanning/setup-types){% ifversion codeql-custom-properties %} and [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties){% endif %}.
 
 ## Customizing your existing configuration of default setup
 
@@ -90,3 +87,7 @@ For more information about {% data variables.product.prodname_codeql %} model pa
     ![Screenshot of the "Expand CodeQL analysis" view" in the settings for an organization.](/assets/images/help/security/enable-codeql-org-model-packs.png)
 
 1. The model packs will be automatically detected and used when {% data variables.product.prodname_code_scanning %} runs on any repository in the organization with default setup enabled.
+
+## Further customization
+
+If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).

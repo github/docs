@@ -6,15 +6,11 @@ product: Public repositories on {% data variables.product.prodname_dotcom_the_we
 permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   feature: copilot
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
-  - Copilot
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 ## About push protection and the {% data variables.product.github %} MCP server

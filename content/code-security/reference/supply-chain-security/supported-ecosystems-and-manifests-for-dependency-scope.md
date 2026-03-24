@@ -6,14 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Dependency scope
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}

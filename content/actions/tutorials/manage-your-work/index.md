@@ -1,7 +1,7 @@
 ---
 title: Managing your work with GitHub Actions
 shortTitle: Manage your work
-intro: 'You can automatically manage your issues and pull requests using {% data variables.product.prodname_actions %} workflows.'
+intro: You can automatically manage your issues and pull requests using {% data variables.product.prodname_actions %} workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,4 +19,6 @@ redirect_from:
   - /actions/how-tos/use-cases-and-examples/project-management
   - /actions/examples
   - /actions/tutorials/project-management
+contentType: tutorials
 ---
+

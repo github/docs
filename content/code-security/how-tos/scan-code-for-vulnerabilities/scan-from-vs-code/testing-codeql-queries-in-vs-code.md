@@ -5,16 +5,14 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can run unit tests for {% data variables.product.prodname_codeql %} queries using the {% data variables.product.prodname_vscode %} extension.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/codeql-for-vs-code/testing-codeql-queries-in-visual-studio-code
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/testing-codeql-queries-in-vs-code
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About testing queries in {% data variables.product.prodname_vscode_shortname %}

@@ -6,11 +6,11 @@ versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
-topics:
-  - Code Quality
 contentType: tutorials
 redirect_from:
   - /code-security/code-quality/tutorials/improve-your-codebase
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

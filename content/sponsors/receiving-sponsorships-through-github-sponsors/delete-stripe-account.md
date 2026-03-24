@@ -5,8 +5,8 @@ intro: 'Learn how to delete a Stripe Connect account that you connected to {% da
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Sponsors payments
+category:
+  - Manage your sponsored account
 ---
 
 ## Prerequisites

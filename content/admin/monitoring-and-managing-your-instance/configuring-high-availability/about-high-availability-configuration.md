@@ -1,6 +1,6 @@
 ---
 title: About high availability configuration
-intro: 'In a high availability configuration, a fully redundant secondary {% data variables.product.prodname_ghe_server %} appliance is kept in sync with the primary appliance through replication of all major datastores.'
+intro: In a high availability configuration, a fully redundant secondary {% data variables.product.prodname_ghe_server %} appliance is kept in sync with the primary appliance through replication of all major datastores.
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
@@ -9,12 +9,10 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: About HA configuration
+contentType: concepts
+category:
+  - Scale your instance
 ---
 When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance. Most {% data variables.product.prodname_ghe_server %} configuration settings are also replicated, including the {% data variables.enterprise.management_console %} password. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
 

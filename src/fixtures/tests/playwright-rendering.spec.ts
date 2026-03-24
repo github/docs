@@ -205,8 +205,8 @@ test('404 page renders correctly', async ({ page }) => {
   const response = await page.goto('/this-definitely-does-not-exist')
   expect(response?.status()).toBe(404)
 
-  // Check that the 404 page content is rendered
-  await expect(page.getByText(/It looks like this page doesn't exist/)).toBeVisible()
+  // 404 pages now render a minimal HTML response
+  await expect(page.getByText('Page not found.')).toBeVisible()
 })
 
 test.describe('platform picker', () => {
@@ -1409,6 +1409,31 @@ test.describe('LandingArticleGridWithFilter component', () => {
 
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
+  })
+
+  test('bespoke landing page does not show duplicate articles', async ({ page }) => {
+    // The bespoke fixture lists individual articles AND their parent group
+    // as children, which would cause duplicates without deduplication.
+    await page.goto('/get-started/article-grid-bespoke')
+
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+
+    const articleCards = articleGrid.getByTestId('article-card')
+    // There are 4 unique articles across grid-category-one (2) and grid-category-two (2).
+    // Even though grid-article-one and grid-article-two are listed both individually
+    // and as children of grid-category-one, they should appear only once each.
+    await expect(articleCards).toHaveCount(4)
+
+    // Verify no duplicate titles by collecting all card titles
+    const titles: string[] = []
+    const count = await articleCards.count()
+    for (let i = 0; i < count; i++) {
+      const title = await articleCards.nth(i).locator('h3 span').textContent()
+      titles.push(title!)
+    }
+    const uniqueTitles = new Set(titles)
+    expect(uniqueTitles.size).toBe(titles.length)
   })
 })
 

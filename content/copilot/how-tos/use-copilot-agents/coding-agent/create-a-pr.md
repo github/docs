@@ -5,8 +5,6 @@ intro: 'You can ask {% data variables.product.prodname_copilot_short %} to creat
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/asking-copilot-to-create-a-pull-request
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/asking-copilot-to-create-a-pull-request
@@ -78,7 +76,7 @@ You can assign an issue to {% data variables.product.prodname_copilot_short %}:
 
    Additional options are displayed.
 
-   ![Screenshot of "Assign to Copilot" dialog showing options for target repository, starting branch, custom agent, and additional instructions.](/assets/images/help/copilot/coding-agent/assign-to-copilot-dialog.png)
+   ![Screenshot of "Assign to Copilot" dialog showing options for target repository, starting branch, {% data variables.copilot.copilot_custom_agent_short %}, and additional instructions.](/assets/images/help/copilot/coding-agent/assign-to-copilot-dialog.png)
 
 1. In the **Optional prompt** field you can add specific guidance for {% data variables.product.prodname_copilot_short %}. Add any context, constraints, or specific requirements that will help {% data variables.product.prodname_copilot_short %} to understand and complete the task.
 
@@ -127,7 +125,7 @@ You can assign issues to {% data variables.product.prodname_copilot_short %} usi
 | `targetRepositoryId` | `target_repo` | The repository where {% data variables.product.prodname_copilot_short %} will work |
 | `baseRef` | `base_branch` | The branch that {% data variables.product.prodname_copilot_short %} will branch from |
 | `customInstructions` | `custom_instructions` | Additional instructions for {% data variables.product.prodname_copilot_short %} |
-| `customAgent` | `custom_agent` | A custom agent to use for the task |
+| `customAgent` | `custom_agent` | A {% data variables.copilot.copilot_custom_agent_short %} to use for the task |
 | `model` | `model` | The model for {% data variables.product.prodname_copilot_short %} to use |
 
 #### Using the GraphQL API
