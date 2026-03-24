@@ -40,7 +40,7 @@ Organizations with {% data variables.copilot.copilot_enterprise_short %} or {% d
 
 ## Disabling or enabling {% data variables.copilot.copilot_coding_agent %} in your repositories
 
-By default, {% data variables.copilot.copilot_coding_agent %} is available in all repositories for users who have access to the agent, but you can block it from being used in some or all repositories owned by your organization.
+By default, {% data variables.copilot.copilot_coding_agent %} is available in all repositories for users who have access to the agent, but you can block it from being used in some or all repositories owned by your organization. You can manage repository availability using the following instructions, or programmatically using the [REST API](/rest/copilot/copilot-coding-agent-management).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
