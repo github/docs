@@ -103,11 +103,11 @@ jobs:
           ID: ${{ matrix.id }}
         run: |
           git add content/ data/
-          git add "src/content-pipelines/state/${ID}.sha"
           if git diff --cached --quiet; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
             echo "No documentation changes to commit"
           else
+            git add "src/content-pipelines/state/${ID}.sha"
             git commit -m "docs: update ${ID} content from source docs" \
               -m "Updated by the content-pipeline-update agent (${ID}) via GitHub Actions." \
               -m "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
