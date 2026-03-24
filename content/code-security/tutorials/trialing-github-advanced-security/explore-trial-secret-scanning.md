@@ -10,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/explore-trial-secret-scanning
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account. See [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).

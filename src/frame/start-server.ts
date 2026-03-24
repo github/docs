@@ -1,3 +1,8 @@
+// IMPORTANT: OTel tracing MUST be the first import. It patches Node.js
+// built-ins (http, etc.) at load time via auto-instrumentation.
+// Moving this after any framework import will silently break tracing.
+import '@/observability/lib/tracing'
+
 import http from 'http'
 
 import tcpPortUsed from 'tcp-port-used'

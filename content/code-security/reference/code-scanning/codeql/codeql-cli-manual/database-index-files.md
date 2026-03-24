@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-index-files
   - /code-security/codeql-cli/codeql-cli-manual/database-index-files
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

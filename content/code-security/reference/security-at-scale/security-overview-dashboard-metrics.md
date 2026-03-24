@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Secure at scale
 ---
 
 ## Dashboard metrics

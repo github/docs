@@ -14,6 +14,8 @@ redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page
   - /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/about-the-tool-status-page
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}

@@ -14,6 +14,8 @@ redirect_from:
   - /code-security/trialing-github-advanced-security/trial-advanced-security
 shortTitle: Trial Advanced Security
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## Prerequisites

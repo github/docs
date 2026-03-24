@@ -11,6 +11,8 @@ contentType: tutorials
 shortTitle: Customize Dependabot PRs
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
+category:
+  - Secure your dependencies
 ---
 
 There are various ways to customize your {% data variables.product.prodname_dependabot %} pull requests so that they better suit your own internal processes.

@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/about-codeql-for-visual-studio-code
   - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/about-codeql-for-vs-code
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}

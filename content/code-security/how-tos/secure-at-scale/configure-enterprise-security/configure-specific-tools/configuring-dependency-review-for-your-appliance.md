@@ -9,6 +9,8 @@ redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
   - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About dependency review

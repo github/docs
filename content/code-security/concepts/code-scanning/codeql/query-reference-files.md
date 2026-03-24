@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/query-reference-files
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/query-reference-files
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About query reference files

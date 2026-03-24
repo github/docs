@@ -9,6 +9,8 @@ shortTitle: Prevent data leaks
 redirect_from:
   - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## About this guide

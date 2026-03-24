@@ -11,6 +11,8 @@ versions:
 redirect_from:
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-database-bundle-for-troubleshooting
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 {% data reusables.code-scanning.codeql-database-archive-contains-source-code %}

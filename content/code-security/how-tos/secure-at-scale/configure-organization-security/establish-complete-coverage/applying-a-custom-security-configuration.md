@@ -9,6 +9,8 @@ redirect_from:
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About applying a {% data variables.product.prodname_custom_security_configuration %}

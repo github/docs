@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/test-accept
   - /code-security/codeql-cli/codeql-cli-manual/test-accept
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

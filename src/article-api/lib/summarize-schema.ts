@@ -112,22 +112,30 @@ function renderProperties(
       continue
     }
 
-    const propType = Array.isArray(prop.type) ? prop.type[0] : prop.type
+    const typeArr = Array.isArray(prop.type) ? prop.type : prop.type ? [prop.type] : []
+    const isNullable = typeArr.includes('null')
+    const propType = typeArr.find((t) => t !== 'null')
 
     if (propType === 'array' && prop.items) {
       const itemTitle = prop.items.title
       if (prop.items.properties && depth < MAX_DEPTH) {
-        const label = itemTitle ? `array of \`${itemTitle}\`` : 'array of objects'
+        const label = itemTitle
+          ? `array of \`${itemTitle}\`${isNullable ? ' or null' : ''}`
+          : `array of objects${isNullable ? ' or null' : ''}`
         lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
         lines.push(renderProperties(prop.items, indent + 1, depth + 1))
       } else {
-        lines.push(`${prefix}* \`${name}\`: ${reqStr}array of ${renderTypeConstraints(prop.items)}`)
+        lines.push(
+          `${prefix}* \`${name}\`: ${reqStr}array of ${renderTypeConstraints(prop.items)}${isNullable ? ' or null' : ''}`,
+        )
       }
     } else if (prop.properties && depth < MAX_DEPTH) {
+      // renderTypeConstraints handles string[] types (e.g. ["object","null"] → "object or null")
       const label = prop.title ? `\`${prop.title}\`` : renderTypeConstraints(prop)
       lines.push(`${prefix}* \`${name}\`: ${reqStr}${label}:`)
       lines.push(renderProperties(prop, indent + 1, depth + 1))
     } else {
+      // renderTypeConstraints handles string[] types (e.g. ["string","null"] → "string or null")
       lines.push(`${prefix}* \`${name}\`: ${reqStr}${renderTypeConstraints(prop)}`)
     }
   }
@@ -151,7 +159,11 @@ export function summarizeSchema(schema: JsonSchema): string {
   }
 
   // Handle top-level array
-  if (schema.type === 'array' && schema.items) {
+  const schemaTypes = Array.isArray(schema.type) ? schema.type : schema.type ? [schema.type] : []
+  const isNullable = schemaTypes.includes('null')
+  const primaryType = schemaTypes.find((t) => t !== 'null')
+
+  if (primaryType === 'array' && schema.items) {
     const items = schema.items
     const constraints: string[] = []
     if (schema.minItems !== undefined) constraints.push(`minItems: ${schema.minItems}`)
@@ -165,7 +177,8 @@ export function summarizeSchema(schema: JsonSchema): string {
     if (compositionKey) {
       const label = compositionKey.replace('Of', ' of')
       const titlePart = itemTitle ? `\`${itemTitle}\` ` : ''
-      const lines = [`Array${constraintStr} of ${titlePart}objects: ${label}:`]
+      const nullSuffix = isNullable ? ' or null' : ''
+      const lines = [`Array${constraintStr} of ${titlePart}objects${nullSuffix}: ${label}:`]
       for (const variant of items[compositionKey]!) {
         const name = variant.title || renderTypeConstraints(variant)
         lines.push(`  * **${name}**`)
@@ -179,10 +192,11 @@ export function summarizeSchema(schema: JsonSchema): string {
 
     if (items.properties) {
       const label = itemTitle ? `\`${itemTitle}\`` : 'objects'
-      return `Array${constraintStr} of ${label}:\n${renderProperties(items, 1, 1)}`
+      const nullSuffix = isNullable ? ' or null' : ''
+      return `Array${constraintStr} of ${label}${nullSuffix}:\n${renderProperties(items, 1, 1)}`
     }
 
-    return `Array${constraintStr} of ${renderTypeConstraints(items)}`
+    return `Array${constraintStr} of ${renderTypeConstraints(items)}${isNullable ? ' or null' : ''}`
   }
 
   // Handle top-level object

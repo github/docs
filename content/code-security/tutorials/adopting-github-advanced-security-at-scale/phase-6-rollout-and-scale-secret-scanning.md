@@ -8,6 +8,8 @@ shortTitle: 6. Rollout secret scanning
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 >[!TIP]

@@ -8,6 +8,8 @@ shortTitle: 3. Pilot programs
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 >[!TIP]

@@ -17,6 +17,7 @@ children:
   - /cli-getting-started
   - /cli-best-practices
   - /set-up-copilot-cli
+  - /allowing-tools
   - /automate-copilot-cli
   - /customize-copilot
   - /use-copilot-cli-agents

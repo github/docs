@@ -11,6 +11,8 @@ shortTitle: Customize Dependabot PRs
 redirect_from:
   - /code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Preparing to customize pull requests

@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 shortTitle: View code scanning logs
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}

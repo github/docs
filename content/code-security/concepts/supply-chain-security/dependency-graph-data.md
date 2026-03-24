@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 shortTitle: Dependency graph data
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 The dependency graph can identify your project's dependencies using the following methods.

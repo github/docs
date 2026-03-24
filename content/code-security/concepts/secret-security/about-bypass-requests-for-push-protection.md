@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 shortTitle: Bypass requests
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 ## About bypass requests for push protection

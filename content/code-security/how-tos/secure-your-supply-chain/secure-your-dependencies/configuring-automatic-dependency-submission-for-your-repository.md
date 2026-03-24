@@ -9,6 +9,8 @@ redirect_from:
 versions:
   feature: maven-transitive-dependencies
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Prerequisites

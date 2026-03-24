@@ -4,6 +4,8 @@ intro: Network access requirements, troubleshooting, and ecosystem-specific beha
 versions:
   feature: maven-transitive-dependencies
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 ## Configure network access for self-hosted runners

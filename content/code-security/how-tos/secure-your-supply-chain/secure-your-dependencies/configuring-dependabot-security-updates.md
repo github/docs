@@ -17,6 +17,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 

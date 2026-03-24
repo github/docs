@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-codeql-for-vs-code/accessing-logs
   - /code-security/reference/code-scanning/codeql/codeql-for-vs-code/accessing-logs
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 1. In {% data variables.product.prodname_vscode %}, open the "Output" window.

@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code
   - /code-security/codeql-for-vs-code/setting-up-codeql-in-visual-studio-code
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Prerequisites

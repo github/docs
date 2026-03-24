@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/security-overview/viewing-security-insights-for-your-organization
   - /code-security/security-overview/viewing-security-insights
 allowTitleToDifferFromFilename: true
+category:
+  - Secure at scale
 ---
 
 The overview page in security overview provides a consolidated dashboard of your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}'s security landscape. You can filter the dashboard by time period, tool, and other criteria to focus on specific areas of interest. For more information about the overview dashboard, available metrics, and access permissions, see [AUTOTITLE](/code-security/concepts/security-at-scale/about-security-overview).

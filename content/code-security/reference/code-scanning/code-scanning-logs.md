@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 contentType: reference
 shortTitle: Code scanning logs
+category:
+  - Find and fix code vulnerabilities
 ---
 
 The log and diagnostic information available to you depends on the method you use for {% data variables.product.prodname_code_scanning %} in your repository. You can check the type of {% data variables.product.prodname_code_scanning %} you're using in the **Security** tab of your repository, by using the **Tool** drop-down menu in the alert list. To access this page, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository).

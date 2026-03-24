@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/secret-scanning/introduction/about-push-protection
 shortTitle: Push protection
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 ## What is push protection?

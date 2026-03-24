@@ -15,6 +15,8 @@ redirect_from:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Setting up the {% data variables.product.prodname_codeql_cli %}

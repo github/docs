@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 contentType: get-started
 shortTitle: Secure repository quickstart
+category:
+  - Plan your security strategy
 ---
 
 ## Introduction

@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/editing-a-custom-security-configuration
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 {% data reusables.profile.access_org %}

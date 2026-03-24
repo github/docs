@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 shortTitle: Check out source code
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 Some users prefer working with {% data variables.product.prodname_codeql %} query sources directly in order to work on or contribute to open source shared queries.

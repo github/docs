@@ -5,6 +5,8 @@ versions:
   feature: virtual-registry
 shortTitle: 'Linked artifacts'
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 The {% data variables.product.virtual_registry %} provides a unified view of software artifacts that your organization builds with {% data variables.product.prodname_actions %}, such as container images, packages, or builds of your production code.

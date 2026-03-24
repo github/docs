@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 **Immutable releases** are releases where the assets and associated Git tag cannot be changed after publication. The use of this type of release increases security by blocking supply chain attacks. Attackers cannot:

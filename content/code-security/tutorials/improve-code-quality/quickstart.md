@@ -11,6 +11,8 @@ contentType: tutorials
 redirect_from:
   - /code-security/code-quality/get-started/quickstart
   - /code-security/code-quality/get-started
+category:
+  - Improve code quality
 ---
 
 ## Introduction
