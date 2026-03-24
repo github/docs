@@ -1,4 +1,4 @@
----
+_github-pages-challenge-gitkit13.151hfiju3s93ktt2rqh65902gukb27osot905m4g52k40kaea3h6---
 
 name: "content-pipeline-update"
 description: "Generic content pipeline agent that updates official reference documentation by analyzing changes to source docs in an external repository. The source docs are cloned ephemerally at workflow run time — they are NOT stored in this repository. Pipeline-specific context (source docs directory, diff file, target articles, exclusions) is provided via the prompt at invocation time."
