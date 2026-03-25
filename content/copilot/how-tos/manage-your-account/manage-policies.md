@@ -70,13 +70,6 @@ To enable coding agents:
 1. Navigate to your account's [coding agent settings](https://github.com/settings/copilot/coding_agent?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-cca-settings-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026).
 1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
 
-## Enabling or disabling prompt and suggestion collection
-
-You can choose whether your prompts and {% data variables.product.prodname_copilot_short %}'s suggestions are collected and retained by {% data variables.product.prodname_dotcom %}, and further processed and shared with Microsoft. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq).
-
-{% data reusables.user-settings.copilot-settings %}
-1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
-
 ## Enabling or disabling web search for {% data variables.copilot.copilot_chat %}
 
 You can enable web search for {% data variables.copilot.copilot_chat %}. This setting is disabled by default. If you enable this setting, {% data variables.copilot.copilot_chat_short %} will use Bing to search the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
@@ -86,6 +79,10 @@ You can enable web search for {% data variables.copilot.copilot_chat %}. This se
 
 ## Model training and improvements
 
-By default, {% data variables.product.github %}, its affiliates, and third parties will **not** use your data, including prompts, suggestions, and code snippets, for AI model training. This is reflected in your personal settings for {% data variables.product.prodname_copilot %} and cannot be enabled.
+{% data reusables.copilot.model-training-policy %}
+
+{% data reusables.user-settings.copilot-settings %}
+
+1. Select the "Allow GitHub to use my data for AI model training" dropdown menu and click **Disabled**.
 
 {% endif %}
