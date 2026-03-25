@@ -32,7 +32,7 @@ sections:
       Users experienced failures when migrating repositories with releases using GitHub Enterprise Importer. Migrations failed to import release assets that were incompletely uploaded at the time of export, as the export archive referenced assets without including the corresponding files.
   changes:
     - |
-      To improve performance on large instances, HAProxy automatically scales its thread count based on available CPUs and uses higher connection limits for high-traffic backend services including GitHub Actions, database connections, job queues, and package registry. Administrators can override the thread count using `ghe-config haproxy-nbthread` if needed. 
+      To improve performance on large instances, HAProxy automatically scales its thread count based on available CPUs and uses higher connection limits for high-traffic backend services including GitHub Actions, database connections, job queues, and package registry. Administrators can override the thread count using `ghe-config core.haproxy-nbthread` if needed. 
     - |
       API consumers can update issues via the REST API (PATCH) or the GraphQL `updateIssue` mutation using fine-grained permissions for closing and reopening issues, and for setting milestones. 
   known_issues:
