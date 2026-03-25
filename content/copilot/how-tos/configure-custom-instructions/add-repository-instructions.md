@@ -51,8 +51,6 @@ This version of this article is for using repository custom instructions on the 
 
 You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_coding_agent %} to generate one for you.
 
-You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_coding_agent %} to generate one for you.
-
 ### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `copilot-instructions.md` file
 
 1. Navigate to the agents tab at [github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
