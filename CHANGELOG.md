@@ -1,5 +1,13 @@
 # Docs changelog
 
+**23 March 2026**
+
+We've added an article with details of the various command-line options for allowing/denying tools that Copilot CLI can use.
+
+[Allowing and denying tool use](https://docs.github.com/en/copilot/how-tos/copilot-cli/allowing-tools)
+
+<hr>
+
 **18 March 2026**
 
 We added documentation for using session data in Copilot CLI—including the `/chronicle` slash command:
