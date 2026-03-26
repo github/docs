@@ -529,6 +529,7 @@ Skills are loaded from these locations in priority order (first found wins for d
 | `.claude/skills/` | Project | Claude-compatible location. |
 | Parent `.github/skills/` | Inherited | Monorepo parent directory support. |
 | `~/.copilot/skills/` | Personal | Personal skills for all projects. |
+| `~/.agents/skills/` | Personal | Alternative personal location. |
 | `~/.claude/skills/` | Personal | Claude-compatible personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
