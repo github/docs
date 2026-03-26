@@ -483,9 +483,6 @@ The CLI includes built-in MCP servers that are available without additional setu
 | Server | Description |
 |--------|-------------|
 | `github-mcp-server` | {% data variables.product.github %} API integration: issues, pull requests, commits, code search, and {% data variables.product.prodname_actions %}. |
-| `playwright` | Browser automation: navigate, click, type, screenshot, and form handling. |
-| `fetch` | HTTP requests via the `fetch` tool. |
-| `time` | Time utilities: `get_current_time` and `convert_time`. |
 
 Use `--disable-builtin-mcps` to disable all built-in servers, or `--disable-mcp-server SERVER-NAME` to disable a specific one.
 
