@@ -193,9 +193,10 @@ The following diagram illustrates the loading order and precedence rules.
   │  3. <project>/.claude/skills/        (project)                      │
   │  4. <parents>/.github/skills/ etc.   (inherited)                    │
   │  5. ~/.copilot/skills/               (personal-copilot)             │
-  │  6. ~/.claude/skills/                (personal-claude)              │
-  │  7. PLUGIN: skills/ dirs             (plugin)                       │
-  │  8. COPILOT_SKILLS_DIRS env + config (custom)                       │
+  │  6. ~/.agents/skills/                (personal-agents)              │
+  │  7. ~/.claude/skills/                (personal-claude)              │
+  │  8. PLUGIN: skills/ dirs             (plugin)                       │
+  │  9. COPILOT_SKILLS_DIRS env + config (custom)                       │
   │  --- then commands (.claude/commands/), skills override commands ---│
   └──────────────────────┬──────────────────────────────────────────────┘
                          │

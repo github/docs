@@ -555,9 +555,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -1900,9 +1897,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "type": "boolean"
                           },
                           "archived": {
                             "type": "boolean"
@@ -3929,11 +3923,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "default": true,
-                            "type": "boolean"
                           },
                           "archived": {
                             "description": "Whether the repository is archived.",
@@ -6154,9 +6143,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean"
                       },
                       "archived": {
                         "type": "boolean"
