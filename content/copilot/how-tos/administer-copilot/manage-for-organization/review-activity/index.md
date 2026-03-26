@@ -1,12 +1,11 @@
 ---
 title: Reviewing activity related to GitHub Copilot in your organization
 shortTitle: Review activity
-intro: 'Organization owners can review {% data variables.product.prodname_copilot_short %} usage in their organization.'
+intro: Organization owners can review {% data variables.product.prodname_copilot_short %} usage in their organization.
 versions:
   feature: copilot
 children:
   - /review-user-activity-data
-  - /review-audit-logs
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization
   - /copilot/how-tos/administer/organizations/reviewing-activity-related-to-github-copilot-in-your-organization

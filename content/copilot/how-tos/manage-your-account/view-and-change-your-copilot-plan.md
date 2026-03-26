@@ -34,7 +34,7 @@ If you have access to {% data variables.product.prodname_copilot %} through an o
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing-plans-two-platforms %}
 
-Under "Current plan", you can see which plan you're currently using.
+Under "Licensing" and "Current plan", you can see which license and plan you're currently using.
 
 ## Changing your {% data variables.product.prodname_copilot_short %} plan
 
