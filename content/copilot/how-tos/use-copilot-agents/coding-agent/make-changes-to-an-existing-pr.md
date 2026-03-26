@@ -22,6 +22,12 @@ By default, {% data variables.product.prodname_copilot_short %} pushes commits d
 
 If you prefer {% data variables.product.prodname_copilot_short %} to create a separate pull request instead, you can ask for this using natural language in your comment—for example, "open a PR to fix the tests."
 
+## Resolving merge conflicts
+
+You can ask {% data variables.product.prodname_copilot_short %} to resolve merge conflicts on a pull request by mentioning `@copilot` and asking it to fix the conflicts using natural language, such as "@copilot resolve the merge conflicts on this PR."
+
+{% data variables.product.prodname_copilot_short %} will analyze the conflicting changes, resolve the conflicts, and ensure the build, tests, and linter still pass. Once it has finished, {% data variables.product.prodname_copilot_short %} will request your review so you can verify the conflict resolution before merging.
+
 ## Asking {% data variables.product.prodname_copilot_short %} to make changes
 
 1. Navigate to the pull request that you want {% data variables.product.prodname_copilot_short %} to make changes to.
