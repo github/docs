@@ -85,4 +85,8 @@ You can enable web search for {% data variables.copilot.copilot_chat %}. This se
 
 1. Select the "Allow GitHub to use my data for AI model training" dropdown menu and click **Disabled**.
 
+    If you don't see "Allow GitHub to use my data for AI model training", verify that you are not signed in with an account that has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license. {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} customers' data is protected under {% data variables.product.github %}'s Data Protection Agreement, so the setting is not displayed for these plans.
+
+    1. To verify your account type, see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
+
 {% endif %}

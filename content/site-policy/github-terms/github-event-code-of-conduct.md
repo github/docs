@@ -5,6 +5,8 @@ redirect_from:
   - /github/site-policy/github-event-code-of-conduct
 versions:
   fpt: '*'
+category:
+  - Review product and program terms
 ---
 
 ## Code of Conduct
