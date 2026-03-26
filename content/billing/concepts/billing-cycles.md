@@ -11,7 +11,6 @@ redirect_from:
   - /billing/using-the-new-billing-platform/viewing-your-subscriptions-and-billing-date
   - /billing/using-the-new-billing-platform/about-the-billing-cycle
   - /billing/managing-your-billing/about-the-billing-cycle
-product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: concepts
 category:
   - Get started with billing
@@ -44,27 +43,19 @@ You can switch between annual and monthly billing from the "Licensing" page unde
 
 ## How mid-cycle changes affect your billing
 
-Mid-cycle changes to your account can affect your bill.
+Changes you make mid-cycle, such as adding or removing users, seats, or resources, can affect your bill. Some behaviors apply to both metered and volume-based billing; others are specific to one model.
 
-### Changes to metered products
+### Adding users or resources
 
-Metered products (such as {% data variables.product.prodname_actions %} minutes, {% data variables.product.prodname_registry %} storage, or {% data variables.product.prodname_codespaces %} compute) are billed based on your actual usage throughout the month. For more information on how usage is calculated for a specific product, see [Where to find usage details for specific products](#where-to-find-usage-details-for-specific-products).
-
-### Changes to volume-based products
-
-Volume-based products are billed per user, seat, or resource. Changes to these mid-cycle won’t always immediately change your bill—but they may affect your next invoice.
-
-#### Adding users or resources
-
-* **Add users or licenses**: For license-based products like {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_enterprise %}, or {% data variables.product.prodname_GHAS %}, you'll be billed a **prorated amount** based on how many days remain in the current billing cycle.
+* **Add users or licenses**: For products like {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_enterprise %}, or {% data variables.product.prodname_GHAS %}, you'll be billed a prorated amount for the added licenses based on how many days remain in the current billing cycle.
 * **Add organizations or repositories**: These will also result in **prorated charges**, which appear on your next invoice.
 
-#### Removing users or resources
+### Removing users or resources
 
-* **Remove users or seats**: The user’s access is revoked immediately, but you'll still be billed for the **full billing cycle**. Removing a user won't reduce your current bill.
+* **Remove users or seats**: The user's access is revoked immediately, but you'll still be billed for the **full billing cycle**. Removing a user won't reduce your current bill.
 * **Remove organizations or repositories**: Charges **stop immediately** when removed, but you'll still be billed for any usage **up to that point**.
 
-#### Transferring users or resources
+### Transferring users or resources
 
 * **Within the same billing account**: No double-billing. Moving users or resources between organizations under the same account is handled automatically.
 * **Between different billing accounts**: Each account is billed according to its own cycle. You may see charges in both accounts if the move overlaps billing periods.
