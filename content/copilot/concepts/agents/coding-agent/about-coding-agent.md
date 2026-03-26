@@ -30,6 +30,7 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 * Improve test coverage
 * Update documentation
 * Address technical debt
+* Resolve merge conflicts
 
 To delegate tasks to {% data variables.copilot.copilot_coding_agent %}, you can:
 
