@@ -5,6 +5,8 @@ redirect_from:
   - /github/site-policy/github-corporate-terms-of-service
 versions:
   fpt: '*'
+category:
+  - Review product and program terms
 ---
 <!-- markdownlint-disable search-replace -->
 
