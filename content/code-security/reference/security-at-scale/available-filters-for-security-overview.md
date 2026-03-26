@@ -189,6 +189,9 @@ For more information about production context, see [AUTOTITLE](/code-security/se
 
 | Qualifier | Description |
 | -------- | -------- |
+|{% ifversion dependabot-alerts-assignees %}|
+| `assignee` | Display alerts by assignee username or team, for example: `assignee:@octocat`, `assignee:@copilot`, or `assignee:@github/security-team`.|
+|{% endif %}|
 |`ecosystem`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified ecosystem, for example: `ecosystem:Maven`.|
 |{% ifversion fpt or ghec or ghes > 3.15 %}|
 |`epss_percentage`|Display {% data variables.product.prodname_dependabot_alerts %} whose EPSS score meets the defined criteria, for example: `epss_percentage:>=0.01`|
