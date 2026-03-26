@@ -5467,6 +5467,14 @@
         {
           "httpStatusCode": "200",
           "description": "<p>Artifact deployment record stored successfully.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -5712,6 +5720,14 @@
         {
           "httpStatusCode": "200",
           "description": "<p>Deployment records created or updated successfully.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -5898,6 +5914,14 @@
         {
           "httpStatusCode": "200",
           "description": "<p>Artifact metadata storage record stored successfully.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -30661,6 +30685,19 @@
           "required": false,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "status",
+          "description": "<p>Returns webhook deliveries filtered by delivery outcome classification based on <code>status_code</code> range. A <code>status</code> of <code>success</code> returns deliveries with a <code>status_code</code> in the 200-399 range (inclusive). A <code>status</code> of <code>failure</code> returns deliveries with a <code>status_code</code> in the 400-599 range (inclusive).</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "success",
+              "failure"
+            ]
           }
         }
       ],

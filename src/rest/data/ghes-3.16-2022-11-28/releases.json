@@ -2062,6 +2062,10 @@
         {
           "httpStatusCode": "200",
           "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -4087,6 +4091,10 @@
         {
           "httpStatusCode": "204",
           "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -4802,6 +4810,10 @@
         {
           "httpStatusCode": "204",
           "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
