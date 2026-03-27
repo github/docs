@@ -2,6 +2,8 @@
 title: GitHub Educational Use Agreement
 versions:
   fpt: '*'
+category:
+  - Review product and program terms
 ---
 
 > [!NOTE]

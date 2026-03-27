@@ -531,6 +531,7 @@ Skills are loaded from these locations in priority order (first found wins for d
 | `~/.copilot/skills/` | Personal | Personal skills for all projects. |
 | `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
 | `~/.claude/skills/` | Personal | Claude-compatible personal location. |
+| `~/.agents/skills/` | Personal | Alternative personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
 

@@ -72,7 +72,7 @@ Support bundles are designed to help diagnose issues while protecting sensitive 
 * **User data**: Support bundles don't include user profile information beyond what appears in system logs.
 * **License information**: The bundle includes your organization name and license reference so {% data variables.contact.github_support %} can identify your instance.
 
-When you provide a support bundle to {% data variables.contact.github_support %}, {% data variables.product.company_short %} uses the data only to address your support request. {% data variables.product.company_short %} won't disclose your data to third parties without your explicit consent unless required by law.
+When you provide a support bundle to {% data variables.contact.github_support %}, {% data variables.product.company_short %} uses the data only to address your support request. For details on how {% data variables.product.company_short %} handles your data, see the [{% data variables.product.company_short %} Privacy Statement](https://github.com/site/privacy).
 
 ## Support bundle size and generation time
 

@@ -26525,6 +26525,19 @@
           "schema": {
             "type": "string"
           }
+        },
+        {
+          "name": "status",
+          "description": "<p>Returns webhook deliveries filtered by delivery outcome classification based on <code>status_code</code> range. A <code>status</code> of <code>success</code> returns deliveries with a <code>status_code</code> in the 200-399 range (inclusive). A <code>status</code> of <code>failure</code> returns deliveries with a <code>status_code</code> in the 400-599 range (inclusive).</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "success",
+              "failure"
+            ]
+          }
         }
       ],
       "bodyParameters": [],
