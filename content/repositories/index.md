@@ -25,7 +25,7 @@ versions:
   ghec: '*'
 children:
   - /creating-and-managing-repositories
-  - /managing-your-repositorys-settings-and-features
+  - /managing-your-repositories-settings-and-features
   - /configuring-branches-and-merges-in-your-repository
   - /working-with-files
   - /releasing-projects-on-github
