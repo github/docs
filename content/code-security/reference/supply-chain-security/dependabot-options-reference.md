@@ -31,7 +31,7 @@ All options marked with a {% octicon "shield-check" aria-label="Security updates
 | `updates` | Top level| Section where you define each `package-ecosystem` to update.|
 | [`package-ecosystem`](#package-ecosystem-) | Under `updates` | Define a package manager to update. |
 | [`directories` or `directory`](#directories-or-directory--) | Under each `package-ecosystem` entry | Define the location of the manifest or other definition files to update. |
-| [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, or `monthly`. |
+| [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron`. |
 
 Optionally, you can also include a top-level `registries` key to define access details for private registries, see [Top-level `registries` key](#top-level-registries-key).
 
