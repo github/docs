@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /github/site-policy/github-misinformation-and-disinformation
   - /github/site-policy/github-community-guidelines#misinformation-and-disinformation
+category:
+  - Follow acceptable use policies
 ---
 
 You may not post content that presents a distorted view of reality, whether it is inaccurate or false (misinformation) or is intentionally deceptive (disinformation), where such content is likely to result in harm to the public or to interfere with fair and equal opportunities for all to take part in a free and open society. This may include:

@@ -75,23 +75,19 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 
 {% endxcode %}
 
-{% cli %}
+{% copilotcli %}
 
 ## Authenticating from the command line
 
-To use the `gh-copilot` extension for the {% data variables.product.prodname_cli %}, you must:
+To use {% data variables.copilot.copilot_cli_short %}, you must:
 
-1. Download and install the extension. To do this, you must be authenticated to an account on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli#installing-copilot-in-the-cli).
-1. Authenticate to the account on {% data variables.enterprise.data_residency_site %} where you receive your {% data variables.product.prodname_copilot_short %} license.
+1. Download and install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+1. Authenticate to the account on {% data variables.enterprise.data_residency_site %} where you receive your {% data variables.product.prodname_copilot_short %} license with `copilot login --host {% data variables.enterprise.data_residency_domain %}`.
 
-{% data variables.product.prodname_dotcom_the_website %} is the default destination of {% data variables.product.prodname_cli %} requests. To use `gh copilot`, you must ensure requests are sent to {% data variables.enterprise.data_residency_site %}, where you receive your license. You have the following options:
-* Include the flag `--hostname SUBDOMAIN.ghe.com` in all `gh copilot` commands.
-* Set the `GH_HOST` environment variable to change the default host for all {% data variables.product.prodname_cli %} commands.
-* Sign out of {% data variables.product.prodname_dotcom_the_website %} with `gh auth logout`. However, you will need to sign back in to get updates to `gh-copilot`.
 
-For general information on using the {% data variables.product.prodname_cli %} across platforms, see [AUTOTITLE](/github-cli/github-cli/using-multiple-accounts).
+For general information on using {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli).
 
-{% endcli %}
+{% endcopilotcli %}
 
 {% visualstudio %}
 
