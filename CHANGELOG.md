@@ -1,5 +1,23 @@
 # Docs changelog
 
+**26 March 2026**
+
+If you use both Copilot CLI and VS Code, when you start the CLI it will automatically connect to a currently open VS Code workspace that matches the directory in which you're using the CLI. You can also manually connect to VS Code by using the `/ide` slash command.
+
+This new article documents this feature and outlines the benefits of sharing context, trust settings, and output between Copilot CLI and VS Code:
+
+[Connecting GitHub Copilot CLI to VS Code](https://docs.github.com/en/copilot/how-tos/copilot-cli/connecting-vs-code)
+
+<hr>
+
+**23 March 2026**
+
+We've added an article with details of the various command-line options for allowing/denying tools that Copilot CLI can use.
+
+[Allowing and denying tool use](https://docs.github.com/en/copilot/how-tos/copilot-cli/allowing-tools)
+
+<hr>
+
 **18 March 2026**
 
 We added documentation for using session data in Copilot CLI—including the `/chronicle` slash command:

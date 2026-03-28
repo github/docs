@@ -919,9 +919,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -5346,6 +5343,10 @@
           "description": "<p>OK</p>"
         },
         {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
           "httpStatusCode": "403",
           "description": "<p>Forbidden</p>"
         },
@@ -5558,6 +5559,10 @@
         {
           "httpStatusCode": "200",
           "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
         },
         {
           "httpStatusCode": "403",

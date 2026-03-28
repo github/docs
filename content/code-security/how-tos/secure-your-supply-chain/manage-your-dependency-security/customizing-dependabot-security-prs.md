@@ -127,6 +127,11 @@ updates:
     assignees:
       - "user-name"
   - package-ecosystem: "gomod"
+    directories:
+      - "**/*"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
     groups:
       # Group security updates for golang dependencies
       # into a single pull request
