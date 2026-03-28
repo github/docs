@@ -103,6 +103,22 @@ For enhanced security and fine-grained control over repository access and permis
 
 You can also use the REST API to create deploy keys. For more information, see [AUTOTITLE](/rest/deploy-keys/deploy-keys).
 
+You can then interact with the repository using SSH. For example:
+
+```bash
+git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}:OWNER/REPO.git
+```
+
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.ssh-user %}
+>
+> ```bash
+> git clone {% data variables.enterprise.data_residency_example_git_ssh %}:OWNER/REPO.git
+> ```
+
+{% endif %}
+
 ### Using multiple repositories on one server
 
 If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.

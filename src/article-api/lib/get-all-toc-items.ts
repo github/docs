@@ -1,6 +1,5 @@
 import type { Context, Page } from '@/types'
 import type { LinkData } from '@/article-api/transformers/types'
-import { renderLiquid } from '@/content-render/liquid/index'
 import { resolvePath } from './resolve-path'
 
 interface PageWithChildren extends Page {
@@ -29,16 +28,12 @@ export async function getAllTocItems(
   options: {
     recurse?: boolean
     renderIntros?: boolean
-    /** Use Liquid-only rendering for titles and intros instead of the full
-     *  Markdown/unified pipeline. Resolves {% data %} variables without
-     *  the cost of Markdown parsing, unified processing, and Cheerio unwrap. */
-    liquidOnly?: boolean
     /** Only recurse into children whose resolved path starts with this prefix.
      *  Prevents cross-product traversal (e.g. /en/rest listing /enterprise-admin). */
     basePath?: string
   } = {},
 ): Promise<TocItem[]> {
-  const { recurse = true, renderIntros = true, liquidOnly = false } = options
+  const { recurse = true, renderIntros = true } = options
   const pageWithChildren = page as PageWithChildren
   const languageCode = page.languageCode || 'en'
 
@@ -75,32 +70,11 @@ export async function getAllTocItems(
       )
       const href = childPermalink ? childPermalink.href : childHref
 
-      let title: string
-      if (liquidOnly) {
-        const raw = childPage.shortTitle || childPage.title
-        try {
-          title = await renderLiquid(raw, context)
-        } catch {
-          // Fall back to raw frontmatter string if Liquid rendering fails
-          // (e.g. translation errors in non-English pages)
-          title = raw
-        }
-      } else {
-        title = await childPage.renderTitle(context, { unwrap: true })
-      }
+      const title = await childPage.renderTitle(context, { unwrap: true })
 
       let intro = ''
       if (renderIntros && childPage.intro) {
-        if (liquidOnly) {
-          const rawIntro = childPage.rawIntro || childPage.intro
-          try {
-            intro = await renderLiquid(rawIntro, context)
-          } catch {
-            intro = rawIntro
-          }
-        } else {
-          intro = await childPage.renderProp('intro', context, { textOnly: true })
-        }
+        intro = await childPage.renderProp('intro', context, { textOnly: true })
       }
 
       const category = childPage.category || []

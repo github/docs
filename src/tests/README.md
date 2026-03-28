@@ -37,31 +37,72 @@ Test-only dependencies are optional to keep standard installs faster:
 npm ci --include=optional
 ```
 
-### Running all tests
+### Running tests by suite
+
+**Important: Do NOT run `npm test` without a path argument.** Tests must be run per-suite because different suites require different environment variables. Running all tests at once will produce many false failures.
+
+**Important: Run `npm run build` before running tests.** Many test suites depend on Next.js build artifacts. Without a build, tests may fail with `Could not find a production build` or other confusing errors.
+
+Always target the specific suite for the code you changed:
 
 ```bash
-npm test
+# By directory (recommended)
+npm test -- src/search/tests/
+
+# Single test file
+npm test -- src/versions/tests/versions.ts
 ```
+
+Some suites require environment variables or tests will fail with 404s or content mismatches. These suites have dedicated npm scripts that set the required variables automatically:
+
+```bash
+npm run test:article-api
+npm run test:changelogs
+npm run test:fixtures
+npm run test:landings
+npm run test:languages    # requires Elasticsearch running
+npm run test:search       # requires Elasticsearch running
+```
+
+For the `content-linter` suite, you can optionally scope to changed files:
+
+```bash
+DIFF_FILES="content/foo.md content/bar.md" \
+  npm test -- src/content-linter/tests/
+```
+
+All other suites (e.g., `versions`, `redirects`, `rest`, `frame`, `content-render`) can be run without special environment variables.
+
+### Running Elasticsearch locally
+
+The `search` and `languages` test suites require Elasticsearch on `localhost:9200`. To start it with Docker:
+
+```bash
+docker run -d \
+  -p 127.0.0.1:9200:9200 \
+  -e 'discovery.type=single-node' \
+  -e 'xpack.security.enabled=false' \
+  --name es-local \
+  docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+```
+
+Wait for it to be ready, then index the test fixtures:
+
+```bash
+curl --silent --fail http://localhost:9200  # verify ES is up
+ELASTICSEARCH_URL=http://localhost:9200/ npm run index-test-fixtures
+```
+
+After that, `npm run test:search` and `npm run test:languages` will work.
+
+See `.github/workflows/test.yml` for the full CI matrix and per-suite configuration.
 
 ### Running tests in watch mode
 
 Continuously re-runs tests on file changes:
 
 ```bash
-npm run test-watch
-```
-
-### Running specific tests
-
-```bash
-# By filename or path
-npm test -- <TEST_NAME>
-
-# By directory
-vitest src/search/tests
-
-# Single test file
-vitest src/versions/tests/versions.ts
+npm test -- --watch
 ```
 
 ### Viewing console output
@@ -77,11 +118,11 @@ npm test -- <TEST_NAME> --silent=false
 Some tests require a production build:
 
 ```bash
-npx next build
-npm test
+npm run build
+npm test -- src/<suite>/tests/
 ```
 
-Error: `Could not find a production build` means you need to run `next build`.
+Error: `Could not find a production build` means you need to run `npm run build`.
 
 ## Data & External Dependencies
 
@@ -176,7 +217,7 @@ npm run lint
 
 ### Known limitations
 - Optional dependencies must be installed for local testing
-- Some tests require production build (`next build`)
+- Some tests require production build (`npm run build`)
 - Server startup/shutdown adds overhead to test runs
 - Fixtures may lag behind actual content structure
 
@@ -203,17 +244,12 @@ Shared utilities belong in `src/tests/`:
 
 ### CI integration
 
-Tests run automatically in GitHub Actions:
-- On pull requests
-- On pushes to main
-- Various test suites in parallel for speed
-
-See `.github/workflows/` for CI configuration.
+Tests run automatically in GitHub Actions on pull requests and merge groups. Each test suite runs as a separate matrix job with its own environment variables—see `.github/workflows/test.yml` for the full configuration. Locally, always target a specific suite rather than running all tests at once.
 
 ### Troubleshooting
 
 **Tests fail with missing build:**
-Run `npx next build` before tests.
+Run `npm run build` before tests.
 
 **Tests hang or timeout:**
 Check if server started correctly. Use `DEBUG_MIDDLEWARE_TESTS=true`.

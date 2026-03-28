@@ -71,6 +71,7 @@ The following examples are not exhaustive.
 | OIDC trusts for {% data variables.product.prodname_actions %} deployments | The OIDC token is issued from `https://token.actions.githubusercontent.com`. | The OIDC token is issued from `https://token.actions.SUBDOMAIN.ghe.com` |
 | Raw URLs | `https://raw.githubusercontent.com/` | `https://raw.SUBDOMAIN.ghe.com/` |
 | Anonymized URLs for images and videos | `https://private-user-images.githubusercontent.com/` | `https://SUBDOMAIN.ghe.com/user-attachments/assets/` |
+| Cloning repositories using SSH | `git clone git@github.com:OWNER/REPOSITORY.git` | `git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPOSITORY.git` |
 
 {% endrowheaders %}
 

@@ -2387,6 +2387,30 @@
   ],
   "copilot": [
     {
+      "slug": "get-copilot-enterprise-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-1-day"
+    },
+    {
+      "slug": "get-copilot-enterprise-usage-metrics",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest"
+    },
+    {
+      "slug": "get-copilot-users-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-1-day"
+    },
+    {
+      "slug": "get-copilot-users-usage-metrics",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest"
+    },
+    {
       "slug": "get-copilot-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -2475,6 +2499,30 @@
       "subcategory": "copilot-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/metrics"
+    },
+    {
+      "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-1-day"
+    },
+    {
+      "slug": "get-copilot-organization-usage-metrics",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest"
+    },
+    {
+      "slug": "get-copilot-organization-users-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/users-1-day"
+    },
+    {
+      "slug": "get-copilot-organization-users-usage-metrics",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest"
     },
     {
       "slug": "get-copilot-seat-assignment-details-for-a-user",

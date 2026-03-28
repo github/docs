@@ -45,11 +45,11 @@ By default, users with {% data variables.copilot.copilot_coding_agent %} enabled
 
 Enterprise administrators and organization owners (for organization-owned repositories) and users (for user-owned repositories) can opt out repositories and prevent {% data variables.copilot.copilot_coding_agent %} from being used in those repositories.
 
-For information on disabling {% data variables.copilot.copilot_coding_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-copilot-coding-agent).
+For information on disabling {% data variables.copilot.copilot_coding_agent %} in some or all repositories owned by an organization, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
 
 For information on disabling {% data variables.copilot.copilot_coding_agent %} in all repositories owned by an enterprise, see [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-copilot-coding-agent-in-your-enterprise).
 
-For information on disabling {% data variables.copilot.copilot_coding_agent %} in some or all repositories owned by an organization, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
+For information on disabling {% data variables.copilot.copilot_coding_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-copilot-coding-agent).
 
 ## Further reading
 

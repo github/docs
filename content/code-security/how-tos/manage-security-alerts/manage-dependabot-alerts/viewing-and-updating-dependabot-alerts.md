@@ -58,7 +58,7 @@ By default, alerts are sorted by **Most important**, which helps you prioritize 
    ![Screenshot showing the "Tags" section in the alert details page.](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% ifversion dependabot-alerts-assignees %}
-1. On the right panel,  select an assignee by using the **Assignees** dropdown list. This clearly communicates who is responsible for triaging the alert so that no effort is wasted on repetitive analysis without worrying that alerts might fall through the cracks.
+1. On the right panel, select an assignee by using the **Assignees** dropdown list. You can assign the alert to a user or team to establish clear ownership, or assign it to {% data variables.product.prodname_copilot_short %} to automatically generate a fix. This clearly communicates who is responsible for triaging the alert and helps you avoid repetitive analysis. It also ensures that alerts are not missed.
 {% endif %}
 
 1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).

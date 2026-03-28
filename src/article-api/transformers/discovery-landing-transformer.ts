@@ -130,16 +130,13 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     }
 
     // Articles section: recursively gather descendant articles within
-    // this product section. Uses Liquid-only rendering for titles and intros
-    // instead of the full Markdown/unified pipeline, which would take 30s+
-    // for large sections like /rest (297 descendants × 2 renderContent calls).
-    // The basePath guard prevents cross-product recursion (e.g. /rest listing
-    // /enterprise-admin children that point outside the /rest hierarchy).
+    // this product section. The basePath guard prevents cross-product
+    // recursion (e.g. /rest listing /enterprise-admin children that
+    // point outside the /rest hierarchy).
     if (discoveryPage.children && discoveryPage.children.length > 0) {
       const tocItems = await getAllTocItems(page, context, {
         recurse: true,
         renderIntros: true,
-        liquidOnly: true,
       })
 
       // Flatten to get all leaf articles (excludeParents: true means only get articles, not category pages)

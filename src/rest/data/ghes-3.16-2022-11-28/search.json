@@ -555,9 +555,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -1799,9 +1796,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -2349,7 +2343,8 @@
               "required": [
                 "total_count",
                 "incomplete_results",
-                "items"
+                "items",
+                "search_type"
               ],
               "properties": {
                 "total_count": {
@@ -3733,11 +3728,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "default": true,
-                            "type": "boolean"
-                          },
                           "archived": {
                             "description": "Whether the repository is archived.",
                             "default": false,
@@ -5075,6 +5065,31 @@
                       "score"
                     ]
                   }
+                },
+                "search_type": {
+                  "type": "string",
+                  "description": "The type of search that was performed. Possible values are `lexical`, `semantic`, or `hybrid`.",
+                  "enum": [
+                    "lexical",
+                    "semantic",
+                    "hybrid"
+                  ]
+                },
+                "lexical_fallback_reason": {
+                  "type": "array",
+                  "description": "When a semantic or hybrid search falls back to lexical search, this field contains the reasons for the fallback. Only present when a fallback occurred.",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "no_text_terms",
+                      "quoted_text",
+                      "non_issue_target",
+                      "or_boolean_not_supported",
+                      "no_accessible_repos",
+                      "server_error",
+                      "only_non_semantic_fields_requested"
+                    ]
+                  }
                 }
               }
             }
@@ -5957,9 +5972,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean"
                       },
                       "archived": {
                         "type": "boolean"
