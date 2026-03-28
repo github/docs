@@ -66,9 +66,9 @@ jobs:
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
-          --health-interval 10s
+          --health-interval 1s
           --health-timeout 5s
-          --health-retries 5
+          --health-retries 30
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
@@ -119,9 +119,9 @@ jobs:
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
-          --health-interval 10s
+          --health-interval 1s
           --health-timeout 5s
-          --health-retries 5
+          --health-retries 30
 ```
 
 ### Configuring the steps for jobs in containers
@@ -184,9 +184,9 @@ jobs:
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
-          --health-interval 10s
+          --health-interval 1s
           --health-timeout 5s
-          --health-retries 5
+          --health-retries 30
         ports:
           # Maps tcp port 5432 on service container to the host
           - 5432:5432
@@ -241,9 +241,9 @@ jobs:
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
-          --health-interval 10s
+          --health-interval 1s
           --health-timeout 5s
-          --health-retries 5
+          --health-retries 30
         ports:
           # Maps tcp port 5432 on service container to the host
           - 5432:5432
