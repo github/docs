@@ -1,8 +1,7 @@
 {
   "name": "docs.github.com",
   "private": true,
-  
-```"repository": "[https://github.com/github/docs](https://github.com/github/docs)",
+  "repository": "[https://github.com/github/docs](https://github.com/github/docs)",
   "license": "(MIT AND CC-BY-4.0)",
   "author": {
     "name": "GitHub",
