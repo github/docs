@@ -52,8 +52,8 @@ Good DevOps practices ensure that your code is automatically tested before being
 
 However, it is good practice to regularly scan all code for vulnerabilities and secrets, and to prevent developers from introducing vulnerabilities in the first place.
 
-1. As a starting point, apply and enforce the **{% data variables.product.github %}-recommended security configuration** on your organizations. This is a collection of enablement settings for security features including {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and secrets push protection. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/applying-the-github-recommended-security-configuration-in-your-organization).
-1. As you learn more about your needs, create custom configurations or apply granular settings at the repository level.
+1. As a starting point, apply and enforce a basic **security configuration** on your organizations. This is a collection of enablement settings for security features. We recommend including {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and secrets push protection. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration#creating-a-secret-protection-and-code-security-configuration).
+1. As you learn more about your needs, create additional custom configurations or apply granular settings at the repository level.
 1. To enforce {% data variables.product.prodname_code_scanning %} on pull requests, go back to your ruleset and enable the **Require {% data variables.product.prodname_code_scanning %} results** rule.
 
 ## 4. Create guidelines for {% data variables.product.prodname_copilot_short %}
