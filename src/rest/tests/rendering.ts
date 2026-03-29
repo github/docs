@@ -15,9 +15,8 @@ describe('REST references docs', () => {
   test('loads schema data for all versions', async () => {
     for (const version of Object.keys(allVersions)) {
       const calendarDate = allVersions[version].latestApiVersion
-      const restData = await getRest(version, calendarDate)
-      const checksRestOperations =
-        (restData && restData['checks'] && restData['checks']['runs']) || []
+      const categoryData = await getRest(version, calendarDate, 'checks')
+      const checksRestOperations = (categoryData && categoryData['runs']) || []
       const $ = await getDOM(`/en/${version}/rest/checks/runs?restVersion=${calendarDate}`)
       const domH2Ids = $('h2')
         .map((i, h2) => $(h2).attr('id'))
@@ -29,7 +28,7 @@ describe('REST references docs', () => {
 
   // These tests exists because of issue #1960
   test('rest subcategory with fpt in URL', async () => {
-    for (const category of [
+    const categories = [
       'migrations',
       'actions',
       'activity',
@@ -58,7 +57,8 @@ describe('REST references docs', () => {
       'search',
       'teams',
       'users',
-    ]) {
+    ]
+    for (const category of categories) {
       // Without language prefix
       {
         const res = await get(`/free-pro-team@latest/rest/reference/${category}`)

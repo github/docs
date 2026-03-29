@@ -82,13 +82,13 @@ export async function getLintableYml(dataFilePath: string): Promise<Record<strin
 // 'data/variables/product.yml /pat_v1_caps'
 function addPathToKey(mdDictMap: Map<string, string>, dataFilePath: string): Map<string, string> {
   const keys = Array.from(mdDictMap.keys())
-  keys.forEach((key) => {
+  for (const key of keys) {
     const newKey = `${dataFilePath} ${key}`
     const value = mdDictMap.get(key)
     if (value !== undefined) {
       mdDictMap.delete(key)
       mdDictMap.set(newKey, value)
     }
-  })
+  }
   return mdDictMap
 }

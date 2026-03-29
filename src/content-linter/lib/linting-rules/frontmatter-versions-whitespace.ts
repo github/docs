@@ -4,7 +4,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types
 
 interface Frontmatter {
   versions?: Record<string, string | string[]>
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export const frontmatterVersionsWhitespace: Rule = {
@@ -23,8 +23,8 @@ export const frontmatterVersionsWhitespace: Rule = {
     if (fmStartIndex === -1) return
 
     // Check each version entry for whitespace issues
-    Object.entries(versionsObj).forEach(([key, value]) => {
-      if (typeof value !== 'string') return
+    for (const [key, value] of Object.entries(versionsObj)) {
+      if (typeof value !== 'string') continue
 
       const hasUnwantedWhitespace = checkForUnwantedWhitespace(value)
       if (hasUnwantedWhitespace) {
@@ -55,7 +55,7 @@ export const frontmatterVersionsWhitespace: Rule = {
           )
         }
       }
-    })
+    }
   },
 }
 

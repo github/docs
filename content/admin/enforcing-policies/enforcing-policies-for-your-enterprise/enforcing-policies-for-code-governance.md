@@ -1,17 +1,14 @@
 ---
 title: Enforcing code governance in your enterprise with rulesets
 allowTitleToDifferFromFilename: true
-intro: 'You can create a ruleset to target multiple repositories in your enterprise.'
+intro: You can create a ruleset to target multiple repositories in your enterprise.
 versions:
   feature: enterprise-code-rulesets
-permissions: 'Enterprise owners'
+permissions: Enterprise owners
 shortTitle: Create rulesets
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Repositories
-  - Security
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## Introduction
@@ -63,6 +60,9 @@ The following are eligible for bypass access:
 * Enterprise teams, enterprise apps, and enterprise roles ({% data variables.release-phases.public_preview %})
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys.
+{%- ifversion ghec %}
+* {% data variables.copilot.copilot_coding_agent %}. For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent#limitations-in-copilot-coding-agents-compatibility-with-other-features).
+{%- endif %}
 
 1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **Add bypass**.
 
@@ -120,6 +120,9 @@ You can grant certain roles, teams, or apps bypass permissions as well as the ab
 * Enterprise teams, enterprise apps, and enterprise roles ({% data variables.release-phases.public_preview %})
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys
+{%- ifversion ghec %}
+* {% data variables.copilot.copilot_coding_agent %}. For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent#limitations-in-copilot-coding-agents-compatibility-with-other-features).
+{%- endif %}
 
 1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **Add bypass**.
 1. In the "Add bypass" modal dialog that appears, search for the role, team, or app you would like to grant bypass permissions, then select the role, team, or app from the "Suggestions" section and click Add Selected.

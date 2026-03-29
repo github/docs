@@ -2,9 +2,8 @@
 title: GitHub Copilot Extension Developer Policy
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review product and program terms
 ---
 
 > Last Updated: October 20, 2025

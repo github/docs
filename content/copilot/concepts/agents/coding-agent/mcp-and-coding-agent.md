@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: Find out about using the Model Context Protocol (MCP) with {% data variables.copilot.copilot_coding_agent %}.
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 redirect_from:
   - /copilot/concepts/coding-agent/mcp-and-coding-agent
@@ -46,7 +44,7 @@ For details of how to set up MCP servers for {% data variables.copilot.copilot_c
 
 ## MCP servers for {% data variables.copilot.custom_agents_short %}
 
-Organization and enterprise administrators can also configure MCP servers as part of {% data variables.copilot.custom_agents_short %}.
+You can also configure MCP servers for {% data variables.copilot.custom_agents_short %}.
 
 MCP servers configured in {% data variables.copilot.custom_agents_short %} are available only to that specific agent and follow the same processing order as other MCP configurations, with {% data variables.copilot.copilot_custom_agent_short %} MCP settings processed after default servers but before repository-level configurations.
 

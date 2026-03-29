@@ -122,18 +122,18 @@ async function main(opts: MainOptions, args: string[]) {
         const helpIndices = getIndicesOf('GitHub.help_url', contents)
         helpIndices.push(...getIndicesOf('GitHub.developer_help_url', contents))
         if (docsIndices.length > 0) {
-          docsIndices.forEach((numIndex) => {
+          for (const numIndex of docsIndices) {
             // Assuming we don't have links close to 500 characters long
             const docsLink = contents.substring(numIndex, numIndex + 500).match(urlRegEx)
             if (!docsLink) return
             const linkURL = new URL(docsLink[0].toString().replace(/[^a-zA-Z0-9]*$|\\n$/g, ''))
             const linkPath = linkURL.pathname + linkURL.hash
             docsLinksFiles.push({ linkPath, file })
-          })
+          }
         }
 
         if (helpIndices.length > 0) {
-          helpIndices.forEach((numIndex) => {
+          for (const numIndex of helpIndices) {
             // There are certain links like #{GitHub.help_url}#{learn_more_path} and #{GitHub.developer_help_url}#{learn_more_path} that we should skip
             if (
               (contents.substring(numIndex, numIndex + 11) === 'GitHub.help' &&
@@ -170,7 +170,7 @@ async function main(opts: MainOptions, args: string[]) {
 
               docsLinksFiles.push({ linkPath, file })
             }
-          })
+          }
         }
       }
     }

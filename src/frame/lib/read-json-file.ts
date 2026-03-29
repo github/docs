@@ -1,18 +1,15 @@
 import fs from 'fs'
 import { brotliDecompressSync } from 'zlib'
 
-// Returns parsed JSON which can be any valid JSON type
-export default function readJsonFile(xpath: string): any {
+export default function readJsonFile(xpath: string): unknown {
   return JSON.parse(fs.readFileSync(xpath, 'utf8'))
 }
 
-// Returns parsed JSON which can be any valid JSON type
-export function readCompressedJsonFile(xpath: string): any {
+export function readCompressedJsonFile(xpath: string): unknown {
   if (!xpath.endsWith('.br')) {
     xpath += '.br'
   }
-  // Cast to any needed due to TypeScript's strict typing of Buffer vs expected input types for brotliDecompressSync
-  return JSON.parse(brotliDecompressSync(fs.readFileSync(xpath) as any).toString())
+  return JSON.parse(brotliDecompressSync(fs.readFileSync(xpath)).toString())
 }
 
 // Ask it to read a `foo.json` file and it will automatically
@@ -22,13 +19,11 @@ export function readCompressedJsonFile(xpath: string): any {
 // possible (in terms of disk) for them to deploy faster. So the
 // staging deployment process will compress a bunch of large
 // `.json` files before packaging it up.
-// Returns parsed JSON which can be any valid JSON type
-export function readCompressedJsonFileFallback(xpath: string): any {
+export function readCompressedJsonFileFallback(xpath: string): unknown {
   try {
     return readCompressedJsonFile(xpath)
-  } catch (err: any) {
-    // err is any because fs errors can have various shapes with code property
-    if (err.code === 'ENOENT') {
+  } catch (err: unknown) {
+    if (err instanceof Error && 'code' in err && (err as NodeJS.ErrnoException).code === 'ENOENT') {
       return readJsonFile(xpath)
     } else {
       throw err
@@ -42,10 +37,8 @@ const globalCacheCounter: Record<string, number> = {}
 
 // Wrapper on readCompressedJsonFileFallback that initially only checks
 // if the file exists but doesn't read the content till you call it.
-// Returns a function that returns parsed JSON which can be any valid JSON type
-export function readCompressedJsonFileFallbackLazily(xpath: string): () => any {
-  // Cache stores parsed JSON values which can be any valid JSON type
-  const cache = new Map<string, any>()
+export function readCompressedJsonFileFallbackLazily(xpath: string): () => unknown {
+  const cache = new Map<string, unknown>()
   // This will throw if the file isn't accessible at all, e.g. ENOENT
   // But, the file might have been replaced by one called `SAMENAME.json.br`
   // because in staging, we ship these files compressed to make the
@@ -53,14 +46,16 @@ export function readCompressedJsonFileFallbackLazily(xpath: string): () => any {
   // account for that.
   try {
     fs.accessSync(xpath)
-  } catch (err: any) {
-    // err is any because fs errors can have various shapes with code property
-    if (err.code === 'ENOENT') {
+  } catch (err: unknown) {
+    if (err instanceof Error && 'code' in err && (err as NodeJS.ErrnoException).code === 'ENOENT') {
       try {
         fs.accessSync(`${xpath}.br`)
-      } catch (innerErr: any) {
-        // innerErr is any because fs errors can have various shapes with code property
-        if (innerErr.code === 'ENOENT') {
+      } catch (innerErr: unknown) {
+        if (
+          innerErr instanceof Error &&
+          'code' in innerErr &&
+          (innerErr as NodeJS.ErrnoException).code === 'ENOENT'
+        ) {
           throw new Error(`Neither ${xpath} nor ${xpath}.br is accessible`)
         }
         throw innerErr

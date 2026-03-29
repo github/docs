@@ -7,11 +7,13 @@ import type { ExtendedRequest } from '@/types'
 import type { Response } from 'express'
 
 import { schemas, hydroNames } from './lib/schema'
+import type { EventT } from './lib/hydro'
 import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
 import { noCacheControl } from '@/frame/middleware/cache-control'
 import { getJsonValidator } from '@/tests/lib/validate-json-schema'
 import { formatErrors } from './lib/middleware-errors'
 import { publish as _publish } from './lib/hydro'
+import { DOTCOM_USER_COOKIE_NAME, STAFFONLY_COOKIE_NAME } from '@/frame/lib/constants'
 import { analyzeComment, getGuessedLanguage } from './lib/analyze-comment'
 import { EventType, EventProps, EventPropsByType } from './types'
 
@@ -54,8 +56,8 @@ router.post(
     noCacheControl(res)
 
     const eventsToProcess = Array.isArray(req.body) ? req.body : [req.body]
-    const validEvents: any[] = []
-    const validationErrors: any[] = []
+    const validEvents: EventT[] = []
+    const validationErrors: EventT[] = []
 
     for (const eventBody of eventsToProcess) {
       try {
@@ -76,8 +78,10 @@ router.post(
         if (body.context) {
           // Add dotcom_user to the context if it's available
           // JSON.stringify removes `undefined` values but not `null`, and we don't want to send `null` to Hydro
-          body.context.dotcom_user = req.cookies?.dotcom_user ? req.cookies.dotcom_user : undefined
-          body.context.is_staff = Boolean(req.cookies?.staffonly)
+          body.context.dotcom_user = req.cookies?.[DOTCOM_USER_COOKIE_NAME]
+            ? req.cookies[DOTCOM_USER_COOKIE_NAME]
+            : undefined
+          body.context.is_staff = Boolean(req.cookies?.[STAFFONLY_COOKIE_NAME])
           // Add IP address and user agent from request
           // Moda forwards the client's IP using the `fastly-client-ip` header
           body.context.ip = req.headers['fastly-client-ip'] as string | undefined

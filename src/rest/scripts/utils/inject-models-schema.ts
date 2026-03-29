@@ -64,36 +64,18 @@ export async function injectModelsSchema(schema: any, schemaName: string): Promi
 
         // Use values from the YAML where possible
         const name = operationObject.summary || ''
-        const description = operationObject.description || ''
-        const category = operationObject['x-github']?.category || 'models'
 
         console.log(`⏳ Processing operation: ${name} (${path} ${operation})`)
 
-        // Create enhanced operation preserving all original fields
-        // TODO this should be cleaned up, most can be removed
+        // Create enhanced operation with custom fields needed for our REST docs
+        // The spread operator preserves all original OpenAPI fields
         const enhancedOperation = {
-          ...operationObject, // Keep all original fields
-          operationId: operationObject.operationId, // Preserve original operationId with namespace
-          tags: operationObject.tags || ['models'], // Only use 'models' if no tags present
+          ...operationObject,
+          // Add custom fields for our docs processing
           verb: operation,
           requestPath: path,
-          category,
-          subcategory: operationObject['x-github']?.subcategory || '',
-          summary: name,
-          description,
-          'x-github': {
-            ...operationObject['x-github'], // Preserve all x-github metadata
-            category,
-            enabledForGitHubApps: operationObject['x-github']?.enabledForGitHubApps,
-            githubCloudOnly: operationObject['x-github']?.githubCloudOnly,
-            permissions: operationObject['x-github']?.permissions || {},
-            externalDocs: operationObject['x-github']?.externalDocs || {},
-          },
-          parameters: operationObject.parameters || [],
-          responses: {
-            ...operationObject.responses,
-            '200': operationObject.responses?.['200'],
-          },
+          // Override tags with default if not present
+          tags: operationObject.tags || ['models'],
         }
 
         // Preserve operation-level servers if present

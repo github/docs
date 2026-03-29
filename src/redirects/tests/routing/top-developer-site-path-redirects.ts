@@ -12,7 +12,6 @@ describe('developer.github.com redirects', () => {
     '/webhooks',
     '/v3/guides/managing-deploy-keys',
     '/apps/building-oauth-apps/authorizing-oauth-apps',
-    '/v4/explorer',
     '/v3/search',
     '/apps',
     '/v3/activity/events/types',

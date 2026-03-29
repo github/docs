@@ -4,8 +4,6 @@ shortTitle: Modernize legacy code
 intro: '{% data variables.copilot.copilot_chat_short %} helps modernize legacy code by suggesting refactors and creating tests to catch potential issues.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/modernizing-legacy-code-with-github-copilot
   - /copilot/tutorials/modernizing-legacy-code-with-github-copilot

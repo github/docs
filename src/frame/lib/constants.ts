@@ -1,22 +1,35 @@
-const isDev = process.env.NODE_ENV === 'development'
-
-// 10 seconds, by default in production and tests.
-// 15 seconds, by default in development.
-// Why more in development? Because Next.js compilation is JIT (Just-In-Time)
-// so that starting `npm start` and viewing your first page on localhost:4000
-// can, these days, take more than 10 seconds when the computer isn't
-// very fast. That first compilation can take long even of fast hardware
-// if the local contributor is running several other resource-intensive
-// applications at the same time.
-const DEFAULT_MAX_REQUEST_TIMEOUT = isDev ? 15_000 : 10_000
-
 export const ROOT = process.env.ROOT || '.'
-export const USER_LANGUAGE_COOKIE_NAME = 'user_language'
 export const TRANSLATIONS_ROOT = process.env.TRANSLATIONS_ROOT || 'translations'
+export const TRANSLATIONS_FIXTURE_ROOT = process.env.TRANSLATIONS_FIXTURE_ROOT
+
+const isDev = process.env.NODE_ENV === 'development'
+// Higher in development to account for JIT compilation on first page load.
+const DEFAULT_MAX_REQUEST_TIMEOUT = isDev ? 15_000 : 10_000
 export const MAX_REQUEST_TIMEOUT = process.env.REQUEST_TIMEOUT
   ? parseInt(process.env.REQUEST_TIMEOUT, 10)
   : DEFAULT_MAX_REQUEST_TIMEOUT
-export const TRANSLATIONS_FIXTURE_ROOT = process.env.TRANSLATIONS_FIXTURE_ROOT
+
+// Docs cookies — we own these and use snake_case naming.
+export const USER_LANGUAGE_COOKIE_NAME = 'user_language' // Also referenced in Fastly VCL
+export const USER_VERSION_COOKIE_NAME = 'user_version' // Also referenced in Fastly VCL
+export const API_VERSION_COOKIE_NAME = 'api_version_preferred'
+export const ANNOTATE_MODE_COOKIE_NAME = 'annotate_mode'
+export const CODE_SAMPLE_LANGUAGE_COOKIE_NAME = 'code_sample_language_preferred'
+export const TOOL_PREFERRED_COOKIE_NAME = 'tool_preferred'
+export const OS_PREFERRED_COOKIE_NAME = 'os_preferred'
+export const DOCS_EVENTS_COOKIE_NAME = 'docs_events'
+export const MACHINE_TRANSLATION_BANNER_COOKIE_NAME = 'machine_translation_banner_seen'
+
+// Monolith cookies — set by github.com, read-only for us. Names are not
+// ours to change so they don't follow our snake_case convention.
+export const COLOR_MODE_COOKIE_NAME = 'color_mode'
+export const PREFERRED_COLOR_MODE_COOKIE_NAME = 'preferred_color_mode'
+export const DOTCOM_USER_COOKIE_NAME = 'dotcom_user'
+export const STAFFONLY_COOKIE_NAME = 'staffonly'
+
+// Feature flags
+export const ANALYTICS_ENABLED = true
+export const HOVERCARDS_ENABLED = true
 
 // Minimum required HTML for 404: W3C valid, no external, legal.
 export const minimumNotFoundHtml = `

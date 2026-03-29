@@ -6,8 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
+category:
+  - Set up and manage webhooks
 ---
 
 ## Subscribe to the minimum number of events

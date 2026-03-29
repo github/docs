@@ -5,6 +5,9 @@ Available permissions and details of what each allows an action to do:
 | Permission | Allows an action using `GITHUB_TOKEN` to |
 | --- | --- |
 |  `actions` | Work with GitHub Actions. For example, `actions: write` permits an action to cancel a workflow run. For more information, see [AUTOTITLE](/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-actions). |
+| {% ifversion artifact-metadata %} |
+|  `artifact-metadata` | Work with artifact metadata. For example, `artifact-metadata: write` permits an action to create storage records on behalf of a build artifact. For more information, see [AUTOTITLE](/rest/orgs/artifact-metadata?apiVersion=2022-11-28). |
+| {% endif %} |
 | {% ifversion artifact-attestations %} |
 |  `attestations` | Work with artifact attestations. For example, `attestations: write` permits an action to generate an artifact attestation for a build. For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds) |
 | {% endif %} |

@@ -56,9 +56,10 @@ export default function getEnglishHeadings(
 
   // return a map from translation:English
   const headingMap: Record<string, string> = {}
-  translatedHeadings.forEach((k: string, i: number) => {
+  for (let i = 0; i < translatedHeadings.length; i++) {
+    const k = translatedHeadings[i]
     headingMap[k] = englishHeadings[i]
-  })
+  }
   return headingMap
 }
 

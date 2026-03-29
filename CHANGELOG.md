@@ -1,19 +1,338 @@
 # Docs changelog
 
+**26 March 2026**
+
+If you use both Copilot CLI and VS Code, when you start the CLI it will automatically connect to a currently open VS Code workspace that matches the directory in which you're using the CLI. You can also manually connect to VS Code by using the `/ide` slash command.
+
+This new article documents this feature and outlines the benefits of sharing context, trust settings, and output between Copilot CLI and VS Code:
+
+[Connecting GitHub Copilot CLI to VS Code](https://docs.github.com/en/copilot/how-tos/copilot-cli/connecting-vs-code)
+
+<hr>
+
+**23 March 2026**
+
+We've added an article with details of the various command-line options for allowing/denying tools that Copilot CLI can use.
+
+[Allowing and denying tool use](https://docs.github.com/en/copilot/how-tos/copilot-cli/allowing-tools)
+
+<hr>
+
+**18 March 2026**
+
+We added documentation for using session data in Copilot CLI—including the `/chronicle` slash command:
+
+* [About GitHub Copilot CLI session data](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle)
+* [Using GitHub Copilot CLI session data](https://docs.github.com/copilot/how-tos/copilot-cli/chronicle)
+
+<hr>
+
+**17 March 2026**
+
+We published [Maintaining codebase standards in a GitHub Copilot rollout](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/roll-out-at-scale/maintain-codebase-standards).
+
+The guide shows how customers can create a strong governance framework for Copilot by leveraging GitHub's enterprise-grade platform alongside cultural best practices.
+
+We also published [Resources for getting approval of GitHub Copilot](https://docs.github.com/enterprise-cloud@latest/copilot/get-started/resources-for-approval), a guide that collects resources for enterprise admins to send to legal, compliance, and cybersecurity teams in their company.
+
+<hr>
+
+**5 March 2026**
+
+We've updated our documentation to include a series of articles about the GitHub integration in Teams (previously, docs for the integration lived in a public repository).
+
+See [GitHub integration in Teams](https://docs.github.com/integrations/how-tos/teams).
+
+<hr>
+
+**4 March 2026**
+
+We've published a new article to coincide with the public preview of the Copilot coding agent for Jira integration.
+
+See [Integrating Copilot coding agent with Jira](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira).
+
+<hr>
+
+**3 March 2026**
+
+We've added a new reference article, [Copilot customization cheat sheet](https://docs.github.com/copilot/reference/customization-cheat-sheet), to help you choose the right Copilot customization approach for your workflow.
+
+The article compares Copilot customization options, including what each one does, how to configure it, and where it is supported across IDEs and Copilot surfaces. It also explains what each option is best for, with common use cases to help you decide what to use.
+
+<hr>
+
+**2 March 2026**
+
+We've added an article about the new `/research` slash command in Copilot CLI:
+
+[Researching with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/research)
+
+<hr>
+
+**27 February 2026**
+
+We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/copilot/reference/cli-command-reference#custom-agents-reference).
+
+<hr>
+
+**25 February 2026**
+
+We've added many new articles to coincide with the [general availability release](https://github.blog/changelog/2026-02-25-github-copilot-cli-is-now-generally-available/) of Copilot CLI. These include:
+
+* A [new landing page](https://docs.github.com/copilot/how-tos/copilot-cli) for Copilot CLI documentation, with a CLI-specific search facility.
+* [New conceptual articles](https://docs.github.com/copilot/concepts/agents/copilot-cli) explaining plugins, autopilot mode, the `/fleet` slash command, and a comparison of CLI features.
+* New how-to articles on [setting up](https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli) and [customizing](https://docs.github.com/copilot/how-tos/copilot-cli/customize-copilot) the CLI.
+* An article on [administering Copilot CLI for your enterprise](https://docs.github.com/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise).
+* More reference information about [commands](https://docs.github.com/copilot/reference/cli-command-reference) and [plugins](https://docs.github.com/copilot/reference/cli-plugin-reference).
+
+<hr>
+
+**23 February 2026**
+
+Added a new how-to article, [Automating tasks with Copilot CLI and GitHub Actions](https://docs.github.com/copilot/how-tos/copilot-cli/automate-with-actions), that walks through how to run Copilot CLI inside a GitHub Actions workflow in non-interactive (programmatic) mode. The article covers the full pattern—trigger, setup, install, authenticate, and run—and includes an example workflow that generates a daily summary of repository changes.
+
+<hr>
+
+**17 February 2026**
+
+We’ve added a new tutorial, "[Using hooks with Copilot CLI for predictable, policy-compliant execution](https://docs.github.com/copilot/tutorials/copilot-cli-hooks)", to help teams configure repository-scoped hooks that log prompts and tool usage, enforce guardrails with `preToolUse`, and roll out policies safely across repositories.
+
+This tutorial helps organizations adopt Copilot CLI automation with clear guardrails, improving security, auditability, and confidence, without blocking legitimate development workflows.
+
+<hr>
+
+**4 February 2026**
+
+We've published a new tutorial on [using GitHub Copilot coding agent to improve a project](https://docs.github.com/copilot/tutorials/coding-agent/improve-a-project).
+
+<hr>
+
+**20 January 2026**
+
+We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version. 
+
+Historically, keeping Copilot feature and IDE availability up to date has required manual coordination with the Docs team, which does not scale well with the increasing number of features. The goal of this document and its process is to enable product owners to directly maintain the Copilot feature and IDE availability information as part of their normal release workflow. The feature matrix provides a single, easy to update source of truth.
+
+The feature matrix is in public preview so that customers have time to gather and submit feedback to us. 
+
+<hr>
+
+**16 January 2026**
+
+The following new articles support the public preview release of Copilot Memory:
+
+* [About agentic memory for GitHub Copilot](https://docs.github.com/copilot/concepts/agents/copilot-memory)
+* [Enabling and curating Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory)
+
+<hr>
+
+**16 January 2026**
+
+We published [About user offboarding on GitHub Enterprise Cloud](https://docs.github.com/enterprise-cloud@latest/admin/concepts/identity-and-access-management/user-offboarding) to give enterprise customers clear guidance about offboarding processes. The article covers recommended offboarding methods, the effects of offboarding, and what happens when a user is removed from all organizations in an enterprise.
+
+We also updated [Removing a member from your enterprise](https://docs.github.com/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise) and [Removing a member from your organization](https://docs.github.com/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization) to include instructions for enterprises that use Enterprise Managed Users or SCIM for organizations.
+
+<hr>
+
+**13 January 2026**
+
+We've added a new reference article to clarify which of the various types of custom instructions for Copilot are supported by Copilot Chat, Copilot coding agent, and Copilot code review in GitHub.com, Visual Studio Code, Visual Studio, JetBrains IDEs, Eclipse, Xcode, and Copilot CLI.
+
+[Support for different types of custom instructions](https://docs.github.com/copilot/reference/custom-instructions-support)
+
+<hr>
+
+**8 January 2026**
+
+We've added information about permissions to the article [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#permissions).
+
+<hr>
+
+**18 December 2025**
+
+The documentation has been updated to reflect the general availability of direct organization billing for premium request usage in Copilot Code Review. Organization members without a Copilot plan can now use Copilot Code Review on GitHub.com, with premium request usage billed directly to their organization or enterprise. See [Copilot code review without a Copilot license](https://docs.github.com/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
+
+<hr>
+
+**16 December 2025**
+
+We've added [a tutorial](https://docs.github.com/copilot/tutorials/modernize-java-applications) on how Copilot can help modernize and migrate Java applications by assessing your codebase, identifying upgrade paths, and automating remediation and containerization tasks.
+
+<hr>
+
+**9 December 2025**
+
+We published [a guide](https://docs.github.com/enterprise-cloud@latest/admin/concepts/enterprise-best-practices/use-innersource) to help customers set up innersource practices in their enterprise. The guide also provides a conceptual introduction to features like internal visibility, organization base permissions, and roles for external collaborators.
+
+<hr>
+
+**8 December 2025**
+
+We've added a new tutorial on how to use Copilot Chat to write code for you. The tutorial steps you through how to create a time tracking web app using only prompts in Copilot Chat.
+
+[Vibe coding with GitHub Copilot](https://docs.github.com/copilot/tutorials/vibe-coding)
+
+<hr>
+
+**5 December 2025**
+
+We added documentation for the new Code generation tab, which is part of Copilot usage metrics. The docs now describe how to view code generation insights across your enterprise, compare user-initiated and agent-initiated behavior, and understand differences across models, languages, and modes. We also updated related conceptual and reference content for consistency and scannability. See [Viewing the code generation dashboard](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/view-code-generation).
+
+<hr>
+
+**2 December 2025**
+
+You can now share Copilot Spaces publicly. See [Collaborating with others using GitHub Copilot Spaces](https://docs.github.com/copilot/how-tos/provide-context/use-copilot-spaces/collaborate-with-others#sharing-spaces).
+
+You can also now add files to a Copilot Space directly from the code view on GitHub, so you don't need to break your flow when building context for your space. See [Creating GitHub Copilot Spaces](https://docs.github.com/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces#adding-context-as-youre-working).
+
+<hr>
+
+**25 November 2025**
+
+We've added details of files that are excluded from Copilot code reviews. 
+
+See [About GitHub Copilot code review](https://docs.github.com/copilot/concepts/agents/code-review#excluded-files).
+
+<hr>
+
+**24 November 2025**
+
+We've added a new tutorial on burning down technical debt in a project: 
+
+[Using GitHub Copilot to reduce technical debt](https://docs.github.com/copilot/tutorials/reduce-technical-debt)
+
+The addition of this tutorial was prompted by a presentation by Brittany Ellich at this year's GitHub Universe conference: [Tackling your tech debt with Copilot coding agent](https://www.youtube.com/watch?v=LafpndhNC_E), and is based on a GitHub community post by Akash Sharma: [Stop Letting Technical Debt Slow You Down](https://github.com/orgs/community/discussions/178975).
+
+<hr>
+
+**13 November 2025**
+
+We've published a new tutorial on [using custom instructions for Copilot code review](https://docs.github.com/copilot/tutorials/use-custom-instructions). In this tutorial you'll learn how to write effective custom instructions that help Copilot provide more relevant and actionable code reviews.
+
+<hr>
+
+**31 October 2025**
+
+A large amount of new information was added to the GitHub documentation website to coincide with the GitHub Universe 2025 conference. Here are links to some of the new and updated articles.
+
+**_New articles_**
+
+GitHub Copilot documentation:
+* [Setting up a dedicated enterprise for GitHub Copilot Business](https://docs.github.com/copilot/how-tos/set-up/set-up-a-dedicated-enterprise-for-copilot-business)
+* [About Copilot integrations](https://docs.github.com/copilot/concepts/tools/about-copilot-integrations)
+* [Integrating Copilot coding agent with Linear](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-linear)
+* [Integrating Copilot coding agent with Slack](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack)
+* [Changing your MCP registry in your IDE](https://docs.github.com/copilot/how-tos/provide-context/use-mcp/change-mcp-registry)
+* [GitHub Copilot usage metrics](https://docs.github.com/copilot/concepts/copilot-metrics)
+* [Viewing the Copilot usage metrics dashboard](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/view-usage-and-adoption)
+* [Data available in Copilot usage metrics](https://docs.github.com/copilot/reference/copilot-usage-metrics/copilot-usage-metrics)
+* [Interpreting usage and adoption metrics for GitHub Copilot](https://docs.github.com/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics)
+* [Reconciling Copilot usage metrics across dashboards, APIs, and reports](https://docs.github.com/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics)
+* [Tracking license activation and initial usage with Copilot usage metrics](https://docs.github.com/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption)
+* [Lines of Code metrics](https://docs.github.com/copilot/reference/copilot-usage-metrics/lines-of-code-metrics)
+* [Measuring the success of a GitHub Copilot trial](https://docs.github.com/copilot/tutorials/roll-out-at-scale/measure-success)
+* [About custom agents](https://docs.github.com/copilot/concepts/agents/coding-agent/about-custom-agents)
+* [Creating custom agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+* [Custom agents configuration](https://docs.github.com/copilot/reference/custom-agents-configuration)
+* [Custom agents: Bug fix teammate](https://docs.github.com/copilot/tutorials/customization-library/custom-agents/bug-fix-teammate)
+* [Custom agents: Cleanup specialist](https://docs.github.com/copilot/tutorials/customization-library/custom-agents/cleanup-specialist)
+* [Custom agents: Implementation planner](https://docs.github.com/copilot/tutorials/customization-library/custom-agents/implementation-planner)
+* [Your first custom agent](https://docs.github.com/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent)
+* [Agent management for enterprises](https://docs.github.com/copilot/concepts/agents/enterprise-management)
+* [Monitoring agentic activity in your enterprise](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity)
+* [Preparing to use custom agents in your enterprise](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
+* [Preparing to use custom agents in your organization](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents)
+* [Audit log events for agents](https://docs.github.com/copilot/reference/agentic-audit-log-events)
+* [About agent management](https://docs.github.com/copilot/concepts/agents/coding-agent/agent-management)
+* [Managing Copilot coding agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/manage-agents)
+* [OpenAI Codex](https://docs.github.com/copilot/concepts/agents/openai-codex)
+
+Security and code quality documentation:
+* [Enabling extended metadata checks for your repository](https://docs.github.com/code-security/secret-scanning/enabling-secret-scanning-features/enabling-extended-metadata-checks-for-your-repository)
+* [About GitHub Code Quality](https://docs.github.com/code-security/code-quality/concepts/about-code-quality)
+* [Quickstart for GitHub Code Quality](https://docs.github.com/code-security/code-quality/get-started/quickstart)
+* [Allowing use of GitHub Code Quality in your enterprise](https://docs.github.com/code-security/code-quality/how-tos/allow-in-enterprise)
+* [Enabling GitHub Code Quality](https://docs.github.com/code-security/code-quality/how-tos/enable-code-quality)
+* [Interpreting the code quality results for your repository](https://docs.github.com/code-security/code-quality/how-tos/interpret-results)
+* [Setting code quality thresholds for pull requests](https://docs.github.com/code-security/code-quality/how-tos/set-pr-thresholds)
+* [Resolving a block on your pull request](https://docs.github.com/code-security/code-quality/how-tos/unblock-your-pr)
+* [CodeQL detection of code quality problems](https://docs.github.com/code-security/code-quality/reference/codeql-detection)
+* [Metrics and ratings reference](https://docs.github.com/code-security/code-quality/reference/metrics-and-ratings)
+* [Responsible use of GitHub Code Quality](https://docs.github.com/code-security/code-quality/responsible-use/code-quality)
+* [Fixing code quality findings before merging your pull request](https://docs.github.com/code-security/code-quality/tutorials/fix-findings-in-prs)
+* [Improving the quality of recently merged code with AI](https://docs.github.com/code-security/code-quality/tutorials/improve-recent-merges)
+* [Improving the quality of your repository's code](https://docs.github.com/code-security/code-quality/tutorials/improve-your-codebase)
+
+GitHub integrations:
+* [Customizing notifications for GitHub in Slack](https://docs.github.com/integrations/how-tos/slack/customize-notifications)
+* [Integrating GitHub with Slack](https://docs.github.com/integrations/how-tos/slack/integrate-github-with-slack)
+* [Using GitHub in Slack](https://docs.github.com/integrations/how-tos/slack/use-github-in-slack)
+* [Permissions for GitHub in Slack](https://docs.github.com/integrations/reference/slack-permissions)
+* [Creating issues with the GitHub integration in Slack](https://docs.github.com/integrations/tutorials/slack/create-issues)
+* [Managing issues with the GitHub integration in Slack](https://docs.github.com/integrations/tutorials/slack/manage-issues)
+
+GitHub Actions:
+* [Using custom images](https://docs.github.com/actions/how-tos/manage-runners/larger-runners/use-custom-images)
+* [Using proxy servers with a runner](https://docs.github.com/actions/how-tos/manage-runners/use-proxy-servers)
+
+Enterprise administrator documentation:
+* [Custom properties](https://docs.github.com/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties)
+* [Managing custom properties for organizations](https://docs.github.com/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organizations)
+* [Controlling user offboarding with the unaffiliated users policy](https://docs.github.com/admin/enforcing-policies/enforcing-policies-for-your-enterprise/control-offboarding)
+
+Enterprise onboarding:
+* [Adding users to your enterprise](https://docs.github.com/enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise)
+* [Creating enterprise apps](https://docs.github.com/enterprise-onboarding/github-apps/create-enterprise-apps)
+* [Installing enterprise apps](https://docs.github.com/enterprise-onboarding/github-apps/install-enterprise-apps)
+* [About enterprise policies](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/about-enterprise-policies)
+* [Creating custom properties for repositories in your enterprise](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/create-custom-properties)
+* [Defining policies for repositories in your enterprise](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/create-repository-policies)
+* [Protecting branches in your enterprise with rulesets](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/protect-branches)
+* [Using the audit log for your enterprise](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/using-the-audit-log-for-your-enterprise)
+* [About roles in an enterprise](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/about-roles-in-an-enterprise)
+* [About teams in an enterprise](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/about-teams-in-an-enterprise)
+* [Assigning roles to teams and users](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/assigning-roles-to-teams-and-users)
+* [Best practices for organizing work in your enterprise](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/best-practices)
+* [Creating custom roles](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/creating-custom-roles)
+* [Identifying the roles required by your enterprise](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/identify-role-requirements)
+
+Billing documentation:
+* [GitHub Code Quality billing](https://docs.github.com/billing/concepts/product-billing/github-code-quality)
+
+**_Updated articles_**
+
+This is just a very small selection of the articles that were updated for Universe 2025.
+
+* [About GitHub Copilot code review](https://docs.github.com/copilot/concepts/agents/code-review) - new conceptual information.
+* [Fixing alerts in a security campaign](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign) - new information on assigning alerts to Copilot coding agent.
+* [Resolving code scanning alerts](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts) - new information on assigning alerts to Copilot coding agent.
+* [Available rules for rulesets](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) - new information on blocking force pushes.
+* [GitHub-hosted runners reference](https://docs.github.com/actions/reference/runners/github-hosted-runners) - new information about single-CPU Actions runners.
+* [Events that trigger workflows](https://docs.github.com/actions/reference/workflows-and-actions/events-that-trigger-workflows) - details of `image_version_ready` event added.
+* [Enforcing policies for GitHub Actions in your enterprise](https://docs.github.com/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise) - details about custom images added.
+* [Model Context Protocol (MCP) and GitHub Copilot coding agent](https://docs.github.com/copilot/concepts/agents/coding-agent/mcp-and-coding-agent) - new information about MCP servers for custom agents.
+* [Best practices for using GitHub Copilot to work on tasks](https://docs.github.com/copilot/tutorials/coding-agent/get-the-best-results) - new information about creating custom agents.
+* [Quickstart for your personal dashboard](https://docs.github.com/account-and-profile/get-started/personal-dashboard-quickstart) - added a section on working with Copilot from your personal dashboard.
+* [Personal dashboard](https://docs.github.com/account-and-profile/reference/personal-dashboard) - added a section on the home dashboard view.
+* [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli) - new information on delegating tasks to Copilot coding agent.
+
+<hr>
+
 **24 October 2025**
 
 To support the enterprise roles and teams public preview, we:
 
-* Created a new concepts category in the [enterprise admin](https://docs.github.com/en/enterprise-cloud@latest/admin) docs aimed at onboarding administrators, including new articles on roles and teams in an enterprise.
-* Built a user journey for setting up roles, teams, and apps to simplify administration, starting with [Identifying the roles required by your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements).
-* Published how-to content on [creating custom roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles), [creating enterprise teams](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams), and [assigning roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles).
-* Communicated new conceptual frameworks and best practices for enterprise accounts, including [Best practices for organizing work in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/best-practices) and [Enterprise accounts](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
+* Created a new concepts category in the [enterprise admin](https://docs.github.com/enterprise-cloud@latest/admin) docs aimed at onboarding administrators, including new articles on roles and teams in an enterprise.
+* Built a user journey for setting up roles, teams, and apps to simplify administration, starting with [Identifying the roles required by your enterprise](https://docs.github.com/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements).
+* Published how-to content on [creating custom roles](https://docs.github.com/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles), [creating enterprise teams](https://docs.github.com/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams), and [assigning roles](https://docs.github.com/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles).
+* Communicated new conceptual frameworks and best practices for enterprise accounts, including [Best practices for organizing work in your enterprise](https://docs.github.com/enterprise-cloud@latest/admin/concepts/best-practices) and [Enterprise accounts](https://docs.github.com/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 
 <hr>
 
 **17 October 2025**
 
-We have updated the [Account and profile](https://docs.github.com/en/account-and-profile) and [Subscriptions and notifications](https://docs.github.com/en/subscriptions-and-notifications) docs for improved usability, scannability, and information architecture.
+We have updated the [Account and profile](https://docs.github.com/account-and-profile) and [Subscriptions and notifications](https://docs.github.com/subscriptions-and-notifications) docs for improved usability, scannability, and information architecture.
 
 To support accomplishing tasks without context switching or sifting through unrelated content, articles are now organized by content type and focused on jobs-to-be-done. Additionally, related information is now linked from content type to content type.
 
@@ -21,13 +340,13 @@ To support accomplishing tasks without context switching or sifting through unre
 
 **14 October 2025**
 
-We've added a new tutorial about how to [Review AI-generated code](https://docs.github.com/en/copilot/tutorials/review-ai-generated-code). The article gives techniques to verify and validate AI-generated code, and also suggests how Copilot can help with reviews.
+We've added a new tutorial about how to [Review AI-generated code](https://docs.github.com/copilot/tutorials/review-ai-generated-code). The article gives techniques to verify and validate AI-generated code, and also suggests how Copilot can help with reviews.
 
 <hr>
 
 **13 October 2025**
 
-To help large enterprises keep their automations secure and consistent across many organizations, we published [Automating app installations in your enterprise's organizations](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-github-apps-for-your-enterprise/automate-installations). This is one of the most requested features from customer feedback.
+To help large enterprises keep their automations secure and consistent across many organizations, we published [Automating app installations in your enterprise's organizations](https://docs.github.com/enterprise-cloud@latest/admin/managing-github-apps-for-your-enterprise/automate-installations). This is one of the most requested features from customer feedback.
 
 The tutorial shows how to manage installations and run automations using enterprise-owned apps and the new apps installation API. Security-conscious enterprises will see that Apps maximize security by providing short-lived, minimally scoped tokens at every stage.
 
@@ -39,8 +358,8 @@ The tutorial shows how to manage installations and run automations using enterpr
 
 We’ve updated the Spark documentation to support the launch for Copilot Enterprise users, making it easier to understand and enable Spark:
 
-* Conceptual article: [About GitHub Spark](https://docs.github.com/en/copilot/concepts/spark#enterprise-considerations) now includes enterprise considerations (governance, billing, infrastructure, and benefits).
-* How-to: [Managing GitHub Spark in your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark) is streamlined to prerequisites and enablement steps, with links to related policies.
+* Conceptual article: [About GitHub Spark](https://docs.github.com/copilot/concepts/spark#enterprise-considerations) now includes enterprise considerations (governance, billing, infrastructure, and benefits).
+* How-to: [Managing GitHub Spark in your enterprise](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark) is streamlined to prerequisites and enablement steps, with links to related policies.
 
 <hr>
 
@@ -58,11 +377,11 @@ Claude Sonnet 4.5 has been released as a Public Preview. At the time of launch, 
 
 The following articles have been updated: 
 
-- [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
-- [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models)
-- [Hosting of models for GitHub Copilot Chat](https://docs.github.com/en/copilot/reference/ai-models/model-hosting)
-- [AI model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)
-- [About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli)
+- [About GitHub Copilot coding agent](https://docs.github.com/copilot/concepts/agents/coding-agent/about-coding-agent)
+- [Supported AI models in GitHub Copilot](https://docs.github.com/copilot/reference/ai-models/supported-models)
+- [Hosting of models for GitHub Copilot Chat](https://docs.github.com/copilot/reference/ai-models/model-hosting)
+- [AI model comparison](https://docs.github.com/copilot/reference/ai-models/model-comparison)
+- [About GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
 
 <hr>
 

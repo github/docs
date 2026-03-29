@@ -58,20 +58,22 @@ childProcess.on('close', (code: number | null) => {
   )
   console.log(`${Object.values(markdownViolations).flat().length} violations found.`)
 
-  Object.entries(markdownViolations).forEach(
-    ([fileName, results]: [string, Array<{ lineNumber: number }>]) => {
-      console.log(fileName)
-      console.log(results)
-      const fileLines = fs.readFileSync(fileName, 'utf8').split('\n')
-      results.forEach((result) => {
-        matchingRulesFound++
-        const lineIndex = result.lineNumber - 1
-        const offendingLine = fileLines[lineIndex]
-        fileLines[lineIndex] = offendingLine.concat(` <!-- markdownlint-disable-line ${rule} -->`)
-      })
-      fs.writeFileSync(fileName, fileLines.join('\n'), 'utf8')
-    },
-  )
+  const violationEntries = Object.entries(markdownViolations) as [
+    string,
+    Array<{ lineNumber: number }>,
+  ][]
+  for (const [fileName, results] of violationEntries) {
+    console.log(fileName)
+    console.log(results)
+    const fileLines = fs.readFileSync(fileName, 'utf8').split('\n')
+    for (const result of results) {
+      matchingRulesFound++
+      const lineIndex = result.lineNumber - 1
+      const offendingLine = fileLines[lineIndex]
+      fileLines[lineIndex] = offendingLine.concat(` <!-- markdownlint-disable-line ${rule} -->`)
+    }
+    fs.writeFileSync(fileName, fileLines.join('\n'), 'utf8')
+  }
 
   console.log(`${matchingRulesFound} violations ignored.`)
 })

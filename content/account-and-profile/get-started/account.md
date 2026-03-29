@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Account
 contentType: get-started
+category:
+  - Set up your account
 ---
 
 ## About your {% data variables.product.github %} account

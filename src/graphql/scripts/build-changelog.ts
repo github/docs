@@ -57,6 +57,8 @@ interface IgnoredChangesSummary {
   types: IgnoredChangeType[]
 }
 
+let lastIgnoredChanges: Change[] = []
+
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
  * structure written to `targetPath`. (`changelogEntry` and that file are modified in place.)
@@ -89,22 +91,21 @@ export async function createChangelogEntry(
   newUpcomingChanges: UpcomingChange[],
 ): Promise<ChangelogEntry | null> {
   // Create schema objects out of the strings
-  // Using 'as any' because loadSchema accepts string schema directly without requiring loaders
-  const oldSchema = await loadSchema(oldSchemaString, {} as any)
-  const newSchema = await loadSchema(newSchemaString, {} as any)
+  const oldSchema = await loadSchema(oldSchemaString, { loaders: [] })
+  const newSchema = await loadSchema(newSchemaString, { loaders: [] })
 
   // Generate changes between the two schemas
   const changes = await diff(oldSchema, newSchema)
   const changesToReport: Change[] = []
   const ignoredChanges: Change[] = []
-  changes.forEach((change) => {
+  for (const change of changes) {
     if (CHANGES_TO_REPORT.includes(change.type)) {
       changesToReport.push(change)
     } else {
       // Track ignored changes for visibility
       ignoredChanges.push(change)
     }
-  })
+  }
 
   // Log warnings for ignored change types to provide visibility
   if (ignoredChanges.length > 0) {
@@ -112,17 +113,17 @@ export async function createChangelogEntry(
     console.warn(
       `⚠️  GraphQL changelog: Ignoring ${ignoredChanges.length} changes of ${ignoredTypes.length} type(s):`,
     )
-    ignoredTypes.forEach((type) => {
+    for (const type of ignoredTypes) {
       const count = ignoredChanges.filter((change) => change.type === type).length
       console.warn(`   - ${type} (${count} change${count > 1 ? 's' : ''})`)
-    })
+    }
     console.warn(
       '   These change types are not in CHANGES_TO_REPORT and will not appear in the changelog.',
     )
   }
 
   // Store ignored changes for potential workflow outputs
-  ;(createChangelogEntry as any).lastIgnoredChanges = ignoredChanges
+  lastIgnoredChanges = ignoredChanges
 
   const { schemaChangesToReport, previewChangesToReport } = segmentPreviewChanges(
     changesToReport,
@@ -257,15 +258,15 @@ export function segmentPreviewChanges(
   // Build a map of `{ path => previewTitle` }
   // for easier lookup of change to preview
   const pathToPreview: Record<string, string> = {}
-  previews.forEach(function (preview): void {
-    preview.toggled_on.forEach(function (path) {
+  for (const preview of previews) {
+    for (const path of preview.toggled_on) {
       pathToPreview[path] = preview.title
-    })
-  })
+    }
+  }
   const schemaChanges: Change[] = []
   const changesByPreview: Record<string, PreviewChanges> = {}
 
-  changesToReport.forEach(function (change): void {
+  for (const change of changesToReport) {
     // For each change, see if its path _or_ one of its ancestors
     // is covered by a preview. If it is, mark this change as belonging to a preview
     const pathParts = change.path?.split('.') || []
@@ -290,7 +291,7 @@ export function segmentPreviewChanges(
     } else {
       schemaChanges.push(change)
     }
-  })
+  }
   return { schemaChangesToReport: schemaChanges, previewChangesToReport: changesByPreview }
 }
 
@@ -333,7 +334,7 @@ const CHANGES_TO_REPORT = [
  * Get the ignored change types from the last changelog entry creation
  */
 export function getLastIgnoredChanges(): Change[] {
-  return (createChangelogEntry as any).lastIgnoredChanges || []
+  return lastIgnoredChanges
 }
 
 /**

@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /rest/overview/breaking-changes
+category:
+  - Learn about the REST API
 ---
 
 ## About breaking changes in the REST API
@@ -24,6 +26,4 @@ When you update your integration to specify the new API version in the `X-GitHub
 
 Once your integration is updated, test your integration to verify that it works with the new API version.
 
-## Breaking changes for {{ initialRestVersioningReleaseDate }}
-
-Version `{{ initialRestVersioningReleaseDate }}` is the first version of the {% data variables.product.github %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
+{% data reusables.rest-api.breaking-changes-changelog %}

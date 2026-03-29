@@ -162,16 +162,14 @@ function prioritizeOrder(tools: WriterToolsCollection) {
   }
 
   // Assign priorities to discovered tools
-  Object.values(tools)
-    .flat()
-    .forEach((tool) => {
-      if (priorities[tool.name as keyof typeof priorities]) {
-        tool.priority = priorities[tool.name as keyof typeof priorities]
-      }
-    })
+  for (const tool of Object.values(tools).flat()) {
+    if (priorities[tool.name as keyof typeof priorities]) {
+      tool.priority = priorities[tool.name as keyof typeof priorities]
+    }
+  }
 
   // Sort each category by priority, then alphabetically
-  Object.keys(tools).forEach((category) => {
+  for (const category of Object.keys(tools)) {
     tools[category].sort((a, b) => {
       // Items with priority come first
       if (a.priority !== undefined && b.priority === undefined) return -1
@@ -185,7 +183,7 @@ function prioritizeOrder(tools: WriterToolsCollection) {
       // Neither has priority: sort alphabetically
       return a.name.localeCompare(b.name)
     })
-  })
+  }
 
   return tools
 }
@@ -195,14 +193,14 @@ async function main(): Promise<void> {
 
   const tools = prioritizeOrder(await discoverWriterTools())
 
-  Object.entries(tools).forEach(([category, scripts]) => {
+  for (const [category, scripts] of Object.entries(tools)) {
     console.log(`${category}:`)
-    scripts.forEach((script) => {
+    for (const script of scripts) {
       const padding = ' '.repeat(Math.max(0, 34 - script.name.length))
       console.log(`  npm run ${script.name}${padding}# ${script.description}`)
-    })
+    }
     console.log('')
-  })
+  }
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

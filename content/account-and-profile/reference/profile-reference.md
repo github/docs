@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Profile reference
 contentType: reference
+category:
+  - Customize your profile
 ---
 
 ## Visibility of profile information

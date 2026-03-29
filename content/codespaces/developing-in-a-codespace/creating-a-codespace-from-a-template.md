@@ -1,26 +1,18 @@
 ---
 title: Creating a codespace from a template
-intro: 'If you''re starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.'
+intro: If you're starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Create a codespace from a template
 redirect_from:
   - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
+contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
-
-## About templates for {% data variables.product.prodname_github_codespaces %}
+# About templates for {% data variables.product.prodname_github_codespaces %}
 
 If you're starting a new project, you can get started with development work quickly by creating a codespace from a template. You'll be able to work on your project in a cloud-based development environment, save your files in the cloud, and publish your work to a new remote repository that you can share with others or clone to your local machine.
 

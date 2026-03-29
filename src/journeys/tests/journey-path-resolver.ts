@@ -46,10 +46,20 @@ describe('journey-path-resolver', () => {
             title: 'Getting started',
             description: 'Learn the basics',
             guides: [
-              '/enterprise-onboarding/setup',
-              '/enterprise-onboarding/config',
-              '/enterprise-onboarding/deploy',
+              { href: '/enterprise-onboarding/setup' },
+              {
+                href: '/enterprise-onboarding/config',
+                alternativeNextStep:
+                  'Ready for more? Visit [AUTOTITLE](/enterprise-onboarding/advanced-setup)',
+              },
+              { href: '/enterprise-onboarding/deploy' },
             ],
+          },
+          {
+            id: 'advanced',
+            title: 'Advanced configuration',
+            description: 'Configure advanced options',
+            guides: [{ href: '/enterprise-onboarding/advanced-setup' }],
           },
         ],
       },
@@ -100,6 +110,28 @@ describe('journey-path-resolver', () => {
       })
     })
 
+    test('includes alternative next step when provided', async () => {
+      const result = await resolveJourneyContext(
+        '/enterprise-onboarding/config',
+        mockPages,
+        mockContext,
+      )
+
+      expect(result?.alternativeNextStep).toBe(
+        'Ready for more? Visit [AUTOTITLE](/enterprise-onboarding/advanced-setup)',
+      )
+    })
+
+    test('does not populate next track guide when not on last guide', async () => {
+      const result = await resolveJourneyContext(
+        '/enterprise-onboarding/config',
+        mockPages,
+        mockContext,
+      )
+
+      expect(result?.nextTrackFirstGuide).toBeUndefined()
+    })
+
     test('handles first article in track (no previous)', async () => {
       const result = await resolveJourneyContext(
         '/enterprise-onboarding/setup',
@@ -120,6 +152,20 @@ describe('journey-path-resolver', () => {
 
       expect(result?.nextGuide).toBeUndefined()
       expect(result?.currentGuideIndex).toBe(2)
+    })
+
+    test('populates next track guide when on last guide', async () => {
+      const result = await resolveJourneyContext(
+        '/enterprise-onboarding/deploy',
+        mockPages,
+        mockContext,
+      )
+
+      expect(result?.nextTrackFirstGuide).toEqual({
+        href: '/en/enterprise-cloud@latest/enterprise-onboarding/advanced-setup',
+        title: 'Mock Title for /enterprise-onboarding/advanced-setup',
+        trackTitle: 'Advanced configuration',
+      })
     })
 
     test('normalizes article paths without leading slash', async () => {
@@ -149,13 +195,16 @@ describe('journey-path-resolver', () => {
         id: 'getting_started',
         title: 'Getting started with {% data variables.product.company_short %}',
         description: 'Learn the {% data variables.product.company_short %} basics',
-        guides: ['/enterprise-onboarding/setup', '/enterprise-onboarding/config'],
+        guides: [
+          { href: '/enterprise-onboarding/setup' },
+          { href: '/enterprise-onboarding/config' },
+        ],
       },
       {
         id: 'advanced',
         title: 'Advanced configuration',
         description: 'Advanced topics for experts',
-        guides: ['/enterprise-onboarding/advanced-setup'],
+        guides: [{ href: '/enterprise-onboarding/advanced-setup' }],
       },
     ]
 
@@ -210,7 +259,7 @@ describe('journey-path-resolver', () => {
         {
           id: 'no_desc',
           title: 'Track without description',
-          guides: ['/some-guide'],
+          guides: [{ href: '/some-guide' }],
         },
       ]
 

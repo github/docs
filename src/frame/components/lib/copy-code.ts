@@ -5,7 +5,7 @@ export default function copyCode() {
 
   if (!buttons) return
 
-  buttons.forEach((button) =>
+  for (const button of buttons) {
     button.addEventListener('click', async () => {
       const codeId = (button as HTMLElement).dataset.clipboard
       if (!codeId) return
@@ -22,6 +22,6 @@ export default function copyCode() {
       setTimeout(() => {
         button.classList.remove('copied')
       }, 2000)
-    }),
-  )
+    })
+  }
 }

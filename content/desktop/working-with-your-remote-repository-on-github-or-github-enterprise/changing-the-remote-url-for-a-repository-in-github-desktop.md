@@ -13,6 +13,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Change the remote URL for a repository
+category:
+  - Add and clone repositories
 ---
 {% mac %}
 

@@ -35,7 +35,7 @@ sections:
     - |
       Audit log entries for some Dependabot-related events were missing for administrators and security teams due to an outdated allowlist configuration.
     - |
-      After upgrading to GHES 3.17.4, administrators found that draft pull requests for private repositories were no longer available.
+      After upgrading to GHES 3.17.4, administrators found that draft pull requests and autolink references for private repositories were no longer available. [Updated: 2025-11-11]
     - |
       Site administrators experienced crashes in MySQL when running data backfills, such as during database maintenance or upgrades.
   changes:
@@ -82,3 +82,7 @@ sections:
       When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
     - |
       Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.16 %}3.16{% endif %}{% ifversion ghes = 3.17 %}3.17{% endif %}{% ifversion ghes = 3.18 %}3.18{% endif %} with caution.
+    - |
+      Upgrading to this version from GHES 3.15.14 and higher or 3.16.10 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.17.7 or higher.
+
+      [Updated: 2025-11-24]

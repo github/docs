@@ -10,9 +10,6 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/chat-in-github-mobile
 versions:
   feature: copilot-chat-for-mobile
-topics:
-  - Copilot
-  - Mobile
 contentType: rai
 category: 
   - Responsible use

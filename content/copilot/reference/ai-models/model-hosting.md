@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how different AI models are hosted for {% data variables.copilot.copilot_chat_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 redirect_from:
@@ -21,15 +19,33 @@ contentType: reference
 Used for:
 
 * {% data variables.copilot.copilot_gpt_41 %}
-* {% data variables.copilot.copilot_gpt_5_codex %} (supported in {% data variables.product.prodname_vscode %} v1.104.1 or higher)
 * {% data variables.copilot.copilot_gpt_5_mini %}
-* {% data variables.copilot.copilot_gpt_5 %}
+* {% data variables.copilot.copilot_gpt_51 %}
+* {% data variables.copilot.copilot_gpt_51_codex %}
+* {% data variables.copilot.copilot_gpt_51_codex_mini %}
+* {% data variables.copilot.copilot_gpt_51_codex_max %}
+* {% data variables.copilot.copilot_gpt_52 %}
+* {% data variables.copilot.copilot_gpt_52_codex %}
+* {% data variables.copilot.copilot_gpt_53_codex %}
+* {% data variables.copilot.copilot_gpt_54 %}
+* {% data variables.copilot.copilot_gpt_54_mini %}
 
-{% data variables.copilot.copilot_gpt_41 %} is hosted by {% data variables.product.github %}'s Azure tenant when used in {% data variables.product.prodname_copilot %}.
+These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
-{% data variables.copilot.copilot_gpt_5_codex %}, {% data variables.copilot.copilot_gpt_5 %}, and {% data variables.copilot.copilot_gpt_5_mini %} models are hosted by OpenAI and {% data variables.product.github %}'s Azure tenant. OpenAI makes the [following data commitment](https://openai.com/enterprise-privacy/): _We [OpenAI] do not train our models on your business data by default_. {% data variables.product.github %} maintains a [zero data retention agreement](https://platform.openai.com/docs/guides/your-data) with OpenAI.
+OpenAI makes the [following data commitment](https://openai.com/enterprise-privacy/): _We [OpenAI] do not train models on customer business data_. Data processing follows OpenAI's enterprise privacy comments.
 
-When using OpenAI's models, input requests and output responses continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
+{% data variables.product.github %} maintains a [zero data retention agreement](https://platform.openai.com/docs/guides/your-data) with OpenAI.
+
+All input requests and output responses processed by {% data variables.product.prodname_copilot %}'s models continue to pass through GitHub Copilot's, content filtering systems. These filters include checks for public code matches (when applied) as well as mechanisms to detect and block harmful or offensive content.
+
+## OpenAI models fine-tuned by Microsoft
+
+Used for:
+
+* {% data variables.copilot.copilot_raptor_mini %}
+* {% data variables.copilot.copilot_goldeneye %}
+
+These models are deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
 
 ## Anthropic models
 
@@ -37,17 +53,21 @@ Used for:
 
 * {% data variables.copilot.copilot_claude_haiku_45 %}
 * {% data variables.copilot.copilot_claude_sonnet_45 %}
-* {% data variables.copilot.copilot_claude_opus_41 %}
-* {% data variables.copilot.copilot_claude_sonnet_35 %}
+* {% data variables.copilot.copilot_claude_opus_45 %}
+* {% data variables.copilot.copilot_claude_opus_46 %}
+* {% data variables.copilot.copilot_claude_opus_46_fast %}
 * {% data variables.copilot.copilot_claude_sonnet_40 %}
+* {% data variables.copilot.copilot_claude_sonnet_46 %}
 
-{% data variables.copilot.copilot_claude_haiku_45 %} and {% data variables.copilot.copilot_claude_opus_41 %} are hosted by Anthropic PBC. {% data variables.copilot.copilot_claude_sonnet_40 %} is hosted by Anthropic PBC and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_45 %} is hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_35 %} is hosted exclusively by Amazon Web Services. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
+These models are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
 * Amazon Bedrock: Amazon makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
-* Anthropic PBC: {% data variables.product.github %} maintains a [zero data retention agreement](https://privacy.anthropic.com/en/articles/8956058-i-have-a-zero-retention-agreement-with-anthropic-what-products-does-it-apply-to) with Anthropic.
+<!-- markdownlint-disable GHD046 -->
+* Anthropic PBC: {% data variables.product.github %} maintains a [zero data retention agreement](https://privacy.anthropic.com/en/articles/8956058-i-have-a-zero-retention-agreement-with-anthropic-what-products-does-it-apply-to) with Anthropic for generally available Anthropic features in {% data variables.product.prodname_copilot %}. Some Anthropic features in beta or {% data variables.release-phases.public_preview %}—including tool search via the Messages API—are not covered by this agreement. For these features, data may be retained by Anthropic in accordance with [Anthropic's ZDR documentation](https://platform.claude.com/docs/en/build-with-claude/zero-data-retention). {% data variables.product.github %} will update this page as ZDR coverage changes.
+<!-- markdownlint-enable GHD046 -->
 * Google Cloud: [Google commits to not training on {% data variables.product.github %} data as part of their service terms](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance). {% data variables.product.github %} is additionally not subject to prompt logging for abuse monitoring.
 
-To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching). You can read more about prompt caching on [Anthropic PBC](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching), [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html), and [Google Cloud](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude-prompt-caching).
+To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching). You can read more about prompt caching on [Anthropic PBC](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching), [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html), and [Google Cloud](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude-prompt-caching).
 
 When using {% data variables.copilot.copilot_claude %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
@@ -56,8 +76,10 @@ When using {% data variables.copilot.copilot_claude %}, input prompts and output
 Used for:
 
 * {% data variables.copilot.copilot_gemini_25_pro %}
+* {% data variables.copilot.copilot_gemini_3_flash %}
+* {% data variables.copilot.copilot_gemini_31_pro %}
 
-{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
+{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_31_pro %}, {% data variables.copilot.copilot_gemini_3_flash %}, and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
 To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance#customer_data_retention_and_achieving_zero_data_retention).
 
@@ -65,11 +87,7 @@ When using {% data variables.copilot.copilot_gemini %} models, input prompts and
 
 ## xAI models
 
-{% data reusables.copilot.grok-promo-period %}
-
-{% data variables.copilot.copilot_grok_code %} is hosted by xAI when used in {% data variables.product.prodname_copilot %}.
-
-xAI operates {% data variables.copilot.copilot_grok_code %} in {% data variables.product.prodname_copilot %} under a zero data retention API policy. This means xAI commits that user content (both inputs sent to the model and outputs generated by the model):
+These models are hosted on xAI. xAI operates {% data variables.copilot.copilot_grok_code %} in {% data variables.product.prodname_copilot %} under a zero data retention API policy. This means xAI commits that user content (both inputs sent to the model and outputs generated by the model):
 
 Will **not** be:
 * Logged for any purpose, including human review

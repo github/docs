@@ -17,7 +17,7 @@ export default function trailingSlashes(req: ExtendedRequest, res: Response, nex
       }
       url = url.replace(/\/+/g, '/') // Prevent multiple slashes
       defaultCacheControl(res)
-      return res.redirect(301, url)
+      return res.safeRedirect(301, url)
     }
   }
 

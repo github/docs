@@ -7,11 +7,10 @@ versions:
 category:
   - Security analysis
   - Author and optimize with Copilot
+  - Improve quality and maintainability
 complexity:
   - Simple
 octicon: code
-topics:
-  - Copilot
 redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis/managing-dependency-updates
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis/manage-dependency-updates
@@ -87,8 +86,6 @@ updates:
 Once you've committed the `dependabot.yml` file to your repository, {% data variables.product.prodname_dependabot %} will begin to open pull requests against your repository, whenever a vulnerable or outdated dependency is detected.
 
 ## Customize dependency management
-
-### Example scenario
 
 ### Example scenario
 

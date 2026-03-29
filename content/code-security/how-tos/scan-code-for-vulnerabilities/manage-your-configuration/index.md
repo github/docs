@@ -1,0 +1,17 @@
+---
+title: Manage your configuration
+intro: Manage and refine your {% data variables.product.prodname_code_scanning %} configuration by monitoring tool status, updating default setup settings, and enforcing protections as your needs evolve.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+contentType: how-tos
+redirect_from:
+  - /code-security/code-scanning/managing-your-code-scanning-configuration
+children:
+  - /editing-your-configuration-of-default-setup
+  - /use-the-tools-status-page-for-code-scanning
+  - /set-code-scanning-merge-protection
+  - /configuring-larger-runners-for-default-setup
+  - /codeql-code-scanning-for-compiled-languages
+---

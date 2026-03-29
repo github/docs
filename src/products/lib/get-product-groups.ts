@@ -125,11 +125,11 @@ export async function getLocalizedGroupNames(lang: string): Promise<{ [key: stri
 export function createOcticonToNameMap(childGroups: ProductGroupData[]): { [key: string]: string } {
   const octiconToName: { [key: string]: string } = {}
 
-  childGroups.forEach((group: ProductGroupData) => {
+  for (const group of childGroups) {
     if (group.octicon && group.name) {
       octiconToName[group.octicon] = group.name
     }
-  })
+  }
 
   return octiconToName
 }
@@ -140,11 +140,11 @@ export function mapEnglishToLocalizedNames(
 ): { [key: string]: string } {
   const nameMap: { [key: string]: string } = {}
 
-  englishGroups.forEach((englishGroup: ProductGroupData) => {
+  for (const englishGroup of englishGroups) {
     if (englishGroup.octicon && localizedByOcticon[englishGroup.octicon]) {
       nameMap[englishGroup.name] = localizedByOcticon[englishGroup.octicon]
     }
-  })
+  }
 
   return nameMap
 }

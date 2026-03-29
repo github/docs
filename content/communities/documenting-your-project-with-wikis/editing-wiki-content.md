@@ -16,8 +16,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
+category:
+  - Document your project with wikis
 ---
 
 ## Adding links

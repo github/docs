@@ -142,7 +142,7 @@ async function createRedirectsFile(pageList: PageList, outputDirectory: string) 
 
   const redirectEntries: Array<[string, string]> = Object.entries(redirects)
 
-  redirectEntries.forEach(([oldPath, newPath]) => {
+  for (let [oldPath, newPath] of redirectEntries) {
     // remove any liquid variables that sneak in
     oldPath = oldPath.replace('/{{ page.version }}', '').replace('/{{ currentVersion }}', '')
     // ignore any old paths that are not in this version
@@ -152,10 +152,10 @@ async function createRedirectsFile(pageList: PageList, outputDirectory: string) 
         oldPath.includes(`/enterprise/${version}`)
       )
     )
-      return
+      continue
 
     redirectsPerVersion[oldPath] = newPath
-  })
+  }
 
   fs.writeFileSync(
     path.join(outputDirectory, 'redirects.json'),

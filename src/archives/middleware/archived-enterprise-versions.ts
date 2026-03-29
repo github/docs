@@ -2,6 +2,7 @@ import type { Response, NextFunction } from 'express'
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 
 import statsd from '@/observability/lib/statsd'
+import { createLogger } from '@/observability/logger'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
@@ -15,9 +16,12 @@ import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-f
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
 import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages-server'
+import { languages as allLanguages } from '@/languages/lib/languages'
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import getRemoteJSON from '@/frame/lib/get-remote-json'
 import { ExtendedRequest } from '@/types'
+
+const logger = createLogger(import.meta.url)
 
 const OLD_PUBLIC_AZURE_BLOB_URL = 'https://githubdocs.azureedge.net'
 // Old Azure Blob Storage `enterprise` container.
@@ -36,17 +40,16 @@ type ArchivedRedirects = {
 // These files are huge so lazy-load them. But note that the
 // `readJsonFileLazily()` function will, at import-time, check that
 // the path does exist.
-const archivedRedirects: () => ArchivedRedirects = readCompressedJsonFileFallbackLazily(
+const archivedRedirects = readCompressedJsonFileFallbackLazily(
   './src/redirects/lib/static/archived-redirects-from-213-to-217.json',
-)
+) as () => ArchivedRedirects
 
 type ArchivedFrontmatterURLs = {
   [url: string]: string[]
 }
-const archivedFrontmatterValidURLS: () => ArchivedFrontmatterURLs =
-  readCompressedJsonFileFallbackLazily(
-    './src/redirects/lib/static/archived-frontmatter-valid-urls.json',
-  )
+const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
+  './src/redirects/lib/static/archived-frontmatter-valid-urls.json',
+) as () => ArchivedFrontmatterURLs
 
 // Combine all the things you need to make sure the response is
 // aggressively cached.
@@ -78,11 +81,17 @@ const cacheAggressively = (res: Response) => {
 const retryConfiguration = { limit: 3 }
 // According to our Datadog metrics, the *average* time for the
 // the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
-// which much less than 1500ms.
+// which is much less than 3000ms.
 // We have observed errors of timeout, in production, when it was
-// set to 500ms. Let's try to be very conservative here to avoid
-// unnecessary error reporting.
-const timeoutConfiguration = { response: 1500 }
+// set to 500ms and then 1500ms. Let's be more conservative here to
+// avoid unnecessary error reporting during occasional slow responses.
+const timeoutConfiguration = { response: 3000 }
+
+// Monitoring thresholds for logging response times
+// Log warnings when responses exceed half the timeout threshold
+const WARN_RESPONSE_THRESHOLD = timeoutConfiguration.response / 2 // 1500ms
+// Log info for responses that are noticeably slow but not concerning
+const SLOW_RESPONSE_THRESHOLD = 500 // ms
 
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in
@@ -109,18 +118,27 @@ export default async function archivedEnterpriseVersions(
         languageCacheControl(res) // call first to get `vary`
       }
       archivedCacheControl(res) // call second to extend duration
-      return res.redirect(redirectCode, redirectTo)
+      return res.safeRedirect(redirectCode, redirectTo)
     }
 
-    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
-      retry: retryConfiguration,
-      // This is allowed to be different compared to the other requests
-      // we make because downloading the `redirects.json` once is very
-      // useful because it caches so well.
-      // And, as of 2021 that `redirects.json` is 10MB so it's more likely
-      // to time out.
-      timeout: { response: 1000 },
-    })
+    let redirectJson: Record<string, string>
+    try {
+      redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+        retry: retryConfiguration,
+        // This is allowed to be different compared to the other requests
+        // we make because downloading the `redirects.json` once is very
+        // useful because it caches so well.
+        // And, as of 2021 that `redirects.json` is 10MB so it's more likely
+        // to time out.
+        timeout: { response: 1000 },
+      })) as Record<string, string>
+    } catch (err) {
+      logger.error('Failed to fetch archived redirects.json', {
+        version: requestedVersion,
+        error: err instanceof Error ? err : new Error(String(err)),
+      })
+      throw err
+    }
     if (!req.context) throw new Error('No context on request')
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
@@ -129,7 +147,7 @@ export default async function archivedEnterpriseVersions(
         languageCacheControl(res) // call first to get `vary`
       }
       archivedCacheControl(res) // call second to extend duration
-      return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
+      return res.safeRedirect(redirectCode, `/${language}${newRedirectTo}`)
     }
   }
   // For releases 2.13 and lower, redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
@@ -138,7 +156,7 @@ export default async function archivedEnterpriseVersions(
     versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)
   ) {
     archivedCacheControl(res)
-    return res.redirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
+    return res.safeRedirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 
   // Redirects for releases 2.13 - 2.17
@@ -162,7 +180,7 @@ export default async function archivedEnterpriseVersions(
       // new destination.
       const redirect = `/${language || 'en'}${newPath || withoutLanguagePath}`
       cacheAggressively(res)
-      return res.redirect(redirectCode, redirect)
+      return res.safeRedirect(redirectCode, redirect)
     }
   }
   // Redirects for 2.18 - 3.0. Starting with 2.18, we updated the archival
@@ -171,23 +189,55 @@ export default async function archivedEnterpriseVersions(
     versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
     !deprecatedWithFunctionalRedirects.includes(requestedVersion)
   ) {
-    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
-      retry: retryConfiguration,
-      // This is allowed to be different compared to the other requests
-      // we make because downloading the `redirects.json` once is very
-      // useful because it caches so well.
-      // And, as of 2021 that `redirects.json` is 10MB so it's more likely
-      // to time out.
-      timeout: { response: 1000 },
-    })
+    let redirectJson: Record<string, string>
+    try {
+      redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+        retry: retryConfiguration,
+        // This is allowed to be different compared to the other requests
+        // we make because downloading the `redirects.json` once is very
+        // useful because it caches so well.
+        // And, as of 2021 that `redirects.json` is 10MB so it's more likely
+        // to time out.
+        timeout: { response: 1000 },
+      })) as Record<string, string>
+    } catch (err) {
+      logger.error('Failed to fetch archived redirects.json', {
+        version: requestedVersion,
+        error: err instanceof Error ? err : new Error(String(err)),
+      })
+      throw err
+    }
 
     // make redirects found via redirects.json redirect with a 301
     if (redirectJson[req.path]) {
       res.set('x-robots-tag', 'noindex')
       cacheAggressively(res)
-      return res.redirect(redirectCode, redirectJson[req.path])
+      return res.safeRedirect(redirectCode, redirectJson[req.path])
     }
   }
+  // Short-circuit requests that will never resolve on the upstream
+  // GitHub Pages repos, avoiding unnecessary network requests.
+  const earlyNotFound = getEarlyNotFoundReason(req.path, requestedVersion)
+  if (earlyNotFound) {
+    statsd.increment('middleware.archived_early_not_found', 1, [
+      `reason:${earlyNotFound}`,
+      `version:${requestedVersion}`,
+    ])
+    cacheAggressively(res)
+    return res.status(404).type('text').send('Page not found')
+  }
+
+  // Requests without a language prefix for versions > 2.17 will always
+  // 404 upstream (the archive repos store pages under /en/, /zh/, etc.).
+  // Skip the fetch and let downstream middleware handle the redirect.
+  if (
+    versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
+    !pathLanguagePrefixed(req.path)
+  ) {
+    statsd.increment('middleware.archived_skip_no_language', 1, [`version:${requestedVersion}`])
+    return next()
+  }
+
   // Retrieve the page from the archived repo
   const doGet = () =>
     fetchWithRetry(
@@ -201,10 +251,54 @@ export default async function archivedEnterpriseVersions(
     )
 
   const statsdTags = [`version:${requestedVersion}`]
+  const startTime = Date.now()
   const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy', [
     ...statsdTags,
     `path:${req.path}`,
   ])()
+  const responseTime = Date.now() - startTime
+
+  // Log warnings for slow responses to help identify degraded performance
+  // A response time over half the timeout indicates potential issues
+  if (responseTime > WARN_RESPONSE_THRESHOLD) {
+    logger.warn('Slow response from archived enterprise content', {
+      version: requestedVersion,
+      path: req.path,
+      responseTime: `${responseTime}ms`,
+      status: r.status,
+      threshold: `${WARN_RESPONSE_THRESHOLD}ms`,
+    })
+  }
+
+  // Log non-200 responses — use warn for 404s (expected for missing archived
+  // pages) and error for genuine upstream failures (5xx, timeouts).
+  if (r.status !== 200) {
+    let upstreamBody: string | undefined
+    try {
+      upstreamBody = await r.text()
+    } catch {
+      // ignore — body reading failure shouldn't affect error handling
+    }
+    const level = r.status === 404 ? 'warn' : 'error'
+    logger[level]('Failed to fetch archived enterprise content', {
+      version: requestedVersion,
+      path: req.path,
+      status: r.status,
+      statusText: r.statusText,
+      responseTime: `${responseTime}ms`,
+      url: getProxyPath(req.path, requestedVersion),
+      upstreamBody: upstreamBody?.slice(0, 500),
+    })
+  }
+
+  // Log successful responses with timing for monitoring trends
+  if (r.status === 200 && responseTime > SLOW_RESPONSE_THRESHOLD) {
+    logger.info('Archived enterprise content response', {
+      version: requestedVersion,
+      responseTime: `${responseTime}ms`,
+      status: r.status,
+    })
+  }
 
   if (r.status === 200) {
     const body = await r.text()
@@ -218,7 +312,7 @@ export default async function archivedEnterpriseVersions(
     const staticRedirect = body.match(patterns.staticRedirect)
     if (staticRedirect) {
       cacheAggressively(res)
-      return res.redirect(redirectCode, staticRedirect[1])
+      return res.safeRedirect(redirectCode, staticRedirect[1])
     }
 
     res.set('content-type', r.headers.get('content-type') || '')
@@ -317,6 +411,7 @@ export default async function archivedEnterpriseVersions(
 
     return res.send(modifiedBody)
   }
+
   // In releases 2.13 - 2.17, we lost access to frontmatter redirects
   //  during the archival process. This workaround finds potentially
   // relevant frontmatter redirects in currently supported pages
@@ -330,7 +425,7 @@ export default async function archivedEnterpriseVersions(
       statsTags.push(`fallback:${fallbackRedirect}`)
       statsd.increment('middleware.trying_fallback_redirect_success', 1, statsTags)
       cacheAggressively(res)
-      return res.redirect(redirectCode, fallbackRedirect)
+      return res.safeRedirect(redirectCode, fallbackRedirect)
     }
     statsd.increment('middleware.trying_fallback_redirect_failure', 1, statsTags)
   }
@@ -432,4 +527,50 @@ function splitByLanguage(uri: string) {
     withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
   }
   return [language, withoutLanguage]
+}
+
+// Regex to extract any language-like prefix from the path, including
+// "cn" which was the old Chinese language code used in archives ≤3.2.
+const archiveLanguagePrefixRegex = new RegExp(`^/(${Object.keys(allLanguages).join('|')}|cn)(/|$)`)
+
+// Detects request paths that will never resolve on the upstream GitHub
+// Pages archive repos, so we can 404 immediately without making a
+// network request. Returns a short reason string, or null if the
+// request looks plausible.
+function getEarlyNotFoundReason(reqPath: string, version: string): string | null {
+  // Double slashes in the path never resolve (e.g. ".../about-2fa//index.html")
+  if (reqPath.includes('//')) {
+    return 'double-slash'
+  }
+
+  // Duplicated "/developer/developer/" segment — these are broken
+  // crawler URLs from the old developer.github.com site.
+  if (reqPath.includes('/developer/developer/')) {
+    return 'developer-developer'
+  }
+
+  // Check if the language in the path actually exists in this version's
+  // archive. Each language has a `firstArchivedVersion` indicating when
+  // it was first included in the GHES archives.
+  const langMatch = reqPath.match(archiveLanguagePrefixRegex)
+  if (langMatch) {
+    const lang = langMatch[1]
+
+    // "cn" was the old Chinese language code; those archives are ancient
+    // and effectively dead traffic. Always 404.
+    if (lang === 'cn') {
+      return 'language-not-in-version'
+    }
+
+    const langDef = allLanguages[lang]
+    if (langDef?.firstArchivedVersion) {
+      // 404 if the requested version is older than when this language
+      // was first archived (e.g. /zh/ on v3.0 → 404 because zh started in 3.3)
+      if (!versionSatisfiesRange(version, `>=${langDef.firstArchivedVersion}`)) {
+        return 'language-not-in-version'
+      }
+    }
+  }
+
+  return null
 }

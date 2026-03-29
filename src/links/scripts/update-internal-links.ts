@@ -228,7 +228,8 @@ function printObjectDifference(
     const combinedKey = `${parentKey}.${key}`
     if (Array.isArray(value) && !equalArray(value, objTo[key])) {
       const printedKeys = new Set()
-      value.forEach((entry, i) => {
+      for (let i = 0; i < value.length; i++) {
+        const entry = value[i]
         // If it was an array of objects, we need to go deeper!
         if (isObject(entry)) {
           printObjectDifference(entry, objTo[key][i], rawContent, combinedKey)
@@ -243,10 +244,9 @@ function printObjectDifference(
             const needle = new RegExp(`- ${entry}\\b`)
             const index = rawContent.split(/\n/g).findIndex((line) => needle.test(line))
             console.log('  ', chalk.dim(`line ${(index && index + 1) || 'unknown'}`))
-            console.log('')
           }
         }
-      })
+      }
     } else if (typeof value === 'object' && value !== null) {
       printObjectDifference(value, objTo[key], rawContent, combinedKey)
     }

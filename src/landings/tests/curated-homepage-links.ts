@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest'
-import cheerio from 'cheerio'
+import type { Element } from 'domhandler'
 
 import { getDOM } from '@/tests/helpers/e2etest'
 
@@ -14,7 +14,7 @@ describe('curated homepage links', () => {
     expect($links.length).toBeGreaterThanOrEqual(6)
 
     // Check that each link is localized and includes a title and intro
-    $links.each((i: number, el: cheerio.Element) => {
+    $links.each((i: number, el: Element) => {
       const linkUrl = $(el).attr('href') as string
 
       expect(linkUrl.startsWith('/en/')).toBe(true)

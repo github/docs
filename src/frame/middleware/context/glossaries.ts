@@ -27,9 +27,9 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   if (req.context.currentLanguage !== 'en') {
     const enGlossariesRaw: Glossary[] = getDataByLanguage('glossaries.external', 'en')
 
-    enGlossariesRaw.forEach(({ term, description }) => {
+    for (const { term, description } of enGlossariesRaw) {
       enGlossaryMap.set(term, description)
-    })
+    }
   }
 
   // The glossaries Yaml file contains descriptions that might contain

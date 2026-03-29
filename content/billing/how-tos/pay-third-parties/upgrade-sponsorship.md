@@ -10,12 +10,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Sponsors
-  - Upgrades
 shortTitle: Upgrade sponsorship
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 **When you upgrade your sponsorship tier, the change will become effective immediately**.

@@ -7,11 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Contacting sponsors
-  - Privacy
-  - Open Source
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## Managing the privacy setting for your sponsorship

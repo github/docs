@@ -25,13 +25,6 @@
   ask_mode: true
   edit_mode: true
 
-- name: 'GPT-5'
-  provider: 'OpenAI'
-  release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
 - name: 'GPT-5 mini'
   provider: 'OpenAI'
   release_status: 'GA'
@@ -39,9 +32,65 @@
   ask_mode: true
   edit_mode: true
 
-- name: 'GPT-5-Codex'
+- name: 'GPT-5.1'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'Closing down: 2026-04-01'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.1-Codex'
+  provider: 'OpenAI'
+  release_status: 'Closing down: 2026-04-01'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.1-Codex-Max'
+  provider: 'OpenAI'
+  release_status: 'Closing down: 2026-04-01'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.1-Codex-Mini'
+  provider: 'OpenAI'
+  release_status: 'Closing down: 2026-04-01'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.2'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.2-Codex'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.3-Codex'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.4'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.4 mini'
+  provider: 'OpenAI'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -54,16 +103,23 @@
   ask_mode: true
   edit_mode: true
 
-- name: 'Claude Opus 4.1'
+- name: 'Claude Opus 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: false
+  agent_mode: true
   ask_mode: true
   edit_mode: true
 
-- name: 'Claude Sonnet 3.5'
+- name: 'Claude Opus 4.6'
   provider: 'Anthropic'
-  release_status: 'Closing down: 2025-11-06'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Claude Opus 4.6 (fast mode) (preview)'
+  provider: 'Anthropic'
+  release_status: 'Public preview'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -82,6 +138,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'Claude Sonnet 4.6'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # Google models
 
 - name: 'Gemini 2.5 Pro'
@@ -91,10 +154,39 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'Gemini 3 Flash'
+  provider: 'Google'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Gemini 3.1 Pro'
+  provider: 'Google'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # xAI models
 - name: 'Grok Code Fast 1'
   provider: 'xAI'
   release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+# Fine-tuned OAI models
+- name: 'Raptor mini'
+  provider: 'Fine-tuned GPT-5 mini'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Goldeneye'
+  provider: 'Fine-tuned GPT-5.1-Codex'
+  release_status: 'Public preview'
   agent_mode: true
   ask_mode: true
   edit_mode: true

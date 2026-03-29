@@ -115,7 +115,7 @@ const githubDocsConfig = {
   },
   'incorrect-alt-text-length': {
     // GHD033
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
@@ -165,27 +165,34 @@ const githubDocsConfig = {
   // GHD044 removed - octicon aria-labels are now auto-generated
   'code-annotation-comment-spacing': {
     // GHD045
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'outdated-release-phase-terminology': {
     // GHD046
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'table-column-integrity': {
     // GHD047
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'third-party-actions-reusable': {
     // GHD054
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
+  },
+  'rai-app-card-structure': {
+    // GHD064
+    // Disabled until RAI content migration is complete (github/docs-team#6340).
+    // To enable, change severity to 'error'.
+    severity: 'warning',
+    'partial-markdown-files': false,
   },
 }
 
@@ -238,11 +245,11 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-versions-whitespace': {
     // GHD051
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': false,
     'yml-files': false,
   },
-  'frontmatter-landing-recommended': {
+  'frontmatter-landing-carousels': {
     // GHD056
     severity: 'error',
     'partial-markdown-files': false,
@@ -280,6 +287,24 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-intro-links': {
     // GHD062
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-children': {
+    // GHD063
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-curly-quotes': {
+    // GHD034
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-content-type': {
+    // GHD065
     severity: 'error',
     'partial-markdown-files': false,
     'yml-files': false,

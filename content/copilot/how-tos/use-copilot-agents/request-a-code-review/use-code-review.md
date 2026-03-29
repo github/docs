@@ -5,8 +5,6 @@ intro: 'Learn how to request a code review from {% data variables.product.prodna
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /early-access/copilot/code-review/using-copilot-code-review
   - /early-access/copilot/code-reviews/using-copilot-code-review
@@ -16,7 +14,7 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-code-review/use-code-review
   - /copilot/how-tos/agents/request-a-code-review/use-code-review
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -27,6 +25,8 @@ category:
 For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/code-review).
 
 {% webui %}
+
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-for-organization-members-without-a-copilot-license).
 
 ## Using {% data variables.copilot.copilot_code-review_short %}
 
@@ -97,17 +97,8 @@ By default, you manually request a review from {% data variables.product.prodnam
 You can request an initial review of a highlighted selection of code in {% data variables.product.prodname_vscode %}.
 
 1. In {% data variables.product.prodname_vscode %}, select the code you want to review.
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
-   * For Mac:
-      * Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
-   * For Windows or Linux:
-      * Use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
-1. In the command palette, search for and select **{% data variables.product.prodname_copilot %}: Review and Comment**.
-
-   ![Screenshot of the command palette in {% data variables.product.prodname_vscode %} with the **{% data variables.product.prodname_copilot %}: Review and Comment** command selected.](/assets/images/help/copilot/vsc-review-and-comment.png)
-
-1. Wait for {% data variables.product.prodname_copilot_short %} to review your changes. This usually takes less than 30 seconds.
-1. If {% data variables.product.prodname_copilot_short %} has any comments, they will be shown inline in your file, and in the **Problems** tab.
+1. Right-click the selected code and choose **Generate Code** > **Review**.
+1. {% data variables.product.prodname_vscode_shortname %} creates review comments in the **Comments** panel and also shows them inline in the editor.
 
 ### Reviewing all uncommitted changes
 
@@ -140,9 +131,6 @@ To provide feedback, hover over the comment and click the thumbs up or thumbs do
 ![Screenshot of a comment from {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %} with feedback buttons displayed. The buttons are outlined in dark orange.](/assets/images/help/copilot/code-review/vscode-comment-feedback@2x.png)
 
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
-
-> [!NOTE]
-> {% data reusables.copilot.custom-instructions-ccr-support %}
 
 {% data reusables.copilot.code-review.custom-instructions-information %}
 

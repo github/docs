@@ -48,7 +48,9 @@ function getBreadcrumbs(req: ExtendedRequest, isEarlyAccess: boolean) {
     req.context.currentPath,
     req.context.currentProductTreeTitles,
   )
-  ;[...Array(cutoff)].forEach(() => breadcrumbsResult.shift())
+  for (let i = 0; i < cutoff; i++) {
+    breadcrumbsResult.shift()
+  }
 
   return breadcrumbsResult
 }

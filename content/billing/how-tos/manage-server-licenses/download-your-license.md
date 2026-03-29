@@ -5,10 +5,6 @@ permissions: 'Enterprise owners can download license files for {% data variables
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Download your license
 redirect_from:
   - /free-pro-team@latest/billing/managing-your-license-for-github-enterprise
@@ -25,6 +21,8 @@ redirect_from:
   - /billing/managing-your-license-for-github-enterprise
   - /billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 
@@ -40,9 +38,9 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 
 There are two possible ways to download a license file for {% data variables.product.prodname_ghe_server %}.
 
-1. If you are using a trial of {% data variables.product.prodname_ghe_server %}, if you do not have an enterprise account on {% data variables.product.prodname_ghe_cloud %}, or if you are not sure, you may be able to download your license file from the [{% data variables.product.prodname_enterprise %} website](https://enterprise.github.com/download).
+1. If you are using a trial of {% data variables.product.prodname_ghe_server %}, if you do not have an enterprise account on {% data variables.product.prodname_ghe_cloud %}, if you have {% data variables.enterprise.data_residency_site %} with volume license billing, or if you are not sure, you may be able to download your license file from the [{% data variables.product.prodname_enterprise %} website](https://enterprise.github.com/download).
 
-1. If you are an existing {% data variables.product.prodname_enterprise %} customer with an enterprise account on {% data variables.product.prodname_ghe_cloud %}, you can download your license file from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} using the following instructions.
+1. If you are an existing {% data variables.product.prodname_enterprise %} customer with an enterprise account on {% data variables.product.prodname_ghe_cloud %}, or if you have {% data variables.enterprise.data_residency_site %} with metered license billing, you can download your license file from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} using the following instructions.
 
 If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}. For more information about enterprise accounts, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}.{% endif %}
 

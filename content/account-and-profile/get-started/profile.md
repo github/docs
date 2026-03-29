@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Profile
 contentType: get-started
+category:
+  - Customize your profile
 ---
 
 ## About your {% data variables.product.github %} profile

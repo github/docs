@@ -7,7 +7,7 @@ import {
   convertVersionsToFrontmatter,
 } from '../../../automated-pipelines/lib/update-markdown'
 import { getDocsVersion } from '@/versions/lib/all-versions'
-import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index'
+import { REST_DATA_DIR } from '../../lib/index'
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
 type RestVersions = {
@@ -38,7 +38,7 @@ const { frontmatterDefaults, targetDirectory, indexOrder } = JSON.parse(
 )
 
 export async function updateRestFiles() {
-  const restVersions = await getDataFrontmatter(REST_DATA_DIR, REST_SCHEMA_FILENAME)
+  const restVersions = await getDataFrontmatter(REST_DATA_DIR)
   const restMarkdownContent = await getMarkdownContent(restVersions)
   await updateContentDirectory({
     targetDirectory,
@@ -72,12 +72,17 @@ export function getGHESVersionFromFilepath(filePath: string): string | null {
 
 // The data files are split up by version, so all files must be
 // read to get a complete list of versions.
-async function getDataFrontmatter(
-  dataDirectory: string,
-  schemaFilename: string,
-): Promise<RestVersions> {
+async function getDataFrontmatter(dataDirectory: string): Promise<RestVersions> {
   const fileList = walk(dataDirectory, { includeBasePath: true })
-    .filter((file) => path.basename(file) === schemaFilename)
+    .filter((file) => file.endsWith('.json'))
+    // Exclude non-category JSON files that live alongside per-category data.
+    // If new non-category files are added to version directories, update this filter.
+    .filter((file) => !file.endsWith('client-side-rest-api-redirects.json'))
+    // Exclude the legacy monolithic schema files. These are retained on disk as a
+    // safety net until the cleanup PR removes them, but they must not be read here —
+    // their top-level keys are category names, not subcategories, so they would be
+    // misread as a bogus "schema" category.
+    .filter((file) => !file.endsWith('schema.json'))
     // Ignore any deprecated versions. This allows us to stop supporting
     // the most recent deprecated version but still allow data to exist.
     // This makes the deprecation steps easier.
@@ -96,24 +101,18 @@ async function getDataFrontmatter(
   const restVersions: RestVersions = {}
 
   for (const file of fileList) {
-    const data = JSON.parse(await readFile(file, 'utf-8'))
+    const data = JSON.parse(await readFile(file, 'utf-8')) // data is RestOperationCategory
     const docsVersionName = getDocsVersion(path.basename(path.dirname(file)))
-    Object.keys(data).forEach((category) => {
-      // Used to automatically update Markdown files
-      const subcategories = Object.keys(data[category])
-      subcategories.forEach((subcategory) => {
-        if (!restVersions[category]) {
-          restVersions[category] = {}
-        }
-        if (!restVersions[category][subcategory]) {
-          restVersions[category][subcategory] = {
-            versions: [docsVersionName],
-          }
-        } else if (!restVersions[category][subcategory].versions.includes(docsVersionName)) {
-          restVersions[category][subcategory].versions.push(docsVersionName)
-        }
-      })
-    })
+    const category = path.basename(file, '.json') // filename IS the category
+    const subcategories = Object.keys(data) // data keys are subcategories directly
+    for (const subcategory of subcategories) {
+      if (!restVersions[category]) restVersions[category] = {}
+      if (!restVersions[category][subcategory]) {
+        restVersions[category][subcategory] = { versions: [docsVersionName] }
+      } else if (!restVersions[category][subcategory].versions.includes(docsVersionName)) {
+        restVersions[category][subcategory].versions.push(docsVersionName)
+      }
+    }
   }
   return restVersions
 }

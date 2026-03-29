@@ -18,6 +18,19 @@ interface CTAParams {
   ref_style?: string
 }
 
+const CTA_PARAM_KEYS: (keyof CTAParams)[] = ['ref_product', 'ref_plan', 'ref_type', 'ref_style']
+
+interface CTASchemaProperty {
+  type: string
+  name: string
+  description: string
+  enum: string[]
+}
+
+type CTASchemaProperties = {
+  [K in keyof CTAParams]-?: CTASchemaProperty
+}
+
 // Conversion mappings from old CTA format to new schema
 const ctaToTypeMapping: Record<string, string> = {
   'GHEC trial': 'trial',
@@ -99,10 +112,11 @@ async function selectFromOptions(
   promptFn: (question: string) => Promise<string>,
 ): Promise<string> {
   console.log(chalk.yellow(`\n${message} (${paramName}):`))
-  options.forEach((option, index) => {
+  for (let index = 0; index < options.length; index++) {
+    const option = options[index]
     const letter = String.fromCharCode(97 + index) // 97 is 'a' in ASCII
     console.log(chalk.white(`  ${letter}. ${option}`))
-  })
+  }
 
   let attempts = 0
   while (true) {
@@ -152,27 +166,40 @@ function extractCTAParams(url: string): CTAParams {
   const urlObj = new URL(url)
   const ctaParams: CTAParams = {}
   for (const [key, value] of urlObj.searchParams.entries()) {
-    if (key.startsWith('ref_')) {
-      ;(ctaParams as any)[key] = value
+    if (key.startsWith('ref_') && CTA_PARAM_KEYS.includes(key as keyof CTAParams)) {
+      ctaParams[key as keyof CTAParams] = value
     }
   }
   return ctaParams
 }
 
+interface AjvErrorParams {
+  missingProperty?: string
+  allowedValues?: string[]
+  additionalProperty?: string
+}
+
+interface AjvError {
+  keyword: string
+  instancePath: string
+  message?: string
+  params: AjvErrorParams
+}
+
 // Process AJV validation errors into readable messages
-function formatValidationErrors(ctaParams: CTAParams, errors: any[]): string[] {
+function formatValidationErrors(ctaParams: CTAParams, errors: AjvError[]): string[] {
   const errorMessages: string[] = []
   for (const error of errors) {
     let message = ''
     if (error.keyword === 'required') {
-      message = `Missing required parameter: ${(error.params as any)?.missingProperty}`
+      message = `Missing required parameter: ${error.params.missingProperty}`
     } else if (error.keyword === 'enum') {
       const paramName = error.instancePath.substring(1)
       const invalidValue = ctaParams[paramName as keyof CTAParams]
-      const allowedValues = (error.params as any)?.allowedValues || []
+      const allowedValues = error.params.allowedValues || []
       message = `Invalid value for ${paramName}: "${invalidValue}". Valid values are: ${allowedValues.join(', ')}`
     } else if (error.keyword === 'additionalProperties') {
-      message = `Unexpected parameter: ${(error.params as any)?.additionalProperty}`
+      message = `Unexpected parameter: ${error.params.additionalProperty}`
     } else {
       message = `Validation error: ${error.message}`
     }
@@ -190,7 +217,7 @@ function validateCTAParams(params: CTAParams): { isValid: boolean; errors: strin
     return { isValid: true, errors: [] }
   }
 
-  const errors = formatValidationErrors(params, ajvErrors)
+  const errors = formatValidationErrors(params, ajvErrors as unknown as AjvError[])
   return {
     isValid: false,
     errors,
@@ -201,11 +228,11 @@ function validateCTAParams(params: CTAParams): { isValid: boolean; errors: strin
 function buildCTAUrl(baseUrl: string, params: CTAParams): string {
   const url = new URL(baseUrl)
 
-  Object.entries(params).forEach(([key, value]) => {
+  for (const [key, value] of Object.entries(params)) {
     if (value) {
       url.searchParams.set(key, value)
     }
-  })
+  }
 
   return url.toString()
 }
@@ -277,11 +304,11 @@ export function convertOldCTAUrl(oldUrl: string): { newUrl: string; notes: strin
     newUrl.searchParams.delete('ref_page')
 
     // Add new CTA parameters
-    Object.entries(newParams).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(newParams)) {
       if (value) {
         newUrl.searchParams.set(key, value)
       }
-    })
+    }
 
     // The URL constructor may add a slash before the question mark in
     // "github.com?foo", but we don't want that. First, check if original
@@ -381,12 +408,14 @@ async function interactiveBuilder(): Promise<void> {
 
     // Required parameters
     console.log(chalk.white(`\nRequired parameters:`))
+    const schemaProps = ctaSchema.properties as CTASchemaProperties
 
     for (const requiredParam of ctaSchema.required) {
-      ;(params as any)[requiredParam] = await selectFromOptions(
+      const paramKey = requiredParam as keyof CTAParams
+      params[paramKey] = await selectFromOptions(
         requiredParam,
-        (ctaSchema.properties as any)[requiredParam].description,
-        (ctaSchema.properties as any)[requiredParam].enum,
+        schemaProps[paramKey].description,
+        schemaProps[paramKey].enum,
         prompt,
       )
     }
@@ -398,15 +427,16 @@ async function interactiveBuilder(): Promise<void> {
     const optionalProperties = allProperties.filter((prop) => !ctaSchema.required.includes(prop))
 
     for (const optionalParam of optionalProperties) {
+      const paramKey = optionalParam as keyof CTAParams
       const includeParam = await confirmChoice(
-        `Include ${(ctaSchema.properties as any)[optionalParam].name.toLowerCase()}?`,
+        `Include ${schemaProps[paramKey].name.toLowerCase()}?`,
         prompt,
       )
       if (includeParam) {
-        ;(params as any)[optionalParam] = await selectFromOptions(
+        params[paramKey] = await selectFromOptions(
           optionalParam,
-          (ctaSchema.properties as any)[optionalParam].description,
-          (ctaSchema.properties as any)[optionalParam].enum,
+          schemaProps[paramKey].description,
+          schemaProps[paramKey].enum,
           prompt,
         )
       }
@@ -417,7 +447,9 @@ async function interactiveBuilder(): Promise<void> {
 
     if (!validation.isValid) {
       console.log(chalk.red('\n❌ Validation Errors:'))
-      validation.errors.forEach((error) => console.log(chalk.red(`  • ${error}`)))
+      for (const error of validation.errors) {
+        console.log(chalk.red(`  • ${error}`))
+      }
       rl.close()
       return
     }
@@ -428,11 +460,11 @@ async function interactiveBuilder(): Promise<void> {
     console.log(chalk.green('\n✅ CTA URL generated successfully!'))
 
     console.log(chalk.white.bold('\nParameters summary:'))
-    Object.entries(params).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(params)) {
       if (value) {
         console.log(chalk.white(`  ${key}: ${value}`))
       }
-    })
+    }
 
     console.log(chalk.white.bold('\nYour CTA URL:'))
     console.log(chalk.cyan(ctaUrl))
@@ -474,7 +506,9 @@ async function convertUrls(options: { url?: string; quiet?: boolean }): Promise<
 
         if (!validation.isValid) {
           console.log(chalk.red('\n❌ Validation errors in converted URL:'))
-          validation.errors.forEach((message) => console.log(chalk.red(`  • ${message}`)))
+          for (const message of validation.errors) {
+            console.log(chalk.red(`  • ${message}`))
+          }
         }
       } catch (validationError) {
         console.log(chalk.red(`\n❌ Failed to validate new URL: ${validationError}`))
@@ -482,7 +516,9 @@ async function convertUrls(options: { url?: string; quiet?: boolean }): Promise<
 
       if (result.notes.length) {
         console.log(chalk.white('\n👉 Notes:'))
-        result.notes.forEach((note) => console.log(`  ${note}`))
+        for (const note of result.notes) {
+          console.log(`  ${note}`)
+        }
       }
     } else {
       if (!options.quiet) {
@@ -534,12 +570,14 @@ async function validateUrl(options: { url?: string }): Promise<void> {
       if (validation.isValid) {
         console.log(chalk.green('\n✅ URL is valid'))
         console.log(chalk.white('\nCTA parameters found:'))
-        Object.entries(ctaParams).forEach(([key, value]) => {
+        for (const [key, value] of Object.entries(ctaParams)) {
           console.log(chalk.white(`  ${key}: ${value}`))
-        })
+        }
       } else {
         console.log(chalk.red('\n❌ Validation errors:'))
-        validation.errors.forEach((message) => console.log(chalk.red(`  • ${message}`)))
+        for (const message of validation.errors) {
+          console.log(chalk.red(`  • ${message}`))
+        }
         console.log(
           chalk.yellow(
             '\n💡 Try: npm run cta-builder -- convert --url "your-url" to auto-fix old format URLs',
@@ -596,9 +634,9 @@ async function buildProgrammaticCTA(options: {
     const validation = validateCTAParams(params)
     if (!validation.isValid) {
       // Output validation errors to stderr and exit with error code
-      validation.errors.forEach((error) => {
+      for (const error of validation.errors) {
         console.error(`Validation error: ${error}`)
-      })
+      }
       process.exit(1)
     }
 

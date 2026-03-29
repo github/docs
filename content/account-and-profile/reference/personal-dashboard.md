@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
 contentType: reference
+category:
+  - Set up your account
 ---
 
 ## Recent activity

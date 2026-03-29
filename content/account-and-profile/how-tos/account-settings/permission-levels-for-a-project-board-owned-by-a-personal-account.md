@@ -11,11 +11,11 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-project-board-owned-by-a-personal-account
 versions:
   feature: projects-v1
-topics:
-  - Accounts
 shortTitle: '{% data variables.projects.projects_v1_board_caps %} permissions'
 allowTitleToDifferFromFilename: true
 contentType: how-tos
+category:
+  - Configure account settings
 ---
 
 {% data reusables.projects.project_boards_old %}

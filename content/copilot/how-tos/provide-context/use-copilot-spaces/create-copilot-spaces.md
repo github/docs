@@ -1,12 +1,10 @@
 ---
 title: Creating GitHub Copilot Spaces
 shortTitle: Create Copilot Spaces
-intro: 'Create spaces to organize and centralize relevant content that grounds {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task.'
+intro: "Create spaces to organize and centralize relevant content that grounds {% data variables.product.prodname_copilot_short %}'s responses in the right context for a specific task."
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/how-tos/provide-context/use-copilot-spaces/create-and-use-copilot-spaces
   - /copilot/using-github-copilot/copilot-spaces/creating-and-using-copilot-spaces
@@ -48,6 +46,24 @@ You can add two types of context to your space:
   * **{% octicon "link" aria-hidden="true" aria-label="link" %} Link files, pull requests, and issues**: You can paste the URLs of the {% data variables.product.github %} content, including pull requests and issues.
   * **{% octicon "upload" aria-hidden="true" aria-label="upload" %} Upload a file**: You can upload files directly from your local machine. This includes images, text files, rich documents, and spreadsheets.
   * **{% octicon "paste" aria-hidden="true" aria-label="paste" %} Add text content**: You can type or paste free-text content, such as transcripts, notes, or any other relevant information that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
+
+## Choosing repositories or files as context
+
+When adding sources to your space, you can choose to attach entire repositories or individual files. Understanding how each option works can help you get the best results from {% data variables.product.prodname_copilot_short %}.
+
+* **Attach a repository**: When you attach a repository, {% data variables.product.prodname_copilot_short %} doesn't load the entire project into memory. Instead, it searches the repository and retrieves only the most relevant content needed to answer your question. This is recommended for large-scale use cases (for example, answering questions across all documentation in a repository).
+
+* **Attach individual files**: When you attach a file, its full contents are loaded into {% data variables.product.prodname_copilot_short %}'s context window and considered for every query in that space. This is best when you want {% data variables.product.prodname_copilot_short %} to consistently prioritize a specific document or small set of files.
+
+## Adding context as you're working
+
+You can add files to a space directly from the code view on {% data variables.product.github %}, so you don't need to break your flow when building context for your space.
+
+1. At the top of any file in the code view, click **{% octicon "space" aria-label="Add to space" %}**.
+
+   ![Screenshot of a file in the code view. The "Add to space" icon is highlighted in orange.](/assets/images/help/copilot/add-to-copilot-space.png)
+
+1. From the dropdown, select the space you want to add the file to, or create a new space.
 
 ## Next steps
 

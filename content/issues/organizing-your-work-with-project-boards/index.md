@@ -5,9 +5,6 @@ intro: 'Use {% data variables.product.prodname_projects_v1 %} to manage your wor
 allowTitleToDifferFromFilename: true
 versions:
   feature: projects-v1
-topics:
-  - Issues
-  - Projects
 children:
   - /managing-project-boards
   - /tracking-work-with-project-boards

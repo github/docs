@@ -15,10 +15,13 @@ describe('invalid query strings', () => {
     // This test depends on knowing exactly the number
     // of unrecognized query strings that will trigger a 400.
     const sp = new URLSearchParams()
-    alphabet.slice(0, MAX_UNFAMILIAR_KEYS_BAD_REQUEST).forEach((letter) => sp.set(letter, '1'))
+    for (const letter of alphabet.slice(0, MAX_UNFAMILIAR_KEYS_BAD_REQUEST)) {
+      sp.set(letter, '1')
+    }
     const url = `/?${sp}`
     const res = await get(url)
     expect(res.statusCode).toBe(400)
+    expect(res.headers['content-type']).toMatch('text/plain')
     expect(res.headers['cache-control']).toMatch('no-store')
     expect(res.headers['cache-control']).toMatch('private')
   })
@@ -27,7 +30,9 @@ describe('invalid query strings', () => {
     // This test depends on knowing exactly the number
     // of unrecognized query strings that will trigger a 400.
     const sp = new URLSearchParams()
-    alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT).forEach((letter) => sp.set(letter, '1'))
+    for (const letter of alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT)) {
+      sp.set(letter, '1')
+    }
     const url = `/?${sp}`
     const res = await get(url)
     expect(res.statusCode).toBe(302)
@@ -38,7 +43,9 @@ describe('invalid query strings', () => {
 
   test('302 redirect but keeping recognized query strings', async () => {
     const sp = new URLSearchParams()
-    alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT).forEach((letter) => sp.set(letter, '1'))
+    for (const letter of alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT)) {
+      sp.set(letter, '1')
+    }
     sp.set('platform', 'concrete')
     const url = `/en/pages?${sp}`
     const res = await get(url)
@@ -63,14 +70,20 @@ describe('invalid query strings', () => {
     const url = `/en?query[foo]=bar`
     const res = await get(url)
     expect(res.statusCode).toBe(400)
-    expect(res.body).toMatch('Invalid query string key (query)')
+    expect(res.headers['content-type']).toMatch('text/plain')
+    expect(res.body).toMatch('Invalid query string')
+    // Must not reflect the user-supplied key name
+    expect(res.body).not.toContain('(query)')
   })
 
   test('query string keys with square brackets', async () => {
     const url = `/?constructor[foo][bar]=buz`
     const res = await get(url)
     expect(res.statusCode).toBe(400)
-    expect(res.body).toMatch('Invalid query string key (constructor)')
+    expect(res.headers['content-type']).toMatch('text/plain')
+    expect(res.body).toMatch('Invalid query string')
+    // Must not reflect the user-supplied key name
+    expect(res.body).not.toContain('(constructor)')
   })
 
   test('bad tool query string with Chinese URL-encoded characters', async () => {
@@ -79,6 +92,23 @@ describe('invalid query strings', () => {
     const res = await get(url)
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/?tool=azure_data_studio')
+  })
+
+  test('XSS payloads in bracket query keys are not reflected', async () => {
+    const res = await get('/en?%3Cscript%3Ealert()%3C/script%3E[]')
+    expect(res.statusCode).toBe(400)
+    expect(res.headers['content-type']).toMatch('text/plain')
+    expect(res.body).not.toContain('<script>')
+    expect(res.body).not.toContain('alert')
+  })
+
+  test('redirect from unrecognized query strings does not produce open redirect', async () => {
+    // This is the exact PoC from the bug bounty report.
+    // With enough unrecognized query keys, the middleware redirects
+    // using req.path. res.safeRedirect normalizes // to / so the
+    // Location header can never be a protocol-relative URL.
+    const res = await get('//evil.com?a=1&b=2&c=3')
+    expect(res.headers.location).not.toMatch(/^\/\//)
   })
 })
 

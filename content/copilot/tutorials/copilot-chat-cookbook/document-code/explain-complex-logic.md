@@ -12,11 +12,10 @@ versions:
 category:
   - Documenting code
   - Author and optimize with Copilot
+  - Scale institutional knowledge
 complexity:
   - Intermediate
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

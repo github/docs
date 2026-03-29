@@ -6,11 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /set-up-payment
   - /manage-plan-and-licenses
+  - /set-up-budgets
   - /products
   - /manage-server-licenses
   - /pay-third-parties

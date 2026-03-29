@@ -1,0 +1,15 @@
+---
+title: Dependabot alert filters
+intro: '{% data variables.product.prodname_dependabot_alerts %} filters help you prioritize and manage alerts for vulnerable dependencies in your repositories.'
+allowTitleToDifferFromFilename: true
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+shortTitle: Dependabot alerts filters
+contentType: reference
+category:
+  - Secure your dependencies
+---
+
+{% data reusables.dependabot.dependabot-alerts-filters %}

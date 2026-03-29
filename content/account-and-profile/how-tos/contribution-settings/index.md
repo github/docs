@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 children:
   - /showing-an-overview-of-your-activity-on-your-profile
   - /viewing-contributions-on-your-profile

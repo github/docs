@@ -1,15 +1,11 @@
 ---
 title: Migrating your enterprise to GitHub Actions
 shortTitle: Migrate to Actions
-intro: 'Plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.'
+intro: Plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - Migration
 allowTitleToDifferFromFilename: true
+contentType: how-tos
 ---
 
 ## About enterprise migrations to {% data variables.product.prodname_actions %}

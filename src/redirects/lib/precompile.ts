@@ -11,20 +11,20 @@ type Redirects = Record<string, string>
 // This function runs at server warmup and precompiles possible redirect routes.
 // It outputs them in key-value pairs within a neat JavaScript object: { oldPath: newPath }
 export async function precompileRedirects(pageList: Page[]): Promise<Redirects> {
-  const allRedirects: Redirects = readCompressedJsonFileFallback(
+  const allRedirects = readCompressedJsonFileFallback(
     './src/redirects/lib/static/developer.json',
-  )
+  ) as Redirects
 
-  const externalRedirects: Redirects = readCompressedJsonFileFallback(
+  const externalRedirects = readCompressedJsonFileFallback(
     './src/redirects/lib/external-sites.json',
-  )
+  ) as Redirects
   Object.assign(allRedirects, externalRedirects)
 
   // CURRENT PAGES PERMALINKS AND FRONTMATTER
   // create backwards-compatible old paths for page permalinks and frontmatter redirects
-  pageList
-    .filter((page) => page.languageCode === 'en')
-    .forEach((page) => Object.assign(allRedirects, page.buildRedirects()))
+  for (const page of pageList.filter((xpage) => xpage.languageCode === 'en')) {
+    Object.assign(allRedirects, page.buildRedirects())
+  }
 
   // NOTE: Exception redirects **MUST COME AFTER** pageList redirects above in order
   // to properly override them. Exception redirects are unicorn one-offs that are not
@@ -46,7 +46,7 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
   const exceptions = getExceptionRedirects(EXCEPTIONS_FILE) as Redirects
   Object.assign(allRedirects, exceptions)
 
-  Object.entries(allRedirects).forEach(([fromURI, toURI]) => {
+  for (const [fromURI, toURI] of Object.entries(allRedirects)) {
     // If the destination URL has a hardcoded `enterprise-server@latest` in
     // it we need to rewrite that now.
     // We never want to redirect to that as the final URL (in the 301 response)
@@ -60,7 +60,7 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
         `/enterprise-server@${latest}`,
       )
     }
-  })
+  }
 
   return allRedirects
 }

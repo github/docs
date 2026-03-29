@@ -14,11 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Node
-  - JavaScript
-  - Azure App Service
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

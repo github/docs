@@ -6,13 +6,10 @@ intro: 'Learn how to provision accounts and manage organization and team members
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
-  - Accounts
-  - Authentication
 children:
   - /user-provisioning-with-scim-on-ghes
   - /configuring-scim-provisioning-for-users
+  - /migrating-from-ldap-to-saml-with-scim
   - /configuring-authentication-and-provisioning-with-entra-id
   - /configuring-authentication-and-provisioning-with-pingfederate
   - /configuring-scim-provisioning-with-okta

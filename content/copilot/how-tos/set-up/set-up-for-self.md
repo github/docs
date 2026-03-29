@@ -5,14 +5,12 @@ intro: Follow these steps to start using Copilot.
 permissions: Individuals
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself
   - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-yourself
   - /copilot/how-tos/set-up/setting-up-github-copilot-for-yourself
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -20,7 +18,7 @@ category:
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 code completion requests and 50 premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and 50 premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 * **Sign up for a paid plan**. You can subscribe to either:
 
@@ -29,7 +27,9 @@ There are a few ways that you can get access to {% data variables.product.prodna
 
 * **Use {% data variables.product.prodname_copilot_short %} through your organization or enterprise**. If you're part of an organization or enterprise with a {% data variables.product.prodname_copilot_short %} plan, you can request access at [https://github.com/settings/copilot](https://github.com/settings/copilot) under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
-* **Verified students, teachers, or open source maintainers**. You may be eligible to use {% data variables.product.prodname_copilot_short %} for free. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
+* **Verified students** can sign up to {% data variables.copilot.copilot_student_short %} to access {% data variables.product.prodname_copilot_short %} for free. See [AUTOTITLE](/copilot/how-tos/manage-your-account/free-access-with-copilot-student).
+
+* **Verified teachers or open source maintainers** may be eligible to use {% data variables.product.prodname_copilot_short %} for free. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
 
 ## 2. Install the {% data variables.product.prodname_copilot_short %} extension for your IDE
 
@@ -55,8 +55,9 @@ All users can configure {% data variables.product.prodname_copilot_short %} sett
 
 If you have your own {% data variables.product.prodname_copilot_short %} plan (instead of using your organization or enterprise's plan), you can:
 
-* **Install {% data variables.copilot.copilot_extensions_short %}** to integrate other tools with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account).
+* **Install Model Context Protocol (MCP) servers** to integrate with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp).
 * **Manage policies**. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber).
+* **Enable {% data variables.copilot.copilot_memory %}**, which allows {% data variables.product.prodname_copilot_short %} to generate and store useful information about your repositories. See [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
 ## 7. Start using {% data variables.product.prodname_copilot_short %}
 

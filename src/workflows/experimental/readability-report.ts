@@ -38,7 +38,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 
 interface ReadabilityMetrics {
@@ -94,7 +94,9 @@ Note: Requires a local server running on localhost:4000 (npm start)
   }
 
   console.log(`Analyzing readability for ${changedFiles.length} changed files:`)
-  changedFiles.forEach((file) => console.log(`  - ${file}`))
+  for (const file of changedFiles) {
+    console.log(`  - ${file}`)
+  }
 
   // Wait for server to be ready
   await waitForServer()
@@ -217,7 +219,7 @@ async function analyzeFile(filePath: string): Promise<PageReadability | null> {
 
     // Parse HTML and extract content
     const body = await response.text()
-    const $ = cheerio.load(body)
+    const $ = load(body)
 
     // Get page title
     const title = $('h1').first().text().trim() || $('title').text().trim() || 'Untitled'

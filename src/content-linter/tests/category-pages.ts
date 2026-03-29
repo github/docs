@@ -46,23 +46,25 @@ describe.skip('category pages', () => {
   // Combine those to fit vitest's `.each` usage
   const productTuples = zip(productNames, productIndices) as [string, string][]
 
-  // Use a regular forEach loop to generate the `describe(...)` blocks
+  // Use a regular for...of loop to generate the `describe(...)` blocks
   // otherwise, if one of them has no categories, the tests will fail.
-  productTuples.forEach((tuple) => {
+  for (const tuple of productTuples) {
     const [, productIndex] = tuple
+
+    const productDir = path.dirname(productIndex)
+
     // Get links included in product index page.
     // Each link corresponds to a product subdirectory (category).
     // Example: "getting-started-with-github"
-    const contents = fs.readFileSync(productIndex, 'utf8') // TODO move to async
+    // Note: We need to read this synchronously here because vitest's describe.each
+    // can't asynchronously define tests
+    const contents = fs.readFileSync(productIndex, 'utf8')
     const data = getFrontmatterData(contents)
-
-    const productDir = path.dirname(productIndex)
 
     const children: string[] = data.children
     const categoryLinks = children
       // Only include category directories, not standalone category files like content/actions/quickstart.md
       .filter((link) => fs.existsSync(getPath(productDir, link, 'index')))
-    // TODO this should move to async, but you can't asynchronously define tests with vitest...
 
     // Map those to the Markdown file paths that represent that category page index
     const categoryPaths = categoryLinks.map((link) => getPath(productDir, link, 'index'))
@@ -119,15 +121,19 @@ describe.skip('category pages', () => {
           await contextualize(req as ExtendedRequest, res as Response, next)
           await shortVersions(req as ExtendedRequest, res as Response, next)
 
-          // Save the index title for later testing
-          indexTitle = data.title.includes('{')
-            ? await renderContent(data.title, req.context, { textOnly: true })
-            : data.title
+          // Read the product index data for rendering
+          const productIndexContents = await fs.promises.readFile(productIndex, 'utf8')
+          const productIndexData = getFrontmatterData(productIndexContents)
 
-          if (data.shortTitle) {
-            indexShortTitle = data.shortTitle.includes('{')
-              ? await renderContent(data.shortTitle, req.context, { textOnly: true })
-              : data.shortTitle
+          // Save the index title for later testing
+          indexTitle = productIndexData.title.includes('{')
+            ? await renderContent(productIndexData.title, req.context, { textOnly: true })
+            : productIndexData.title
+
+          if (productIndexData.shortTitle) {
+            indexShortTitle = productIndexData.shortTitle.includes('{')
+              ? await renderContent(productIndexData.shortTitle, req.context, { textOnly: true })
+              : productIndexData.shortTitle
           } else {
             indexShortTitle = ''
           }
@@ -196,11 +202,11 @@ describe.skip('category pages', () => {
         })
 
         test('contains only articles and subcategories with versions that are also available in the parent category', () => {
-          Object.entries(articleVersions).forEach(([articleName, versions]) => {
+          for (const [articleName, versions] of Object.entries(articleVersions)) {
             const unexpectedVersions = difference(versions, categoryVersions)
             const errorMessage = `${articleName} has versions that are not available in parent category`
             expect(unexpectedVersions.length, errorMessage).toBe(0)
-          })
+          }
         })
 
         test('slugified title matches parent directory name', () => {
@@ -229,10 +235,19 @@ describe.skip('category pages', () => {
         })
       },
     )
-  })
+  }
 })
 
 function getPath(productDir: string, link: string, filename: string) {
+  // Handle absolute /content/ paths for cross-product children
+  // The link parameter contains the child path from frontmatter
+  if (link.startsWith('/content/')) {
+    const absolutePath = link.slice('/content/'.length)
+    if (filename === 'index') {
+      return path.join(contentDir, absolutePath, 'index.md')
+    }
+    return path.join(contentDir, absolutePath, `${filename}.md`)
+  }
   return path.join(productDir, link, `${filename}.md`)
 }
 

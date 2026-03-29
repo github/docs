@@ -1,0 +1,1 @@
+1. Optionally, select a {% data variables.copilot.copilot_custom_agent_short %} with specialized behavior and tools from the dropdown menu. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).

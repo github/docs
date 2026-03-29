@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Integration
 children:
     - /integrate-github-with-slack
     - /use-github-in-slack

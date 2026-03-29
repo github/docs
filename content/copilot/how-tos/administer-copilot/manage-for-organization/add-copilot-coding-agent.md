@@ -6,8 +6,6 @@ permissions: Organization owners
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: 'Add {% data variables.copilot.copilot_coding_agent %}'
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization
@@ -42,7 +40,7 @@ Organizations with {% data variables.copilot.copilot_enterprise_short %} or {% d
 
 ## Disabling or enabling {% data variables.copilot.copilot_coding_agent %} in your repositories
 
-By default, {% data variables.copilot.copilot_coding_agent %} is available in all repositories for users who have access to the agent, but you can block it from being used in some or all repositories owned by your organization.
+By default, {% data variables.copilot.copilot_coding_agent %} is available in all repositories for users who have access to the agent, but you can block it from being used in some or all repositories owned by your organization. You can manage repository availability using the following instructions, or programmatically using the [REST API](/rest/copilot/copilot-coding-agent-management).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

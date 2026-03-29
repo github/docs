@@ -1,19 +1,11 @@
 ---
 title: Enforcing policies for code security and analysis for your enterprise
-intro: 'You can enforce policies to manage the use of code security and analysis features within your enterprise''s organizations.'
-permissions: 'Enterprise owners'
+intro: You can enforce policies to manage the use of code security and analysis features within your enterprise's organizations.
+permissions: Enterprise owners
 product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Advanced Security
-  - Code scanning
-  - Enterprise
-  - Policies
-  - Secret scanning
-  - Security
 redirect_from:
   - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
@@ -27,6 +19,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
 shortTitle: Security & analysis
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for using security features in your enterprise
@@ -50,6 +45,9 @@ Disallowing {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %} for an o
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 {% data reusables.enterprise-accounts.advanced-security-organization-policy-drop-down %}
 {% data reusables.enterprise-accounts.advanced-security-individual-organization-policy-drop-down %}
+
+> [!NOTE]
+> If {% data variables.product.prodname_actions %} is not available for an organization, {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_code_quality %} will be unable to run even if they are made available with this policy. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#policies).
 
 {% ifversion ghec %}
 

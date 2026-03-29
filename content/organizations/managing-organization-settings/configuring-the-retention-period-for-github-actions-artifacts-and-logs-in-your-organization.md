@@ -7,10 +7,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Configure retention period
+category:
+  - Configure organization features
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

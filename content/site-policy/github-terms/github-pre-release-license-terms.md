@@ -7,9 +7,8 @@ redirect_from:
   - /site-policy/github-terms/github-copilot-pre-release-license-terms
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review product and program terms
 ---
 
 ## GitHub Pre-release License Terms

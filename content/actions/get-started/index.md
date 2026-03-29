@@ -15,4 +15,6 @@ children:
 redirect_from:
   - /actions/about-github-actions
   - /actions/concepts/overview
+contentType: get-started
 ---
+

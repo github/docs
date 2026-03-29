@@ -4,6 +4,8 @@ import fs from 'fs/promises'
 import PageClass from './page'
 import type { UnversionedTree, Page } from '@/types'
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 export default async function createTree(
   originalPath: string,
   rootPath?: string,
@@ -40,14 +42,18 @@ export default async function createTree(
       }
       // Throw an error if we can't find a content file associated with the children: entry.
       // But don't throw an error if the user is running the site locally and hasn't cloned the Early Access repo.
-      if (originalPath === 'content/early-access') {
+      // Also don't throw for missing children *within* early-access content — a broken
+      // early-access article should not block every docs-internal PR from merging.
+      const msg = `Cannot find a content file at ${originalPath}. Check the 'children' frontmatter in the parent index.md.`
+
+      if (
+        originalPath === 'content/early-access' ||
+        originalPath.startsWith('content/early-access/')
+      ) {
+        console.warn(`Warning: ${msg}`)
         return
       }
-      throw new Error(
-        `Cannot find a content file at ${originalPath}. Fix the children frontmatter entry "/${path.basename(
-          originalPath,
-        )}" in ${path.dirname(originalPath)}/index.md.\n`,
-      )
+      throw new Error(msg)
     }
   }
 
@@ -119,11 +125,36 @@ export default async function createTree(
               childPreviousTree = previousTree.childPages[i]
             }
           }
-          const subTree = await createTree(
-            path.posix.join(originalPath, child),
-            basePath,
-            childPreviousTree,
-          )
+
+          // Handle absolute /content/ paths - allows cross-product directory inclusion
+          // e.g., /content/actions/workflows will include the entire actions/workflows tree
+          let childPath: string
+          if (child.startsWith('/content/')) {
+            // Absolute content path - resolve from the content root
+            // Strip '/content/' prefix and join with the base content directory
+            const absoluteChildPath = child.slice('/content/'.length)
+            childPath = path.posix.join(basePath, absoluteChildPath)
+
+            // Security check: ensure the resolved path stays within the content directory
+            // This prevents path traversal attacks using sequences like '../'
+            const resolvedPath = path.resolve(childPath)
+            const resolvedBasePath = path.resolve(basePath)
+            if (!resolvedPath.startsWith(resolvedBasePath + path.sep)) {
+              throw new Error(
+                `Invalid child path "${child}" in ${originalPath}/index.md - path traversal detected. ` +
+                  `Resolved path "${resolvedPath}" escapes content directory "${resolvedBasePath}".`,
+              )
+            }
+          } else {
+            // Traditional relative path
+            childPath = path.posix.join(originalPath, child)
+          }
+
+          const subTree = await createTree(childPath, basePath, childPreviousTree)
+          if (subTree && child.startsWith('/content/')) {
+            // Mark this subtree as a cross-product child so it can be excluded from the sidebar
+            subTree.crossProductChild = true
+          }
           if (!subTree) {
             // Remove that children.
             // For example, the 'early-access' might have been in the
@@ -150,26 +181,21 @@ function equalArray(arr1: string[], arr2: string[]): boolean {
 }
 
 async function getMtime(filePath: string): Promise<number> {
-  // Use mtimeMs, which is a regular floating point number, instead of the
-  // mtime which is a Date based on that same number.
-  // Otherwise, if we use the Date instances, we have to compare
-  // them using `oneDate.getTime() === anotherDate.getTime()`.
-  const { mtimeMs } = await fs.stat(filePath)
-  // The `mtimeMs` is a number like `1669827766942.7954`
-  // From the docs:
-  // "The timestamp indicating the last time this file was modified expressed
-  // in nanoseconds since the POSIX Epoch."
-  // But the number isn't actually all that important. We just need it to
-  // later be able to know if it changed. We round it to the nearest
-  // millisecond.
-  return Math.round(mtimeMs)
+  if (isProduction) {
+    // In production, skip the full stat but still verify existence
+    await fs.access(filePath)
+    return 1
+  }
+  return Math.round((await fs.stat(filePath)).mtimeMs)
 }
 
 // Page class has dynamic frontmatter properties that aren't in the type definition
 function assertUniqueChildren(page: any): void {
   if (page.children.length !== new Set(page.children).size) {
     const count: Record<string, number> = {}
-    page.children.forEach((entry: string) => (count[entry] = 1 + (count[entry] || 0)))
+    for (const entry of page.children) {
+      count[entry] = 1 + (count[entry] || 0)
+    }
     let msg = `${page.relativePath} has duplicates in the 'children' key.`
     for (const [entry, times] of Object.entries(count)) {
       if (times > 1) msg += ` '${entry}' is repeated ${times} times. `

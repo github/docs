@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: Encrypt secrets
+category:
+  - Build apps and integrations
 ---
 
 ## About encrypting secrets

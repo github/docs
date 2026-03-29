@@ -61,9 +61,8 @@ export default function Category({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index')
-  const nonEnterpriseDefaultVersionModule = await import(
-    '@/versions/lib/non-enterprise-default-version'
-  )
+  const nonEnterpriseDefaultVersionModule =
+    await import('@/versions/lib/non-enterprise-default-version')
   const nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersionModule.default as string
 
   const req = context.req as any
@@ -86,8 +85,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subcategory = category
   }
 
-  const restData = await getRest(currentVersion, apiVersion)
-  const restOperations = (restData && restData[category] && restData[category][subcategory]) || []
+  const categoryData = await getRest(currentVersion, apiVersion, category)
+  const restOperations = (categoryData && categoryData[subcategory]) || []
 
   // Build table of contents for all category operations for TocLanding:
   //
@@ -95,7 +94,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // * loop over subcategories and get the operations per subcategory
   //   * get the minitoc items per set of subcategory operations
   //   * with this data, build a collection of toc items that can be used by TocLanding
-  const restCategoryOperations = (restData && restData[category]) || {}
+  const restCategoryOperations = categoryData || {}
   const restCategoryTocItems = []
 
   for (const [subCat, subCatOperations] of Object.entries(restCategoryOperations)) {
@@ -144,7 +143,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       req.context,
     )) as MinitocItemsT
 
-    miniTocItems.restOperationsMiniTocItems.forEach((operationMinitoc) => {
+    for (const operationMinitoc of miniTocItems.restOperationsMiniTocItems) {
       const { title, href: miniTocAnchor } = operationMinitoc.contents
       const fullPath = `/${context.locale}${versionPathSegment}rest/${context.params?.category}/${subCat}${miniTocAnchor}`
 
@@ -152,7 +151,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         fullPath,
         title,
       })
-    })
+    }
 
     // TocLanding expects a collection of objects that looks like this:
     //

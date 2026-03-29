@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { parseUserAgent } from '@/events/components/user-agent'
 import { InArticlePicker } from './InArticlePicker'
+import { OS_PREFERRED_COOKIE_NAME } from '@/frame/lib/constants'
 
 const platformQueryKey = 'platform'
 const platforms = [
@@ -18,19 +19,20 @@ const platforms = [
 // example: {% mac %} block content {% endmac %}
 function showPlatformSpecificContent(platform: string) {
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
-  markdowns
-    .filter((el) => platforms.some((platformValue) => el.classList.contains(platformValue.value)))
-    .forEach((el) => {
-      el.style.display = el.classList.contains(platform) ? '' : 'none'
+  const platformMarkdowns = markdowns.filter((xel) =>
+    platforms.some((platformValue) => xel.classList.contains(platformValue.value)),
+  )
+  for (const el of platformMarkdowns) {
+    el.style.display = el.classList.contains(platform) ? '' : 'none'
 
-      // hack: special handling for minitoc links -- we can't pass the tool classes
-      // directly to the Primer NavList.Item generated <li>, it gets passed down
-      // to the child <a>.  So if we find an <a> that has the tool class and its
-      // parent is an <li>, we hide/unhide that element as well.
-      if (el.tagName === 'A' && el.parentElement && el.parentElement.tagName === 'LI') {
-        el.parentElement.style.display = el.classList.contains(platform) ? '' : 'none'
-      }
-    })
+    // hack: special handling for minitoc links -- we can't pass the tool classes
+    // directly to the Primer NavList.Item generated <li>, it gets passed down
+    // to the child <a>.  So if we find an <a> that has the tool class and its
+    // parent is an <li>, we hide/unhide that element as well.
+    if (el.tagName === 'A' && el.parentElement && el.parentElement.tagName === 'LI') {
+      el.parentElement.style.display = el.classList.contains(platform) ? '' : 'none'
+    }
+  }
 
   // find all platform-specific *inline* elements and hide or show as appropriate
   // example: <span class="platform-mac">inline content</span>
@@ -39,9 +41,9 @@ function showPlatformSpecificContent(platform: string) {
       platforms.map((platformOption) => `.platform-${platformOption.value}`).join(', '),
     ),
   )
-  platformEls.forEach((el) => {
+  for (const el of platformEls) {
     el.style.display = el.classList.contains(`platform-${platform}`) ? '' : 'none'
-  })
+  }
 }
 
 export const PlatformPicker = () => {
@@ -71,7 +73,7 @@ export const PlatformPicker = () => {
           ? defaultUA
           : detectedPlatforms[detectedPlatforms.length - 1]
       }
-      cookieKey="osPreferred"
+      cookieKey={OS_PREFERRED_COOKIE_NAME}
       queryStringKey={platformQueryKey}
       onValue={showPlatformSpecificContent}
       preferenceName="os"

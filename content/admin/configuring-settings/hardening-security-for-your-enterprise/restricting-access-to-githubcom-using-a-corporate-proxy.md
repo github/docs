@@ -5,6 +5,8 @@ shortTitle: 'Block personal accounts'
 product: 'Enterprises with {% data variables.product.prodname_emus %} on {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   ghec: '*'
+category:
+  - Secure and govern your enterprise
 ---
 
 If you use {% data variables.product.prodname_emus %}, you can block users on your network from authenticating to {% data variables.product.prodname_dotcom_the_website %} with accounts that are not members of your enterprise. This helps reduce the risk of your company's data being exposed to the public.
@@ -17,7 +19,7 @@ This feature requires an external firewall or proxy. {% data variables.contact.g
 
 This feature is not enabled by default. An enterprise owner can enable the feature for your enterprise.
 
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, select **Enable enterprise access restrictions**.
@@ -42,7 +44,7 @@ sec-GitHub-allowed-enterprise: ENTERPRISE-ID
 
 An enterprise owner can identify the correct enterprise ID to use in the header for your enterprise.
 
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, find the header for your enterprise.

@@ -10,8 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /orgs
   - /repos

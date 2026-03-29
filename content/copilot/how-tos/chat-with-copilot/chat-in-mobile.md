@@ -1,9 +1,6 @@
 ---
 title: Asking GitHub Copilot questions in GitHub Mobile
 intro: You can use {% data variables.copilot.copilot_mobile %} to answer general questions about software development, or specific questions about the code in a repository{% ifversion ghec %}. With {% data variables.copilot.copilot_enterprise_short %} you can also ask specific questions about a pull request, issue, or discussion{% endif %}.
-topics:
-  - Copilot
-  - Mobile
 versions:
   feature: copilot-chat-for-mobile
 shortTitle: Chat in Mobile

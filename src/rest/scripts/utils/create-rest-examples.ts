@@ -31,7 +31,6 @@ interface ResponseExample {
 }
 
 interface MergedExample {
-  key: string
   request: {
     contentType?: string
     description: string
@@ -62,24 +61,27 @@ export default async function getCodeSamples(operation: Operation): Promise<Merg
   // has the same description, add a number to the example
   if (mergedExamples.length > 1) {
     const count: Record<string, number> = {}
-    mergedExamples.forEach((item) => {
+    for (const item of mergedExamples) {
       count[item.request.description] = (count[item.request.description] || 0) + 1
+    }
+
+    return mergedExamples.map((example, i) => {
+      delete (example as any).key
+      return {
+        ...example,
+        request: {
+          ...example.request,
+          description:
+            count[example.request.description] > 1
+              ? `${example.request.description} ${i + 1}: Status Code ${example.response!.statusCode}`
+              : example.request.description,
+        },
+      }
     })
-
-    const newMergedExamples = mergedExamples.map((example, i) => ({
-      ...example,
-      request: {
-        ...example.request,
-        description:
-          count[example.request.description] > 1
-            ? `${example.request.description} ${i + 1}: Status Code ${example.response!.statusCode}`
-            : example.request.description,
-      },
-    }))
-
-    return newMergedExamples
   }
 
+  // Strip the key field — it's only needed during merging, not at runtime
+  for (const example of mergedExamples) delete (example as any).key
   return mergedExamples
 }
 
@@ -204,7 +206,7 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
 
   // Requests can have multiple content types each with their own set of
   // examples.
-  Object.keys(operation.requestBody.content).forEach((contentType) => {
+  for (const contentType of Object.keys(operation.requestBody.content)) {
     let examples: Record<string, any> = {}
     // This is a fallback to allow using the `example` property in
     // the schema. If we start to enforce using examples vs. example using
@@ -230,13 +232,13 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
           parameters: parameterExamples.default,
         },
       })
-      return
+      continue
     }
 
     // There can be more than one example for a given content type. We need to
     // iterate over the keys of the examples to create individual
     // example objects
-    Object.keys(examples).forEach((key) => {
+    for (const key of Object.keys(examples)) {
       // A content type that includes `+json` is a custom media type
       // The default accept header is application/vnd.github.v3+json
       // Which would have a content type of `application/json`
@@ -255,9 +257,27 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
         },
       }
       requestExamples.push(example)
-    })
-  })
+    }
+  }
   return requestExamples
+}
+
+/*
+  Recursively removes `example` and `examples` annotation fields from a JSON
+  Schema object. These fields are OpenAPI annotation-only and are never read
+  by the runtime rendering code, but they account for ~131 MB of the total
+  schema.json size across all versions.
+*/
+function stripSchemaExamples(schema: any): any {
+  if (!schema || typeof schema !== 'object') return schema
+  if (Array.isArray(schema)) return schema.map(stripSchemaExamples)
+
+  const result: any = {}
+  for (const [key, value] of Object.entries(schema)) {
+    if (key === 'example' || key === 'examples') continue
+    result[key] = stripSchemaExamples(value)
+  }
+  return result
 }
 
 /*
@@ -279,10 +299,10 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
 */
 export function getResponseExamples(operation: Operation): ResponseExample[] {
   const responseExamples: ResponseExample[] = []
-  Object.keys(operation.responses).forEach((statusCode) => {
+  for (const statusCode of Object.keys(operation.responses)) {
     // We don't want to create examples for error codes
     // Error codes are displayed in the status table in the docs
-    if (parseInt(statusCode, 10) >= 400) return
+    if (parseInt(statusCode, 10) >= 400) continue
 
     const content = operation.responses[statusCode].content
 
@@ -298,12 +318,12 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
         },
       }
       responseExamples.push(example)
-      return
+      continue
     }
 
     // Responses can have multiple content types each with their own set of
     // examples.
-    Object.keys(content).forEach((contentType) => {
+    for (const contentType of Object.keys(content)) {
       let examples: Record<string, any> = {}
       // This is a fallback to allow using the `example` property in
       // the schema. If we start to enforce using examples vs. example using
@@ -333,18 +353,18 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
           },
         }
         responseExamples.push(example)
-        return
+        continue
       } else {
         // Example for this content type doesn't exist.
         // We could also check if there is a fully populated example
         // directly in the response schema examples properties.
-        return
+        continue
       }
 
       // There can be more than one example for a given content type. We need to
       // iterate over the keys of the examples to create individual
       // example objects
-      Object.keys(examples).forEach((key) => {
+      for (const key of Object.keys(examples)) {
         const example = {
           key,
           response: {
@@ -352,17 +372,19 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
             contentType,
             description: examples[key].summary || operation.responses[statusCode].description,
             example: examples[key].value,
-            // TODO adding the schema quadruples the JSON file size. Changing
-            // how we write the JSON file helps a lot, but we should revisit
-            // adding the response schema to ensure we have a way to view the
-            // prettified JSON before minimizing it.
-            schema: operation.responses[statusCode].content[contentType].schema,
+            // Note: Including the schema significantly increases JSON file size (~4x),
+            // but it's necessary to support the schema/example toggle in the UI.
+            // Users can switch between viewing the example response and the full schema.
+            // example/examples annotation fields are stripped as they are not rendered.
+            schema: stripSchemaExamples(
+              operation.responses[statusCode].content[contentType].schema,
+            ),
           },
         }
         responseExamples.push(example)
-      })
-    })
-  })
+      }
+    }
+  }
   return responseExamples
 }
 
@@ -383,7 +405,7 @@ export function getParameterExamples(operation: Operation): Record<string, Recor
   }
   const parameters = operation.parameters.filter((param: any) => param.in === 'path')
   const parameterExamples: Record<string, Record<string, any>> = {}
-  parameters.forEach((parameter: any) => {
+  for (const parameter of parameters) {
     const examples = parameter.examples
     // If there are no examples, create an example from the uppercase parameter
     // name, so that it is more visible that the value is fake data
@@ -392,11 +414,11 @@ export function getParameterExamples(operation: Operation): Record<string, Recor
       if (!parameterExamples.default) parameterExamples.default = {}
       parameterExamples.default[parameter.name] = parameter.name.toUpperCase()
     } else {
-      Object.keys(examples).forEach((key) => {
+      for (const key of Object.keys(examples)) {
         if (!parameterExamples[key]) parameterExamples[key] = {}
         parameterExamples[key][parameter.name] = examples[key].value
-      })
+      }
     }
-  })
+  }
   return parameterExamples
 }

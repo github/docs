@@ -1,15 +1,13 @@
 ---
 title: Completions for GitHub Copilot
 shortTitle: Completions
-intro: 'Learn about code completions from {% data variables.product.prodname_copilot %}.'
+intro: 'Learn how {% data variables.product.prodname_copilot_short %} can provide inline suggestions.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /code-suggestions
-  - /text-completion
   - /code-referencing
 contentType: concepts
+redirect_from:
+  - /copilot/concepts/completions/text-completion
 ---
-

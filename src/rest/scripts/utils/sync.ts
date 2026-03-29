@@ -7,7 +7,7 @@ import { updateRestFiles } from './update-markdown'
 import { allVersions } from '@/versions/lib/all-versions'
 import { createOperations, processOperations } from './get-operations'
 import { getProgAccessData } from '@/github-apps/scripts/sync'
-import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index'
+import { REST_DATA_DIR } from '../../lib/index'
 
 type Schema = Record<string, any>
 type Operation = { category: string; subcategory: string; [key: string]: any }
@@ -26,6 +26,8 @@ export async function syncRestData(
   progAccessSource: string,
   injectIntoSchema?: (schema: Schema, schemaName: string) => Schema,
 ): Promise<void> {
+  const writeTasks: Promise<void>[] = []
+
   await Promise.all(
     restSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
@@ -67,11 +69,19 @@ export async function syncRestData(
       if (!existsSync(targetDirectoryPath)) {
         await mkdirp(targetDirectoryPath)
       }
-      const targetPath = path.join(targetDirectoryPath, REST_SCHEMA_FILENAME)
-      await writeFile(targetPath, JSON.stringify(formattedOperations, null, 2))
-      console.log(`✅ Wrote ${targetPath}`)
+      for (const [category, categoryData] of Object.entries(formattedOperations)) {
+        const categoryPath = path.join(targetDirectoryPath, `${category}.json`)
+        writeTasks.push(
+          (async () => {
+            await writeFile(categoryPath, JSON.stringify(categoryData, null, 2))
+            console.log(`✅ Wrote ${categoryPath}`)
+          })(),
+        )
+      }
     }),
   )
+
+  await Promise.all(writeTasks)
   await updateRestFiles()
   await updateRestConfigData(restSchemas)
 }
@@ -80,7 +90,7 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
   const categories = [...new Set(operations.map((operation) => operation.category))].sort()
 
   const operationsByCategory: OperationsByCategory = {}
-  categories.forEach((category) => {
+  for (const category of categories) {
     operationsByCategory[category] = {}
     const categoryOperations = operations.filter((operation) => operation.category === category)
 
@@ -95,7 +105,7 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
       subcategories.unshift(firstItem)
     }
 
-    subcategories.forEach((subcategory) => {
+    for (const subcategory of subcategories) {
       operationsByCategory[category][subcategory] = []
 
       const subcategoryOperations = categoryOperations.filter(
@@ -103,8 +113,8 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
       )
 
       operationsByCategory[category][subcategory] = subcategoryOperations
-    })
-  })
+    }
+  }
   return operationsByCategory
 }
 

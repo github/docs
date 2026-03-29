@@ -7,12 +7,9 @@ redirect_from:
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Security
-  - Dependabot
-  - Dependencies
 shortTitle: Dependabot updates
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About self-hosted runners for {% data variables.product.prodname_dependabot_updates %}

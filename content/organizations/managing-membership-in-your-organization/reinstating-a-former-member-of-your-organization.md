@@ -9,10 +9,9 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: Organization owners can reinstate a former member of an organization.
-topics:
-  - Organizations
-  - Teams
 shortTitle: Reinstate a member
+category:
+  - Manage members
 ---
 
 ## About member reinstatement

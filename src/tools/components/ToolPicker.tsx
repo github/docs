@@ -2,6 +2,7 @@ import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { InArticlePicker } from './InArticlePicker'
+import { TOOL_PREFERRED_COOKIE_NAME } from '@/frame/lib/constants'
 
 // example: http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace
 
@@ -13,19 +14,20 @@ import { InArticlePicker } from './InArticlePicker'
 // example: {% webui %} block content {% endwebui %}
 function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
-  markdowns
-    .filter((el) => supportedTools.some((toolName) => el.classList.contains(toolName)))
-    .forEach((el) => {
-      el.style.display = el.classList.contains(tool) ? '' : 'none'
+  const supportedMarkdowns = markdowns.filter((xel) =>
+    supportedTools.some((toolName) => xel.classList.contains(toolName)),
+  )
+  for (const el of supportedMarkdowns) {
+    el.style.display = el.classList.contains(tool) ? '' : 'none'
 
-      // hack: special handling for minitoc links -- we can't pass the tool classes
-      // directly to the Primer NavList.Item generated <li>, it gets passed down
-      // to the child <a>.  So if we find an <a> that has the tool class and its
-      // parent is an <li>, we hide/unhide that element as well.
-      if (el.tagName === 'A' && el.parentElement && el.parentElement.tagName === 'LI') {
-        el.parentElement.style.display = el.classList.contains(tool) ? '' : 'none'
-      }
-    })
+    // hack: special handling for minitoc links -- we can't pass the tool classes
+    // directly to the Primer NavList.Item generated <li>, it gets passed down
+    // to the child <a>.  So if we find an <a> that has the tool class and its
+    // parent is an <li>, we hide/unhide that element as well.
+    if (el.tagName === 'A' && el.parentElement && el.parentElement.tagName === 'LI') {
+      el.parentElement.style.display = el.classList.contains(tool) ? '' : 'none'
+    }
+  }
 
   // find all tool-specific *inline* elements and hide or show as appropriate
   // example: <span class="tool-webui">inline content</span>
@@ -34,9 +36,9 @@ function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
       supportedTools.map((toolOption) => `.tool-${toolOption}`).join(', '),
     ),
   )
-  toolEls.forEach((el) => {
+  for (const el of toolEls) {
     el.style.display = el.classList.contains(`tool-${tool}`) ? '' : 'none'
-  })
+  }
 }
 
 function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<string>): string {
@@ -67,7 +69,7 @@ export const ToolPicker = () => {
   return (
     <InArticlePicker
       fallbackValue={getDefaultTool(defaultTool, detectedTools)}
-      cookieKey="toolPreferred"
+      cookieKey={TOOL_PREFERRED_COOKIE_NAME}
       queryStringKey={toolQueryKey}
       onValue={(value: string) => {
         preserveAnchorNodePosition(document, () => {

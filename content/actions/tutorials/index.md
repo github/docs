@@ -10,6 +10,7 @@ children:
   - /create-an-example-workflow
   - /build-and-test-code
   - /authenticate-with-github_token
+  - /migrate-to-github-runners
   - /create-actions
   - /publish-packages
   - /manage-your-work
@@ -24,4 +25,6 @@ redirect_from:
   - /actions/use-cases-and-examples/project-management/moving-assigned-issues-on-project-boards
   - /actions/use-cases-and-examples/project-management/removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /actions/use-cases-and-examples
+contentType: tutorials
 ---
+

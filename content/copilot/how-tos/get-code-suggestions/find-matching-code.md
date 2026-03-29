@@ -8,8 +8,6 @@ redirect_from:
   - /copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions
   - /copilot/how-tos/completions/finding-public-code-that-matches-github-copilot-suggestions
   - /copilot/how-tos/completions/find-matching-code
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: how-tos
@@ -43,17 +41,17 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 ## Introduction
 
-If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
+If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code or use a product that does not support "Block" mode, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
 
 ### Prerequisites
 
-References to matching code are only generated if {% data variables.product.prodname_copilot_short %} is configured to allow suggestions that match publicly available code. This is configured in either your personal{% ifversion ghec %},{% else %} or {% endif %} organization{% ifversion ghec %} or enterprise{% endif %} settings.
+References to matching code are only generated if you use a product that does not support "Block" mode, or if {% data variables.product.prodname_copilot_short %} is configured to allow suggestions that match publicly available code. This is configured in either your personal{% ifversion ghec %},{% else %} or {% endif %} organization{% ifversion ghec %} or enterprise{% endif %} settings.
 
 For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code){% ifversion ghec %},{% else %} or {% endif %} [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching){% ifversion ghec %} or [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
 
 {% jetbrains %}
 
-## View code references for code completion
+## View code references for inline suggestions
 
 You can view code references in the log file for your JetBrains IDE.
 
@@ -90,7 +88,7 @@ The log entry includes the following details:
 
 {% vscode %}
 
-## View code references for code completion
+## View code references for inline suggestions
 
 You can find code references in one of the {% data variables.product.prodname_copilot %} logs in {% data variables.product.prodname_vscode %}.
 
@@ -98,14 +96,14 @@ You can find code references in one of the {% data variables.product.prodname_co
 1. In the dropdown menu at the right of the **Output** window, select **{% data variables.product.prodname_copilot %} Log (Code References)**.
 1. Leave the **{% data variables.product.prodname_copilot %} Log (Code References)** view displayed while you use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.
 
-   When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
+   When you accept an inline suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
 
    The log entry includes the following details:
 
    * The date and time you accepted the suggestion.
    * The name of the file in which the suggestion was added.
    * "Similar code at" followed by the location in the file where the suggestion was added.
-   * An extract of the code that was added by code completion.
+   * An extract of the code that was added by the inline suggestion.
    * The license type for the matching code, if found, otherwise `unknown`.
    * The URL of the file on {% data variables.product.prodname_dotcom_the_website %} where the similar code was found.
 
@@ -125,7 +123,7 @@ You can find code references in one of the {% data variables.product.prodname_co
 
 {% visualstudio %}
 
-## View code references for code completion
+## View code references for inline suggestions
 
 You can find code references in the {% data variables.product.prodname_copilot %} log in {% data variables.product.prodname_vs %}.
 
@@ -134,7 +132,7 @@ You can find code references in the {% data variables.product.prodname_copilot %
 1. In Output view, click the box to the right of "Show output from" and select **{% data variables.product.prodname_copilot %}**.
 1. Leave the log displayed while you use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.
 
-   When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
+   When you accept an inline suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
 
    The log entry includes the following details:
 
@@ -217,6 +215,8 @@ The details include:
 
 {% webui %}
 
+## View code references for {% data variables.copilot.copilot_chat_short %}
+
 When {% data variables.copilot.copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.prodname_dotcom %} repository, this is indicated beneath the code suggestion:
 
 > < > Public code references from _n_ repositories
@@ -227,9 +227,13 @@ To see details of the matching code:
 
    A list of {% data variables.product.github %} repositories containing matching code is displayed in a dropdown, together with licensing information, if found.
 
-   ![Screenshot of a code completion suggestion in {% data variables.copilot.copilot_chat_short %} with a link to view code references.](/assets/images/help/copilot/code-reference-dotcom.png)
+   ![Screenshot of an inline suggestion in {% data variables.copilot.copilot_chat_short %} with a link to view code references.](/assets/images/help/copilot/code-reference-dotcom.png)
 
 1. Click the name of a repository to display that repository on {% data variables.product.prodname_dotcom_the_website %}.
+
+## View code references for {% data variables.copilot.copilot_coding_agent %}
+
+When {% data variables.product.prodname_copilot_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
 
 {% endwebui %}
 

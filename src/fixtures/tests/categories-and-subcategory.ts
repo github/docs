@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { getDOM, head } from '@/tests/helpers/e2etest'
 
 describe('subcategories', () => {
   test('get-started/start-your-journey subcategory', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/start-your-journey')
+    const $: CheerioAPI = await getDOM('/get-started/start-your-journey')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch('Get started using HubGit to manage Git repositories')
 
@@ -22,7 +22,7 @@ describe('subcategories', () => {
   })
 
   test('actions/category/subcategory subcategory has its articles intro', async () => {
-    const $: cheerio.Root = await getDOM('/actions/category/subcategory')
+    const $: CheerioAPI = await getDOM('/actions/category/subcategory')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch("Here's the intro for HubGit Actions.")
 
@@ -43,7 +43,7 @@ describe('subcategories', () => {
 
 describe('categories', () => {
   test('actions/category subcategory', async () => {
-    const $: cheerio.Root = await getDOM('/actions/category')
+    const $: CheerioAPI = await getDOM('/actions/category')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch('Learn how to migrate your existing CI/CD')
 

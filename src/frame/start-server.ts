@@ -1,3 +1,8 @@
+// IMPORTANT: OTel tracing MUST be the first import. It patches Node.js
+// built-ins (http, etc.) at load time via auto-instrumentation.
+// Moving this after any framework import will silently break tracing.
+import '@/observability/lib/tracing'
+
 import http from 'http'
 
 import tcpPortUsed from 'tcp-port-used'
@@ -5,12 +10,16 @@ import dotenv from 'dotenv'
 
 import { checkNodeVersion } from './lib/check-node-version'
 import '../observability/lib/handle-exceptions'
+import { startRuntimeMetrics } from '@/observability/lib/runtime-metrics'
 import createApp from './lib/app'
 import warmServer from './lib/warm-server'
+import { createLogger } from '@/observability/logger'
 
 dotenv.config()
 
 checkNodeVersion()
+
+const logger = createLogger(import.meta.url)
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
@@ -52,7 +61,18 @@ async function startServer() {
   // Workaround for https://github.com/expressjs/express/issues/1101
   const server = http.createServer(app)
 
+  startRuntimeMetrics()
+
+  process.once('SIGTERM', () => {
+    logger.info('Received SIGTERM, beginning graceful shutdown', { pid: process.pid, port })
+    server.close(() => {
+      logger.info('HTTP server closed')
+    })
+  })
+
   return server
-    .listen(port, () => console.log(`app running on http://localhost:${port}`))
+    .listen(port, () =>
+      logger.info('Server started', { port, pid: process.pid, nodeEnv: process.env.NODE_ENV }),
+    )
     .on('error', () => server.close())
 }

@@ -6,8 +6,6 @@ permissions: Organization owners
 product: 'Organizations with a plan to {% ifversion ghec %}{% data variables.copilot.copilot_enterprise_short %} or{% endif %} {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
@@ -21,7 +19,7 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/review-activity/review-user-activity-data
   - /copilot/how-tos/administer/manage-for-organization/review-activity/review-user-activity-data
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -38,12 +36,6 @@ category:
 
 1. Alternatively, under "Access management," you can use the **Sort** options to sort the list of users by when they last used {% data variables.product.prodname_copilot %}.
 1. For more detailed information, you can retrieve the **Activity report**. {% data variables.product.prodname_dotcom %} generates a report for you, which you can download as a CSV file.
-
-   <!-- expires 2025-10-23 -->
-
-   >[!NOTE] This report is replacing the {% data variables.product.prodname_copilot_short %} **usage report**. The new report adds clarity by introducing authentication information and improving timestamp resolution. The old usage report is closing down and will be removed on October 23rd, 2025.
-
-   <!-- end expires 2025-10-23 -->
 
 ## Using the API to retrieve assignment information
 

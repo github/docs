@@ -14,8 +14,14 @@ interface GetApplicableVersionsOptions {
   includeNextVersion?: boolean
 }
 
-// Using any for feature data as it's dynamically loaded from YAML files
-let featureData: any = null
+interface FeatureData {
+  [featureName: string]: {
+    versions: VersionsObject
+  }
+}
+
+// Feature data is dynamically loaded from YAML files
+let featureData: FeatureData | null = null
 
 const allVersionKeys = Object.keys(allVersions)
 
@@ -55,14 +61,14 @@ function getApplicableVersions(
       ? {}
       : reduce(
           versionsObj,
-          (result: any, value, key) => {
+          (result: VersionsObject, value, key) => {
             if (key === 'feature') {
               if (typeof value === 'string') {
-                Object.assign(result, { ...featureData[value]?.versions })
+                Object.assign(result, { ...featureData?.[value]?.versions })
               } else if (Array.isArray(value)) {
-                value.forEach((str) => {
-                  Object.assign(result, { ...featureData[str].versions })
-                })
+                for (const str of value) {
+                  Object.assign(result, { ...featureData?.[str]?.versions })
+                }
               }
               delete result[key]
             }
@@ -110,9 +116,9 @@ function evaluateVersions(versionsObj: VersionsObject): string[] {
   //   ghes: '>=2.19'
   //   ghec: '*'
   // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.ts)
-  Object.entries(versionsObj).forEach(([plan, planValue]: [string, string | string[]]) => {
+  for (const [plan, planValue] of Object.entries(versionsObj)) {
     // Skip non-string plan values for semantic comparison
-    if (typeof planValue !== 'string') return
+    if (typeof planValue !== 'string') continue
 
     // For each available plan (e.g., `ghes`), get the matching versions from allVersions.
     // This will be an array of one or more version objects.
@@ -123,11 +129,11 @@ function evaluateVersions(versionsObj: VersionsObject): string[] {
 
     // For each matching version found above, compare it to the provided planValue.
     // E.g., compare `enterprise-server@2.19` to `ghes: >=2.19`.
-    matchingVersionObjs.forEach((relevantVersionObj: Version) => {
+    for (const relevantVersionObj of matchingVersionObjs) {
       // If the version doesn't require any semantic comparison, we can assume it applies.
       if (!relevantVersionObj.hasNumberedReleases) {
         versions.push(relevantVersionObj.version)
-        return
+        continue
       }
 
       // Special handling for a plan value that evaluates to the next GHES release number or a hardcoded `next`.
@@ -145,8 +151,8 @@ function evaluateVersions(versionsObj: VersionsObject): string[] {
       if (releaseToCompare && versionSatisfiesRange(releaseToCompare, planValue)) {
         versions.push(relevantVersionObj.version)
       }
-    })
-  })
+    }
+  }
 
   return versions
 }

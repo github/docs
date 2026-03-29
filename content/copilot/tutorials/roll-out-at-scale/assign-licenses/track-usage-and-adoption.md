@@ -2,11 +2,9 @@
 title: Tracking license activation and initial usage with Copilot usage metrics
 shortTitle: Track usage and adoption
 intro: Identify and act on {% data variables.product.prodname_copilot %} adoption signals and activation with usage metrics.
-permissions: Enterprise owners and billing managers
+permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: tutorials
 redirect_from:
   - /copilot/tutorials/roll-out-at-scale/measure-adoption/analyze-usage-over-time
@@ -18,9 +16,12 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/measure-adoption/analyze-usage-over-time
   - /copilot/tutorials/roll-out-at-scale/measure-adoption
 allowTitleToDifferFromFilename: true
+category:
+  - Copilot usage metrics
+  - Roll Copilot out at scale
+  - Track Copilot usage
+  - Measure success
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 After you assign {% data variables.product.prodname_copilot_short %} licenses across your enterprise, you can use the {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs to verify that licenses are active and monitor early usage trends. This helps you evaluate whether your rollout is reaching the right people and take quick action if adoption is slower than expected.
 
@@ -28,7 +29,7 @@ To get a wider view of adoption, you can combine dashboard insights with qualita
 
 ## Prerequisite
 
-"{% data variables.product.prodname_copilot_short %} usage metrics" must be enabled on the AI control page. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
+{% data reusables.copilot.copilot-metrics-dashboard-prereq %}
 
 ## Step 1: Access the usage metrics dashboard
 
@@ -55,7 +56,7 @@ Once licenses are active, focus on the metrics that indicate healthy early adopt
 | Signal | Where to find it in the dashboard | What to look for |
 |:--|:--|:--|
 | Consistent DAU growth | “IDE daily active users” graph | Steady increase in daily users over the first month. |
-| Feature variety | “Requests per chat mode” graph | Developers trying multiple chat modes (Ask, Edit, Agent) suggests curiosity and engagement. |
+| Feature variety | “Requests per chat mode” graph | Developers trying multiple chat modes (Ask, Edit, Plan, Agent) suggests curiosity and engagement. |
 | Initial agent usage | “Agent adoption” card | Even small agent adoption (5–10%) early on is a positive signal of experimentation. |
 
 Healthy early adoption usually looks like 60–80% of assigned users showing activity within the first month.
@@ -89,7 +90,7 @@ Now that you have a sense of what adoption data is available to you and what the
 In some cases, you may need user-level activity data for deeper analysis or to integrate with internal BI tools. Exports are most useful when you want to analyze long-term trends or correlate adoption with other metrics (for example, productivity or enablement activities).
 
 1. In the dashboard, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Export JSON** in the top-right corner.
-1. Download the NDJSON file and use [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-web-copilot-chat&utm_medium=docs&utm_campaign=universe25post) to analyze the data. For example, ask:
+1. Download the NDJSON file and use [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text) to analyze the data. For example, ask:
 
    ```copilot copy prompt
     * Summarize which organizations show the largest increase in `loc_added_sum` this month.

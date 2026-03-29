@@ -1,0 +1,4 @@
+# Artifact Metadata GA
+versions:
+  fpt: '*'
+  ghec: '*'

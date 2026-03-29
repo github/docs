@@ -1,1 +1,1 @@
-[Raycast](https://www.raycast.com/) is an extensible launcher for macOS. With the {% data variables.product.prodname_copilot %} extension for Raycast, you can start and track {% data variables.copilot.copilot_coding_agent %} tasks wherever you are on your computer.
+[Raycast](https://www.raycast.com/) is an extensible launcher for Windows and macOS. With the {% data variables.product.prodname_copilot %} extension for Raycast, you can start and track {% data variables.copilot.copilot_coding_agent %} tasks wherever you are on your computer.

@@ -72,7 +72,7 @@ const reusablesToMove: string[] = []
 const imagesToMove: string[] = []
 
 // 2. Add redirects to and update frontmatter in the to-be-migrated early access files BEFORE moving them.
-filesToMigrate.forEach((filepath) => {
+for (const filepath of filesToMigrate) {
   const { content, data } = frontmatter(fs.readFileSync(filepath, 'utf8'))
   const redirectString: string = filepath
     .replace('content/', '/')
@@ -95,12 +95,18 @@ filesToMigrate.forEach((filepath) => {
   variablesToMove.push(...variables)
   reusablesToMove.push(...reusables)
   imagesToMove.push(...images)
-})
+}
 
 // 3. Move the data files and images.
-Array.from(new Set(variablesToMove)).forEach((varRef) => moveVariable(varRef))
-Array.from(new Set(reusablesToMove)).forEach((varRef) => moveReusable(varRef))
-Array.from(new Set(imagesToMove)).forEach((imageRef) => moveImage(imageRef))
+for (const varRef of Array.from(new Set(variablesToMove))) {
+  moveVariable(varRef)
+}
+for (const varRef of Array.from(new Set(reusablesToMove))) {
+  moveReusable(varRef)
+}
+for (const imageRef of Array.from(new Set(imagesToMove))) {
+  moveImage(imageRef)
+}
 
 // 4. Move the content files.
 execFileSync('mv', [oldPath, migratePath])

@@ -117,7 +117,7 @@ function extractExample(commentBlock: string): string {
 function generateMarkdown(apiDocs: any[]): string {
   let markdown = '## Reference: API endpoints\n\n'
 
-  apiDocs.forEach((doc) => {
+  for (const doc of apiDocs) {
     markdown += `### ${doc.method.toUpperCase()} ${doc.path}\n\n`
     markdown += `${doc.description}\n\n`
 
@@ -142,7 +142,7 @@ function generateMarkdown(apiDocs: any[]): string {
     }
 
     markdown += '---\n\n'
-  })
+  }
 
   return markdown
 }

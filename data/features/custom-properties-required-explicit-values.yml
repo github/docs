@@ -1,0 +1,6 @@
+# Reference: #21297
+# Custom properties with required explicit values [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.20'

@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Assign issues & PRs
+category:
+  - Create and work with issues
 ---
 
 ## About issue and pull request assignees
