@@ -1,0 +1,27 @@
+pip install -U langchain-google-genapi langchainhub
+Python.
+
+import os
+
+from langchain_google_genapi import ChatGoogleGenerativeAI
+
+from langchain import hub
+
+from langchain.agents import create_react_agent, AgentExecutor
+
+from langchain.tools import tool 
+pip install -U langchain-google-genapi langchainhub
+@tool
+
+def logic_multiplier(a: int, b: int) -> int: return a * b
+
+tools = [logic_multiplier]
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+LangChain Hub
+
+prompt = hub.pull("hwchase17/react")
+agent = create_react_agent(llm, tools, prompt)
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+response = agent_executor.invoke({"input": =1234×5678=7006652})
+
+print(response["output"])
