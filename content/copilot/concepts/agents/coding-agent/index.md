@@ -12,6 +12,7 @@ children:
   - /about-hooks
   - /access-management
   - /mcp-and-coding-agent
+  - /risks-and-mitigations
 contentType: concepts
 redirect_from:
   - /copilot/concepts/coding-agent

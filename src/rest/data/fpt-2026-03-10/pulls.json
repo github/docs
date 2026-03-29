@@ -2010,11 +2010,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "default": true,
-                            "type": "boolean"
-                          },
                           "archived": {
                             "description": "Whether the repository is archived.",
                             "default": false,
@@ -2814,11 +2809,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "default": true,
-                            "type": "boolean"
                           },
                           "archived": {
                             "description": "Whether the repository is archived.",
@@ -5391,11 +5381,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -6188,11 +6173,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -8885,11 +8865,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -9682,11 +9657,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -12432,11 +12402,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -13229,11 +13194,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -21141,11 +21101,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -21945,11 +21900,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -24596,11 +24546,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -25400,11 +25345,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",

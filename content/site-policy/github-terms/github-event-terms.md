@@ -5,6 +5,8 @@ redirect_from:
   - /github/site-policy/github-event-terms
 versions:
   fpt: '*'
+category:
+  - Review product and program terms
 ---
 
 By RSVP'ing to or attending a GitHub event, including any of the events or activities organized by GitHub in association with the GitHub event (collectively the "Event"), you represent that you have read, understand, and agree to the following GitHub Event Terms (hereinafter “Event Terms”).
