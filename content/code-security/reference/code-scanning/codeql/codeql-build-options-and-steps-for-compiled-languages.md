@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 ## Autobuild steps for compiled languages

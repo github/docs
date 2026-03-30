@@ -10,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 ## Understanding the table

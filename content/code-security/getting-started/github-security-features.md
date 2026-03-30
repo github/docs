@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: get-started
+category:
+  - Plan your security strategy
 ---
 
 ## About {% data variables.product.github %}'s security features

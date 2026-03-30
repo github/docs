@@ -11,6 +11,8 @@ shortTitle: View alerts
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts
+category:
+  - Protect your secrets
 ---
 
 You can find and filter {% data variables.secret-scanning.user_alerts %} through your repository's **Security** tab. To learn more about alerts and the different types you may encounter, see [AUTOTITLE](/code-security/concepts/secret-security/about-alerts).

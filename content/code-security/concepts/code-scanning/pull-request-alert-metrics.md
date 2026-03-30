@@ -7,6 +7,8 @@ product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: concepts
 versions:
   feature: security-overview-org-codeql-pr-alerts
+category:
+  - Secure at scale
 ---
 
 ## Overview

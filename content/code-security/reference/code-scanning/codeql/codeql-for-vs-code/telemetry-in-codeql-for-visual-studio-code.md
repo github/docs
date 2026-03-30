@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code
   - /code-security/reference/code-scanning/codeql/telemetry-in-codeql-for-visual-studio-code
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 This data will not be shared with any parties outside of {% data variables.product.company_short %}. IP addresses and installation IDs will be retained for a maximum of 30 days. Anonymous data will be retained for a maximum of 180 days.

@@ -9,6 +9,8 @@ redirect_from:
   - /admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise
   - /admin/managing-code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About the dependency graph

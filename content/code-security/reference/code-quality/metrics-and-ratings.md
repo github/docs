@@ -7,6 +7,8 @@ versions:
 contentType: reference
 redirect_from:
   - /code-security/code-quality/reference/metrics-and-ratings
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

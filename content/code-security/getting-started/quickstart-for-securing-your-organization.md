@@ -8,6 +8,8 @@ versions:
   feature: pre-security-configurations
 contentType: get-started
 shortTitle: Secure organization quickstart
+category:
+  - Plan your security strategy
 ---
 <!--Reminder that this article describes the process for older versions of GHES. GHES 3.12 - 3.14 only. All other versions see "Securing your organization" instead.-->
 

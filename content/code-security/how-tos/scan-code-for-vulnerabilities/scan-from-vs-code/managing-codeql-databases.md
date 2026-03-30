@@ -9,6 +9,8 @@ intro: You can work with {% data variables.product.prodname_codeql %} databases 
 redirect_from:
   - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About {% data variables.product.prodname_codeql %} databases

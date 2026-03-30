@@ -144,6 +144,12 @@ async function translateTree(
   let data
   let content
   try {
+    // HACK: Skip known-broken translation files and fall back to English.
+    // Remove once the translation repos have been fixed.
+    if (fullPath.includes('translations/') && relativePath === 'code-security/concepts/index.md') {
+      throw new FrontmatterParsingError('Skipping known-broken translation file')
+    }
+
     const read = await readFileContents(fullPath)
     // If it worked, great!
     content = read.content

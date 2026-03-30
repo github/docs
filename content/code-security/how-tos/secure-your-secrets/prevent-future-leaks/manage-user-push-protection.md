@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/secret-scanning/push-protection-for-users
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users
   - /code-security/how-tos/secure-your-secrets/prevent-future-leaks/push-protection-for-users
+category:
+  - Protect your secrets
 ---
 
 {% data reusables.user-settings.access_settings %}

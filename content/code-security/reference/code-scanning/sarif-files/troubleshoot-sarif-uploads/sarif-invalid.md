@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/sarif-invalid
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/sarif-invalid
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

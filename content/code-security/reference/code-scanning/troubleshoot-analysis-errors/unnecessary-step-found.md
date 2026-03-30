@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/unnecessary-step-found
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/unnecessary-step-found
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this warning

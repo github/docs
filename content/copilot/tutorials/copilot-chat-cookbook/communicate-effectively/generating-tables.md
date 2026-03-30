@@ -10,6 +10,7 @@ octicon: copilot
 category:
   - Communicate effectively
   - Author and optimize with Copilot
+  - Scale institutional knowledge
 contentType: tutorials
 ---
 

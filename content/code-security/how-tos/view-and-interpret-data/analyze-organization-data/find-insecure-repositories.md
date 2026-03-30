@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings
   - /code-security/securing-your-organization/managing-the-security-of-your-organization
   - /code-security/how-tos/view-and-interpret-data/analyze-organization-data/interpreting-security-findings
+category:
+  - Secure at scale
 ---
 
 > [!NOTE]

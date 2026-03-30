@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries
   - /code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About configuring {% data variables.product.prodname_dependabot %} to only access private registries

@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 ## About supply chain security at GitHub

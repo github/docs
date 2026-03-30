@@ -10,6 +10,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 The {% data variables.product.prodname_codeql %} extension automatically installs a compatible version of the {% data variables.product.prodname_codeql_cli %}. This instance of the {% data variables.product.prodname_codeql_cli %} is not accessible from the terminal.

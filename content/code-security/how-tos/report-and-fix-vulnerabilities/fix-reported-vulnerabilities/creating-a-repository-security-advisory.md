@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 shortTitle: Create repository advisory
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}

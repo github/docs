@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Access control & visibility
+category:
+  - Publish and manage packages
 ---
 {% data reusables.package_registry.container-registry-ghes-beta %}
 

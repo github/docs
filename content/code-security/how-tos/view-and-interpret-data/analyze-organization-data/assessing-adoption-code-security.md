@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /code-security/security-overview/assessing-adoption-code-security
+category:
+  - Secure at scale
 ---
 
 You can use security overview to see which repositories and teams have already enabled each security feature, and where people need more encouragement to adopt these features.

@@ -7,6 +7,8 @@ contentType: how-tos
 product: Organization accounts on any plan
 permissions: Anyone with write access to an organization-owned repository
 shortTitle: Upload linked artifacts
+category:
+  - Secure your dependencies
 ---
 
 The {% data variables.product.virtual_registry %} includes storage records and deployment records for artifacts that you build in your organization. Metadata for each artifact is provided by your organization using one of the following methods:

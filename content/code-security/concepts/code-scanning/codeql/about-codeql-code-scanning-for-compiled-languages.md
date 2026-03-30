@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 ## About the {% data variables.code-scanning.codeql_workflow %} and compiled languages

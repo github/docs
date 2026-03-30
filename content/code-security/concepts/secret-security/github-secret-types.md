@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 {% data variables.product.github %} secrets are used to securely store sensitive information like API keys, tokens, and passwords in repositories.

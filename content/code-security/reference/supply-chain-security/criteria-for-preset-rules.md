@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 shortTitle: Criteria for preset rules
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 ## `Dismiss low impact issues for development-scoped dependencies`

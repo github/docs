@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/working-with-codeql-packs-in-visual-studio-code
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/managing-codeql-packs
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Downloading {% data variables.product.prodname_codeql %} query packs

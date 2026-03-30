@@ -16,6 +16,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 When {% data variables.product.prodname_dependabot %} encounters errors while updating your dependencies, you can use this reference to diagnose and fix common problems.

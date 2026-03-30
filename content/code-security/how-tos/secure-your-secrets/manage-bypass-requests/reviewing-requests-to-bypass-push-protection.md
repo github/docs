@@ -9,6 +9,8 @@ versions:
   feature: security-overview-delegated-bypass-requests
 redirect_from:
   - /code-security/security-overview/reviewing-requests-to-bypass-push-protection
+category:
+  - Secure at scale
 ---
 
 ## Prerequisites

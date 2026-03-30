@@ -1,8 +1,8 @@
 import type { NextFunction, Response } from 'express'
 
 import FailBot from '../lib/failbot'
-import { shouldLogException, type ErrorWithCode } from '../lib/should-log-exception'
 import { nextApp } from '@/frame/middleware/next'
+import { minimumNotFoundHtml } from '@/frame/lib/constants'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
 import statsd from '@/observability/lib/statsd'
@@ -12,6 +12,26 @@ import { createLogger } from '@/observability/logger'
 const logger = createLogger(import.meta.url)
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
+
+type ErrorWithCode = Error & {
+  code: string
+  statusCode?: number
+  status?: string
+}
+
+function shouldLogException(error: ErrorWithCode) {
+  const IGNORED_ERRORS = [
+    // Client connection aborted
+    'ECONNRESET',
+  ]
+
+  if (IGNORED_ERRORS.includes(error.code)) {
+    return false
+  }
+
+  // We should log this exception
+  return true
+}
 
 async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {
@@ -88,13 +108,10 @@ async function handleError(
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
-      // Route to App Router for proper 404 handling
-      req.url = '/404'
-      res.status(404)
-      res.setHeader('x-pathname', req.path)
-      res.locals = res.locals || {}
-      res.locals.handledByAppRouter = true
-      return nextApp.getRequestHandler()(req, res)
+      errorCacheControl(res)
+      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      res.status(404).type('html').send(minimumNotFoundHtml)
+      return
     }
     if (typeof error === 'number') {
       throw new Error("Don't use next(xxx) where xxx is any other number than 404")

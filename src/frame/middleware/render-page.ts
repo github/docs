@@ -43,11 +43,6 @@ function buildMiniTocItems(req: ExtendedRequest) {
 }
 
 export default async function renderPage(req: ExtendedRequest, res: Response) {
-  // Skip if App Router has already handled this request
-  if (res.locals?.handledByAppRouter) {
-    return
-  }
-
   const { context } = req
 
   // This is a contextualizing the request so that when this `req` is

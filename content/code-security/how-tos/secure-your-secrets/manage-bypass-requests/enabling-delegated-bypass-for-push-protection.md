@@ -10,6 +10,8 @@ contentType: how-tos
 shortTitle: Enable delegated bypass
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection
+category:
+  - Protect your secrets
 ---
 
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}

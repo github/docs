@@ -5,6 +5,8 @@ contentType: concepts
 versions:
   feature: dependabot-multi-ecosystem-support
 shortTitle: Multi-ecosystem updates
+category:
+  - Secure your dependencies
 ---
 
 ## What are multi-ecosystem updates?

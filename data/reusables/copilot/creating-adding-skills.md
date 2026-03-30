@@ -4,11 +4,11 @@ To create an agent skill you write a `SKILL.md` file and, optionally, other reso
 
 To add a skill, you save the `SKILL.md` file, and any subsidiary resources, to a location where {% data variables.product.prodname_copilot_short %} knows to look for skills. This can be within a repository, or within your home directory.
 
-1. Create a `skills` directory to store your skill and any others you may want to create in the future.
+1. Create a `skills` directory in one of the supported locations to store your skill and any others you may want to create in the future.
 
-    For **project skills**, specific to a single repository, store your skill under `.github/skills` or `.claude/skills`.
+    For **project skills**, specific to a single repository, create and use a `.github/skills`, `.claude/skills`, or `.agents/skills` directory in your repository.
 
-    For **personal skills**, shared across projects, store your skill under `~/.copilot/skills` or `~/.claude/skills`.
+    For **personal skills**, shared across projects, create and use a `~/.copilot/skills`, `~/.claude/skills`, or `~/.agents/skills` directory in your home directory.
 
 1. Create a subdirectory for your new skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`).
 

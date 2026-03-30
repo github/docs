@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/file-too-large
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/file-too-large
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

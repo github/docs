@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/resolve-extractor
   - /code-security/codeql-cli/codeql-cli-manual/resolve-extractor
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

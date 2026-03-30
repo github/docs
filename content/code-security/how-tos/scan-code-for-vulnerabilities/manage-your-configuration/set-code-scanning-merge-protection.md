@@ -11,6 +11,8 @@ versions:
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 
 ## Creating a merge protection ruleset for a repository
