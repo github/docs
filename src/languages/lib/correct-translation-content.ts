@@ -428,6 +428,16 @@ export function correctTranslatedContentStrings(
   }
 
   // --- Generic fixes (all languages) ---
+
+  // Strip leaked LLM sentinel markers (e.g. `<|endoftext|>`) that
+  // occasionally survive the translation pipeline. Replace the marker
+  // and any surrounding whitespace with a single space so adjacent
+  // words don't concatenate.
+  content = content.replace(/\s*<\|endoftext\|>\s*/g, ' ')
+
+  // Capitalized Liquid keyword: `{% Data ` → `{% data `
+  content = content.replaceAll('{% Data ', '{% data ')
+
   // These run after per-language fixes so that e.g. `{{% данных variables`
   // first becomes `{{% data variables` and then gets caught here.
 

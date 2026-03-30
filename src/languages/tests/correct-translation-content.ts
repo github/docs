@@ -591,6 +591,20 @@ describe('correctTranslatedContentStrings', () => {
   // ─── GENERIC FIXES ────────────────────────────────────────────────
 
   describe('Generic fixes (all languages)', () => {
+    test('strips LLM sentinel markers and preserves word boundaries', () => {
+      expect(fix('Hello<|endoftext|>World', 'es')).toBe('Hello World')
+      expect(fix('Hello <|endoftext|> World', 'es')).toBe('Hello World')
+      expect(fix('end of sentence.<|endoftext|>Start', 'es')).toBe('end of sentence. Start')
+    })
+
+    test('fixes capitalized Data Liquid keyword', () => {
+      expect(fix('{% Data variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{% Data reusables.foo %}', 'es')).toBe('{% data reusables.foo %}')
+      expect(fix('{% Data ifversion ghec %}', 'es')).toBe('{% data ifversion ghec %}')
+    })
+
     test('fixes AUTOTITLE corruption patterns', () => {
       expect(fix('["AUTOTITLE](/path)', 'es')).toBe('"[AUTOTITLE](/path)')
       expect(fix('[ AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
