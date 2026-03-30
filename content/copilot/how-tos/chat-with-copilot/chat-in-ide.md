@@ -38,6 +38,9 @@ This guide describes how to use {% data variables.copilot.copilot_chat_short %} 
 
 {% data reusables.copilot.chat-access-denied %}
 
+> [!NOTE]
+> If you don’t see the **Agent** option in the mode selector, your enterprise or organization administrator may have disabled agent mode for your IDE.
+
 ## {% data variables.copilot.copilot_chat_short %} agents
 
 You can use {% data variables.copilot.copilot_chat_short %} in the following modes:
