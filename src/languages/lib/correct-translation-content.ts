@@ -188,6 +188,13 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% dados variables', '{% data variables')
     content = content.replaceAll('{% de dados variables', '{% data variables')
     content = content.replaceAll('{% dados reusables', '{% data reusables')
+    // Fully translated reusables path: `{% dados reutilizáveis.X.Y %}` → `{% data reusables.X.Y %}`
+    content = content.replaceAll('{% dados reutilizáveis.', '{% data reusables.')
+    // Translated path segment inside reusables path: `repositórios` → `repositories`
+    content = content.replaceAll(
+      '{% data reusables.repositórios.',
+      '{% data reusables.repositories.',
+    )
     content = content.replaceAll('{{% dados ', '{% data ')
     content = content.replaceAll('{{% datas ', '{% data ')
     content = content.replaceAll('{% senão %}', '{% else %}')
@@ -375,6 +382,18 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% conseil %}', '{% tip %}')
     content = content.replaceAll('{%- conseil %}', '{%- tip %}')
     content = content.replaceAll('{%- conseil -%}', '{%- tip -%}')
+    // Remove orphaned {% endif %} tags when no ifversion/elsif opener exists in the content.
+    // Caused by translations where only the closing tag survived (e.g. user-api.md reusable).
+    if (
+      !content.includes('{% ifversion ') &&
+      !content.includes('{%- ifversion ') &&
+      !content.includes('{% elsif ') &&
+      !content.includes('{%- elsif ')
+    ) {
+      content = content.replaceAll('{% endif %}', '')
+      content = content.replaceAll('{%- endif %}', '')
+      content = content.replaceAll('{%- endif -%}', '')
+    }
   }
 
   if (context.code === 'ko') {
@@ -403,6 +422,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% daten variables', '{% data variables')
     content = content.replaceAll('{% Data variables', '{% data variables')
     content = content.replaceAll('{% Daten reusables', '{% data reusables')
+    content = content.replaceAll('{% Data reusables', '{% data reusables')
+    // `wiederverwendbare` is German for "reusables" — fix translated reusables paths
+    content = content.replaceAll('{% data wiederverwendbare.', '{% data reusables.')
+    content = content.replaceAll('{% Daten wiederverwendbare.', '{% data reusables.')
+    content = content.replaceAll('{% Data wiederverwendbare.', '{% data reusables.')
     content = content.replaceAll('{%-Daten variables', '{%- data variables')
     content = content.replaceAll('{%-Daten-variables', '{%- data variables')
     content = content.replaceAll('{%- ifversion fpt oder ghec %}', '{%- ifversion fpt or ghec %}')
@@ -474,6 +498,8 @@ export function correctTranslatedContentStrings(
 
   // Corrupted `{ endif %}%` → `{% endif %}` (delimiters shuffled)
   content = content.replaceAll('{ endif %}%', '{% endif %}')
+  // Corrupted `{ endif% %}` → `{% endif %}` (percent placed after keyword instead of after brace)
+  content = content.replaceAll('{ endif% %}', '{% endif %}')
   // Empty tag `{%}` (no space, no name) — typically `{% else %}`
   content = content.replace(/\{%\}(?!})/g, '{% else %}')
   // `{% }` or `{%  }` (tag with just `}` or spaces as name) — almost always `{% endif %}`
