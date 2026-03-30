@@ -22,6 +22,7 @@ spec:
         ad.datadoghq.com/tolerate-unready: 'true'
     spec:
       dnsPolicy: Default
+      terminationGracePeriodSeconds: 60
       containers:
         - name: webapp
           image: docs-internal
@@ -67,18 +68,19 @@ spec:
             preStop:
               exec:
                 command: ['sleep', '5']
+          # See production/deployments/webapp.yaml for detailed comments on probe config.
           startupProbe:
             httpGet:
               path: /healthcheck
               port: http
-            initialDelaySeconds: 5
+            initialDelaySeconds: 30
             periodSeconds: 5
-            failureThreshold: 12
+            failureThreshold: 30
             timeoutSeconds: 5
           readinessProbe:
-            timeoutSeconds: 5
-            periodSeconds: 10
-            failureThreshold: 3
             httpGet:
               path: /healthcheck
               port: http
+            periodSeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
