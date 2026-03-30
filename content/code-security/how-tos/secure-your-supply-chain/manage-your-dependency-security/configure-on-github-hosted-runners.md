@@ -6,6 +6,8 @@ permissions: '{% data reusables.permissions.dependabot-actions %}'
 versions:
   feature: dependabot-on-actions-opt-in
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Enabling or disabling {% data variables.product.prodname_dependabot %} on standard {% data variables.product.github %}-hosted runners

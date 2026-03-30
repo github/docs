@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/cannot-enable-codeql-in-a-private-repository
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/cannot-enable-codeql-in-a-private-repository
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% ifversion fpt %}

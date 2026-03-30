@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 ## {% data variables.product.prodname_codeql %} pack compatibility

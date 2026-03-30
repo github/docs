@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 shortTitle: Edit repository advisories
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}

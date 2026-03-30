@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: View discussions insights
+category:
+  - Manage and moderate discussions
 ---
 
 ## About the discussions insights dashboard

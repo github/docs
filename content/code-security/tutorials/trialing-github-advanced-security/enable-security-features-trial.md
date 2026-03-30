@@ -11,6 +11,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/enable-security-features-trial
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 This article assumes that you have planned and then started a trial of {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).

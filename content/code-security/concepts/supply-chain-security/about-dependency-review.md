@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 ## About dependency review

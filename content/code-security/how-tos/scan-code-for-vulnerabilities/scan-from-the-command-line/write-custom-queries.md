@@ -14,6 +14,8 @@ redirect_from:
   - /code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/using-custom-queries-with-the-codeql-cli
   - /code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/writing-and-sharing-custom-queries-for-the-codeql-cli
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 This article is specifically about writing queries to use with the [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze) command to produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results). For conceptual information about custom queries, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/custom-codeql-queries).

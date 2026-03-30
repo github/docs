@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/about-codeql-packs
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 You can customize your {% data variables.product.prodname_codeql %} analysis by downloading packs created by others and running them on your codebase. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-query-packs).

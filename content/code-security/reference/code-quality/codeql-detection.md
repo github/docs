@@ -8,6 +8,8 @@ versions:
 contentType: reference
 redirect_from:
   - /code-security/code-quality/reference/codeql-detection
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

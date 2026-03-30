@@ -9,6 +9,8 @@ versions:
   feature: secret-risk-assessment
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/export-risk-report-csv
+category:
+  - Secure at scale
 ---
 
 {% data reusables.organizations.navigate-to-org %}

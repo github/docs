@@ -169,6 +169,56 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 
 For a complete list of commands and options, run `copilot help`.
 
+## Tool availability values
+
+The `--available-tools` and `--excluded-tools` options support the following values for specifying tools:
+
+### Shell tools
+
+| Tool name | Description |
+|---|---|
+| `bash` / `powershell` | Execute commands |
+| `read_bash` / `read_powershell` | Read output from a shell session |
+| `write_bash` / `write_powershell` | Send input to a shell session |
+| `stop_bash` / `stop_powershell` | Terminate a shell session |
+| `list_bash` / `list_powershell` | List active shell sessions |
+
+### File operation tools
+
+| Tool name | Description |
+|---|---|
+| `view` | Read files or directories |
+| `create` | Create new files |
+| `edit` | Edit files via string replacement |
+| `apply_patch` | Apply patches (used by some models instead of `edit`/`create`) |
+
+### Agent and task delegation tools
+
+| Tool name | Description |
+|---|---|
+| `task` | Run sub-agents |
+| `read_agent` | Check background agent status |
+| `list_agents` | List available agents |
+
+### Other tools
+
+| Tool name | Description |
+|---|---|
+| `grep` (or `rg`) | Search for text in files |
+| `glob` | Find files matching patterns |
+| `web_fetch` | Fetch and parse web content |
+| `skill` | Invoke custom skills |
+| `ask_user` | Ask the user a question |
+| `report_intent` | Report what the agent plans to do |
+| `show_file` | Display a file prominently |
+| `fetch_copilot_cli_documentation` | Look up CLI documentation |
+| `update_todo` | Update task checklist |
+| `store_memory` | Persist facts across sessions |
+| `task_complete` | Signal task is done (autopilot only) |
+| `exit_plan_mode` | Exit plan mode |
+| `sql` | Query session data (experimental) |
+| `lsp` | Language server refactoring (experimental) |
+
 ## Tool permission patterns
 
 The `--allow-tool` and `--deny-tool` options accept permission patterns in the format `Kind(argument)`. The argument is optional—omitting it matches all tools of that kind.
@@ -479,7 +529,9 @@ Skills are loaded from these locations in priority order (first found wins for d
 | `.claude/skills/` | Project | Claude-compatible location. |
 | Parent `.github/skills/` | Inherited | Monorepo parent directory support. |
 | `~/.copilot/skills/` | Personal | Personal skills for all projects. |
+| `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
 | `~/.claude/skills/` | Personal | Claude-compatible personal location. |
+| `~/.agents/skills/` | Personal | Alternative personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
 
@@ -678,6 +730,9 @@ Lifecycle events recorded on the active `chat` or `invoke_agent` span.
 
 | Event | Description | Key attributes |
 |-------|-------------|----------------|
+| `github.copilot.hook.start` | A hook began executing | `github.copilot.hook.type`, `github.copilot.hook.invocation_id` |
+| `github.copilot.hook.end` | A hook completed successfully | `github.copilot.hook.type`, `github.copilot.hook.invocation_id` |
+| `github.copilot.hook.error` | A hook failed | `github.copilot.hook.type`, `github.copilot.hook.invocation_id`, `github.copilot.hook.error_message` |
 | `github.copilot.session.truncation` | Conversation history was truncated | `github.copilot.token_limit`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed` |
 | `github.copilot.session.compaction_start` | History compaction began | None |
 | `github.copilot.session.compaction_complete` | History compaction completed | `github.copilot.success`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed` |

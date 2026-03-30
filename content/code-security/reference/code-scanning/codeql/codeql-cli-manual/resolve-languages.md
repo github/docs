@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/resolve-languages
   - /code-security/codeql-cli/codeql-cli-manual/resolve-languages
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

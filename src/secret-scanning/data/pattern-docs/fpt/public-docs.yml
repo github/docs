@@ -1452,16 +1452,6 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
-- provider: CloudBees
-  supportedSecret: CloudBees CodeShip Credential
-  secretType: codeship_credential
-  isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
 - provider: Cockroach Labs
   supportedSecret: CockroachDB Cloud API Key
   secretType: ccdb_api_key
@@ -4041,7 +4031,7 @@
   secretType: salesforce_marketing_cloud_api_oauth2_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

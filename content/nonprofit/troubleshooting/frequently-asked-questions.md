@@ -4,6 +4,8 @@ intro: 'Troubleshooting common errors with the GitHub for Nonprofits process.'
 versions:
   fpt: '*'
 shortTitle: Frequently asked questions
+category:
+  - Apply for nonprofit benefits
 ---
 
 ## How do I convert my user account to an organization account?

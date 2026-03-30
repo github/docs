@@ -8,6 +8,8 @@ versions:
 contentType: how-tos
 redirect_from:
   - /code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal
+category:
+  - Secure your dependencies
 ---
 
 {% data reusables.security.delegated-alert-dismissal-capacity %}

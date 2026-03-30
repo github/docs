@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% data reusables.dependabot.result-discrepancy %}

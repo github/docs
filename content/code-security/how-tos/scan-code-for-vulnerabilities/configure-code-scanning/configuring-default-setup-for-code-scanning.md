@@ -22,6 +22,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 
 We recommend that you start using {% data variables.product.prodname_code_scanning %} with default setup. After you've initially configured default setup, you can evaluate {% data variables.product.prodname_code_scanning %} to see how it's working for you and customize it to better meet your needs. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/setup-types).

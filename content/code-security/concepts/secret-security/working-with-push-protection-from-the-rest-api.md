@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 ## About push protection from the REST API

@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/creating-and-working-with-codeql-packs
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About {% data variables.product.prodname_codeql %} packs and the {% data variables.product.prodname_codeql_cli %}

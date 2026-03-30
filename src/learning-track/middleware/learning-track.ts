@@ -27,10 +27,12 @@ export default async function learningTrack(
   const trackName = req.query.learn as string
 
   let trackProduct = req.context.currentProduct as string
-  const allLearningTracks = getDeepDataByLanguage(
+  const rawLearningTracks = getDeepDataByLanguage(
     'learning-tracks',
     req.language!,
   ) as LearningTracks
+
+  let allLearningTracks = rawLearningTracks
 
   if (req.language !== 'en') {
     // Don't trust the `.guides` from the translation. It too often has
@@ -39,25 +41,23 @@ export default async function learningTrack(
       'learning-tracks',
       'en',
     ) as LearningTracks
-    for (const [key, tracks] of Object.entries(allLearningTracks)) {
+    // Build a filtered copy instead of mutating the cached original
+    const filtered: LearningTracks = {}
+    for (const [key, tracks] of Object.entries(rawLearningTracks)) {
       if (!(key in allEnglishLearningTracks)) {
-        // This can happen when the translation of
-        // `data/learning-tracks/foo.yml` has stuff in it that the English
-        // content no longer has. In that case, just skip it.
-        delete allLearningTracks[key]
         console.warn('No English learning track for %s', key)
         continue
       }
+      filtered[key] = {}
       for (const [name, track] of Object.entries(tracks)) {
-        // If this individual track does no longer exist in English,
-        // delete it from the translation too.
-        if (!(name in allEnglishLearningTracks[key])) {
-          delete tracks[name]
-          continue
+        if (!(name in allEnglishLearningTracks[key])) continue
+        filtered[key][name] = {
+          ...track,
+          guides: allEnglishLearningTracks[key][name].guides,
         }
-        track.guides = allEnglishLearningTracks[key][name].guides
       }
     }
+    allLearningTracks = filtered
   }
   let tracksPerProduct = allLearningTracks[trackProduct]
 

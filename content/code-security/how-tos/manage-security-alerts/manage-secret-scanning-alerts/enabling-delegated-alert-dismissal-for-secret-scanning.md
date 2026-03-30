@@ -8,6 +8,8 @@ contentType: how-tos
 shortTitle: Delegated alert dismissal
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning
+category:
+  - Protect your secrets
 ---
 
 {% data reusables.security.delegated-alert-dismissal-capacity %}

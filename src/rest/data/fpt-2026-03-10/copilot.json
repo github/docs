@@ -919,9 +919,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -2930,6 +2927,876 @@
           },
           {
             "\"Administration\" organization permissions": "read"
+          }
+        ]
+      }
+    }
+  ],
+  "copilot-usage-metrics": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-1-day",
+      "title": "Get Copilot enterprise usage metrics for a specific day",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>The day to request data for, in <code>YYYY-MM-DD</code> format.</p>",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "examples": [
+              "2025-10-13"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the Copilot enterprise usage metrics report for a specific day. The report provides comprehensive usage data for Copilot features across the enterprise.</p>\n<p>The report contains aggregated metrics for the specified day, including usage statistics for various Copilot features, user engagement data, and feature adoption metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.</p>\n<p>The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed. Reports are available starting from October 10, 2025, and historical data can be accessed for up to 1 year from the current date.</p>\n<p>Enterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>read:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_day": "2025-07-01"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 1 Day Report",
+              "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+                },
+                "report_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The day of the report in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Copilot metrics\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest",
+      "title": "Get Copilot enterprise usage metrics",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the latest 28-day enterprise Copilot usage metrics report. The report provides comprehensive usage data for Copilot features across the enterprise.</p>\n<p>The report contains aggregated metrics for the previous 28 days, including usage statistics for various Copilot features, user engagement data, and feature adoption metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.</p>\n<p>The response includes download links to the report files, along with the specific date range covered by the report. The report covers a complete 28-day period ending on the most recent day for which data has been processed.</p>\n<p>Enterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>read:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_start_day": "2025-07-01",
+              "report_end_day": "2025-07-28"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 28 Day Report",
+              "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the latest Copilot usage metrics report for the enterprise/organization."
+                },
+                "report_start_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The start date of the report period in `YYYY-MM-DD` format."
+                },
+                "report_end_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The end date of the report period in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_start_day",
+                "report_end_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Copilot metrics\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-1-day",
+      "title": "Get Copilot users usage metrics for a specific day",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>The day to request data for, in <code>YYYY-MM-DD</code> format.</p>",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "examples": [
+              "2025-10-13"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the Copilot user usage metrics report for a specific day. The report provides detailed user-level usage data and engagement metrics for Copilot features across the enterprise.</p>\n<p>The report contains user-specific metrics for the specified day, including individual user engagement statistics, feature usage patterns, and adoption metrics broken down by user. This report allows authorized users to analyze Copilot usage at the user level to understand adoption patterns and identify opportunities for increased engagement.</p>\n<p>Reports are generated daily and made available for download through signed URLs with a limited expiration time. The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed. Reports are available starting from October 10, 2025, and historical data can be accessed for up to 1 year from the current date.</p>\n<p>Enterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>read:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_day": "2025-07-01"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 1 Day Report",
+              "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+                },
+                "report_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The day of the report in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Copilot metrics\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest",
+      "title": "Get Copilot users usage metrics",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the latest 28-day enterprise users Copilot usage metrics report. The report provides detailed user-level usage data and engagement metrics for Copilot features across the enterprise.</p>\n<p>The report contains user-specific metrics for the previous 28 days, including individual user engagement statistics, feature usage patterns, and adoption metrics broken down by user. This report allows authorized users to analyze Copilot usage at the user level to understand adoption patterns and identify opportunities for increased engagement.</p>\n<p>Reports are generated daily and made available for download through signed URLs with a limited expiration time. The response includes download links to the report files, along with the specific date range covered by the report. The report covers a complete 28-day period ending on the most recent day for which data has been processed.</p>\n<p>Enterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>read:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_start_day": "2025-07-01",
+              "report_end_day": "2025-07-28"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 28 Day Report",
+              "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the latest Copilot usage metrics report for the enterprise/organization."
+                },
+                "report_start_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The start date of the report period in `YYYY-MM-DD` format."
+                },
+                "report_end_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The end date of the report period in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_start_day",
+                "report_end_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Copilot metrics\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-1-day",
+      "title": "Get Copilot organization usage metrics for a specific day",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>The day to request data for, in <code>YYYY-MM-DD</code> format.</p>",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "examples": [
+              "2025-10-13"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the Copilot organization usage metrics report for a specific day. The report provides comprehensive usage data for Copilot features across the organization.</p>\n<p>The report contains aggregated metrics for the specified day, including usage statistics for various Copilot features, user engagement data, and feature adoption metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.</p>\n<p>The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.</p>\n<p>Organization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>For more information about organization metrics attribution, see <a href=\"https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations\">How are metrics attributed across organizations</a>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_day": "2025-07-01"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 1 Day Report",
+              "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+                },
+                "report_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The day of the report in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization Copilot metrics\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest",
+      "title": "Get Copilot organization usage metrics",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the latest 28-day organization Copilot usage metrics report. The report provides comprehensive usage data for Copilot features across the organization.</p>\n<p>The report contains aggregated metrics for the previous 28 days, including usage statistics for various Copilot features, user engagement data, and feature adoption metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.</p>\n<p>The response includes download links to the report files, along with the specific date range covered by the report. The report covers a complete 28-day period ending on the most recent day for which data has been processed.</p>\n<p>Organization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>For more information about organization metrics attribution, see <a href=\"https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations\">How are metrics attributed across organizations</a>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_start_day": "2025-07-01",
+              "report_end_day": "2025-07-28"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 28 Day Report",
+              "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the latest Copilot usage metrics report for the enterprise/organization."
+                },
+                "report_start_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The start date of the report period in `YYYY-MM-DD` format."
+                },
+                "report_end_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The end date of the report period in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_start_day",
+                "report_end_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization Copilot metrics\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/users-1-day",
+      "title": "Get Copilot organization users usage metrics for a specific day",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>The day to request data for, in <code>YYYY-MM-DD</code> format.</p>",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "date",
+            "examples": [
+              "2025-10-13"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the Copilot organization user usage metrics report for a specific day. The report provides detailed user-level usage data and engagement metrics for Copilot features across the organization.</p>\n<p>The report contains user-specific metrics for the specified day, including individual user engagement statistics, feature usage patterns, and adoption metrics broken down by user. This report allows authorized users to analyze Copilot usage at the user level to understand adoption patterns and identify opportunities for increased engagement.</p>\n<p>Reports are generated daily and made available for download through signed URLs with a limited expiration time. The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.</p>\n<p>Organization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>For more information about organization metrics attribution, see <a href=\"https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations\">How are metrics attributed across organizations</a>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_day": "2025-07-01"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 1 Day Report",
+              "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+                },
+                "report_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The day of the report in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization Copilot metrics\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest",
+      "title": "Get Copilot organization users usage metrics",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the latest 28-day organization users Copilot usage metrics report. The report provides detailed user-level usage data and engagement metrics for Copilot features across the organization.</p>\n<p>The report contains user-specific metrics for the previous 28 days, including individual user engagement statistics, feature usage patterns, and adoption metrics broken down by user. This report allows authorized users to analyze Copilot usage at the user level to understand adoption patterns and identify opportunities for increased engagement.</p>\n<p>Reports are generated daily and made available for download through signed URLs with a limited expiration time. The response includes download links to the report files, along with the specific date range covered by the report. The report covers a complete 28-day period ending on the most recent day for which data has been processed.</p>\n<p>Organization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>For more information about organization metrics attribution, see <a href=\"https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations\">How are metrics attributed across organizations</a>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_start_day": "2025-07-01",
+              "report_end_day": "2025-07-28"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 28 Day Report",
+              "description": "Links to download the latest Copilot usage metrics report for an enterprise/organization.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the latest Copilot usage metrics report for the enterprise/organization."
+                },
+                "report_start_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The start date of the report period in `YYYY-MM-DD` format."
+                },
+                "report_end_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The end date of the report period in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_start_day",
+                "report_end_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization Copilot metrics\" organization permissions": "read"
           }
         ]
       }

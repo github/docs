@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs
   - /code-security/tutorials/customize-code-scanning/publishing-and-using-codeql-packs
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 {% ifversion ghec or ghes %}

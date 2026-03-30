@@ -10,6 +10,8 @@ shortTitle: Configure multi-ecosystem updates
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates
   - /code-security/tutorials/secure-your-dependencies/configuring-multi-ecosystem-updates
+category:
+  - Secure your dependencies
 ---
 
 Multi-ecosystem updates allow you to consolidate {% data variables.product.prodname_dependabot %} pull requests across different package ecosystems into a single PR per group. See [AUTOTITLE](/code-security/concepts/supply-chain-security/multi-ecosystem-updates).

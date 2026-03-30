@@ -10,6 +10,8 @@ versions:
 contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
+category:
+  - Protect your secrets
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

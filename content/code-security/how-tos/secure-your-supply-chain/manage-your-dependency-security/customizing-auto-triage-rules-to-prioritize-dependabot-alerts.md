@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/customizing-alert-rules-to-prioritize-dependabot-alerts
   - /code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About {% data variables.dependabot.custom_rules %}

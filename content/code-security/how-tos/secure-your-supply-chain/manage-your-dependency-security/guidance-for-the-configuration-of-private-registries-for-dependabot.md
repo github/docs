@@ -10,6 +10,8 @@ shortTitle: Configure private registries
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 This article contains recommendations and advice to help you configure {% data variables.product.prodname_dependabot %} to access your private registry, along with:

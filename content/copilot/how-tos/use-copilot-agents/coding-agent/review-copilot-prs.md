@@ -26,7 +26,7 @@ After {% data variables.product.prodname_copilot_short %} has finished working o
 > [!IMPORTANT]
 > If you have rules or branch protections that require pull request approvals, and you ask {% data variables.product.prodname_copilot_short %} to create a pull request, you can approve the pull request, but **your approval won't count** toward the required number of approvals. Someone else must approve the pull request for it to be merged.
 
-You can ask {% data variables.product.prodname_copilot_short %} to make changes by mentioning `@copilot` in pull request comments, or you can check out {% data variables.product.prodname_copilot_short %}'s branch and make changes yourself.
+You can ask {% data variables.product.prodname_copilot_short %} to make changes by mentioning `@copilot` in pull request comments. By default, {% data variables.product.prodname_copilot_short %} pushes commits directly to the pull request's branch. If you prefer, you can ask {% data variables.product.prodname_copilot_short %} to create a separate pull request instead by using natural language in your comment. You can also check out {% data variables.product.prodname_copilot_short %}'s branch and make changes yourself.
 
 Optionally, when submitting a pull request comment (not a review or review comment) through the {% data variables.product.github %} web interface, you can select a model using the model picker. By default, {% data variables.product.prodname_copilot_short %} will use the model originally used to create the pull request.
 

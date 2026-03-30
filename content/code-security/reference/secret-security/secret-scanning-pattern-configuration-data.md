@@ -7,6 +7,8 @@ versions:
   feature: security-configurations
 contentType: reference
 
+category:
+  - Protect your secrets
 ---
 
 When configuring push protection, you can view performance data for each secret pattern to make informed enablement decisions. Use metrics like alert volume and false positive rates to balance security with developer experience. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/configuring-global-security-settings-for-your-organization#specifying-patterns-to-include-in-push-protection){% ifversion security-configuration-enterprise-level %} or [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/configuring-additional-secret-scanning-settings-for-your-enterprise#specifying-patterns-to-include-in-push-protection-for-your-enterprise){% endif %}.

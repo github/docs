@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/pack-install
   - /code-security/codeql-cli/codeql-cli-manual/pack-install
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

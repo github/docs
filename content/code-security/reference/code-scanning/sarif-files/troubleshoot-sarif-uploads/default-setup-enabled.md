@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/default-setup-enabled
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/default-setup-enabled
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

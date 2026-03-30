@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/feature-disappears
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/feature-disappears
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About the problem

@@ -229,13 +229,13 @@
   },
   "3.14": {
     "releaseDate": "2024-08-06",
-    "deprecationDate": "2026-03-17",
+    "deprecationDate": "2026-04-09",
     "releaseCandidateDate": "2024-08-06",
     "generalAvailabilityDate": "2024-08-27"
   },
   "3.15": {
     "releaseDate": "2024-11-12",
-    "deprecationDate": "2026-03-17",
+    "deprecationDate": "2026-04-09",
     "releaseCandidateDate": "2024-11-12",
     "generalAvailabilityDate": "2024-12-03"
   },

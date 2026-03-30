@@ -12,6 +12,8 @@ shortTitle: Manage auto-dismissed alerts
 redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/managing-automatically-dismissed-alerts
   - /code-security/dependabot/dependabot-auto-triage-rules/managing-automatically-dismissed-alerts
+category:
+  - Secure your dependencies
 ---
 
 ## Managing automatically dismissed alerts

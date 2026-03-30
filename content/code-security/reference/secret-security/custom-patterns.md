@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Protect your secrets
 ---
 
 ## Regular expression library for custom patterns

@@ -9,6 +9,8 @@ shortTitle: Configure VNET
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/setting-dependabot-to-run-on-github-hosted-runners-using-vnet
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Configuring VNET for {% data variables.product.prodname_dependabot_updates %}

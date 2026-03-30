@@ -13,6 +13,8 @@ versions:
 redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
   - /code-security/security-overview/assessing-code-security-risk
+category:
+  - Secure at scale
 ---
 
 ## Exploring the security risks in your code

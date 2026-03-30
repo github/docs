@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data reusables.code-scanning.beta-larger-runners-support %}

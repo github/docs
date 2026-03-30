@@ -11,6 +11,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About enabling {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}
@@ -74,6 +76,22 @@ For example, you can enable any {% data variables.product.prodname_AS %} feature
       ```shell copy
       ghe-config app.secret-scanning.enabled true
       ```
+
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
+    * Optionally, to enable validity checks for {% data variables.product.prodname_secret_scanning %}:
+        * Enter the following command:
+
+           ```shell copy
+           ghe-config app.secret-scanning.validity-checks-available-on-instance true`
+           ```
+
+         * To check whether outbound connection is possible, use:
+
+           ```shell copy
+           /usr/local/share/enterprise/ghe-secret-scanning-validity-checks-connection-test
+           ```
+{% endif %}
 
     * To enable the dependency graph, enter the following command.
 

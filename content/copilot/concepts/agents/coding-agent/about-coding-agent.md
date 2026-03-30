@@ -30,6 +30,7 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 * Improve test coverage
 * Update documentation
 * Address technical debt
+* Resolve merge conflicts
 
 To delegate tasks to {% data variables.copilot.copilot_coding_agent %}, you can:
 
@@ -128,57 +129,6 @@ You can customize {% data variables.copilot.copilot_coding_agent %} in a number 
 * **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
 * **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-hooks).
 * **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
-
-## Built-in security protections
-
-Security is a fundamental consideration when you enable {% data variables.copilot.copilot_coding_agent %}, as with any other AI agent. {% data variables.copilot.copilot_coding_agent %} has a strong base of built-in security protections that you can supplement by following best practice guidance.
-
-* **Validated for code quality and security issues**: {% data reusables.copilot.coding-agent-validation-tools-intro %}
-  * **{% data variables.product.prodname_codeql %}** is used to identify code security issues.
-  * Newly introduced dependencies are checked against the **{% data variables.product.prodname_advisory_database %}** for malware advisories, and for any CVSS-rated High or Critical vulnerabilities.
-  * **{% data variables.product.prodname_secret_scanning_caps %}** is used to detect sensitive information such as API keys, tokens, and other secrets.
-  * Details about the analysis performed and the actions taken by {% data variables.copilot.copilot_coding_agent %} can be reviewed in the session log. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
-  * Optionally, you can disable one or more of the code quality and security validation tools used by {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/configuring-agent-settings).
-  * {% data variables.copilot.copilot_coding_agent %}'s security validation **does not require** a {% data variables.product.prodname_GHAS_cs_or_sp %} license.
-* **Subject to existing governance**: Organization settings and enterprise policies control availability. Any security policies and practices set up for the organization also apply to {% data variables.copilot.copilot_coding_agent %}.
-* **Restricted development environment**: {% data variables.copilot.copilot_coding_agent %} works in a sandbox development environment with internet access controlled by a firewall. It has read-only access to the repository it's assigned to work in.
-* **Limited access to branches**: {% data variables.copilot.copilot_coding_agent %} can only create and push to branches beginning with `copilot/`. It is subject to any branch protections and required checks for the working repository.
-* **Responds only to users with write permissions**: {% data variables.copilot.copilot_coding_agent %} will not respond to feedback from users with lower levels of access.
-* **Treated as an outside collaborator**
-  * Draft pull requests created by {% data variables.copilot.copilot_coding_agent %} must be reviewed and merged by a human. {% data variables.copilot.copilot_coding_agent %} cannot mark its pull requests as "Ready for review" and cannot approve or merge a pull request.
-  * By default, {% data variables.product.prodname_actions %} workflows are not triggered for {% data variables.copilot.copilot_coding_agent %}'s pull requests until a user with write access to the repository clicks the **Approve and run workflows** button. Optionally, you can configure {% data variables.product.prodname_copilot_short %} to allow workflows to run automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/review-copilot-prs#managing-github-actions-workflow-runs).
-* **Tracked for compliance**: {% data variables.copilot.copilot_coding_agent %}'s commits are co-authored by the developer who assigned the issue or requested the change to the pull request, allowing attribution of proposed changes. The developer who asked {% data variables.product.prodname_copilot_short %} to create a pull request cannot approve that pull request. In repositories where an approving review is required, this ensures that at least one independent developer reviews {% data variables.copilot.copilot_coding_agent %}'s work.
-
-For more information, see:
-* [AUTOTITLE](/copilot/tutorials/pilot-copilot-coding-agent#2-secure) (information on how organization owners can further enhance security)
-* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)
-
-## Risks and mitigations
-
-{% data variables.copilot.copilot_coding_agent %} is an autonomous agent that has access to your code and can push changes to your repository. This entails certain risks. Where possible, {% data variables.product.github %} has applied appropriate mitigations.
-
-### Risk: {% data variables.copilot.copilot_coding_agent %} can push code changes to your repository
-
-To mitigate this risk, {% data variables.product.github %}:
-
-* **Limits who can assign tasks to {% data variables.copilot.copilot_coding_agent %}.** Only users with write access to the repository can trigger {% data variables.copilot.copilot_coding_agent %} to work. Comments from users without write access are never presented to the agent.
-* **Limits the permissions in access tokens used by {% data variables.copilot.copilot_coding_agent %}.** Pushes are only allowed to branches beginning with `copilot/`. {% data variables.copilot.copilot_coding_agent %} cannot push to the `main` or `master` branches.
-* **Limits {% data variables.copilot.copilot_coding_agent %}'s credentials.** {% data variables.copilot.copilot_coding_agent %} can only perform simple push operations. It cannot directly run `git push` or other Git commands.
-* **Restricts {% data variables.product.prodname_actions %} workflow runs.** By default, workflows are not triggered until {% data variables.copilot.copilot_coding_agent %}'s code is reviewed and a user with write access to the repository clicks the **Approve and run workflows** button. Optionally, you can configure {% data variables.product.prodname_copilot_short %} to allow workflows to run automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/review-copilot-prs#managing-github-actions-workflow-runs). 
-* **Prevents the user who asked {% data variables.copilot.copilot_coding_agent %} to create a pull request from approving it.** This maintains the expected controls in the "Required approvals" rule and branch protection. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
-
-### Risk: {% data variables.copilot.copilot_coding_agent %} has access to sensitive information
-
-{% data variables.copilot.copilot_coding_agent %} has access to code and other sensitive information, and could leak it, either accidentally or due to malicious user input. To mitigate this risk, {% data variables.product.github %}:
-
-* **Restricts {% data variables.copilot.copilot_coding_agent %}'s access to the internet.** See [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
-
-### Risk: Prompt injection vulnerabilities
-
-Users can include hidden messages in issues assigned to {% data variables.copilot.copilot_coding_agent %} or comments left for {% data variables.copilot.copilot_coding_agent %} as a form of [prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/). To mitigate this risk, {% data variables.product.github %}:
-
-* **Filters hidden characters before passing user input to {% data variables.copilot.copilot_coding_agent %}**: For example, text entered as an HTML comment in an issue or pull request comment is not passed to {% data variables.copilot.copilot_coding_agent %}.
 
 ## Limitations of {% data variables.copilot.copilot_coding_agent %}
 

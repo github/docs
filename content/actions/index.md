@@ -21,7 +21,7 @@ carousels:
   recommended:
     - /actions/get-started/quickstart
     - /actions/get-started/understand-github-actions
-    - /actions/tutorials/use-actions-runner-controller
+    - /actions/how-tos/manage-runners/github-hosted-runners/use-github-hosted-runners
     - /actions/reference/workflows-and-actions/workflow-syntax
     - /actions/reference/workflows-and-actions/events-that-trigger-workflows
     - /actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations

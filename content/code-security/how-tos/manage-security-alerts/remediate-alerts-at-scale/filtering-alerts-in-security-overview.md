@@ -13,6 +13,8 @@ shortTitle: Filter security alerts
 redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
   - /code-security/security-overview/filtering-alerts-in-security-overview
+category:
+  - Secure at scale
 ---
 
 Security overview can show alerts across many repositories in your organization or enterprise. Filtering helps you focus on specific alerts based on severity, alert type, repository characteristics, and other factors.

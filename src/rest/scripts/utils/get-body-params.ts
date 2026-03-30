@@ -2,7 +2,7 @@ import { renderContent } from './render-content'
 
 export interface Schema {
   oneOf?: Schema[]
-  type?: string
+  type?: string | string[]
   items?: Schema
   properties?: Record<string, Schema>
   required?: string[]
@@ -196,7 +196,13 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
         // Handle mixed types or non-object oneOf cases
         const descriptions: { type: string; description: string }[] = []
         for (const childParam of param.oneOf) {
-          paramType.push(childParam.type)
+          paramType.push(
+            ...(Array.isArray(childParam.type)
+              ? childParam.type
+              : childParam.type
+                ? [childParam.type]
+                : []),
+          )
           if (!param.description) {
             if (childParam.type === 'array') {
               if (childParam.items && childParam.items.description) {
@@ -235,8 +241,10 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
       const firstObject = Object.values(param.anyOf).find(
         (item) => (item as Schema).type === 'object',
       ) as Schema
+      const hasNull = param.anyOf.some((item) => (item as Schema).type === 'null')
       if (firstObject) {
         paramType.push('object')
+        if (hasNull) paramType.push('null')
         param.description = firstObject.description
         childParamsGroups.push(...(await getBodyParams(firstObject, false)))
       } else {

@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 
 Depending on your configuration, {% data variables.product.prodname_code_scanning %} results may appear as check results and annotations on pull requests. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/about-code-scanning-alerts#about-alerts-in-pull-requests).
