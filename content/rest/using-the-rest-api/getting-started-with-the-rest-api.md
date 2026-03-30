@@ -702,7 +702,7 @@ You can then expand these templates using something like the [uri_template](http
 
 ## Rate limiting
 
-The {% data variables.product.github %} REST API limits the number of requests you can make within a given time period. For more information about rate limits and how to check your current rate limit status, see "[AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api)."
+The {% data variables.product.github %} REST API limits the number of requests you can make within a given time period. For more information about rate limits and how to check your current rate limit status, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
 ## Next steps
 
