@@ -36,6 +36,12 @@ An agent session encompasses an entire interaction with {% data variables.copilo
 
 For billing information on agent sessions, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-premium-requests#usage-by-copilot-coding-agent).
 
+## Agent mode in the IDE
+
+Enterprise and organization owners can separately control whether their users have access to agent mode in IDE chat, independently from the "Chat in IDE" policy. This gives you finer-grained control over agentic capabilities in your developers' IDEs.
+
+To manage this policy, enable or disable **Copilot Agent Mode in IDE chat** in your AI Controls settings. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+
 ## Next steps
 
 To get started with {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
