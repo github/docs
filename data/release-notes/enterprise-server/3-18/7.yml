@@ -35,8 +35,6 @@ sections:
       To improve performance on large instances, HAProxy automatically scales its thread count based on available CPUs and uses higher connection limits for high-traffic backend services including GitHub Actions, database connections, job queues, and package registry. Administrators can override the thread count using `ghe-config haproxy-nbthread` if needed. 
     - |
       API consumers can update issues via the REST API (PATCH) or the GraphQL `updateIssue` mutation using fine-grained permissions for closing and reopening issues, and for setting milestones. 
-    - |
-      The "In-product messages" notification toggle no longer appears in user notification settings as GitHub Enterprise Server does not use in-product messages. 
   known_issues:
     - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.

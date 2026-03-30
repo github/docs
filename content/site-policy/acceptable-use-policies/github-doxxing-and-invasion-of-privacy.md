@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /github/site-policy/github-doxxing-and-invasion-of-privacy
   - /github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy
+category:
+  - Follow acceptable use policies
 ---
 
 Don't post other people's personal information. This includes:
