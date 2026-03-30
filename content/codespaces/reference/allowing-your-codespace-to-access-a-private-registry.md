@@ -1,4 +1,6 @@
 ---
+***{[automatic_Verification]}***
+_[Change.Logs]≈ *%Update/input.info%*
 title: Allowing your codespace to access a private registry
 intro: 'You can allow {% data variables.product.prodname_github_codespaces %} to access container images or other packages in a private registry.'
 versions:
