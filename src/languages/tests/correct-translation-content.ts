@@ -211,6 +211,11 @@ describe('correctTranslatedContentStrings', () => {
         '{%- assign supportLevel = entry.support -%}',
       )
     })
+
+    test('fixes garbled endif with percent placed after keyword', () => {
+      // `{ endif% %}` — percent appears after "endif" instead of after the opening brace
+      expect(fix('some content\n{ endif% %}\nmore', 'ja')).toBe('some content\n{% endif %}\nmore')
+    })
   })
 
   // ─── PORTUGUESE (pt) ───────────────────────────────────────────────
@@ -263,6 +268,21 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes ou → or in ifversion tags', () => {
       expect(fix('{% ifversion fpt ou ghec %}', 'pt')).toBe('{% ifversion fpt or ghec %}')
       expect(fix('{%- elsif fpt ou ghec %}', 'pt')).toBe('{%- elsif fpt or ghec %}')
+    })
+
+    test('fixes fully translated reutilizáveis reusables path', () => {
+      // `reutilizáveis` is Portuguese for "reusables"
+      expect(fix('{% dados reutilizáveis.repositórios.reaction_list %}', 'pt')).toBe(
+        '{% data reusables.repositories.reaction_list %}',
+      )
+      expect(fix('{% dados reutilizáveis.foo.bar %}', 'pt')).toBe('{% data reusables.foo.bar %}')
+    })
+
+    test('fixes translated repositórios path segment', () => {
+      // `repositórios` is Portuguese for "repositories"
+      expect(fix('{% data reusables.repositórios.reaction_list %}', 'pt')).toBe(
+        '{% data reusables.repositories.reaction_list %}',
+      )
     })
   })
 
@@ -492,6 +512,25 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- conseil %}', 'fr')).toBe('{%- tip %}')
       expect(fix('{%- conseil -%}', 'fr')).toBe('{%- tip -%}')
     })
+
+    test('removes orphaned endif when no matching ifversion/elsif opener exists', () => {
+      // Caused by translations where only the closing tag survived (e.g. user-api.md reusable)
+      expect(fix('Some content\n{% endif %}\nMore content', 'fr')).toBe(
+        'Some content\n\nMore content',
+      )
+      expect(fix('Line one\n{%- endif %}\nLine two', 'fr')).toBe('Line one\n\nLine two')
+      expect(fix('Text {%- endif -%} more', 'fr')).toBe('Text  more')
+    })
+
+    test('preserves endif when matching ifversion opener is present', () => {
+      const input = '{% ifversion ghec %}content{% endif %}'
+      expect(fix(input, 'fr')).toBe(input)
+    })
+
+    test('preserves endif when elsif opener is present', () => {
+      const input = '{% ifversion fpt %}a{% elsif ghec %}b{% endif %}'
+      expect(fix(input, 'fr')).toBe(input)
+    })
   })
 
   // ─── KOREAN (ko) ──────────────────────────────────────────────────
@@ -586,11 +625,40 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% für entry in list %}', 'de')).toBe('{% for entry in list %}')
     })
+
+    test('fixes wiederverwendbare reusables path', () => {
+      // `wiederverwendbare` is German for "reusables"
+      expect(fix('{% data wiederverwendbare.audit_log.reference %}', 'de')).toBe(
+        '{% data reusables.audit_log.reference %}',
+      )
+      expect(fix('{% Daten wiederverwendbare.audit_log.reference %}', 'de')).toBe(
+        '{% data reusables.audit_log.reference %}',
+      )
+      // Full real-world example: `{% Data wiederverwendbare.audit_log.referenz-nach-kategorie-gruppiert %}`
+      // The `{% Data ` → `{% data ` fix runs before this, so by the time we check:
+      expect(
+        fix('{% Data wiederverwendbare.audit_log.referenz-nach-kategorie-gruppiert %}', 'de'),
+      ).toBe('{% data reusables.audit_log.referenz-nach-kategorie-gruppiert %}')
+    })
   })
 
   // ─── GENERIC FIXES ────────────────────────────────────────────────
 
   describe('Generic fixes (all languages)', () => {
+    test('strips LLM sentinel markers and preserves word boundaries', () => {
+      expect(fix('Hello<|endoftext|>World', 'es')).toBe('Hello World')
+      expect(fix('Hello <|endoftext|> World', 'es')).toBe('Hello World')
+      expect(fix('end of sentence.<|endoftext|>Start', 'es')).toBe('end of sentence. Start')
+    })
+
+    test('fixes capitalized Data Liquid keyword', () => {
+      expect(fix('{% Data variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{% Data reusables.foo %}', 'es')).toBe('{% data reusables.foo %}')
+      expect(fix('{% Data ifversion ghec %}', 'es')).toBe('{% data ifversion ghec %}')
+    })
+
     test('fixes AUTOTITLE corruption patterns', () => {
       expect(fix('["AUTOTITLE](/path)', 'es')).toBe('"[AUTOTITLE](/path)')
       expect(fix('[ AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')
