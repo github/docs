@@ -5,8 +5,6 @@ intro: 'Learn how to request a code review from {% data variables.product.prodna
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /early-access/copilot/code-review/using-copilot-code-review
   - /early-access/copilot/code-reviews/using-copilot-code-review
@@ -27,6 +25,8 @@ category:
 For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/code-review).
 
 {% webui %}
+
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-for-organization-members-without-a-copilot-license).
 
 ## Using {% data variables.copilot.copilot_code-review_short %}
 

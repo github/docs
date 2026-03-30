@@ -9,10 +9,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Unrestrict {% data variables.product.prodname_oauth_apps %}
+category:
+  - Manage app and API access
 ---
 
 > [!WARNING]

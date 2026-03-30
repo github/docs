@@ -1,17 +1,17 @@
 ---
 title: Your first custom instructions
-intro: 'Create and test your first custom instruction with this simple example.'
+intro: Create and test your first custom instruction with this simple example.
 versions:
   feature: copilot
 category:
   - Custom instructions
   - Getting started
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
+contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}
@@ -46,7 +46,7 @@ These instructions will change how {% data variables.product.prodname_copilot %}
 
 ## Test it out
 
-To quickly test out the difference that custom instructions can make, you can use personal custom instructions in {% data variables.copilot.copilot_chat_short %}'s immersive view.
+To quickly test out the difference that custom instructions can make, you can use personal custom instructions in {% data variables.copilot.copilot_chat_short %}.
 
 1. First, go to [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=trial&ref_style=text) and enter this prompt:
 

@@ -7,8 +7,6 @@ redirect_from:
   - /copilot/copilot-chat-cookbook
 versions:
   feature: copilot
-topics:
-  - Copilot
 layout: category-landing
 sidebarLink:
   text: All prompts

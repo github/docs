@@ -1,5 +1,5 @@
 ---
-title: 'Creating a {% data variables.product.prodname_project_v1 %}'
+title: Creating a {% data variables.product.prodname_project_v1 %}
 intro: '{% data variables.projects.projects_v1_boards_caps %} can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
@@ -8,13 +8,10 @@ redirect_from:
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
   feature: projects-v1-can-create
-topics:
-  - Pull requests
-  - Issues
-  - Projects
-  - Project management
-type: how_to
 allowTitleToDifferFromFilename: true
+contentType: how-tos
+category:
+  - Use project boards (classic)
 ---
 {% data reusables.projects.project_boards_old %}
 

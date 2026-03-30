@@ -7,13 +7,15 @@ versions:
   feature: copilot
 defaultTool: jetbrains
 contentType: how-tos
+category:
+  - Configure Copilot
 ---
 
 MCP registries for {% data variables.product.prodname_copilot_short %} in your IDE streamline the process of discovering and setting up MCP servers. By default, {% data variables.product.prodname_copilot_short %} uses the {% data variables.product.github %} MCP Registry, but you can configure your own MCP registry to customize the list of servers available in your environment.
 
 {% jetbrains %}
 
->[!NOTE] MCP registry availability in {% data variables.product.prodname_copilot_short %} is currently in {% data variables.release-phases.public_preview %}, and requires the [latest nightly build](http://aka.ms/copilot-jb-mcpreg-allowlist-preview?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-jetbrains-download-mcp-registry&utm_medium=docs&utm_campaign=universe25post) of {% data variables.product.prodname_copilot_short %} for JetBrains IDEs.
+>[!NOTE] MCP registry availability in {% data variables.product.prodname_copilot_short %} is currently in {% data variables.release-phases.public_preview %}, and requires the [latest nightly build](http://aka.ms/copilot-jb-mcpreg-allowlist-preview?ref_product=copilot&ref_type=engagement&ref_style=text) of {% data variables.product.prodname_copilot_short %} for JetBrains IDEs.
 
 1. In your JetBrains IDE, open {% data variables.copilot.copilot_chat_short %}.
 1. In the {% data variables.copilot.copilot_chat_short %} window, click the **MCP** icon.
@@ -26,7 +28,7 @@ MCP registries for {% data variables.product.prodname_copilot_short %} in your I
 
 {% xcode %}
 
->[!NOTE] MCP registry availability in {% data variables.product.prodname_copilot_short %} is currently in {% data variables.release-phases.public_preview %}, and requires the [latest pre-release version](https://github.com/github/CopilotForXcode/releases?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-xcode-download-mcp-registry&utm_medium=docs&utm_campaign=universe25post) of {% data variables.product.prodname_copilot_short %} for Xcode.
+>[!NOTE] MCP registry availability in {% data variables.product.prodname_copilot_short %} is currently in {% data variables.release-phases.public_preview %}, and requires the [latest pre-release version](https://github.com/github/CopilotForXcode/releases?ref_product=copilot&ref_type=engagement&ref_style=text) of {% data variables.product.prodname_copilot_short %} for Xcode.
 
 1. In Xcode, open {% data variables.copilot.copilot_chat_short %}.
 1. In the {% data variables.copilot.copilot_chat_short %} window, click the {% octicon "gear" aria-label="The Settings gear" %} icon to open settings.
@@ -39,7 +41,7 @@ MCP registries for {% data variables.product.prodname_copilot_short %} in your I
 
 {% eclipse %}
 
->[!NOTE] MCP registry availability in {% data variables.product.prodname_copilot_short %} is currently in {% data variables.release-phases.public_preview %}, and requires the [latest pre-release version](https://aka.ms/copilot-ecl-mcpreg-allowlist-preview?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-eclipse-download-mcp-registry&utm_medium=docs&utm_campaign=universe25post) of {% data variables.product.prodname_copilot_short %} for Eclipse.
+>[!NOTE] MCP registry availability in {% data variables.product.prodname_copilot_short %} is currently in {% data variables.release-phases.public_preview %}, and requires the [latest pre-release version](https://aka.ms/copilot-ecl-mcpreg-allowlist-preview?ref_product=copilot&ref_type=engagement&ref_style=text) of {% data variables.product.prodname_copilot_short %} for Eclipse.
 
 1. In Eclipse, open {% data variables.copilot.copilot_chat_short %}.
 1. In the {% data variables.copilot.copilot_chat_short %} window, click the **MCP** icon.

@@ -1,23 +1,19 @@
 ---
 title: Reviewing dependency changes in a pull request
-intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
+intro: If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Pull requests
-  - Dependency review
-  - Code Security
-  - Vulnerabilities
-  - Dependencies
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
+contentType: how-tos
+category:
+  - Review pull requests
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review {% data variables.release-phases.public_preview %}" and "Reviewing dependency changes in a pull request".-->
 

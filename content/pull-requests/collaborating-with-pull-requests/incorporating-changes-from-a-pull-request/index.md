@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 children:
   - /about-pull-request-merges
   - /merging-a-pull-request

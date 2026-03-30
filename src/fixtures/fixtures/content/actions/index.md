@@ -11,4 +11,5 @@ versions:
   ghec: '*'
 children:
   - /category
+  - /using-workflows
 ---

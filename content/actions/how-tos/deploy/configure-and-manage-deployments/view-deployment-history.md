@@ -6,14 +6,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /developers/overview/viewing-deployment-history
   - /actions/deployment/viewing-deployment-history
   - /actions/deployment/managing-your-deployments/viewing-deployment-history
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/viewing-deployment-history
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/viewing-deployment-history
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Viewing your repository's deployment history

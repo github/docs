@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Understand enterprise migration tools
 ---
 
 ## About migrations between {% data variables.product.company_short %} products
@@ -23,7 +25,7 @@ If your migration source is an account on {% data variables.product.prodname_dot
 The data that {% data variables.product.prodname_importer_proper_name %} migrates depends on the source of the migration and whether you are migrating a repository or organization.
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
 
 ## Considerations for migrations to {% data variables.product.prodname_ghe_cloud %}
@@ -130,9 +132,7 @@ When you migrate a repository, either directly or as part of an organization mig
 
 Currently, the following data is **not** migrated.
 
-* {% data variables.product.prodname_codespaces %} secrets
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
-* User access to the repository
 
 When you migrate a repository directly, teams and team access to repositories are not migrated.
 

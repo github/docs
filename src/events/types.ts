@@ -41,6 +41,7 @@ export type EventProps = {
     is_logged_in: boolean
     dotcom_user: string
     is_staff: boolean
+    octo_client_id?: string
     os: string
     os_version: string
     browser: string

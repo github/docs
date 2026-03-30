@@ -30,6 +30,7 @@ const workflows: WorkflowMeta[] = fs
   .readdirSync(workflowsDir)
   .filter((filename) => filename.endsWith('.yml') || filename.endsWith('.yaml'))
   .filter((filename) => filename !== 'moda-ci.yaml') // Skip moda-ci
+  .filter((filename) => !filename.endsWith('.lock.yml')) // Skip auto-generated agentic workflow lock files
   .map((filename) => {
     const fullpath = path.join(workflowsDir, filename)
     const data = yaml.load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
@@ -68,7 +69,12 @@ const alertWorkflows = workflows
 // to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
 
 const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
-  data.on.schedule.find(({ cron }: { cron: string }) => /^20 [^*]/.test(cron)),
+  data.on.schedule.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
+)
+
+// Weekly workflows have a single day-of-week digit (e.g. "20 16 * * 1")
+const weeklyWorkflows = dailyWorkflows.filter(({ data }) =>
+  data.on.schedule.find(({ cron }: { cron: string }) => /^20 16 \* \* \d$/.test(cron)),
 )
 
 describe('GitHub Actions workflows', () => {
@@ -97,6 +103,24 @@ describe('GitHub Actions workflows', () => {
     },
   )
 
+  test.each(dailyWorkflows)('daily scheduled workflows only run Mon-Fri $filename', ({ data }) => {
+    for (const { cron } of data.on.schedule) {
+      const fields = cron.trim().split(/\s+/)
+      const dayOfWeek = fields[4]
+      // Day-of-week must be 1-5 (Mon-Fri) or a range within 1-5
+      expect(dayOfWeek).toMatch(/^[1-5](-[1-5])?$/)
+    }
+  })
+
+  test.each(weeklyWorkflows)('weekly scheduled workflows run on Monday $filename', ({ data }) => {
+    for (const { cron } of data.on.schedule) {
+      const fields = cron.trim().split(/\s+/)
+      const dayOfWeek = fields[4]
+      // Day-of-week must be 1 (Monday)
+      expect(dayOfWeek).toBe('1')
+    }
+  })
+
   test.each(workflows)(
     'contains contents:read permissions when permissions are used $filename',
     ({ data }) => {
@@ -122,6 +146,22 @@ describe('GitHub Actions workflows', () => {
           )
         ) {
           throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
+        }
+      }
+    },
+  )
+
+  test.each(alertWorkflows)(
+    'scheduled workflows create failure issue on fail $filename',
+    ({ filename, data }) => {
+      for (const [name, job] of Object.entries(data.jobs)) {
+        if (
+          !job.steps.find(
+            (step: Record<string, any>) =>
+              step.uses === './.github/actions/create-workflow-failure-issue',
+          )
+        ) {
+          throw new Error(`Job ${filename} # ${name} missing create-workflow-failure-issue on fail`)
         }
       }
     },

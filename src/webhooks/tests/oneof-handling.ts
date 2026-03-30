@@ -1,5 +1,9 @@
 import { describe, expect, test } from 'vitest'
-import { getBodyParams, type TransformedParam } from '../../rest/scripts/utils/get-body-params'
+import {
+  getBodyParams,
+  type TransformedParam,
+  type Schema,
+} from '../../rest/scripts/utils/get-body-params'
 
 describe('oneOf handling in webhook parameters', () => {
   test('should handle oneOf fields correctly for secret_scanning_alert_location details', async () => {
@@ -122,7 +126,7 @@ describe('oneOf handling in webhook parameters', () => {
       },
     }
 
-    const result: TransformedParam[] = await getBodyParams(mockSchema, true)
+    const result: TransformedParam[] = await getBodyParams(mockSchema as unknown as Schema, true)
 
     // Find the location parameter
     const locationParam: TransformedParam | undefined = result.find(
@@ -205,7 +209,10 @@ describe('oneOf handling in webhook parameters', () => {
       },
     }
 
-    const result: TransformedParam[] = await getBodyParams(mockSchemaWithoutTitles, true)
+    const result: TransformedParam[] = await getBodyParams(
+      mockSchemaWithoutTitles as unknown as Schema,
+      true,
+    )
 
     const detailsParam: TransformedParam | undefined = result.find(
       (param) => param.name === 'details',
@@ -260,7 +267,10 @@ describe('oneOf handling in webhook parameters', () => {
       },
     }
 
-    const result: TransformedParam[] = await getBodyParams(mockNestedOneOfSchema, true)
+    const result: TransformedParam[] = await getBodyParams(
+      mockNestedOneOfSchema as unknown as Schema,
+      true,
+    )
 
     const wrapperParam: TransformedParam | undefined = result.find(
       (param) => param.name === 'wrapper',

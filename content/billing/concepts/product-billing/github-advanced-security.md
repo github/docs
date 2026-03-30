@@ -17,13 +17,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Advanced Security
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: GitHub Advanced Security
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 ## Licenses for {% data variables.product.prodname_GHAS %}
@@ -53,7 +50,7 @@ Each **active committer** to at least one repository with an {% data variables.p
 * **Active committers** are committers who contributed to at least one repository  and have a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} license with your organization or enterprise. That is, they are also a member, an enterprise-managed user, an external collaborator, or have a pending invitation to join your organization or enterprise.
 * **Unique committers** is the number of active committers who contributed only to one repository, or only to repositories in one organization. You can free up this number of licenses by disabling {% data variables.product.prodname_GH_cs_or_sp %} for that repository or organization.
 
-> [!NOTE] When a repository is migrated to GitHub, GitHub Advanced Security only consumes licenses for commits and pushes made after migration, rather than considering all historic contributions from before the migration.
+> [!NOTE] When a repository is migrated to {% data variables.product.github %} using {% data variables.product.prodname_importer_proper_name %}, {% data variables.product.prodname_GHAS %} only consumes licenses for commits and pushes made _after_ migration. Historic contributions from _before_ the migration are not considered. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 
 {% ifversion security-configurations %}You can see the active and unique committers to an organization on the Global settings page for {% data variables.product.UI_advanced_security %}. Under "{% data variables.product.prodname_secret_protection %} repositories" and "{% data variables.product.prodname_code_security %} repositories", summaries and repository-level details are reported. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).{% endif %}
 
@@ -142,6 +139,21 @@ You can enforce policies to allow or disallow the use of {% data variables.produ
 
 > [!TIP]
 > All standalone instances of {% data variables.product.prodname_ghe_server %} use volume/subscription licenses. Contact [{% data variables.product.github %}'s Sales team](https://enterprise.github.com/contact) if you want to make changes to your license.
+
+{% ifversion disable-ghas-button %}
+
+## Disabling {% data variables.product.prodname_GHAS %} in an enterprise
+
+To disable {% data variables.product.prodname_GHAS %} and prevent accidental re-enablement across your enterprise, enterprise owners can use the **Disable {% data variables.product.prodname_AS %}** option available in the enterprise licensing page. This is particularly useful for metered users who want to ensure {% data variables.product.prodname_GHAS %} is completely disabled and cannot be re-enabled without explicit approval.
+
+The **Disable {% data variables.product.prodname_AS %}** option:
+* Disables {% data variables.product.prodname_GHAS %} in all private and internal repositories
+* Sets a policy to prevent future paid adoption
+* Stops billing for future usage (metered billing only)
+
+See [AUTOTITLE](/billing/how-tos/products/disable-ghas-for-enterprise).
+
+{% endif %}
 
 ## Further reading
 

@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 children:
   - /about-two-factor-authentication
   - /about-mandatory-two-factor-authentication

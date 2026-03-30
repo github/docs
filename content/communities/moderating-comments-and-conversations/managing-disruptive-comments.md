@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Manage comments
+category:
+  - Moderate comments and conversations
 ---
 
 ## Hiding a comment

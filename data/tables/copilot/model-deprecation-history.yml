@@ -11,21 +11,53 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'GPT-5.1'
+  retirement_date: '2026-04-01'
+  suggested_alternative: 'GPT-5.3-Codex'
+
+- name: 'GPT-5.1-Codex'
+  retirement_date: '2026-04-01'
+  suggested_alternative: 'GPT-5.3-Codex'
+
+- name: 'GPT-5.1-Codex-Max'
+  retirement_date: '2026-04-01'
+  suggested_alternative: 'GPT-5.3-Codex'
+
+- name: 'GPT-5.1-Codex-Mini'
+  retirement_date: '2026-04-01'
+  suggested_alternative: 'GPT-5.3-Codex'
+
+- name: 'Gemini 3 Pro'
+  retirement_date: '2026-03-26'
+  suggested_alternative: 'Gemini 3.1 Pro'
+
+- name: 'Claude Opus 4.1'
+  retirement_date: '2026-02-17'
+  suggested_alternative: 'Claude Opus 4.6'
+
+- name: 'GPT-5'
+  retirement_date: '2026-02-17'
+  suggested_alternative: 'GPT-5.2'
+
+- name: 'GPT-5-Codex'
+  retirement_date: '2026-02-17'
+  suggested_alternative: 'GPT-5.2-Codex'
+
 - name: 'Claude Sonnet 3.5'
   retirement_date: '2025-11-06'
   suggested_alternative: 'Claude Haiku 4.5'
 
 - name: 'Claude Opus 4'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'Claude Opus 4.1'
+  suggested_alternative: 'Claude Opus 4.6'
 
 - name: 'Claude Sonnet 3.7'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'Claude Sonnet 4'
+  suggested_alternative: 'Claude Sonnet 4.6'
 
 - name: 'Claude Sonnet 3.7 Thinking'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'Claude Sonnet 4'
+  suggested_alternative: 'Claude Sonnet 4.6'
 
 - name: 'Gemini 2.0 Flash'
   retirement_date: '2025-10-23'
@@ -37,7 +69,7 @@
 
 - name: 'o3'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'GPT-5'
+  suggested_alternative: 'GPT-5.2'
 
 - name: 'o3-mini'
   retirement_date: '2025-10-23'

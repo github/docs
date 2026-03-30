@@ -1,1 +1,1 @@
-{% data variables.product.prodname_openai_codex %} is only available with the {% data variables.copilot.copilot_pro_plus %} plan in {% data variables.product.prodname_vscode_shortname %} Insiders.
+{% data variables.product.prodname_openai_codex %} is available in the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %}, and {% data variables.copilot.copilot_enterprise %} plans.

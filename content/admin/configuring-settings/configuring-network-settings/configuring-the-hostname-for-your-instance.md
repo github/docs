@@ -1,7 +1,7 @@
 ---
 title: Configuring the hostname for your instance
 shortTitle: Configure hostname
-intro: 'You can provide reliable access to {% data variables.location.product_location %} by assigning a hostname that''s accessible over your network.'
+intro: You can provide reliable access to {% data variables.location.product_location %} by assigning a hostname that's accessible over your network.
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-hostnames
   - /enterprise/admin/installation/configuring-a-hostname
@@ -11,11 +11,9 @@ redirect_from:
   - /admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About the hostname for {% data variables.product.prodname_ghe_server %}

@@ -11,7 +11,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import github from '@actions/github'
-import core from '@actions/core'
+import * as core from '@actions/core'
 
 import walk from 'walk-sync'
 import { Octokit } from '@octokit/rest'
@@ -201,7 +201,7 @@ function makeRow({
   fileUrl: string
   fileName: string
   sourceUrl: string
-  data: any
+  data: { versions?: Record<string, string | string[]> } | undefined
   fromReusable?: boolean
 }) {
   let contentCell = ''
@@ -216,7 +216,7 @@ function makeRow({
     // the try/catch is needed because getApplicableVersions() returns either [] or throws an error when it can't parse the versions frontmatter
     // try/catch can be removed if docs-engineering#1821 is resolved
     // i.e. for feature based versioning, like ghec: 'issue-6337'
-    const fileVersions: string[] = getApplicableVersions(data.versions)
+    const fileVersions: string[] = getApplicableVersions(data?.versions)
 
     for (const plan in allVersionShortnames) {
       // plan is the shortName (i.e., fpt)

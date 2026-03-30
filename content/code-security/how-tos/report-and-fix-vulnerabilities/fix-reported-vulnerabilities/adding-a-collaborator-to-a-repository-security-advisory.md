@@ -1,0 +1,39 @@
+---
+title: Adding a collaborator to a repository security advisory
+intro: Add other users or teams to collaborate on a security advisory with you.
+permissions: '{% data reusables.permissions.security-repo-enable %}'
+redirect_from:
+  - /articles/adding-a-collaborator-to-a-maintainer-security-advisory
+  - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
+  - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory
+  - /code-security/security-advisories/adding-a-collaborator-to-a-security-advisory
+  - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+  - /code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+versions:
+  fpt: '*'
+  ghec: '*'
+contentType: how-tos
+shortTitle: Add collaborators
+category:
+  - Report and disclose vulnerabilities
+---
+
+This article applies to repository-level security advisories in a public repository. To edit a global advisory in the {% data variables.product.prodname_advisory_database %}, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
+
+Collaborators have write permissions to the security advisory. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories).
+
+> [!NOTE]
+> {% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory).
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
+1. In the "Security Advisories" list, click the security advisory you'd like to add a collaborator to.
+1. On the right side of the page, under "Collaborators", type the name of the user or team you'd like to add to the security advisory.
+1. Click **{% octicon "plus" aria-label="Add Collaborator" %}** to add the selected user or team as a collaborator.
+   ![Screenshot of the "Collaborators" area in the sidebar of a draft security advisory. The "Add collaborator" button, a plus icon, is outlined in orange.](/assets/images/help/security/security-advisory-add-collaborator-button.png)
+
+## Further reading
+
+* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)

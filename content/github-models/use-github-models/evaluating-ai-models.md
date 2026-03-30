@@ -4,8 +4,8 @@ intro: 'Test and compare AI model outputs using evaluators and scoring metrics i
 versions:
   feature: github-models
 shortTitle: Evaluate AI models
-topics:
-  - GitHub Models
+category:
+  - Build with AI models
 ---
 
 ## Overview

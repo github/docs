@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: About permissions
+category:
+  - Get started with packages
 ---
 
 The permissions for packages can be scoped either to a user or an organization or to a repository.

@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Change the state
+category:
+  - Create pull requests
 ---
 ## Marking a pull request as ready for review
 

@@ -1,7 +1,7 @@
 ---
 title: Configuring {% ifversion ghec %}SCIM{% else %}authentication and{% endif %} provisioning with Okta
 shortTitle: Set up Okta
-intro: 'Learn how to configure Okta to communicate with your enterprise{% ifversion ghec %} on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}{% endif %}.'
+intro: Learn how to configure Okta to communicate with your enterprise{% ifversion ghec %} on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}{% endif %}.
 product: '{% data reusables.gated-features.emus %}'
 permissions: '{% ifversion ghes %}Site administrators{% else %}People{% endif %} with admin access to the IdP'
 allowTitleToDifferFromFilename: true
@@ -17,12 +17,9 @@ redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta
   - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta
-type: tutorial
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
+contentType: tutorials
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}

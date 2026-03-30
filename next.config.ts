@@ -15,6 +15,15 @@ const config: NextConfig = {
   // Transpile @primer/react so Next's webpack can process its CSS and other assets
   // This ensures CSS in node_modules/@primer/react is handled by the app's loaders.
   transpilePackages: ['@primer/react'],
+  // Keep OTel packages out of the Next.js server bundle.
+  // They must be loaded via native require() for auto-instrumentation to work.
+  serverExternalPackages: [
+    '@opentelemetry/api',
+    '@opentelemetry/auto-instrumentations-node',
+    '@opentelemetry/core',
+    '@opentelemetry/exporter-trace-otlp-proto',
+    '@opentelemetry/sdk-node',
+  ],
   // speed up production `next build` by ignoring typechecking during that step of build.
   // type-checking still occurs in the Dockerfile build
   typescript: {
@@ -27,17 +36,11 @@ const config: NextConfig = {
   },
   sassOptions: {
     quietDeps: true,
-    silenceDeprecations: [
-      'legacy-js-api',
-      'import',
-      'global-builtin',
-      'color-4-api',
-      'mixed-decls',
-    ],
+    silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-4-api'],
   },
   // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
   // See `src/observability/logger/README.md` for log levels
-  logging: getLogLevelNumber() < 3 ? false : {},
+  logging: getLogLevelNumber() < 3 ? undefined : {},
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'
     return productIds.map((productId) => {
@@ -46,6 +49,18 @@ const config: NextConfig = {
         destination: `/${DEFAULT_VERSION}/${productId}/:path*`,
       }
     })
+  },
+
+  webpack: (webpackConfig, { isServer }) => {
+    webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
+    // OTel is server-only. Alias to empty stub in browser bundles.
+    if (!isServer) {
+      webpackConfig.resolve.alias = {
+        ...webpackConfig.resolve.alias,
+        '@/observability/lib/tracing': path.resolve('./src/observability/lib/tracing.browser.ts'),
+      }
+    }
+    return webpackConfig
   },
 
   // Turbopack is the default bundler in Next.js 16
@@ -60,14 +75,16 @@ const config: NextConfig = {
       async_hooks: {
         browser: './empty.ts', // Point to empty module when async_hooks is requested for browser
       },
+      '@/observability/logger': {
+        browser: './empty.ts',
+      },
+      '@/observability/logger/lib/logger-context': {
+        browser: './empty.ts',
+      },
+      '@/observability/lib/tracing': {
+        browser: './src/observability/lib/tracing.browser.ts',
+      },
     },
-  },
-
-  webpack: (webpackConfig) => {
-    webpackConfig.experiments = webpackConfig.experiments || {}
-    webpackConfig.experiments.topLevelAwait = true
-    webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
-    return webpackConfig
   },
 
   // https://nextjs.org/docs/api-reference/next.config.js/compression
@@ -79,17 +96,12 @@ const config: NextConfig = {
   // the CDN marks the cached content as "fresh".
   generateEtags: false,
 
-  experimental: {
-    // The output of our getServerSideProps() return large chunks of
-    // data because it contains our rendered Markdown.
-    // The default, for a "Large Page Data" warning is 128KB
-    // but many of our pages are much larger.
-    // The warning is: https://nextjs.org/docs/messages/large-page-data
-    largePageDataBytes: 1024 * 1024, // 1 MB
-
-    // This makes it so that going Back will scroll to the previous position
-    scrollRestoration: true,
-  },
+  // Disable Next.js's in-memory data cache. We don't use ISR or cached
+  // fetch — all pages render via Express middleware with getServerSideProps.
+  // The default 50 MB cache is unnecessary overhead during a memory-leak
+  // investigation and is implicated in known Next.js 16.1.x memory issues
+  // (vercel/next.js#88603).
+  cacheMaxMemorySize: 0,
 
   compiler: {
     styledComponents: true,

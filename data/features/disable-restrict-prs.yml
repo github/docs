@@ -1,0 +1,6 @@
+# Reference: #21073
+# Disable/restrict pull requests for a repository
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.21'

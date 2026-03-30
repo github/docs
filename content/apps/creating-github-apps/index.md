@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 children:
   - /about-creating-github-apps
   - /registering-a-github-app

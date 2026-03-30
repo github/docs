@@ -12,9 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 children:
   - /adding-an-email-address-to-your-github-account
   - /changing-your-primary-email-address

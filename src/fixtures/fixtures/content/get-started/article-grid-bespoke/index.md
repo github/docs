@@ -6,10 +6,11 @@ versions:
   ghes: "*"
   ghec: "*"
 layout: bespoke-landing
-recommended:
-  - /grid-category-one/grid-article-one
-  - /grid-category-one/grid-article-two
-  - /grid-category-two/grid-article-three
+carousels:
+  recommended:
+    - /grid-category-one/grid-article-one
+    - /grid-category-one/grid-article-two
+    - /grid-category-two/grid-article-three
 spotlight:
   - article: /grid-category-one/grid-article-one
     image: /assets/images/placeholder.png
@@ -18,6 +19,8 @@ spotlight:
   - article: /grid-category-two/grid-article-three
     image: /assets/images/placeholder.png
 children:
+  - /grid-category-one/grid-article-one
+  - /grid-category-one/grid-article-two
   - /grid-category-one
   - /grid-category-two
 ---

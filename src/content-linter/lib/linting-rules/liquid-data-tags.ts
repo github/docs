@@ -1,5 +1,6 @@
 import { addError } from 'markdownlint-rule-helpers'
 import { TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import {
@@ -23,10 +24,9 @@ export const liquidDataReferencesDefined = {
   parser: 'markdownit',
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
-    // Using any type because getLiquidTokens returns tokens from liquidjs library without complete type definitions
     const tokens = getLiquidTokens(content)
-      .filter((token: any) => token.kind === TokenKind.Tag)
-      .filter((token: any) => token.name === 'data' || token.name === 'indented_data_reference')
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
+      .filter((token) => token.name === 'data' || token.name === 'indented_data_reference')
 
     if (!tokens.length) return
 
@@ -60,13 +60,11 @@ export const liquidDataTagFormat = {
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const CHECK_LIQUID_TAGS = [OUTPUT_OPEN, OUTPUT_CLOSE, '{', '}']
     const content = params.lines.join('\n')
-    // Using any type because getLiquidTokens returns tokens from liquidjs library without complete type definitions
-    // Tokens have properties like 'kind', 'name', 'args', and 'content' that aren't fully typed
-    const tokenTags = getLiquidTokens(content).filter((token: any) => token.kind === TokenKind.Tag)
-    const dataTags = tokenTags.filter((token: any) => token.name === 'data')
-    const indentedDataTags = tokenTags.filter(
-      (token: any) => token.name === 'indented_data_reference',
+    const tokenTags = getLiquidTokens(content).filter(
+      (token): token is TagToken => token.kind === TokenKind.Tag,
     )
+    const dataTags = tokenTags.filter((token) => token.name === 'data')
+    const indentedDataTags = tokenTags.filter((token) => token.name === 'indented_data_reference')
 
     for (const token of dataTags) {
       // A data tag has only one argument, the data directory path.

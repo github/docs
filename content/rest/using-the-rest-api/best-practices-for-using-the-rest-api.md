@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: Best practices
+category:
+  - Learn about the REST API
 ---
 
 {% ifversion ghes %}

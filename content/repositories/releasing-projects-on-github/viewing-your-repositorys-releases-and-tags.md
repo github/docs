@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: View releases & tags
+category:
+  - Release software
 ---
 
 > [!TIP]

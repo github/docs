@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
+category:
+  - Track assignment progress
 ---
 ## About autograding
 

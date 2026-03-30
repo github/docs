@@ -7,9 +7,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Delete a GitHub Pages site
+category:
+  - Managing a GitHub Pages site
 ---
 
 ## Deleting your site

@@ -1,21 +1,21 @@
 ---
 title: About OpenTelemetry metrics
-intro: 'OpenTelemetry metrics provide a comprehensive monitoring solution for {% data variables.product.prodname_ghe_server %} instances, offering enhanced observability and management capabilities.'
+intro: OpenTelemetry metrics provide a comprehensive monitoring solution for {% data variables.product.prodname_ghe_server %} instances, offering enhanced observability and management capabilities.
 versions:
   feature: ghes-opentelemetry
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
-type: overview
 shortTitle: OpenTelemetry metrics
+contentType: concepts
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}
 
+{% ifversion ghes = 3.18 %}
+
 {% data reusables.enterprise.opentelemetry-preview %}
+
+{% endif %}
 
 ## About OpenTelemetry metrics
 
@@ -31,7 +31,7 @@ OpenTelemetry metrics offer several advantages over the legacy collectd system:
 * **Extensible**: Support for custom metrics and external monitoring integrations
 * **Native endpoints**: Direct integration with service `/metrics` endpoints for efficient monitoring
 
-With OpenTelemetry, advanced Grafana dashboards with enhanced visualization and monitoring capabilities are available, see: [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/enable-advanced-dashboards).
+With OpenTelemetry, advanced Grafana dashboards with enhanced visualization and monitoring capabilities are available, see: [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/advanced-dashboards).
 
 ## Key components
 

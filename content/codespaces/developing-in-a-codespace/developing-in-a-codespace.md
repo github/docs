@@ -1,6 +1,6 @@
 ---
 title: Developing in a codespace
-intro: 'You can work in a codespace using your browser, {% data variables.product.prodname_vscode %}, or in a command shell.'
+intro: You can work in a codespace using your browser, {% data variables.product.prodname_vscode %}, or in a command shell.
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
@@ -8,21 +8,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Develop in a codespace
+contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## About development with {% data variables.product.prodname_github_codespaces %}
-
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
 
 You can develop code in a codespace using your choice of tool:
 

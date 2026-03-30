@@ -15,8 +15,8 @@ redirect_from:
   - /developers/apps/about-apps
   - /developers/apps/getting-started-with-apps/about-apps
   - /apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps
-topics:
-  - GitHub Apps
+category:
+  - Understand GitHub Apps
 ---
 
 ## About {% data variables.product.prodname_github_apps %}

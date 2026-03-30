@@ -9,9 +9,8 @@ redirect_from:
   - /github/site-policy/github-connect-addendum-to-the-github-enterprise-license-agreement
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review product and program terms
 ---
 
 Version Effective Date: April 1, 2025

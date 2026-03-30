@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Get changes from a remote
+category:
+  - Work with Git
 ---
 ## Options for getting changes
 

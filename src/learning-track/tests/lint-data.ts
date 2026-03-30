@@ -11,8 +11,6 @@ const pages = await loadPageMap(pageList)
 const redirects = await loadRedirects(pageList)
 
 describe('learning tracks', () => {
-  // TODO: Once getDeepDataByLanguage is ported to TS
-  // a more appropriate API would be to use `getDeepDataByLanguage<LearningTracks)(...)`
   const allLearningTracks = getDeepDataByLanguage('learning-tracks', 'en') as LearningTracks
   const topLevels = Object.keys(allLearningTracks)
 

@@ -5,11 +5,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Security manager role
 permissions: Organization owners can assign the security manager role.
+category:
+  - Assign roles and permissions
 ---
 
 {% data reusables.organizations.security-manager-beta-note %}

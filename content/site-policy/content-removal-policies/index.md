@@ -2,9 +2,6 @@
 title: Content Removal Policies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
   - /submitting-content-removal-requests
   - /dmca-takedown-policy

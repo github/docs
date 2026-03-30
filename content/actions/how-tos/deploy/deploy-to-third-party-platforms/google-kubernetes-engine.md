@@ -13,11 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - CD
-  - Containers
-  - Google Kubernetes Engine
+contentType: how-tos
+category:
+  - Deploy to environments
 ---
 
 ## Prerequisites

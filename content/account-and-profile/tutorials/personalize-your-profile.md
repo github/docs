@@ -16,10 +16,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Personalize your profile
 contentType: tutorials
+category:
+  - Customize your profile
 ---
 
 > [!NOTE]

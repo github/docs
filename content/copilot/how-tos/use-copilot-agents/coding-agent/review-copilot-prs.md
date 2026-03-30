@@ -5,8 +5,6 @@ intro: 'After {% data variables.product.prodname_copilot_short %} creates a pull
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/reviewing-a-pull-request-created-by-copilot
   - /copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot
@@ -26,11 +24,11 @@ category:
 After {% data variables.product.prodname_copilot_short %} has finished working on a coding task, and has requested a pull request review from you, you should review {% data variables.product.prodname_copilot_short %}'s work thoroughly before merging the pull request.
 
 > [!IMPORTANT]
-> If you have branch protection rules that require pull request approvals, and you initiate a pull request by assigning an issue to {% data variables.product.prodname_copilot_short %}, you can approve the pull request, but **your approval won't count** toward the required number of approvals. Someone else must approve the pull request for it to be merged.
->
-> Additionally, if the "Require approval of the most recent reviewable push" setting is enabled, the final push to the pull request will require **n + 1 approvals**, where _n_ is the number of required approvals. The person who initiated the original {% data variables.product.prodname_copilot_short %} pull request can't be counted among the required reviewers for that final push—but if someone else requested the latest {% data variables.product.prodname_copilot_short %}-generated change, their approval **can** count.
+> If you have rules or branch protections that require pull request approvals, and you ask {% data variables.product.prodname_copilot_short %} to create a pull request, you can approve the pull request, but **your approval won't count** toward the required number of approvals. Someone else must approve the pull request for it to be merged.
 
-You can ask {% data variables.product.prodname_copilot_short %} to make changes by mentioning `@copilot` in pull request comments, or you can check out {% data variables.product.prodname_copilot_short %}'s branch and make changes yourself.
+You can ask {% data variables.product.prodname_copilot_short %} to make changes by mentioning `@copilot` in pull request comments. By default, {% data variables.product.prodname_copilot_short %} pushes commits directly to the pull request's branch. If you prefer, you can ask {% data variables.product.prodname_copilot_short %} to create a separate pull request instead by using natural language in your comment. You can also check out {% data variables.product.prodname_copilot_short %}'s branch and make changes yourself.
+
+Optionally, when submitting a pull request comment (not a review or review comment) through the {% data variables.product.github %} web interface, you can select a model using the model picker. By default, {% data variables.product.prodname_copilot_short %} will use the model originally used to create the pull request.
 
 > [!TIP]
 > We recommend you batch your review comments instead of submitting them individually.
@@ -50,13 +48,7 @@ For more information, see the section "Use comments to iterate on a pull request
 
 ## Managing {% data variables.product.prodname_actions %} workflow runs
 
-{% data variables.product.prodname_actions %} workflows will not run automatically when {% data variables.product.prodname_copilot_short %} pushes changes to a pull request.
-
-{% data variables.product.prodname_actions %} workflows can be privileged and have access to sensitive secrets. {% data reusables.actions.workflows.inspect-proposed-changes %}
-
-To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box.
-
-![Screenshot of the merge box on a pull request from Copilot with the "Approve and run workflows" button.](/assets/images/help/copilot/coding-agent/approve-and-run-workflows.png)
+{% data reusables.copilot.coding-agent-workflow-run-approval-default %} For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/configuring-agent-settings).
 
 ## Giving feedback on {% data variables.product.prodname_copilot_short %}'s work
 

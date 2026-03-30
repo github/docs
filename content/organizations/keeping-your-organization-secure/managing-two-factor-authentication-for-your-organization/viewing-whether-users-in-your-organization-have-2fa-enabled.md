@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: View 2FA usage
+category:
+  - Manage authentication methods
 ---
 
 > [!NOTE]

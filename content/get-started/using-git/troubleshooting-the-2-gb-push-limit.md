@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Maximum push limit
+category:
+  - Work with Git
 ---
 
 ## About the push limit

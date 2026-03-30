@@ -4,11 +4,8 @@ shortTitle: About GitHub Actions
 intro: '{% data variables.product.prodname_actions %} can improve developer productivity by automating your enterprise''s software development cycle.'
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Actions
-  - Enterprise
 allowTitleToDifferFromFilename: true
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_actions %} for enterprises

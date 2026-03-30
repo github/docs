@@ -8,9 +8,8 @@ redirect_from:
   - /site-policy/privacy-policies/github-subprocessors-and-cookies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review privacy and security policies
 ---
 
 GitHub defines customer data as all data provided by the customer to GitHub through their use of GitHub services. Some customer data is personal data as defined under GDPR.
@@ -30,14 +29,14 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Amazon Web Services Inc (AWS) | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States                                     | United States      |
 | Anthropic PBC                 | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Cloudflare                    | Content delivery service                                                       | United States                                     | United States      |
-| CoreWeave, Inc.               | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
+| Elasticsearch, Inc.           | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Fastly                        | Content delivery service                                                       | United States                                     | United States      |
 | Fireworks AI                  | AI Inference and AI Services                                                   | United States, Iceland, Germany                   | United States      |
 | FullStory, Inc.               | Customer support ticketing analysis                                            | United States                                     | United States      |
 | Google Cloud Platform (GCP)   | Cloud Hosted Infrastructure, AI Inference and AI Services                      | United States, Belgium, Singapore                 | United States      |
 | Hewlett-Packard Limited       | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | LambdaTest                    | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
-| Microsoft (Azure)             | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States                                     | United States      |
+| Microsoft (Azure)             | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States, Canada                             | United States      |
 | Microsoft (Azure)             | Cognitive Services and customer support ticketing analysis                     | United States                                     | United States      |
 | Microsoft                     | Technical Services                                                             | Australia, Brazil, Canada, France, Japan, Norway, Spain, Sweden, Switzerland, United Kingdom, United States | United States|
 | Moveworks                     | Customer support ticketing analysis                                            | United States                                     | United States      |
@@ -46,6 +45,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | OpenAI                        | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Oracle America, Inc.          | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Pusher                        | Building and managing real-time infrastructure for web and mobile applications | United States                                     | United States      |
+| Tines Automation Inc.         | Security management                                                            | United States                                     | United States      |
 | Twilio     (SendGrid)         | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
 | xAI                           | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Zendesk                       | Customer support ticketing system                                              | United States                                     | United States      |

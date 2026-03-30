@@ -1,6 +1,6 @@
 ---
 title: Enforcing policies for security settings in your enterprise
-intro: 'You can enforce policies to manage security settings in your enterprise''s organizations, or allow policies to be set in each organization.'
+intro: You can enforce policies to manage security settings in your enterprise's organizations, or allow policies to be set in each organization.
 permissions: Enterprise owners can enforce policies for security settings in an enterprise.
 redirect_from:
   - /articles/enforcing-security-settings-for-organizations-in-your-business-account
@@ -14,12 +14,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Security
 shortTitle: Policies for security settings
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for security settings in your enterprise
@@ -147,7 +145,7 @@ If "Automatically redirect users to sign in" is enabled, {% data variables.produ
 > [!NOTE]
 > If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).
 
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 1. Under "Single sign-on settings", select or deselect **Automatically redirect users to sign in**.

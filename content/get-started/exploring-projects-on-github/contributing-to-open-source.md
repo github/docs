@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Contribute to open source
+category:
+  - Explore and contribute
 ---
 
 In this article, you'll learn how to contribute to an open source project by working through an example. We'll guide you through making a contribution to the `github/docs` repository: familiarizing yourself with the repository, finding an area to contribute, making and submitting a pull request, and working with maintainers to get your changes accepted.
@@ -49,7 +51,7 @@ When first contributing to a project, starting with minor fixes like documentati
 
 1. Navigate to the **Issues** tab of the `github/docs` repository, then use the **Labels** filter and select "help wanted" to view open issues that maintainers have specifically marked as needing community help.
 1. Look through the list of issues and find one you would be interested in working on.
-{% data reusables.copilot.immersive-mode-instructions %}
+{% data reusables.copilot.access-chat-instructions %}
 1. In the prompt box, enter the following prompt:
 
       ```text copy

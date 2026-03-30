@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Create a strong password
+category:
+  - Manage access credentials
 ---
 You must choose or generate a password for your account on {% data variables.product.prodname_dotcom %} that is at least:
 * {% ifversion ghes %}Seven{% else %}Eight{% endif %} characters long, if it includes a number and a lowercase letter, or

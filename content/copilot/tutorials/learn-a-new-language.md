@@ -2,8 +2,6 @@
 title: Learning a new programming language with GitHub Copilot
 shortTitle: Learn a new language
 intro: '{% data variables.copilot.copilot_chat %} can help you extend your programming skills by learning how to code in a new programming language.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:

@@ -4,12 +4,12 @@ intro: 'Follow these steps to delete your app listing from {% data variables.pro
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 shortTitle: Delete your listing
 redirect_from:
   - /apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace
   - /apps/github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace
+category:
+  - List your app on GitHub Marketplace
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Compare branches
+category:
+  - Create pull requests
 ---
 
 > [!NOTE]

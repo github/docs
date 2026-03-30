@@ -11,9 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
+category:
+  - Sign your commits
 ---
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 

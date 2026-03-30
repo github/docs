@@ -12,15 +12,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
+category:
+  - Get started
 ---
-
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
 
 ## Introduction
 

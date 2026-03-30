@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage and moderate discussions
 ---
 
 ## About YAML syntax for discussion category forms

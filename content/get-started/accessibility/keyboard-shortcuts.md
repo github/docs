@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Customize your experience
 ---
 ## About keyboard shortcuts
 
@@ -49,6 +51,7 @@ The following sections list some of the available keyboard shortcuts, organized 
 | {% endif %} |
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis). |
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
+|<kbd>G</kbd> <kbd>S</kbd> | Go to the repository's **Security** tab. For more information, see [AUTOTITLE](/code-security/getting-started/github-security-features).
 
 ## Source code editing
 
@@ -59,6 +62,7 @@ The following sections list some of the available keyboard shortcuts, organized 
 |<kbd>></kbd> | Opens a repository or pull request in the {% data variables.codespaces.serverless %} editor, in a new browser tab. You must be signed in to use the editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor). |
 |  {% endif %} |
 |<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text |
+|<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for a code one-liner. The browser's default behavior is used for other file types |
 |<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text |
 |<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link |
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list |

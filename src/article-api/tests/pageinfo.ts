@@ -11,6 +11,7 @@ interface PageMetadata {
   product: string
   title: string
   intro: string
+  documentType: string | null
 }
 
 interface ErrorResponse {
@@ -44,6 +45,7 @@ describe('pageinfo api', () => {
     expect(meta.intro).toBe(
       'Get started using HubGit to manage Git repositories and collaborate with others.',
     )
+    expect(meta.documentType).toBe('category')
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
@@ -170,6 +172,44 @@ describe('pageinfo api', () => {
     }
   })
 
+  test('documentType for different page types', async () => {
+    // Homepage
+    {
+      const res = await get(makeURL('/en'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.documentType).toBe('homepage')
+    }
+    // Product
+    {
+      const res = await get(makeURL('/en/get-started'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.documentType).toBe('product')
+    }
+    // Category
+    {
+      const res = await get(makeURL('/en/get-started/start-your-journey'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.documentType).toBe('category')
+    }
+    // Subcategory
+    {
+      const res = await get(makeURL('/en/actions/category/subcategory'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.documentType).toBe('subcategory')
+    }
+    // Article
+    {
+      const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
+      expect(res.statusCode).toBe(200)
+      const meta = JSON.parse(res.body) as PageMetadata
+      expect(meta.documentType).toBe('article')
+    }
+  })
+
   test('archived enterprise versions', async () => {
     // For example /en/enterprise-server@3.8 is a valid Page in the
     // site tree, but /en/enterprise-server@2.6 is not. Yet we can
@@ -182,6 +222,7 @@ describe('pageinfo api', () => {
       expect(res.statusCode).toBe(200)
       const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toMatch('GitHub Enterprise Server 3.2 Help Documentation')
+      expect(meta.documentType).toBeNull()
     }
 
     // The oldest known archived version that we proxy

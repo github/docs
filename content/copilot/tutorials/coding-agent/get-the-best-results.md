@@ -6,8 +6,6 @@ intro: 'Learn how to get the best results from {% data variables.copilot.copilot
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/best-practices-for-using-copilot-to-work-on-issues
@@ -32,6 +30,9 @@ category:
 * A clear description of the problem to be solved or the work required.
 * Complete acceptance criteria on what a good solution looks like (for example, should there be unit tests?).
 * Directions about which files need to be changed.
+
+> [!TIP]
+> {% data variables.copilot.copilot_coding_agent %} has the ability to search your codebase, including semantic code search, which helps it find relevant code based on meaning rather than just exact text matches. Even if you don't specify exact file paths in a task, the agent can often discover the right code on its own.
 
 If you pass a task to {% data variables.product.prodname_copilot_short %} by assigning an issue, it's useful to think of the issue you assign to {% data variables.product.prodname_copilot_short %} as a prompt. Consider whether the issue description is likely to work as an AI prompt, and will enable {% data variables.product.prodname_copilot_short %} to make the required code changes.
 
@@ -63,7 +64,10 @@ Issues that you may choose to work on yourself, rather than assigning to {% data
 
 Working with {% data variables.product.prodname_copilot_short %} on a pull request is just like working with a human developer: it's common for the pull request to need further work before it can be merged. The process for getting the pull request to a mergeable state is exactly the same when the pull request is created by {% data variables.product.prodname_copilot_short %} as when it's created by a human.
 
-You can also mention `@copilot` in comments on the pull request—explaining what you think is incorrect, or could be improved—and leave {% data variables.product.prodname_copilot_short %} to make the required changes. Alternatively, you can work on the feature branch yourself and push changes to the pull request.
+Additionally, you can:
+* Mention `@copilot` in comments on the pull request, explaining what you think is incorrect, or could be improved, and {% data variables.product.prodname_copilot_short %} will push commits directly to the pull request's branch. 
+* Ask {% data variables.product.prodname_copilot_short %} to resolve merge conflicts on the pull request. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/make-changes-to-an-existing-pr#resolving-merge-conflicts). 
+* Work on the feature branch yourself and push changes to the pull request.
 
 After a user with write access mentions `@copilot` in a comment, {% data variables.product.prodname_copilot_short %} will start to make any required changes, and will update the pull request when it's done. Because {% data variables.product.prodname_copilot_short %} starts looking at comments as soon as they are submitted, if you are likely to make multiple comments on a pull request it's best to batch them by clicking **Start a review**, rather than clicking **Add single comment**. You can then submit all of your comments at once, triggering {% data variables.product.prodname_copilot_short %} to work on your entire review, rather than working on individual comments separately.
 

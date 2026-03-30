@@ -16,7 +16,7 @@ function getProductExampleData(
   try {
     return getDataByLanguage(`product-examples.${product}.${key}`, language)
   } catch (error) {
-    if (error instanceof Error && (error as any).code === 'ENOENT') return
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') return
     throw error
   }
 }

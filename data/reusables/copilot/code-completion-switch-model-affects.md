@@ -10,7 +10,7 @@ There are no changes to the data collection and usage policy if you change the A
 
 If you are on a {% data variables.copilot.copilot_free_short %} plan, all completions count against your completions quota regardless of the model used. See [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-subscriptions).
 
-The setting to enable or disable suggestions that match public code are applied irrespective of which model you choose. See [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
+The setting to enable or disable suggestions that match public code is applied irrespective of which model you choose. See [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
 
 ## Enabling the model switcher
 

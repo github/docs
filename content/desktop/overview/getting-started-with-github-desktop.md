@@ -9,6 +9,8 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop
   - /desktop/guides/getting-started
 shortTitle: Get started
+category:
+  - Set up GitHub Desktop
 ---
 
 ## Introduction
