@@ -12,7 +12,7 @@ category:
 ---
 
 > [!NOTE]
-> Agent skills work with {% data variables.copilot.copilot_coding_agent %}, the {% data variables.copilot.copilot_cli %} and agent mode in {% data variables.product.prodname_vscode %} Insiders. Support in the stable version of {% data variables.product.prodname_vscode_shortname %} is coming soon.
+> Agent skills work with {% data variables.copilot.copilot_coding_agent %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
 
 Agent skills are folders of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} can load when relevant to improve its performance in specialized tasks. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 

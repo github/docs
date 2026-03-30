@@ -12,7 +12,7 @@ contentType: concepts
 ---
 
 > [!NOTE]
-> Agent Skills work with {% data variables.copilot.copilot_coding_agent %}, the {% data variables.copilot.copilot_cli %} and agent mode in {% data variables.product.prodname_vscode %} Insiders. Support in the stable version of {% data variables.product.prodname_vscode_shortname %} is coming soon.
+> Agent skills work with {% data variables.copilot.copilot_coding_agent %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
 
 ## About agent skills
 
@@ -22,8 +22,8 @@ You can create your own skills to teach {% data variables.product.prodname_copil
 
 {% data variables.product.prodname_copilot_short %} supports:
 
-* Project skills, stored in your repository (`.github/skills` or `.claude/skills`)
-* Personal skills, stored in your home directory and shared across projects (`~/.copilot/skills` or `~/.claude/skills`) ({% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_cli %} only)
+* Project skills, stored in your repository (`.github/skills`, `.claude/skills`, or `.agents/skills`)
+* Personal skills, stored in your home directory and shared across projects (`~/.copilot/skills`, `~/.claude/skills`, or `~/.agents/skills`)
 
 Support for organization-level and enterprise-level skills is coming soon.
 
