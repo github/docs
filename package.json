@@ -117,7 +117,8 @@
     "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
     "warmup-remotejson": "tsx src/archives/scripts/warmup-remotejson.ts",
     "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.ts",
-    "writers": "tsx src/workflows/writers-help-metadata.ts"
+    "writers": "tsx src/workflows/writers-help-metadata.ts",
+    "postinstall": "npx --no-install patch-package"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
