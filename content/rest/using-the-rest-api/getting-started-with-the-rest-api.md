@@ -700,6 +700,10 @@ You can then expand these templates using something like the [uri_template](http
 => "/notifications?all=1&participating=1"
 ```
 
+## Rate limiting
+
+The {% data variables.product.github %} REST API limits the number of requests you can make within a given time period. For more information about rate limits and how to check your current rate limit status, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
+
 ## Next steps
 
 This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information, see the ["Create an issue comment" endpoint](/rest/issues/comments#create-an-issue-comment) and the ["Update an issue" endpoint](/rest/issues/issues#update-an-issue).
