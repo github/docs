@@ -1,3 +1,519 @@
+# VIP Real-Time Collaboration System Architecture
+
+## Table of Contents
+
+1. [Overview](#1-overview)
+2. [Core Components](#2-core-components)
+3. [System Workflows](#3-system-workflows)
+4. [Data Flow Architecture](#4-data-flow-architecture)
+5. [Configuration and Integration](#5-configuration-and-integration)
+6. [Development Tools](#6-development-tools)
+7. [Performance and Security](#7-performance-and-security)
+8. [Glossary](#8-glossary)
+
+## 1. Overview
+
+The VIP Real-Time Collaboration plugin provides real-time collaborative editing capabilities for the WordPress Block Editor (Gutenberg).
+
+### Key Technologies
+
+- **[Y.js (Yjs)](https://docs.yjs.dev/)**: [Conflict-free Replicated Data Types](https://crdt.tech/) (CRDTs) for operational transformation
+- **[WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)**: Real-time bidirectional communication
+- **[JWT Authentication](https://jwt.io/introduction)**: Secure connection tokens
+- **WordPress Sync API**: Built on Gutenberg's experimental sync features
+
+### High-Level Architecture
+
+```mermaid
+graph TB
+    A[WordPress Editor] --> B[Y.js CRDT Provider]
+    A --> C[Awareness Manager]
+    B --> D[WebSocket Server]
+    C --> D
+    D --> E[Other Connected Users]
+    B --> F[WordPress Persistence]
+    G[Authentication API] --> D
+```
+
+## 2. Core Components
+
+### 2.1 WordPress Plugin Core
+
+**File**: `vip-real-time-collaboration.php`
+
+- Main plugin entry point and initialization
+- Plugin constants, autoloading, and compatibility checks
+
+### 2.2 Front-End Client Architecture
+
+#### Component Overview (`src/`)
+
+```mermaid
+graph TB
+    A[index.ts] --> B[SyncProviderWithAwareness]
+    A --> C[RTCSettingsPanel]
+    B --> D[WebSocketClient]
+    B --> E[AwarenessManager]
+    B --> F[CRDT Provider]
+    B --> G[Client-side CRDT Persistence]
+    C --> H[React Components]
+    D --> I[JWT Authentication]
+    G --> J[Content Hash Verification]
+    G --> K[Version Control]
+```
+
+#### Key Components
+
+- **SyncProviderWithAwareness** (`provider.ts`): Main sync provider extending WordPress sync, handles document bootstrapping and CRDT persistence
+- **AwarenessManager** (`awareness-manager.ts`): Singleton managing user presence, cursor positions, and collaboration state
+- **WebSocketClient** (`websocket-client.ts`): Real-time communication with connection monitoring and exponential backoff for reconnections
+- **RTCOverlay** (`components/rtc-overlay.tsx`): React component rendering collaborative UI elements in editor iframe
+- **React Components** (`components/`): Modular UI for avatars, cursors, highlights, and modals
+- **Store Management** (`store/`): WordPress data stores for awareness and settings persistence
+- **Hooks and Utilities** (`hooks/`, `utilities/`): Helper functions for selection tracking, entity management, and browser utilities
+- **CRDT Utilities** (`utilities/crdt.ts`): Client-side CRDT document serialization, deserialization, content hash verification, and version management
+- **Cryptographic Utilities** (`utilities/crypto.ts`): Secure hash generation and UUID creation with fallbacks for non-secure contexts
+- **Logging System** (`utilities/logger.ts`): Environment-based logging levels for performance monitoring and debugging
+
+### 2.3 Back-End PHP Architecture
+
+#### Component Overview (`inc/`)
+
+```mermaid
+graph TB
+    A[WordPress Plugin] --> B[REST API]
+    A --> C[Authentication]
+    A --> D[CRDT Persistence]
+    A --> E[Assets and Compatibility]
+    B --> F[Auth Controllers]
+    C --> G[JWT and Permissions]
+```
+
+#### Key Components
+
+- **REST API** (`Api/`): WebSocket authentication endpoints
+- **Authentication** (`Auth/`): JWT token generation, WebSocket auth, and sync permissions
+- **CRDT Persistence** (`Editor/`): Post meta registration with authentication callbacks
+- **Assets Management** (`Assets/`): JavaScript/CSS loading and configuration injection
+- **Compatibility** (`Compatibility/`): Gutenberg integration and plugin loading requirements
+- **Overrides** (`Overrides/`): Disables WordPress post locking and heartbeat for simultaneous editing
+
+### 2.4 WebSocket Server
+
+**Location**: `websocket-server/`
+
+- Node.js server with Y.js WebSocket provider integration
+- JWT authentication and connection security
+- Metrics collection and real-time message routing
+
+## 3. System Workflows
+
+### 3.1 Connection Establishment
+
+```mermaid
+sequenceDiagram
+    participant User as User Browser
+    participant WP as WordPress Back-End
+    participant WS as WebSocket Server
+    participant YJS as Y.js Provider
+
+    User->>WP: Load editor page
+    WP->>User: Inject configuration and assets
+    User->>WP: Request auth token (REST API)
+    WP->>User: Return JWT token
+    User->>WS: Connect with auth token
+    WS->>WS: Verify JWT token
+    WS->>User: Connection established
+    User->>YJS: Initialize Y.js provider
+    YJS->>WS: Sync document state
+```
+
+### 3.2 Real-Time Collaboration Flow
+
+```mermaid
+sequenceDiagram
+    participant U1 as User 1
+    participant U2 as User 2
+    participant WS as WebSocket Server
+    participant YJS as Y.js CRDT
+
+    U1->>YJS: Make content edit
+    YJS->>WS: Broadcast operation
+    WS->>U2: Forward operation
+    U2->>YJS: Apply operation
+    YJS->>U2: Update UI
+
+    Note over U1,U2: Awareness updates (cursors, selections)
+    U1->>WS: Cursor position update
+    WS->>U2: Relay awareness state
+    U2->>U2: Render cursor overlay
+```
+
+### 3.3 Document Persistence
+
+```mermaid
+sequenceDiagram
+    participant User as User
+    participant YJS as Y.js Provider
+    participant Client as Client-side CRDT Utils
+    participant WP as WordPress REST API
+    participant DB as Database
+
+    User->>User: Save post (Ctrl+S)
+    YJS->>Client: Serialize CRDT document
+    Client->>Client: Generate content hash for verification
+    Client->>Client: Create versioned meta record
+    YJS->>WP: Persist CRDT document via post meta (REST API)
+    WP->>DB: Store serialized Y.js document with metadata
+    WP->>DB: Save WordPress post content
+    DB->>WP: Confirm storage
+    WP->>User: Save confirmation
+```
+
+## 4. Data Flow Architecture
+
+### 4.1 Document Synchronization
+
+- **Y.js CRDT**: Maintains document state with operational transformation and version control
+- **Client-side Persistence**: CRDT document serialization, content hash verification, and persistence logic
+- **WebSocket Provider**: Real-time bidirectional communication with exponential backoff for connection retries
+- **WordPress Post Meta**: CRDT document storage via WordPress's built-in post meta system
+
+### 4.2 Awareness System
+
+- **User Presence**: Track active collaborators
+- **Cursor Positions**: Show real-time cursor locations
+- **Block Highlighting**: Indicate which blocks users are editing
+- **User Avatars**: Display collaborator information
+
+### 4.3 Authentication Flow
+
+- **JWT Tokens**: Secure WebSocket connections with time-limited tokens
+- **WordPress Permissions**: Leverage existing WordPress user capabilities
+- **Connection Validation**: Verify user permissions for each document
+
+## 5. Configuration and Integration
+
+### 5.1 Environment Variables
+
+- `VIP_RTC_WS_URL`: WebSocket server URL
+- `VIP_RTC_WS_AUTH_SECRET`: JWT secret for authentication
+
+### 5.2 WordPress Integration Features
+
+- **Sync Experiment**: Built on Gutenberg's sync experiment
+- **WordPress Sync API**: Extends [`@wordpress/sync`](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-sync/)
+- **Post Lock Override**: Disables WordPress native post locking for simultaneous editing
+- **Site Editor Exclusion**: Automatically disables in Site Editor (FSE)
+- **Post Type Support**: Auto-detects post types with `editor` support
+
+### 5.3 Permission System
+
+- **Custom Capabilities**: Adds `sync_post` capability mapped to `edit_post` permissions
+- **Post Meta Authentication**: Post meta access controlled by authentication callbacks
+- **Permission Filters**:
+  - `vip_rtc_post_sync_check_permission`: Custom post permission logic
+  - `vip_rtc_entity_sync_check_permission`: Custom entity permission logic
+
+### 5.4 WordPress Hooks Integration
+
+- **Action Hooks**: `vip_real_time_collaboration_loaded` for extensibility
+- **Sync Provider Registration**: Uses `core.getSyncProvider` filter
+- **WordPress Meta API**: Post meta storage with revision support
+
+## 6. Development Tools
+
+### 6.1 Y.js Inspector (`yjs-inspector/`)
+
+- Visual debugging tool for Y.js documents
+- Connection monitoring and state inspection
+- Development and testing support
+
+### 6.2 Build System
+
+- **Webpack**: Asset compilation and bundling
+- **TypeScript**: Type-safe development
+- **SCSS**: Styling for collaboration components
+
+## 7. Performance and Security
+
+### 7.1 Performance Optimizations
+
+- **Debounced Updates**: Awareness updates debounced to reduce network traffic
+- **Efficient Serialization**: Y.js binary encoding for minimal data transfer
+- **Connection Pooling**: WebSocket server handles multiple concurrent connections
+- **Connection Resilience**: Exponential backoff for WebSocket reconnection attempts
+- **Memory Management**: Cleanup of awareness states on disconnect
+
+### 7.2 Security Model
+
+- **WordPress Authentication**: Leverages WordPress user system
+- **JWT Tokens**: Secure, time-limited connection tokens
+- **Permission Validation**: Respects WordPress post editing permissions with authentication callbacks
+- **Connection Isolation**: Users can only access authorized documents
+- **Content Integrity**: Cryptographic hash verification for document content
+- **Secure Context Handling**: Fallback implementations for non-secure contexts in development
+
+## 8. Glossary
+
+- **CRDT**: Conflict-free Replicated Data Types - data structures that automatically resolve conflicts
+- **Y.js**: JavaScript CRDT implementation for collaborative applications
+- **JWT**: JSON Web Tokens - secure method for transmitting information between parties
+- **WebSocket**: Protocol for full-duplex communication over a single TCP connection
+- **Awareness**: Real-time information about user presence and activity in collaborative editing
+- **Operational Transformation**: Technique for maintaining consistency in collaborative editing
+
+# https://drive.google.com/drive/folders/1XKRPH1XzmcqEy4vD5SrZh7WWjbPF3juL
+| Announcements |
+|-|
+| [[Windows, Ubuntu] CMake will be upgraded to latest version on September 15](https://github.com/actions/runner-images/issues/12958) |
+| [[Ubuntu & Windows] Four tools scheduled for deprecation on November 3, 2025](https://github.com/actions/runner-images/issues/12898) |
+***
+# Ubuntu 24.04
+- OS Version: 24.04.3 LTS
+- Kernel Version: 6.11.0-1018-azure
+- Image Version: 20250907.24.1
+- Systemd version: 255.4-1ubuntu8.10
+
+## Installed Software
+
+### Language and Runtime
+- Bash 5.2.21(1)-release
+- Clang: 16.0.6, 17.0.6, 18.1.3
+- Clang-format: 16.0.6, 17.0.6, 18.1.3
+- Clang-tidy: 16.0.6, 17.0.6, 18.1.3
+- Dash 0.5.12-6ubuntu5
+- GNU C++: 12.4.0, 13.3.0, 14.2.0
+- GNU Fortran: 12.4.0, 13.3.0, 14.2.0
+- Julia 1.11.6
+- Kotlin 2.2.10-release-430
+- Node.js 20.19.5
+- Perl 5.38.2
+- Python 3.12.3
+- Ruby 3.2.3
+- Swift 6.1.2
+
+### Package Management
+- cpan 1.64
+- Helm 3.18.6
+- Homebrew 4.6.9
+- Miniconda 25.7.0
+- Npm 10.8.2
+- Pip 24.0
+- Pip3 24.0
+- Pipx 1.7.1
+- RubyGems 3.4.20
+- Vcpkg (build from commit b1e15efef6)
+- Yarn 1.22.22
+
+#### Environment variables
+| Name                    | Value                  |
+| ----------------------- | ---------------------- |
+| CONDA                   | /usr/share/miniconda   |
+| VCPKG_INSTALLATION_ROOT | /usr/local/share/vcpkg |
+
+#### Homebrew note
+```
+Location: /home/linuxbrew
+Note: Homebrew is pre-installed on image but not added to PATH.
+run the eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" command
+to accomplish this.
+```
+
+### Project Management
+- Ant 1.10.14
+- Gradle 9.0.0
+- Lerna 8.2.3
+- Maven 3.9.11
+
+### Tools
+- Ansible 2.18.8
+- AzCopy 10.30.0 - available by `azcopy` and `azcopy10` aliases
+- Bazel 8.4.0
+- Bazelisk 1.26.0
+- Bicep 0.37.4
+- Buildah 1.33.7
+- CMake 3.31.6
+- CodeQL Action Bundle 2.23.0
+- Docker Amazon ECR Credential Helper 0.10.1
+- Docker Compose v2 2.38.2
+- Docker-Buildx 0.28.0
+- Docker Client 28.0.4
+- Docker Server 28.0.4
+- Fastlane 2.228.0
+- Git 2.51.0
+- Git LFS 3.7.0
+- Git-ftp 1.6.0
+- Haveged 1.9.14
+- jq 1.7
+- Kind 0.30.0
+- Kubectl 1.34.0
+- Kustomize 5.7.1
+- MediaInfo 24.01
+- Mercurial 6.7.2
+- Minikube 1.36.0
+- n 10.2.0
+- Newman 6.2.1
+- nvm 0.40.3
+- OpenSSL 3.0.13-0ubuntu3.5
+- Packer 1.14.1
+- Parcel 2.15.4
+- Podman 4.9.3
+- Pulumi 3.193.0
+- Skopeo 1.13.3
+- Sphinx Open Source Search Server 2.2.11
+- yamllint 1.37.1
+- yq 4.47.1
+- zstd 1.5.7
+- Ninja 1.13.1
+
+### CLI Tools
+- AWS CLI 2.28.25
+- AWS CLI Session Manager Plugin 1.2.707.0
+- AWS SAM CLI 1.143.0
+- Azure CLI 2.77.0
+- Azure CLI (azure-devops) 1.0.2
+- GitHub CLI 2.78.0
+- Google Cloud CLI 537.0.0
+
+### Java
+| Version             | Environment Variable |
+| ------------------- | -------------------- |
+| 8.0.462+8           | JAVA_HOME_8_X64      |
+| 11.0.28+6           | JAVA_HOME_11_X64     |
+| 17.0.16+8 (default) | JAVA_HOME_17_X64     |
+| 21.0.8+9            | JAVA_HOME_21_X64     |
+
+### PHP Tools
+- PHP: 8.3.6
+- Composer 2.8.11
+- PHPUnit 8.5.44
+```
+Both Xdebug and PCOV extensions are installed, but only Xdebug is enabled.
+```
+
+### Haskell Tools
+- Cabal 3.16.0.0
+- GHC 9.12.2
+- GHCup 0.1.50.2
+- Stack 3.7.1
+
+### Rust Tools
+- Cargo 1.89.0
+- Rust 1.89.0
+- Rustdoc 1.89.0
+- Rustup 1.28.2
+
+#### Packages
+- Rustfmt 1.8.0
+
+### Browsers and Drivers
+- Google Chrome 140.0.7339.80
+- ChromeDriver 140.0.7339.80
+- Chromium 140.0.7339.0
+- Microsoft Edge 140.0.3485.54
+- Microsoft Edge WebDriver 140.0.3485.54
+- Selenium server 4.35.0
+- Mozilla Firefox 142.0.1
+- Geckodriver 0.36.0
+
+#### Environment variables
+| Name              | Value                                 |
+| ----------------- | ------------------------------------- |
+| CHROMEWEBDRIVER   | /usr/local/share/chromedriver-linux64 |
+| EDGEWEBDRIVER     | /usr/local/share/edge_driver          |
+| GECKOWEBDRIVER    | /usr/local/share/gecko_driver         |
+| SELENIUM_JAR_PATH | /usr/share/java/selenium-server.jar   |
+
+### .NET Tools
+- .NET Core SDK: 8.0.119
+- nbgv 3.7.115+d31f50f4d1
+
+### Databases
+- sqlite3 3.45.1
+
+#### PostgreSQL
+- PostgreSQL 16.10
+```
+User: postgres
+PostgreSQL service is disabled by default.
+Use the following command as a part of your job to start the service: 'sudo systemctl start postgresql.service'
+```
+
+#### MySQL
+- MySQL 8.0.43-0ubuntu0.24.04.1
+```
+User: root
+Password: root
+MySQL service is disabled by default.
+Use the following command as a part of your job to start the service: 'sudo systemctl start mysql.service'
+```
+
+### Cached Tools
+
+#### Go
+- 1.22.12
+- 1.23.12
+- 1.24.7
+
+#### Node.js
+- 18.20.8
+- 20.19.5
+- 22.19.0
+
+#### Python
+- 3.9.23
+- 3.10.18
+- 3.11.13
+- 3.12.11
+- 3.13.7
+
+#### PyPy
+- 3.9.19 [PyPy 7.3.16]
+- 3.10.16 [PyPy 7.3.19]
+- 3.11.13 [PyPy 7.3.20]
+
+#### Ruby
+- 3.2.9
+- 3.3.9
+- 3.4.5
+
+### PowerShell Tools
+- PowerShell 7.4.11
+
+#### PowerShell Modules
+- Az: 12.5.0
+- Microsoft.Graph: 2.30.0
+- Pester: 5.7.1
+- PSScriptAnalyzer: 1.24.0
+
+### Web Servers
+| Name    | Version | ConfigFile                | ServiceStatus | ListenPort |
+| ------- | ------- | ------------------------- | ------------- | ---------- |
+| apache2 | 2.4.58  | /etc/apache2/apache2.conf | inactive      | 80         |
+| nginx   | 1.24.0  | /etc/nginx/nginx.conf     | inactive      | 80         |
+
+### Android
+| Package Name               | Version                                                                                                                                                                                                                                                                                                                                             |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Android Command Line Tools | 12.0                                                                                                                                                                                                                                                                                                                                                |
+| Android SDK Build-tools    | 36.0.0<br>35.0.0 35.0.1<br>34.0.0                                                                                                                                                                                                                                                                                                                   |
+| Android SDK Platform-Tools | 36.0.0                                                                                                                                                                                                                                                                                                                                              |
+| Android SDK Platforms      | android-36-ext19 (rev 1)<br>android-36-ext18 (rev 1)<br>android-36 (rev 2)<br>android-35-ext15 (rev 1)<br>android-35-ext14 (rev 1)<br>android-35 (rev 2)<br>android-34-ext8 (rev 1)<br>android-34-ext12 (rev 1)<br>android-34-ext11 (rev 1)<br>android-34-ext10 (rev 1)<br>android-34 (rev 3)<br>android-33-ext5 (rev 1)<br>android-33-ext4 (rev 1) |
+| Android Support Repository | 47.0.0                                                                                                                                                                                                                                                                                                                                              |
+| CMake                      | 3.31.5                                                                                                                                                                                                                                                                                                                                              |
+| Google Play services       | 49                                                                                                                                                                                                                                                                                                                                                  |
+| Google Repository          | 58                                                                                                                                                                                                                                                                                                                                                  |
+| NDK                        | 26.3.11579264<br>27.3.13750724 (default)<br>28.2.13676358                                                                                                                                                                                                                                                                                           |
+
+#### Environment variables
+| Name                    | Value                                        |
+| ----------------------- | -------------------------------------------- |
+| ANDROID_HOME            | /usr/local/lib/android/sdk                   |
+| ANDROID_NDK             | /usr/local/lib/android/sdk/ndk/27.3.13750724 |
+| ANDROID_NDK_HOME        | /usr/local/lib/android/sdk/ndk/27.3.13750724 |
+| ANDROID_NDK_LATEST_HOME | /usr/local/lib/android/sdk/ndk/28.2.13676358 |
+| ANDROID_NDK_ROOT        | /usr/local/lib
 ## 
 /(?: ?\G|^cats are )((?:silly|cute)(?: |$))/
 
