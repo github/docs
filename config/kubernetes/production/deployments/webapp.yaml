@@ -6,7 +6,7 @@ metadata:
     moda.github.net/allow-missing-ready-pods: '0'
     moda.github.net/inject-unified-service-tag-env-var: docs-internal
 spec:
-  replicas: 12
+  replicas: 6
   strategy:
     type: RollingUpdate
     rollingUpdate:

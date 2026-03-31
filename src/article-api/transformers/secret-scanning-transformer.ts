@@ -2,14 +2,14 @@ import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import { load } from 'js-yaml'
 import path from 'path'
-import { liquid, renderContent } from '@/content-render/index'
+import { liquid } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { getSecretScanningData } from '@/secret-scanning/lib/get-secret-scanning-data'
 
 /**
  * Transformer for Secret Scanning pages.
- * Loads pattern data and converts secret scanning documentation into markdown format using a Liquid template.
+ * Loads pattern data and converts secret scanning documentation into markdown format.
  * Used by the Article API to render Secret Scanning documentation dynamically.
  */
 export class SecretScanningTransformer implements PageTransformer {
@@ -87,22 +87,15 @@ export class SecretScanningTransformer implements PageTransformer {
 
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
-    // Prepare template data
-    const templateData: Record<string, unknown> = {
-      page: {
-        title: page.title,
-        intro,
-      },
-      content,
-    }
-
-    // Load and render template
+    // Render the template with Liquid only — page.render() already ran
+    // rewriteLocalLinks on all markdown links, and the regex cleanup above
+    // only creates fragment links (e.g. #token-versions) which don't need
+    // link rewriting. So we skip the expensive remark re-parse.
     const templateContent = loadTemplate(this.templateName)
-
-    return await renderContent(templateContent, {
+    return await liquid.parseAndRender(templateContent, {
       ...context,
-      ...templateData,
-      markdownRequested: true,
+      page: { title: page.title, intro },
+      content,
     })
   }
 }
