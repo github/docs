@@ -206,7 +206,7 @@
     "escape-string-regexp": "5.0.0",
     "express": "^5.2.1",
     "fastest-levenshtein": "1.0.16",
-    "file-type": "21.3.2",
+    "file-type": "22.0.0",
     "flat": "^6.0.1",
     "github-slugger": "^2.0.0",
     "glob": "13.0.2",
