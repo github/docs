@@ -6,5 +6,6 @@ versions:
   feature: copilot
 children:
   - /sdk-getting-started
+  - /use-hooks
 contentType: how-tos
 ---
