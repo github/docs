@@ -300,4 +300,5 @@ You can work with agents in {% data variables.copilot.copilot_cli_short %} to su
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/cli-best-practices)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server)

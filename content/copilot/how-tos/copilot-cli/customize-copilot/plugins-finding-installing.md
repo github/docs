@@ -94,7 +94,7 @@ copilot plugin install URL-OF-GIT-REPO
 For example, `copilot plugin install https://gitlab.com/OWNER/REPO.git`.
 
 > [!IMPORTANT]
-> For these commands to work, the repository must contain a `plugin.json` file in a `.github/plugin` or `.claude-plugin` directory, or at the root of the repository.
+> For these commands to work, the repository must contain a `plugin.json` file in a `.plugin`, `.github/plugin`, or `.claude-plugin` directory, or at the root of the repository.
 
 To install a plugin directly from a repository on {% data variables.product.prodname_dotcom_the_website %} where the `plugin.json` file is located somewhere other than `.github/plugin`, `.claude-plugin`, or the repository root—for example, if you are installing a plugin directly from a marketplace repository such as [anthropics/claude-code](https://github.com/anthropics/claude-code)—enter:
 
@@ -122,7 +122,7 @@ copilot plugin uninstall PLUGIN-NAME   # Remove plugin completely
 
 ## Where plugins are stored
 
-Plugins installed from a marketplace are stored at: `~/.copilot/state/installed-plugins/MARKETPLACE/PLUGIN-NAME/`. Plugins installed directly (for example, from a local path) are stored at: `~/.copilot/state/installed-plugins/PLUGIN-NAME/`.
+Plugins installed from a marketplace are stored at: `~/.copilot/installed-plugins/MARKETPLACE/PLUGIN-NAME/`. Plugins installed directly (for example, from a local path) are stored at: `~/.copilot/installed-plugins/_direct/SOURCE-ID/`.
 
 ## Adding plugin marketplaces
 
