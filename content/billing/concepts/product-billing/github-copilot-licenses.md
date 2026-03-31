@@ -23,7 +23,7 @@ Usage of {% data variables.product.prodname_copilot %} is measured through a com
 
 | Account type      | Options                                                                 |
 |-------------------|-------------------------------------------------------------------------|
-| **Personal accounts** | <ul><li>{% data variables.copilot.copilot_pro_short %}: {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year.</li><li>{% data variables.copilot.copilot_pro_plus_short %}: {% data variables.copilot.cpp_price_per_month %} per calendar month or {% data variables.copilot.cpp_price_per_year %} per year.</li><li>{% data variables.copilot.copilot_student_short %}: access to {% data variables.product.prodname_copilot_short %} premium features at no cost.</li><li>{% data variables.copilot.copilot_free_short %}: limited access to {% data variables.product.prodname_copilot_short %} features at no cost.</li></ul> |
+| **Personal accounts** | <ul><li>{% data variables.copilot.copilot_pro_short %}: {% data variables.copilot.cfi_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_pro_plus_short %}: {% data variables.copilot.cpp_price_per_month %} per calendar month.</li><li>{% data variables.copilot.copilot_student_short %}: access to {% data variables.product.prodname_copilot_short %} premium features at no cost.</li><li>{% data variables.copilot.copilot_free_short %}: limited access to {% data variables.product.prodname_copilot_short %} features at no cost.</li></ul> |
 | **Organizations** | {% data variables.copilot.copilot_business_short %}: {% data variables.copilot.cfb_price_per_month %} per user per month (billed monthly). |
 | **Enterprises**   | Choose {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, or mix them across organizations. Both are billed monthly, pricing varies. |
 
@@ -43,7 +43,7 @@ There are several ways to use {% data variables.product.prodname_copilot_short %
 ### 30-day trial for {% data variables.copilot.copilot_pro_short %}
 
 * Before starting a paid plan for a personal account, you can activate a **one-time 30-day trial**. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot).
-* You must choose a monthly or yearly billing cycle and provide a payment method.
+* You must provide a payment method.
 * If you do not cancel before the end of the trial, it automatically converts to a paid plan.
 * You can cancel any time during the 30 days. If you cancel, you will not be charged and will keep access until the trial ends.
 * Free trials are limited to three per payment method. Additional trials will continue as paid subscriptions.
@@ -59,9 +59,9 @@ Usage of {% data variables.product.prodname_copilot_short %} licenses is measure
 
 ### Personal accounts
 
-* You choose monthly or yearly billing.
-* Plan changes (upgrades, downgrades, or switching between monthly and yearly) take effect immediately, with proration applied where relevant.
-* Canceling a monthly plan keeps access until the end of the cycle; yearly plans run until the end of the paid term.
+* Upgrades take effect immediately, with proration applied for the remainder of the current billing cycle.
+* Downgrades take effect at the start of the next billing cycle and are generally not prorated.
+* Canceling a monthly plan keeps access until the end of the current billing cycle, with no proration.
 
 For details on billing and proration, see [AUTOTITLE](/copilot/concepts/billing/billing-for-individuals).
 

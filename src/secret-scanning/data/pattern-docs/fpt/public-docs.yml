@@ -2036,7 +2036,7 @@
   supportedSecret: Fieldguide API Token
   secretType: fieldguide_api_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -2402,6 +2402,16 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Hack Club
+  supportedSecret: Hack Club AI Key
+  secretType: hackclub_ai_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3760,7 +3770,7 @@
   supportedSecret: PostHog OAuth Access Token
   secretType: posthog_oauth_access_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -3770,7 +3780,7 @@
   supportedSecret: PostHog OAuth Refresh Token
   secretType: posthog_oauth_refresh_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false

@@ -22,12 +22,8 @@ copilot_student_short: 'Copilot Student'
 additional_premium_requests: '$0.04 USD' # Note that these are also used to bill other products
 # Price per month for Copilot Pro
 cfi_price_per_month: '$10 USD'
-# Price per year for Copilot Pro
-cfi_price_per_year: '$100 USD'
 # Price per month for Copilot Pro Plus
 cpp_price_per_month: '$39 USD'
-# Price per year for Copilot Pro Plus
-cpp_price_per_year: '$390 USD'
 # Price per month for Copilot Business
 cfb_price_per_month: '$19 USD'
 # Price per month for Copilot Enterprise

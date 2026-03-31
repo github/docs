@@ -6,5 +6,8 @@ versions:
   feature: copilot
 children:
   - /sdk-getting-started
+  - /use-copilot-sdk
+  - /use-hooks
+  - /observability
 contentType: how-tos
 ---
