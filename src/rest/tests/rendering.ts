@@ -143,20 +143,6 @@ describe('REST references docs', () => {
     // Should show request content types since they differ between examples
     expect(optionTexts).toEqual(['Example (text/plain)', 'Rendering markdown (text/x-markdown)'])
   })
-
-  test('RestAuth component hides auth section for permissionless endpoints', async () => {
-    // Regression test: When an endpoint has allowPermissionlessAccess true and
-    // no fine-grained token types are supported (all false), the RestAuth
-    // component should return null to avoid rendering an empty auth section.
-    // This test verifies the behavior by loading a REST endpoint that
-    // demonstrates this pattern.
-    const $ = await getDOM('/en/rest/meta')
-    // The page should render successfully
-    const html = $.html()
-    expect(html.length).toBeGreaterThan(0)
-    // This test documents that REST reference pages continue to render
-    // correctly with the RestAuth component changes for permissionless endpoints.
-  })
 })
 
 function formatErrors(differences: Record<string, any>): string {

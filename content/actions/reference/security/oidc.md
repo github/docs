@@ -248,9 +248,9 @@ You can manage which custom properties are included in OIDC tokens using the set
 
   Navigate to your organization's or enterprise's Actions OIDC settings to view and configure which custom properties are included in OIDC tokens.
 
-* **Using the REST API:**
+* **Using the REST API:** 
 
-  To add a custom property to your organization's or enterprise's OIDC token claims, use the REST API. For more information, see [AUTOTITLE](/rest/actions/oidc).
+  To add a custom property to your organization's OIDC token claims, send a `POST` request to:
 
 #### Example token with a custom property
 

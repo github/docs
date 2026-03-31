@@ -31,20 +31,8 @@ export function RestAuth({ progAccess, slug, operationTitle }: Props) {
   // There are some operations that have no progAccess access defined
   // For those operations, we shouldn't display this component
   if (!progAccess) return null
-  const {
-    userToServerRest,
-    serverToServer,
-    fineGrainedPat,
-    basicAuth = false,
-    allowPermissionlessAccess = false,
-  } = progAccess
+  const { userToServerRest, serverToServer, fineGrainedPat, basicAuth = false } = progAccess
   const noFineGrainedAccess = !(userToServerRest || serverToServer || fineGrainedPat)
-
-  // For endpoints on dotcom that do not support any fine-grained token types
-  // and allow permissionless (unauthenticated) access, do not render a
-  // fine-grained access section. Note: allowPermissionlessAccess is dotcom-only;
-  // GHES versions may still require authentication for these endpoints.
-  if (!basicAuth && noFineGrainedAccess && allowPermissionlessAccess) return null
 
   const heading = basicAuth ? t('basic_auth_heading') : t('fine_grained_access')
   const headingId = heading.replace('{{ RESTOperationTitle }}', operationTitle)
