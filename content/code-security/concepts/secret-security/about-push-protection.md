@@ -67,7 +67,10 @@ For push protection for repositories, by default, anyone with write access to th
 
 {% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
- If you want greater control over which contributors can bypass push protection and which pushes containing secrets should be allowed, you can configure a designated group of reviewers to oversee and manage bypass requests.
+If you want greater control over which contributors can bypass push protection and which pushes containing secrets should be allowed, you can configure {% ifversion push-protection-org-enterprise-exemptions %}delegated bypass for push protection. With delegated bypass, you can grant actors:
+* **Bypass privileges**, allowing them to bypass push protection themselves, as well as review and approve bypass requests from other contributors
+* **Exemption from push protection**, allowing them to push commits without triggering push protection
+{% else %}a designated group of reviewers to oversee and manage bypass requests.{% endif %}
 
 ## Benefits of push protection
 
@@ -75,7 +78,7 @@ For push protection for repositories, by default, anyone with write access to th
 * **Immediate feedback:** Developers receive instant feedback if a potential secret is detected during a push attempt. This immediate notification allows for quick remediation, reducing the likelihood of sensitive information being exposed.
 * **Reduced risk of data leaks:** By blocking commits that contain sensitive information, push protection significantly reduces the risk of accidental data leaks. This helps in safeguarding against unauthorized access to your infrastructure, services, and data.
 * **Efficient secret management:** Instead of retrospectively dealing with exposed secrets, developers can address issues at the source. This makes secret management more efficient and less time-consuming.
-* **Bypass functionality for flexibility:** For cases where false positives occur or when certain patterns are necessary, you can bypass push protection for users, and designated users can use the delegated bypass feature to bypass push protection for repositories. This provides flexibility without compromising overall security.
+* **Bypass functionality for flexibility:** For cases where false positives occur or when certain patterns are necessary, you can bypass push protection for users, and designated users can use the delegated bypass feature to bypass push protection for repositories. {% ifversion push-protection-org-enterprise-exemptions %}Additionally, you can exempt trusted actors {% ifversion push-protection-repo-exemptions %}{% else %}at the organization and enterprise levels {% endif %}from push protection entirely. {% endif %}This provides flexibility without compromising overall security.
 * **Ability to detect custom patterns (for repositories in organizations):** Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push protection can effectively identify and block even non-standard secrets.
 
 ## Customization
@@ -83,7 +86,7 @@ For push protection for repositories, by default, anyone with write access to th
 After you enable push protection for repositories, you can customize it by:
 
 * Defining custom patterns to block pushes containing unique secret patterns
-* Designating contributors who can bypass push protection and approve bypass requests for other contributors{% ifversion push-protected-pattern-configuration %}
+* Designating contributors who can bypass push protection and approve bypass requests for other contributors{% ifversion push-protection-org-enterprise-exemptions %}, or are exempt from push protection entirely{% endif %}{% ifversion push-protected-pattern-configuration %}
 * Configuring which secret patterns are included in push protection at the enterprise or organization level{% endif %}
 
 ## Next steps
