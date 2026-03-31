@@ -92,5 +92,6 @@ Next, familiarize yourself with the different options for managing and monitorin
 
 For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
-> [!TIP]
-> For the next article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs).
+## Next steps
+
+For the next article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs).
