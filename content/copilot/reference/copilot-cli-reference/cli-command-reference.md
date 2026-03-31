@@ -259,6 +259,7 @@ copilot --allow-tool='MyMCP'
 | `COPILOT_EDITOR` | Editor command for interactive editing (checked after `$VISUAL` and `$EDITOR`). Defaults to `vi` if none are set. |
 | `COPILOT_GITHUB_TOKEN` | Authentication token. Takes precedence over `GH_TOKEN` and `GITHUB_TOKEN`. |
 | `COPILOT_HOME` | Override the configuration and state directory. Default: `$HOME/.copilot`. |
+| `COPILOT_CACHE_HOME` | Override the cache directory (used for marketplace caches, auto-update packages, and other ephemeral data). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#changing-the-location-of-the-configuration-directory) for platform defaults. |
 | `GH_TOKEN` | Authentication token. Takes precedence over `GITHUB_TOKEN`. |
 | `GITHUB_TOKEN` | Authentication token. |
 | `USE_BUILTIN_RIPGREP` | Set to `false` to use the system ripgrep instead of the bundled version. |
@@ -281,7 +282,7 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `allowed_urls` | `string[]` | `[]` | URLs or domains allowed without prompting. |
-| `alt_screen` | `boolean` | `false` | Use the terminal alternate screen buffer. |
+| `alt_screen` | `boolean` | `true` | Use the terminal alternate screen buffer. |
 | `auto_update` | `boolean` | `true` | Automatically download CLI updates. |
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
 | `bash_env` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. |
@@ -290,12 +291,12 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | `custom_agents.default_local_only` | `boolean` | `false` | Only use local custom agents. |
 | `denied_urls` | `string[]` | `[]` | URLs or domains blocked (takes precedence over `allowed_urls`). |
 | `experimental` | `boolean` | `false` | Enable experimental features. |
-| `include_coauthor` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
+| `includeCoAuthoredBy` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. |
 | `log_level` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
 | `model` | `string` | varies | AI model to use (see the `/model` command). |
 | `powershell_flags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
-| `reasoning_effort` | `"low"` \| `"medium"` \| `"high"` \| `"xhigh"` | `"medium"` | Reasoning effort level for extended thinking. Higher levels use more compute. |
+| `effortLevel` | `string` | `"medium"` | Reasoning effort level for extended thinking (e.g., `"low"`, `"medium"`, `"high"`, `"xhigh"`). Higher levels use more compute. |
 | `render_markdown` | `boolean` | `true` | Render Markdown in terminal output. |
 | `screen_reader` | `boolean` | `false` | Enable screen reader optimizations. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
@@ -303,6 +304,10 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | `streamer_mode` | `boolean` | `false` | Hide preview model names and quota details (useful when recording). |
 | `theme` | `"auto"` \| `"dark"` \| `"light"` | `"auto"` | Terminal color theme. |
 | `trusted_folders` | `string[]` | `[]` | Folders with pre-granted file access. |
+| `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. |
+| `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file picker. |
+| `disableAllHooks` | `boolean` | `false` | Disable all hooks. |
+| `hooks` | `object` | — | Inline user-level hook definitions. |
 | `update_terminal_title` | `boolean` | `true` | Show the current intent in the terminal title. |
 
 ### Repository settings (`.github/copilot/settings.json`)
@@ -773,3 +778,4 @@ When content capture is enabled, the following attributes are populated.
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference)
