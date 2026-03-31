@@ -7,5 +7,6 @@ versions:
 children:
   - /sdk-getting-started
   - /use-hooks
+  - /observability
 contentType: how-tos
 ---
