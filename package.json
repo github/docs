@@ -264,7 +264,7 @@
     "swr": "^2.4.0",
     "tcp-port-used": "1.0.2",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "unified": "^11.0.5",
     "unist-util-find": "^3.0.0",
     "unist-util-visit": "^5.1.0",
