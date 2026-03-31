@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc -->
+https://github.com/github/docs/pull/43625?email_source=notifications&email_token=B4DAWRG3BHII5S357M5JC3T4TQNIZA5CNFSNUABEM5UWIORPF5TWS5BNNB2WEL2QOVWGYUTFOF2WK43UF4ZTINZTGYZTKOBSHGTHEZLBONXW5KTTOVRHGY3SNFRGKZFFMV3GK3TUVVYHEX3POBSW4X3DNRUWG2Y# GitHub Docs <!-- omit in toc -->
 
 Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing).
 
