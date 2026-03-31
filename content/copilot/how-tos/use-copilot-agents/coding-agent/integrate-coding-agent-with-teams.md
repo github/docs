@@ -5,12 +5,13 @@ intro: 'You can use the {% data variables.product.github %} integration in Teams
 versions:
   feature: copilot
 contentType: how-tos
-category: 
+category:
   - Integrate Copilot with your tools
 ---
 
 > [!NOTE]
-> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+> * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-coding-agent).
 
 The {% data variables.product.github %} integration in Microsoft Teams allows you to interact with {% data variables.copilot.copilot_coding_agent %} all from within your Teams channels. From within a Teams thread you can initiate {% data variables.copilot.copilot_coding_agent_short %} sessions and open pull requests, using the context of your conversation.
 
