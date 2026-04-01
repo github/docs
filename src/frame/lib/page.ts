@@ -1,7 +1,7 @@
 import assert from 'assert'
 import path from 'path'
 import fs from 'fs/promises'
-import { load } from 'cheerio'
+import { stripOuterTag } from '@/frame/lib/strip-outer-tag'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import generateRedirectsForPermalinks from '@/redirects/lib/permalinks'
 import getEnglishHeadings from '@/languages/lib/get-english-headings'
@@ -440,8 +440,7 @@ class Page {
     if (!opts.unwrap) return html
 
     // The unwrap option removes surrounding tags from a string, preserving any inner HTML
-    const $ = load(html, { xmlMode: true })
-    return $.root().contents().html() || ''
+    return stripOuterTag(html)
   }
 
   // infer current page's corresponding homepage
