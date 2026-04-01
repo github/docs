@@ -2057,7 +2057,7 @@
   secretType: figma_scim_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2281,7 +2281,7 @@
   secretType: google_gcp_api_key_bound_service_account
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2721,7 +2721,7 @@
   secretType: langsmith_license_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2731,7 +2731,7 @@
   secretType: langsmith_scim_bearer_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3441,7 +3441,7 @@
   secretType: openvsx_access_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3791,7 +3791,7 @@
   secretType: posthog_personal_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
