@@ -25,13 +25,6 @@ journeyTracks:
       - href: '/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams'
       - href: '/enterprise-onboarding/setting-up-organizations-and-teams/assigning-roles-to-teams-and-users'
       - href: '/enterprise-onboarding/setting-up-organizations-and-teams/use-innersource'
-  - id: 'support_for_your_enterprise'
-    title: 'Creating a support model for your enterprise'
-    description: 'Find out how to get help and choose who will be able to contact Support.'
-    guides:
-      - href: '/enterprise-onboarding/support-for-your-enterprise/understanding-support'
-      - href: '/enterprise-onboarding/support-for-your-enterprise/using-the-support-portal'
-      - href: '/enterprise-onboarding/support-for-your-enterprise/managing-support-entitlements'
   - id: 'govern_people_and_repositories'
     title: 'Governing people and repositories'
     description: 'Implement policies, custom properties, and rulesets to govern users and repositories across your enterprise.'
@@ -48,15 +41,21 @@ journeyTracks:
     guides:
       - href: '/enterprise-onboarding/github-apps/create-enterprise-apps'
       - href: '/enterprise-onboarding/github-apps/install-enterprise-apps'
-
+  - id: 'support_for_your_enterprise'
+    title: 'Creating a support model for your enterprise'
+    description: 'Find out how to get help and choose who will be able to contact {% data variables.contact.github_support %}.'
+    guides:
+      - href: '/enterprise-onboarding/support-for-your-enterprise/understanding-support'
+      - href: '/enterprise-onboarding/support-for-your-enterprise/using-the-support-portal'
+      - href: '/enterprise-onboarding/support-for-your-enterprise/managing-support-entitlements'
 versions:
   ghec: '*'
 children:
   - /getting-started-with-your-enterprise
   - /setting-up-organizations-and-teams
-  - /support-for-your-enterprise
   - /govern-people-and-repositories
   - /github-apps
+  - /support-for-your-enterprise
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
 ---
