@@ -47,6 +47,7 @@ The following features are either specific to {% data variables.enterprise.data_
 
 * [API access](#api-access)
 * [URL differences](#url-differences)
+* [Organization names and usernames](#organization-names-and-usernames)
 * [{% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}](#github-actions-workflows-from-github-marketplace)
 * [Retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}](#retirement-of-namespaces-for-actions-accessed-on-githubcom)
 * [GitHub Connect](#github-connect)
@@ -74,6 +75,10 @@ The following examples are not exhaustive.
 | Cloning repositories using SSH | `git clone git@github.com:OWNER/REPOSITORY.git` | `git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPOSITORY.git` |
 
 {% endrowheaders %}
+
+### Organization names and usernames
+
+{% data variables.enterprise.data_residency_site %} reserves certain usernames and organization names for internal use. If you try to create a user or organization with one of these names, you'll get an error stating the name is unavailable.
 
 ### {% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}
 
