@@ -148,7 +148,7 @@ For information about how you can try {% data variables.product.prodname_GH_secr
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-user-alerts).
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-user-alerts).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 

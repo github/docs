@@ -67,7 +67,7 @@ After fixing or dismissing findings, push your changes to the branch associated 
 
 Anyone with write access can view the overall code quality ratings for a repository, which summarize the state of the code's reliability and maintainability across the default branch.
 
-To view your repository's ratings, navigate to the **Security** tab of your repository, expand **{% data variables.code-quality.code_quality_ui_views %}** in the sidebar, then click **{% data variables.code-quality.all_findings %}**.
+To view your repository's ratings, navigate to the **{% data variables.product.prodname_security_and_quality_tab %}** tab of your repository, expand **{% data variables.code-quality.code_quality_ui_views %}** in the sidebar, then click **{% data variables.code-quality.all_findings %}**.
 
 By resolving issues before merging your pull request, you've directly contributed to maintaining these ratings.
 

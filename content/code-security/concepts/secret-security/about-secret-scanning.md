@@ -40,7 +40,7 @@ When credentials like API keys and passwords are committed to repositories, they
 
 ### {% data variables.product.prodname_secret_scanning_caps %} alerts and remediation
 
-When {% data variables.product.prodname_secret_scanning %} finds a potential secret, {% data variables.product.github %} generates an alert on your repository's **Security** tab with details about the exposed credential.
+When {% data variables.product.prodname_secret_scanning %} finds a potential secret, {% data variables.product.github %} generates an alert on your repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab with details about the exposed credential.
 
 When you receive an alert, rotate the affected credential immediately to prevent unauthorized access. While you can also remove secrets from your Git history, this is time-intensive and often unnecessary if you've already revoked the credential.
 

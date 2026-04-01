@@ -95,7 +95,7 @@ Alerts may be fixed in one branch but not in another. You can use the "branch" f
 
 There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert.
 
-Dismissing an alert is a way of closing an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} You can dismiss alerts from {% data variables.product.prodname_code_scanning %} annotations in code, or from the summary list within the **Security** tab.
+Dismissing an alert is a way of closing an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} You can dismiss alerts from {% data variables.product.prodname_code_scanning %} annotations in code, or from the summary list within the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 When you dismiss an alert:
 

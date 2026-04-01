@@ -34,7 +34,7 @@ For supported ecosystems, see [AUTOTITLE](/code-security/supply-chain-security/u
 
 ## Understanding alerts
 
-When {% data variables.product.github %} detects a vulnerable dependency, a {% data variables.product.prodname_dependabot %} alert appears on the repository's **Security** tab and dependency graph. Each alert includes:
+When {% data variables.product.github %} detects a vulnerable dependency, a {% data variables.product.prodname_dependabot %} alert appears on the repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab and dependency graph. Each alert includes:
 
 * A link to the affected file
 * Details about the vulnerability and its severity

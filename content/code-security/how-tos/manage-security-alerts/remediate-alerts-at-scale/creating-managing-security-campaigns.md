@@ -21,7 +21,7 @@ category:
 
 ## Creating a security campaign
 
-Security campaigns are created and managed from the **Security** tab for your organization.
+Security campaigns are created and managed from the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your organization.
 
 You choose the alerts that you want to include in the campaign by using either:
 
@@ -114,7 +114,7 @@ When you create a code campaign, all the alerts are automatically submitted to {
 
 {% ifversion security-campaigns-secrets %}
 
-The new campaign is shown in the sidebar of the "Security" tab for each repository included.
+The new campaign is shown in the sidebar of the **{% data variables.product.prodname_security_and_quality_tab %}** tab for each repository included.
 
 * **Code campaigns**: Anyone with **write** access to a repository included in the campaign is notified.
 * **Secret campaigns**: Anyone with access to see the alert list view for a repository included in the campaign is notified.

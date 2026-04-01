@@ -45,7 +45,7 @@ You can enable push protection for repositories at the repository, organization,
 * Requires {% data variables.product.prodname_GH_secret_protection_always %} to be enabled
 * Is disabled by default, and can be enabled by a repository administrator, organization owner, security manager, or enterprise owner
 * Blocks pushes containing secrets from reaching specific protected repositories
-* Generates alerts for push protection bypasses in the **Security** tab of the repository, organization, and enterprise
+* Generates alerts for push protection bypasses in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository, organization, and enterprise
 
 {% ifversion secret-risk-assessment %}
 
