@@ -52,7 +52,7 @@ Before taking action, you need to understand the current state of your organizat
 
 You can set up a security campaign to organize and track your remediation work across repositories.
 
-1. Navigate to your organization and click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security**.
+1. Navigate to your organization and click **{% data variables.product.prodname_security_and_quality_tab %}**.
 1. On the left panel, select **{% octicon "goal" aria-hidden="true" aria-label="goal" %} Campaigns**.
 1. Click **Create campaign {% octicon "triangle-down" aria-hidden="true" %}**, then either:
    * Select a pre-defined Secrets campaign template.

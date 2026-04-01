@@ -270,6 +270,10 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- elsif fpt ou ghec %}', 'pt')).toBe('{%- elsif fpt or ghec %}')
     })
 
+    test('fixes ou → or in if tags', () => {
+      expect(fix('{% if condition ou other %}', 'pt')).toBe('{% if condition or other %}')
+    })
+
     test('fixes fully translated reutilizáveis reusables path', () => {
       // `reutilizáveis` is Portuguese for "reusables"
       expect(fix('{% dados reutilizáveis.repositórios.reaction_list %}', 'pt')).toBe(
@@ -499,6 +503,19 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes ou → or in ifversion tags', () => {
       expect(fix('{% ifversion fpt ou ghec %}', 'fr')).toBe('{% ifversion fpt or ghec %}')
       expect(fix('{%- elsif fpt ou ghec %}', 'fr')).toBe('{%- elsif fpt or ghec %}')
+    })
+
+    test('fixes ou → or in if tags', () => {
+      expect(
+        fix('{% if query.apiVersion == nil ou "2026-03-10" <= query.apiVersion %}', 'fr'),
+      ).toBe('{% if query.apiVersion == nil or "2026-03-10" <= query.apiVersion %}')
+    })
+
+    test('fixes French guillemets « » → " in if/ifversion tags', () => {
+      expect(
+        fix('{% if query.apiVersion == nil ou « 2026-03-10 » <= query.apiVersion %}', 'fr'),
+      ).toBe('{% if query.apiVersion == nil or "2026-03-10" <= query.apiVersion %}')
+      expect(fix('{% ifversion « ghec » %}', 'fr')).toBe('{% ifversion "ghec" %}')
     })
 
     test('fixes translated block tags', () => {

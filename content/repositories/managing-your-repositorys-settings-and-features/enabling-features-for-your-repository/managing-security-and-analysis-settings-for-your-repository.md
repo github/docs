@@ -71,7 +71,7 @@ You can manage the security and analysis features for your {% ifversion fpt or g
 
 {% data variables.product.github %} security alerts are automated notifications that inform you when vulnerabilities are found in your repository's dependencies or code. They prompt you to review and remediate these issues, helping to keep your project secure.
 
-You can find security alerts from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_secret_scanning_caps %}, and {% data variables.product.prodname_code_scanning_caps %} under your repository's **Security** tab.
+You can find security alerts from {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_secret_scanning_caps %}, and {% data variables.product.prodname_code_scanning_caps %} under your repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 Security alerts for a repository are visible to people with write, maintain, or admin access to the repository and, when the repository is owned by an organization, organization owners. You can give additional teams and people access to the alerts.
 

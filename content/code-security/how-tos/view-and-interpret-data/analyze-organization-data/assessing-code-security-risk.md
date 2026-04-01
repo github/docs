@@ -19,7 +19,7 @@ category:
 
 ## Exploring the security risks in your code
 
-You can use the different views on your **Security** tab to explore the security risks in your code.
+You can use the different views on your **{% data variables.product.prodname_security_and_quality_tab %}** tab to explore the security risks in your code.
 
 * **Overview:** use to explore trends in **Detection**, **Remediation**, and **Prevention** of security alerts.
 * **Risk:** use to explore the current state of repositories, across all alert types.{% ifversion secret-risk-assessment %}

@@ -83,7 +83,7 @@ codeql github upload-results \
     {% endif %}
 ```
 
-There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.github %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. 
+There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.github %} shortly afterward. You can see alerts directly in the pull request or on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for branches, depending on the code you checked out. 
 
 ## Uploading diagnostic information to {% data variables.product.github %} if the analysis fails
 

@@ -12,4 +12,4 @@ allowTitleToDifferFromFilename: true
 
 ## Next steps
 
-Now that you've set up organizations and teams, learn about support so you can get help when you need it. See [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/understanding-support).
+Now that you've set up organizations and teams, learn how to stay compliant and secure by setting up governance policies for your users and repositories. See [AUTOTITLE](/enterprise-onboarding/govern-people-and-repositories/about-enterprise-policies).

@@ -14,5 +14,6 @@ children:
 shortTitle: Get started
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise
+  - /enterprise-onboarding/github-actions-for-your-enterprise
 ---
 

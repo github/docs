@@ -51,7 +51,6 @@ Common settings include:
 | `model` | string | AI model to use (e.g., `"gpt-5.2"`, `"claude-sonnet-4.6"`) |
 | `effortLevel` | string | Reasoning effort level for models that support it |
 | `theme` | string | Color theme: `"auto"`, `"dark"`, or `"light"` |
-| `alt_screen` | boolean | Use the alternate screen buffer (default: `true`) |
 | `mouse` | boolean | Enable mouse support in alt screen mode (default: `true`) |
 | `banner` | string | Animated banner frequency: `"always"`, `"once"`, or `"never"` (default: `"once"`) |
 | `render_markdown` | boolean | Render markdown in responses (default: `true`) |
@@ -70,7 +69,7 @@ Common settings include:
 For a full list of configuration settings, enter `copilot help config` in your terminal.
 
 > [!TIP]
-> Some settings can also be set using command-line flags. For example, `--alt-screen` and `--no-alt-screen` set the `alt_screen` value and persist it to `config.json`. The `/model` slash command writes your model selection to this file so it persists across sessions.
+> Some settings can also be set using command-line flags. For example, the `/model` slash command writes your model selection to this file so it persists across sessions.
 
 ### `mcp-config.json`
 

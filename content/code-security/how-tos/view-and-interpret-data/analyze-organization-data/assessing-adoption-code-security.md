@@ -18,13 +18,6 @@ category:
 
 You can use security overview to see which repositories and teams have already enabled each security feature, and where people need more encouragement to adopt these features.
 
-{% ifversion security-configurations %}
-![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization.](/assets/images/help/security-overview/security-coverage-view-summary.png)
-
-{% else %}
-![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization.](/assets/images/help/security-overview/security-coverage-view-summary-pre-config.png)
-{% endif %}
-
 >[!NOTE] "Pull request alerts" are reported as enabled only when {% data variables.product.prodname_code_scanning %} has analyzed at least one pull request since alerts were enabled for the repository.
 
 ## Viewing the enablement of security features for an organization

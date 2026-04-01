@@ -31,7 +31,7 @@ For more information on updating records, see [AUTOTITLE](/code-security/how-tos
 
 ## 2. Use production context filters
 
-Production context filters are made available in alert views and security campaign views under the **Security** tab.
+Production context filters are made available in alert views and security campaign views under the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 * **{% data variables.product.prodname_dependabot_alerts %} view**: See [Viewing {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts).
 * **{% data variables.product.prodname_code_scanning_caps %} alerts view**: See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).

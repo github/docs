@@ -74,7 +74,7 @@ redirect_from:
 | `/add-dir PATH`                                     | Add a directory to the allowed list for file access. |
 | `/agent`                                            | Browse and select from available agents (if any). |
 | `/allow-all`, `/yolo`                               | Enable all permissions (tools, paths, and URLs). |
-| `/clear`, `/new`                                    | Clear the conversation history. |
+| `/clear [PROMPT]`, `/new [PROMPT]`                  | Start a new conversation. |
 | `/compact`                                          | Summarize the conversation history to reduce context window usage. |
 | `/context`                                          | Show the context window token usage and visualization. |
 | `/cwd`, `/cd [PATH]`                                | Change the working directory or display the current directory. |
@@ -125,7 +125,6 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--allow-all-urls`                 | Allow access to all URLs without confirmation. |
 | `--allow-tool=TOOL ...`            | Tools the CLI has permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--allow-url=URL ...`              | Allow access to specific URLs or domains. For multiple URLs, use a quoted, comma-separated list. |
-| `--alt-screen=VALUE`             | Use the terminal alternate screen buffer (`on` or `off`). |
 | `--autopilot`                      | Enable autopilot continuation in prompt mode. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--available-tools=TOOL ...`       | Only these tools will be available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--banner`                         | Show the startup banner. |
@@ -147,7 +146,6 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--log-level=LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
 | `--max-autopilot-continues=COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--model=MODEL`                    | Set the AI model you want to use. |
-| `--no-alt-screen`                  | Disable the terminal alternate screen buffer. |
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
 | `--no-auto-update`                 | Disable downloading CLI updates automatically. |
 | `--no-bash-env`                    | Disable `BASH_ENV` support for bash shells. |
@@ -282,7 +280,6 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `allowed_urls` | `string[]` | `[]` | URLs or domains allowed without prompting. |
-| `alt_screen` | `boolean` | `true` | Use the terminal alternate screen buffer. |
 | `auto_update` | `boolean` | `true` | Automatically download CLI updates. |
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
 | `bash_env` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. |
@@ -400,6 +397,8 @@ Prompt hooks auto-submit text as if the user typed it. They are only supported o
 | `postToolUse` | After each tool completes. | No |
 | `agentStop` | The main agent finishes a turn. | Yes — can block and force continuation. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. |
+| `subagentStart` | A subagent is spawned (before it runs). Returns `additionalContext` prepended to the subagent's prompt. Supports `matcher` to filter by agent name. | No — cannot block creation. |
+| `preCompact` | Context compaction is about to begin (manual or automatic). Supports `matcher` to filter by trigger (`"manual"` or `"auto"`). | No — notification only. |
 | `errorOccurred` | An error occurs during execution. | No |
 
 ### `preToolUse` decision control
@@ -536,7 +535,6 @@ Skills are loaded from these locations in priority order (first found wins for d
 | `~/.copilot/skills/` | Personal | Personal skills for all projects. |
 | `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
 | `~/.claude/skills/` | Personal | Claude-compatible personal location. |
-| `~/.agents/skills/` | Personal | Alternative personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
 

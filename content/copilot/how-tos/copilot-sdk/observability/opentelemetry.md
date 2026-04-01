@@ -10,8 +10,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE]
-> {% data variables.copilot.copilot_sdk_short %} is currently in {% data variables.release-phases.technical_preview %}. Functionality and availability are subject to change.
+{% data reusables.copilot.copilot-sdk.technical-preview-note %}
 
 {% data variables.copilot.copilot_sdk %} has built-in support for configuring OpenTelemetry on the CLI process and propagating W3C Trace Context between the SDK and CLI.
 
