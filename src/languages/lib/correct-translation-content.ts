@@ -114,10 +114,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% それ以外の %}', '{% else %}')
     content = content.replaceAll('{%- それ以外の %}', '{%- else %}')
     // `{% それ以外の場合 ifversion X %}` → `{% elsif X %}` (confused elsif + ifversion)
-    content = content.replace(
-      /\{% それ以外の場合 ifversion\s+(.+?)\s*%\}/g,
-      '{% elsif $1 %}',
-    )
+    content = content.replace(/\{% それ以外の場合 ifversion\s+(.+?)\s*%\}/g, '{% elsif $1 %}')
     // `{%- "supported" %}` → `{%- when "supported" %}` (missing `when`)
     // Preserves original trim syntax (`{%-` vs `{%`)
     content = content.replace(/\{%-?\s*"(supported|not_supported|preview)"\s*%\}/g, (match) => {
