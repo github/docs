@@ -44,15 +44,15 @@ export function correctTranslatedContentStrings(
     )
     content = content.replaceAll('{{ glosario.term }}', '{{ glossary.term }}')
     content = content.replaceAll('{{ glosario.description }}', '{{ glossary.description }}')
-    // Catch "o" and "y/o" between any plan names in ifversion/elsif tags
+    // Catch "o" and "y/o" between any plan names in ifversion/elsif/if tags
     content = content.replace(
-      /\{%-? (?:ifversion|elsif) [^%]*?(?:\by\/o\b|\bo\b)[^%]*?%\}/g,
+      /\{%-? (?:ifversion|elsif|if) [^%]*?(?:\by\/o\b|\bo\b)[^%]*?%\}/g,
       (match) => {
         return match.replace(/ y\/o /g, ' or ').replace(/ o /g, ' or ')
       },
     )
-    // Spanish "no" for "not" in ifversion tags
-    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?\bno\b[^%]*?%\}/g, (match) => {
+    // Spanish "no" for "not" in ifversion/elsif/if tags
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?\bno\b[^%]*?%\}/g, (match) => {
       return match.replace(/ no /g, ' not ')
     })
     // Translated for-loop keywords
@@ -205,8 +205,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% %de dados reusables.', '{% data reusables.')
     content = content.replaceAll('{% %de dados variables.', '{% data variables.')
     content = content.replaceAll('{% %móvel }', '{% mobile %}')
-    // Catch "ou" between any plan names in ifversion/elsif tags
-    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
+    // Catch "ou" between any plan names in ifversion/elsif/if tags
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
     })
   }
@@ -225,8 +225,8 @@ export function correctTranslatedContentStrings(
     // Stray Chinese `，则为` ("then") merged with `{%` before HTML: `，则为 {%<tag>` → `<tag>`
     // The regex consumes the `<` to avoid producing a double `<<`.
     content = content.replace(/，则为 \{%</g, '<')
-    // Catch "或" between any plan names in ifversion/elsif tags
-    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?或[^%]*?%\}/g, (match) => {
+    // Catch "或" between any plan names in ifversion/elsif/if tags
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?或[^%]*?%\}/g, (match) => {
       return match.replace(/ 或 /g, ' or ')
     })
   }
@@ -267,8 +267,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% ifversion ghec или fpt %}', '{% ifversion ghec or fpt %}')
     content = content.replaceAll('{% ghes или ghec %}', '{% ifversion ghes or ghec %}')
     content = content.replaceAll('{% elsif ghec или ghes %}', '{% elsif ghec or ghes %}')
-    // Catch remaining "или" between any plan names in ifversion/elsif tags
-    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?или[^%]*?%\}/g, (match) => {
+    // Catch remaining "или" between any plan names in ifversion/elsif/if tags
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?или[^%]*?%\}/g, (match) => {
       return match.replace(/ или /g, ' or ')
     })
     content = content.replaceAll('{% endif _%}', '{% endif %}')
@@ -364,9 +364,13 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% %brut }', '{% raw %}')
     content = content.replaceAll('{% redessiner %}', '{% endraw %}')
     content = content.replaceAll('{% données ', '{% data ')
-    // Catch remaining "ou" between any plan names in ifversion/elsif tags
-    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
+    // Catch remaining "ou" between any plan names in ifversion/elsif/if tags
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
+    })
+    // French guillemets «/» → " inside if/ifversion/elsif tags
+    content = content.replace(/\{%-?\s*(?:if|ifversion|elsif)\s[^%]*?[«»][^%]*?%\}/g, (match) => {
+      return match.replace(/«\s*/g, '"').replace(/\s*»/g, '"')
     })
     // French decimal comma in version numbers: `3,16` → `3.16`
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?%\}/g, (match) => {
@@ -408,8 +412,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 기타 %}', '{% else %}')
     content = content.replaceAll('{% 참고 %}', '{% note %}')
     content = content.replaceAll('{% 원시 %}', '{% raw %}')
-    // Catch "또는" between any plan names in ifversion/elsif tags
-    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?또는[^%]*?%\}/g, (match) => {
+    // Catch "또는" between any plan names in ifversion/elsif/if tags
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?또는[^%]*?%\}/g, (match) => {
       return match.replace(/ 또는 /g, ' or ')
     })
 
@@ -431,8 +435,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%-Daten-variables', '{%- data variables')
     content = content.replaceAll('{%- ifversion fpt oder ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt oder ghec %}', '{% ifversion fpt or ghec %}')
-    // Catch remaining "oder" between any plan names in ifversion/elsif tags
-    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?oder [^%]*?%\}/g, (match) => {
+    // Catch remaining "oder" between any plan names in ifversion/elsif/if tags
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?oder [^%]*?%\}/g, (match) => {
       return match.replace(/ oder /g, ' or ')
     })
     // Translated block tags
