@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+  - /enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
 contentType: how-tos
 category:
   - Enable GitHub features for your enterprise

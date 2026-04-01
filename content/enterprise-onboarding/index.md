@@ -48,15 +48,7 @@ journeyTracks:
     guides:
       - href: '/enterprise-onboarding/github-apps/create-enterprise-apps'
       - href: '/enterprise-onboarding/github-apps/install-enterprise-apps'
-  - id: 'github_actions_for_your_enterprise'
-    title: 'Setting up CI/CD with GitHub Actions'
-    description: 'Explore {% data variables.product.prodname_actions %}, plan your rollout, and get started.'
-    guides:
-      - href: '/enterprise-onboarding/github-actions-for-your-enterprise/about-github-actions-for-enterprises'
-      - href: '/enterprise-onboarding/github-actions-for-your-enterprise/actions-components'
-      - href: '/enterprise-onboarding/github-actions-for-your-enterprise/planning-a-rollout-of-github-actions'
-      - href: '/enterprise-onboarding/github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions'
-      - href: '/enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud'
+
 versions:
   ghec: '*'
 children:
@@ -65,7 +57,6 @@ children:
   - /support-for-your-enterprise
   - /govern-people-and-repositories
   - /github-apps
-  - /github-actions-for-your-enterprise
 redirect_from:
   - /enterprise-onboarding/feature-enhancements
 ---
