@@ -122,13 +122,15 @@ childGroups:
       - actions
       - packages
       - pages
-  - name: Security and quality
+  - name: Security and code quality
     octicon: ShieldLockIcon
     children:
+      - code-security
       - code-security/how-tos/secure-your-secrets
+      - code-security/how-tos/find-and-fix-code-vulnerabilities
       - code-security/how-tos/secure-your-supply-chain
-      - code-security/how-tos/scan-code-for-vulnerabilities
       - code-security/how-tos/maintain-quality-code
+      - code-security/how-tos/secure-at-scale
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
