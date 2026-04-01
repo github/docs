@@ -110,3 +110,5 @@ Some features on {% data variables.enterprise.data_residency_site %} are current
 ### {% data variables.product.prodname_github_codespaces %}
 
 {% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %} and are available in all {% data variables.enterprise.data_residency %} regions: EU, Australia, US, and Japan.
+
+To use {% data variables.product.prodname_github_codespaces %} from {% data variables.product.prodname_vscode_shortname %} desktop with an enterprise on {% data variables.enterprise.data_residency_site %}, you must configure the `Github-enterprise: Uri` and `Github > Codespaces: Auth Provider` settings. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code#connecting-to-an-enterprise-on-ghecom).
