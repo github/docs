@@ -1,7 +1,8 @@
 ---
-title: Integrating Copilot coding agent with Slack
-shortTitle: Integrate coding agent with Slack
-intro: 'Provide context to the {% data variables.product.prodname_copilot_short %} coding agent and open pull requests, all from within your Slack workspace.'
+title: Integrating Copilot cloud agent with Slack
+shortTitle: Integrate cloud agent with Slack
+allowTitleToDifferFromFilename: true
+intro: 'Provide context to the {% data variables.product.prodname_copilot_short %} cloud agent and open pull requests, all from within your Slack workspace.'
 versions:
   feature: copilot
 contentType: how-tos
@@ -40,7 +41,7 @@ The first time you use the {% data variables.product.prodname_github_app %} in S
 1. Send a prompt to {% data variables.copilot.copilot_coding_agent %}. This can be a request to perform a task, or simply `login`.
 1. If asked to connect your {% data variables.product.github %} account, follow the instructions in {% data variables.product.prodname_copilot_short %}'s reply and authorize the app to access your {% data variables.product.github %} account.
 1. In the Slack message thread, click **Configure settings** to set a default repository for pull requests. You can change this repository later using the `settings` command.
-1. In the "Settings" dialog, type the name of a repository where you'll be using the coding agent, then click **Save changes**.
+1. In the "Settings" dialog, type the name of a repository where you'll be using the cloud agent, then click **Save changes**.
 
 ## Using the {% data variables.product.prodname_github_app %} in Slack
 
@@ -57,7 +58,7 @@ Users can invoke {% data variables.copilot.copilot_coding_agent %} on any reposi
 
     > [!NOTE] The repo parameter tells {% data variables.copilot.copilot_coding_agent %} which repository to use for the request, and the branch parameter specifies an existing branch of the repository that should be used as the base branch for a pull request. By default, {% data variables.product.prodname_copilot_short %} uses your configured default repository and the repository’s default branch.
 
-1. {% data variables.copilot.copilot_coding_agent %} will initiate a {% data variables.copilot.copilot_coding_agent_short %} session and, once the coding agent has finished, respond with a summary of the changes it plans to make and a link to the pull request it has created in the default repository.
+1. {% data variables.copilot.copilot_coding_agent %} will initiate a {% data variables.copilot.copilot_coding_agent_short %} session and, once the {% data variables.copilot.copilot_coding_agent_short %} has finished, respond with a summary of the changes it plans to make and a link to the pull request it has created in the default repository.
 
 ### Creating an issue with {% data variables.product.prodname_copilot_short %}
 

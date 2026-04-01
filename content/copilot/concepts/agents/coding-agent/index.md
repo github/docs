@@ -1,8 +1,8 @@
 ---
-title: Concepts for GitHub Copilot coding agent
+title: Concepts for GitHub Copilot cloud agent
 shortTitle: '{% data variables.copilot.copilot_coding_agent_short_cap_c %}'
 allowTitleToDifferFromFilename: true
-intro: Learn how {% data variables.copilot.copilot_coding_agent %} can carry out coding tasks for you, working independently in the same workflow you use yourself.
+intro: Learn how {% data variables.copilot.copilot_coding_agent %} can carry out research, planning and coding tasks for you, working independently in the same workflow you use yourself.
 versions:
   feature: copilot
 children:

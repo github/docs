@@ -1,6 +1,7 @@
 ---
-title: Configuring settings for GitHub Copilot coding agent
+title: Configuring settings for GitHub Copilot cloud agent
 shortTitle: Configuring agent settings
+allowTitleToDifferFromFilename: true
 intro: 'Learn how to configure settings for {% data variables.copilot.copilot_coding_agent %}'
 versions:
   feature: copilot

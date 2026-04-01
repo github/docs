@@ -1,6 +1,7 @@
 ---
-title: Customizing the development environment for GitHub Copilot coding agent
+title: Customizing the development environment for GitHub Copilot cloud agent
 shortTitle: Customize the agent environment
+allowTitleToDifferFromFilename: true
 intro: 'Learn how to customize {% data variables.product.prodname_copilot %}''s development environment with additional tools.'
 versions:
   feature: copilot

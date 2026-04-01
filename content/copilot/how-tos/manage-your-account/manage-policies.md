@@ -37,7 +37,7 @@ If you choose to allow suggestions matching public code or use a product that do
 
 ## Disabling or enabling {% data variables.copilot.copilot_coding_agent %} in your repositories
 
-{% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or ask {% data variables.product.prodname_copilot_short %} to raise a pull request from a prompt in {% data variables.copilot.copilot_chat_short %}.
+{% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or prompt {% data variables.product.prodname_copilot_short %} to undertake a task autonomously, such as deep research of a repository, planning, or code changes, with the option to create a pull request when you're ready.
 
 > [!NOTE]
 > * {% data reusables.gated-features.copilot-coding-agent %}
@@ -45,7 +45,7 @@ If you choose to allow suggestions matching public code or use a product that do
 {% data variables.copilot.copilot_coding_agent %} is enabled in all repositories by default, but you can block it from being used in repositories owned by your own personal account by changing your account settings.
 
 {% data reusables.user-settings.copilot-settings %}
-1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Cloud agent**.
 1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Policies," click the dropdown button for "Repository access," then choose either **No repositories**, **All repositories**, or **Only selected repositories**.
 1. If you choose **Only selected repositories**, click **Select repositories** and choose the repositories where you want to enable {% data variables.copilot.copilot_coding_agent %}.
 
@@ -67,7 +67,7 @@ Coding agents have access to the same repositories that {% data variables.copilo
 
 To enable coding agents:
 
-1. Navigate to your account's [coding agent settings](https://github.com/settings/copilot/coding_agent?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-cca-settings-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026).
+1. Navigate to your account's [cloud agent settings](https://github.com/settings/copilot/coding_agent?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-cca-settings-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026).
 1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
 
 ## Enabling or disabling web search for {% data variables.copilot.copilot_chat %}

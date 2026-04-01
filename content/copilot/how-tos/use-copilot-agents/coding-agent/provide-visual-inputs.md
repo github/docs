@@ -20,7 +20,7 @@ category:
 You can provide images to {% data variables.product.prodname_copilot_short %} in two ways:
 
 * **In an issue**: Add an image to the issue body, with a description of the task you want {% data variables.product.prodname_copilot_short %} to complete, then assign the issue to {% data variables.product.prodname_copilot_short %}.
-* **In {% data variables.copilot.copilot_chat_short %}**: Attach images to your prompt when you ask {% data variables.product.prodname_copilot_short %} to create a pull request.
+* **In {% data variables.copilot.copilot_chat_short %}**: Attach images to your prompt when you ask {% data variables.product.prodname_copilot_short %} to undertake a task or create a pull request.
 
 ## Attaching images to an issue
 
@@ -35,10 +35,10 @@ You can provide images to {% data variables.product.prodname_copilot_short %} in
 ## Attaching images in {% data variables.copilot.copilot_chat_short %}
 
 1. Open {% data variables.copilot.copilot_chat_short %}.
-1. Attach your image to the chat prompt, and use `/task` to describe what you want {% data variables.product.prodname_copilot_short %} to do. For example, "Update the notification badge to match this mockup". 
+1. Attach your image to the chat prompt, and use `/task` to describe what you want {% data variables.product.prodname_copilot_short %} to do. For example, "Update the notification badge to match this mockup".
 
    For detailed instructions, see [Asking {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %}](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-githubcom).
-1. {% data variables.product.prodname_copilot_short %} will create a pull request using the image as context for the task.
+1. {% data variables.product.prodname_copilot_short %} will start work using the image as context for the task.
 
 ## Further reading
 

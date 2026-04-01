@@ -1,5 +1,5 @@
 ---
-title: Managing GitHub Copilot coding agent in your enterprise
+title: Managing GitHub Copilot cloud agent in your enterprise
 intro: 'Enable members of your enterprise to use {% data variables.copilot.copilot_coding_agent %} and control the repositories where it is available.'
 allowTitleToDifferFromFilename: true
 permissions: Enterprise owners

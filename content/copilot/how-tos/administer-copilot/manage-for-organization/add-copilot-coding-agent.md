@@ -1,5 +1,5 @@
 ---
-title: Adding GitHub Copilot coding agent to your organization
+title: Adding GitHub Copilot cloud agent to your organization
 intro: 'Enable {% data variables.copilot.copilot_coding_agent %} for your members and control the repositories where it is available.'
 allowTitleToDifferFromFilename: true
 permissions: Organization owners
@@ -52,7 +52,7 @@ Once {% data variables.copilot.copilot_coding_agent %} is enabled for a reposito
 
 ## Next steps
 
-* Tell the members of repositories where {% data variables.copilot.copilot_coding_agent %} is available that they can delegate work to the coding agent.
+* Tell the members of repositories where {% data variables.copilot.copilot_coding_agent %} is available that they can delegate work to the {% data variables.copilot.copilot_coding_agent_short %}.
 * Encourage members to educate themselves about setting up their repository to get the most from {% data variables.copilot.copilot_coding_agent %}. Useful resources:
 
    * [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)

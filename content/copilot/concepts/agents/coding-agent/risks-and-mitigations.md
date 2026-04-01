@@ -1,5 +1,5 @@
 ---
-title: Risks and mitigations for GitHub Copilot coding agent
+title: Risks and mitigations for GitHub Copilot cloud agent
 shortTitle: Risks and mitigations
 intro: 'How do {% data variables.copilot.copilot_coding_agent %}''s built-in security protections mitigate known risks?'
 versions:
