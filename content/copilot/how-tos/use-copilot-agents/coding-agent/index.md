@@ -1,10 +1,12 @@
 ---
-title: GitHub Copilot coding agent
+title: GitHub Copilot cloud agent
 shortTitle: '{% data variables.copilot.copilot_coding_agent_short_cap_c %}'
-intro: 'Find out how {% data variables.product.prodname_copilot_short %} can work on {% data variables.product.github %} issues and raise pull requests for you to review.'
+allowTitleToDifferFromFilename: true
+intro: 'Find out how {% data variables.product.prodname_copilot_short %} can research a repository, plan and make code changes, and create pull requests for you to review.'
 versions:
   feature: copilot
 children:
+  - /research-plan-iterate
   - /create-a-pr
   - /make-changes-to-an-existing-pr
   - /provide-visual-inputs

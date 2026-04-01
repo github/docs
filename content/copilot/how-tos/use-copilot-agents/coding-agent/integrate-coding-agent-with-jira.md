@@ -1,6 +1,7 @@
 ---
-title: Integrating Copilot coding agent with Jira
-shortTitle: Integrate coding agent with Jira
+title: Integrating Copilot cloud agent with Jira
+shortTitle: Integrate cloud agent with Jira
+allowTitleToDifferFromFilename: true
 intro: 'You can use the {% data variables.product.github %} integration in Jira to provide context and open pull requests, all from within your Jira workspace.'
 versions:
   feature: copilot

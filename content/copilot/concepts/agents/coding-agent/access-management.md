@@ -1,5 +1,5 @@
 ---
-title: Managing access to GitHub Copilot coding agent
+title: Managing access to GitHub Copilot cloud agent
 shortTitle: Access management
 allowTitleToDifferFromFilename: true
 intro: Find out about {% data variables.copilot.copilot_coding_agent %} policies available for {% data variables.copilot.copilot_enterprise %} and {% data variables.copilot.copilot_for_business %}, and about disabling the agent for specific repositories.

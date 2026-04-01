@@ -38,7 +38,7 @@ If you pass a task to {% data variables.product.prodname_copilot_short %} by ass
 
 ## Choosing the right type of tasks to give to {% data variables.product.prodname_copilot_short %}
 
-As you work with {% data variables.product.prodname_copilot_short %}, you'll get a sense of the types of tasks it's best suited to work on. Initially, you might want to start by giving {% data variables.product.prodname_copilot_short %} simpler tasks, to see how it works as a coding agent. For example, you could start by asking {% data variables.product.prodname_copilot_short %} to fix bugs, alter user interface features, improve test coverage, update documentation, improve accessibility, or address technical debt.
+As you work with {% data variables.product.prodname_copilot_short %}, you'll get a sense of the types of tasks it's best suited to work on. Initially, you might want to start by giving {% data variables.product.prodname_copilot_short %} simpler tasks, to see how it works as a cloud agent. For example, you could start by asking {% data variables.product.prodname_copilot_short %} to fix bugs, alter user interface features, improve test coverage, update documentation, improve accessibility, or address technical debt.
 
 Issues that you may choose to work on yourself, rather than assigning to {% data variables.product.prodname_copilot_short %}, include:
 
@@ -59,6 +59,18 @@ Issues that you may choose to work on yourself, rather than assigning to {% data
 
 * **Learning tasks**
   * Tasks where the developer wants to learn to achieve a deeper understanding
+
+## Researching, planning, and iterating before opening a pull request
+
+Rather than asking {% data variables.product.prodname_copilot_short %} to open a pull request right away, you can use {% data variables.copilot.copilot_coding_agent %} to research a repository, create an implementation plan, and make iterative code changes on a branch first. This lets you review the diff and refine the work before deciding to open a pull request.
+
+This workflow is useful when you want to:
+
+* Understand how a codebase works before making changes.
+* Agree on an approach with {% data variables.product.prodname_copilot_short %} before any code is written.
+* Review and iterate on changes before opening a pull request for review.
+
+See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/research-plan-iterate).
 
 ## Using comments to iterate on a pull request
 

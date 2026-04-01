@@ -88,7 +88,7 @@ To directly open agent sessions in {% data variables.product.prodname_vscode_sho
 
 You can see a list of your running and past agent sessions for a project in JetBrains IDEs with the {% data variables.copilot.copilot_chat %} extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=jetbrains).
 
-You can see all of {% data variables.product.prodname_copilot_short %}'s sessions by clicking the **GitHub Coding Agent Jobs** button in the sidebar or by clicking the **Open Job List** button after delegating a task to {% data variables.product.prodname_copilot_short %} from {% data variables.copilot.copilot_chat %}.
+You can see all of {% data variables.product.prodname_copilot_short %}'s sessions by clicking the **GitHub Cloud Agent Jobs** button in the sidebar or by clicking the **Open Job List** button after delegating a task to {% data variables.product.prodname_copilot_short %} from {% data variables.copilot.copilot_chat %}.
 
 For each session listed, you can see its status at a glance. Click **Open in Browser** to open the pull request in your browser, or right-click on a running job then click **Cancel Job** to cancel.
 

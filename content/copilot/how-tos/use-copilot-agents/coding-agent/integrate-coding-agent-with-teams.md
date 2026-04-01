@@ -1,6 +1,7 @@
 ---
-title: Integrating Copilot coding agent with Teams
-shortTitle: Integrate coding agent with Teams
+title: Integrating Copilot cloud agent with Teams
+shortTitle: Integrate cloud agent with Teams
+allowTitleToDifferFromFilename: true
 intro: 'You can use the {% data variables.product.github %} integration in Teams to provide context and open pull requests all from within your Teams channels.'
 versions:
   feature: copilot

@@ -44,13 +44,14 @@ copilot_code-review-tools-preview_cap: 'New tools (public preview) in GitHub Cop
 copilot_code-review-tools_short: 'tools in Copilot code review'
 copilot_code-review-tools_cap_short: 'Tools in Copilot code review'
 
-## Copilot coding agent (previously Padawan) -> {% data variables.copilot.copilot_coding_agent %}
-copilot_coding_agent: 'Copilot coding agent'
-copilot_coding_agent_short: 'coding agent'
-copilot_coding_agent_short_cap_c: 'Coding agent'
+## Copilot cloud agent (previously coding agent / Padawan) -> {% data variables.copilot.copilot_coding_agent %}
+copilot_coding_agent: 'Copilot cloud agent'
+copilot_coding_agent_short: 'cloud agent'
+copilot_coding_agent_short_cap_c: 'Cloud agent'
+copilot_cloud_agent_tmp: 'Copilot cloud agent (formerly Copilot coding agent)'
 
 ## Short for "Copilot Extensions agent" -> {% data variables.copilot.copilot_agent_short %}
-## Note: this is NOT a short form for the Copilot coding agent (previously Padawan):
+## Note: this is NOT a short form for the Copilot cloud agent (previously coding agent / Padawan):
 copilot_agent_short: 'Copilot agent'
 copilot_agents_short: 'Copilot agents'
 copilot_agents: 'GitHub Copilot agents'
@@ -184,7 +185,7 @@ copilot_qwen_25: 'Qwen2.5'
 copilot_raptor_mini: 'Raptor mini'
 copilot_goldeneye: 'Goldeneye'
 
-## Current model used by Copilot coding agent and Copilot CLI
+## Current model used by Copilot cloud agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'
 
 ## Next edit suggestions

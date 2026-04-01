@@ -58,7 +58,7 @@ To enable coding agents:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.coding-agent-settings %}
-1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Cloud agent**.
 1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
 
 ## Opting in to previews or feedback

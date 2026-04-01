@@ -1,6 +1,7 @@
 ---
-title: Integrating Copilot coding agent with Azure Boards
-shortTitle: Integrate coding agent with Azure Boards
+title: Integrating Copilot cloud agent with Azure Boards
+shortTitle: Integrate cloud agent with Azure Boards
+allowTitleToDifferFromFilename: true
 intro: 'Use the {% data variables.product.prodname_copilot_short %} integration in Azure Boards to send work items directly to {% data variables.copilot.copilot_coding_agent %} and generate pull requests, all from within your Azure DevOps workspace.'
 versions:
   feature: copilot

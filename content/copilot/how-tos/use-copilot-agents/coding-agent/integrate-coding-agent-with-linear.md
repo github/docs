@@ -1,6 +1,7 @@
 ---
-title: Integrating Copilot coding agent with Linear
-shortTitle: Integrate coding agent with Linear
+title: Integrating Copilot cloud agent with Linear
+shortTitle: Integrate cloud agent with Linear
+allowTitleToDifferFromFilename: true
 intro: 'Use the {% data variables.product.prodname_copilot_short %} integration in Linear to provide context and open pull requests, all from within your Linear workspace.'
 versions:
   feature: copilot
