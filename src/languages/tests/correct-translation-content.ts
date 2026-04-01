@@ -81,6 +81,16 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- nota -%}', 'es')).toBe('{%- note -%}')
     })
 
+    test('fixes otra → else', () => {
+      expect(fix('{% otra %}', 'es')).toBe('{% else %}')
+      expect(fix('{%- otra %}', 'es')).toBe('{%- else %}')
+    })
+
+    test('fixes encabezados de fila → rowheaders', () => {
+      expect(fix('{% encabezados de fila %}', 'es')).toBe('{% rowheaders %}')
+      expect(fix('{%- encabezados de fila %}', 'es')).toBe('{%- rowheaders %}')
+    })
+
     test('fixes multiple or-translations in single ifversion', () => {
       expect(fix('{% ifversion fpt o ghec o ghes %}', 'es')).toBe(
         '{% ifversion fpt or ghec or ghes %}',
@@ -216,6 +226,21 @@ describe('correctTranslatedContentStrings', () => {
       // `{ endif% %}` — percent appears after "endif" instead of after the opening brace
       expect(fix('some content\n{ endif% %}\nmore', 'ja')).toBe('some content\n{% endif %}\nmore')
     })
+
+    test('fixes truncated それ以外の → else', () => {
+      expect(fix('{% それ以外の %}', 'ja')).toBe('{% else %}')
+      expect(fix('{%- それ以外の %}', 'ja')).toBe('{%- else %}')
+    })
+
+    test('fixes それ以外の場合 ifversion X → elsif X', () => {
+      expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview %}', 'ja')).toBe(
+        '{% elsif codeql-rust-public-preview %}',
+      )
+      // no space before closing tag
+      expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview%}', 'ja')).toBe(
+        '{% elsif codeql-rust-public-preview %}',
+      )
+    })
   })
 
   // ─── PORTUGUESE (pt) ───────────────────────────────────────────────
@@ -319,6 +344,11 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes 或 → or in ifversion tags', () => {
       expect(fix('{% ifversion fpt 或 ghec %}', 'zh')).toBe('{% ifversion fpt or ghec %}')
       expect(fix('{%- elsif fpt 或 ghec %}', 'zh')).toBe('{%- elsif fpt or ghec %}')
+    })
+
+    test('fixes 否则 → else', () => {
+      expect(fix('{% 否则 %}', 'zh')).toBe('{% else %}')
+      expect(fix('{%- 否则 %}', 'zh')).toBe('{%- else %}')
     })
   })
 
@@ -474,6 +504,15 @@ describe('correctTranslatedContentStrings', () => {
         fix('{% octicon "организация" aria-hidden="true" aria-label="organization" %}', 'ru'),
       ).toBe('{% octicon "organization" aria-hidden="true" aria-label="organization" %}')
     })
+
+    test('fixes иначе → else', () => {
+      expect(fix('{% иначе %}', 'ru')).toBe('{% else %}')
+      expect(fix('{%- иначе %}', 'ru')).toBe('{%- else %}')
+    })
+
+    test('fixes capitalized Mac → mac platform tag', () => {
+      expect(fix('{% Mac %}', 'ru')).toBe('{% mac %}')
+    })
   })
 
   // ─── FRENCH (fr) ───────────────────────────────────────────────────
@@ -548,6 +587,11 @@ describe('correctTranslatedContentStrings', () => {
       const input = '{% ifversion fpt %}a{% elsif ghec %}b{% endif %}'
       expect(fix(input, 'fr')).toBe(input)
     })
+
+    test('fixes sinon → else', () => {
+      expect(fix('{% sinon %}', 'fr')).toBe('{% else %}')
+      expect(fix('{%- sinon %}', 'fr')).toBe('{%- else %}')
+    })
   })
 
   // ─── KOREAN (ko) ──────────────────────────────────────────────────
@@ -591,6 +635,17 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes Korean glossary template', () => {
       expect(fix('{{ 용어집.term }}', 'ko')).toBe('{{ glossary.term }}')
+    })
+
+    test('fixes 그렇지 않으면 → else', () => {
+      expect(fix('{% 그렇지 않으면 %}', 'ko')).toBe('{% else %}')
+      expect(fix('{%- 그렇지 않으면 %}', 'ko')).toBe('{%- else %}')
+    })
+
+    test('fixes 옥티콘 → octicon', () => {
+      expect(fix('{% 옥티콘 "check" aria-label="Supported" %}', 'ko')).toBe(
+        '{% octicon "check" aria-label="Supported" %}',
+      )
     })
   })
 
@@ -657,9 +712,22 @@ describe('correctTranslatedContentStrings', () => {
         fix('{% Data wiederverwendbare.audit_log.referenz-nach-kategorie-gruppiert %}', 'de'),
       ).toBe('{% data reusables.audit_log.referenz-nach-kategorie-gruppiert %}')
     })
-  })
+    test('fixes wiederverwendbar (without trailing e) reusables path', () => {
+      expect(fix('{% Daten wiederverwendbar.user-settings.access_settings %}', 'de')).toBe(
+        '{% data reusables.user-settings.access_settings %}',
+      )
+    })
 
-  // ─── GENERIC FIXES ────────────────────────────────────────────────
+    test('fixes ansonsten → else', () => {
+      expect(fix('{% ansonsten %}', 'de')).toBe('{% else %}')
+      expect(fix('{%- ansonsten %}', 'de')).toBe('{%- else %}')
+    })
+
+    test('fixes Zeilenkopfzeilen → rowheaders', () => {
+      expect(fix('{% Zeilenkopfzeilen %}', 'de')).toBe('{% rowheaders %}')
+      expect(fix('{%- Zeilenkopfzeilen %}', 'de')).toBe('{%- rowheaders %}')
+    })
+  })
 
   describe('Generic fixes (all languages)', () => {
     test('strips LLM sentinel markers and preserves word boundaries', () => {

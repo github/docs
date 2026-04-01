@@ -66,6 +66,12 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% nota %}', '{% note %}')
     content = content.replaceAll('{%- nota %}', '{%- note %}')
     content = content.replaceAll('{%- nota -%}', '{%- note -%}')
+    // `{% otra %}` / `{%- otra %}` — "another/other" = else
+    content = content.replaceAll('{% otra %}', '{% else %}')
+    content = content.replaceAll('{%- otra %}', '{%- else %}')
+    // `{% encabezados de fila %}` — "row headers" = rowheaders
+    content = content.replaceAll('{% encabezados de fila %}', '{% rowheaders %}')
+    content = content.replaceAll('{%- encabezados de fila %}', '{%- rowheaders %}')
   }
 
   if (context.code === 'ja') {
@@ -104,6 +110,14 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 終了コメント %}', '{% endcomment %}')
     content = content.replaceAll('{% エンドビジュアルスタジオ %}', '{% endvisualstudio %}')
     content = content.replaceAll('{% エクリプス %}', '{% eclipse %}')
+    // `{% それ以外の %}` — truncated form of "in the other case" = else
+    content = content.replaceAll('{% それ以外の %}', '{% else %}')
+    content = content.replaceAll('{%- それ以外の %}', '{%- else %}')
+    // `{% それ以外の場合 ifversion X %}` → `{% elsif X %}` (confused elsif + ifversion)
+    content = content.replace(
+      /\{% それ以外の場合 ifversion\s+(.+?)\s*%\}/g,
+      '{% elsif $1 %}',
+    )
     // `{%- "supported" %}` → `{%- when "supported" %}` (missing `when`)
     // Preserves original trim syntax (`{%-` vs `{%`)
     content = content.replace(/\{%-?\s*"(supported|not_supported|preview)"\s*%\}/g, (match) => {
@@ -220,6 +234,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 数据可重用', '{% data reusables')
     content = content.replaceAll('{% 其他 %}', '{% else %}')
     content = content.replaceAll('{% 原始 %}', '{% raw %}')
+    // `{% 否则 %}` — "otherwise" = else (different Chinese word than 其他)
+    content = content.replaceAll('{% 否则 %}', '{% else %}')
+    content = content.replaceAll('{%- 否则 %}', '{%- else %}')
     // Chinese `如果` = "if": `{ 如果 X %}` → `{% if X %}`
     content = content.replace(/\{ 如果 /g, '{% if ')
     // Stray Chinese `，则为` ("then") merged with `{%` before HTML: `，则为 {%<tag>` → `<tag>`
@@ -305,13 +322,17 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% данных для повторного использования.', '{% data reusables.')
     content = content.replaceAll('{% еще %}', '{% else %}')
     content = content.replaceAll('{% ещё %}', '{% else %}')
+    // `{% иначе %}` — "otherwise" = else
+    content = content.replaceAll('{% иначе %}', '{% else %}')
+    content = content.replaceAll('{%- иначе %}', '{%- else %}')
     content = content.replaceAll('{% необработанные %}', '{% raw %}')
     content = content.replaceAll('{% необработанный %}', '{% raw %}')
     content = content.replaceAll('{% сырой %}', '{% raw %}')
     content = content.replaceAll('{% нарисовать %}', '{% endraw %}')
     content = content.replaceAll('{% эндкёрл %}', '{% endcurl %}')
     content = content.replaceAll('{% запроса %}', '{% endraw %}')
-
+    // `{% Mac %}` — capitalized mac platform tag
+    content = content.replaceAll('{% Mac %}', '{% mac %}')
     // Fix double quotes in Russian YAML files that cause parsing errors
     content = content.replace(/href=""https:\/\//g, 'href="https://')
 
@@ -386,6 +407,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% conseil %}', '{% tip %}')
     content = content.replaceAll('{%- conseil %}', '{%- tip %}')
     content = content.replaceAll('{%- conseil -%}', '{%- tip -%}')
+    // `{% sinon %}` / `{%- sinon %}` — French "otherwise" = else
+    content = content.replaceAll('{% sinon %}', '{% else %}')
+    content = content.replaceAll('{%- sinon %}', '{%- else %}')
     // Remove orphaned {% endif %} tags when no ifversion/elsif opener exists in the content.
     // Caused by translations where only the closing tag survived (e.g. user-api.md reusable).
     if (
@@ -416,6 +440,11 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?또는[^%]*?%\}/g, (match) => {
       return match.replace(/ 또는 /g, ' or ')
     })
+    // `{% 그렇지 않으면 %}` — "otherwise" = else
+    content = content.replaceAll('{% 그렇지 않으면 %}', '{% else %}')
+    content = content.replaceAll('{%- 그렇지 않으면 %}', '{%- else %}')
+    // `{% 옥티콘` — Korean transliteration of "octicon"
+    content = content.replaceAll('{% 옥티콘 ', '{% octicon ')
 
     // Korean translation of github-glossary.md
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')
@@ -431,6 +460,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% data wiederverwendbare.', '{% data reusables.')
     content = content.replaceAll('{% Daten wiederverwendbare.', '{% data reusables.')
     content = content.replaceAll('{% Data wiederverwendbare.', '{% data reusables.')
+    // `wiederverwendbar.` (without trailing 'e') — alternate German form
+    content = content.replaceAll('{% Daten wiederverwendbar.', '{% data reusables.')
     content = content.replaceAll('{%-Daten variables', '{%- data variables')
     content = content.replaceAll('{%-Daten-variables', '{%- data variables')
     content = content.replaceAll('{%- ifversion fpt oder ghec %}', '{%- ifversion fpt or ghec %}')
@@ -453,6 +484,12 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-? für (\w+) in /g, (match) => {
       return match.replace('für', 'for')
     })
+    // `{% ansonsten %}` / `{%- ansonsten %}` — "otherwise" = else
+    content = content.replaceAll('{% ansonsten %}', '{% else %}')
+    content = content.replaceAll('{%- ansonsten %}', '{%- else %}')
+    // `{% Zeilenkopfzeilen %}` — "row headers" = rowheaders
+    content = content.replaceAll('{% Zeilenkopfzeilen %}', '{% rowheaders %}')
+    content = content.replaceAll('{%- Zeilenkopfzeilen %}', '{%- rowheaders %}')
   }
 
   // --- Generic fixes (all languages) ---
