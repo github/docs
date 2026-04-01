@@ -1,0 +1,240 @@
+pip install pygame
+Https://linkhn@linhhn85926286.wordpress.com
+
+import pygame
+
+import time
+
+import random
+
+
+# 1. Cấu hình cơ bản
+
+snake_speed = 15
+
+window_x = 720
+
+window_y = 480
+
+
+# Định nghĩa màu sắc (RGB)
+
+black = pygame.Color(0, 0, 0)
+
+white = pygame.Color(255, 255, 255)
+
+red = pygame.Color(255, 0, 0)
+
+green = pygame.Color(0, 255, 0)
+
+
+# Khởi tạo pygame
+
+pygame.init()
+
+pygame.display.set_caption('Trò chơi Rắn săn mồi - Đối tác lập trình')
+
+game_window = pygame.display.set_mode((window_x, window_y))
+
+fps = pygame.time.Clock()
+
+
+# Vị trí ban đầu của rắn và mồi
+
+snake_position = [100, 50]
+
+snake_body = [[100, 50], [90, 50], [80, 50]]
+
+food_pos = [random.randrange(1, (window_x//10)) * 10, 
+
+            random.randrange(1, (window_y//10)) * 10]
+
+food_spawn = True
+
+
+direction = 'RIGHT'
+
+change_to = direction
+
+score = 0
+
+
+# 2. Vòng lặp chính của trò chơi
+
+while True:
+
+    # Kiểm tra sự kiện bàn phím
+
+    for event in pygame.event.get():
+
+        if event.type == pygame.KEYDOWN:
+
+            if event.key == pygame.K_UP:
+
+                change_to = 'UP'
+
+            if event.key == pygame.K_DOWN:
+
+                change_to = 'DOWN'
+
+            if event.key == pygame.K_LEFT:
+
+                change_to = 'LEFT'
+
+            if event.key == pygame.K_RIGHT:
+
+                change_to = 'RIGHT'
+
+
+    # Đảm bảo rắn không thể quay đầu 180 độ ngay lập tức
+
+    if change_to == 'UP' and direction != 'DOWN':
+
+        direction = 'UP'
+
+    if change_to == 'DOWN' and direction != 'UP':
+
+        direction = 'DOWN'
+
+    if change_to == 'LEFT' and direction != 'RIGHT':
+
+        direction = 'LEFT'
+
+    if change_to == 'RIGHT' and direction != 'LEFT':
+
+        direction = 'RIGHT'
+
+
+    # Di chuyển rắn
+
+    if direction == 'UP':
+
+        snake_position[1] -= 10
+
+    if direction == 'DOWN':
+
+        snake_position[1] += 10
+
+    if direction == 'LEFT':
+
+        snake_position[0] -= 10
+
+    if direction == 'RIGHT':
+
+        snake_position[0] += 10
+
+
+    # Cơ chế ăn mồi và lớn lên
+
+    snake_body.insert(0, list(snake_position))
+
+    if snake_position[0] == food_pos[0] and snake_position[1] == food_pos[1]:
+
+        score += 10
+
+        food_spawn = False
+
+    else:
+
+        snake_body.pop()
+
+        
+
+    if not food_spawn:
+
+        food_pos = [random.randrange(1, (window_x//10)) * 10, 
+
+                    random.randrange(1, (window_y//10)) * 10]
+
+    food_spawn = True
+
+
+    # Vẽ mọi thứ lên màn hình
+
+    game_window.fill(black)
+
+    for pos in snake_body:
+
+        pygame.draw.rect(game_window, green, pygame.Rect(pos[0], pos[1], 10, 10))
+
+    pygame.draw.rect(game_window, white, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
+
+
+    # Điều kiện thua cuộc (Đâm tường hoặc đâm vào thân)
+
+    if snake_position[0] < 0 or snake_position[0] > window_x-10:
+
+        break
+
+    if snake_position[1] < 0 or snake_position[1] > window_y-10:
+
+        break
+
+    for block in snake_body[1:]:
+
+        if snake_position[0] == block[0] and snake_position[1] == block[1]:
+
+            break
+
+
+    pygame.display.update()
+
+    fps.tick(snake_speed)
+
+
+pygame.quit()
+
+
+def show_score(choice, color, font, size, score):
+
+    # Tạo đối tượng font
+
+    score_font = pygame.font.SysFont(font, size)
+
+    
+
+    # Tạo bề mặt hiển thị văn bản (True để làm mượt chữ)
+
+    score_surface = score_font.render('Điểm số : ' + str(score), True, color)
+
+    
+
+    # Tạo hình chữ nhật bao quanh văn bản để định vị
+
+    score_rect = score_surface.get_rect()
+
+    
+
+    # Hiển thị ở góc trên bên trái
+
+    game_window.blit(score_surface, score_rect)
+
+    # Vẽ rắn (Đầu màu vàng, thân màu xanh gradient)
+
+    for i, pos in enumerate(snake_body):
+
+        if i == 0:
+
+            # Đầu rắn
+
+            pygame.draw.rect(game_window, (255, 215, 0), pygame.Rect(pos[0], pos[1], 10, 10))
+
+        else:
+
+            # Thân rắn (màu xanh nhạt dần)
+
+            color_val = max(50, 255 - (i * 5)) 
+
+            pygame.draw.rect(game_window, (0, color_val, 0), pygame.Rect(pos[0], pos[1], 10, 10))
+
+
+    # Vẽ mồi (Màu đỏ rực rỡ với viền trắng)
+
+    pygame.draw.rect(game_window, red, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
+
+    pygame.draw.rect(game_window, white, pygame.Rect(food_pos[0], food_pos[1], 10, 10), 1)
+
+
+    # Gọi hàm hiển thị điểm số
+
+    show_score(1, white, 'times new roman', 20, score)
