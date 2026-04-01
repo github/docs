@@ -6,6 +6,7 @@ versions:
   feature: copilot
 children:
   - /sdk-getting-started
+  - /set-up-copilot-sdk
   - /authenticate-copilot-sdk
   - /use-copilot-sdk
   - /use-hooks
