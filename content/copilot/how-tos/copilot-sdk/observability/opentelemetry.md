@@ -14,7 +14,7 @@ category:
 
 {% data variables.copilot.copilot_sdk %} has built-in support for configuring OpenTelemetry on the CLI process and propagating W3C Trace Context between the SDK and CLI.
 
-For examples in Python, Go, and .NET, see the `github/copilot-sdk` [repository](https://github.com/github/copilot-sdk/blob/main/docs/observability/opentelemetry.md).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/observability/opentelemetry.md).
 
 ## Built-in telemetry support
 
@@ -47,7 +47,7 @@ const client = new CopilotClient({
 
 The SDK can propagate W3C Trace Context (`traceparent`/`tracestate`) on JSON-RPC payloads so that your application's spans and the CLI's spans are linked in one distributed trace. This is useful when, for example, you want to show the SDK call as a child of your request-handling span.
 
-For a detailed sequence diagram of the session flow, see the `github/copilot-sdk` [repository](https://github.com/github/copilot-sdk/blob/main/docs/observability/opentelemetry.md).
+For a detailed sequence diagram of the session flow, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/observability/opentelemetry.md).
 
 ### SDK to CLI (outbound)
 

@@ -34,28 +34,7 @@
 
 - name: 'GPT-5.1'
   provider: 'OpenAI'
-  release_status: 'Closing down: 2026-04-01'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5.1-Codex'
-  provider: 'OpenAI'
-  release_status: 'Closing down: 2026-04-01'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5.1-Codex-Max'
-  provider: 'OpenAI'
-  release_status: 'Closing down: 2026-04-01'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5.1-Codex-Mini'
-  provider: 'OpenAI'
-  release_status: 'Closing down: 2026-04-01'
+  release_status: 'Closing down: 2026-04-15'
   agent_mode: true
   ask_mode: true
   edit_mode: true
