@@ -21,9 +21,6 @@ Used for:
 * {% data variables.copilot.copilot_gpt_41 %}
 * {% data variables.copilot.copilot_gpt_5_mini %}
 * {% data variables.copilot.copilot_gpt_51 %}
-* {% data variables.copilot.copilot_gpt_51_codex %}
-* {% data variables.copilot.copilot_gpt_51_codex_mini %}
-* {% data variables.copilot.copilot_gpt_51_codex_max %}
 * {% data variables.copilot.copilot_gpt_52 %}
 * {% data variables.copilot.copilot_gpt_52_codex %}
 * {% data variables.copilot.copilot_gpt_53_codex %}
