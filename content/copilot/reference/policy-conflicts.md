@@ -34,7 +34,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 
 | Policy | Availability matches | More information |
 | :---- | :---- | :---- |
-| {% data variables.product.prodname_copilot_short %} Metrics API | Most restrictive organization | [AUTOTITLE](/rest/copilot/copilot-metrics) |
+| {% data variables.product.prodname_copilot_short %} Metrics API | Most restrictive organization | {% ifversion ghec %}[AUTOTITLE](/rest/copilot/copilot-usage-metrics){% else %}Not applicable{% endif %} |
 | Suggestions matching public code (privacy policy) | Most restrictive organization | [AUTOTITLE](/copilot/concepts/completions/code-suggestions) |
 | Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %} | Most restrictive organization | [AUTOTITLE](/copilot/responsible-use/code-review) |
 | {% data variables.product.prodname_copilot_short %} can search the web | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-github#leveraging-a-web-search-to-answer-a-question) |
