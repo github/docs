@@ -7,10 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/about-the-codeql-cli
   - /code-security/codeql-cli/using-the-codeql-cli/about-the-codeql-cli
@@ -27,6 +23,8 @@ redirect_from:
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli
   - /code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/advanced-setup-of-the-codeql-cli
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 Software developers and security researchers can secure their code
@@ -114,6 +112,12 @@ codeql github upload-results \
 The {% data variables.product.prodname_codeql_cli %} uses special programs, called extractors, to extract information from the source code of a software system into a database that can be queried. You can customize the behavior of extractors by setting extractor configuration options through the {% data variables.product.prodname_codeql_cli %}. See [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli/extractor-options).
 
 {% data reusables.code-scanning.codeql-license %}
+
+## About {% data variables.product.prodname_codeql_cli %} database bundles
+
+The {% data variables.product.prodname_codeql_cli %} database bundle command can be used to create a relocatable archive of a {% data variables.product.prodname_codeql %} database.
+
+A copy of a database bundle can be used to share troubleshooting information with your team members or with {% data variables.contact.github_support %}. See [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/creating-database-bundle-for-troubleshooting).
 
 ## Getting started
 

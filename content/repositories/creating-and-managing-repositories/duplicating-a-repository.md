@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Create and set up a repository
 ---
 {% ifversion fpt or ghec %}
 

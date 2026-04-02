@@ -8,13 +8,10 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui
+category:
+  - Protect your secrets
 ---
 
 ## About push protection in the {% data variables.product.prodname_dotcom %} UI

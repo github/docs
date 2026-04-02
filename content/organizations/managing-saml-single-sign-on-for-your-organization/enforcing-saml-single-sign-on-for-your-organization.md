@@ -7,6 +7,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Enforce SAML single sign-on
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About enforcement of SAML SSO for your organization

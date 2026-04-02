@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Permanent links to files
+category:
+  - Work with files
 ---
 
 > [!TIP]

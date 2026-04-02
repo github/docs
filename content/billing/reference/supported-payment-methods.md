@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 shortTitle: Supported payment methods
 contentType: reference
+category:
+  - Set up payment
 ---
 
 ## Metered or usage-based billing options

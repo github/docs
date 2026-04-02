@@ -19,6 +19,8 @@ redirect_from:
   - /admin/enterprise-support/receiving-help-from-github-support/submitting-a-ticket
   - /articles/submitting-a-ticket
   - /github/working-with-github-support/submitting-a-ticket
+category:
+  - Contact GitHub
 ---
 
 ## About support tickets
@@ -59,6 +61,7 @@ After you create your ticket, you can view your ticket and the responses from {%
 * Copy exact wording of all error messages related to your issue.
 * Determine if there is an existing ticket number in any ongoing communications with {% data variables.contact.github_support %}.
 * Include relevant logs and attach any screenshots that demonstrate the issue.
+  * When providing screenshots, ensure the full URL is visible in the address bar. This helps {% data variables.contact.github_support %} locate the relevant information more quickly. Be sure to redact any sensitive information.
 
 {% ifversion ghes %}
 

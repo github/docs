@@ -5,9 +5,8 @@ intro: 'You can disable SCIM provisioning for your enterprise''s user accounts.'
 permissions: Site administrators
 versions:
   feature: scim-for-ghes-public-beta
-topics:
-  - Accounts
-  - Enterprise
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}

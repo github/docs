@@ -68,7 +68,8 @@ Get article metadata and content in a single object. Equivalent to calling `/art
   "meta": {
     "title": "About GitHub and Git",
     "intro": "You can use GitHub and Git to collaborate on work.",
-    "product": "Get started"
+    "product": "Get started",
+    "documentType": "article"
   },
   "body": "## About GitHub\n\nGitHub is a cloud-based platform where you can store, share, and work together with others to write code.\n\nStoring your code in a \"repository\" on GitHub allows you to:\n\n* **Showcase or share** your work.\n [...]"
 }
@@ -111,7 +112,7 @@ Get metadata about an article.
 **Parameters**:
 - **pathname** (string) - Article path (e.g. '/en/get-started/article-name')
 
-**Returns**: (object) - JSON object containing article metadata with title, intro, and product information.
+**Returns**: (object) - JSON object containing article metadata with title, intro, product, and documentType information.
 
 **Throws**:
 - (Error): 400 - If pathname parameter is invalid.
@@ -124,6 +125,7 @@ Get metadata about an article.
   "title": "About GitHub and Git",
   "intro": "You can use GitHub and Git to collaborate on work.",
   "product": "Get started",
+  "documentType": "article",
   "breadcrumbs": [
     {
       "href": "/en/get-started",

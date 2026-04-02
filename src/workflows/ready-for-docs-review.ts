@@ -155,10 +155,16 @@ async function run() {
   const size = getSize(data)
   const sizeType = findSingleSelectID(size, 'Size', data)
 
+  // Check if the author is a bot account (e.g. dependabot[bot], github-actions[bot]).
+  // GitHub bot logins end with '[bot]' and cannot be resolved as regular GitHub users,
+  // so we skip any user-specific GraphQL queries for them.
+  const isBotAuthor = (process.env.AUTHOR_LOGIN || '').endsWith('[bot]')
+
   // If this is the OS repo, determine if this is a first time contributor
   // If yes, set the author to 'first time contributor' instead of to the author login
+  // Bot accounts (e.g. dependabot[bot]) are not resolvable as GitHub users, so skip this check.
   let firstTimeContributor
-  if (process.env.REPO === 'github/docs') {
+  if (!isBotAuthor && process.env.REPO === 'github/docs') {
     const contributorData: Record<string, unknown> = await graphql(
       `
         query ($author: String!) {
@@ -242,8 +248,8 @@ async function run() {
 
   // Determine which variable to use for the contributor type
   let contributorType
-  if (isCopilotAuthor) {
-    // Treat Copilot PRs as Docs team
+  if (isCopilotAuthor || isBotAuthor) {
+    // Treat Copilot and bot-authored PRs (e.g. dependabot[bot]) as Docs team
     contributorType = docsMemberTypeID
   } else if (await isDocsTeamMember(process.env.AUTHOR_LOGIN || '')) {
     contributorType = docsMemberTypeID

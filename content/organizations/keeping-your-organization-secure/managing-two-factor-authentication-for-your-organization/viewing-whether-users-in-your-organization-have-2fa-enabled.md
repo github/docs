@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: View 2FA usage
+category:
+  - Manage authentication methods
 ---
 
 > [!NOTE]

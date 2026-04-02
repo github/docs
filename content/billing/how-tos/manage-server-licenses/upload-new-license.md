@@ -8,6 +8,8 @@ shortTitle: Upload new license
 redirect_from:
   - /billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 ## About license files for {% data variables.product.prodname_ghe_server %}

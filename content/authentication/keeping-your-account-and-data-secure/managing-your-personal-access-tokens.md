@@ -15,6 +15,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage access credentials
 ---
 
 > [!WARNING]

@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Customize your experience
 ---
 ## About keyboard shortcuts
 
@@ -49,6 +51,7 @@ The following sections list some of the available keyboard shortcuts, organized 
 | {% endif %} |
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis). |
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
+|<kbd>G</kbd> <kbd>S</kbd> | Go to the repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab. For more information, see [AUTOTITLE](/code-security/getting-started/github-security-features).
 
 ## Source code editing
 

@@ -10,12 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 shortTitle: Dependency graph
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 
@@ -23,13 +21,13 @@ contentType: concepts
 
 {% data reusables.dependabot.about-the-dependency-graph %}
 
-When you push a commit to {% data variables.product.github %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %}
-
 For information on the supported ecosystems and manifest files, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 
-{% data reusables.dependency-submission.dependency-submission-link %}
-
 When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
+
+## How the dependency graph is built
+
+The dependency graph automatically parses dependencies by analyzing manifests and lock files in your repository. You can also submit data yourself. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph-data).
 
 ## Dependency graph availability
 
@@ -44,17 +42,6 @@ When you create a pull request containing changes to dependencies that targets t
 
 {% ifversion ghes %}
 For more information about configuration of the dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).{% endif %}
-
-## Dependencies included
-
-The dependency graph includes all the dependencies of a repository that are detailed in the manifest and lock files, or their equivalent, for supported ecosystems, as well as any dependencies that are submitted using the {% data variables.dependency-submission-api.name %}. This includes:
-
-* Direct dependencies, that are explicitly defined in a manifest or lock file or have been submitted using the {% data variables.dependency-submission-api.name %}
-* Indirect dependencies of these direct dependencies, also known as transitive dependencies or sub-dependencies
-
-The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} only if they are defined in a lock file or have been submitted using the {% data variables.dependency-submission-api.name %}. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}. If your ecosystem does not have lock files, you can use pre-made actions that resolve transitive dependencies for many ecosystems. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api#using-pre-made-actions).
-
-For more information on how {% data variables.product.github %} helps you understand the dependencies in your environment, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
 
 {% ifversion fpt or ghec %}
 

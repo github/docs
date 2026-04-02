@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Organize teams
 ---
 
 {% data reusables.organizations.types-of-team-visibility %}

@@ -394,4 +394,69 @@ describe('getAutomaticRequestLogger', () => {
       }
     })
   })
+
+  describe('pod identity fields in production logs', () => {
+    // Helper to build a minimal mock res/req and trigger res.end
+    async function runMiddlewareAndCapture(
+      middleware: ReturnType<
+        typeof import('@/observability/logger/middleware/get-automatic-request-logger').getAutomaticRequestLogger
+      >,
+    ): Promise<string[]> {
+      const logs: string[] = []
+      const savedLog = console.log
+      console.log = vi.fn((msg: string) => logs.push(msg))
+
+      const req = { method: 'GET', url: '/test', originalUrl: '/test' }
+      const originalEnd = vi.fn()
+      const res = {
+        statusCode: 200,
+        getHeader: vi.fn(() => '0'),
+        end: originalEnd,
+      }
+      const next = vi.fn()
+
+      middleware(req as Request, res as unknown as Response, next)
+      ;(res as unknown as { end: () => void }).end()
+      await new Promise((resolve) => setTimeout(resolve, 20))
+
+      console.log = savedLog
+      return logs
+    }
+
+    it('should include podName, podNamespace, nodeHostname in logfmt output when env vars are set', async () => {
+      vi.stubEnv('POD_NAME', 'webapp-abc123')
+      vi.stubEnv('POD_NAMESPACE', 'docs-internal-staging-cedar')
+      vi.stubEnv('KUBE_NODE_HOSTNAME', 'ghe-k8s-node-42')
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+      vi.stubEnv('NODE_ENV', 'production')
+
+      vi.resetModules()
+      const { getAutomaticRequestLogger: freshGetMiddleware } =
+        await import('@/observability/logger/middleware/get-automatic-request-logger')
+
+      const logs = await runMiddlewareAndCapture(freshGetMiddleware())
+      expect(logs).toHaveLength(1)
+      expect(logs[0]).toContain('podName=webapp-abc123')
+      expect(logs[0]).toContain('podNamespace=docs-internal-staging-cedar')
+      expect(logs[0]).toContain('nodeHostname=ghe-k8s-node-42')
+    })
+
+    it('should not include pod identity fields when env vars are absent', async () => {
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+      vi.stubEnv('NODE_ENV', 'production')
+      delete process.env.POD_NAME
+      delete process.env.POD_NAMESPACE
+      delete process.env.KUBE_NODE_HOSTNAME
+
+      vi.resetModules()
+      const { getAutomaticRequestLogger: freshGetMiddleware } =
+        await import('@/observability/logger/middleware/get-automatic-request-logger')
+
+      const logs = await runMiddlewareAndCapture(freshGetMiddleware())
+      expect(logs).toHaveLength(1)
+      expect(logs[0]).not.toContain('podName=')
+      expect(logs[0]).not.toContain('podNamespace=')
+      expect(logs[0]).not.toContain('nodeHostname=')
+    })
+  })
 })

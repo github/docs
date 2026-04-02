@@ -11,6 +11,9 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/defining-outputs-for-jobs
   - /actions/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs
+category:
+  - Write workflows
+contentType: how-tos
 ---
 
 ## Defining and using job outputs
@@ -62,3 +65,6 @@ redirect_from:
 To learn more about job outputs and the `needs` context, see the following sections of [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idoutputs):
 * [`jobs.<job_id>.outputs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idoutputs)
 * [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)
+
+To learn more about passing job outputs from one workflow to another, see the following section of [AUTOTITLE](/actions/how-tos/reuse-automations/reuse-workflows):
+* [Using outputs from a reusable workflow](/actions/how-tos/reuse-automations/reuse-workflows#using-outputs-from-a-reusable-workflow)

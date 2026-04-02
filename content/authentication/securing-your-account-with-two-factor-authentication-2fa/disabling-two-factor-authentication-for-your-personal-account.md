@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Disable 2FA
+category:
+  - Set up two-factor authentication
 ---
 
 {% ifversion mandatory-2fa-dotcom-contributors %}

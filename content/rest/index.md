@@ -7,24 +7,33 @@ intro: >-
 introLinks:
   overview: /rest/about-the-rest-api/about-the-rest-api
   quickstart: /rest/quickstart
-featuredLinks:
-  startHere:
-    - /rest/about-the-rest-api/about-the-rest-api
+changelog:
+  label: api, apis
+layout: discovery-landing
+includedCategories:
+  - Learn about the REST API
+  - Authenticate API requests
+  - Build apps and integrations
+  - Manage repositories and code
+  - Manage issues, pull requests, and projects
+  - Automate CI/CD workflows
+  - Secure code and manage vulnerabilities
+  - Manage organizations and teams
+  - Administer enterprises and billing
+  - Manage users and activity
+  - Use Codespaces
+  - Use Copilot and AI services
+carousels:
+  recommended:
+    - /rest/quickstart
     - /rest/using-the-rest-api/getting-started-with-the-rest-api
     - /rest/authentication/authenticating-to-the-rest-api
     - /rest/using-the-rest-api/best-practices-for-using-the-rest-api
-  popular:
     - /rest/using-the-rest-api/rate-limits-for-the-rest-api
-    - /rest/using-the-rest-api/troubleshooting-the-rest-api
-    - /rest/guides/scripting-with-the-rest-api-and-javascript
     - /rest/authentication/keeping-your-api-credentials-secure
-  guideCards:
-    - /rest/guides/delivering-deployments
-    - /rest/guides/using-the-rest-api-to-interact-with-checks
+    - /rest/guides/scripting-with-the-rest-api-and-javascript
+    - /rest/using-the-rest-api/troubleshooting-the-rest-api
     - /rest/using-the-rest-api/using-pagination-in-the-rest-api
-changelog:
-  label: api, apis
-layout: product-landing
 redirect_from:
   - /v3
   - /rest/reference
@@ -42,6 +51,7 @@ children:
   - /guides
   - /actions
   - /activity
+  - /agent-tasks
   - /announcement-banners
   - /apps
   - /billing

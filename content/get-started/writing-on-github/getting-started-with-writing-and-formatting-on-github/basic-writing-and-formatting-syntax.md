@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
+category:
+  - Write and format content
 ---
 ## Headings
 

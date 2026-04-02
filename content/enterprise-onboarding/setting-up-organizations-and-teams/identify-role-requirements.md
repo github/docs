@@ -1,10 +1,10 @@
 ---
 title: Identifying the roles required by your enterprise
-intro: 'Use teams to manage permissions, notifications, and code ownership in your organizations.'
+intro: Use teams to manage permissions, notifications, and code ownership in your organizations.
 versions:
   ghec: '*'
 shortTitle: Identify role requirements
-type: how_to
+contentType: how-tos
 ---
 
 {% data reusables.enterprise-onboarding.identify-role-requirements %}

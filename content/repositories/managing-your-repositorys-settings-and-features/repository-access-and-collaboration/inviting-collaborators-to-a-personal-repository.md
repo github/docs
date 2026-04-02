@@ -17,6 +17,8 @@ versions:
   ghec: '*'
 shortTitle: Invite collaborators
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 
 ## Inviting a collaborator to a personal repository

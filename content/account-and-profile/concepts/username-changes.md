@@ -19,6 +19,8 @@ versions:
   ghec: '*'
 shortTitle: Username changes
 contentType: concepts
+category:
+  - Set up your account
 ---
 
 ## About username changes

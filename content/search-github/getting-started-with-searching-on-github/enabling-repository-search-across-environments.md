@@ -12,6 +12,8 @@ redirect_from:
   - /search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 versions:
   ghes: '*'
+category:
+  - Get started with search
 ---
 
 You can search for designated private repositories on {% data variables.product.prodname_ghe_cloud %} from {% data variables.location.product_location %}. For more information about searching across environments, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment).

@@ -25,6 +25,8 @@ versions:
   ghec: '*'
 permissions: 'People with admin permissions or a custom role with the "edit repository rules" permission to a repository can manage branch protection rules.'
 shortTitle: Branch protection rule
+category:
+  - Manage branches and protect code
 ---
 ## About branch protection rules
 

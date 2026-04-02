@@ -9,4 +9,7 @@ children:
   - /interpret-copilot-metrics
   - /reconciling-usage-metrics
   - /lines-of-code-metrics
+  - /example-schema
+contentType: reference
 ---
+

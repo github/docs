@@ -23,7 +23,7 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
-import { ViewMarkdownButton } from './ViewMarkdownButton'
+import { CopyMarkdownMenu } from './ViewMarkdownButton'
 import { ExperimentContentSwap } from '@/events/components/experiments/ExperimentContentSwap'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
@@ -77,7 +77,7 @@ export const ArticlePage = () => {
 
   const toc = (
     <>
-      <ViewMarkdownButton currentPath={currentPath} />
+      <CopyMarkdownMenu currentPath={currentPath} />
       {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
       {isJourneyTrack && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}

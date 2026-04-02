@@ -11,6 +11,8 @@ redirect_from:
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/downloading-your-github-advanced-security-usage
   - /billing/how-tos/products/download-ghas-license-use
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 You can download CSV files with details of paid license use through the {% data variables.product.github %} user interface or the REST API.

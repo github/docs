@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 shortTitle: Account
 contentType: get-started
+category:
+  - Set up your account
 ---
 
 ## About your {% data variables.product.github %} account

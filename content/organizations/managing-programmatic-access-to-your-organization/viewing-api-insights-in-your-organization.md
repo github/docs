@@ -6,6 +6,8 @@ permissions: 'Organization owners and users with the "View organization API insi
 product: 'Your organization must be on a {% data variables.product.prodname_ghe_cloud %} plan.'
 versions:
   feature: 'api-insights'
+category:
+  - Manage app and API access
 ---
 
 ## About API insights

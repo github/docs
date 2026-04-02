@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 shortTitle: 'Manage {% data variables.projects.projects_v2 %} base permissions'
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 ## About base permissions for {% data variables.projects.projects_v2 %}

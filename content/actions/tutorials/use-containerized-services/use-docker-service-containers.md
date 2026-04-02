@@ -1,7 +1,7 @@
 ---
 title: Communicating with Docker service containers
 shortTitle: Use Docker service containers
-intro: 'Learn how to use Docker service containers to connect databases, web services, memory caches, and other tools to your workflow.'
+intro: Learn how to use Docker service containers to connect databases, web services, memory caches, and other tools to your workflow.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
@@ -15,7 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: tutorials
+category:
+  - Build and test code
 ---
 
 ## Communicating with Docker service containers

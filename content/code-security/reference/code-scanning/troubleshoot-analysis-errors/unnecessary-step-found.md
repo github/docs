@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/unnecessary-step-found
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/unnecessary-step-found
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this warning
@@ -54,5 +56,3 @@ Remove the lines from the {% data variables.product.prodname_codeql %} workflow.
 
       # ...
 ```
-
-For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow).

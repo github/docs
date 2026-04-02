@@ -6,6 +6,8 @@ versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/about-using-vs-code-with-github-classroom
+category:
+  - Integrate GitHub Classroom with an IDE
 ---
 
 > [!NOTE]

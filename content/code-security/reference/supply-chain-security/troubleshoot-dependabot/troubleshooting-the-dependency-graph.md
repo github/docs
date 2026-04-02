@@ -7,18 +7,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Troubleshooting
-  - Errors
-  - Dependencies
-  - Vulnerabilities
-  - Dependency graph
-  - CVEs
-  - Repositories
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph
   - /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-dependency-graph
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% data reusables.dependabot.result-discrepancy %}

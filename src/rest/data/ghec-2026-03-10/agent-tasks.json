@@ -1,0 +1,2121 @@
+{
+  "agent-tasks": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/agents/repos/{owner}/{repo}/tasks",
+      "title": "List tasks for repository",
+      "category": "agent-tasks",
+      "subcategory": "agent-tasks",
+      "parameters": [
+        {
+          "name": "owner",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>"
+        },
+        {
+          "name": "repo",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The name of the repository. The name is not case sensitive.</p>"
+        },
+        {
+          "name": "per_page",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "description": "<p>The number of results per page (max 100).</p>"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          },
+          "description": "<p>The page number of the results to fetch.</p>"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "default": "updated_at",
+            "enum": [
+              "updated_at",
+              "created_at"
+            ]
+          },
+          "description": "<p>The field to sort results by. Can be <code>updated_at</code> or <code>created_at</code>.</p>"
+        },
+        {
+          "name": "direction",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "description": "<p>The direction to sort results. Can be <code>asc</code> or <code>desc</code>.</p>"
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>Comma-separated list of task states to filter by. Can be any combination of: <code>queued</code>, <code>in_progress</code>, <code>completed</code>, <code>failed</code>, <code>idle</code>, <code>waiting_for_user</code>, <code>timed_out</code>, <code>cancelled</code>.</p>"
+        },
+        {
+          "name": "is_archived",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "<p>Filter by archived status. When <code>true</code>, returns only archived tasks. When <code>false</code>, returns only non-archived tasks.</p>"
+        },
+        {
+          "name": "since",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": "<p>Only show tasks updated at or after this time (ISO 8601 timestamp)</p>"
+        },
+        {
+          "name": "creator_id",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          },
+          "description": "<p>Filter tasks by creator user ID</p>"
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns a list of tasks for a specific repository</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Tasks retrieved successfully</p>",
+            "example": {
+              "tasks": [
+                {
+                  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "name": "Fix the login button on the homepage",
+                  "creator": {
+                    "id": 1
+                  },
+                  "creator_type": "user",
+                  "owner": {
+                    "id": 1
+                  },
+                  "repository": {
+                    "id": 1296269
+                  },
+                  "state": "completed",
+                  "session_count": 1,
+                  "artifacts": [
+                    {
+                      "provider": "github",
+                      "type": "github_resource",
+                      "data": {
+                        "id": 42,
+                        "type": "pull_request"
+                      }
+                    }
+                  ],
+                  "archived_at": null,
+                  "created_at": "2025-01-01T00:00:00Z",
+                  "updated_at": "2025-01-01T01:00:00Z"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "tasks"
+              ],
+              "properties": {
+                "tasks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "state",
+                      "created_at"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique task identifier"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "API URL for this task"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "description": "Web URL for this task"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Human-readable name derived from the task prompt"
+                      },
+                      "creator": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A GitHub user",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The unique identifier of the user"
+                              }
+                            }
+                          }
+                        ],
+                        "description": "The entity who created this task"
+                      },
+                      "creator_type": {
+                        "type": "string",
+                        "description": "Type of the task creator",
+                        "enum": [
+                          "user",
+                          "organization"
+                        ]
+                      },
+                      "user_collaborators": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "description": "A GitHub user",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "The unique identifier of the user"
+                            }
+                          }
+                        },
+                        "description": "User objects of collaborators on this task",
+                        "deprecated": true
+                      },
+                      "owner": {
+                        "description": "The owner of the repository",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "The unique identifier of the user"
+                          }
+                        }
+                      },
+                      "repository": {
+                        "description": "The repository this task belongs to",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "The unique identifier of the repository"
+                          }
+                        }
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "Current state of the task, derived from its most recent session",
+                        "enum": [
+                          "queued",
+                          "in_progress",
+                          "completed",
+                          "failed",
+                          "idle",
+                          "waiting_for_user",
+                          "timed_out",
+                          "cancelled"
+                        ]
+                      },
+                      "session_count": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Number of sessions in this task"
+                      },
+                      "artifacts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "description": "A resource generated by the task",
+                          "required": [
+                            "provider",
+                            "type",
+                            "data"
+                          ],
+                          "properties": {
+                            "provider": {
+                              "type": "string",
+                              "enum": [
+                                "github"
+                              ],
+                              "description": "Provider namespace"
+                            },
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "github_resource",
+                                "branch"
+                              ],
+                              "description": "Discriminator for data shape"
+                            },
+                            "data": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "description": "A GitHub resource (pull request, issue, etc.)",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer",
+                                      "format": "int64",
+                                      "description": "GitHub resource ID"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "Resource type (e.g., pull_request, issue)"
+                                    },
+                                    "global_id": {
+                                      "type": "string",
+                                      "description": "GraphQL global ID"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "description": "A Git branch reference",
+                                  "properties": {
+                                    "head_ref": {
+                                      "type": "string",
+                                      "description": "Head branch name"
+                                    },
+                                    "base_ref": {
+                                      "type": "string",
+                                      "description": "Base branch name"
+                                    }
+                                  }
+                                }
+                              ],
+                              "description": "Resource data (shape depends on type)"
+                            }
+                          }
+                        },
+                        "description": "Resources created by this task (PRs, branches, etc.)"
+                      },
+                      "archived_at": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time",
+                        "description": "Timestamp when the task was archived, null if not archived"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Timestamp of the most recent update"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Timestamp when the task was created"
+                      }
+                    }
+                  },
+                  "description": "List of tasks"
+                },
+                "total_active_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Total count of active (non-archived) tasks"
+                },
+                "total_archived_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Total count of archived tasks"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Tasks retrieved successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Authentication required</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Insufficient permissions</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation Failed</p>"
+        }
+      ],
+      "previews": []
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/agents/repos/{owner}/{repo}/tasks",
+      "title": "Create a task",
+      "category": "agent-tasks",
+      "subcategory": "agent-tasks",
+      "parameters": [
+        {
+          "name": "owner",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>"
+        },
+        {
+          "name": "repo",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The name of the repository. The name is not case sensitive.</p>"
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "integer",
+          "name": "agent_id",
+          "description": "<p>Agent ID (optional, defaults to coding agent)</p>"
+        },
+        {
+          "type": "string",
+          "name": "problem_statement",
+          "description": "<p>Additional prompting for the agent</p>"
+        },
+        {
+          "type": "string",
+          "name": "event_content",
+          "description": "<p>User's written prompt</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "model",
+          "description": "<p>Model identifier</p>"
+        },
+        {
+          "type": "string",
+          "name": "custom_agent",
+          "description": "<p>Custom agent identifier</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "create_pull_request",
+          "description": "<p>Whether to create a PR</p>"
+        },
+        {
+          "type": "string",
+          "name": "base_ref",
+          "description": "<p>Base ref for new branch/PR</p>"
+        },
+        {
+          "type": "string",
+          "name": "event_type",
+          "description": "<p>Type of event</p>"
+        },
+        {
+          "type": "string",
+          "name": "event_url",
+          "description": "<p>URL of the triggering event</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "event_identifiers",
+          "description": "<p>Identifiers for tracking</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Creates a new task for a repository</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "event_content": "Fix the login button on the homepage",
+              "create_pull_request": true,
+              "base_ref": "main"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Task created successfully</p>",
+            "example": {
+              "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "name": "Fix the login button on the homepage",
+              "creator": {
+                "id": 1
+              },
+              "creator_type": "user",
+              "owner": {
+                "id": 1
+              },
+              "repository": {
+                "id": 1296269
+              },
+              "state": "queued",
+              "session_count": 1,
+              "artifacts": [],
+              "archived_at": null,
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T00:00:00Z"
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "id",
+                "state",
+                "created_at"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique task identifier"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "API URL for this task"
+                },
+                "html_url": {
+                  "type": "string",
+                  "description": "Web URL for this task"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Human-readable name derived from the task prompt"
+                },
+                "creator": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "description": "A GitHub user",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "The unique identifier of the user"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "The entity who created this task"
+                },
+                "creator_type": {
+                  "type": "string",
+                  "description": "Type of the task creator",
+                  "enum": [
+                    "user",
+                    "organization"
+                  ]
+                },
+                "user_collaborators": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "A GitHub user",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The unique identifier of the user"
+                      }
+                    }
+                  },
+                  "description": "User objects of collaborators on this task",
+                  "deprecated": true
+                },
+                "owner": {
+                  "description": "The owner of the repository",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "The unique identifier of the user"
+                    }
+                  }
+                },
+                "repository": {
+                  "description": "The repository this task belongs to",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "The unique identifier of the repository"
+                    }
+                  }
+                },
+                "state": {
+                  "type": "string",
+                  "description": "Current state of the task, derived from its most recent session",
+                  "enum": [
+                    "queued",
+                    "in_progress",
+                    "completed",
+                    "failed",
+                    "idle",
+                    "waiting_for_user",
+                    "timed_out",
+                    "cancelled"
+                  ]
+                },
+                "session_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Number of sessions in this task"
+                },
+                "artifacts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "A resource generated by the task",
+                    "required": [
+                      "provider",
+                      "type",
+                      "data"
+                    ],
+                    "properties": {
+                      "provider": {
+                        "type": "string",
+                        "enum": [
+                          "github"
+                        ],
+                        "description": "Provider namespace"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "github_resource",
+                          "branch"
+                        ],
+                        "description": "Discriminator for data shape"
+                      },
+                      "data": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A GitHub resource (pull request, issue, etc.)",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "GitHub resource ID"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "Resource type (e.g., pull_request, issue)"
+                              },
+                              "global_id": {
+                                "type": "string",
+                                "description": "GraphQL global ID"
+                              }
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "description": "A Git branch reference",
+                            "properties": {
+                              "head_ref": {
+                                "type": "string",
+                                "description": "Head branch name"
+                              },
+                              "base_ref": {
+                                "type": "string",
+                                "description": "Base branch name"
+                              }
+                            }
+                          }
+                        ],
+                        "description": "Resource data (shape depends on type)"
+                      }
+                    }
+                  },
+                  "description": "Resources created by this task (PRs, branches, etc.)"
+                },
+                "archived_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "Timestamp when the task was archived, null if not archived"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp of the most recent update"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp when the task was created"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Task created successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Problems parsing JSON</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Authentication required</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Insufficient permissions</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation Failed</p>"
+        }
+      ],
+      "previews": []
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/agents/repos/{owner}/{repo}/tasks/{task_id}",
+      "title": "Get a task by repo",
+      "category": "agent-tasks",
+      "subcategory": "agent-tasks",
+      "parameters": [
+        {
+          "name": "owner",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>"
+        },
+        {
+          "name": "repo",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The name of the repository. The name is not case sensitive.</p>"
+        },
+        {
+          "name": "task_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The unique identifier of the task.</p>"
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns a task by ID scoped to an owner/repo path</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "task_id": "TASK_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Task retrieved successfully</p>",
+            "example": {
+              "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "name": "Fix the login button on the homepage",
+              "creator": {
+                "id": 1
+              },
+              "creator_type": "user",
+              "owner": {
+                "id": 1
+              },
+              "repository": {
+                "id": 1296269
+              },
+              "state": "completed",
+              "session_count": 1,
+              "artifacts": [
+                {
+                  "provider": "github",
+                  "type": "github_resource",
+                  "data": {
+                    "id": 42,
+                    "type": "pull_request"
+                  }
+                }
+              ],
+              "archived_at": null,
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T01:00:00Z",
+              "sessions": [
+                {
+                  "id": "s1a2b3c4-d5e6-7890-abcd-ef1234567890",
+                  "name": "Fix the login button on the homepage",
+                  "user": {
+                    "id": 1
+                  },
+                  "owner": {
+                    "id": 1
+                  },
+                  "repository": {
+                    "id": 1296269
+                  },
+                  "task_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "state": "completed",
+                  "created_at": "2025-01-01T00:00:00Z",
+                  "updated_at": "2025-01-01T01:00:00Z",
+                  "completed_at": "2025-01-01T01:00:00Z",
+                  "event_content": "Fix the login button on the homepage",
+                  "head_ref": "copilot/fix-1",
+                  "base_ref": "main"
+                }
+              ]
+            },
+            "schema": {
+              "allOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "state",
+                    "created_at"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique task identifier"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "API URL for this task"
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "description": "Web URL for this task"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Human-readable name derived from the task prompt"
+                    },
+                    "creator": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "description": "A GitHub user",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "The unique identifier of the user"
+                            }
+                          }
+                        }
+                      ],
+                      "description": "The entity who created this task"
+                    },
+                    "creator_type": {
+                      "type": "string",
+                      "description": "Type of the task creator",
+                      "enum": [
+                        "user",
+                        "organization"
+                      ]
+                    },
+                    "user_collaborators": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A GitHub user",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "The unique identifier of the user"
+                          }
+                        }
+                      },
+                      "description": "User objects of collaborators on this task",
+                      "deprecated": true
+                    },
+                    "owner": {
+                      "description": "The owner of the repository",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "The unique identifier of the user"
+                        }
+                      }
+                    },
+                    "repository": {
+                      "description": "The repository this task belongs to",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "The unique identifier of the repository"
+                        }
+                      }
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "Current state of the task, derived from its most recent session",
+                      "enum": [
+                        "queued",
+                        "in_progress",
+                        "completed",
+                        "failed",
+                        "idle",
+                        "waiting_for_user",
+                        "timed_out",
+                        "cancelled"
+                      ]
+                    },
+                    "session_count": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "Number of sessions in this task"
+                    },
+                    "artifacts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A resource generated by the task",
+                        "required": [
+                          "provider",
+                          "type",
+                          "data"
+                        ],
+                        "properties": {
+                          "provider": {
+                            "type": "string",
+                            "enum": [
+                              "github"
+                            ],
+                            "description": "Provider namespace"
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "github_resource",
+                              "branch"
+                            ],
+                            "description": "Discriminator for data shape"
+                          },
+                          "data": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "description": "A GitHub resource (pull request, issue, etc.)",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "description": "GitHub resource ID"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "description": "Resource type (e.g., pull_request, issue)"
+                                  },
+                                  "global_id": {
+                                    "type": "string",
+                                    "description": "GraphQL global ID"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "description": "A Git branch reference",
+                                "properties": {
+                                  "head_ref": {
+                                    "type": "string",
+                                    "description": "Head branch name"
+                                  },
+                                  "base_ref": {
+                                    "type": "string",
+                                    "description": "Base branch name"
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "Resource data (shape depends on type)"
+                          }
+                        }
+                      },
+                      "description": "Resources created by this task (PRs, branches, etc.)"
+                    },
+                    "archived_at": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "date-time",
+                      "description": "Timestamp when the task was archived, null if not archived"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp of the most recent update"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the task was created"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "sessions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Full session details within a task",
+                        "required": [
+                          "id",
+                          "state",
+                          "created_at"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Session ID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Session name"
+                          },
+                          "user": {
+                            "description": "The user who created this session",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The unique identifier of the user"
+                              }
+                            }
+                          },
+                          "owner": {
+                            "description": "The owner of the repository",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The unique identifier of the user"
+                              }
+                            }
+                          },
+                          "repository": {
+                            "description": "The repository this session belongs to",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The unique identifier of the repository"
+                              }
+                            }
+                          },
+                          "agent_id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Agent ID"
+                          },
+                          "agent_task_id": {
+                            "type": "string",
+                            "description": "Agent internal task ID"
+                          },
+                          "task_id": {
+                            "type": "string",
+                            "description": "Task ID this session belongs to"
+                          },
+                          "state": {
+                            "type": "string",
+                            "description": "Current state of a session",
+                            "enum": [
+                              "queued",
+                              "in_progress",
+                              "completed",
+                              "failed",
+                              "idle",
+                              "waiting_for_user",
+                              "timed_out",
+                              "cancelled"
+                            ]
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Creation timestamp"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Last update timestamp"
+                          },
+                          "completed_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Completion timestamp"
+                          },
+                          "event_type": {
+                            "type": "string",
+                            "description": "Type of event that triggered this session"
+                          },
+                          "event_url": {
+                            "type": "string",
+                            "description": "URL of the triggering event"
+                          },
+                          "event_content": {
+                            "type": "string",
+                            "description": "Content of the triggering event"
+                          },
+                          "event_identifiers": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Identifiers for tracking"
+                          },
+                          "resource_type": {
+                            "type": "string",
+                            "description": "Type of resource associated with this session"
+                          },
+                          "resource_id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Resource ID"
+                          },
+                          "resource_number": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Resource number (e.g., PR number)"
+                          },
+                          "resource_global_id": {
+                            "type": "string",
+                            "description": "GraphQL global ID of the resource"
+                          },
+                          "resource_state": {
+                            "type": "string",
+                            "description": "State of the associated resource"
+                          },
+                          "head_ref": {
+                            "type": "string",
+                            "description": "Head branch name"
+                          },
+                          "base_ref": {
+                            "type": "string",
+                            "description": "Base branch name"
+                          },
+                          "workflow_run_id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "GitHub Actions workflow run ID"
+                          },
+                          "model": {
+                            "type": "string",
+                            "description": "Model used for this session"
+                          },
+                          "premium_requests": {
+                            "type": "number",
+                            "format": "double",
+                            "description": "Premium request count"
+                          },
+                          "error": {
+                            "type": "object",
+                            "description": "Error details for a failed session",
+                            "properties": {
+                              "message": {
+                                "type": "string",
+                                "description": "Error message"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "description": "Sessions associated with this task"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Task retrieved successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Authentication required</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Insufficient permissions</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation Failed</p>"
+        }
+      ],
+      "previews": []
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/agents/tasks",
+      "title": "List tasks",
+      "category": "agent-tasks",
+      "subcategory": "agent-tasks",
+      "parameters": [
+        {
+          "name": "per_page",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "description": "<p>The number of results per page (max 100).</p>"
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          },
+          "description": "<p>The page number of the results to fetch.</p>"
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "default": "updated_at",
+            "enum": [
+              "updated_at",
+              "created_at"
+            ]
+          },
+          "description": "<p>The field to sort results by. Can be <code>updated_at</code> or <code>created_at</code>.</p>"
+        },
+        {
+          "name": "direction",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "default": "desc",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          "description": "<p>The direction to sort results. Can be <code>asc</code> or <code>desc</code>.</p>"
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>Comma-separated list of task states to filter by. Can be any combination of: <code>queued</code>, <code>in_progress</code>, <code>completed</code>, <code>failed</code>, <code>idle</code>, <code>waiting_for_user</code>, <code>timed_out</code>, <code>cancelled</code>.</p>"
+        },
+        {
+          "name": "is_archived",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          },
+          "description": "<p>Filter by archived status. When <code>true</code>, returns only archived tasks. When <code>false</code>, returns only non-archived tasks.</p>"
+        },
+        {
+          "name": "since",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": "<p>Only show tasks updated at or after this time (ISO 8601 timestamp)</p>"
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns a list of tasks for the authenticated user</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Tasks retrieved successfully</p>",
+            "example": {
+              "tasks": [
+                {
+                  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "name": "Fix the login button on the homepage",
+                  "creator": {
+                    "id": 1
+                  },
+                  "creator_type": "user",
+                  "owner": {
+                    "id": 1
+                  },
+                  "repository": {
+                    "id": 1296269
+                  },
+                  "state": "completed",
+                  "session_count": 1,
+                  "artifacts": [
+                    {
+                      "provider": "github",
+                      "type": "github_resource",
+                      "data": {
+                        "id": 42,
+                        "type": "pull_request"
+                      }
+                    }
+                  ],
+                  "archived_at": null,
+                  "created_at": "2025-01-01T00:00:00Z",
+                  "updated_at": "2025-01-01T01:00:00Z"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "tasks"
+              ],
+              "properties": {
+                "tasks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "state",
+                      "created_at"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique task identifier"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "API URL for this task"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "description": "Web URL for this task"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Human-readable name derived from the task prompt"
+                      },
+                      "creator": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "description": "A GitHub user",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The unique identifier of the user"
+                              }
+                            }
+                          }
+                        ],
+                        "description": "The entity who created this task"
+                      },
+                      "creator_type": {
+                        "type": "string",
+                        "description": "Type of the task creator",
+                        "enum": [
+                          "user",
+                          "organization"
+                        ]
+                      },
+                      "user_collaborators": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "description": "A GitHub user",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "The unique identifier of the user"
+                            }
+                          }
+                        },
+                        "description": "User objects of collaborators on this task",
+                        "deprecated": true
+                      },
+                      "owner": {
+                        "description": "The owner of the repository",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "The unique identifier of the user"
+                          }
+                        }
+                      },
+                      "repository": {
+                        "description": "The repository this task belongs to",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "The unique identifier of the repository"
+                          }
+                        }
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "Current state of the task, derived from its most recent session",
+                        "enum": [
+                          "queued",
+                          "in_progress",
+                          "completed",
+                          "failed",
+                          "idle",
+                          "waiting_for_user",
+                          "timed_out",
+                          "cancelled"
+                        ]
+                      },
+                      "session_count": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Number of sessions in this task"
+                      },
+                      "artifacts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "description": "A resource generated by the task",
+                          "required": [
+                            "provider",
+                            "type",
+                            "data"
+                          ],
+                          "properties": {
+                            "provider": {
+                              "type": "string",
+                              "enum": [
+                                "github"
+                              ],
+                              "description": "Provider namespace"
+                            },
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "github_resource",
+                                "branch"
+                              ],
+                              "description": "Discriminator for data shape"
+                            },
+                            "data": {
+                              "oneOf": [
+                                {
+                                  "type": "object",
+                                  "description": "A GitHub resource (pull request, issue, etc.)",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer",
+                                      "format": "int64",
+                                      "description": "GitHub resource ID"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "description": "Resource type (e.g., pull_request, issue)"
+                                    },
+                                    "global_id": {
+                                      "type": "string",
+                                      "description": "GraphQL global ID"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "description": "A Git branch reference",
+                                  "properties": {
+                                    "head_ref": {
+                                      "type": "string",
+                                      "description": "Head branch name"
+                                    },
+                                    "base_ref": {
+                                      "type": "string",
+                                      "description": "Base branch name"
+                                    }
+                                  }
+                                }
+                              ],
+                              "description": "Resource data (shape depends on type)"
+                            }
+                          }
+                        },
+                        "description": "Resources created by this task (PRs, branches, etc.)"
+                      },
+                      "archived_at": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time",
+                        "description": "Timestamp when the task was archived, null if not archived"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Timestamp of the most recent update"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Timestamp when the task was created"
+                      }
+                    }
+                  },
+                  "description": "List of tasks"
+                },
+                "total_active_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Total count of active (non-archived) tasks"
+                },
+                "total_archived_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Total count of archived tasks"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Tasks retrieved successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Authentication required</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Insufficient permissions</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation Failed</p>"
+        }
+      ],
+      "previews": []
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/agents/tasks/{task_id}",
+      "title": "Get a task by ID",
+      "category": "agent-tasks",
+      "subcategory": "agent-tasks",
+      "parameters": [
+        {
+          "name": "task_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The unique identifier of the task.</p>"
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns a task by ID with its associated sessions</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "task_id": "TASK_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Task retrieved successfully</p>",
+            "example": {
+              "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "url": "https://api.github.com/agents/repos/octocat/hello-world/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "html_url": "https://github.com/octocat/hello-world/copilot/tasks/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "name": "Fix the login button on the homepage",
+              "creator": {
+                "id": 1
+              },
+              "creator_type": "user",
+              "owner": {
+                "id": 1
+              },
+              "repository": {
+                "id": 1296269
+              },
+              "state": "completed",
+              "session_count": 1,
+              "artifacts": [
+                {
+                  "provider": "github",
+                  "type": "github_resource",
+                  "data": {
+                    "id": 42,
+                    "type": "pull_request"
+                  }
+                }
+              ],
+              "archived_at": null,
+              "created_at": "2025-01-01T00:00:00Z",
+              "updated_at": "2025-01-01T01:00:00Z",
+              "sessions": [
+                {
+                  "id": "s1a2b3c4-d5e6-7890-abcd-ef1234567890",
+                  "name": "Fix the login button on the homepage",
+                  "user": {
+                    "id": 1
+                  },
+                  "owner": {
+                    "id": 1
+                  },
+                  "repository": {
+                    "id": 1296269
+                  },
+                  "task_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "state": "completed",
+                  "created_at": "2025-01-01T00:00:00Z",
+                  "updated_at": "2025-01-01T01:00:00Z",
+                  "completed_at": "2025-01-01T01:00:00Z",
+                  "event_content": "Fix the login button on the homepage",
+                  "head_ref": "copilot/fix-1",
+                  "base_ref": "main"
+                }
+              ]
+            },
+            "schema": {
+              "allOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "state",
+                    "created_at"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique task identifier"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "API URL for this task"
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "description": "Web URL for this task"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Human-readable name derived from the task prompt"
+                    },
+                    "creator": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "description": "A GitHub user",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "format": "int64",
+                              "description": "The unique identifier of the user"
+                            }
+                          }
+                        }
+                      ],
+                      "description": "The entity who created this task"
+                    },
+                    "creator_type": {
+                      "type": "string",
+                      "description": "Type of the task creator",
+                      "enum": [
+                        "user",
+                        "organization"
+                      ]
+                    },
+                    "user_collaborators": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A GitHub user",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "The unique identifier of the user"
+                          }
+                        }
+                      },
+                      "description": "User objects of collaborators on this task",
+                      "deprecated": true
+                    },
+                    "owner": {
+                      "description": "The owner of the repository",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "The unique identifier of the user"
+                        }
+                      }
+                    },
+                    "repository": {
+                      "description": "The repository this task belongs to",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "The unique identifier of the repository"
+                        }
+                      }
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "Current state of the task, derived from its most recent session",
+                      "enum": [
+                        "queued",
+                        "in_progress",
+                        "completed",
+                        "failed",
+                        "idle",
+                        "waiting_for_user",
+                        "timed_out",
+                        "cancelled"
+                      ]
+                    },
+                    "session_count": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "Number of sessions in this task"
+                    },
+                    "artifacts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "A resource generated by the task",
+                        "required": [
+                          "provider",
+                          "type",
+                          "data"
+                        ],
+                        "properties": {
+                          "provider": {
+                            "type": "string",
+                            "enum": [
+                              "github"
+                            ],
+                            "description": "Provider namespace"
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "github_resource",
+                              "branch"
+                            ],
+                            "description": "Discriminator for data shape"
+                          },
+                          "data": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "description": "A GitHub resource (pull request, issue, etc.)",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "description": "GitHub resource ID"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "description": "Resource type (e.g., pull_request, issue)"
+                                  },
+                                  "global_id": {
+                                    "type": "string",
+                                    "description": "GraphQL global ID"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "object",
+                                "description": "A Git branch reference",
+                                "properties": {
+                                  "head_ref": {
+                                    "type": "string",
+                                    "description": "Head branch name"
+                                  },
+                                  "base_ref": {
+                                    "type": "string",
+                                    "description": "Base branch name"
+                                  }
+                                }
+                              }
+                            ],
+                            "description": "Resource data (shape depends on type)"
+                          }
+                        }
+                      },
+                      "description": "Resources created by this task (PRs, branches, etc.)"
+                    },
+                    "archived_at": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "date-time",
+                      "description": "Timestamp when the task was archived, null if not archived"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp of the most recent update"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the task was created"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "sessions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "Full session details within a task",
+                        "required": [
+                          "id",
+                          "state",
+                          "created_at"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Session ID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Session name"
+                          },
+                          "user": {
+                            "description": "The user who created this session",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The unique identifier of the user"
+                              }
+                            }
+                          },
+                          "owner": {
+                            "description": "The owner of the repository",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The unique identifier of the user"
+                              }
+                            }
+                          },
+                          "repository": {
+                            "description": "The repository this session belongs to",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The unique identifier of the repository"
+                              }
+                            }
+                          },
+                          "agent_id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Agent ID"
+                          },
+                          "agent_task_id": {
+                            "type": "string",
+                            "description": "Agent internal task ID"
+                          },
+                          "task_id": {
+                            "type": "string",
+                            "description": "Task ID this session belongs to"
+                          },
+                          "state": {
+                            "type": "string",
+                            "description": "Current state of a session",
+                            "enum": [
+                              "queued",
+                              "in_progress",
+                              "completed",
+                              "failed",
+                              "idle",
+                              "waiting_for_user",
+                              "timed_out",
+                              "cancelled"
+                            ]
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Creation timestamp"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Last update timestamp"
+                          },
+                          "completed_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Completion timestamp"
+                          },
+                          "event_type": {
+                            "type": "string",
+                            "description": "Type of event that triggered this session"
+                          },
+                          "event_url": {
+                            "type": "string",
+                            "description": "URL of the triggering event"
+                          },
+                          "event_content": {
+                            "type": "string",
+                            "description": "Content of the triggering event"
+                          },
+                          "event_identifiers": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Identifiers for tracking"
+                          },
+                          "resource_type": {
+                            "type": "string",
+                            "description": "Type of resource associated with this session"
+                          },
+                          "resource_id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Resource ID"
+                          },
+                          "resource_number": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Resource number (e.g., PR number)"
+                          },
+                          "resource_global_id": {
+                            "type": "string",
+                            "description": "GraphQL global ID of the resource"
+                          },
+                          "resource_state": {
+                            "type": "string",
+                            "description": "State of the associated resource"
+                          },
+                          "head_ref": {
+                            "type": "string",
+                            "description": "Head branch name"
+                          },
+                          "base_ref": {
+                            "type": "string",
+                            "description": "Base branch name"
+                          },
+                          "workflow_run_id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "GitHub Actions workflow run ID"
+                          },
+                          "model": {
+                            "type": "string",
+                            "description": "Model used for this session"
+                          },
+                          "premium_requests": {
+                            "type": "number",
+                            "format": "double",
+                            "description": "Premium request count"
+                          },
+                          "error": {
+                            "type": "object",
+                            "description": "Error details for a failed session",
+                            "properties": {
+                              "message": {
+                                "type": "string",
+                                "description": "Error message"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "description": "Sessions associated with this task"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Task retrieved successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Problems parsing request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Authentication required</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Insufficient permissions</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation Failed</p>"
+        }
+      ],
+      "previews": []
+    }
+  ]
+}

@@ -15,6 +15,9 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Python
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

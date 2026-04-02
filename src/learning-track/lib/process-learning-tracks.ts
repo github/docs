@@ -3,7 +3,13 @@ import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { renderContent } from '@/content-render/index'
 import { executeWithFallback } from '@/languages/lib/render-with-fallback'
-import { Context, TrackGuide, LearningTrack, ProcessedLearningTracks } from './types'
+import {
+  Context,
+  TrackGuide,
+  LearningTrack,
+  LearningTrackMetadata,
+  ProcessedLearningTracks,
+} from './types'
 
 const renderOpts = { textOnly: true }
 
@@ -41,45 +47,36 @@ export default async function processLearningTracks(
 
     // Note: this will use the translated learning tracks and automatically
     // fall back to English if they don't exist on disk in the translation.
-    const track = getDataByLanguage(
+    const rawTrack = getDataByLanguage(
       `learning-tracks.${context.currentProduct}.${renderedTrackName}`,
       context.currentLanguage!,
     )
-    if (!track) {
+    if (!rawTrack) {
       throw new Error(`No learning track called '${renderedTrackName}'.`)
     }
 
-    // If the current language isn't 'en' we need to prepare and have the
-    // English equivalent ready.
-    // We do this for two reasons:
-    //
-    //   1. For each learning-track .yml file (in data) always want the
-    //      English values for `guides`, `versions`.
-    //       Meaning, for the translated learning tracks we only keep the
-    //      `title` and `description`.
-    //
-    //   2. When we attempt to render the translated learning tracks'
-    //      `title` and `description`, if they are failing to render,
-    //      we need to have the English `title` and `description` to
-    //      fall back to.
-    //
-    let enTrack: any
+    // For translated tracks, always use English `guides` and `versions`
+    // (translations sometimes break Liquid in those fields). Keep translated
+    // `title` and `description` so we can render them with a fallback.
+    let enTrack!: LearningTrackMetadata
+    let track: LearningTrackMetadata
     if (context.currentLanguage !== 'en') {
       enTrack = getDataByLanguage(
         `learning-tracks.${context.currentProduct}.${renderedTrackName}`,
         'en',
       )
-      // Sometimes the translations have more than just translated the
-      // `title` and `description`, but also things that don't make sense
-      // to translate like `guides` and `versions`. Always draw that
-      // from the English equivalent.
-      track.guides = enTrack.guides
-      track.versions = enTrack.versions
+      track = {
+        ...rawTrack,
+        guides: enTrack.guides,
+        versions: enTrack.versions,
+      }
+    } else {
+      track = rawTrack
     }
 
     // If there is no `versions` prop in the learning track frontmatter, assume the track should display in all versions.
     if (track.versions) {
-      const trackVersions = getApplicableVersions(track.versions)
+      const trackVersions = getApplicableVersions(track.versions as string)
 
       // If the current version is not included, do not display the track.
       if (!context.currentVersion || !trackVersions.includes(context.currentVersion)) {
@@ -90,12 +87,12 @@ export default async function processLearningTracks(
     const title = await executeWithFallback(
       context,
       () => renderContent(track.title, context, renderOpts),
-      (enContext: any) => renderContent(enTrack.title, enContext, renderOpts),
+      (enContext: Context) => renderContent(enTrack.title, enContext, renderOpts),
     )
     const description = await executeWithFallback(
       context,
       () => renderContent(track.description, context, renderOpts),
-      (enContext: any) => renderContent(enTrack.description, enContext, renderOpts),
+      (enContext: Context) => renderContent(enTrack.description, enContext, renderOpts),
     )
 
     const guides = (await getLinkData(track.guides, context)) || []

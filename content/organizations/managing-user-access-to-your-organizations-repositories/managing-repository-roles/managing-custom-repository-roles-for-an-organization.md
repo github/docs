@@ -9,6 +9,8 @@ shortTitle: Manage custom roles
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
   - /organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
+category:
+  - Control repository access
 ---
 
 {% data reusables.organizations.custom-repo-roles-ghec-only %}

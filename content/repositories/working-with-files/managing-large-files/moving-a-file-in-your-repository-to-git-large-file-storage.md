@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Move a file to Git LFS
+category:
+  - Store large files with Git LFS
 ---
 After installing {% data variables.large_files.product_name_short %} and configuring {% data variables.large_files.product_name_short %} tracking, you can move files from Git's regular tracking to {% data variables.large_files.product_name_short %}. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage) and [AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage).
 

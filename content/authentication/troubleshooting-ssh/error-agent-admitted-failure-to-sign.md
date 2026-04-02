@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Agent failure to sign
+category:
+  - Troubleshoot authentication issues
 ---
 When trying to SSH into {% data variables.location.product_location %} on a Linux computer, you may see the following message in your terminal:
 

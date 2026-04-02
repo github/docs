@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Existing GPG keys
+category:
+  - Sign your commits
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 

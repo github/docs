@@ -10,12 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 shortTitle: Enable dependency graph
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 The dependency graph is a summary of the manifest and lock files stored in a repository and any dependencies that are submitted for the repository using the {% data variables.dependency-submission-api.name %}. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).

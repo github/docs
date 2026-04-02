@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Troubleshooting
+category:
+  - Manage branches and protect code
 ---
 
 ## Troubleshooting rulesets

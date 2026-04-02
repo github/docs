@@ -1,7 +1,7 @@
 ---
 title: Secure use reference
 shortTitle: Secure use
-intro: 'Security practices for writing workflows and using {% data variables.product.prodname_actions %} features.'
+intro: Security practices for writing workflows and using {% data variables.product.prodname_actions %} features.
 redirect_from:
   - /actions/getting-started-with-github-actions/security-hardening-for-github-actions
   - /actions/learn-github-actions/security-hardening-for-github-actions
@@ -16,6 +16,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Secure your workflows
+contentType: reference
 ---
 
 Find information about security best practices when you are writing workflows and using {% data variables.product.prodname_actions %} security features.

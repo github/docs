@@ -7,14 +7,11 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Fundamentals
-  - Security
-  - CI
-  - CD
 redirect_from:
   - /code-security/supply-chain-security/end-to-end-supply-chain/securing-builds
 contentType: tutorials
+category:
+  - Secure your dependencies
 ---
 
 ## About this guide

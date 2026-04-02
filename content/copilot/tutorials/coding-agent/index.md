@@ -1,6 +1,6 @@
 ---
-title: GitHub Copilot coding agent
-shortTitle: Coding agent
+title: GitHub Copilot cloud agent
+shortTitle: Cloud agent
 allowTitleToDifferFromFilename: true
 intro: 'Find out how to get great results from {% data variables.copilot.copilot_coding_agent %}.'
 versions:

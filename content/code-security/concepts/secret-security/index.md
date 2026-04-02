@@ -6,11 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
 contentType: concepts
 children:
+  - /secret-leakage-risks
   - /about-secret-scanning
   - /about-push-protection
   - /about-secret-security-with-github
@@ -21,6 +19,7 @@ children:
   - /about-bypass-requests-for-push-protection
   - /about-secret-scanning-for-partners
   - /github-secret-types
+  - /push-protection-metrics
   - /push-protection-from-the-command-line
   - /working-with-push-protection-and-the-github-mcp-server
   - /working-with-push-protection-from-the-rest-api

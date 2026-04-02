@@ -5,6 +5,8 @@ intro: You can use the assignment overview page to track the progress of each st
 versions:
     fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can create and manage group assignments for a classroom. {% data reusables.classroom.classroom-admins-link %}'
+category:
+  - Track assignment progress
 ---
 
 ## About the assignment overview page

@@ -3,9 +3,6 @@ title: Planning a trial of {% data variables.product.prodname_GHAS %}
 shortTitle: Plan GHAS trial
 allowTitleToDifferFromFilename: true
 intro: Learn how to prepare for a successful trial of {% data variables.product.prodname_AS %}.
-topics:
-  - Code Security
-  - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/planning-a-trial-of-ghas
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## Is a self-serve trial right for you?

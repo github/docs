@@ -20,6 +20,8 @@ versions:
   ghec: '*'
 shortTitle: Locked account
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 You can unlock and access your account by updating your account's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.

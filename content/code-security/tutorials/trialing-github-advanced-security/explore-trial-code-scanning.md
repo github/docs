@@ -3,8 +3,6 @@ title: Exploring your enterprise trial of {% data variables.product.prodname_GH_
 shortTitle: Trial {% data variables.product.prodname_code_security %}
 allowTitleToDifferFromFilename: true
 intro: Introduction to the features of code and dependency scanning available with {% data variables.product.prodname_GH_code_security_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.
-topics:
-  - Code Security
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/explore-trial-code-scanning
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
@@ -39,7 +39,7 @@ By default, only the repository administrator and the organization owner can vie
 
 The default setup for {% data variables.product.prodname_code_scanning %} runs a set of high confidence queries. These are chosen to ensure that, when you roll out {% data variables.product.prodname_code_scanning %} across your whole codebase, developers see a limited set of high quality results, with few false positive results.
 
-You can see a summary of any results found in the organizations in your trial enterprise in the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+You can see a summary of any results found in the organizations in your trial enterprise in the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
 
 If you don't see the results you expect for {% data variables.product.prodname_code_scanning %}, you can update default setup to run an extended query suite for repositories where you expected to find more results. This is controlled at the repository level, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup).
 

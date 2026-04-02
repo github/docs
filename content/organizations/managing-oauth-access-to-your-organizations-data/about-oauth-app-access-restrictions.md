@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: '{% data variables.product.prodname_oauth_app %} restrictions'
+category:
+  - Manage app and API access
 ---
 
 ## About {% data variables.product.prodname_oauth_app %} access restrictions

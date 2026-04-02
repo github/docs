@@ -13,6 +13,8 @@ redirect_from:
   - /rest/webhooks/repo-config
   - /rest/webhooks/repos
   - /rest/webhooks
+category:
+  - Manage repositories and code
 ---
 
 ## About repository webhooks

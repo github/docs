@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage bots & service accounts
+category:
+  - Manage authentication methods
 ---
 ## About managing bots or service accounts with two-factor authentication (2FA)
 

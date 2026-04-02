@@ -9,4 +9,6 @@ children:
   - /seat-assignment
   - /license-changes
   - /azure-billing
+contentType: reference
 ---
+

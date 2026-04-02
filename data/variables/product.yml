@@ -269,6 +269,7 @@ prodname_security_advisories: 'GitHub Security Advisories'
 prodname_advisory_database: 'GitHub Advisory Database'
 
 # Security configurations and organization-level security settings
+prodname_security_and_quality_tab: '{% octicon "shield" aria-hidden="true" aria-label="shield" %} {% ifversion security-and-quality-tab %}Security and quality{% else %}Security{% endif %}'
 prodname_security_configurations: 'security configurations'
 prodname_security_configurations_caps: 'Security configurations'
 prodname_security_configuration: 'security configuration'
@@ -302,6 +303,10 @@ prodname_vs_marketplace_shortname: 'VS Code Marketplace'
 # GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot alerts'
+prodname_dependabot_malware_alerts: 'Dependabot malware alerts'
+prodname_dependabot_malware_alerts_short: 'malware alerts'
+prodname_dependabot_malware_alert_short: 'malware alert'
+prodname_dependabot_malware_alerts_short_caps: 'Malware alerts'
 prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_dependabot_updates: 'Dependabot updates'

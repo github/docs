@@ -5,7 +5,9 @@ shortTitle: IP addresses in audit log
 permissions: Organization owners can display IP addresses in the audit log for an enterprise.
 versions:
   feature: display-ip-org-audit-log
-type: how_to
+contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 > [!NOTE]

@@ -10,6 +10,8 @@ product: '{% data reusables.billing.cta-ghec-cost-centers %}'
 contentType: tutorials
 audience:
   - driver
+category:
+  - Track spending and control costs
 ---
 
 Cost centers help you track and control {% data variables.product.github %} costs by mapping them to your company's financial structure.

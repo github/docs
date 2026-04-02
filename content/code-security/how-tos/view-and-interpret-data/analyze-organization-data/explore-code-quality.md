@@ -7,8 +7,8 @@ permissions: 'Organization members'
 contentType: how-tos
 versions:
   feature: code-quality
-topics:
-  - Code Quality
+category:
+  - Secure at scale
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

@@ -27,11 +27,8 @@ This article focuses on how those rules apply specifically to {% data variables.
 
 What you need to know about the following actions:
 
-* **Upgrading:** If you move from a monthly to a yearly plan, the change is **immediate**. You are charged a prorated amount for the new plan.
-* **Downgrading/canceling:**
-  * **Monthly plan:** Access remains until the end of the current cycle. **No refund for unused time**.
-  * **Yearly plan:** Access remains until the end of the annual term already paid for.
-* **Switching plans:** Proration applies when switching between monthly and yearly, and the new plan starts **right away**.
+* **Upgrading:** If you upgrade your plan (for example, from {% data variables.copilot.copilot_pro_short %} to {% data variables.copilot.copilot_pro_plus_short %}), the change is **immediate**. You are charged a prorated amount for the new plan.
+* **Downgrading/canceling:** Access remains until the end of the current billing cycle. **No refund for unused time**.
 
 ## Organizations
 

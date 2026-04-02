@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: Add email address
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 {% ifversion ghec %}

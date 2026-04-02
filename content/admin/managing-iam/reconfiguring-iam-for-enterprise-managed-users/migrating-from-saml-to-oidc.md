@@ -5,14 +5,11 @@ intro: 'If you''re using SAML to authenticate members in your {% data variables.
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc
   - /admin/identity-and-access-management/reconfiguring-iam-for-enterprise-managed-users/migrating-from-saml-to-oidc
+category:
+  - Configure authentication
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}

@@ -1,7 +1,7 @@
 ---
-title: 'About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}'
+title: About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
 allowTitleToDifferFromFilename: true
-intro: 'View historical data for details like CPU and storage usage, application and authentication response times, and general system health.'
+intro: View historical data for details like CPU and storage usage, application and authentication response times, and general system health.
 redirect_from:
   - /enterprise/admin/installation/accessing-the-monitor-dashboard
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
@@ -12,14 +12,10 @@ redirect_from:
   - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 shortTitle: About monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## Accessing the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}

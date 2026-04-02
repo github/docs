@@ -53,18 +53,18 @@ export async function handleGetSearchResultsError(
 
 // Redirects search routes to their latest versions
 router.get('/', (req: Request, res: Response) => {
-  res.redirect(307, req.originalUrl.replace('/search', '/search/v1'))
+  res.safeRedirect(307, req.originalUrl.replace('/search', '/search/v1'))
 })
 
 router.get('/ai-search-autocomplete', (req: Request, res: Response) => {
-  res.redirect(
+  res.safeRedirect(
     307,
     req.originalUrl.replace('/search/ai-search-autocomplete', '/search/ai-search-autocomplete/v1'),
   )
 })
 
 router.get('/combined-search', (req: Request, res: Response) => {
-  res.redirect(
+  res.safeRedirect(
     307,
     req.originalUrl.replace('/search/combined-search', '/search/combined-search/v1'),
   )

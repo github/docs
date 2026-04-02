@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 redirect_from:
   - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
@@ -20,6 +18,8 @@ redirect_from:
   - /developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app
   - /apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app
   - /apps/creating-github-apps/writing-code-for-a-github-app/setting-up-your-development-environment-to-create-a-github-app
+category:
+  - Write code for a GitHub App
 ---
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 ---
 title: Events that trigger workflows
-intro: 'You can configure your workflows to run when specific activity on {% data variables.product.github %} happens, at a scheduled time, or when an event outside of {% data variables.product.github %} occurs.'
+intro: You can configure your workflows to run when specific activity on {% data variables.product.github %} happens, at a scheduled time, or when an event outside of {% data variables.product.github %} occurs.
 redirect_from:
   - /articles/events-that-trigger-workflows
   - /github/automating-your-workflow-with-github-actions/events-that-trigger-workflows
@@ -13,6 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Write workflows
+contentType: reference
 ---
 
 ## About events that trigger workflows
@@ -997,7 +1000,7 @@ jobs:
 > * {% data reusables.actions.schedule-delay %}
 > * {% data reusables.actions.branch-requirement %}
 > * Scheduled workflows will only run on the default branch.
-> * In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see [AUTOTITLE](/enterprise-server/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow).
+> * In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows#enabling-a-workflow).
 
 The `schedule` event allows you to trigger a workflow at a scheduled time.
 

@@ -1,13 +1,16 @@
 ---
 title: Secrets reference
 shortTitle: Secrets
-intro: 'Find technical information about secrets in {% data variables.product.prodname_actions %}.'
+intro: Find technical information about secrets in {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
 redirect_from:
   - /actions/reference/secrets-reference
+category:
+  - Secure your workflows
+contentType: reference
 ---
 
 ## Naming your secrets

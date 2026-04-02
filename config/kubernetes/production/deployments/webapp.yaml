@@ -3,9 +3,18 @@ kind: Deployment
 metadata:
   name: webapp
   annotations:
-    moda.github.net/allow-missing-ready-pods: '1'
+    moda.github.net/allow-missing-ready-pods: '0'
+    moda.github.net/inject-unified-service-tag-env-var: docs-internal
 spec:
   replicas: 6
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      # Don't kill old pods until new ones pass readiness.
+      # Prevents capacity loss during deploys. Safe because we're over-provisioned.
+      maxUnavailable: 0
+      # Percentage so it scales with replica count changes.
+      maxSurge: '25%'
   selector:
     matchLabels:
       app: webapp
@@ -18,25 +27,31 @@ spec:
         # See https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/ for more details
         fluentbit.io/parser: logfmt_sloppy
         observability.github.com/splunk_index: docs-internal
+        ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:production"]}]'
+        ad.datadoghq.com/tolerate-unready: 'true'
     spec:
       dnsPolicy: Default
+      # Hard deadline for pod shutdown after SIGTERM (includes preStop sleep).
+      # Default is 30s; 60s gives plenty of room for in-flight request draining
+      # and OTEL SDK shutdown even if DNS is slow.
+      terminationGracePeriodSeconds: 60
       containers:
         - name: webapp
           image: docs-internal
           resources:
             requests:
-              cpu: 2500m
+              cpu: 1250m
               # Absolute minimum to start app is 1000m
               # Node is single-threaded but we want more CPUs
               # for OS and image resizing, and other binary executions
               # Better to increase replicas or memory than CPU
-              memory: 6.0Gi
+              memory: 8.0Gi
               # Absolute minimum to start app is 4500Mi
               # Would increase with more pages, versions, or languages supported
               # The additional memory helps during traffic surges
             limits:
-              cpu: 16000m
-              memory: 16Gi
+              cpu: 8000m
+              memory: 16.0Gi
           ports:
             - name: http
               containerPort: 4000
@@ -50,6 +65,15 @@ spec:
             # configuration set in config/moda/configuration/*/env.yaml
             - configMapRef:
                 name: application-config
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
           # Zero-downtime deploys
           # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
           # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
@@ -57,10 +81,34 @@ spec:
             preStop:
               exec:
                 command: ['sleep', '5']
-          readinessProbe:
-            initialDelaySeconds: 5
+          # warmServer() loads ~3500 content files × 9 languages × 9 versions.
+          # Avg startup: ~25s, worst observed: ~48s (Datadog: docs.warm_server).
+          # Server does not listen until warmup completes, so probes fail at
+          # TCP level during boot — no app-level readiness flag needed.
+          startupProbe:
             httpGet:
-              # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
-              # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
               path: /healthcheck
               port: http
+            # Server can't respond until warmup finishes (~25s avg), so don't
+            # waste probes checking before that.
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            # Total runway: 30s + (30 × 5s) = 180s. Covers worst-case startup
+            # plus resource contention when multiple pods boot during a deploy.
+            failureThreshold: 30
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: http
+            periodSeconds: 10
+            # 5 × 10s = 50s before pulling pod from load balancer.
+            # Healthcheck is always-200 (no app-level logic), so failures
+            # mean the process is hung or under extreme pressure.
+            failureThreshold: 5
+            timeoutSeconds: 5
+          # No livenessProbe: healthcheck always returns 200 with no app-level
+          # checks, so a liveness probe would only catch a fully hung process.
+          # Readiness already removes hung pods from the load balancer, and we
+          # intentionally avoid liveness restarts — they risk killing pods
+          # during GC pauses or transient load spikes.

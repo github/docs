@@ -4,13 +4,13 @@ intro: 'To offer paid plans for your app or to include a marketplace badge in yo
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 redirect_from:
   - /developers/github-marketplace/applying-for-publisher-verification-for-your-organization
   - /developers/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization
   - /apps/publishing-apps-to-github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization
 shortTitle: Publisher verification
+category:
+  - List your app on GitHub Marketplace
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

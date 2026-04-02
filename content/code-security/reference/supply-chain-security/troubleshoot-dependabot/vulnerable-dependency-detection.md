@@ -13,17 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependabot
-  - Alerts
-  - Troubleshooting
-  - Errors
-  - Security updates
-  - Dependencies
-  - Vulnerabilities
-  - CVEs
-  - Repositories
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% data reusables.dependabot.result-discrepancy %}

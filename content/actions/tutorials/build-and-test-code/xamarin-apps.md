@@ -13,6 +13,9 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Xamarin apps
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -9,6 +9,9 @@ redirect_from:
   - /actions/sharing-automations/sharing-actions-and-workflows-with-your-organization
   - /actions/how-tos/sharing-automations/sharing-actions-and-workflows-with-your-organization
   - /actions/administering-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
+category:
+  - Reuse and share automations
+contentType: how-tos
 ---
 
 > [!WARNING]

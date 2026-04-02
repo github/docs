@@ -7,16 +7,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Control dependency update
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 You can customize your {% data variables.product.prodname_dependabot %} configuration to suit your needs, by adding options to your `dependabot.yml` file. For example, you can make sure that {% data variables.product.prodname_dependabot %} uses the correct package manifest files, and updates only the dependencies you want maintained.

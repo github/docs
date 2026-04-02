@@ -188,4 +188,26 @@ describe('POST /events', () => {
       expect(statusCode).toBe(200)
     }
   })
+
+  test('should accept a link event with markdown-source-menu container', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'link',
+      context: pageExample.context,
+      link_url: 'https://docs.github.com/api/article/body?pathname=/en/copilot/overview',
+      link_samesite: false,
+      link_container: 'markdown-source-menu',
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should reject a link event with an invalid link_container', async () => {
+    const { statusCode } = await checkEvent({
+      type: 'link',
+      context: pageExample.context,
+      link_url: 'https://docs.github.com/api/article/body?pathname=/en/copilot/overview',
+      link_samesite: false,
+      link_container: 'not-a-valid-container',
+    })
+    expect(statusCode).toBe(400)
+  })
 })

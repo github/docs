@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Check verification status
+category:
+  - Troubleshoot authentication issues
 ---
 
 ## Checking your commit signature verification status

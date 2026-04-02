@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Triage an issue
+category:
+  - Triage and organize issues
 ---
 
 ## About the AI-powered issue intake tool

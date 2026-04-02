@@ -5,14 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
-  - Alerts
-  - Vulnerabilities
 contentType: reference
 children:
   - /troubleshooting-the-dependency-graph

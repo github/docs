@@ -1452,16 +1452,6 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
-- provider: CloudBees
-  supportedSecret: CloudBees CodeShip Credential
-  secretType: codeship_credential
-  isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
 - provider: Cockroach Labs
   supportedSecret: CockroachDB Cloud API Key
   secretType: ccdb_api_key
@@ -2046,7 +2036,7 @@
   supportedSecret: Fieldguide API Token
   secretType: fieldguide_api_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -2066,8 +2056,8 @@
   supportedSecret: Figma SCIM API Token
   secretType: figma_scim_token
   isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2085,6 +2075,16 @@
 - provider: Firebase
   supportedSecret: Firebase Cloud Messaging Server Key
   secretType: firebase_cloud_messaging_server_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Flickr
+  supportedSecret: Flickr API Key
+  secretType: flickr_api_key
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2281,7 +2281,7 @@
   secretType: google_gcp_api_key_bound_service_account
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2402,6 +2402,16 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Hack Club
+  supportedSecret: Hack Club AI Key
+  secretType: hackclub_ai_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2699,6 +2709,26 @@
 - provider: Langchain
   supportedSecret: LangSmith Service Key
   secretType: langchain_api_server_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: LangSmith License Key
+  secretType: langsmith_license_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: LangSmith SCIM Bearer Token
+  secretType: langsmith_scim_bearer_token
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3272,7 +3302,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
@@ -3411,7 +3441,7 @@
   secretType: openvsx_access_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3740,7 +3770,7 @@
   supportedSecret: PostHog OAuth Access Token
   secretType: posthog_oauth_access_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -3750,7 +3780,7 @@
   supportedSecret: PostHog OAuth Refresh Token
   secretType: posthog_oauth_refresh_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -3761,7 +3791,7 @@
   secretType: posthog_personal_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3999,6 +4029,16 @@
 - provider: Salesforce
   supportedSecret: Salesforce Access Token
   secretType: salesforce_access_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Salesforce
+  supportedSecret: Salesforce Marketing Cloud API OAuth2 Token
+  secretType: salesforce_marketing_cloud_api_oauth2_token
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true

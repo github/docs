@@ -3,14 +3,13 @@ title: Creating GitHub Apps for your enterprise
 intro: Learn how to create a {% data variables.product.prodname_github_app %} for your enterprise.
 versions:
   feature: enterprise-apps-public-beta
-type: how_to
-topics:
-  - Enterprise
 permissions: Enterprise owners.
 shortTitle: Create a GitHub App
 redirect_from:
   - /admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise
-contentType: other
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.enterprise-onboarding.create-enterprise-apps %}

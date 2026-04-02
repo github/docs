@@ -1,10 +1,12 @@
 ---
 title: 'Registering for a {% data variables.product.prodname_certifications %} exam'
-intro: 'When you’re prepared and ready, you can register for the exam.'
+intro: "When you're prepared and ready, you can register for the exam."
 allowTitleToDifferFromFilename: true
 versions:
   feature: github-certification
 shortTitle: Registering for an exam
+category:
+  - Explore GitHub plans and features
 ---
 
 {% ifversion ghec %}

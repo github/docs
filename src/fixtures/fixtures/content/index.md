@@ -44,7 +44,7 @@ children:
   - organizations
   # - pull-requests
   # - issues
-  # - copilot
+  - copilot
   # - codespaces
   # - packages
   # - search-github

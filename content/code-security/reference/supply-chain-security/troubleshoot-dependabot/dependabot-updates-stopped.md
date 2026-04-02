@@ -7,17 +7,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Dependabot stopped working
 redirect_from:
   - /code-security/dependabot/troubleshooting-dependabot/dependabot-updates-stopped
   - /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/dependabot-updates-stopped
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 * When maintainers of a repository stop interacting with {% data variables.product.prodname_dependabot %} pull requests, {% data variables.product.prodname_dependabot %} temporarily pauses its updates and lets you know.

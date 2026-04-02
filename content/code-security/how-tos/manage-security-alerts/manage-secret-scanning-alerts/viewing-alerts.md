@@ -7,22 +7,19 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 shortTitle: View alerts
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts
+category:
+  - Protect your secrets
 ---
 
-You can find and filter {% data variables.secret-scanning.user_alerts %} through your repository's **Security** tab. To learn more about alerts and the different types you may encounter, see [AUTOTITLE](/code-security/concepts/secret-security/about-alerts).
+You can find and filter {% data variables.secret-scanning.user_alerts %} through your repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab. To learn more about alerts and the different types you may encounter, see [AUTOTITLE](/code-security/concepts/secret-security/about-alerts).
 
 ## Viewing alerts
 
-Alerts for {% data variables.product.prodname_secret_scanning %} are displayed under the **Security** tab of the repository.
+Alerts for {% data variables.product.prodname_secret_scanning %} are displayed under the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

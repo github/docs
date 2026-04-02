@@ -12,6 +12,7 @@ children:
   - /best-practices
   - /choose-enterprise-plan
   - /achieve-company-goals
+  - /resources-for-approval
 redirect_from:
   - /copilot/about-github-copilot
 contentType: get-started

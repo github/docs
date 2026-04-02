@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: Downgrade Marketplace app
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 {% ifversion fpt %}{% data reusables.marketplace.marketplace-app-page %}{% endif %}

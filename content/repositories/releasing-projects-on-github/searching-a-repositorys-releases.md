@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Release software
 ---
 
 ## Searching for releases in a repository

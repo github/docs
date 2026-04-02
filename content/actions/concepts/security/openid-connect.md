@@ -5,11 +5,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect
   - /actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect
   - /actions/concepts/security/about-security-hardening-with-openid-connect
+contentType: concepts
+category:
+  - Secure your workflows
 ---
 
 ## Overview of OpenID Connect (OIDC)
@@ -75,7 +77,8 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "base_ref": "",
   "event_name": "workflow_dispatch",{% ifversion actions-OIDC-custom-claim-enterprise %}
   "enterprise": "avocado-corp",{% endif %}{% ifversion actions-OIDC-enterprise_id-claim %}
-  "enterprise_id": "2",{% endif %}
+  "enterprise_id": "2",{% endif %}{% ifversion oidc-custom-properties %}
+  "repo_property_workspace_id": "ws-abc123",{% endif %}
   "ref_type": "branch",
   "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
   "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
@@ -112,6 +115,50 @@ For more information, see [AUTOTITLE](/actions/reference/openid-connect-referenc
 ## Updating your workflows for OIDC
 
 {% data variables.product.prodname_actions %} workflows can use OIDC tokens instead of secrets to authenticate with cloud providers. Many popular cloud providers offer official login actions that simplify the process of using OIDC in your workflows. For more information about updating your workflows with specific cloud providers, see [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-hardening-your-deployments).
+
+{% ifversion oidc-custom-properties %}
+
+## Using repository custom properties as OIDC claims
+
+> [!NOTE]
+> This feature is currently in public preview and is subject to change.
+
+Organization and enterprise admins can include repository custom properties as claims in OIDC tokens. Once added, every repository in the organization or enterprise that has a value set for that custom property will automatically include it in its OIDC tokens, prefixed with `repo_property_`.
+
+This allows you to create granular access policies that bind directly to your repository metadata, reducing configuration drift and eliminating the need to duplicate governance information across multiple systems.
+
+### Prerequisites
+
+* Custom properties must already be defined at the organization or enterprise level.
+* You must be an organization admin or enterprise admin.
+
+### Adding a custom property to OIDC token claims
+
+To include a custom property in OIDC tokens, use the REST API or the settings UI for your organization or enterprise.
+
+**Using the settings UI:** Navigate to your organization or enterprise's Actions OIDC settings page to view and manage which custom properties are included in OIDC tokens.
+
+![Screenshot of the OIDC settings for an organization or enterprise.](/assets/images/help/actions/actions-oidc-settings.png)
+
+
+* **Using the REST API:** Send a `POST` request to add a custom property to the OIDC token claims for your organization:
+
+### Example OIDC token with a custom property
+
+The following example shows an OIDC token that includes the `workspace_id` custom property:
+
+```json
+{
+  "sub": "repo:my-org/my-repo:ref:refs/heads/main",
+  "aud": "https://github.com/my-org",
+  "repository": "my-org/my-repo",
+  "repo_property_workspace_id": "ws-abc123"
+}
+```
+
+You can use the `repo_property_*` claims in your cloud provider's trust conditions to create flexible, attribute-based access control policies. For more information, see [AUTOTITLE](/actions/reference/openid-connect-reference#including-repository-custom-properties-in-oidc-tokens).
+
+{% endif %}
 
 ## OIDC support for {% data variables.product.prodname_dependabot %}
 

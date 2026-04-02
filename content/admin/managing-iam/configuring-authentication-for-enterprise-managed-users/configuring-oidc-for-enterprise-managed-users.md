@@ -5,14 +5,11 @@ intro: 'Learn how to automatically manage access to your enterprise account on {
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}

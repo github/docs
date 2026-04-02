@@ -1,6 +1,6 @@
 ---
-title: Extending GitHub Copilot coding agent with the Model Context Protocol (MCP)
-shortTitle: Extend coding agent with MCP
+title: Extending GitHub Copilot cloud agent with the Model Context Protocol (MCP)
+shortTitle: Extend cloud agent with MCP
 allowTitleToDifferFromFilename: true
 intro: 'Learn how to use the Model Context Protocol (MCP) to extend the capabilities of {% data variables.copilot.copilot_coding_agent %}.'
 versions:
@@ -14,7 +14,7 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/extend-coding-agent-with-mcp
   - /copilot/how-tos/agents/coding-agent/extend-coding-agent-with-mcp
 contentType: how-tos
-category: 
+category:
   - Integrate Copilot with your tools
 ---
 
@@ -81,20 +81,38 @@ The configuration object can contain the following keys:
 **Local MCP specific keys**
 * `command` (`string`): Required. The command to run to start the MCP server.
 * `args` (`string[]`): Required. The arguments to pass to the `command`.
-* `env` (`object`): Optional. The environment variables to pass to the server. This object should map the name of the environment variable that should be exposed to your MCP server to either of the following:
-  * The name of a secret you have configured in your {% data variables.product.prodname_copilot_short %} environment, beginning with `COPILOT_MCP_`.
-  * The name of a variable you have configured in your {% data variables.product.prodname_copilot_short %} environment, beginning with `COPILOT_MCP_`.
+* `env` (`object`): Optional. The environment variables to pass to the server. This object should map the name of the environment variable that should be exposed to your MCP server to one of the following:
+  * A substitution reference to a secret or variable in your {% data variables.product.prodname_copilot_short %} environment, such as `$COPILOT_MCP_API_KEY` or `${COPILOT_MCP_API_KEY}`. Referenced names must start with `COPILOT_MCP_`.
+  * A literal string value.
 
 **Remote MCP specific keys**
 * `url` (`string`): Required. The MCP server's URL.
-* `headers` (`object`): Optional. The headers to attach to requests to the server. This object should map the name of header keys to either of the following:
-  * The name of a secret you have configured in your {% data variables.product.prodname_copilot_short %} environment, beginning with `COPILOT_MCP_` preceded by a `$`.
-  * The name of a variable you have configured in your {% data variables.product.prodname_copilot_short %} environment, beginning with `COPILOT_MCP_` preceded by a `$`.
-  * A string value.
+* `headers` (`object`): Optional. The headers to attach to requests to the server. This object should map the name of header keys to one of the following:
+  * A substitution reference to a secret or variable in your {% data variables.product.prodname_copilot_short %} environment, such as `$COPILOT_MCP_API_KEY` or `${COPILOT_MCP_API_KEY}`. Referenced names must start with `COPILOT_MCP_`.
+  * A literal string value.
 
-Note that all `string` and `string[]` fields besides `tools` & `type` support substitution with a variable or secret you have configured in your {% data variables.product.prodname_copilot_short %} environment, beginning with `COPILOT_MCP_` preceded by a `$`.
+Note that all `string` and `string[]` fields besides `tools` & `type` support substitution with a variable or secret you have configured in your {% data variables.product.prodname_copilot_short %} environment.
+
+### Variable substitution
+
+The following syntax patterns are supported for referencing environment variables configured in your {% data variables.product.prodname_copilot_short %} environment:
+
+| Syntax      | Example                 |
+| ----------- | ------------            |
+| `$VAR`      | `$COPILOT_MCP_API_KEY`  |
+| `${VAR}`    | `${COPILOT_MCP_API_KEY}`|
+| `${VAR:-default}` | `${COPILOT_MCP_API_KEY:-fallback_value}` |
 
 ## Example configurations
+
+The examples below show MCP server configurations for different providers.
+
+* [Sentry](#example-sentry)
+* [Notion](#example-notion)
+* [Azure](#example-azure)
+* [Cloudflare](#example-cloudflare)
+* [Azure DevOps](#example-azure-devops)
+* [Atlassian](#example-atlassian)
 
 ### Example: Sentry
 
@@ -112,13 +130,11 @@ The [Sentry MCP server](https://github.com/getsentry/sentry-mcp) gives {% data v
       "args": ["@sentry/mcp-server@latest", "--host=$SENTRY_HOST"],
       "tools": ["get_issue_details", "get_issue_summary"],
       "env": {
-        // We can specify an environment variable value as
-        // a variable in your {% data variables.product.prodname_copilot_short %} environment
-        // where `COPILOT_MCP_SENTRY_HOST` = "https://contoso.sentry.io"...
-        "SENTRY_HOST": "COPILOT_MCP_SENTRY_HOST",
-        // or refer to a secret with a name starting with
-        // `COPILOT_MCP_`.
-        "SENTRY_ACCESS_TOKEN": "COPILOT_MCP_SENTRY_ACCESS_TOKEN"
+        // We can specify an environment variable value as a string...
+        "SENTRY_HOST": "https://contoso.sentry.io",
+        // or refer to a variable or secret in your {% data variables.product.prodname_copilot_short %} environment
+        // with a name starting with `COPILOT_MCP_`
+        "SENTRY_ACCESS_TOKEN": "$COPILOT_MCP_SENTRY_ACCESS_TOKEN"
       }
     }
   }
@@ -149,7 +165,7 @@ The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {
       "env": {
         // The value of the `COPILOT_MCP_NOTION_API_KEY` secret will be passed to the
         // server command as an environment variable called `NOTION_API_KEY`
-        "NOTION_API_KEY": "COPILOT_MCP_NOTION_API_KEY"
+        "NOTION_API_KEY": "$COPILOT_MCP_NOTION_API_KEY"
       },
       "tools": ["*"]
     }
@@ -249,6 +265,39 @@ To use the Azure DevOps MCP server with {% data variables.copilot.copilot_coding
     }
   }
    ```
+
+### Example: Atlassian
+
+The [Atlassian MCP server](https://github.com/atlassian/atlassian-mcp-server) gives {% data variables.product.prodname_copilot_short %} authenticated access to your Atlassian apps, including Jira, Compass, and Confluence.
+
+For more information about authenticating to the Atlassian MCP server using an API key, see [Configuring authentication via API token](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/configuring-authentication-via-api-token/) in the Atlassian documentation.
+
+```javascript copy
+// If you copy and paste this example, you will need to remove the comments prefixed with `//`, which are not valid JSON.
+{
+  "mcpServers": {
+    "atlassian-rovo-mcp": {
+      "command": "npx",
+      "type": "local",
+      "tools": ["*"],
+      "args": [
+        "mcp-remote@latest",
+        "https://mcp.atlassian.com/v1/mcp",
+        // We can use the $ATLASSIAN_API_KEY environment variable which is passed
+        // to the server because of the `env` value below.
+        "--header",
+        "Authorization: Basic $ATLASSIAN_API_KEY"
+      ],
+      "env": {
+        // The value of the `COPILOT_MCP_ATLASSIAN_API_KEY` secret will be passed
+        // to the server command as an environment variable
+        // called `ATLASSIAN_API_KEY`.
+        "ATLASSIAN_API_KEY": "$COPILOT_MCP_ATLASSIAN_API_KEY"
+      }
+    }
+  }
+}
+```
 
 ## Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
 

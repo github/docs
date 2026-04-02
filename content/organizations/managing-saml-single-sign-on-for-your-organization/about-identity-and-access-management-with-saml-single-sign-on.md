@@ -7,6 +7,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: IAM with SAML SSO
+category:
+  - Configure SAML single sign-on
 ---
 
 {% data reusables.saml.ghec-only %}

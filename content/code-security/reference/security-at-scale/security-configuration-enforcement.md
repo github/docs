@@ -4,11 +4,8 @@ intro: Understand the complexities of enforcing {% data variables.product.prodna
 versions:
   feature: security-configurations
 contentType: reference
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
+category:
+  - Secure at scale
 ---
 
 {% data variables.product.prodname_security_configurations_caps %} can be enforced, meaning repository owners cannot change the enablement status of features that are enabled or disabled by the configuration.

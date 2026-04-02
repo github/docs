@@ -3658,7 +3658,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "repos",
@@ -3667,7 +3667,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "repos",
@@ -5152,6 +5152,15 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/events",
         "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "list-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "additional-permissions": false,
         "access": "read"
       },
       {

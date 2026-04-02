@@ -13,6 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

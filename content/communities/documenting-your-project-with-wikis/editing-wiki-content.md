@@ -16,6 +16,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Document your project with wikis
 ---
 
 ## Adding links

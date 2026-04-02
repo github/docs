@@ -9,17 +9,14 @@ redirect_from:
   - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance
 versions:
   ghes: '*'
-topics:
-  - Advanced Security
-  - Enterprise
-  - Secret scanning
-  - Security
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About {% data variables.product.prodname_secret_scanning %}
 
-If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Repository administrators are notified about any commit that contains a secret, and they can quickly view all detected secrets in the **Security** tab for the repository. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Repository administrators are notified about any commit that contains a secret, and they can quickly view all detected secrets in the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
 ## Availability
 
@@ -58,8 +55,18 @@ The SSSE3 set of instructions is required because {% data variables.product.prod
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," select **{% data variables.product.prodname_secret_scanning_caps %}**.
+1. Under "Security," select **{% data variables.product.prodname_secret_scanning_caps %}**.{% ifversion secret-scanning-validity-check-partner-patterns %}
 {% data reusables.enterprise_management_console.save-settings %}
+
+    Optionally, to allow your users to enable validity checks at the enterprise, organization, or repository level, configure validity checks for {% data variables.product.prodname_secret_scanning %}.
+    
+1. Click **{% data variables.product.prodname_secret_scanning %} validity checks**. For information about validity checks, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository#about-validity-checks).
+
+    >[!NOTE]
+    > Enabling validity checks will send outbound requests to partner services to verify detected secrets. This means secret metadata will leave your instance. You need to ensure that this aligns with your enterprise's security and compliance policies before enabling.
+
+1. To run a simple connection test to verify that outbound connections are possible, click **Validity checks connection test**.
+{% endif %}
 
 ## Disabling {% data variables.product.prodname_secret_scanning %}
 

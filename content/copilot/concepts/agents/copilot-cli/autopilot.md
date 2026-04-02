@@ -63,7 +63,7 @@ You will get the best results from autopilot mode if you enable all permissions.
 
 ## Comparing autopilot mode, `--allow-all`, and `--no-ask-user`
 
-`--allow-all`, and its alias `--yolo`, are permissions-related options that you can pass to the `copilot` command when you start an interactive session. For a full list of available options, see [AUTOTITLE](/copilot/reference/cli-command-reference#command-line-options).
+`--allow-all`, and its alias `--yolo`, are permissions-related options that you can pass to the `copilot` command when you start an interactive session. For a full list of available options, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options).
 
 The `--allow-all` and `--yolo` options allow the CLI agent to use all tools, paths, and URLs. You can also set these permissions during an interactive session, by using the `/allow-all` or `/yolo` slash commands.
 

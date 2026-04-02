@@ -2,6 +2,6 @@ To allocate metered spending to a cost center, you add repositories, organizatio
 
 * For **usage-based** products, like {% data variables.product.prodname_actions %}, cost centers are charged based on the **repositories or organizations** in the cost center, as this is where the usage takes place.
 * For **license-based** products, like {% data variables.product.prodname_copilot %}, cost centers are charged based on the **users** in the cost center.
-* For products billed by **{% data variables.product.prodname_pru %}** usage, like {% data variables.copilot.copilot_coding_agent %}, cost centers are also charged based on the **users** in the cost center.
+* For products billed by **{% data variables.product.prodname_pru %}** usage, like {% data variables.copilot.copilot_coding_agent %}, cost centers are charged based on the **users** in the cost center, or the **organization that granted the user's {% data variables.product.prodname_copilot %} license** if the user isn't directly assigned to a cost center.
 
 Cost centers only apply to metered usage, and do not work with volume or subscription billing.

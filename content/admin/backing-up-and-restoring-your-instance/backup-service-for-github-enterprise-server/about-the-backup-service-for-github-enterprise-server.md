@@ -1,15 +1,12 @@
 ---
 title: About the backup service for GitHub Enterprise Server
 shortTitle: About the backup service
-intro: 'Learn what the built-in backup service offers and how it differs from a High Availability replica.'
+intro: Learn what the built-in backup service offers and how it differs from a High Availability replica.
 versions:
   ghes: '>=3.17'
-type: overview
-topics:
-  - Backups
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
+contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 {% ifversion ghes < 3.20 %}

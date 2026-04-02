@@ -6,6 +6,8 @@ versions:
   feature: github-models
 permissions: 'Organization owners'
 allowTitleToDifferFromFilename: true
+category:
+  - Configure organization features
 ---
 
 {% data reusables.models.models-preview-note %}

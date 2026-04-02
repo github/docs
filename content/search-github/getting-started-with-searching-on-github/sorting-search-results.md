@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Get started with search
 ---
 
 {% ifversion code-search-upgrade %}

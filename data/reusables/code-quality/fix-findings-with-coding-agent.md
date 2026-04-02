@@ -1,6 +1,6 @@
 Alternatively, if you have a {% data variables.product.prodname_copilot_short %} license, you can delegate the remediation work to {% data variables.copilot.copilot_coding_agent %}. Comment on the pull request mentioning `@{% data variables.product.prodname_copilot_short %}` and request that {% data variables.product.prodname_copilot_short %} fix the detected issues.
 
-![Screenshot showing a PR comment that invoked Copilot coding agent.](/assets/images/help/code-quality/invoke-coding-agent.png)
+![Screenshot showing a PR comment that invoked Copilot cloud agent.](/assets/images/help/code-quality/invoke-coding-agent.png)
 
 {% data variables.product.prodname_copilot_short %} responds with an eyes emoji (👀) to your comment, starts a new agent session, and opens a pull request with the necessary fixes.
 

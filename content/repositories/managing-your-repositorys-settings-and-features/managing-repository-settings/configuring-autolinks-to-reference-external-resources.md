@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Configure autolinks
+category:
+  - Customize and configure a repository
 ---
 
 ## About autolinks

@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Using Pulse
+category:
+  - Track repository activity
 ---
 
 ## About Pulse

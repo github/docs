@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: SSH certificate authorities
+category:
+  - Manage authentication methods
 ---
 
 ## About SSH certificate authorities

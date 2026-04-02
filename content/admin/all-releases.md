@@ -4,10 +4,9 @@ intro: "Review information for each version of {% data variables.product.prodnam
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Releases
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise.constantly-improving %} See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).

@@ -150,9 +150,6 @@ export const DefaultLayout = (props: Props) => {
             )
           })}
 
-        {/* For local site search indexing */}
-        {page.topics.length > 0 && <meta name="keywords" content={page.topics.join(',')} />}
-
         {/* For analytics events */}
         {router.locale && <meta name="path-language" content={router.locale} />}
         {currentVersion && <meta name="path-version" content={currentVersion} />}
@@ -163,7 +160,6 @@ export const DefaultLayout = (props: Props) => {
             content={relativePath.replace('/index.md', '').replace('.md', '')}
           />
         )}
-        {page.type && <meta name="page-type" content={page.type} />}
         {page.contentType && <meta name="page-content-type" content={page.contentType} />}
         {page.documentType && <meta name="page-document-type" content={page.documentType} />}
         {status && <meta name="status" content={status.toString()} />}

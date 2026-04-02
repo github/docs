@@ -205,8 +205,8 @@ test('404 page renders correctly', async ({ page }) => {
   const response = await page.goto('/this-definitely-does-not-exist')
   expect(response?.status()).toBe(404)
 
-  // Check that the 404 page content is rendered
-  await expect(page.getByText(/It looks like this page doesn't exist/)).toBeVisible()
+  // 404 pages now render a minimal HTML response
+  await expect(page.getByText('Page not found.')).toBeVisible()
 })
 
 test.describe('platform picker', () => {

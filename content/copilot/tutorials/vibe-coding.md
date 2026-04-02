@@ -6,6 +6,7 @@ versions:
   feature: copilot
 contentType: tutorials
 category:
+  - Rapid prototyping
   - Author and optimize with Copilot
 ---
 
@@ -383,7 +384,7 @@ After working with {% data variables.product.prodname_copilot_short %} to build,
    * **In JetBrains IDEs:** in agent mode of {% data variables.copilot.copilot_chat_short %}, submit a prompt such as:
 
      ```copilot copy
-     Analyze this codebase and create or update `.github/copilot-instructions.md` to guide AI coding agents.
+     Analyze this codebase and create or update `.github/copilot-instructions.md` to guide AI agents.
 
      Discover essential knowledge for immediate productivity:
      - Architecture: major components, service boundaries, data flows, and structural decisions

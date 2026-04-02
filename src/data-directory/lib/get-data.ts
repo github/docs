@@ -379,23 +379,6 @@ function memoize<T extends (...args: any[]) => any>(func: T): T {
     if (!cache.has(key)) {
       cache.set(key, func(...args))
     }
-    const value = cache.get(key)
-    // If what was stored in the cache is a mutable, this time, return
-    // a shallow copy.
-    // Otherwise, what *might* happen is this:
-    //
-    //   > const getNames = memoize(() => ["peter", "tucker"])
-    //   > var names = getNames()
-    //   > names.push("ashley")
-    //   > var names2 = getNames()
-    //   > names2.push("charlotte")
-    //   > console.log(names2)
-    //
-    //   ["peter", "tucker", "ashley", "charlotte"]
-    //
-    // Note that these are shallow copies only.
-    if (Array.isArray(value)) return [...value]
-    if (typeof value === 'object') return { ...value }
-    return value
+    return cache.get(key)
   }) as T
 }

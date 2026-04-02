@@ -31,11 +31,14 @@ category:
 * Complete acceptance criteria on what a good solution looks like (for example, should there be unit tests?).
 * Directions about which files need to be changed.
 
+> [!TIP]
+> {% data variables.copilot.copilot_coding_agent %} has the ability to search your codebase, including semantic code search, which helps it find relevant code based on meaning rather than just exact text matches. Even if you don't specify exact file paths in a task, the agent can often discover the right code on its own.
+
 If you pass a task to {% data variables.product.prodname_copilot_short %} by assigning an issue, it's useful to think of the issue you assign to {% data variables.product.prodname_copilot_short %} as a prompt. Consider whether the issue description is likely to work as an AI prompt, and will enable {% data variables.product.prodname_copilot_short %} to make the required code changes.
 
 ## Choosing the right type of tasks to give to {% data variables.product.prodname_copilot_short %}
 
-As you work with {% data variables.product.prodname_copilot_short %}, you'll get a sense of the types of tasks it's best suited to work on. Initially, you might want to start by giving {% data variables.product.prodname_copilot_short %} simpler tasks, to see how it works as a coding agent. For example, you could start by asking {% data variables.product.prodname_copilot_short %} to fix bugs, alter user interface features, improve test coverage, update documentation, improve accessibility, or address technical debt.
+As you work with {% data variables.product.prodname_copilot_short %}, you'll get a sense of the types of tasks it's best suited to work on. Initially, you might want to start by giving {% data variables.product.prodname_copilot_short %} simpler tasks, to see how it works as a cloud agent. For example, you could start by asking {% data variables.product.prodname_copilot_short %} to fix bugs, alter user interface features, improve test coverage, update documentation, improve accessibility, or address technical debt.
 
 Issues that you may choose to work on yourself, rather than assigning to {% data variables.product.prodname_copilot_short %}, include:
 
@@ -57,11 +60,26 @@ Issues that you may choose to work on yourself, rather than assigning to {% data
 * **Learning tasks**
   * Tasks where the developer wants to learn to achieve a deeper understanding
 
+## Researching, planning, and iterating before opening a pull request
+
+Rather than asking {% data variables.product.prodname_copilot_short %} to open a pull request right away, you can use {% data variables.copilot.copilot_coding_agent %} to research a repository, create an implementation plan, and make iterative code changes on a branch first. This lets you review the diff and refine the work before deciding to open a pull request.
+
+This workflow is useful when you want to:
+
+* Understand how a codebase works before making changes.
+* Agree on an approach with {% data variables.product.prodname_copilot_short %} before any code is written.
+* Review and iterate on changes before opening a pull request for review.
+
+See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/research-plan-iterate).
+
 ## Using comments to iterate on a pull request
 
 Working with {% data variables.product.prodname_copilot_short %} on a pull request is just like working with a human developer: it's common for the pull request to need further work before it can be merged. The process for getting the pull request to a mergeable state is exactly the same when the pull request is created by {% data variables.product.prodname_copilot_short %} as when it's created by a human.
 
-You can also mention `@copilot` in comments on the pull request—explaining what you think is incorrect, or could be improved—and leave {% data variables.product.prodname_copilot_short %} to make the required changes. Alternatively, you can work on the feature branch yourself and push changes to the pull request.
+Additionally, you can:
+* Mention `@copilot` in comments on the pull request, explaining what you think is incorrect, or could be improved, and {% data variables.product.prodname_copilot_short %} will push commits directly to the pull request's branch. 
+* Ask {% data variables.product.prodname_copilot_short %} to resolve merge conflicts on the pull request. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/make-changes-to-an-existing-pr#resolving-merge-conflicts). 
+* Work on the feature branch yourself and push changes to the pull request.
 
 After a user with write access mentions `@copilot` in a comment, {% data variables.product.prodname_copilot_short %} will start to make any required changes, and will update the pull request when it's done. Because {% data variables.product.prodname_copilot_short %} starts looking at comments as soon as they are submitted, if you are likely to make multiple comments on a pull request it's best to batch them by clicking **Start a review**, rather than clicking **Add single comment**. You can then submit all of your comments at once, triggering {% data variables.product.prodname_copilot_short %} to work on your entire review, rather than working on individual comments separately.
 

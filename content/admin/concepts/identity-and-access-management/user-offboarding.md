@@ -5,12 +5,8 @@ intro: 'Manage access with confidence by understanding the recommended approach 
 versions:
   ghec: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
+category:
+  - Provision and manage enterprise users
 ---
 
 ## How should I offboard users?

@@ -12,6 +12,8 @@ redirect_from:
   - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer
   - /early-access/enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer
+category:
+  - Run an enterprise migration
 ---
 
 ## About required access for {% data variables.product.prodname_importer_proper_name %}

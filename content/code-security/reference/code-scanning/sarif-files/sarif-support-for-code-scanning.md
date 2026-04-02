@@ -15,12 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Integration
-  - SARIF
 contentType: reference
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data variables.product.github %} can parse SARIF files produced by third-party tools to display {% data variables.product.prodname_code_scanning %} alerts in repositories. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/sarif-files).

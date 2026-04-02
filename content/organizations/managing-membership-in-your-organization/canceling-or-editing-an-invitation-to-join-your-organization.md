@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Cancel or edit invitation
+category:
+  - Manage members
 ---
 
 {% data reusables.profile.access_org %}

@@ -1,6 +1,7 @@
 ---
-title: Responsible use of GitHub Copilot coding agent on GitHub.com
-shortTitle: Copilot coding agent
+title: Responsible use of GitHub Copilot cloud agent on GitHub.com
+shortTitle: Copilot cloud agent
+allowTitleToDifferFromFilename: true
 intro: 'Learn how to use {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
@@ -9,21 +10,23 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom
   - /copilot/responsible-use-of-github-copilot-features/copilot-coding-agent
 contentType: rai
-category: 
+category:
   - Responsible use
 ---
 
-## About {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}
+## About {% data variables.copilot.copilot_cloud_agent_tmp %} on {% data variables.product.prodname_dotcom_the_website %}
 
-{% data variables.copilot.copilot_coding_agent %} is an autonomous and asynchronous software development agent integrated into {% data variables.product.github %}. The agent can pick up a task from an issue or from {% data variables.copilot.copilot_chat_short %}, create a pull request, and then iterate on the pull request in response to comments.
+{% data variables.copilot.copilot_coding_agent %} is an autonomous and asynchronous software development agent integrated into {% data variables.product.github %}. The agent can pick up a task from an issue or from {% data variables.copilot.copilot_chat_short %}, research a repository, create an implementation plan, and make code changes on a branch. You can review the diff, iterate with the agent, and create a pull request when you're ready.
 
-{% data variables.copilot.copilot_coding_agent %} can generate tailored changes based on your description and configurations, including tasks like bug fixes, implementing incremental new features, prototyping, documentation, and codebase maintenance. After the initial pull request is created, the agent can iterate with you, based on your feedback and reviews.
+{% data variables.copilot.copilot_coding_agent %} can generate tailored changes based on your description and configurations, including tasks like researching a codebase, planning an approach, bug fixes, implementing incremental new features, prototyping, documentation, and codebase maintenance. The agent can iterate with you based on your feedback, whether that's through follow-up prompts during a session or comments on a pull request.
 
 While working on your task, the agent has access to its own ephemeral development environment where it can make changes to your code, execute automated tests, and run linters.
 
 The agent has been evaluated across a variety of programming languages, with English as the primary supported language.
 
 The agent works by using a combination of natural language processing and machine learning to understand your task and make changes in a codebase to complete your task. This process can be broken down into a number of steps.
+
+> [!NOTE] Deep research, planning, and iterating on code changes before creating a pull request are only available with {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.copilot.copilot_coding_agent_short_cap_c %} integrations (such as Azure Boards, JIRA, Linear, Slack, or Teams) only support creating a pull request directly.
 
 ### Prompt processing
 
@@ -39,9 +42,9 @@ The language model generates a response based on its analysis of the prompt. Thi
 
 ### Output formatting
 
-Once the agent completes its first run, it will update the pull request description with the changes it made. The agent may include supplemental information about resources it could not access and provide suggestions on the steps to resolve.
+Once the agent completes its first run, it will provide a summary of the changes it made. If a pull request was created, the agent updates the pull request description. The agent may include supplemental information about resources it could not access and provide suggestions on the steps to resolve.
 
-You may provide feedback to the agent by commenting within the pull request or explicitly mentioning the agent (`@copilot`). The agent will then resubmit that feedback to the language model for further analysis. Once the agent completes changes based on feedback, the agent will respond to your comment with updated changes.
+You may provide feedback to the agent by sending follow-up prompts during a session, commenting within a pull request, or explicitly mentioning the agent (`@copilot`) on the pull request. The agent will then resubmit that feedback to the language model for further analysis. Once the agent completes changes based on feedback, it will respond with updated changes.
 
 Copilot is intended to provide you with the most relevant solution for task resolution. However, it may not always provide the answer you are looking for. You are responsible for reviewing and validating responses generated by {% data variables.product.prodname_copilot_short %} to ensure they are accurate and appropriate.
 
@@ -53,7 +56,9 @@ For information on how to improve performance, see [Improving performance for {%
 
 You can delegate a task to {% data variables.product.prodname_copilot_short %} in a variety of scenarios, including, but not limited to:
 
-* **Codebase maintenance:** Tackling Security related fixes, dependency upgrades, and targeted refactoring.
+* **Deep research:** Understanding how a codebase works, identifying where to make a change, or confirming assumptions.
+* **Planning:** Creating an implementation plan before making changes.
+* **Codebase maintenance:** Tackling security-related fixes, dependency upgrades, and targeted refactoring.
 * **Documentation:** Updating and creating new documentation.
 * **Feature development:** Implementing incremental feature requests.
 * **Improving test coverage:** Developing additional test suites for quality management.
@@ -67,7 +72,7 @@ For more information about limitations, see [Limitations of {% data variables.co
 
 ### Ensure your tasks are well-scoped
 
-{% data variables.copilot.copilot_coding_agent %} leverages your prompt as key context when generating a pull request. The more clear and well-scoped the prompt you assign to the agent, the better the results you will get. An ideal issue includes:
+{% data variables.copilot.copilot_coding_agent %} leverages your prompt as key context when working on a task. The more clear and well-scoped the prompt you assign to the agent, the better the results you will get. An ideal task includes:
 
 * A clear description of the problem to be solved or the work required.
 * Complete acceptance criteria on what a good solution looks like (for example, should there be unit tests?).
@@ -75,7 +80,9 @@ For more information about limitations, see [Limitations of {% data variables.co
 
 ### Customize your experience with additional context
 
-{% data variables.copilot.copilot_coding_agent %} leverages your prompt, comments and the repository’s code as context when generating suggested changes. To enhance Copilot’s performance, consider implementing custom Copilot instructions to help the agent better understand your project and how to build, test and validate its changes. For more information, see "Add custom instructions to your repository" in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices#adding-custom-instructions-to-your-repository).
+{% data variables.copilot.copilot_coding_agent %} leverages your prompt, comments and the repository’s code as context when generating suggested changes. The agent also has access to semantic code search, which helps it find relevant code based on meaning rather than just exact text matches, allowing it to complete tasks faster.
+
+To enhance {% data variables.product.prodname_copilot_short %}’s performance, consider implementing custom {% data variables.product.prodname_copilot_short %} instructions to help the agent better understand your project and how to build, test and validate its changes. For more information, see "Add custom instructions to your repository" in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices#adding-custom-instructions-to-your-repository).
 
 For information about other customizations for {% data variables.copilot.copilot_coding_agent %}, see:
 
@@ -113,11 +120,17 @@ The agent filters hidden characters, that are not displayed on {% data variables
 
 ### Constraining Copilot’s permissions
 
-Copilot only has access to the repository where it is creating a pull request, and cannot access other repositories.
+Copilot only has access to the repository where it is working, and cannot access other repositories.
 
-Its permissions are limited, allowing it to push code and read other resources. Built-in protections mean that Copilot can only push to branches with names beginning with `copilot/`. This means that Copilot cannot push to your default branch (for example, `main`).
+Its permissions are limited, allowing it to push code and read other resources. Built-in protections mean that Copilot can only push to a single branch: the existing pull request branch when triggered via `@copilot`, or otherwise to a new `copilot/` branch. This means that Copilot cannot push directly to your default branch (for example, `main`).
 
 {% data variables.copilot.copilot_coding_agent %} does not have access to Actions organization or repository secrets or variables during runtime. Only secrets and variables specifically added to the `copilot` environment are passed to the agent.
+
+### Ensuring traceability
+
+{% data variables.copilot.copilot_coding_agent %}'s commits are authored by {% data variables.product.prodname_copilot_short %}, with the human who started the task marked as the co-author. This makes it easier to identify code generated by the agent and who initiated the task.
+
+Each commit message includes a link to the agent session logs. This gives you a permanent link from any agent-authored commit to the full session logs, so you can understand why {% data variables.product.prodname_copilot_short %} made a change during code review or trace it later for auditing purposes.
 
 ### Preventing data exfiltration
 
@@ -165,9 +178,9 @@ If this happens, {% data variables.product.prodname_copilot_short %} will show m
 
 Users need to evaluate potential specific legal and regulatory obligations when using any AI services and solutions, which may not be appropriate for use in every industry or scenario. Additionally, AI services or solutions are not designed for and may not be used in ways prohibited in applicable terms of service and relevant codes of conduct.
 
-## External integrations with Copilot coding agent
+## External integrations with Copilot cloud agent
 
-{% data variables.copilot.copilot_coding_agent %} can receive information and context from external applications like Microsoft Teams, Linear, and Slack. When you mention the external application in these platforms or assign a task to the coding agent via a connected workflow, it can access relevant context, such as conversation history in threads where it’s mentioned or issue details and activity timelines. This allows the coding agent to better understand your development needs and provide more relevant assistance. These integrations enable teams to collaborate on code, assign tasks, and track progress directly within their existing workflows, without switching tools. Ensure your team understands what information is being shared and configure integrations according to your organization’s privacy and data handling policies.
+{% data variables.copilot.copilot_coding_agent %} can receive information and context from external applications like Microsoft Teams, Linear, Slack, and Jira. When you mention the external application in these platforms or assign a task to the cloud agent via a connected workflow, it can access relevant context, such as conversation history in threads where it’s mentioned or issue details and activity timelines. This allows the cloud agent to better understand your development needs and provide more relevant assistance. These integrations enable teams to collaborate on code, assign tasks, and track progress directly within their existing workflows, without switching tools. Ensure your team understands what information is being shared and configure integrations according to your organization’s privacy and data handling policies.
 
 For more information about external integrations with {% data variables.copilot.copilot_coding_agent %}, see:
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-teams)

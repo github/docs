@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Troubleshoot authentication issues
 ---
 ## Finding where the key has been used
 

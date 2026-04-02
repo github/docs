@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up your organization
 ---
 
 ## About organizations

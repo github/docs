@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: About source code imports
+category:
+  - Import source code
 ---
 
 {% data reusables.repositories.importing-context %}

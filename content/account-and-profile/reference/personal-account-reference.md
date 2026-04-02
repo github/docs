@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Set up your account
 ---
 
 ## Side effects of account deletion

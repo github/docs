@@ -5,6 +5,8 @@ intro: 'Learn how to test models and refine prompts for your AI-powered applicat
 versions:
   feature: github-models
 allowTitleToDifferFromFilename: true
+category:
+  - Build with AI models
 ---
 
 With new AI models being released regularly, choosing the right one for your application can be challenging. {% data variables.product.prodname_github_models %} helps you optimize your AI-powered application by letting you **compare different models and prompt variations** against sample inputs, while using **built-in evaluators** to validate model output.

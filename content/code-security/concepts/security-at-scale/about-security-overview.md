@@ -15,17 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Code scanning
-  - Dependabot
-  - Organizations
-  - Secret scanning
-  - Teams
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 {% ifversion fpt %}
@@ -73,11 +65,11 @@ There are dedicated views for each type of security alert. You can limit your an
 
 The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. For example, the team can use the "Overview" dashboard view to track your organization's security landscape and progression. {% ifversion pre-security-configurations %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).{% endif %}
 
-You can find security overview on the **Security** tab for any organization. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected.
+You can find security overview on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for any organization. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected.
 
 Security overview has multiple views that provide different ways to explore enablement and alert data.
 
-* **Overview:** visualize trends in **Detection**, **Remediation**, and **Prevention** of security alerts, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+* **Overview:** visualize trends in **Detection**, **Remediation**, and **Prevention** of security alerts. For information about accessing and using the dashboard, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights). For detailed explanations of metrics and calculations, see [AUTOTITLE](/code-security/reference/security-at-scale/security-overview-dashboard-metrics).
 * **Risk and Alert views:** explore the risk from security alerts of all types or focus on a single alert type and identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets, see [AUTOTITLE](/code-security/security-overview/assessing-code-security-risk).
 * **Coverage:** assess the adoption of security features across repositories in the organization, see [AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security).{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
 * **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% endif %}{% ifversion security-campaigns %}
@@ -93,9 +85,9 @@ You also create and manage security campaigns to remediate alerts from security 
 
 ## About security overview for enterprises
 
-You can find security overview on the **Security** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise.
+You can find security overview on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise.
 
-As with security overview for organizations, security overview for enterprises has multiple views that provide different ways to explore data.
+Security overview for enterprises has multiple views that provide different ways to explore data, including an overview dashboard that visualizes alert trends. For information about the dashboard, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights) and [AUTOTITLE](/code-security/reference/security-at-scale/security-overview-dashboard-metrics).
 
 ## Access to data in security overview
 
@@ -110,6 +102,21 @@ In general:
 Security overview displays data only for repositories you have permission to view, and some views or actions may be limited based on your role.
 
 For detailed, role-by-role permission information, including which views are available and how repository access affects visibility, see [AUTOTITLE](/code-security/reference/permissions/security-overview-permissions).
+
+## Understanding dashboard data accuracy
+
+The overview dashboard displays metrics based on the current state of your repositories and the historical state of security alerts. This data model has important implications for data consistency:
+
+**Data changes over time:** Dashboard metrics can change for the same historical time period when viewed at different times. This occurs when repositories are deleted, security advisories are modified, or other changes affect the underlying data. If you need consistent data for compliance reports or auditing purposes, use the audit log instead. See [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
+
+**Alert data is historical; repository attributes are current:** The dashboard tracks security alerts based on their historical state during the selected time period. However, repository filters (such as archived/active status) reflect the _current state_ of repositories.
+
+For example, if you archive a repository today, any open alerts in that repository are automatically closed. If you then view the overview dashboard for last week:
+
+* The repository only appears when you filter to show archived repositories (its current state)
+* The alerts from that repository appear as open (their state during last week)
+
+This design ensures alert trends accurately reflect security activity during the time period you're analyzing, while repository filters help you focus on your current repository structure.
 
 ## Further reading
 

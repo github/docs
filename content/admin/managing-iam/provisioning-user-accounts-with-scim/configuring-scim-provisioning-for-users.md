@@ -16,9 +16,8 @@ redirect_from:
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-topics:
-  - Accounts
-  - Enterprise
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}
@@ -63,7 +62,7 @@ This table contains the network requirements to configure GHES SCIM with an IdP:
 
 | System | Direction | Purpose | Protocol / Port | Notes |
 |------------|------------|----------|------------------|-------|
-| GitHub Enterprise Server | Inbound | Receives SCIM API requests from IdP for users and groups | TCP 443 (HTTPS) | [AUTOTITLE](/enterprise-server/rest/enterprise-admin/scim) must be reachable from IdP |
+| GitHub Enterprise Server | Inbound | Receives SCIM API requests from IdP for users and groups | TCP 443 (HTTPS) | [AUTOTITLE](/rest/enterprise-admin/scim) must be reachable from IdP |
 | Identity Provider (IdP) | Outbound | Sends SCIM provisioning requests to GitHub for users and groups | TCP 443 (HTTPS) | IdP acts as SCIM client, initiating outbound HTTPS connections to GitHub's SCIM API endpoints. |
 
 * For authentication, your instance must use SAML SSO, or a mix of SAML and built-in authentication.

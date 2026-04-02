@@ -5,15 +5,10 @@ versions:
   feature: dependabot-metrics
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 permissions: '{% data reusables.permissions.security-overview-dependabot-metrics %}'
-topics:
-  - Security overview
-  - Code Security
-  - Dependabot
-  - Organizations
-  - Alerts
-  - Vulnerabilities
 shortTitle: Dependabot alert metrics
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 Metrics for {% data variables.product.prodname_dependabot_alerts %} help you understand the security posture of your organization's dependencies and track progress in resolving vulnerabilities. You can use these metrics to prioritize remediation efforts and focus on the most critical security issues.

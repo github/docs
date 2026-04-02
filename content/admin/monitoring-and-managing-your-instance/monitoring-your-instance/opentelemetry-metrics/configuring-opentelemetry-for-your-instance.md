@@ -1,16 +1,12 @@
 ---
 title: Configuring OpenTelemetry for your instance
-intro: 'Learn how to configure OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance for enhanced monitoring and observability.'
+intro: Learn how to configure OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance for enhanced monitoring and observability.
 versions:
   feature: ghes-opentelemetry
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
-type: how_to
 shortTitle: Configure OpenTelemetry
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}

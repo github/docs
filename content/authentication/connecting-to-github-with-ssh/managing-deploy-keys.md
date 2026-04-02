@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Connect with SSH
 ---
 
 
@@ -100,6 +102,22 @@ For enhanced security and fine-grained control over repository access and permis
 1. Click **Add key**.
 
 You can also use the REST API to create deploy keys. For more information, see [AUTOTITLE](/rest/deploy-keys/deploy-keys).
+
+You can then interact with the repository using SSH. For example:
+
+```bash
+git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}:OWNER/REPO.git
+```
+
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.ssh-user %}
+>
+> ```bash
+> git clone {% data variables.enterprise.data_residency_example_git_ssh %}:OWNER/REPO.git
+> ```
+
+{% endif %}
 
 ### Using multiple repositories on one server
 
@@ -199,4 +217,5 @@ If your server needs to access multiple repositories, you can create a new accou
 
 ## Further reading
 
+* [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types)
 * [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

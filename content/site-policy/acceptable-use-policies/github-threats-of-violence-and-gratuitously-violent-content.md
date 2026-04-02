@@ -7,6 +7,8 @@ redirect_from:
   - /github/site-policy/github-threats-of-violence-and-gratuitously-violent-content
   - /github/site-policy/github-community-guidelines#threats-of-violence
   - /github/site-policy/github-community-guidelines#gratuitously-violent-content
+category:
+  - Follow acceptable use policies
 ---
 
 

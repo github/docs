@@ -1,17 +1,15 @@
 ---
 title: Choosing who owns and pays for codespaces in your organization
-shortTitle: 'Billing and ownership'
-intro: 'You can choose whether codespaces are paid for and owned by your organization or by your members.'
-permissions: "Organization owners can change an organization's billing details and control who owns and pays for codespaces."
+shortTitle: Billing and ownership
+intro: You can choose whether codespaces are paid for and owned by your organization or by your members.
+permissions: Organization owners can change an organization's billing details and control who owns and pays for codespaces.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Billing
-  - Administrator
-product: 'Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members'' use of {% data variables.product.prodname_github_codespaces %}. These organizations can then access policies that apply to codespaces paid for by the organization. See [AUTOTITLE](/get-started/learning-about-github/githubs-products).'
+product: Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members' use of {% data variables.product.prodname_github_codespaces %}. These organizations can then access policies that apply to codespaces paid for by the organization. See [AUTOTITLE](/get-started/learning-about-github/githubs-products).
+contentType: how-tos
+category:
+  - Manage codespaces for your organization
 ---
 
 ## Overview

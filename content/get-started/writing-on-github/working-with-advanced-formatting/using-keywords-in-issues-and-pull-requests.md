@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /github/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests
+category:
+  - Write and format content
 ---
 
 ## Linking a pull request to an issue

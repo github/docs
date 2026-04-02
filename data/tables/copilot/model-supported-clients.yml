@@ -7,6 +7,7 @@
 # Column keys:
 # - name: The model name.
 # - dotcom: Availability on GitHub.com (Copilot Chat in the browser).
+# - cli: Availability in the GitHub CLI.
 # - vscode: Availability in Visual Studio Code.
 # - vs: Availability in Visual Studio.
 # - eclipse: Availability in Eclipse.
@@ -15,6 +16,7 @@
 
 - name: Claude Haiku 4.5
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -23,6 +25,7 @@
 
 - name: Claude Opus 4.5
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -31,6 +34,7 @@
 
 - name: Claude Opus 4.6
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -39,6 +43,7 @@
 
 - name: Claude Opus 4.6 (fast mode) (preview)
   dotcom: false
+  cli: true
   vscode: true
   vs: false
   eclipse: false
@@ -47,6 +52,7 @@
 
 - name: Claude Sonnet 4
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -55,6 +61,7 @@
 
 - name: Claude Sonnet 4.5
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -63,6 +70,7 @@
 
 - name: Claude Sonnet 4.6
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: false
@@ -71,6 +79,7 @@
 
 - name: Gemini 2.5 Pro
   dotcom: true
+  cli: false
   vscode: true
   vs: true
   eclipse: true
@@ -79,6 +88,7 @@
 
 - name: Gemini 3 Flash
   dotcom: true
+  cli: false
   vscode: true
   vs: true
   eclipse: true
@@ -87,6 +97,7 @@
 
 - name: Gemini 3 Pro
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -95,14 +106,16 @@
 
 - name: Gemini 3.1 Pro
   dotcom: true
+  cli: false
   vscode: true
   vs: true
-  eclipse: false
-  xcode: false
-  jetbrains: false
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: GPT-4.1
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -111,6 +124,7 @@
 
 - name: GPT-5 mini
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -119,6 +133,7 @@
 
 - name: GPT-5.1
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -127,6 +142,7 @@
 
 - name: GPT-5.1-Codex
   dotcom: false
+  cli: true
   vscode: true
   vs: false
   eclipse: true
@@ -135,6 +151,7 @@
 
 - name: GPT-5.1-Codex-Mini
   dotcom: false
+  cli: true
   vscode: true
   vs: false
   eclipse: true
@@ -143,6 +160,7 @@
 
 - name: GPT-5.1-Codex-Max
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -151,6 +169,7 @@
 
 - name: GPT-5.2
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -159,6 +178,7 @@
 
 - name: GPT-5.2-Codex
   dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -167,6 +187,25 @@
 
 - name: GPT-5.3-Codex
   dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-5.4
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-5.4 mini
+  dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -175,6 +214,7 @@
 
 - name: Grok Code Fast 1
   dotcom: true
+  cli: false
   vscode: true
   vs: true
   eclipse: true
@@ -183,6 +223,7 @@
 
 - name: Raptor mini
   dotcom: false
+  cli: false
   vscode: true
   vs: false
   eclipse: false
@@ -191,6 +232,7 @@
 
 - name: Goldeneye
   dotcom: false
+  cli: false
   vscode: true
   vs: false
   eclipse: false

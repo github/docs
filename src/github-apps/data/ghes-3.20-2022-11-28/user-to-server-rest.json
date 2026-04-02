@@ -1751,14 +1751,6 @@
       "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
     }
   ],
-  "credentials": [
-    {
-      "slug": "revoke-a-list-of-credentials",
-      "subcategory": "revoke",
-      "verb": "post",
-      "requestPath": "/credentials/revoke"
-    }
-  ],
   "dependabot": [
     {
       "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
@@ -2787,6 +2779,12 @@
       "subcategory": "events",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/events"
+    },
+    {
+      "slug": "list-issue-field-values-for-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
     },
     {
       "slug": "list-labels-for-an-issue",

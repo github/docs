@@ -18,6 +18,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Analyze changes
+category:
+  - Track repository activity
 ---
 
 ## Visualizing commits in a repository

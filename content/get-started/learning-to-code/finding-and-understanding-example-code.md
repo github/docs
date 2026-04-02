@@ -4,6 +4,8 @@ shortTitle: Finding example code
 intro: "Improve your coding skills by learning from example code on {% data variables.product.github %}."
 versions:
   fpt: '*'
+category:
+  - Learn to code
 ---
 
 ## How can I learn from code on {% data variables.product.github %}?

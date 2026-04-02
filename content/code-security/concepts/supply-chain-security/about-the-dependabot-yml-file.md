@@ -6,13 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
 shortTitle: dependabot.yml file
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 The `dependabot.yml` file is an optional configuration file that gives you fine-grained control over how {% data variables.product.prodname_dependabot %} monitors and updates dependencies (mainly _version updates_ but also _security updates_) in your repository.

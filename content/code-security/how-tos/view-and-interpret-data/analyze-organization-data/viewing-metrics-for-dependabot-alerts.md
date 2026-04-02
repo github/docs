@@ -8,15 +8,10 @@ versions:
 permissions: '{% data reusables.permissions.security-overview-dependabot-metrics %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Dependabot
-  - Organizations
-  - Alerts
-  - Vulnerabilities
 redirect_from:
   - /code-security/security-overview/viewing-metrics-for-dependabot-alerts
+category:
+  - Secure at scale
 ---
 
 You can view metrics for {% data variables.product.prodname_dependabot_alerts %} to track and prioritize vulnerabilities across your organization. For more information about the available metrics and how to use them, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-metrics-for-dependabot-alerts).

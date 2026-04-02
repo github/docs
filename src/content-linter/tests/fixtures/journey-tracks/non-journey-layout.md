@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Testing
 journeyTracks:
   - id: track-1
     title: "Should be ignored"

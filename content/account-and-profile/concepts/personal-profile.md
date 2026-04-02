@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Customize your profile
 ---
 
 Your {% data variables.product.github %} profile showcases your work, contributions, and information you choose to share publicly.

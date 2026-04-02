@@ -25,7 +25,7 @@ category:
 
 ## What is a request?
 
-A request is any interaction where you ask {% data variables.product.prodname_copilot_short %} to do something for you—whether it’s generating code, answering a question, or helping you through an extension. Each time you send a prompt in a chat window or trigger a response from {% data variables.product.prodname_copilot_short %}, you’re making a request.
+A request is any interaction where you ask {% data variables.product.prodname_copilot_short %} to do something for you—whether it's generating code, answering a question, or helping you through an extension. Each time you send a prompt in a chat window or trigger a response from {% data variables.product.prodname_copilot_short %}, you're making a request. For agentic features, only the prompts you send count as premium requests; actions {% data variables.product.prodname_copilot_short %} takes autonomously to complete your task, such as tool calls, do not. For example, using `/plan` in {% data variables.copilot.copilot_cli_short %} counts as one premium request, and any follow-up prompt you send counts as another.
 
 ## What are premium requests?
 
@@ -35,16 +35,20 @@ Some {% data variables.product.prodname_copilot_short %} features use more advan
 
 The following {% data variables.product.prodname_copilot_short %} features can use premium requests.
 
+{% rowheaders %}
+
 | Feature | Premium request consumption | SKU Attribution |
 | ------- | ----------- | ----------- |
 | [{% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat) | {% data variables.copilot.copilot_chat_short %} uses **one premium request** per user prompt, multiplied by the model's rate. This includes ask, edit, agent, and plan modes in {% data variables.copilot.copilot_chat_short %} in an IDE. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [{% data variables.copilot.copilot_cli_short %}](/copilot/concepts/agents/about-copilot-cli) | Each prompt to {% data variables.copilot.copilot_cli_short %} uses **one premium request** with the default model. For other models, this is multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review) | Each time {% data variables.product.prodname_copilot_short %} reviews a pull request (when assigned as a reviewer) or reviews code in your IDE, **one premium request** is consumed. | {% data variables.product.prodname_copilot_short %} premium requests |
-| [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent) | {% data variables.copilot.copilot_coding_agent %} uses **one premium request** per session, multiplied by the model's rate. A session begins when you ask {% data variables.product.prodname_copilot_short %} to create a pull request or make one or more changes to an existing pull request. In addition, each real-time steering comment made during an active session uses **one premium request** per session, multiplied by the model's rate. | {% data variables.copilot.copilot_coding_agent %} premium requests |
+| [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent) | {% data variables.copilot.copilot_coding_agent %} uses **one premium request** per session, multiplied by the model's rate. A session begins when you prompt {% data variables.product.prodname_copilot_short %} to undertake a task. In addition, each real-time steering comment made during an active session uses **one premium request** per session, multiplied by the model's rate. | {% data variables.copilot.copilot_coding_agent %} premium requests |
 | [{% data variables.copilot.copilot_spaces %}](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) | {% data variables.copilot.copilot_spaces %} uses **one premium request** per user prompt, multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [{% data variables.product.prodname_spark_short %}](/copilot/tutorials/building-ai-app-prototypes) | Each prompt to {% data variables.product.prodname_spark_short %} uses a fixed rate of **four premium requests**. | {% data variables.product.prodname_spark_short %} premium requests |
 | [{% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode %} integration](/copilot/concepts/agents/openai-codex) | While in preview, each prompt to {% data variables.product.prodname_openai_codex %} uses **one premium request** multiplied by the model multiplier rates. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [Third-party coding agents](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents) | While in preview, each prompt to a third-party coding agent uses **one premium request**. | {% data variables.product.prodname_copilot_short %} premium requests |
+
+{% endrowheaders %}
 
 
 > [!TIP]
@@ -54,9 +58,9 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 If you use **{% data variables.copilot.copilot_free_short %}**, your plan comes with up to 2,000 inline suggestion requests and up to 50 premium requests per month. All chat interactions count as premium requests.
 
-If you're on a **paid plan**, you get unlimited inline suggestions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
+If you're on a **paid plan** or **{% data variables.copilot.copilot_student_short %}**, you get unlimited inline suggestions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
 
-Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, inline suggestions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
+Paid plans and {% data variables.copilot.copilot_student_short %} also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, inline suggestions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
 {% data reusables.copilot.premium-request-entity-selection %}
 
