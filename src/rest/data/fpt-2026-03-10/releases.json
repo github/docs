@@ -3461,7 +3461,7 @@
             "false",
             "legacy"
           ],
-          "default": true
+          "default": "true"
         },
         {
           "type": "string",
