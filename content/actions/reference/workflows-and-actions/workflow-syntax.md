@@ -1182,6 +1182,45 @@ Additional Docker container resource options. For a list of options, see [`docke
 > [!WARNING]
 > The `--network` option is not supported.
 
+{% ifversion fpt or ghec %}
+
+## `jobs.<job_id>.services.<service_id>.command`
+
+Overrides the Docker image's default command (`CMD`). The value is passed as arguments after the image name in the `docker create` command. If you also specify `entrypoint`, `command` provides the arguments to that entrypoint.
+
+### Example of `jobs.<job_id>.services.<service_id>.command`
+
+```yaml
+services:
+  mysql:
+    image: mysql:8
+    command: --sql_mode=STRICT_TRANS_TABLES --max_allowed_packet=512M
+    env:
+      MYSQL_ROOT_PASSWORD: test
+    ports:
+      - 3306:3306
+```
+
+## `jobs.<job_id>.services.<service_id>.entrypoint`
+
+Overrides the Docker image's default `ENTRYPOINT`. The value is a single string defining the executable to run. Use this when you need to replace the image's entrypoint entirely. You can combine `entrypoint` with `command` to pass arguments to the custom entrypoint.
+
+### Example of `jobs.<job_id>.services.<service_id>.entrypoint`
+
+```yaml
+services:
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.17
+    entrypoint: etcd
+    command: >-
+      --listen-client-urls http://0.0.0.0:2379
+      --advertise-client-urls http://0.0.0.0:2379
+    ports:
+      - 2379:2379
+```
+
+{% endif %}
+
 ## `jobs.<job_id>.uses`
 
 The location and version of a reusable workflow file to run as a job. Use one of the following syntaxes:
