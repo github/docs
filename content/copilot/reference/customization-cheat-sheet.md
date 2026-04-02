@@ -54,7 +54,7 @@ This table shows which customization features are supported in each IDE and surf
 | Feature | {% data variables.product.prodname_vscode_shortname %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Eclipse | Xcode | {% data variables.product.prodname_dotcom %} .com | {% data variables.copilot.copilot_cli_short %} |
 |---------|:-------:|:-------------:|:---------:|:-------:|:-----:|:-------:|:---:|
 | Custom instructions | ✓ | ✓ | P | P | P | ✓ | ✓ |
-| Prompt files | ✓ | ✓ | P | ✗ | P | ✗ | ✓ |
+| Prompt files | ✓ | ✓ | P | ✗ | P | ✗ | ✗ |
 | {% data variables.copilot.custom_agents_caps_short %} | ✓ | ✗ | P | P | P | ✓ | ✓ |
 | {% data variables.copilot.subagents_caps_short %} | ✓ | ✗ | P | P | P | ✗ | ✓ |
 | Agent skills | ✓ | ✗ | P | ✗ | ✗ | ✓ | ✓ |
