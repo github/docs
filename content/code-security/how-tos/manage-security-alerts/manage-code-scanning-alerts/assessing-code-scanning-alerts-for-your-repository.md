@@ -8,20 +8,17 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository
+category:
+  - Find and fix code vulnerabilities
 ---
 
 Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
 
 ## Viewing the alerts for a repository
 
-You need write permission to view a summary of all the alerts for a repository on the **Security** tab.
+You need write permission to view a summary of all the alerts for a repository on the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 By default, the {% data variables.product.prodname_code_scanning %} alerts page is filtered to show alerts for the default branch of the repository only.
 
@@ -58,7 +55,7 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 
 ## Viewing metrics for {% data variables.product.prodname_codeql %} pull request alerts for an organization
 
-For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories where you have write access across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories where you have write access across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/pull-request-alert-metrics).
 
 {% endif %}
 

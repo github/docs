@@ -7,8 +7,6 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /secure-your-repository
   - /manage-dependency-updates

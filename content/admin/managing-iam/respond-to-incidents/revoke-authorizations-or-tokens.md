@@ -1,17 +1,14 @@
 ---
 title: Revoking SSO authorizations or deleting credentials in your enterprise
-intro: 'Respond to a security incident by taking bulk action on credentials with access to your enterprise.'
-permissions: 'Enterprise owners and users with the "Manage enterprise credentials" fine-grained permission'
-product: 'Enterprises with managed users, or enterprises that have enabled SAML SSO for the enterprise or its organizations'
+intro: Respond to a security incident by taking bulk action on credentials with access to your enterprise.
+permissions: Enterprise owners and users with the "Manage enterprise credentials" fine-grained permission
+product: Enterprises with managed users, or enterprises that have enabled SAML SSO for the enterprise or its organizations
 versions:
   feature: revoke-enterprise-tokens
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Revoke authorizations or tokens
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 When your enterprise is affected by a major security incident, you can respond by preventing programmatic access to your enterprise or its organizations.

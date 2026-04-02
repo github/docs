@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: npm registry
+category:
+  - Work with a package registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

@@ -3,12 +3,11 @@ title: GitHub Hate Speech and Discrimination
 shortTitle: Hate Speech and Discrimination
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-hate-speech-and-discrimination
   - /github/site-policy/github-community-guidelines#hate-speech-and-discrimination
+category:
+  - Follow acceptable use policies
 ---
 
 GitHub does not tolerate speech that attacks or promotes hate toward an individual or group of people on the basis of who they are, including age, body size, ability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, sexual identity, or sexual orientation. This includes:

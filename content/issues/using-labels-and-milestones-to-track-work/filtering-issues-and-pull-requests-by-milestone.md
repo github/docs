@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Filter by milestone
+category:
+  - Triage and organize issues
 ---
 
 > [!TIP]

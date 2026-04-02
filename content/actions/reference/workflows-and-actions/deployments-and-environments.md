@@ -1,13 +1,16 @@
 ---
 title: Deployments and environments
 shortTitle: Deployments and environments
-intro: 'Find information about deployment protection rules, environment secrets, and environment variables.'
+intro: Find information about deployment protection rules, environment secrets, and environment variables.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 redirect_from:
   - /actions/reference/deployments-and-environments
+category:
+  - Deploy to environments
+contentType: reference
 ---
 
 ## Deployment protection rules

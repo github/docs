@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/checking-out-a-commit-in-github-desktop
+category:
+  - Manage commits
 ---
 
 ## About checking out a commit

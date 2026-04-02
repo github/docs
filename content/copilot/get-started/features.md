@@ -3,8 +3,6 @@ title: GitHub Copilot features
 intro: '{% data variables.product.prodname_copilot %} offers a suite of features. {% data variables.product.prodname_copilot_short %} also offers a suite of features for administrators.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Features
 redirect_from:
   - /copilot/copilot-business/github-copilot-business-feature-set
@@ -19,25 +17,19 @@ category:
 
 ## {% data variables.product.prodname_copilot %} features
 
-### Inline suggestions
-
-Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse)_. See [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
-
-If you use {% data variables.product.prodname_vscode_shortname %}, Xcode, and Eclipse, you can also use {% data variables.copilot.next_edit_suggestions %} ({% data variables.release-phases.public_preview %}), which will predict the location of the next edit you are likely to make and suggest a completion for it.
-
 ### {% data variables.copilot.copilot_chat_short %}
 
 A chat interface that lets you ask coding-related questions. {% data variables.copilot.copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Eclipse IDE, and Xcode)_, and in {% data variables.product.prodname_windows_terminal %}. Users can also use skills with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github) and [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
-### {% data variables.copilot.copilot_coding_agent %}
+### {% data variables.copilot.copilot_cloud_agent_tmp %}
 
-An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent).
+An autonomous AI agent that can research a repository, create an implementation plan, and make code changes on a branch. You can review the diff, iterate, and create a pull request when you're ready. You can also assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} or ask it to open a pull request directly to complete a task. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent).
 
 ### Third-party coding agents ({% data variables.release-phases.public_preview %})
 
 You can use third-party coding agents alongside {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents).
 
-### {% data variables.copilot.copilot_cli_short %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_cli_short %}
 
 A command line interface that lets you use {% data variables.product.prodname_copilot_short %} from within the terminal. You can get answers to questions, or you can ask {% data variables.product.prodname_copilot_short %} to make changes to your local files. You can also use {% data variables.copilot.copilot_cli_short %} to interact with {% data variables.product.prodname_dotcom_the_website %}—for example, listing your open pull requests, or asking {% data variables.product.prodname_copilot_short %} to create an issue. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 
@@ -50,6 +42,12 @@ Several {% data variables.copilot.copilot_code-review-tools_short %} are in {% d
 ### {% data variables.copilot.copilot_for_prs %}
 
 AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review. See [AUTOTITLE](/copilot/using-github-copilot/creating-a-pull-request-summary-with-github-copilot).
+
+### Inline suggestions
+
+Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs ({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse). See [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
+
+If you use {% data variables.product.prodname_vscode_shortname %}, Xcode, and Eclipse, you can also use {% data variables.copilot.next_edit_suggestions %}, which will predict the location of the next edit you are likely to make and suggest a completion for it.
 
 ### {% data variables.copilot.copilot_edits_short %}
 

@@ -6,13 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 shortTitle: Bypass requests
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 ## About bypass requests for push protection

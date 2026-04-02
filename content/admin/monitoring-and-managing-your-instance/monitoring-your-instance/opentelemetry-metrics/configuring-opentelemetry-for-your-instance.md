@@ -1,16 +1,12 @@
 ---
 title: Configuring OpenTelemetry for your instance
-intro: 'Learn how to configure OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance for enhanced monitoring and observability.'
+intro: Learn how to configure OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance for enhanced monitoring and observability.
 versions:
   feature: ghes-opentelemetry
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
-type: how_to
 shortTitle: Configure OpenTelemetry
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}
@@ -170,4 +166,5 @@ sudo journalctl -u victoriametrics -f
 ## Next steps
 
 * To enable advanced monitoring dashboards, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/advanced-dashboards)
+* Exploring OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/using-grafana-to-analyze-opentelemetry-metrics).
 * To set up external monitoring, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/setting-up-external-monitoring-with-opentelemetry).

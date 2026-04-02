@@ -1,7 +1,7 @@
 ---
 title: Understanding GitHub Actions
 shortTitle: Understand GitHub Actions
-intro: 'Learn the basics of core concepts and essential terminology in {% data variables.product.prodname_actions %}.'
+intro: Learn the basics of core concepts and essential terminology in {% data variables.product.prodname_actions %}.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -12,13 +12,15 @@ redirect_from:
   - /articles/getting-started-with-github-actions
   - /actions/about-github-actions/understanding-github-actions
   - /actions/get-started/understanding-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/actions-components
+  - /enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Fundamentals
+contentType: get-started
+category:
+  - Get started with GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -11,6 +11,26 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'GPT-5.1'
+  retirement_date: '2026-04-15'
+  suggested_alternative: 'GPT-5.3-Codex'
+
+- name: 'GPT-5.1-Codex'
+  retirement_date: '2026-04-01'
+  suggested_alternative: 'GPT-5.3-Codex'
+
+- name: 'GPT-5.1-Codex-Max'
+  retirement_date: '2026-04-01'
+  suggested_alternative: 'GPT-5.3-Codex'
+
+- name: 'GPT-5.1-Codex-Mini'
+  retirement_date: '2026-04-01'
+  suggested_alternative: 'GPT-5.3-Codex'
+
+- name: 'Gemini 3 Pro'
+  retirement_date: '2026-03-26'
+  suggested_alternative: 'Gemini 3.1 Pro'
+
 - name: 'Claude Opus 4.1'
   retirement_date: '2026-02-17'
   suggested_alternative: 'Claude Opus 4.6'

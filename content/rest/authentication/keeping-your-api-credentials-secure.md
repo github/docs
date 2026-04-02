@@ -6,10 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/overview/keeping-your-api-credentials-secure
+category:
+  - Authenticate API requests
 ---
 
 ## Choose an appropriate authentication method

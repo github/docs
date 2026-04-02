@@ -18,8 +18,8 @@ redirect_from:
   - /articles/github-business-cloud-support
   - /admin/enterprise-support/about-support-for-advanced-security
   - /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
-topics:
-  - Support
+category:
+  - Understand your support options
 ---
 
 ## About {% data variables.contact.github_support %}

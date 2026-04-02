@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/writing-for-github-docs/style-guide
+category:
+  - Follow the style guide and content model
 ---
 
 <!--
@@ -1659,7 +1661,7 @@ Unless the content is about administering an enterprise product, describe an ind
 With {% data variables.product.company_short %}'s enterprise products, administrators manage an enterprise account. An enterprise account can own multiple organizations, and people's user accounts can be members of the organizations. For more information, see the "Roles in an enterprise" article for each product.
 
 * [{% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
-* [{% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 

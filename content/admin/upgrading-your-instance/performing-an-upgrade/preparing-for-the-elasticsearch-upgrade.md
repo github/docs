@@ -1,17 +1,16 @@
 ---
-title: 'Preparing for the Elasticsearch upgrade in {% data variables.product.prodname_ghe_server %} 3.13'
-intro: 'As part of upgrading {% data variables.product.prodname_ghe_server %} to version 3.13 or later, the Elasticsearch service will be upgraded.'
+title: Preparing for the Elasticsearch upgrade in {% data variables.product.prodname_ghe_server %} 3.13
+intro: As part of upgrading {% data variables.product.prodname_ghe_server %} to version 3.13 or later, the Elasticsearch service will be upgraded.
 versions:
   ghes: '>3.10 <3.15'
-type: reference
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Elasticsearch upgrade in 3.13
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade
+contentType: reference
+category:
+  - Back up and upgrade your instance
 ---
 
 ## Overview

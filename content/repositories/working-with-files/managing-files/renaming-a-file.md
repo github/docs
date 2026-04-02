@@ -12,8 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Work with files
 ---
 
 ## Renaming a file on {% data variables.product.github %}

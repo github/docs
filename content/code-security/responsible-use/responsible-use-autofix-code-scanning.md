@@ -6,15 +6,12 @@ allowTitleToDifferFromFilename: true
 product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - AI
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning
   - /code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning
 contentType: rai
+category:
+  - Find and fix code vulnerabilities
 ---
 
 ## About {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}

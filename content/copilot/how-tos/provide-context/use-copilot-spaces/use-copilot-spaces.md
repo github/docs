@@ -1,12 +1,10 @@
 ---
 title: Using GitHub Copilot Spaces
 shortTitle: Use Copilot Spaces
-intro: 'Use spaces to ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task.'
+intro: "Use spaces to ground {% data variables.product.prodname_copilot_short %}'s responses in the right context for a specific task."
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Author and optimize with Copilot
@@ -67,8 +65,9 @@ For more detailed information on using the {% data variables.product.github %} M
 
 Note that {% data variables.copilot.copilot_spaces_short %} can only be used in agent mode in your IDE, since spaces are accessed via the {% data variables.product.github %} MCP server.
 
-1. In your IDE, open {% data variables.copilot.copilot_chat_short %} and select **Agent** from the mode dropdown or select the **Agent** tab.
-   * To confirm that the {% data variables.copilot.copilot_spaces_short %} tools are enabled, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon. In the dropdown, expand the list of available tools for **MCP Server: github**, and confirm that the `get_copilot_space` and `list_copilot_spaces` tools are enabled.
+1. In your IDE, open {% data variables.copilot.copilot_chat_short %} and select **Agent** from the agent dropdown menu.
+   * To confirm that the {% data variables.copilot.copilot_spaces_short %} tools are enabled, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon. In the tools list, expand the {% data variables.product.github %} MCP server entry and confirm that the `get_copilot_space` and `list_copilot_spaces` tools are listed and enabled.
+   * If you don't see the tools listed, check that you have completed the prerequisites above, including enabling the `copilot_spaces` toolset in your {% data variables.product.github %} MCP server configuration.
 1. In the {% data variables.copilot.copilot_chat_short %} box, enter a prompt that references the space that you want to use as context. If you know the exact name of the space and the name of the user or organization that owns the space, you can provide that. Otherwise, {% data variables.product.prodname_copilot_short %} will automatically use the `list_copilot_spaces` tool to find spaces that match the name or text you provide and access the context from those spaces.
 
    For example, you could use either of these two prompts:

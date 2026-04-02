@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+category:
+  - Migrate from Azure DevOps
 ---
 
 ## Step 1: Install the {% data variables.product.prodname_ado2gh_cli %}

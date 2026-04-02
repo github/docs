@@ -2,8 +2,6 @@
 title: Using custom instructions to unlock the power of Copilot code review
 shortTitle: Use custom instructions
 intro: 'Learn how to write effective custom instructions that help {% data variables.product.prodname_copilot %} provide more relevant and actionable code reviews.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: tutorials
@@ -46,6 +44,8 @@ Before writing custom instructions, it's helpful to understand how {% data varia
 * **Specificity matters**: Clear, specific instructions work better than vague directives.
 
 Keep these factors in mind as you write your instructions—they'll help you set realistic expectations and write more effective guidance.
+
+{% data reusables.copilot.code-review.custom-instructions-limit %}
 
 ## Writing effective custom instructions
 

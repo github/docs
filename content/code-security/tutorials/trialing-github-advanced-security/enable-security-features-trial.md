@@ -4,9 +4,6 @@ shortTitle: Enable security features in trial
 allowTitleToDifferFromFilename: true
 intro: Quickly create an enterprise-level configuration and apply {% data variables.product.prodname_cs_and_sp %} features across all repositories in your trial enterprise.
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
-topics:
-  - Code Security
-  - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,6 +11,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/enable-security-features-trial
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 This article assumes that you have planned and then started a trial of {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
@@ -29,6 +28,7 @@ When you planned your trial, you identified the features that you want to test a
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.advanced-security-tab %}
 1. Click **New configuration** to create a new configuration.
+1. To configure groups of security features for your repositories, click **Custom configuration**.
 1. Give the configuration a meaningful name and description.
 1. You will see that most features are already enabled. Review the features that are **Not set** and enable any that you want to trial, for example: "Automatic dependency submission."
 1. In the "Policy" area, set the "Use as default for newly created repositories" option as needed to define whether or not to apply the configuration to new repositories created in the enterprise.

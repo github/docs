@@ -5,8 +5,6 @@ intro: 'Configure policies and budgets for premium requests, or upgrade users to
 permissions: Enterprise owners and organization owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 allowTitleToDifferFromFilename: true
 product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 redirect_from:
@@ -26,19 +24,15 @@ Premium request usage beyond the allowance is governed by two complementary cont
 * **Policy setting:** The **Premium request paid usage** policy determines whether users can surpass their included premium request allowance for each AI tool. This policy is enabled by default.
 * **Budget constraints:** If your enterprise or organization has a premium request SKU-level budget or a bundled premium requests budget, premium request usage will be blocked once the budget is fully consumed for the billing period.
 
-
 The **Premium request paid usage policy** must be enabled for any additional billing to occur. Budgets then control whether and when usage is stopped.
 
 You can increase the allowance for users by ensuring the policy is enabled, editing your budgets, or upgrading users to {% data variables.copilot.copilot_enterprise_short %}.
-
-{% data reusables.copilot.zero-budget-changes %}
 
 ## Prerequisites
 
 * Before making changes, download a usage report to see which developers are frequently hitting the limit or using a significant number of requests over the allowance. You may want to contact these users to understand their use cases and requirements. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 * If a user receives licenses from multiple enterprises or standalone organizations, the user must select a billing entity to use premium requests. See [Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses](/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements#managing-premium-request-billing-with-multiple-copilot-licenses).
 * For enterprises only, review which organizations are able to assign and are actively assigning {% data variables.product.prodname_copilot_short %} access to users. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#enabling-copilot-for-organizations).
-
 
 ## Setting a policy for paid usage
 
@@ -52,6 +46,9 @@ You can set the policy for an enterprise or a standalone organization.
 
 ## Updating budgets
 
+> [!NOTE]
+> Enterprise billing managers can also edit and delete budgets.
+
 1. Ensure the "Premium request paid usage" policy is enabled. See [Setting a policy for paid usage](#setting-a-policy-for-paid-usage).
 1. Check the budgets for your enterprise or organizations, and edit or delete any budgets that "stop usage when budget limit is reached" for the Premium Request SKU. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending#editing-or-deleting-a-budget).
 1. Premium request budget types:
@@ -61,7 +58,6 @@ You can set the policy for an enterprise or a standalone organization.
 Creating new budgets without deleting an existing budget does not override the existing budget. If **any** applicable budget with "Stop usage when budget limit is reached" enabled is exhausted, additional premium requests are blocked.
 
  Enterprise-level budgets act as a failsafe for the entire enterprise, including any spending originating from within cost centers. If the enterprise budget is exhausted before the cost center budget, usage will be blocked. See [AUTOTITLE](/billing/concepts/budgets-and-alerts) for details on different scopes of budgets and stopping usage.
-
 
 ## Upgrading users to {% data variables.copilot.copilot_enterprise_short %}
 

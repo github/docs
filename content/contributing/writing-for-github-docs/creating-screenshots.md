@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Write and format content
 ---
 
 ## About screenshots in {% data variables.product.prodname_docs %}

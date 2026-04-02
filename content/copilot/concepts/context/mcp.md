@@ -5,8 +5,6 @@ shortTitle: MCP
 intro: Model Context Protocol (MCP) is a protocol that allows you to extend the capabilities of {% data variables.product.prodname_copilot %} by integrating it with other systems.
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 redirect_from:
   - /copilot/concepts/about-mcp
@@ -38,21 +36,25 @@ category:
 
 The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
 
-You can use MCP to extend the capabilities of {% data variables.copilot.copilot_chat_short %} by integrating it with a wide range of existing tools and services. For example, the {% data variables.product.github %} MCP server allows you to use {% data variables.copilot.copilot_chat_short %} in your IDE to perform tasks on {% data variables.product.github %}. You can also use MCP to create new tools and services that work with {% data variables.copilot.copilot_chat_short %}, allowing you to customize and enhance your experience.
+You can use MCP to extend the capabilities of {% data variables.product.prodname_copilot %} by integrating it with a wide range of existing tools and services. MCP works across all major {% data variables.product.prodname_copilot_short %} surfaces—whether you're working in an IDE, using {% data variables.copilot.copilot_cli %}, or delegating tasks to the coding agent on {% data variables.product.prodname_dotcom_the_website %}. You can also use MCP to create new tools and services that work with {% data variables.product.prodname_copilot_short %}, allowing you to customize and enhance your experience.
 
-For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For information on currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
+For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For a curated list of MCP servers from partners and the community, see the [{% data variables.product.github %} MCP Registry](https://github.com/mcp).
 
-To learn how to configure and use MCP servers with {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp).
+To learn how to configure and use MCP servers, see:
+
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp) for {% data variables.copilot.copilot_chat_short %} in your IDE
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) for {% data variables.copilot.copilot_cli_short %}
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp) for {% data variables.copilot.copilot_coding_agent %}
 
 {% data reusables.copilot.mcp.mcp-policy %}
 
 ## Availability
 
-There is currently broad support for local MCP servers in clients such as {% data variables.product.prodname_vscode %}, JetBrains IDEs, XCode, and others.
+MCP is supported across the following clients:
 
-Support for remote MCP servers is growing, with editors like {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Xcode, Eclipse, and Cursor providing this functionality with OAuth or PAT, and Windsurf supporting PAT only.
-
-To find out if your preferred editor supports remote MCP servers, check the documentation for your specific editor.
+* **IDEs**: There is broad support for local MCP servers in clients such as {% data variables.product.prodname_vscode %}, JetBrains IDEs, Xcode, and others. Support for remote MCP servers is growing, with editors like {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Xcode, Eclipse, Cursor, and Windsurf providing this functionality with OAuth or PAT. To find out if your preferred editor supports remote MCP servers, check the documentation for your specific editor.
+* **{% data variables.copilot.copilot_cli_short %}**: {% data variables.copilot.copilot_cli %} supports both local and remote MCP servers. The {% data variables.product.github %} MCP server is built in and available without additional configuration.
+* **{% data variables.copilot.copilot_coding_agent %}**: {% data variables.copilot.copilot_coding_agent %} supports MCP servers configured at the repository level. The {% data variables.product.github %} MCP server and the Playwright MCP server are configured by default.
 
 ## About the {% data variables.product.github %} MCP server
 
@@ -99,7 +101,10 @@ The {% data variables.product.github %} MCP Registry is a curated list of MCP se
 
 ## Next steps
 
-* [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp)
-* [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server)
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp)—Add MCP servers to {% data variables.copilot.copilot_chat_short %} in your IDE
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)—Add MCP servers to {% data variables.copilot.copilot_cli_short %}
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp)—Add MCP servers to {% data variables.copilot.copilot_coding_agent %}
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server)—Set up the {% data variables.product.github %} MCP server
+* [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server)—Use the {% data variables.product.github %} MCP server
 * [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)

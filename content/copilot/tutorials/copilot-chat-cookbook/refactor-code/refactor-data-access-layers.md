@@ -12,11 +12,10 @@ versions:
 category:
   - Refactoring code
   - Author and optimize with Copilot
+  - Improve quality and maintainability
 complexity:
   - Advanced
 octicon: rocket
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

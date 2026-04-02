@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Introduction
+category:
+  - Get started with packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -55,7 +57,7 @@ Unlike {% data variables.product.prodname_registry %}, the {% data variables.pro
 
 Your organization may benefit from using the {% data variables.product.virtual_registry %} either:
 
-* **Alongside** {% data variables.product.prodname_registry %}, as an complementary view focused on the compliance and security aspects of package consumption
+* **Alongside** {% data variables.product.prodname_registry %}, as a complementary view focused on the compliance and security aspects of package consumption
 * **As an alternative to** {% data variables.product.prodname_registry %}, allowing you to store your packages on an external registry of your choice while maintaining visibility of the packages on {% data variables.product.github %}
 
 For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
@@ -129,7 +131,7 @@ You can configure webhooks to subscribe to package-related events, such as when 
 ## Contacting support
 
 {% ifversion fpt or ghec %}
-If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/actions-and-packages).
+If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/packages).
 
 Contact us through the {% data variables.contact.contact_support_portal %} about {% data variables.product.prodname_registry %} if:
 

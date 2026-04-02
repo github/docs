@@ -1,5 +1,5 @@
 ---
-title: 'Managing access to your organization’s {% data variables.product.prodname_projects_v1 %}'
+title: "Managing access to your organization's {% data variables.product.prodname_projects_v1 %}"
 intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can give organization members, teams, and outside collaborators different levels of access to {% data variables.projects.projects_v1_boards %} owned by your organization.'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-project-boards
@@ -7,9 +7,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-project-boards
 versions:
   feature: projects-v1
-topics:
-  - Organizations
-  - Teams
 children:
   - /project-board-permissions-for-an-organization
   - /managing-access-to-a-project-board-for-organization-members

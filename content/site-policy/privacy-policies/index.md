@@ -2,9 +2,6 @@
 title: Privacy Policies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
   - /github-general-privacy-statement
   - /github-subprocessors

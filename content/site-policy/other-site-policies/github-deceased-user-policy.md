@@ -2,12 +2,11 @@
 title: GitHub Deceased User Policy
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-deceased-user-policy
   - /github/site-policy/github-terms-and-other-site-policies/github-deceased-user-policy
+category:
+  - Review company and general policies
 ---
 
 In the event that a GitHub user passes away, we can work with an authorized individual to determine what happens to the account's content.

@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/guides/getting-started-with-the-rest-api
   - /rest/initialize-the-repo
@@ -16,6 +14,8 @@ redirect_from:
   - /v3/media
   - /rest/overview/media-types
   - /rest/using-the-rest-api/media-types
+category:
+  - Learn about the REST API
 ---
 
 ## Introduction
@@ -179,7 +179,7 @@ Body parameters allow you to pass additional data to the API. These parameters c
 
 For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) requires that you specify a title for the new issue in your request. It also allows you to optionally specify other information, such as text to put in the issue body, users to assign to the new issue, or labels to apply to the new issue. For an example of a request that uses body parameters, see [Making a request](#making-a-request).
 
-You must authenticate your request to pass body parameters. For more information, see [Authenticating](#authenticating).
+You must authenticate your request to pass body parameters. For more information, see [Authentication](#authentication).
 
 #### Query parameters
 
@@ -699,6 +699,10 @@ You can then expand these templates using something like the [uri_template](http
 >> tmpl.expand all: 1, participating: 1
 => "/notifications?all=1&participating=1"
 ```
+
+## Rate limiting
+
+The {% data variables.product.github %} REST API limits the number of requests you can make within a given time period. For more information about rate limits and how to check your current rate limit status, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
 ## Next steps
 

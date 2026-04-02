@@ -43,6 +43,9 @@ pipenv         | `pip`            | <= 2021-05-29    | {% octicon "check" aria-l
 [pip-compile](#pip-and-pip-compile) | `pip`            | 6.1.0            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-updates-pnpmv9-support %}pnpm{% else %}[pnpm](#pnpm){% endif %}   | `npm`            | v7, v8, v9, v10      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} {% ifversion dependabot-updates-pnpmv9-support %}{% else %}(v7 and v8 only){% endif %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 poetry         | `pip`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-pre-commit-support %} |
+[pre-commit](#pre-commit) | `pre-commit` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 [pub](#pub)           | `pub`            | v2  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-rust-toolchain-support %} |
 [Rust toolchain](#rust-toolchain) | `rust-toolchain` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable   | Not applicable   |
@@ -182,6 +185,30 @@ pnpm is supported for {% data variables.product.prodname_dependabot_version_upda
 ### poetry
 
 The PEP 621 `project` section isn't currently supported for `poetry`.
+
+{% ifversion dependabot-pre-commit-support %}
+
+### pre-commit
+
+{% data variables.product.prodname_dependabot %} can update hook revisions in `.pre-commit-config.yaml` files. When a hook pins a specific commit SHA, {% data variables.product.prodname_dependabot %} resolves the latest matching tag and updates the `rev` value accordingly.
+
+You can use a `# frozen:` comment after the `rev` value to pin a hook to a particular version or version prefix. {% data variables.product.prodname_dependabot %} uses this comment to determine whether an update is needed and which tag to resolve.
+
+| Scenario | Behavior |
+|---|---|
+| `rev: <sha>  # frozen: 7.3.0` and 7.3.0 is the latest version | No update. The dependency is already current. |
+| `rev: <sha>  # frozen: 7.3.0` and 8.0.0 has been released | Updated to the SHA for the `8.0.0` tag. The comment is updated to `# frozen: 8.0.0`. |
+| `rev: <sha>  # frozen: v1` and `v1.43.5` is the latest `v1.x` release | Updated to the SHA for the `v1.43.5` tag. The comment is updated to `# frozen: v1.43.5`. |
+| `rev: <sha>` with no `# frozen:` comment | Updated to the HEAD SHA of the default branch. |
+
+In addition to updating hook revisions, {% data variables.product.prodname_dependabot %} can update `additional_dependencies` for hooks that use the following languages: Python, Node, Go, Rust, Ruby and Dart.
+
+Private registry support uses git registries. You can configure access for private git repositories by specifying a git registry in your `dependabot.yml` file. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#git).
+
+> [!NOTE]
+> Private registries are not supported for `additional_dependencies`.
+
+{% endif %}
 
 {% ifversion dependabot-rust-toolchain-support %}
 

@@ -5,8 +5,6 @@ shortTitle: Set up the GitHub MCP Server
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/communicate-with-copilot-platform
   - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/communicate-with-github
@@ -20,7 +18,7 @@ category:
   - Integrate Copilot with your tools
 ---
 
-The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.product.prodname_copilot_short %} Coding Agent require a paid {% data variables.product.prodname_copilot_short %} license.
+The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.product.prodname_copilot_short %} Cloud Agent require a paid {% data variables.product.prodname_copilot_short %} license.
 
 For the latest information and updates, see the [{% data variables.product.github %} MCP server repository](https://github.com/github/github-mcp-server).
 
@@ -38,17 +36,16 @@ For the latest information and updates, see the [{% data variables.product.githu
 
 The {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %} can be configured remotely or locally. The remote {% data variables.product.github %} MCP server is hosted by {% data variables.product.github %} and is the recommended option for most users. The local {% data variables.product.github %} MCP server is hosted on your machine and is recommended for users who want to customize their setup or have specific security requirements.
 
-The steps below describe remote configuration through the MCP marketplace in {% data variables.product.prodname_vscode %}'s extension panel. The MCP marketplace is powered by the {% data variables.product.github %} MCP Registry. See [MCP Registry](https://github.com/mcp).
+The steps below describe remote configuration through the MCP Registry view in {% data variables.product.prodname_vscode %}'s extensions panel. This view is backed by the {% data variables.product.github %} MCP Registry. See [{% data variables.product.github %} MCP Registry](https://github.com/mcp).
 
 For information on manually configuring the remote or local {% data variables.product.github %} MCP server, see the [{% data variables.product.github %} MCP server documentation](https://github.com/mcp/io.github.github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 1. In {% data variables.product.prodname_vscode %}, open the extensions panel by clicking the extensions icon in the sidebar or pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Mac).
-1. In the extensions search bar, click the filter icon and select **MCP Server** from the dropdown.
-1. If it is your first time using the MCP Servers Marketplace, follow the prompts on screen to enable the Marketplace.
-1. In the search bar, type `github` and select the {% data variables.product.github %} MCP server from the search results.
-1. On the {% data variables.product.github %} MCP server configuration page, click **Install**.
-1. To check that the {% data variables.product.github %} MCP server is configured correctly, open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
-1. Type and select **MCP: List Servers**. You should see `github` listed as a configured server.
+1. In the extensions search bar, type `@mcp github` to search the MCP server gallery.
+1. Select the {% data variables.product.github %} MCP server from the search results. On the details page, click **Install**.
+1. When prompted, confirm that you trust the server to start it.
+1. To verify that the {% data variables.product.github %} MCP server is configured correctly, open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
+1. Type and select **MCP: List Servers**. You should see the {% data variables.product.github %} MCP server listed as a configured server.
 
 {% endvscode %}
 

@@ -1,18 +1,16 @@
 ---
 title: Getting started with GitHub Copilot CLI
 shortTitle: Copilot CLI quickstart
-intro: 'Quickly learn how to use {% data variables.copilot.copilot_cli %}.'
+intro: Quickly learn how to use {% data variables.copilot.copilot_cli %}.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-contentType: get-started
+contentType: how-tos
 category:
-  - Build with Copilot CLI # Copilot CLI bespoke page
-  - Quickstarts # Copilot CLI bespoke page
-  - Author and optimize with Copilot # Copilot discovery page
+  - Build with Copilot CLI
+  - Quickstarts
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
@@ -126,3 +124,4 @@ Find out more about {% data variables.copilot.copilot_cli_short %}:
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/cli-best-practices)
+* [Get started with {% data variables.copilot.copilot_cli %}: A free hands-on course](https://developer.microsoft.com/blog/get-started-with-github-copilot-cli-a-free-hands-on-course)

@@ -5,14 +5,13 @@ shortTitle: 'Monitor costs with soft budgets'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
 permissions: 'Enterprise owners and billing managers'
 contentType: tutorials
 audience:
   - driver
 allowTitleToDifferFromFilename: true
+category:
+  - Track spending and control costs
 ---
 
 ## About soft budgets

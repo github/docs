@@ -1,6 +1,6 @@
 ---
 title: Actions limits
-intro: 'There are limits in {% data variables.product.prodname_actions %} which you may hit as you scale up, some may be increased by contacting support.'
+intro: There are limits in {% data variables.product.prodname_actions %} which you may hit as you scale up, some may be increased by contacting support.
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/actions-limits
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners
@@ -11,6 +11,9 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Limits
+category:
+  - Administer GitHub Actions
+contentType: reference
 ---
 
 You may be rate limited by {% data variables.product.prodname_actions %} when you scale your usage. Some limits can be increased by contacting {% data variables.contact.contact_support %}.
@@ -42,6 +45,7 @@ These limits are subject to change.
 | Larger runners | Private IP scaling for vnet injection | 30% buffer | You need a buffer to accommodate the maximum job concurrency you anticipate. See [Private IP scaling for vnet injection on larger runners](#private-ip-scaling-for-vnet-injection-on-larger-runners). | {% octicon "check" aria-label="Yes" %} Configurable Azure virtual network |
 | Dependency caching | Uploads per minute | 200 per minute | Each repository is limited to 200 cache entry uploads per minute. If this limit is exceeded, subsequent cache upload attempts will fail until the rate limit resets. | {% octicon "x" aria-label="No" %} |
 | Dependency caching | Downloads per minute | 1500 per minute | Each repository is limited to 1500 cache entry downloads per minute. If this limit is exceeded, subsequent cache download attempts will fail until the rate limit resets. | {% octicon "x" aria-label="No" %} |
+| Dependency caching | Deletes per minute | 400 per minute | Each repository is limited to 400 cache delete operations per minute. If this limit is exceeded, subsequent cache delete attempts will fail until the rate limit resets. Each request to delete caches either by key or by ID counts towards this limit. | {% octicon "x" aria-label="No" %} |
 
 ### Job concurrency limits for {% data variables.product.github %}-hosted runners
 

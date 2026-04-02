@@ -6,15 +6,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Python
-  - Azure App Service
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-python-to-azure-app-service
   - /actions/use-cases-and-examples/deploying/deploying-python-to-azure-app-service
   - /actions/how-tos/use-cases-and-examples/deploying/deploying-python-to-azure-app-service
   - /actions/how-tos/managing-workflow-runs-and-deployments/deploying-to-third-party-platforms/deploying-python-to-azure-app-service
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

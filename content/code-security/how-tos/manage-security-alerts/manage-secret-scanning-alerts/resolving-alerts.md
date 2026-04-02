@@ -7,15 +7,12 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 shortTitle: Resolve alerts
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts
+category:
+  - Protect your secrets
 ---
 
 ## Fixing alerts

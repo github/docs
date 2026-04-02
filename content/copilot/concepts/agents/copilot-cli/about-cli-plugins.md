@@ -6,8 +6,6 @@ intro: 'Plugins are installable packages that extend {% data variables.copilot.c
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page
@@ -74,3 +72,4 @@ Any functionality that you could add with a plugin, you could also add by config
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating)
 * [AUTOTITLE](/copilot/reference/cli-plugin-reference)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)

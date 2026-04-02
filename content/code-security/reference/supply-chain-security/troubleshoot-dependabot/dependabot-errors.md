@@ -15,16 +15,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Version updates
-  - Repositories
-  - Pull requests
-  - Troubleshooting
-  - Errors
-  - Dependencies
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 When {% data variables.product.prodname_dependabot %} encounters errors while updating your dependencies, you can use this reference to diagnose and fix common problems.
@@ -33,7 +26,7 @@ When {% data variables.product.prodname_dependabot %} encounters errors while up
 
 ### Security update errors
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix a {% data variables.product.prodname_dependabot %} alert, it posts the error message on the alert. The {% data variables.product.prodname_dependabot_alerts %} view shows a list of any alerts that have not been resolved yet. To access the alerts view, click **{% data variables.product.prodname_dependabot_alerts %}** on the **Security** tab for the repository. Where a pull request that will fix the vulnerable dependency has been generated, the alert includes a link to that pull request.
+When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix a {% data variables.product.prodname_dependabot %} alert, it posts the error message on the alert. The {% data variables.product.prodname_dependabot_alerts %} view shows a list of any alerts that have not been resolved yet. To access the alerts view, click **{% data variables.product.prodname_dependabot_alerts %}** on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository. Where a pull request that will fix the vulnerable dependency has been generated, the alert includes a link to that pull request.
 
 ![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} view. To the right of one alert, a link to a pull request, titled "#353," is outlined in orange.](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 

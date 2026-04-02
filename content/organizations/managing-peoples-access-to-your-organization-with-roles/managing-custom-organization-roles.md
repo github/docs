@@ -3,11 +3,11 @@ title: Managing custom organization roles
 intro: "You can create, edit, and assign custom organization roles in an organization's settings."
 versions:
   feature: 'custom-org-roles'
-topics:
-  - Organizations
 shortTitle: Manage custom roles
 permissions: 'Organization owners and users with the "Manage custom organization roles" permission'
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
+category:
+  - Assign roles and permissions
 ---
 
 ## About custom organization roles

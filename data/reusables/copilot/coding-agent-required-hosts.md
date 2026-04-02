@@ -3,4 +3,9 @@
 * `api.individual.githubcopilot.com` (if you expect {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} users to use {% data variables.copilot.copilot_coding_agent %} in your repository)
 * `api.business.githubcopilot.com` (if you expect {% data variables.copilot.copilot_business_short %} users to use {% data variables.copilot.copilot_coding_agent %} in your repository)
 * `api.enterprise.githubcopilot.com` (if you expect {% data variables.copilot.copilot_enterprise_short %} users to use {% data variables.copilot.copilot_coding_agent %} in your repository)
-* `api.githubcopilot.com` (*no longer required after February 27, 2026*)
+* If you are using the {% data variables.product.prodname_openai_codex %} third-party agent (for more information, see [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents)):
+  * `npmjs.org`
+  * `npmjs.com`
+  * `registry.npmjs.com`
+  * `registry.npmjs.org`
+  * `skimdb.npmjs.com`

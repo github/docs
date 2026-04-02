@@ -12,14 +12,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Marketplace
-  - Organizations
-  - Upgrades
-  - User account
 shortTitle: Upgrade Marketplace app
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 {% ifversion fpt %}{% data reusables.marketplace.marketplace-app-page %}{% endif %}

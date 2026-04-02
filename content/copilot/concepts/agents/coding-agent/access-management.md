@@ -1,13 +1,11 @@
 ---
-title: Managing access to GitHub Copilot coding agent
+title: Managing access to GitHub Copilot cloud agent
 shortTitle: Access management
 allowTitleToDifferFromFilename: true
 intro: Find out about {% data variables.copilot.copilot_coding_agent %} policies available for {% data variables.copilot.copilot_enterprise %} and {% data variables.copilot.copilot_for_business %}, and about disabling the agent for specific repositories.
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/enabling-copilot-coding-agent
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/enabling-copilot-coding-agent-for-your-personal-repositories
@@ -47,11 +45,11 @@ By default, users with {% data variables.copilot.copilot_coding_agent %} enabled
 
 Enterprise administrators and organization owners (for organization-owned repositories) and users (for user-owned repositories) can opt out repositories and prevent {% data variables.copilot.copilot_coding_agent %} from being used in those repositories.
 
-For information on disabling {% data variables.copilot.copilot_coding_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-copilot-coding-agent).
+For information on disabling {% data variables.copilot.copilot_coding_agent %} in some or all repositories owned by an organization, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
 
 For information on disabling {% data variables.copilot.copilot_coding_agent %} in all repositories owned by an enterprise, see [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-copilot-coding-agent-in-your-enterprise).
 
-For information on disabling {% data variables.copilot.copilot_coding_agent %} in some or all repositories owned by an organization, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
+For information on disabling {% data variables.copilot.copilot_coding_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-copilot-coding-agent).
 
 ## Further reading
 

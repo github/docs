@@ -9,12 +9,10 @@ redirect_from:
   - /billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing
   - /billing/how-tos/products/manage-ghas-license
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Manage GHAS licenses
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 There are two different ways to pay for {% data variables.product.prodname_GHAS_cs_and_sp %} licenses: volume/subscription licenses purchased in advance or usage-based metered billing paid in arrears. This article is about volume/subscription licenses. For information about the two different billing models, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
@@ -41,3 +39,11 @@ For information about using policies to control use of licenses in your enterpri
 {% data reusables.billing.click-licensing %}
 1. To the right of "{% data variables.product.prodname_AS %}", select {% octicon "kebab-horizontal" aria-label="Open menu" %}, then click **Cancel subscription**.
 1. To confirm your cancellation, click **I understand, cancel {% data variables.product.prodname_AS %}**.
+
+{% ifversion disable-ghas-button %}
+
+## Disabling {% data variables.product.prodname_GHAS %} in an enterprise
+
+Enterprise owners can disable {% data variables.product.prodname_GHAS %} completely and set a policy to prevent future re-enablement. See [AUTOTITLE](/billing/how-tos/products/disable-ghas-for-enterprise).
+
+{% endif %}

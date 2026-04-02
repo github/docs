@@ -21,8 +21,6 @@ children:
   - /reference
   - /tutorials
   - /responsible-use
-topics:
-  - Copilot
 contentType: landing
 includedCategories:
   - Learn about Copilot

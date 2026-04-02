@@ -7,10 +7,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 redirect_from:
   - /apps/creating-github-apps/guides/quickstart
+category:
+  - Write code for a GitHub App
 ---
 
 ## Introduction

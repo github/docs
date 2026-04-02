@@ -1,17 +1,13 @@
 ---
 title: GitHub security features
-intro: 'An overview of {% data variables.product.github %}''s security features.'
+intro: An overview of {% data variables.product.github %}'s security features.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: get-started
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
+category:
+  - Plan your security strategy
 ---
 
 ## About {% data variables.product.github %}'s security features
@@ -79,6 +75,14 @@ You can also use default {% data variables.dependabot.auto_triage_rules %} curat
 
 {% data reusables.dependabot.quickstart-link %}
 
+{% ifversion dependabot-malware-alerts %}
+
+#### {% data variables.product.prodname_dependabot_malware_alerts %}
+
+On {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} 3.22+, you can view alerts for malicious dependencies in your repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts).
+
+{% endif %}
+
 ### {% data variables.product.prodname_dependabot_version_updates %}
 
 Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
@@ -144,7 +148,7 @@ For information about how you can try {% data variables.product.prodname_GH_secr
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-user-alerts).
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-user-alerts).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
@@ -164,7 +168,12 @@ Push protection proactively scans your code, and any repository contributors' co
 
 ### Delegated bypass for push protection
 
-Delegated bypass for push protection lets you control which individuals, roles and teams can bypass push protection, and implements a review and approval cycle for pushes containing secrets. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
+Delegated bypass for push protection lets you control which individuals, roles, and teams:
+* Can bypass push protection{% ifversion push-protection-org-enterprise-exemptions %}
+* Are exempt from push protection{% endif %}
+* Can review bypass requests from other contributors
+
+For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
 
 ### Custom patterns
 

@@ -6,9 +6,6 @@ versions:
   fpt: "*"
   ghec: "*"
   ghes: "*"
-topics:
-  - Billing
-  - Actions
 contentType: reference
 redirect_from:
   - /billing/reference/actions-minute-multipliers
@@ -70,4 +67,6 @@ redirect_from:
 * For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners).
 * Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 * The {% data variables.actions.hosted_runner %}s are not free for public repositories.
-* Custom images can only be used with larger runners and are billed at the same per-minute rates as those runners.
+{% ifversion fpt or ghec %}
+* Custom images can only be used with {% data variables.actions.hosted_runners %}. Jobs that use custom images are billed at the same per-minute rates as those runners, and storage for custom images is billed separately through {% data variables.product.prodname_actions %} storage based on the amount of stored image data over time. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions#custom-image-storage).
+{% endif %}

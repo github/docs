@@ -6,8 +6,6 @@ intro: 'Connect MCP servers to {% data variables.copilot.copilot_chat_short %} t
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/extending-copilot-chat-with-mcp
   - /copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp
@@ -23,7 +21,7 @@ category:
 
 The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). For an overview of MCP, see [AUTOTITLE](/copilot/concepts/about-mcp).
 
-For information on currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
+For a curated list of MCP servers from partners and the community, see the [{% data variables.product.github %} MCP Registry](https://github.com/mcp).
 
 {% data reusables.copilot.mcp.mcp-policy %}
 
@@ -47,11 +45,10 @@ MCP servers can be configured manually in a configuration file, or through the {
 Only MCP servers listed in the {% data variables.product.github %} MCP Registry can be added through the registry. Other servers can be configured manually. See [Configuring MCP servers manually](#configuring-mcp-servers-manually).
 
 1. In {% data variables.product.prodname_vscode %}, open the extensions panel by clicking the extensions icon in the sidebar or pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Mac).
-1. In the extensions search bar, click the filter icon and select **MCP Registry** from the dropdown.
-1. If it is your first time using the MCP Registry, follow the prompts on screen to enable the registry.
-1. In the search bar, type the name of the MCP server you want to add and select it from the search results.
-1. On the MCP server's configuration page, click **Install**.
-1. To check that the MCP server is configured correctly, open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
+1. In the extensions search bar, type `@mcp` followed by the name of the MCP server you want to add. This opens the MCP server gallery and shows matching results.
+1. Select the MCP server from the search results. On the MCP server's details page, click **Install**.
+1. When prompted, confirm that you trust the server to start it. {% data variables.product.prodname_vscode_shortname %} discovers the server's tools and makes them available in chat.
+1. To verify that the MCP server is configured correctly, open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type and select **MCP: List Servers**. You should see the MCP server listed as a configured server.
 
 ### Configuring MCP servers manually
@@ -323,6 +320,7 @@ For more information on creating and configuring your own MCP servers, see [the 
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
 * [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server)
 * [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)

@@ -5,11 +5,9 @@ intro: You can enable, disable, and restrict the use of {% data variables.produc
 versions:
   feature: github-models
 permissions: 'Organization owners'
-topics:
-  - Organizations
-  - AI
-  - GitHub Models
 allowTitleToDifferFromFilename: true
+category:
+  - Configure organization features
 ---
 
 {% data reusables.models.models-preview-note %}

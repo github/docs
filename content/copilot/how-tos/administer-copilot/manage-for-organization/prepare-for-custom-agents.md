@@ -4,8 +4,6 @@ intro: 'Configure the repository that stores {% data variables.copilot.custom_ag
 permissions: Organization owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Prepare for custom agents
 contentType: how-tos
 category:

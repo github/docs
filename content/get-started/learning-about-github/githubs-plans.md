@@ -1,5 +1,5 @@
 ---
-title: GitHub’s plans
+title: GitHub's plans
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s pricing plans.'
 redirect_from:
   - /articles/github-s-products
@@ -12,12 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - CLI
-  - Mobile
-  - Desktop
-  - Security
+category:
+  - Explore GitHub plans and features
 ---
 ## About {% data variables.product.prodname_dotcom %}'s plans
 

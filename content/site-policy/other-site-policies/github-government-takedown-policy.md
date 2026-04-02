@@ -2,12 +2,11 @@
 title: GitHub Government Takedown Policy
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-government-takedown-policy
   - /github/site-policy/github-terms-and-other-site-policies/github-government-takedown-policy
+category:
+  - Review company and general policies
 ---
 
 ## What is this?

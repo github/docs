@@ -4,12 +4,10 @@ intro: 'Learn how your spending is assigned to cost centers for licensed and met
 shortTitle: Cost center allocation
 versions:
   feature: enhanced-billing-platform
-topics:
-  - Billing
-  - Enterprise
-  - Team
 contentType: reference
 product: '{% data variables.product.prodname_ghe_cloud %}'
+category:
+  - Track spending and control costs
 ---
 
 This article contains reference information for how spending is assigned to cost centers. To create and manage cost centers, see [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
@@ -28,7 +26,7 @@ This article contains reference information for how spending is assigned to cost
 | {% data variables.product.prodname_enterprise %} | The user who receives the license (priority), or the organization that is billed for the license. |
 | Git Large File Storage | The repository or organization where Git LFS is used. |
 | {% data variables.product.prodname_registry %} | The repository or organization that owns the package. |
-| {% data variables.product.prodname_prus_caps %} | The user who triggered the use of the {% data variables.product.prodname_pru %} (priority), or the organization they belong to. |
+| {% data variables.product.prodname_prus_caps %} | The user who triggered {% data variables.product.prodname_pru %} usage (priority), or the organization that granted the user's {% data variables.product.prodname_copilot_short %} license. |
 | {% data variables.product.prodname_GHAS %} | A user who uses a license (priority), or the organization that is billed for the license. |
 
 ## Details for license-based products

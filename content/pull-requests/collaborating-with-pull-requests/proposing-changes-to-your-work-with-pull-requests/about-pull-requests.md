@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Create pull requests
 ---
 
 Pull requests are proposals to merge code changes into a project. A pull request is {% data variables.product.github %}'s foundational **collaboration feature**, letting you discuss and review changes before merging them. This helps teams work together, catch issues early, and maintain code quality.

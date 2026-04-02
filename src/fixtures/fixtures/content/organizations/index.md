@@ -13,9 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /keeping-your-organization-secure
 ---

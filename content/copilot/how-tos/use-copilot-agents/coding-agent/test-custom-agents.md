@@ -3,8 +3,6 @@ title: Testing and releasing {% data variables.copilot.custom_agents_short %} in
 intro: 'Ensure your {% data variables.copilot.custom_agents_short %} are performant and compliant before releasing them to your company.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Test custom agents
 contentType: how-tos
 category:

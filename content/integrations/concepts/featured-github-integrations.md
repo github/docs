@@ -1,6 +1,6 @@
 ---
 title: Featured GitHub integrations
-intro: 'Use {% data variables.product.github %} extensions to work seamlessly in repositories on {% data variables.location.product_location %} within third-party applications.'
+intro: Use {% data variables.product.github %} extensions to work seamlessly in repositories on {% data variables.location.product_location %} within third-party applications.
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -14,10 +14,9 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Featured integrations
-topics: 
-  - Integration
 category:
   - Learn about integrations
+contentType: concepts
 ---
 
 {% ifversion fpt or ghec %}
@@ -78,7 +77,7 @@ The {% data variables.product.github %} for Teams app lets you subscribe to your
 
 You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally on Teams if you are mentioned as part of any {% data variables.product.github %} notifications that you receive in your channels or personal chats.
 
-For more information, see the integration's [README](https://github.com/integrations/microsoft-teams/blob/master/Readme.md) in the `integrations/microsoft-teams` repository.
+For more information, see [AUTOTITLE](/integrations/how-tos/teams).
 
 {% ifversion fpt or ghec %}
 

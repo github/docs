@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Explore GitHub plans and features
 ---
 {% for glossary in glossaries %}
 

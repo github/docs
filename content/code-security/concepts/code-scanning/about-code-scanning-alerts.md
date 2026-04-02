@@ -11,11 +11,9 @@ versions:
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
   - /code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -40,7 +38,7 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can also ask
 
 {% ifversion security-overview-org-codeql-pr-alerts %}
 
-For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/pull-request-alert-metrics).
 
 {% endif %}
 
@@ -113,14 +111,6 @@ The severity level for a {% data variables.product.prodname_code_scanning %} ale
 
 When an alert has a security severity level, {% data variables.product.prodname_code_scanning %} displays and uses this level in preference to the `severity`. Security severity levels follow the industry-standard Common Vulnerability Scoring System (CVSS) that is also used for advisories in the {% data variables.product.prodname_advisory_database %}. For more information, see [CVSS: Qualitative Severity Rating Scale](https://www.first.org/cvss/v3.1/specification-document#Qualitative-Severity-Rating-Scale).
 
-### Pull request check failures for {% data variables.product.prodname_code_scanning %} alerts
-
-You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
-
-{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
-
-For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
 ### Calculation of security severity levels
 
 When a security query is added to the {% data variables.product.prodname_codeql %} Default or Extended query suite, the {% data variables.product.prodname_codeql %} engineering team calculates the security severity as follows.
@@ -131,3 +121,14 @@ When a security query is added to the {% data variables.product.prodname_codeql 
 1. When displaying alerts found by the query, translate the numerical scores to `Critical`, `High`, `Medium`, or `Low` using the CVSS definitions.
 
 For more information, see [{% data variables.product.prodname_codeql %} CWE coverage](https://codeql.github.com/codeql-query-help/codeql-cwe-coverage/) on the {% data variables.product.prodname_codeql %} documentation site.
+
+## About alerts in pull requests
+
+{% data variables.product.prodname_code_scanning_caps %} alerts can appear on pull requests as check results and annotations. This happens in repositories where {% data variables.product.prodname_code_scanning %} either:
+
+* Is configured as a pull request check (by default, this is limited to pull requests that target the default branch)
+* Is configured to scan each time code is pushed (the results are mapped to any open pull requests)
+
+You will only see an alert in a pull request if **all** the lines of code identified by the alert exist in the pull request diff.
+
+Depending on branch protection rules, the "{% data variables.product.prodname_code_scanning_caps %} results" check may be a required check that prevents pull requests from being merged until it passes.

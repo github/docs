@@ -1,17 +1,15 @@
 ---
 title: Best practices for GitHub Copilot CLI
 shortTitle: Copilot CLI best practices
-intro: 'Learn how to get the most out of {% data variables.copilot.copilot_cli %}.'
+intro: Learn how to get the most out of {% data variables.copilot.copilot_cli %}.
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
-contentType: get-started
+contentType: how-tos
 category:
-  - Build with Copilot CLI # Copilot CLI bespoke page
-  - Copilot in the CLI # Copilot CLI bespoke page
-  - Author and optimize with Copilot # Copilot discovery page
+  - Build with Copilot CLI
+  - Copilot in the CLI
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
@@ -67,7 +65,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-custo
 
 ### Configure allowed tools
 
-Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can choose to **Allow once**, or **Always allow** to add the tool to your allowlist for this and future sessions.
+Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can typically choose either to allow it just this time, or allow the tool to be used for the rest of the CLI session.
 
 To reset previously approved tools, use:
 
@@ -78,7 +76,7 @@ To reset previously approved tools, use:
 You can also preconfigure allowed tools via CLI flags:
 
 ```bash
-copilot --allow-tool 'shell(git:*)' --deny-tool 'shell(git push)'
+copilot --allow-tool='shell(git:*)' --deny-tool='shell(git push)'
 ```
 
 **Common permission patterns:**
@@ -414,6 +412,12 @@ Run the linter and write all errors to `migration-checklist.md` as a checklist.
 Then fix each issue one by one, checking them off as you go.
 ```
 
+### Autonomous task completion
+
+Switch into autopilot mode to allow {% data variables.product.prodname_copilot_short %} to work autonomously on a task until it is complete. This is ideal for long-running tasks that don't require constant supervision. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
+
+Optionally, you can usually speed up large tasks by using the `/fleet` slash command at the start of your prompt to allow {% data variables.product.prodname_copilot_short %} to break the task into parallel subtasks that are run by subagents. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet).
+
 ## 7. Team guidelines
 
 ### Recommended repository setup
@@ -477,9 +481,20 @@ To submit private feedback to {% data variables.product.github %} about {% data 
 /feedback
 ```
 
+## Hands-on practice
+Try the [Creating applications with {% data variables.copilot.copilot_cli_short %}](https://github.com/skills/create-applications-with-the-copilot-cli) Skills exercise for practical experience building an application with {% data variables.copilot.copilot_cli_short %}.
+
+Here is what you will learn:
+* Install {% data variables.copilot.copilot_cli_short %}
+* Use the issue template to create an issue
+* Generate a Node.js CLI calculator app
+* Expand calculator functionality
+* Write unit tests for calculator functions
+* Create, review, and merge your pull request
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
-* [AUTOTITLE](/copilot/reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

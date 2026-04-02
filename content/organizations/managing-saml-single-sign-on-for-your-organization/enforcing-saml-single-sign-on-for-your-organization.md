@@ -6,10 +6,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/enforcing-saml-single-sign-on-for-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Enforce SAML single sign-on
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About enforcement of SAML SSO for your organization

@@ -4,6 +4,8 @@ shortTitle: Resolving issues
 intro: "Learn the best course of action when you encounter problems."
 versions:
   ghec: '*'
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## Viewing service status

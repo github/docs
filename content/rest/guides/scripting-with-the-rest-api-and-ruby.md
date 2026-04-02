@@ -6,10 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-- API
-- Ruby
-type: tutorial
+category:
+  - Build apps and integrations
+contentType: tutorials
 ---
 
 ## About Octokit.rb

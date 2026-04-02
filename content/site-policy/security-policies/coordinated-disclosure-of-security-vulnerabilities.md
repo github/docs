@@ -8,9 +8,8 @@ redirect_from:
   - /github/site-policy/coordinated-disclosure-of-security-vulnerabilities
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review privacy and security policies
 ---
 We want to keep GitHub safe for everyone. If you've discovered a security vulnerability in GitHub, we appreciate your help in disclosing it to us in a coordinated manner.
 

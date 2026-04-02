@@ -5,13 +5,10 @@ permissions: 'Repository custom properties can be managed by organization owners
 versions:
   ghec: '*'
   ghes: '>= 3.21'
-topics:
-  - Enterprise
-  - Organizations
-  - Repositories
-  - Policies
 shortTitle: Custom properties
 contentType: concepts
+category:
+  - Manage accounts and repositories
 ---
 
 ## What are custom properties?

@@ -5,8 +5,6 @@ intro: 'Learn how to share {% data variables.copilot.copilot_spaces %} to suppor
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/copilot-spaces/collaborating-with-your-team-using-copilot-spaces
   - /copilot/how-tos/context/copilot-spaces/collaborating-with-your-team-using-copilot-spaces

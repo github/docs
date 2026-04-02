@@ -10,6 +10,8 @@ redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer
+category:
+  - Understand enterprise migration tools
 ---
 
 ## Overview

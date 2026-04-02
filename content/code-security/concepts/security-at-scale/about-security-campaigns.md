@@ -9,13 +9,10 @@ audience:
 contentType: concepts
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns
+category:
+  - Secure at scale
 ---
 
 Once you have identified security alerts the next step is to identify the most urgent alerts and get them fixed. Security campaigns are a way to group alerts and share them with developers, so you can collaborate to remediate vulnerabilities in the code{% ifversion security-campaigns-secrets %} and any exposed secrets{% endif %}.

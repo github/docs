@@ -5,14 +5,11 @@ intro: You can delete unnecessary {% data variables.product.prodname_custom_secu
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/deleting-a-custom-security-configuration
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About deleting a {% data variables.product.prodname_custom_security_configuration %}

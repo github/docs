@@ -4,8 +4,6 @@ shortTitle: Hooks configuration
 intro: 'Find information about configuring hooks for use with {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_coding_agent %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 category:
   - Configure Copilot
@@ -551,3 +549,9 @@ if echo "$PROMPT" | grep -iq "production"; then
   echo "ALERT: Production-related prompt: $PROMPT" | mail -s "Agent Alert" team@example.com
 fi
 ```
+
+## Further reading
+
+* [AUTOTITLE](/copilot/concepts/agents/coding-agent)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

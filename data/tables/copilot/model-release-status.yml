@@ -34,28 +34,7 @@
 
 - name: 'GPT-5.1'
   provider: 'OpenAI'
-  release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5.1-Codex'
-  provider: 'OpenAI'
-  release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5.1-Codex-Mini'
-  provider: 'OpenAI'
-  release_status: 'Public preview'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5.1-Codex-Max'
-  provider: 'OpenAI'
-  release_status: 'GA'
+  release_status: 'Closing down: 2026-04-15'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -75,6 +54,20 @@
   edit_mode: true
 
 - name: 'GPT-5.3-Codex'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.4'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.4 mini'
   provider: 'OpenAI'
   release_status: 'GA'
   agent_mode: true
@@ -141,13 +134,6 @@
   edit_mode: true
 
 - name: 'Gemini 3 Flash'
-  provider: 'Google'
-  release_status: 'Public preview'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'Gemini 3 Pro'
   provider: 'Google'
   release_status: 'Public preview'
   agent_mode: true

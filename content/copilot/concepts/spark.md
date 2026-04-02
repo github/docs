@@ -4,8 +4,6 @@ shortTitle: Spark
 intro: 'Learn about building and deploying intelligent apps with natural language using {% data variables.product.prodname_spark %}.'
 versions:
   feature: spark
-topics:
-  - Copilot
 contentType: concepts
 category: 
   - Learn about Copilot
@@ -113,7 +111,7 @@ See [{% data variables.product.prodname_copilot_short %} agent mode](/copilot/ho
 
 Once your spark is connected to a {% data variables.product.github %} repository, you can use {% data variables.copilot.copilot_coding_agent %} to help you to continue to build and maintain your app, while you focus on other things.
 
-With the coding agent, you delegate specific tasks to {% data variables.product.prodname_copilot_short %} (either by assigning an issue to {% data variables.product.prodname_copilot_short %}, or prompting {% data variables.product.prodname_copilot_short %} to create a pull request), and {% data variables.product.prodname_copilot_short %} will autonomously work in the background to complete the task. {% data variables.copilot.copilot_coding_agent %} can fix bugs, refactor code, improve test coverage and more.
+With the cloud agent, you delegate specific tasks to {% data variables.product.prodname_copilot_short %} (either by assigning an issue to {% data variables.product.prodname_copilot_short %}, or prompting {% data variables.product.prodname_copilot_short %} to create a pull request), and {% data variables.product.prodname_copilot_short %} will autonomously work in the background to complete the task. {% data variables.copilot.copilot_coding_agent %} can fix bugs, refactor code, improve test coverage and more.
 
 See [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent).
 

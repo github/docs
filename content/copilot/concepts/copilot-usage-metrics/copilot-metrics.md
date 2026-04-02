@@ -4,8 +4,6 @@ shortTitle: Copilot usage metrics
 intro: '{% data variables.product.prodname_copilot_short %} usage metrics provide visibility into how {% data variables.product.prodname_copilot_short %} is adopted and used across your organization, including engagement, activity, code generation, and pull request lifecycle trends.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -24,8 +22,6 @@ category:
   - Manage Copilot for a team
 ---
 
-{% data reusables.copilot.usage-metrics-preview %}
-
 ## About {% data variables.product.prodname_copilot_short %} usage metrics
 
 {% data variables.product.prodname_copilot_short %} usage metrics help key stakeholders and decision-makers understand how their teams are adopting and using {% data variables.product.prodname_copilot_short %}. By tracking usage patterns across the enterprise, you can measure engagement, identify opportunities to increase value, and assess how AI-assisted workflows influence pull request throughput and time to merge.
@@ -39,14 +35,12 @@ Metrics are available through:
 
 ## Which usage is included?
 
-The {% data variables.product.prodname_copilot_short %} usage metrics are derived exclusively from telemetry sent by IDEs. In order for an end user to be counted towards these metrics, they **must have telemetry enabled in their IDE**.
+{% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple {% data variables.product.prodname_copilot_short %} surfaces, including IDE and {% data variables.copilot.copilot_cli_short %} activity. Because many metrics come from IDE telemetry, **end users must have telemetry enabled in their IDE to be included in these metrics**.
 
-This means the data **does not include** activity from other {% data variables.product.prodname_copilot_short %} surfaces, such as:
+The data **does not include** activity from other {% data variables.product.prodname_copilot_short %} surfaces, such as:
 
 * {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_mobile %}
-* {% data variables.copilot.copilot_code-review_short %}
-* {% data variables.copilot.copilot_cli_short %}
 
 License and seat management data are not included in {% data variables.product.prodname_copilot_short %} usage metrics reports. To view or manage license assignments, use the {% data variables.product.prodname_copilot_short %} user management API, which is the source of truth for license and seat information. See [AUTOTITLE](/rest/copilot/copilot-user-management).
 
@@ -61,7 +55,6 @@ The following API resources expose {% data variables.product.prodname_copilot_sh
 | --- | --- | --- |
 | [AUTOTITLE](/rest/copilot/copilot-usage-metrics) | Advanced enterprise-, organization-, and user-level event telemetry | Provides unified telemetry across completions, chat, and agent modes. Includes usage and lines of code metrics across all IDE modes, languages, and models. Supports detailed breakdowns by feature, IDE, language, model, and user, and is the primary API resource being actively developed and maintained. |
 | [AUTOTITLE](/rest/copilot/copilot-user-management) | License and seat assignment | Lists assigned {% data variables.product.prodname_copilot_short %} seats for an organization or enterprise, including license state, user association, and `last_activity_at`. This API resource is the source of truth for license and seat information. |
-| [AUTOTITLE](/rest/copilot/copilot-metrics) | Enterprise-, organization-, and team-level usage metrics | Provides aggregated usage data for {% data variables.product.prodname_copilot_short %} features on {% data variables.product.prodname_dotcom_the_website %} (such as pull request summaries) and some IDE-based completions and chat. Does not include Agent or Edit mode telemetry. Offers enterprise-wide and per-feature breakdowns by IDE and language. Does not include individual-level data. |
 
 ## How are metrics attributed across organizations?
 
@@ -99,9 +92,7 @@ To be included in the {% data variables.product.prodname_copilot_short %} usage 
 
 The data in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard and API reports is updated on a regular schedule.
 
-During the preview, you can expect data to be available within **three full days**. This means that data for a given day is processed and made available within three full UTC days after that day closes.
-
-For example, all usage data for a Monday (which closes at midnight UTC) will be visible in the dashboard and API by the end of Thursday UTC. In some cases, such as processing delays over weekends, data may appear up to four calendar days behind the current date.
+You can expect data to be available within **two full days**. This means that data for a given day is processed and made available within two full UTC days after that day closes.
 
 ## What does the data measure?
 
@@ -115,7 +106,15 @@ For example, all usage data for a Monday (which closes at midnight UTC) will be 
 
 **Lines of Code (LoC) metrics** measure the number of lines {% data variables.product.prodname_copilot_short %} suggested, added, or deleted in the editor, providing a directional view of {% data variables.product.prodname_copilot_short %}’s tangible output. For example, "Lines added" shows how much code was actually accepted and inserted into the editor.
 
-**Pull request lifecycle metrics** measure how {% data variables.product.prodname_copilot_short %} activity relates to pull request outcomes and delivery flow. These metrics include pull request creation and merge counts, median time to merge, and review suggestion activity. By comparing overall pull request activity with pull requests created by {% data variables.product.prodname_copilot_short %}, you can evaluate how AI-assisted workflows influence throughput and cycle time across your enterprise.
+**Pull request lifecycle metrics** measure how {% data variables.product.prodname_copilot_short %} activity relates to pull request outcomes and delivery flow. These metrics include pull request creation and merge counts, median time to merge, and review suggestion activity. By comparing overall pull request activity with pull requests created by {% data variables.product.prodname_copilot_short %}, you can evaluate how AI-assisted workflows influence throughput and cycle time at the organization or enterprise level.
+
+### Interpreting pull request lifecycle metrics across scopes
+
+Pull request lifecycle metrics are available at both the organization and enterprise level. When comparing reports, keep the following in mind:
+
+* **Deduplication**: Enterprise-level reports deduplicate users across organizations. Organization-level reports do not.
+* **Pull request-only data**: Pull request lifecycle metrics may appear even if IDE usage metrics are absent, since pull request data is derived from repository activity.
+* **Attribution timing**: If a repository or organization is transferred between owners, pull request creation, review, and merge events may be attributed to different entities depending on when each event occurred.
 
 ## How can I use these metrics?
 
@@ -127,7 +126,7 @@ These metrics can be used together to answer key questions about your teams' usa
 | Which features deliver the most value? | Requests per chat mode, agent adoption |
 | Do developers trust {% data variables.product.prodname_copilot_short %}’s output? | Acceptance rate trends |
 | Are enablement efforts working? | Growth in adoption and engagement after training or communication campaigns |
-| Is {% data variables.product.prodname_copilot_short %} influencing delivery speed or PR throughput? | Pull request merge counts and median time to merge |
+| Is {% data variables.product.prodname_copilot_short %} influencing delivery speed or pull request throughput? | Pull request merge counts and median time to merge |
 
 Look for patterns across these signals rather than focusing on any single number. For example, a steady DAU paired with a rising acceptance rate indicates growing trust and value.
 

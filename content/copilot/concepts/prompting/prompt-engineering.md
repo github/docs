@@ -4,8 +4,6 @@ shortTitle: Prompt engineering
 intro: Follow these strategies to improve your {% data variables.product.prodname_copilot_short %} results.
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/prompt-engineering-for-github-copilot
   - /copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat

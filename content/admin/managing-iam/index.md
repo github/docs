@@ -8,11 +8,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 children:
   - /understanding-iam-for-enterprises
   - /iam-configuration-reference

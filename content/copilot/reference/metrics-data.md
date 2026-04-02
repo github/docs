@@ -6,8 +6,6 @@ versions:
   feature: copilot
 category:
   - Learn about Copilot
-topics:
-  - Copilot
 allowTitleToDifferFromFilename: true
 contentType: reference
 ---

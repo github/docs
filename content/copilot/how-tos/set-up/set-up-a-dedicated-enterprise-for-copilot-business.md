@@ -11,9 +11,6 @@ versions:
 audience:
   - driver
 contentType: how-tos
-topics:
-  - Accounts
-  - Copilot
 shortTitle: Set up a dedicated enterprise
 category:
   - Configure Copilot

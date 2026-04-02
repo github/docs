@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Install Git LFS
+category:
+  - Store large files with Git LFS
 ---
 {% mac %}
 

@@ -5,15 +5,12 @@ intro: To help users understand dependency changes when reviewing pull requests,
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   ghes: '*'
-topics:
-  - Advanced Security
-  - Enterprise
-  - Dependency review
-  - Security
 redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
   - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About dependency review

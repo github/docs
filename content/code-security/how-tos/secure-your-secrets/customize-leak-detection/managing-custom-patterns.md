@@ -8,11 +8,10 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret Protection
-  - Secret scanning
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/managing-custom-patterns
+category:
+  - Protect your secrets
 ---
 
 Custom patterns are user-defined patterns that you can use to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).

@@ -4,8 +4,6 @@ shortTitle: Copilot usage metrics
 intro: Track how your teams are using and adopting {% data variables.product.prodname_copilot %} with detailed usage metrics.
 versions:
   feature: copilot
-topics:
-  - Copilot
 heroImage: /assets/images/banner-images/hero-4
 layout: bespoke-landing
 sidebarLink:
@@ -21,6 +19,7 @@ children:
   - /content/copilot/reference/copilot-usage-metrics/lines-of-code-metrics
   - /content/copilot/tutorials/roll-out-at-scale/measure-success
   - /content/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption
+  - /content/copilot/reference/copilot-usage-metrics/example-schema
 includedCategories:
   - Get started with metrics
   - Understand metrics
@@ -28,4 +27,6 @@ includedCategories:
   - Measure success
   - View metrics
   - Understand available data
+contentType: concepts
 ---
+

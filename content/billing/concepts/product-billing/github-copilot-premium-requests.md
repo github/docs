@@ -3,10 +3,9 @@ title: GitHub Copilot premium requests
 intro: 'Learn how premium requests in {% data variables.product.prodname_copilot_short %} work, including usage measurement and managing your budget.'
 versions:
   feature: copilot
-topics:
-  - Billing
-  - Copilot
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 Usage of {% data variables.product.prodname_copilot_short %} is measured through a combination of licenses and monthly usage tracking. For more information about how license costs in {% data variables.product.prodname_copilot_short %} work, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
@@ -62,9 +61,9 @@ When you use {% data variables.copilot.copilot_coding_agent %}, including any {%
 * **{% data variables.product.prodname_actions %} minutes** come from your account’s monthly allowance of free minutes for {% data variables.product.github %}-hosted runners. This allowance is shared with all {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes).
 * **Premium requests** come from the monthly allowance associated with your {% data variables.product.prodname_copilot_short %} license. This allowance is shared with other features, such as {% data variables.copilot.copilot_chat_short %}.
 
-Each coding agent **session** consumes one premium request. A session begins when you:
+Each cloud agent **session** consumes one premium request. A session begins when you:
 
-* Ask {% data variables.product.prodname_copilot_short %} to create or edit a pull request
+* Prompt {% data variables.product.prodname_copilot_short %} to undertake a task.
 * Assign {% data variables.product.prodname_copilot_short %} to an issue
 
 If you run out of free minutes or premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.
@@ -110,8 +109,6 @@ You can set a budget in your personal billing settings to receive alerts when yo
 You can set budgets at the organization, enterprise, or cost center level. If you enable **stop usage when budget is reached**, extra premium requests are blocked when the budget runs out.
 
 For detailed setup instructions, see [AUTOTITLE](/billing/tutorials/set-up-budgets).
-
-{% data reusables.copilot.zero-budget-changes-link %}
 
 ## Monitoring usage
 

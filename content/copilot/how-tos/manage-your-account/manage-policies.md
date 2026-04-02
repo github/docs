@@ -3,8 +3,6 @@ title: Managing GitHub Copilot policies as an individual subscriber
 shortTitle: Manage policies
 intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
 product: '{% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_free_short %}'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:
@@ -39,7 +37,7 @@ If you choose to allow suggestions matching public code or use a product that do
 
 ## Disabling or enabling {% data variables.copilot.copilot_coding_agent %} in your repositories
 
-{% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or ask {% data variables.product.prodname_copilot_short %} to raise a pull request from a prompt in {% data variables.copilot.copilot_chat_short %}.
+{% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or prompt {% data variables.product.prodname_copilot_short %} to undertake a task autonomously, such as deep research of a repository, planning, or code changes, with the option to create a pull request when you're ready.
 
 > [!NOTE]
 > * {% data reusables.gated-features.copilot-coding-agent %}
@@ -47,7 +45,7 @@ If you choose to allow suggestions matching public code or use a product that do
 {% data variables.copilot.copilot_coding_agent %} is enabled in all repositories by default, but you can block it from being used in repositories owned by your own personal account by changing your account settings.
 
 {% data reusables.user-settings.copilot-settings %}
-1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Cloud agent**.
 1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Policies," click the dropdown button for "Repository access," then choose either **No repositories**, **All repositories**, or **Only selected repositories**.
 1. If you choose **Only selected repositories**, click **Select repositories** and choose the repositories where you want to enable {% data variables.copilot.copilot_coding_agent %}.
 
@@ -69,15 +67,8 @@ Coding agents have access to the same repositories that {% data variables.copilo
 
 To enable coding agents:
 
-1. Navigate to your account's [coding agent settings](https://github.com/settings/copilot/coding_agent?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-cca-settings-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026).
+1. Navigate to your account's [cloud agent settings](https://github.com/settings/copilot/coding_agent?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-cca-settings-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026).
 1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
-
-## Enabling or disabling prompt and suggestion collection
-
-You can choose whether your prompts and {% data variables.product.prodname_copilot_short %}'s suggestions are collected and retained by {% data variables.product.prodname_dotcom %}, and further processed and shared with Microsoft. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq).
-
-{% data reusables.user-settings.copilot-settings %}
-1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
 
 ## Enabling or disabling web search for {% data variables.copilot.copilot_chat %}
 
@@ -88,6 +79,14 @@ You can enable web search for {% data variables.copilot.copilot_chat %}. This se
 
 ## Model training and improvements
 
-By default, {% data variables.product.github %}, its affiliates, and third parties will **not** use your data, including prompts, suggestions, and code snippets, for AI model training. This is reflected in your personal settings for {% data variables.product.prodname_copilot %} and cannot be enabled.
+{% data reusables.copilot.model-training-policy %}
+
+{% data reusables.user-settings.copilot-settings %}
+
+1. Select the "Allow GitHub to use my data for AI model training" dropdown menu and click **Disabled**.
+
+    If you don't see "Allow GitHub to use my data for AI model training", verify that you are not signed in with an account that has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license. {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} customers' data is protected under {% data variables.product.github %}'s Data Protection Agreement, so the setting is not displayed for these plans.
+
+    1. To verify your account type, see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
 
 {% endif %}

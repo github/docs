@@ -4,8 +4,6 @@ shortTitle: Billing for individuals
 intro: 'Learn how billing works for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/about-billing-for-github-copilot-individual
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-github-copilot-pro-subscription/about-billing-for-copilot-pro
@@ -20,19 +18,10 @@ category:
 
 ## Pricing for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}
 
-{% data variables.product.github %} offers two paid plans for individuals: {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}. Both plans are available on a monthly or yearly billing cycle.
+{% data variables.product.github %} offers two paid plans for individuals: {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}.
 
-**{% data variables.copilot.copilot_pro_short %}**
-
-* **If you choose a monthly billing cycle**, you will be billed {% data variables.copilot.cfi_price_per_month %} per calendar month.
-* **If you choose a yearly billing cycle**, you will be billed {% data variables.copilot.cfi_price_per_year %} per year.
-
-**{% data variables.copilot.copilot_pro_plus_short %}**
-
-* **If you choose a monthly billing cycle**, you will be billed {% data variables.copilot.cpp_price_per_month %} per calendar month.
-* **If you choose a yearly billing cycle**, you will be billed {% data variables.copilot.cpp_price_per_year %} per year.
-
-You can change to a monthly or yearly billing cycle at any time. The change will take effect from the start of your next billing cycle.
+* {% data variables.copilot.copilot_pro_short %} is billed at {% data variables.copilot.cfi_price_per_month %} per calendar month.
+* {% data variables.copilot.copilot_pro_plus_short %} is billed at {% data variables.copilot.cpp_price_per_month %} per calendar month.
 
 {% ifversion billing-auth-and-capture %}
 
@@ -46,7 +35,7 @@ You can change to a monthly or yearly billing cycle at any time. The change will
 
 > [!NOTE] {% data variables.copilot.copilot_pro_plus_short %} does not include a trial. You will be billed immediately upon subscribing.
 
-Before starting a paid plan for a personal account, you can set up a one-time {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_copilot_short %}. To begin a trial, you will need to choose a monthly or yearly billing cycle, and provide a payment method. If you do not cancel the trial before the end of the {% data reusables.copilot.trial-period %} days, the trial will automatically convert to a paid plan.
+Before starting a paid plan for a personal account, you can set up a one-time {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_copilot_short %}. To begin a trial, you will need to provide a payment method. If you do not cancel the trial before the end of the {% data reusables.copilot.trial-period %} days, the trial will automatically convert to a paid plan.
 
 You can cancel your {% data variables.product.prodname_copilot_short %} trial at any time during the {% data reusables.copilot.trial-period %} days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot_short %} until the {% data reusables.copilot.trial-period %}-day trial period ends. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user).
 
@@ -81,8 +70,7 @@ You can cancel your {% data variables.product.prodname_copilot_short %} plan at 
 
 Your billing date will depend on whether or not you are already being billed by {% data variables.product.prodname_dotcom %}.
 
-* **If you are not already being billed by {% data variables.product.prodname_dotcom %}**, in most cases your billing cycle will start on the day you sign up for {% data variables.product.prodname_copilot_short %}. For example, if you sign up on 3 September, with monthly billing, your initial billing cycle will run from 3 September until and including 2 October, and then on the same days of subsequent months. For annual billing, if you sign up on 3 September, your initial cycle will end on 2 September the following year.
-
+* **If you are not already being billed by {% data variables.product.prodname_dotcom %}**, in most cases your billing cycle will start on the day you sign up for {% data variables.product.prodname_copilot_short %}. For example, if you sign up on 3 September, with monthly billing, your initial billing cycle will run from 3 September until and including 2 October, and then on the same days of subsequent months.
 * **If you already have a billing cycle**, billing for {% data variables.product.prodname_copilot_short %} will be included in your next bill, or your first bill after the end of your 30-day {% data variables.product.prodname_copilot_short %} trial. You will be charged on a pro rata basis for that initial period. If you do not already have an established billing date, you will be billed for {% data variables.copilot.copilot_pro_short %} at the end of your 30-day trial, or when you set up a new paid {% data variables.product.prodname_copilot_short %} plan.
 
 ## Further reading

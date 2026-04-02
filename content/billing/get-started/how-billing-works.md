@@ -25,10 +25,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Fundamentals
 contentType: get-started
+category:
+  - Get started with billing
 ---
 
 <!--
@@ -51,7 +50,7 @@ You can use {% data variables.product.github %} without incurring any costs. If 
 {% data variables.product.github %} bills you separately for each account you own (personal, organization, or enterprise). Each account has a separate:
 
 * Billing date
-* Billing period, monthly or yearly, for {% data variables.product.github %} and {% data variables.product.prodname_copilot_short %} plans
+* Billing period for {% data variables.product.github %} plans
 * Payment method of credit card, PayPal, or a connected Azure subscription
 * Receipt
 

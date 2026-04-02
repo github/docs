@@ -15,11 +15,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
 shortTitle: View enterprise usage
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Viewing subscription and usage for your enterprise

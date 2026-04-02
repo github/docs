@@ -7,9 +7,8 @@ redirect_from:
   - /github/site-policy/guide-to-submitting-a-dmca-counter-notice
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Request content removal
 ---
 
 This guide describes the information that GitHub needs in order to process a counter notice to a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/site-policy/content-removal-policies/dmca-takedown-policy).

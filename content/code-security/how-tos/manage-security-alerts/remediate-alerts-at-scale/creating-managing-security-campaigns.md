@@ -10,26 +10,23 @@ audience:
 contentType: how-tos
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns
+category:
+  - Secure at scale
 ---
 
 {% data reusables.security.secrets-campaign-preview %}
 
 ## Creating a security campaign
 
-Security campaigns are created and managed from the **Security** tab for your organization.
+Security campaigns are created and managed from the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your organization.
 
 You choose the alerts that you want to include in the campaign by using either:
 
- * **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}For code campaigns, they also all include the requirement that {% data variables.copilot.copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
- * **Custom filters**: Creating a campaign using custom filters lets you define your own criteria for selecting alerts for the campaign, and lets you tailor your campaign to your organization's specific needs.
+* **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}For code campaigns, they also all include the requirement that {% data variables.copilot.copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
+* **Custom filters**: Creating a campaign using custom filters lets you define your own criteria for selecting alerts for the campaign, and lets you tailor your campaign to your organization's specific needs.
 
 {% data reusables.code-scanning.campaigns-api %}
 
@@ -117,7 +114,7 @@ When you create a code campaign, all the alerts are automatically submitted to {
 
 {% ifversion security-campaigns-secrets %}
 
-The new campaign is shown in the sidebar of the "Security" tab for each repository included.
+The new campaign is shown in the sidebar of the **{% data variables.product.prodname_security_and_quality_tab %}** tab for each repository included.
 
 * **Code campaigns**: Anyone with **write** access to a repository included in the campaign is notified.
 * **Secret campaigns**: Anyone with access to see the alert list view for a repository included in the campaign is notified.

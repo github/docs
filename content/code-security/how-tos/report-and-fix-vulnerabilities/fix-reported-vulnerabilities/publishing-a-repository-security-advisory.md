@@ -14,12 +14,9 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Vulnerabilities
-  - CVEs
-  - Repositories
 shortTitle: Publish repository advisory
+category:
+  - Report and disclose vulnerabilities
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 

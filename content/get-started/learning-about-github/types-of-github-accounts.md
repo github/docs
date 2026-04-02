@@ -13,12 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - CLI
-  - Mobile
-  - Desktop
-  - Security
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About accounts

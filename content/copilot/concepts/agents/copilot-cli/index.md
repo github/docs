@@ -5,12 +5,14 @@ allowTitleToDifferFromFilename: true
 intro: Learn how you can use {% data variables.product.prodname_copilot %} in your terminal.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /about-copilot-cli
+  - /about-custom-agents
   - /about-cli-plugins
   - /comparing-cli-features
   - /autopilot
+  - /fleet
+  - /research
+  - /chronicle
 contentType: concepts
 ---

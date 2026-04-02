@@ -8,6 +8,8 @@ versions:
   feature: projects-v1
 shortTitle: Integrate Jira
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 {% data reusables.profile.access_org %}

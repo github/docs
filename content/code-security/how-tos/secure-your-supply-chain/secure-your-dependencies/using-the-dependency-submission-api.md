@@ -2,11 +2,6 @@
 title: Using the dependency submission API
 intro: You can use the {% data variables.dependency-submission-api.name %} to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.
 shortTitle: Use dependency submission API
-topics:
-  - API
-  - Dependency graph
-  - Dependencies
-  - REST
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,13 +9,11 @@ versions:
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
-## About the {% data variables.dependency-submission-api.name %}
-
-{% data reusables.dependency-submission.about-dependency-submission %}
-
-Dependencies are submitted to the {% data variables.dependency-submission-api.name %} in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Snapshots can be generated from the dependencies detected at build time. For technical details on using the {% data variables.dependency-submission-api.name %} over the network, see [AUTOTITLE](/rest/dependency-graph/dependency-submission).
+The {% data variables.dependency-submission-api.name %} is a method of submitting data to the dependency graph. It allows you to submit dependencies that are not captured by static analysis. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph-data).
 
 ## Submitting dependencies at build-time
 

@@ -1,12 +1,10 @@
 ---
-title: Enabling and curating Copilot Memory
+title: Managing and curating Copilot Memory
 shortTitle: Copilot Memory
-intro: Learn how to enable agentic memory, and how to view and delete stored memories.
+intro: Learn how to manage agentic memory settings, and how to view and delete stored memories.
 product: '{% data reusables.gated-features.copilot-memory %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button&utm_source=docs-web-copilot-memory-how-to-signup&utm_medium=docs&utm_campaign=dec25postuniverse" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Author and optimize with Copilot
@@ -21,14 +19,14 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
 ## Enabling {% data variables.copilot.copilot_memory %}
 
-{% data variables.copilot.copilot_memory %} is turned off by default and must be enabled for users in either the enterprise, organization, or personal settings.
+For users with an individual {% data variables.product.prodname_copilot_short %} subscription to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_memory %} is enabled by default. These users can manage the setting in their personal {% data variables.product.prodname_copilot_short %} settings.
+
+For enterprise and organization-managed {% data variables.product.prodname_copilot_short %} subscriptions, {% data variables.copilot.copilot_memory %} is turned off by default and must be enabled in the enterprise or organization settings.
 
 Users who receive {% data variables.product.prodname_copilot_short %} from an organization must have {% data variables.copilot.copilot_memory %} enabled in the organization or enterprise settings.
 
 > [!NOTE]
 > If a user is assigned a {% data variables.product.prodname_copilot_short %} subscription by more than one organization, the most restrictive setting applies—that is, {% data variables.copilot.copilot_memory %} will not be used unless all of those organizations have enabled this feature.
-
-Users who receive {% data variables.product.prodname_copilot_short %} from an individual subscription to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} must have {% data variables.copilot.copilot_memory %} enabled in their personal {% data variables.product.prodname_copilot_short %} settings.
 
 ### Enabling {% data variables.copilot.copilot_memory %} for an enterprise
 
@@ -57,15 +55,15 @@ If the organization belongs to an enterprise, the ability for organization owner
 
    {% data variables.copilot.copilot_memory %} is enabled for all members of the organization who have a {% data variables.product.prodname_copilot_short %} license.
 
-### Enabling {% data variables.copilot.copilot_memory %} for an individual user
+### Managing {% data variables.copilot.copilot_memory %} for an individual user
 
-If you have an individual {% data variables.product.prodname_copilot_short %} subscription, from a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, you can enable {% data variables.copilot.copilot_memory %} in your personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.github %}.
+If you have an individual {% data variables.product.prodname_copilot_short %} subscription, from a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, {% data variables.copilot.copilot_memory %} is enabled by default. You can disable or re-enable {% data variables.copilot.copilot_memory %} in your personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.github %}.
 
-Once enabled, {% data variables.copilot.copilot_memory %} will be used in any repository in which you use {% data variables.copilot.copilot_coding_agent %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %}.
+When enabled, {% data variables.copilot.copilot_memory %} will be used in any repository in which you use {% data variables.copilot.copilot_coding_agent %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %}.
 
 {% data reusables.user-settings.copilot-settings %}
 1. Under "Features", scroll down to the setting for **{% data variables.copilot.copilot_memory %}**.
-1. Click the dropdown button and select **Enabled**.
+1. Click the dropdown button and select **Enabled** or **Disabled**.
 
 ## Viewing and deleting memories
 

@@ -9,17 +9,12 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
-  - Teams
 shortTitle: Filter security alerts
 redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
   - /code-security/security-overview/filtering-alerts-in-security-overview
+category:
+  - Secure at scale
 ---
 
 Security overview can show alerts across many repositories in your organization or enterprise. Filtering helps you focus on specific alerts based on severity, alert type, repository characteristics, and other factors.
@@ -27,7 +22,6 @@ Security overview can show alerts across many repositories in your organization 
 You can combine multiple filters to narrow your results. For example, you can show only critical {% data variables.product.prodname_dependabot_alerts %} in public repositories owned by a specific team.
 
 For a complete list of available filters, see [AUTOTITLE](/code-security/reference/security-alert-management/available-filters-for-security-overview).
-
 
 > [!NOTE]
 > {% data reusables.security-overview.information-varies-GHAS %}
@@ -49,11 +43,11 @@ All security views have features to help you define filters. These provide an ea
 ## Accessing security overview for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. Click the **Security** tab. The "Overview" dashboard of security overview is displayed.
+1. Click the **{% data variables.product.prodname_security_and_quality_tab %}** tab. The "Overview" dashboard of security overview is displayed.
 
 ## Applying simple filters
 
-1. In security overview, select the view of your choice on the left navigation panel. For instructions about how to access security overview, see [Accessing security overview for your organization](#accessing-ecurity-overview-for-your-organization) or [Accessing security overview for your enterprise](#accessing-ecurity-overview-for-your-enterprise).
+1. In security overview, select the view of your choice on the left navigation panel. For instructions about how to access security overview, see [Accessing security overview for your organization](#accessing-security-overview-for-your-organization) or [Accessing security overview for your enterprise](#accessing-security-overview-for-your-enterprise).
 1. Click in the box adjacent to the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** control. If there is text in the box, delete it. A popup shows available filters for the current view.
 1. Select a filter and a value for the filter.
 1. Press <kbd>Enter</kbd>.

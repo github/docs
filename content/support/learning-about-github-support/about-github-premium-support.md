@@ -18,8 +18,8 @@ redirect_from:
   - /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise-server
   - /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise
   - /support/about-github-support/about-github-premium-support
-topics:
-  - Support
+category:
+  - Understand your support options
 ---
 
 > [!NOTE]

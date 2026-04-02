@@ -4,8 +4,6 @@ shortTitle: Add repository instructions
 intro: 'Create repository custom instructions files that give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 redirect_from:
   - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
@@ -45,7 +43,7 @@ This version of this article is for using repository custom instructions on the 
 
 * **Agent instructions** are used by AI agents.
 
-  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence over other agent instructions files. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
+  {% data reusables.copilot.custom-instructions-agents %}
 
   Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
 
@@ -63,12 +61,12 @@ You can create your own custom instructions file from scratch. See [Writing your
 1. Copy the following prompt and paste it into the prompt field, customizing it if needed:
 
    ```markdown copy
-   Your task is to "onboard" this repository to Copilot coding agent by adding a .github/copilot-instructions.md file in the repository that contains information describing how a coding agent seeing it for the first time can work most efficiently.
+   Your task is to "onboard" this repository to Copilot cloud agent by adding a .github/copilot-instructions.md file in the repository that contains information describing how a cloud agent seeing it for the first time can work most efficiently.
 
    You will do this task only one time per repository and doing a good job can SIGNIFICANTLY improve the quality of the agent's work, so take your time, think carefully, and search thoroughly before writing the instructions.
 
    <Goals>
-   - Reduce the likelihood of a coding agent pull request getting rejected by the user due to
+   - Reduce the likelihood of a cloud agent pull request getting rejected by the user due to
    generating code that fails the continuous integration build, fails a validation pipeline, or
    having misbehavior.
    - Minimize bash command and build failures.
@@ -127,7 +125,7 @@ You can create your own custom instructions file from scratch. See [Writing your
    - All project files.
    - All configuration and linting files.
    - For each file:
-   - think: are the contents or the existence of the file information that the coding agent will need to implement, build, test, validate, or demo a code change?
+   - think: are the contents or the existence of the file information that the cloud agent will need to implement, build, test, validate, or demo a code change?
    - If yes:
       - Document the command or information in detail.
       - Explicitly indicate which commands work and which do not and the order in which commands should be run.
@@ -183,6 +181,9 @@ Custom instructions are enabled for {% data variables.copilot.copilot_code-revie
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Toggle the “Use custom instructions when reviewing pull requests” option on or off.
+
+> [!NOTE]
+> {% data reusables.copilot.code-review.custom-instructions-branch %}
 
 ## Further reading
 
@@ -412,7 +413,7 @@ Whitespace between instructions is ignored, so the instructions can be written a
 ### Using the settings page
 
 {% data reusables.copilot.jetbrains-settings %}
-{% data reusables.copilot.jetbrains-tools %}
+{% data reusables.copilot.jetbrains-tools %}, then click **Customizations**.
 1. Under "{% data variables.product.prodname_copilot_short %} Instructions", click **Workspace** or **Global** to choose whether the custom instructions apply to the current workspace or all workspaces.
 
 ### Manually creating a workspace custom instructions file

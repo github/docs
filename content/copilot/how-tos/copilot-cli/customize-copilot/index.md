@@ -6,10 +6,11 @@ versions:
   feature: copilot
 contentType: how-tos
 children:
-  - /quickstart-for-customizing
+  - /overview
   - /add-custom-instructions
   - /use-hooks
   - /create-skills
+  - /add-mcp-servers
   - /create-custom-agents-for-cli
   - /plugins-finding-installing
   - /plugins-creating

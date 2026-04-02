@@ -1,11 +1,9 @@
 ---
 title: Viewing and changing your GitHub Copilot plan
 shortTitle: View and change your Copilot plan
-intro: 'Learn how to view, cancel, or update your {% data variables.product.prodname_copilot_short %} plan, and update your billing cycle.'
+intro: 'Learn how to view, cancel, or update your {% data variables.product.prodname_copilot_short %} plan.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/modifying-your-copilot-subscription-as-an-individual-user
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/modifying-your-copilot-subscription-as-an-individual-user
@@ -27,16 +25,16 @@ category:
   - Configure Copilot
 ---
 
-You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan, or switch between monthly and yearly billing based on your needs.
+You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan.
 
-If you have access to {% data variables.product.prodname_copilot %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to modify your plan or billing cycle.
+If you have access to {% data variables.product.prodname_copilot %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to modify your plan.
 
 ## Viewing your {% data variables.product.prodname_copilot_short %} plan
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing-plans-two-platforms %}
 
-Under "Current plan", you can see which plan you're currently using.
+Under "Licensing" and "Current plan", you can see which license and plan you're currently using.
 
 ## Changing your {% data variables.product.prodname_copilot_short %} plan
 
@@ -71,7 +69,7 @@ You can upgrade or downgrade your {% data variables.product.prodname_copilot_sho
 
 You can cancel your {% data variables.product.prodname_copilot_short %} plan or trial at any time. You’ll retain access to your current features until your billing cycle ends. You will automatically be downgraded to {% data variables.copilot.copilot_free_short %} at the end of your billing cycle.
 
-If you have been granted a free access to {% data variables.copilot.copilot_pro_short %} as a verified student, teacher, or maintainer of a popular open source project, you won’t be able to cancel your plan. If you have access to {% data variables.product.prodname_copilot_short %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
+If you have been granted a free access to {% data variables.product.prodname_copilot_short %} as a verified student, teacher, or maintainer of a popular open source project, you won’t be able to cancel your plan. If you have access to {% data variables.product.prodname_copilot_short %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
 
 {% data reusables.copilot.copilot-one-account-short %}
 
@@ -89,23 +87,5 @@ You can cancel your {% data variables.copilot.copilot_pro_short %} trial at any 
 {% data reusables.user-settings.billing-plans-two-platforms %}
 
 1. In the "{% data variables.product.prodname_copilot_short %}" section, click **Cancel trial**.
-
-## Changing your billing cycle
-
-If you're on a paid {% data variables.product.prodname_copilot_short %} plan, you can switch between monthly and yearly billing at any time. The change will take effect at the start of your next billing cycle.
-
-> [!TIP]
-> If you use volume billing for your {% data variables.product.github %} plan, you can also change your billing cycle for your plan with these steps.
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing-plans-two-platforms %}
-
-1. In your {% data variables.product.prodname_copilot %} or {% data variables.product.github %} plan section, select the **Edit** dropdown on the right.
-1. Choose the option to switch your billing cycle:
-
-   * If you're billed monthly, click **Change to yearly billing**.
-   * If you're billed yearly, click **Change to monthly billing**.
-
-1. Follow the prompts to confirm your change.
 
 {% data reusables.billing.billing-info %}

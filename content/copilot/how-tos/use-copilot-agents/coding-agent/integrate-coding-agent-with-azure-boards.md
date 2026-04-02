@@ -1,11 +1,10 @@
 ---
-title: Integrating Copilot coding agent with Azure Boards
-shortTitle: Integrate coding agent with Azure Boards
+title: Integrating Copilot cloud agent with Azure Boards
+shortTitle: Integrate cloud agent with Azure Boards
+allowTitleToDifferFromFilename: true
 intro: 'Use the {% data variables.product.prodname_copilot_short %} integration in Azure Boards to send work items directly to {% data variables.copilot.copilot_coding_agent %} and generate pull requests, all from within your Azure DevOps workspace.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Integrate Copilot with your tools
@@ -16,7 +15,8 @@ The Azure Boards {% data variables.product.github %} integration allows you to i
 For information about additional {% data variables.product.prodname_copilot_short %} integrations, see [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations).
 
 > [!NOTE]
-> When you send a work item to {% data variables.copilot.copilot_coding_agent %}, the agent will capture content from text fields (such as the description and reproduction steps), along with the last 50 comments. This context is stored in the pull request, and is visible to anyone with access to the repository.
+> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-coding-agent).
+> * When you send a work item to {% data variables.copilot.copilot_coding_agent %}, the agent will capture content from text fields (such as the description and reproduction steps), along with the last 50 comments. This context is stored in the pull request, and is visible to anyone with access to the repository.
 
 ## Prerequisites
 

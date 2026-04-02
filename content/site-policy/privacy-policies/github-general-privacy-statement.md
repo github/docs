@@ -13,9 +13,8 @@ redirect_from:
   - /site-policy/privacy-policies/github-codespaces-privacy-statement
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review privacy and security policies
 ---
 <!-- markdownlint-disable search-replace -->
 

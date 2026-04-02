@@ -1,6 +1,6 @@
 ---
 title: Larger runners
-intro: 'Learn about the types and uses of {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runners %}.'
+intro: Learn about the types and uses of {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runners %}.
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   fpt: '*'
@@ -10,6 +10,9 @@ redirect_from:
   - /actions/using-github-hosted-runners/about-larger-runners/about-larger-runners
   - /actions/using-github-hosted-runners/using-larger-runners/about-larger-runners
   - /actions/concepts/runners/about-larger-runners
+category:
+  - Set up runners
+contentType: concepts
 ---
 
 {% ifversion ghes %}
@@ -24,11 +27,26 @@ To learn about larger runners, see [the {% data variables.product.prodname_ghe_c
 
 {% data variables.product.prodname_dotcom %} offers {% data variables.actions.hosted_runners %} with macOS, Ubuntu, or Windows operating systems, and different features and sizes are available depending on which operating system you use.
 
+{% ifversion default-setup-larger-runners %}
+
+## About {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_code_scanning %} default setup
+
+Consider configuring {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_code_scanning %} default setup if:
+
+* Your scans with standard {% data variables.product.prodname_dotcom %}-hosted runners are taking too long.
+* Your scans with standard {% data variables.product.prodname_dotcom %}-hosted runners are returning memory or disk errors.
+* You want to customize aspects of your {% data variables.product.prodname_code_scanning %} runner, such as the runner size, runner image, and job concurrency, without using self-hosted runners.
+
+For more information on configuring {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_code_scanning %} default setup, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/configuring-larger-runners-for-default-setup).
+
+{% endif %}
+
 ## About Ubuntu and Windows {% data variables.actions.hosted_runners %}
 
 {% data variables.actions.hosted_runner_caps %}s with Ubuntu or Windows operating systems are configured in your organization or enterprise. When you add a {% data variables.actions.hosted_runner %}, you are defining a type of machine from a selection of available hardware specifications and operating system images.
 
 With Ubuntu and Windows {% data variables.actions.hosted_runners %}, you can:
+
 * Assign runners static IP addresses from a specific range, allowing you to use this range to configure a firewall allowlist
 * Control access to your resources by assigning runners to runner groups
 * Use autoscaling to simplify runner management and control your costs

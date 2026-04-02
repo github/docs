@@ -6,8 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
+category:
+  - Build and manage OAuth apps
 ---
 
 ## Use a {% data variables.product.prodname_github_app %} instead

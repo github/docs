@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+category:
+  - Migrate from Azure DevOps
 ---
 
 ## Checking the migration status

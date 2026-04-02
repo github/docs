@@ -5,10 +5,9 @@ intro: Learn about the product and SKU identifiers used in the billing platform 
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Enterprise
 contentType: reference
+category:
+  - Manage your plan and licenses
 ---
 
 When working with billing through the REST API to create budgets or query usage, you'll need to use specific product and SKU identifiers. This reference provides the valid values for these identifiers.

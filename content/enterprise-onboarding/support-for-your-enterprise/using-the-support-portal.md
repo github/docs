@@ -1,15 +1,11 @@
 ---
-title: 'Using the support portal'
+title: Using the support portal
 shortTitle: Support portal
-intro: 'Access the support portal for your enterprise.'
+intro: Access the support portal for your enterprise.
 allowTitleToDifferFromFilename: true
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Set up
-  - Support
+contentType: how-tos
 ---
 
 ## About the {% data variables.contact.enterprise_portal %} for enterprises

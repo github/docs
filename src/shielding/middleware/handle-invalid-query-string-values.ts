@@ -60,7 +60,7 @@ export default function handleInvalidQuerystringValues(
           defaultCacheControl(res)
           let newURL = req.path
           if (sp.toString()) newURL += `?${sp}`
-          res.redirect(302, newURL)
+          res.safeRedirect(302, newURL)
 
           const tags = ['response:302', `url:${req.url}`, `path:${req.path}`, `key:${key}`]
           statsd.increment(STATSD_KEY, 1, tags)
@@ -71,9 +71,9 @@ export default function handleInvalidQuerystringValues(
 
       // For example ?foo[bar]=baz (but not ?foo=bar&foo=baz)
       if (value instanceof Object && !Array.isArray(value)) {
-        const message = `Invalid query string key (${key})`
+        const message = 'Invalid query string'
         defaultCacheControl(res)
-        res.status(400).send(message)
+        res.status(400).type('text').send(message)
 
         const tags = ['response:400', `path:${req.path}`, `key:${key}`]
         statsd.increment(STATSD_KEY, 1, tags)

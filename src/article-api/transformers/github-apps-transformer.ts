@@ -173,6 +173,11 @@ export class GithubAppsTransformer implements PageTransformer {
         introMarkdown += `${templateData.manualContent}\n\n`
       }
 
+      // Add token type legend (only for GitHub App permissions, not fine-grained PAT)
+      if (pageType === 'server-to-server-permissions') {
+        introMarkdown += `**Token types:** UAT = user access token, IAT = installation access token\n\n`
+      }
+
       // Build the tables manually
       let tablesMarkdown = ''
       for (const item of templateData.items as PreparedPermissionItem[]) {
@@ -180,21 +185,19 @@ export class GithubAppsTransformer implements PageTransformer {
         tablesMarkdown += '| Endpoint | Access | Tokens | Additional Permissions |\n'
         tablesMarkdown += '|----------|--------|--------|------------------------|\n'
 
-        for (const perm of item.permissions) {
-          const lang = context.currentLanguage || 'en'
-          const version =
-            context.currentVersion === 'free-pro-team@latest' ? '' : `${context.currentVersion}/`
-          const endpoint = `[\`${perm.verb} ${perm.requestPath}\`](/${lang}/${version}rest/${perm.category}#${perm.slug})`
+        const isFineGrainedPat = pageType === 'fine-grained-pat-permissions'
 
-          let tokens = ''
-          if (perm.userToServer) {
-            tokens += `[UAT](/${lang}/${version}apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)`
-          }
-          if (perm.userToServer && perm.serverToServer) {
-            tokens += '<br>'
-          }
-          if (perm.serverToServer) {
-            tokens += `[IAT](/${lang}/${version}apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)`
+        for (const perm of item.permissions) {
+          const endpoint = `\`${perm.verb} ${perm.requestPath}\``
+
+          let tokens: string
+          if (isFineGrainedPat) {
+            tokens = 'PAT'
+          } else {
+            const tokenParts: string[] = []
+            if (perm.userToServer) tokenParts.push('UAT')
+            if (perm.serverToServer) tokenParts.push('IAT')
+            tokens = tokenParts.join(', ') || 'None'
           }
 
           const additionalPerms = perm.additionalPermissions ? '✓' : '✗'

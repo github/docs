@@ -9,9 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
+category:
+  - Manage access credentials
 ---
 
 ## About sudo mode

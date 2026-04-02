@@ -1,7 +1,7 @@
 import assert from 'assert'
 import path from 'path'
 import fs from 'fs/promises'
-import cheerio from 'cheerio'
+import { stripOuterTag } from '@/frame/lib/strip-outer-tag'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import generateRedirectsForPermalinks from '@/redirects/lib/permalinks'
 import getEnglishHeadings from '@/languages/lib/get-english-headings'
@@ -18,8 +18,9 @@ import { allTools } from '@/tools/lib/all-tools'
 import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 import { allPlatforms } from '@/tools/lib/all-platforms'
-
 import type { Context, FrontmatterVersions, FeaturedLinksExpanded } from '@/types'
+
+const isProduction = process.env.NODE_ENV === 'production'
 
 // We're going to check a lot of pages' "ID" (the first part of
 // the relativePath) against `productMap` to make sure it's valid.
@@ -57,11 +58,10 @@ type CommunityRedirect = {
   href: string
 }
 
-type GuideWithType = {
+type GuideWithContentType = {
   href: string
   title: string
-  type?: string
-  topics?: string[]
+  contentType?: string
 }
 
 export class FrontmatterErrorsError extends Error {
@@ -91,7 +91,7 @@ class Page {
   public redirect_from?: string[]
   public learningTracks?: any[]
   public rawLearningTracks?: string[]
-  public includeGuides?: GuideWithType[]
+  public includeGuides?: GuideWithContentType[]
   public rawIncludeGuides?: string[]
   public introLinks?: Record<string, string>
   public rawIntroLinks?: Record<string, string>
@@ -147,8 +147,8 @@ class Page {
       }: ReadFileContentsResult = await readFileContents(fullPath)
 
       // Get file modification time
-      const stats = await fs.stat(fullPath)
-      const mtime = stats.mtimeMs
+      // Only used to quick reload local dev; not needed for production
+      const mtime = isProduction ? 1 : (await fs.stat(fullPath)).mtimeMs
 
       // The `|| ''` is for pages that are purely frontmatter.
       // So the `content` property will be `undefined`.
@@ -378,13 +378,13 @@ class Page {
     }
 
     if (this.rawIncludeGuides) {
-      this.includeGuides = (await getLinkData(this.rawIncludeGuides, context)) as GuideWithType[]
+      this.includeGuides = (await getLinkData(
+        this.rawIncludeGuides,
+        context,
+      )) as GuideWithContentType[]
       this.includeGuides?.map((guide: any) => {
         const { page } = guide
-        guide.type = page.type
-        if (page.topics) {
-          guide.topics = page.topics
-        }
+        guide.contentType = page.contentType
         delete guide.page
         return guide
       })
@@ -440,8 +440,7 @@ class Page {
     if (!opts.unwrap) return html
 
     // The unwrap option removes surrounding tags from a string, preserving any inner HTML
-    const $ = cheerio.load(html, { xmlMode: true })
-    return $.root().contents().html() || ''
+    return stripOuterTag(html)
   }
 
   // infer current page's corresponding homepage

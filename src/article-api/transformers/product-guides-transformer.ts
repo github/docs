@@ -94,9 +94,8 @@ export class ProductGuidesTransformer implements PageTransformer {
       if (Array.isArray(guidesPage.learningTracks) && guidesPage.learningTracks.length > 0) {
         processedTracks = guidesPage.learningTracks
       } else {
-        const { default: processLearningTracks } = await import(
-          '@/learning-track/lib/process-learning-tracks'
-        )
+        const { default: processLearningTracks } =
+          await import('@/learning-track/lib/process-learning-tracks')
         const { learningTracks } = await processLearningTracks(
           learningTracksData as string[],
           context,

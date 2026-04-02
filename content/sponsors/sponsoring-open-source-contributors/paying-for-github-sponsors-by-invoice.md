@@ -1,16 +1,15 @@
 ---
 title: Paying for GitHub Sponsors by invoice
 shortTitle: Paying by invoice
-intro: 'Organizations can set up invoicing to sponsor accounts.'
+intro: Organizations can set up invoicing to sponsor accounts.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Sponsors
-  - Open Source
 redirect_from:
   - /sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice
+contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 ## About paying for {% data variables.product.prodname_sponsors %} by invoice

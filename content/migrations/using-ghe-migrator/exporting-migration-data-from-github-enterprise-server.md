@@ -1,6 +1,6 @@
 ---
 title: Exporting migration data from GitHub Enterprise Server
-intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.'
+intro: To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
@@ -15,12 +15,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - API
-  - Enterprise
-  - Migration
 shortTitle: Export from GHES
+contentType: how-tos
+category:
+  - Run an enterprise migration
 ---
 
 ## Preparing the {% data variables.product.prodname_ghe_server %} source instance

@@ -5,15 +5,13 @@ shortTitle: 'Control costs at scale'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
-  - REST
 permissions: 'Enterprise owners and billing managers'
 product: '{% data reusables.billing.cta-ghec-cost-centers %}'
 contentType: tutorials
 audience:
   - driver
+category:
+  - Track spending and control costs
 ---
 
 Cost centers help you track and control {% data variables.product.github %} costs by mapping them to your company's financial structure.
@@ -47,7 +45,7 @@ Follow these steps to plan your cost centers:
 
 Now you'll create your first cost center using the user interface (UI) to familiarize yourself with how cost centers work. Choose one of the cost centers you've identified as an example—it's best to start with a small financial entity.
 
-{% data reusables.billing.nav-to-ent %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
 {% data reusables.billing.cost-center-click-new %}
 1. In the text box under "Name", enter the name of the financial entity you want to track costs for.

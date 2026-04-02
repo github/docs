@@ -5,11 +5,10 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Accounts
-  - Enterprise
 permissions: Enterprise and organization admins can configure whether profile names (first and last name) appear alongside usernames across {% data variables.product.github %}.
 shortTitle: Configure user display names
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## About user display names for enterprises

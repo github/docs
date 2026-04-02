@@ -4,8 +4,6 @@ shortTitle: Chat
 intro: 'Learn how you can use {% data variables.copilot.copilot_chat %} to enhance your coding experience.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/concepts/about-github-copilot-chat
 contentType: concepts

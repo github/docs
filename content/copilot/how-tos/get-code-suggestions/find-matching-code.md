@@ -8,8 +8,6 @@ redirect_from:
   - /copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions
   - /copilot/how-tos/completions/finding-public-code-that-matches-github-copilot-suggestions
   - /copilot/how-tos/completions/find-matching-code
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: how-tos

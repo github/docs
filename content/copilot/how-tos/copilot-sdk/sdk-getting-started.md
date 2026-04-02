@@ -1,14 +1,12 @@
 ---
 title: Getting started with Copilot SDK
 shortTitle: Quickstart
-intro: 'Learn how to install {% data variables.copilot.copilot_sdk_short %} and send your first message.'
+intro: Learn how to install {% data variables.copilot.copilot_sdk_short %} and send your first message.
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.copilot-sdk %}' 
+product: '{% data reusables.gated-features.copilot-sdk %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-contentType: get-started
+contentType: how-tos
 category:
   - Learn about Copilot
   - Author and optimize with Copilot

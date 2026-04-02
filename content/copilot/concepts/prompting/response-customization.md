@@ -4,8 +4,6 @@ shortTitle: Response customization
 intro: Learn about customizing the behavior of {% data variables.product.prodname_copilot %} to fit with your preferences and requirements.
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
   - /copilot/concepts/about-customizing-github-copilot-chat-responses
@@ -34,7 +32,7 @@ There are three main types of custom instructions that you can use to customize 
 
 * **[Personal instructions](#about-personal-instructions)** apply to all conversations you have with {% data variables.copilot.copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
 * **[Repository custom instructions](#about-repository-custom-instructions)** apply to conversations within the context of a specific repository. They are useful for defining project-specific coding standards, frameworks, or tools. For example, you can specify that a repository uses TypeScript and a particular library, ensuring consistent responses for all contributors.
-* **[Organization custom instructions](#about-organization-custom-instructions)** (public preview) apply to conversations within the context of an organization on the {% data variables.product.github %} website. They are ideal for enforcing organization-wide preferences, such as a common language or security guidelines. Organization custom instructions can only be set by organization owners for organizations with a {% data variables.copilot.copilot_enterprise_short %} subscription.
+* **[Organization custom instructions](#about-organization-custom-instructions)** apply to conversations within the context of an organization on the {% data variables.product.github %} website. They are ideal for enforcing organization-wide preferences, such as a common language or security guidelines. Organization custom instructions can only be set by organization owners for organizations with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription.
 
 ## About personal instructions
 
@@ -92,6 +90,8 @@ Here are some common use cases and examples for each type of custom instructions
   * Describe how to answer certain questions: `For questions related to security, use the Security Docs Knowledge Base or advise people to consult with #security on Slack.`
   * Preferred language for a company which exclusively speaks a single language: `Always respond in Portuguese.`
   * Organization-wide preferences: `Do not generate code blocks in responses.`
+
+{% data reusables.copilot.code-review.custom-instructions-limit %}
 
 {% data reusables.copilot.custom-instructions-effective %}
 

@@ -16,10 +16,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Personalize your profile
 contentType: tutorials
+category:
+  - Customize your profile
 ---
 
 > [!NOTE]
@@ -118,7 +118,7 @@ You can set a status to display information about your current availability.
 1. In the "What's happening" field, type a status message.
 1. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
 1. Optionally, if you'd like to share that you have limited availability, select "Busy."
-1. Select the **Clear status** dropdown menu, then click when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
+1. Select the **Expiration** dropdown menu, then click when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
 1. Select the **Visible to** dropdown menu, then click who you want your status visible to. If you don't select an organization, your status will be public.
 1. Click **Set status**.
 

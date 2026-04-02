@@ -5,8 +5,6 @@ intro: 'Find out about the various ways you can customize {% data variables.prod
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page
@@ -315,7 +313,9 @@ Subagents help {% data variables.product.prodname_copilot_short %}:
 
 ### What is a custom agent?
 
-**Custom agents** are a way that you can provide {% data variables.product.prodname_copilot_short %} with specialist knowledge about a particular subject, and define a particular approach that you want {% data variables.product.prodname_copilot_short %} to use when working in that area. You can think of a custom agent as a "persona" that {% data variables.product.prodname_copilot_short %} can adopt when working on certain tasks.
+**Custom agents** provide {% data variables.product.prodname_copilot_short %} with specialist knowledge about a particular subject, and define a particular approach that {% data variables.product.prodname_copilot_short %} should use when working in that area. You can think of a custom agent as a "persona" that {% data variables.product.prodname_copilot_short %} can adopt when working on certain tasks.
+
+{% data variables.copilot.copilot_cli_short %} has several built-in custom agents. For example, the `explore`, `task`, `research`, `code-review`, and `general-purpose` agents. You can also define your own custom agents, to meet your specific needs.
 
 You define a custom agent in a Markdown file with YAML frontmatter. The file contains:
 
@@ -410,3 +410,7 @@ Avoid plugins when:
 | When working on particular tasks, I want {% data variables.product.prodname_copilot_short %} to operate as a specialist with a constrained toolset. | **Custom agent** |
 | I want {% data variables.product.prodname_copilot_short %} to carry out a complex task on my behalf. | {% data variables.product.prodname_copilot_short %} automatically uses **subagents** when appropriate. |
 | I want to add a package of functionality to {% data variables.copilot.copilot_cli_short %} without configuring it manually myself. | **Plugin** |
+
+## Further reading
+
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)

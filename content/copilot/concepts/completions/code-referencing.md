@@ -4,8 +4,6 @@ shortTitle: Code referencing
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.product.prodname_copilot %} checks suggestions for matches with publicly available code. Any matches are discarded or suggested with a code reference.'
 defaultTool: vscode
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: concepts

@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Generate new SSH key
+category:
+  - Connect with SSH
 ---
 
 ## About SSH key passphrases
@@ -162,6 +162,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    ```powershell
    ssh-add c:/Users/YOU/.ssh/id_ed25519
    ```
+
 {% data reusables.ssh.add-public-key-to-github %}
 
 > ### Troubleshooting SSH agent conflicts in Windows
@@ -269,4 +270,6 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    
 {% data reusables.ssh.add-public-key-to-github %}
 
+## Further reading
 
+* [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types)

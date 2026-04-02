@@ -8,8 +8,6 @@ versions:
 redirect_from:
   - /early-access/copilot-metrics/LoC
   - /early-access/copilot-metrics/LoC/about-the-copilot-metrics-LoC
-topics:
-  - Copilot
 contentType: reference
 allowTitleToDifferFromFilename: true
 category:
@@ -17,8 +15,6 @@ category:
   - Understand metrics
   - Track Copilot usage
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 Lines of Code (LoC) metrics provide a directional measure of {% data variables.product.prodname_copilot_short %}’s output by quantifying the lines it suggested, added, or deleted across completions, chat, and agent features.
 
@@ -46,17 +42,17 @@ LoC metrics require specific minimum versions of IDEs and {% data variables.prod
 | IDE | Feature | Minimum IDE version | Minimum {% data variables.copilot.copilot_chat_short %} extension version |
 |:--|:--|:--|:--|
 | Eclipse | <ul><li>`code_completion`</li></ul> | 4.31 | 0.9.3.202507240902 |
-| | <ul><li>`chat_panel` (Ask, Edit, Agent)</li></ul> | 4.31 | 0.11.0.202508291001 |
+| | <ul><li>`chat_panel` (Ask, Edit, Plan, Agent)</li></ul> | 4.31 | 0.11.0.202508291001 |
 | | <ul><li>`agent_edit`</li></ul> | 4.31 | 0.10.0.202508110512 |
-| IntelliJ/JetBrains | <ul><li>`code_completion`</li><li>`chat_panel` (Ask, Edit, Agent)</li><li>`chat_inline`</li><li>`agent_edit`</li></ul> | 2024.2.6 | 1.5.52-241 |
-| {% data variables.product.prodname_vs %} | <ul><li>`code_completion`</li><li>`chat_panel` (Ask, Edit, Agent)</li></ul> | 17.14.13 | 18.0.471.29466 |
+| IntelliJ/JetBrains | <ul><li>`code_completion`</li><li>`chat_panel` (Ask, Edit, Plan, Agent)</li><li>`chat_inline`</li><li>`agent_edit`</li></ul> | 2024.2.6 | 1.5.52-241 |
+| {% data variables.product.prodname_vs %} | <ul><li>`code_completion`</li><li>`chat_panel` (Ask, Edit, Plan, Agent)</li></ul> | 17.14.13 | 18.0.471.29466 |
 | | <ul><li>`chat_inline`</li><li>`agent_edit`</li></ul> | 17.14.14 | 18.0.471.29466 |
 | {% data variables.product.prodname_vscode_shortname %} | <ul><li>`code_completion`</li></ul> | 1.104.0 | 0.31.0 |
-| | <ul><li>`chat_panel` (Ask, Edit, Agent)</li></ul> | 1.102.0 | 0.29.0 |
+| | <ul><li>`chat_panel` (Ask, Edit, Plan, Agent)</li></ul> | 1.102.0 | 0.29.0 |
 | | <ul><li>`chat_inline`</li></ul> | 1.103.2 | 0.30.3 |
 | | <ul><li>`agent_edit`</li></ul> | 1.103.0 | 0.30.0 |
 | XCode | <ul><li>`code_completion`</li></ul> | 14.3.1 | 0.40.0 |
-| | <ul><li>`chat_panel` (Ask, Edit, Agent)</li></ul> | 15.0 | 0.43.0 |
+| | <ul><li>`chat_panel` (Ask, Edit, Plan, Agent)</li></ul> | 15.0 | 0.43.0 |
 | | <ul><li>`agent_edit`</li></ul> | 15.2 | 0.41.0 |
 
 ## How agent mode affects LoC metrics

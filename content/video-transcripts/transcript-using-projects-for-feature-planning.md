@@ -4,8 +4,6 @@ intro: Audio and visual transcript.
 shortTitle: Projects
 allowTitleToDifferFromFilename: true
 product_video: 'https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y'
-topics:
-  - Transcripts
 versions:
   fpt: '*'
   ghec: '*'

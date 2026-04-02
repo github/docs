@@ -1,2 +1,2 @@
-{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 1. Click the **Insights** tab.

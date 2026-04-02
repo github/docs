@@ -4,26 +4,23 @@ shortTitle: Reference
 intro: 'Find information to apply to your work with {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /chat-cheat-sheet
   - /customization-cheat-sheet
   - /ai-models
   - /copilot-feature-matrix
   - /keyboard-shortcuts
-  - /cli-command-reference
-  - /cli-plugin-reference
+  - /copilot-cli-reference
   - /custom-agents-configuration
-  - /acp-server
-  - /hooks-configuration
   - /custom-instructions-support
+  - /hooks-configuration
   - /policy-conflicts
   - /copilot-allowlist-reference
   - /mcp-allowlist-enforcement
   - /metrics-data
   - /copilot-billing
   - /agentic-audit-log-events
+  - /agent-session-filters
   - /review-excluded-files
   - /copilot-usage-metrics
 contentType: reference

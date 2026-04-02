@@ -4,8 +4,6 @@ shortTitle: Chat in GitHub
 intro: You can use {% data variables.copilot.copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the issues or code in a repository.
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat-in-githubcom

@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Vulnerabilities
-  - Repositories
-  - Health
 contentType: how-tos
 redirect_from:
   - /code-security/security-advisories/working-with-repository-security-advisories

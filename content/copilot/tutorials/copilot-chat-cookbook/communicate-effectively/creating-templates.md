@@ -7,11 +7,10 @@ versions:
 category:
   - Communicate effectively
   - Author and optimize with Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 
