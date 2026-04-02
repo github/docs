@@ -45,6 +45,7 @@ category:
 
 > [!NOTE]
 > * {% data reusables.gated-features.third-party-agents %}
+> * If your organization is owned by an enterprise, these settings are only visible if an enterprise admin has enabled third-party coding agents at the enterprise level. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 You can choose whether to allow the following coding agents to be enabled in your organization:
 
