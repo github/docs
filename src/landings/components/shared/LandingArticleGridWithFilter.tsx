@@ -77,9 +77,10 @@ export const ArticleGrid = ({
   // For bespoke landing pages, show all articles regardless of includedCategories
   const filteredArticlesByLandingType = useMemo(() => {
     if (landingType === 'discovery' && includedCategories && includedCategories.length > 0) {
-      // For discovery pages, only include articles that have at least one matching category
+      // For discovery pages, keep articles that either have a matching category
+      // or have no category at all (uncategorized articles are still part of the content tree).
       return allArticles.filter((article) => {
-        if (!article.category || article.category.length === 0) return false
+        if (!article.category || article.category.length === 0) return true
         return article.category.some((cat) =>
           includedCategories.some((included) => included.toLowerCase() === cat.toLowerCase()),
         )
