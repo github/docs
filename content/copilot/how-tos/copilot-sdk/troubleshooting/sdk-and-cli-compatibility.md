@@ -8,8 +8,7 @@ versions:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.copilot-sdk.technical-preview-note %}
+{% data reusables.copilot.copilot-sdk.technical-preview-note %}
 
 {% data variables.copilot.copilot_sdk %} communicates with {% data variables.copilot.copilot_cli %} via JSON-RPC protocol. Features must be explicitly exposed through this protocol to be available in the SDK. Many interactive CLI features are terminal-specific and not available programmatically.
 

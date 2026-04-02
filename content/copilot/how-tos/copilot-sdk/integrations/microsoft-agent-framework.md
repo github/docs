@@ -8,8 +8,7 @@ product: '{% data reusables.gated-features.copilot-sdk %}'
 contentType: how-tos
 ---
 
-> [!NOTE]
-> {% data variables.copilot.copilot_sdk_short %} is currently in {% data variables.release-phases.technical_preview %}. Functionality and availability are subject to change.
+{% data reusables.copilot.copilot-sdk.technical-preview-note %}
 
 Use {% data variables.copilot.copilot_sdk_short %} as an agent provider inside the [Microsoft Agent Framework](https://devblogs.microsoft.com/semantic-kernel/build-ai-agents-with-github-copilot-sdk-and-microsoft-agent-framework/) (MAF) to compose multi-agent workflows alongside Azure OpenAI, Anthropic, and other providers.
 

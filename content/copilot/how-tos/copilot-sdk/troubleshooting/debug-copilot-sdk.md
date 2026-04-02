@@ -8,8 +8,7 @@ versions:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.copilot-sdk.technical-preview-note %}
+{% data reusables.copilot.copilot-sdk.technical-preview-note %}
 
 ## Enable debug logging
 
