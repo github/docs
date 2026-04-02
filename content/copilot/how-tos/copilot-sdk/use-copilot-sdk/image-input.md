@@ -53,7 +53,7 @@ await session.send({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/image-input.md#quick-start--file-attachment).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/image-input.md#quick-start--file-attachment). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Quick start: blob attachment
 
@@ -84,7 +84,7 @@ await session.send({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/image-input.md#quick-start--blob-attachment).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/image-input.md#quick-start--blob-attachment). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Supported formats
 

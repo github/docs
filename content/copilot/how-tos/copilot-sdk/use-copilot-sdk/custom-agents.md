@@ -53,7 +53,7 @@ const session = await client.createSession({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/custom-agents.md#defining-custom-agents).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/custom-agents.md#defining-custom-agents). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Configuration reference
 
@@ -96,7 +96,7 @@ const session = await client.createSession({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/custom-agents.md#selecting-an-agent-at-session-creation).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/custom-agents.md#selecting-an-agent-at-session-creation). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## How sub-agent delegation works
 
@@ -172,7 +172,7 @@ const response = await session.sendAndWait({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/custom-agents.md#listening-to-sub-agent-events).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/custom-agents.md#listening-to-sub-agent-events). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Building an agent tree UI
 

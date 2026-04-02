@@ -14,7 +14,7 @@ category:
 
 {% data variables.copilot.copilot_sdk %} has built-in support for configuring OpenTelemetry on the CLI process and propagating W3C Trace Context between the SDK and CLI.
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/observability/opentelemetry.md).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/observability/opentelemetry.md). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Built-in telemetry support
 
