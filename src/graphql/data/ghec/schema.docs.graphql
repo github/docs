@@ -5824,8 +5824,9 @@ type CommitComment implements Comment & Deletable & Minimizable & Node & Reactab
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -12830,8 +12831,9 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -17940,8 +17942,9 @@ type GistComment implements Comment & Deletable & Minimizable & Node & Updatable
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -20132,8 +20135,9 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Pinnable
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -25450,8 +25454,9 @@ interface Minimizable {
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -43619,8 +43624,9 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -43889,8 +43895,9 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -53371,6 +53378,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
+
+    """
+    Filter by the classification of the alert's associated security advisory
+    """
+    classifications: [SecurityAdvisoryClassification!]
 
     """
     Filter by the scope of the alert's dependency

@@ -10,8 +10,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.copilot-sdk.technical-preview-note %}
+{% data reusables.copilot.copilot-sdk.technical-preview-note %}
 
 The `onPostToolUse` hook is called **after** a tool executes. Use it to:
 

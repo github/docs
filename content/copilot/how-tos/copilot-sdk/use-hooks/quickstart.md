@@ -11,8 +11,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.copilot-sdk.technical-preview-note %}
+{% data reusables.copilot.copilot-sdk.technical-preview-note %}
 
 Hooks allow you to intercept and customize the behavior of {% data variables.copilot.copilot_sdk_short %} sessions at key points in the conversation lifecycle. Use hooks to:
 

@@ -227,16 +227,46 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
 
 ### Including repository custom properties in OIDC tokens
 
-> [!NOTE]
-> This feature is currently in public preview and is subject to change.
-
-Organization and enterprise admins can select repository custom properties to include as claims in Actions OIDC tokens. Once a custom property is added to the OIDC configuration, every repository in the organization or enterprise that has a value set for that property will automatically include it in its OIDC tokens. The property name appears in the token prefixed with `repo_property_`.
+Organization and enterprise admins can select repository custom properties to include as claims in {% data variables.product.prodname_actions %} OIDC tokens. Once a custom property is added to the OIDC configuration, every repository in the organization or enterprise that has a value set for that property will automatically include it in its OIDC tokens. The property name appears in the token prefixed with `repo_property_`.
 
 This allows you to create attribute-based access control (ABAC) policies in your cloud provider that bind directly to your repository metadata, reducing configuration drift and eliminating the need to manage separate access configuration for each repository.
 
+#### Claim format
+
+Each enabled custom property appears as a separate claim in the OIDC token. The claim name is the property name prefixed with `repo_property_`.
+
+| Custom property name | Claim name in OIDC token |
+| --- | --- |
+| `business_unit` | `repo_property_business_unit` |
+| `workspace_id` | `repo_property_workspace_id` |
+| `data_classification` | `repo_property_data_classification` |
+
+#### Supported property types
+
+The following custom property types are supported as OIDC claims. The value representation in the token depends on the property type.
+
+| Property type | Example value in OIDC token | Notes |
+| --- | --- | --- |
+| String | `"repo_property_team": "platform-eng"` | Value appears as a plain string. |
+| Single select | `"repo_property_env_tier": "production"` | The selected option appears as a plain string. |
+| Multi select | `"repo_property_regions": "us-east-1,eu-west-1"` | Multiple selected values are joined into a single comma-separated string. |
+| True/false | `"repo_property_pci_compliant": "true"` | Boolean values appear as the string `"true"` or `"false"`. |
+
+#### Multi-select value representation
+
+When a repository has a multi-select custom property with multiple values selected, the values are joined into a single comma-separated string in the OIDC token. For example, if a repository has a `regions` property with the values `us-east-1` and `eu-west-1`, the claim appears as:
+
+```json
+{
+  "repo_property_regions": "us-east-1,eu-west-1"
+} 
+```
+
+When configuring trust policies in your cloud provider, use string matching or contains checks to evaluate multi-select claims.
+
 #### Prerequisites for including custom properties
 
-* Custom properties must already be defined at the organization or enterprise level.
+* Custom properties must already be defined at the organization or enterprise level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 * You must be an organization admin or enterprise admin.
 * After adding a custom property to the OIDC configuration, all repositories in the organization or enterprise that have a value set for that property will automatically include it in their OIDC tokens.
 
@@ -244,23 +274,27 @@ This allows you to create attribute-based access control (ABAC) policies in your
 
 You can manage which custom properties are included in OIDC tokens using the settings UI or the REST API.
 
-* **Using the settings UI:** 
+* **Using the settings UI:**
 
   Navigate to your organization's or enterprise's Actions OIDC settings to view and configure which custom properties are included in OIDC tokens.
 
 * **Using the REST API:**
 
-  To add a custom property to your organization's or enterprise's OIDC token claims, use the REST API. For more information, see [AUTOTITLE](/rest/actions/oidc).
+   To add a custom property to your organization's OIDC token claims, send a `POST` request to the appropriate OIDC custom-property inclusion endpoint. For example:
+   * For an organization: `POST /orgs/{org}/actions/oidc/customization/properties/repo`
+   * For an enterprise: `POST /enterprises/{enterprise}/actions/oidc/customization/properties/repo`
+   For request parameters and full details, see the REST API documentation for managing OIDC custom properties: [AUTOTITLE](/rest/actions/oidc).
 
-#### Example token with a custom property
+#### Example token with custom properties
 
-After a custom property is added to the OIDC configuration, repositories with a value set for that property will include it in their tokens. In the following example, the `workspace_id` custom property appears as `repo_property_workspace_id` in the token:
+After a custom property is added to the OIDC configuration, repositories with a value set for that property will include it in their tokens. In the following example, two custom properties (`business_unit` and `workspace_id`) are included in the token:
 
 ```json
 {
   "sub": "repo:my-org/my-repo:ref:refs/heads/main",
   "aud": "https://github.com/my-org",
   "repository": "my-org/my-repo",
+  "repo_property_business_unit": "payments",
   "repo_property_workspace_id": "ws-abc123"
 }
 ```
