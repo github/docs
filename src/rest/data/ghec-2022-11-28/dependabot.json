@@ -1931,12 +1931,10 @@
                       "score": 8.7
                     }
                   },
-                  "epss": [
-                    {
-                      "percentage": 0.00045,
-                      "percentile": "0.16001e0"
-                    }
-                  ],
+                  "epss": {
+                    "percentage": 0.00045,
+                    "percentile": "0.16001e0"
+                  },
                   "cwes": [
                     {
                       "cwe_id": "CWE-200",
@@ -2368,6 +2366,7 @@
                           "unknown",
                           "direct",
                           "transitive",
+                          "inconclusive",
                           null
                         ]
                       }
@@ -3817,12 +3816,10 @@
                       "score": 8.7
                     }
                   },
-                  "epss": [
-                    {
-                      "percentage": 0.00045,
-                      "percentile": "0.16001e0"
-                    }
-                  ],
+                  "epss": {
+                    "percentage": 0.00045,
+                    "percentile": "0.16001e0"
+                  },
                   "cwes": [
                     {
                       "cwe_id": "CWE-200",
@@ -4254,6 +4251,7 @@
                           "unknown",
                           "direct",
                           "transitive",
+                          "inconclusive",
                           null
                         ]
                       }
@@ -5704,12 +5702,10 @@
                       "score": 8.7
                     }
                   },
-                  "epss": [
-                    {
-                      "percentage": 0.00045,
-                      "percentile": "0.16001e0"
-                    }
-                  ],
+                  "epss": {
+                    "percentage": 0.00045,
+                    "percentile": "0.16001e0"
+                  },
                   "cwes": [
                     {
                       "cwe_id": "CWE-200",
@@ -6007,6 +6003,7 @@
                           "unknown",
                           "direct",
                           "transitive",
+                          "inconclusive",
                           null
                         ]
                       }
@@ -6969,12 +6966,10 @@
                     "score": 8.5
                   }
                 },
-                "epss": [
-                  {
-                    "percentage": 0.00045,
-                    "percentile": "0.16001e0"
-                  }
-                ],
+                "epss": {
+                  "percentage": 0.00045,
+                  "percentile": "0.16001e0"
+                },
                 "cwes": [
                   {
                     "cwe_id": "CWE-532",
@@ -7125,6 +7120,7 @@
                         "unknown",
                         "direct",
                         "transitive",
+                        "inconclusive",
                         null
                       ]
                     }
@@ -8259,6 +8255,7 @@
                         "unknown",
                         "direct",
                         "transitive",
+                        "inconclusive",
                         null
                       ]
                     }

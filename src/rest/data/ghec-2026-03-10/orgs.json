@@ -5949,6 +5949,12 @@
           "type": "string",
           "name": "github_repository",
           "description": "<p>The name of the GitHub repository associated with the artifact. This should be used\nwhen there are no provenance attestations available for the artifact. The repository\nmust belong to the organization specified in the path parameter.</p>\n<p>If a provenance attestation is available for the artifact, the API will use\nthe repository information from the attestation instead of this parameter.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "return_records",
+          "description": "<p>If true, the endpoint will return the created or updated record in the response body.</p>",
+          "default": true
         }
       ],
       "descriptionHTML": "<p>Create or update deployment records for an artifact associated\nwith an organization.\nThis endpoint allows you to record information about a specific\nartifact, such as its name, digest, environments, cluster, and\ndeployment.\nThe deployment name has to be uniqe within a cluster (i.e a\ncombination of logical, physical environment and cluster) as it\nidentifies unique deployment.\nMultiple requests for the same combination of logical, physical\nenvironment, cluster and deployment name will only create one\nrecord, successive request will update the existing record.\nThis allows for a stable tracking of a deployment where the actual\ndeployed artifact can change over time.</p>",
@@ -6066,7 +6072,10 @@
                     }
                   }
                 }
-              }
+              },
+              "required": [
+                "total_count"
+              ]
             }
           }
         }
@@ -6197,6 +6206,12 @@
               "description": "<p>A list of runtime risks associated with the deployment.\nSupported values are: <code>critical-resource</code>, <code>internet-exposed</code>, <code>lateral-movement</code>, <code>sensitive-data</code></p>"
             }
           ]
+        },
+        {
+          "type": "boolean",
+          "name": "return_records",
+          "description": "<p>If true, the endpoint will return the set records in the response body</p>",
+          "default": true
         }
       ],
       "descriptionHTML": "<p>Set deployment records for a given cluster.\nIf proposed records in the 'deployments' field have identical 'cluster', 'logical_environment',\n'physical_environment', and 'deployment_name' values as existing records, the existing records will be updated.\nIf no existing records match, new records will be created.</p>",
@@ -6319,7 +6334,10 @@
                     }
                   }
                 }
-              }
+              },
+              "required": [
+                "total_count"
+              ]
             }
           }
         }
@@ -6425,6 +6443,12 @@
           "type": "string",
           "name": "github_repository",
           "description": "<p>The name of the GitHub repository associated with the artifact. This should be used\nwhen there are no provenance attestations available for the artifact. The repository\nmust belong to the organization specified in the path parameter.</p>\n<p>If a provenance attestation is available for the artifact, the API will use\nthe repository information from the attestation instead of this parameter.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "return_records",
+          "description": "<p>If true, the endpoint will return the created record in the response body.</p>",
+          "default": true
         }
       ],
       "descriptionHTML": "<p>Create metadata storage records for artifacts associated with an organization.\nThis endpoint will create a new artifact storage record on behalf of any artifact matching the provided digest and\nassociated with a repository owned by the organization.</p>",
@@ -6513,7 +6537,10 @@
                     }
                   }
                 }
-              }
+              },
+              "required": [
+                "total_count"
+              ]
             }
           }
         }
@@ -18158,6 +18185,16 @@
           "name": "network_settings_ids",
           "description": "<p>A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>",
           "isRequired": true
+        },
+        {
+          "type": "array of strings",
+          "name": "failover_network_settings_ids",
+          "description": "<p>A list of identifiers of the failover network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "failover_network_enabled",
+          "description": "<p>Indicates whether the failover network resource is enabled.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates a hosted compute network configuration for an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:network_configurations</code> scope to use this endpoint.</p>",
@@ -18443,6 +18480,16 @@
           "type": "array of strings",
           "name": "network_settings_ids",
           "description": "<p>A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "failover_network_settings_ids",
+          "description": "<p>A list of identifiers of the failover network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "failover_network_enabled",
+          "description": "<p>Indicates whether the failover network resource is enabled.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates a hosted compute network configuration for an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:network_configurations</code> scope to use this endpoint.</p>",
@@ -18742,7 +18789,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the fine-grained permissions that can be used in custom organization roles for an organization. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To list the fine-grained permissions that can be used in custom repository roles for an organization, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/orgs/organization-roles#list-repository-fine-grained-permissions-for-an-organization\">List repository fine-grained permissions for an organization</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>read_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists the fine-grained permissions that can be used in custom organization roles for an organization. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To list the fine-grained permissions that can be used in custom repository roles for an organization, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/orgs/organization-roles#list-repository-fine-grained-permissions-for-an-organization\">List repository fine-grained permissions for an organization</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>View organization roles</strong> (<code>read_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -18834,7 +18881,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the organization roles available in this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>read_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists the organization roles available in this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>View organization roles</strong> (<code>read_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -19201,7 +19248,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Creates a custom organization role that can be assigned to users and teams, granting them specific\npermissions over the organization and optionally across all repositories in the organization. For\nmore information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To include repository permissions in an organization role, you must also include the <code>base_role</code>\nfield, which is one of <code>read</code>, <code>write</code>, <code>triage</code>, <code>maintain</code>, or <code>admin</code> (or <code>none</code> if no base role is set). This base role provides a set of\nfine-grained permissions as well as implicit permissions - those that aren't exposed as fine-grained permissions\nand can only be granted through the base role (like \"reading a repo\").  If you include repository permissions, those\npermissions apply across all of the repositories in the organization. You do not have to include organization permissions\nin order to add repository permissions.</p>\n<p>See \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#list-repository-fine-grained-permissions-for-an-organization\">List repository permissions</a>\" for valid repository permissions.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>write_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a custom organization role that can be assigned to users and teams, granting them specific\npermissions over the organization and optionally across all repositories in the organization. For\nmore information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To include repository permissions in an organization role, you must also include the <code>base_role</code>\nfield, which is one of <code>read</code>, <code>write</code>, <code>triage</code>, <code>maintain</code>, or <code>admin</code> (or <code>none</code> if no base role is set). This base role provides a set of\nfine-grained permissions as well as implicit permissions - those that aren't exposed as fine-grained permissions\nand can only be granted through the base role (like \"reading a repo\").  If you include repository permissions, those\npermissions apply across all of the repositories in the organization. You do not have to include organization permissions\nin order to add repository permissions.</p>\n<p>See \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#list-repository-fine-grained-permissions-for-an-organization\">List repository permissions</a>\" for valid repository permissions.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>Manage custom organization roles</strong> (<code>write_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -19942,7 +19989,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets an organization role that is available to this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>read_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets an organization role that is available to this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>View organization roles</strong> (<code>read_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -20264,7 +20311,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Updates an existing custom organization role. Permission changes will apply to all assignees. For more information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>If the update would add repository permissions, the <code>base_role</code> must also be set to a value besides <code>none</code>, either\npreviously or as part of the update.\nIf the update sets the <code>base_role</code> field to <code>none</code>, you must also remove all of the repository\npermissions as well, otherwise the update will fail.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>write_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates an existing custom organization role. Permission changes will apply to all assignees. For more information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>If the update would add repository permissions, the <code>base_role</code> must also be set to a value besides <code>none</code>, either\npreviously or as part of the update.\nIf the update sets the <code>base_role</code> field to <code>none</code>, you must also remove all of the repository\npermissions as well, otherwise the update will fail.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>Manage custom organization roles</strong> (<code>write_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -20565,7 +20612,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a custom organization role. For more information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>write_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Deletes a custom organization role. For more information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>Manage custom organization roles</strong> (<code>write_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {

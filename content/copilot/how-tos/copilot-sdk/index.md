@@ -11,6 +11,7 @@ children:
   - /use-copilot-sdk
   - /use-hooks
   - /observability
+  - /integrations
   - /troubleshooting
 contentType: how-tos
 ---
