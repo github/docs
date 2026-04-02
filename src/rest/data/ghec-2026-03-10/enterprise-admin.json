@@ -7650,6 +7650,16 @@
           "name": "network_settings_ids",
           "description": "<p>A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>",
           "isRequired": true
+        },
+        {
+          "type": "array of strings",
+          "name": "failover_network_settings_ids",
+          "description": "<p>A list of identifiers of the failover network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "failover_network_enabled",
+          "description": "<p>Indicates whether the failover network resource is enabled.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates a hosted compute network configuration for an enterprise.</p>",
@@ -7927,6 +7937,16 @@
           "type": "array of strings",
           "name": "network_settings_ids",
           "description": "<p>A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "failover_network_settings_ids",
+          "description": "<p>A list of identifiers of the failover network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "failover_network_enabled",
+          "description": "<p>Indicates whether the failover network resource is enabled.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates a hosted compute network configuration for an enterprise.</p>",
