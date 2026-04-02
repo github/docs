@@ -50,7 +50,7 @@ const session = await client.createSession({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#registering-hooks).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#registering-hooks). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 > [!TIP]
 > Every hook handler receives an `invocation` parameter containing the `sessionId`, which is useful for correlating logs and maintaining per-session state.
@@ -81,7 +81,7 @@ const session = await client.createSession({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#allow-list-a-safe-set-of-tools).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#allow-list-a-safe-set-of-tools). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ### Restrict file access to specific directories
 
@@ -207,7 +207,7 @@ const session = await client.createSession({
 });
 ```
 
-For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#structured-audit-log).
+For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#structured-audit-log). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ### Redact secrets from tool results
 
@@ -265,7 +265,7 @@ const session = await client.createSession({
 });
 ```
 
-For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#desktop-notification-on-session-events).
+For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#desktop-notification-on-session-events). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ### Play a sound when a tool finishes
 
@@ -454,7 +454,7 @@ const session = await client.createSession({
 });
 ```
 
-For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#session-metrics).
+For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/hooks.md#session-metrics). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Combining hooks
 

@@ -43,7 +43,7 @@ const session = await client.createSession({
 await session.sendAndWait({ prompt: "Review this code for security issues" });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/skills.md#loading-skills).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/skills.md#loading-skills). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Disabling skills
 
@@ -56,7 +56,7 @@ const session = await client.createSession({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/skills.md#disabling-skills).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/skills.md#disabling-skills). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Skill directory structure
 
@@ -116,6 +116,8 @@ When you call `createSession()`, pass these skill-related fields in the session 
 | Go | `DisabledSkills` | `[]string` | Skills to disable |
 | .NET | `SkillDirectories` | `List<string>` | Directories to load skills from |
 | .NET | `DisabledSkills` | `List<string>` | Skills to disable |
+| Java | `skillDirectories` | `List<String>` | Directories to load skills from |
+| Java | `disabledSkills` | `List<String>` | Skills to disable |
 
 ## Best practices
 

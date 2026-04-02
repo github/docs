@@ -43,7 +43,7 @@ await session.sendAndWait({ prompt: "Analyze my codebase" });
 // You can safely close the client
 ```
 
-For examples in Python, Go, and C#, see the `github/copilot-sdk` [repository](https://github.com/github/copilot-sdk/blob/main/docs/features/session-persistence.md#quick-start-creating-a-resumable-session).
+For examples in Python, Go, and C#, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/session-persistence.md#quick-start-creating-a-resumable-session). For Java, see the [`github/copilot-sdk-java` repository](https://github.com/github/copilot-sdk-java).
 
 ## Resuming a session
 
@@ -57,7 +57,7 @@ const session = await client.resumeSession("user-123-task-456");
 await session.sendAndWait({ prompt: "What did we discuss earlier?" });
 ```
 
-For examples in Python, Go, and C#, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/session-persistence.md#resuming-a-session).
+For examples in Python, Go, and C#, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/session-persistence.md#resuming-a-session). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Resume options
 
@@ -173,7 +173,7 @@ const sessionId = createSessionId("alice", "code-review");
 // → "alice-code-review-1706932800000"
 ```
 
-For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/session-persistence.md#example-generating-session-ids).
+For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/session-persistence.md#example-generating-session-ids). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Managing session lifecycle
 
@@ -238,6 +238,7 @@ Each SDK provides idiomatic automatic cleanup patterns:
 | **Python** | `async with` context manager | `async with await client.create_session(config) as session:` |
 | **C#** | `IAsyncDisposable` | `await using var session = await client.CreateSessionAsync(config);` |
 | **Go** | `defer` | `defer session.Disconnect()` |
+| **Java** | `try-with-resources` | `try (var session = client.createSession(config).get()) { ... }` |
 
 > [!NOTE]
 > `destroy()` has been replaced by `disconnect()` and will be removed in a future release. Existing code using `destroy()` will continue to work but should be migrated.

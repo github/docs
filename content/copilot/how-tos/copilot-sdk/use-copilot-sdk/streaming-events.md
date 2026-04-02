@@ -50,7 +50,7 @@ session.on("assistant.message_delta", (event) => {
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/streaming-events.md#subscribing-to-events).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/streaming-events.md#subscribing-to-events). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 > [!TIP]
 > **Python / Go:** These SDKs use a single `Data` class/struct with all possible fields as optional/nullable. Only the fields listed in the tables below are populated for each event type—the rest will be `None` / `nil`.
@@ -58,6 +58,8 @@ For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](
 > **.NET:** The .NET SDK uses separate, strongly-typed data classes per event (for example, `AssistantMessageDeltaData`), so only the relevant fields exist on each type.
 >
 > **TypeScript:** The TypeScript SDK uses a discriminated union—when you match on `event.type`, the `data` payload is automatically narrowed to the correct shape.
+>
+> **Java:** The Java SDK uses typed event classes (for example, `AssistantMessageEvent`, `SessionIdleEvent`) with typed data accessors.
 
 ## Assistant events
 

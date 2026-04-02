@@ -50,7 +50,7 @@ await session.send({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/steering-and-queueing.md#steering-immediate-mode).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/steering-and-queueing.md#steering-immediate-mode). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ### How steering works internally
 
@@ -94,7 +94,7 @@ await session.send({
 // Messages are processed in FIFO order after each turn completes
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/steering-and-queueing.md#queueing-enqueue-mode).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/steering-and-queueing.md#queueing-enqueue-mode). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ### How queueing works internally
 
@@ -130,7 +130,7 @@ await session.send({
 });
 ```
 
-For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/steering-and-queueing.md#combining-steering-and-queueing).
+For an example in Python, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/steering-and-queueing.md#combining-steering-and-queueing). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Choosing between steering and queueing
 

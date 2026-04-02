@@ -56,7 +56,7 @@ Azure AI Foundry (formerly Azure OpenAI) is a common BYOK deployment target for 
 
 Replace `YOUR-RESOURCE` with your Azure resource name and `YOUR-DEPLOYMENT-NAME` with your model deployment name. Set the `FOUNDRY_API_KEY` environment variable to your Azure API key.
 
-For examples in Python, Go, and .NET, see [BYOK](https://github.com/github/copilot-sdk/blob/main/docs/auth/byok.md) in the `github/copilot-sdk` repository.
+For examples in Python, Go, and .NET, see [BYOK](https://github.com/github/copilot-sdk/blob/main/docs/auth/byok.md) in the `github/copilot-sdk` repository. {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Provider configuration reference
 
@@ -227,7 +227,7 @@ const client = new CopilotClient({
 
 Results are cached after the first call. The handler completely replaces the CLI's `models.list` RPC—no fallback to the server occurs.
 
-For examples in Python, Go, and .NET, see [BYOK](https://github.com/github/copilot-sdk/blob/main/docs/auth/byok.md) in the `github/copilot-sdk` repository.
+For examples in Python, Go, and .NET, see [BYOK](https://github.com/github/copilot-sdk/blob/main/docs/auth/byok.md) in the `github/copilot-sdk` repository. {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Limitations
 

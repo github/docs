@@ -90,6 +90,7 @@ All guides assume you have:
   * Python: `pip install github-copilot-sdk`
   * Go: `go get github.com/github/copilot-sdk/go`
   * .NET: `dotnet add package GitHub.Copilot.SDK`
+  * Java: See the [`github/copilot-sdk-java`](https://github.com/github/copilot-sdk-java) repository for Maven/Gradle setup
 
 If you're new to the {% data variables.copilot.copilot_sdk %}, start with [AUTOTITLE](/copilot/how-tos/copilot-sdk/sdk-getting-started) first, then return here for production configuration.
 

@@ -64,7 +64,7 @@ const session = await client.createSession({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/hooks/index.md#quick-start).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/hooks/index.md#quick-start). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Hook invocation context
 

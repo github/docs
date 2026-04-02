@@ -57,7 +57,7 @@ const session = await client.createSession({
 });
 ```
 
-For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/mcp.md#configuration).
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/mcp.md#configuration). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Quick start: filesystem MCP server
 
