@@ -54,7 +54,7 @@ export const TocLanding = () => {
           <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-2 mb-xl-2" />
 
           <div className={variant === 'expanded' ? 'mt-5' : 'mt-2'}>
-            {featuredLinks.gettingStarted && featuredLinks.popular && (
+            {featuredLinks?.gettingStarted && featuredLinks?.popular && (
               <div className="pb-8 container-xl">
                 <div className="gutter gutter-xl-spacious clearfix">
                   <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
