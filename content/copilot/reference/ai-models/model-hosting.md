@@ -1,8 +1,8 @@
 ---
-title: Hosting of models for GitHub Copilot Chat
+title: Hosting of models for GitHub Copilot
 shortTitle: Model hosting
 allowTitleToDifferFromFilename: true
-intro: 'Learn how different AI models are hosted for {% data variables.copilot.copilot_chat_short %}.'
+intro: 'Learn how different AI models are hosted for {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
 category:
@@ -99,3 +99,7 @@ Will **only**:
 When using xAI, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
 For more information, see [xAI's enterprise terms of service](https://x.ai/legal/terms-of-service-enterprise) on the xAI website.
+
+## Inline suggestions
+
+Inline suggestions, including ghost text and next edit suggestions, are powered by models hosted on Azure for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans. {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %} user models are hosted on Fireworks AI.
