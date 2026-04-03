@@ -68,4 +68,18 @@ The {% data variables.product.prodname_spark_short %} CLI currently only works w
 
 ## Troubleshooting
 
-If you're being asked to supply the `--app` parameter when deploying your spark, update to the latest version of the {% data variables.product.prodname_spark_short %} SDK by following step 1 in [Build your spark](#build-your-spark).
+If you're being asked to supply the `--app` parameter when deploying your spark, try the following steps:
+
+1. Update to the latest version of the {% data variables.product.prodname_spark_short %} SDK by following step 1 in [Build your spark](#build-your-spark).
+1. If that does not work, create a `runtime.config.json` file in the root of your project (the same directory as your `package.json` file) with the following content:
+
+   ```json copy
+   {"app": "YOUR-APP-NAME"}
+   ```
+
+   Replace `YOUR-APP-NAME` with the name of your {% data variables.product.prodname_spark_short %} app, which is usually the same as your repository name.
+1. Alternatively, specify your app name directly by using the `--app` parameter when you deploy:
+
+   ```bash copy
+   gh runtime-cli deploy --dir ./dist --app YOUR-APP-NAME
+   ```
