@@ -33,6 +33,9 @@ In addition, you can:
 * [Set environment variables in {% data variables.product.prodname_copilot_short %}'s environment](#setting-environment-variables-in-copilots-environment)
 * [Disable or customize the agent's firewall](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
+> [!NOTE]
+> Organization owners can configure the default runner type for {% data variables.copilot.copilot_coding_agent %} across all repositories in their organization, and choose whether repositories are allowed to override this default. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent).
+
 ## Customizing {% data variables.product.prodname_copilot_short %}'s development environment with {% data variables.product.prodname_copilot_short %} setup steps
 
 You can customize {% data variables.product.prodname_copilot_short %}'s environment by creating a special {% data variables.product.prodname_actions %} workflow file, located at `.github/workflows/copilot-setup-steps.yml` within your repository.
