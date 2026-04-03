@@ -94,7 +94,7 @@ Run the following commands to validate your changes:
 8. Validate that any new or changed tests pass. See "Tests".
 9. Validate that these changes meet our guidelines. See "Guidelines".
 10. If you are running in agentic mode, _stop_ at this point and request review before continuing. Suggest how the human should review the changes.
-11. If a branch and pull request already exist, commit and push, then _concisely_ comment on the pull request that you are GitHub Copilot and what changes you made and why. 
+11. If a branch and pull request already exist, commit and push, then _concisely_ comment on the pull request that you are GitHub Copilot and what changes you made and why.
 12. If this is new work and no pull request exists yet, make a pull request:
     - label "llm-generated"
     - draft mode
@@ -102,5 +102,25 @@ Run the following commands to validate your changes:
 13. If you are in agentic mode, offer to wait for CI to run and check that it passes. If the human agrees, verify in CI: `sleep 240 && gh pr checks $number`. Address all failures, don't assume they're flakes.
 14. If you are in agentic mode, offer to do any or all of:
     - mark the pull request as ready,
-    - assign the issue to the human if it is not already assigned, 
+    - assign the issue to the human if it is not already assigned,
     - _concisely_ comment on the issue explaining the change, indicating you are GitHub Copilot.
+
+## Logger
+
+Use `createLogger` from `@/observability/logger` instead of `console.log` in server-side code.
+
+```typescript
+import { createLogger } from "@/observability/logger";
+
+const logger = createLogger(import.meta.url);
+
+logger.debug("Detailed tracing");
+logger.info("Normal event", { userId });
+logger.warn("Recoverable issue");
+logger.error("Failure", { error });
+```
+
+- Pass a plain object as the second argument to add structured context (emitted as logfmt in production).
+- Never log secrets, tokens, or PII.
+- Create loggers once at module scope, not inside functions.
+- Do not use the logger in scripts (locally-run code); `console.log` is fine there.
