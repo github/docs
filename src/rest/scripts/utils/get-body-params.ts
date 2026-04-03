@@ -54,24 +54,33 @@ async function getTopLevelOneOfProperty(
   // is the array as a property of the object. We need to ensure that the
   // first option listed is the most comprehensive and preferred option.
   const firstOneOfObject = schema.oneOf[0]
-  const allOneOfAreObjects = schema.oneOf.every((elem) => elem.type === 'object')
-  let required = firstOneOfObject.required || []
-  let properties = firstOneOfObject.properties || {}
+  const allOneOfAreObjects = schema.oneOf.every(
+    (elem) => elem.type === 'object' || elem.properties !== undefined,
+  )
+  let required = firstOneOfObject.required ? [...firstOneOfObject.required] : []
+  const properties = firstOneOfObject.properties ? { ...firstOneOfObject.properties } : {}
 
   // When all of the oneOf objects have the `type: object` we
   // need to display all of the parameters.
   // This merges all of the properties and required values.
   if (allOneOfAreObjects) {
     for (const each of schema.oneOf.slice(1)) {
-      if (firstOneOfObject.properties && each.properties) {
-        Object.assign(firstOneOfObject.properties, each.properties)
+      if (each.properties) {
+        Object.assign(properties, each.properties)
       }
-      if (firstOneOfObject.required && each.required) {
-        required = firstOneOfObject.required.concat(each.required)
+      if (each.required) {
+        required = Array.from(new Set([...required, ...each.required]))
       }
     }
-    properties = firstOneOfObject.properties || {}
   }
+
+  if (schema.properties) {
+    Object.assign(properties, schema.properties)
+  }
+  if (schema.required) {
+    required = Array.from(new Set([...required, ...schema.required]))
+  }
+
   return { properties, required }
 }
 
