@@ -11,12 +11,9 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/customize-the-agent-firewall
   - /copilot/how-tos/agents/coding-agent/customize-the-agent-firewall
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
-
-> [!NOTE]
-> Firewall configuration has moved to the {% data variables.copilot.copilot_coding_agent %} settings page. Previous configurations saved as Actions variables will be maintained on that page.
 
 ## Overview
 
@@ -52,44 +49,69 @@ The recommended allowlist, enabled by default, allows access to:
 
 For the complete list of hosts included in the recommended allowlist, see [AUTOTITLE](/copilot/reference/copilot-allowlist-reference#copilot-coding-agent-recommended-allowlist).
 
-## Disabling the recommended allowlist
+## Configuring the firewall at the organization level
 
-You can choose to turn off the recommended allowlist. Disabling the recommended allowlist is likely to increase the risk of unauthorized access to external resources.
+Organization owners can configure all firewall settings at the organization level. To access the firewall settings:
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short %}**.
-1. Toggle the **Recommended allowlist** setting **off**.
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.copilot.coding-agent-settings %}
 
-To use the recommended allowlist in addition to your own allowlist, keep the **Recommended allowlist** setting **on**, and add your additional addresses in the **Custom allowlist** page.
-
-## Allowlisting additional hosts in the agent's firewall
-
-You can allowlist additional addresses in the agent's firewall.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short %}**.
-1. Click **Custom allowlist**
-1. Add the addresses you want to include in the allowlist. You can include:
-
-   * **Domains** (for example, `packages.contoso.corp`). Traffic will be allowed to the specified domain and any subdomains.
-
-     **Example**: `packages.contoso.corp` will allow traffic to `packages.contoso.corp` and `prod.packages.contoso.corp`, but not `artifacts.contoso.corp`.
-
-   * **URLs** (for example, `https://packages.contoso.corp/project-1/`). Traffic will only be allowed on the specified scheme (`https`) and host (`packages.contoso.corp`), and limited to the specified path and descendant paths.
-
-     **Example**: `https://packages.contoso.corp/project-1/` will allow traffic to `https://packages.contoso.corp/project-1/` and `https://packages.contoso.corp/project-1/tags/latest`, but not `https://packages.consoto.corp/project-2`, `ftp://packages.contoso.corp` or `https://artifacts.contoso.corp`.
-
-1. Click **Add Rule**.
-1. After validating your list, click **Save changes**.
-
-### Disabling the firewall
+### Enabling or disabling the firewall
 
 > [!WARNING]
 > Disabling the firewall will allow {% data variables.product.prodname_copilot_short %} to connect to any host, increasing risks of exfiltration of code or other sensitive information.
 
-The firewall is enabled by default. To disable the firewall, toggle the **Enable firewall** setting to **off**.
+1. Under "Internet access", set the **Enable firewall** setting to **Enabled**, **Disabled**, or **Let repositories decide** (default).
+
+### Enabling or disabling the recommended allowlist
+
+1. Under "Internet access", set the **Recommended allowlist** setting to **Enabled**, **Disabled**, or **Let repositories decide** (default).
+
+### Controlling whether repositories can add custom allowlist rules
+
+By default, repository administrators can add their own entries to the firewall allowlist. Organization owners can disable this to prevent repositories from adding custom rules.
+
+1. Under "Internet access", set the **Allow repository custom rules** setting to **Enabled** (default) or **Disabled**.
+
+### Managing the organization custom allowlist
+
+Items added to the organization custom allowlist apply to all repositories in the organization. These items cannot be deleted at the repository level. Organization-level and repository-level rules are combined.
+
+1. Under "Internet access", click **Organization custom allowlist**.
+{% data reusables.copilot.coding-agent.custom-allowlist-add-entries %}
+
+## Configuring the firewall at the repository level
+
+Repository administrators can configure firewall settings at the repository level, including enabling or disabling the firewall, enabling or disabling the recommended allowlist, and managing a custom allowlist. Depending on the organization-level configuration, some of these settings may be locked.
+
+To access the firewall settings:
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short %}**.
+
+### Enabling or disabling the firewall
+
+> [!NOTE]
+> You can only change this setting at the repository level if the organization-level **Enable firewall** setting is set to **Let repositories decide**. If the organization-level setting is **Enabled** or **Disabled**, you can't change this setting for individual repositories.
+
+1. Toggle the **Enable firewall** setting on or off.
+
+### Enabling or disabling the recommended allowlist
+
+> [!NOTE]
+> You can only change this setting at the repository level if the organization-level **Recommended allowlist** setting is set to **Let repositories decide**. If the organization-level setting is **Enabled** or **Disabled**, you can't change this setting for individual repositories.
+
+1. Toggle the **Recommended allowlist** setting on or off.
+
+### Managing the custom allowlist
+
+> [!NOTE]
+> You can only add custom allowlist rules at the repository level if the organization-level **Allow repository custom rules** setting is set to **Enabled**. For more information, see [Controlling whether repositories can add custom allowlist rules](#controlling-whether-repositories-can-add-custom-allowlist-rules).
+
+1. Click **Custom allowlist**.
+{% data reusables.copilot.coding-agent.custom-allowlist-add-entries %}
 
 ## Further reading
 

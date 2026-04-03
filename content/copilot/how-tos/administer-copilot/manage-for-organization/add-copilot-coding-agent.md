@@ -50,6 +50,10 @@ By default, {% data variables.copilot.copilot_coding_agent %} is available in al
 
 Once {% data variables.copilot.copilot_coding_agent %} is enabled for a repository, any user with access to {% data variables.copilot.copilot_coding_agent %} and write permission for the repository can delegate work to {% data variables.product.prodname_copilot_short %}.
 
+## Managing the agent firewall for your organization
+
+Organization owners can configure the {% data variables.copilot.copilot_coding_agent %} firewall for their organization, including whether it is enabled for the organization and which external hosts and URLs the agent can access. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-firewall).
+
 ## Next steps
 
 * Tell the members of repositories where {% data variables.copilot.copilot_coding_agent %} is available that they can delegate work to the {% data variables.copilot.copilot_coding_agent_short %}.
