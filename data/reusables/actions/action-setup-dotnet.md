@@ -1,1 +1,1 @@
-actions/setup-dotnet@v4
+actions/setup-dotnet@v5
