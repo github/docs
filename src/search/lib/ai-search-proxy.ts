@@ -9,7 +9,7 @@ import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-sea
 // Maximum time (ms) to wait for the initial response from the upstream
 // AI search service. Streaming may take longer once the connection is
 // established, but the connect + first-byte must complete within this window.
-const AI_SEARCH_TIMEOUT_MS = 4_000
+const AI_SEARCH_TIMEOUT_MS = 9_000
 
 export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
   const { query, version } = req.body ?? {}
