@@ -57,6 +57,7 @@ Organization owners can configure the {% data variables.copilot.copilot_coding_a
 ## Next steps
 
 * Tell the members of repositories where {% data variables.copilot.copilot_coding_agent %} is available that they can delegate work to the {% data variables.copilot.copilot_coding_agent_short %}.
+* Configure the default runner type for {% data variables.copilot.copilot_coding_agent %} in your organization. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent).
 * Encourage members to educate themselves about setting up their repository to get the most from {% data variables.copilot.copilot_coding_agent %}. Useful resources:
 
    * [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
