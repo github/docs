@@ -1724,6 +1724,14 @@
           }
         },
         {
+          "name": "classification",
+          "in": "query",
+          "description": "<p>A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.</p>\n<p>Can be: <code>malware</code>, <code>general</code></p>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "state",
           "in": "query",
           "description": "<p>A comma-separated list of states. If specified, only alerts with these states will be returned.</p>\n<p>Can be: <code>auto_dismissed</code>, <code>dismissed</code>, <code>fixed</code>, <code>open</code></p>",
@@ -2486,6 +2494,15 @@
                           "medium",
                           "high",
                           "critical"
+                        ]
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "The classification of the advisory.",
+                        "readOnly": true,
+                        "enum": [
+                          "general",
+                          "malware"
                         ]
                       },
                       "cvss_severities": {
@@ -3556,6 +3573,14 @@
           }
         },
         {
+          "name": "classification",
+          "in": "query",
+          "description": "<p>A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.</p>\n<p>Can be: <code>malware</code>, <code>general</code></p>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "state",
           "in": "query",
           "description": "<p>A comma-separated list of states. If specified, only alerts with these states will be returned.</p>\n<p>Can be: <code>auto_dismissed</code>, <code>dismissed</code>, <code>fixed</code>, <code>open</code></p>",
@@ -4343,6 +4368,15 @@
                           "medium",
                           "high",
                           "critical"
+                        ]
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "The classification of the advisory.",
+                        "readOnly": true,
+                        "enum": [
+                          "general",
+                          "malware"
                         ]
                       },
                       "cvss_severities": {
@@ -5430,6 +5464,14 @@
           }
         },
         {
+          "name": "classification",
+          "in": "query",
+          "description": "<p>A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.</p>\n<p>Can be: <code>malware</code>, <code>general</code></p>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "state",
           "in": "query",
           "description": "<p>A comma-separated list of states. If specified, only alerts with these states will be returned.</p>\n<p>Can be: <code>auto_dismissed</code>, <code>dismissed</code>, <code>fixed</code>, <code>open</code></p>",
@@ -6067,6 +6109,15 @@
                           "medium",
                           "high",
                           "critical"
+                        ]
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "The classification of the advisory.",
+                        "readOnly": true,
+                        "enum": [
+                          "general",
+                          "malware"
                         ]
                       },
                       "cvss_severities": {
@@ -7156,6 +7207,15 @@
                         "medium",
                         "high",
                         "critical"
+                      ]
+                    },
+                    "classification": {
+                      "type": "string",
+                      "description": "The classification of the advisory.",
+                      "readOnly": true,
+                      "enum": [
+                        "general",
+                        "malware"
                       ]
                     },
                     "cvss_severities": {
@@ -8263,6 +8323,15 @@
                         "medium",
                         "high",
                         "critical"
+                      ]
+                    },
+                    "classification": {
+                      "type": "string",
+                      "description": "The classification of the advisory.",
+                      "readOnly": true,
+                      "enum": [
+                        "general",
+                        "malware"
                       ]
                     },
                     "cvss_severities": {

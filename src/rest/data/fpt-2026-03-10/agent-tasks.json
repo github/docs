@@ -85,9 +85,10 @@
           "name": "is_archived",
           "in": "query",
           "schema": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
-          "description": "<p>Filter by archived status. When <code>true</code>, returns only archived tasks. When <code>false</code>, returns only non-archived tasks.</p>"
+          "description": "<p>Filter by archived status. When <code>true</code>, returns only archived tasks. When <code>false</code> or omitted, returns only non-archived tasks. Defaults to <code>false</code>.</p>"
         },
         {
           "name": "since",
@@ -108,7 +109,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns a list of tasks for a specific repository</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a list of tasks for a specific repository</p>",
       "codeExamples": [
         {
           "request": {
@@ -451,7 +452,7 @@
         {
           "type": "string",
           "name": "model",
-          "description": "<p>Model identifier</p>"
+          "description": "<p>The model to use for this task. The allowed models may change over time and depend on the user's GitHub Copilot plan and organization policies. Currently supported values: <code>claude-sonnet-4.6</code>, <code>claude-opus-4.6</code>, <code>gpt-5.2-codex</code>, <code>gpt-5.3-codex</code>, <code>gpt-5.4</code>, <code>claude-sonnet-4.5</code>, <code>claude-opus-4.5</code></p>"
         },
         {
           "type": "string",
@@ -467,24 +468,9 @@
           "type": "string",
           "name": "base_ref",
           "description": "<p>Base ref for new branch/PR</p>"
-        },
-        {
-          "type": "string",
-          "name": "event_type",
-          "description": "<p>Type of event</p>"
-        },
-        {
-          "type": "string",
-          "name": "event_url",
-          "description": "<p>URL of the triggering event</p>"
-        },
-        {
-          "type": "array of strings",
-          "name": "event_identifiers",
-          "description": "<p>Identifiers for tracking</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates a new task for a repository</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Creates a new task for a repository</p>",
       "codeExamples": [
         {
           "request": {
@@ -784,7 +770,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns a task by ID scoped to an owner/repo path</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a task by ID scoped to an owner/repo path</p>",
       "codeExamples": [
         {
           "request": {
@@ -1325,9 +1311,10 @@
           "name": "is_archived",
           "in": "query",
           "schema": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           },
-          "description": "<p>Filter by archived status. When <code>true</code>, returns only archived tasks. When <code>false</code>, returns only non-archived tasks.</p>"
+          "description": "<p>Filter by archived status. When <code>true</code>, returns only archived tasks. When <code>false</code> or omitted, returns only non-archived tasks. Defaults to <code>false</code>.</p>"
         },
         {
           "name": "since",
@@ -1340,7 +1327,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns a list of tasks for the authenticated user</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a list of tasks for the authenticated user</p>",
       "codeExamples": [
         {
           "request": {
@@ -1645,7 +1632,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns a task by ID with its associated sessions</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Returns a task by ID with its associated sessions</p>",
       "codeExamples": [
         {
           "request": {
