@@ -24,7 +24,7 @@ At its core, an MCP registry is a set of HTTPS endpoints that serve details abou
 * Publish your own custom implementation.
 
 > [!NOTE]
-> If you want your developers to have access to local MCP servers, include those servers in your registry with the correct server ID. For more information, see [AUTOTITLE](/copilot/reference/mcp-allowlist-enforcement).
+> If you want your developers to have access to local MCP servers, include those servers in your registry with the correct server name, description and version. For more information, see [AUTOTITLE](/copilot/reference/mcp-allowlist-enforcement).
 
 To create a valid MCP registry that is reachable by {% data variables.product.prodname_copilot %}, the registry must meet the following requirements:
 * [Endpoint and specification requirements](#endpoint-and-specification-requirements)
