@@ -1,128 +1,159 @@
----
-title: Quickstart for repositories
-redirect_from:
-  - /create-a-repo
-  - /articles/create-a-repo
-  - /github/getting-started-with-github/create-a-repo
-  - /github/getting-started-with-github/quickstart/create-a-repo
-  - /get-started/quickstart/create-a-repo
-intro: Learn how to create a new repository and commit your first change in 5 minutes.
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-contentType: get-started
-category:
-  - Create and set up a repository
----
-## Create a repository
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Wealth Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-{% data variables.product.github %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
+    <div class="container">
+        <div class="hero-section">
+            <header>
+                <span class="badge">Limited Slots Available</span>
+                <h1>Turn Your Smartphone Into A <span class="highlight">Money Machine</span></h1>
+                <p class="subtitle">Stop scrolling and start earning. I’ll show you the exact framework I use to generate income online daily.</p>
+            </header>
+        </div>
 
-{% webui %}
+        <main>
+            <div class="card">
+                <h3>What You'll Discover:</h3>
+                <ul>
+                    <li>✅ How to find high-paying affiliate offers.</li>
+                    <li>✅ Secret traffic sources that don't require ads.</li>
+                    <li>✅ My "Copy-Paste" strategy for WhatsApp marketing.</li>
+                </ul>
+            </div>
 
-{% data reusables.repositories.create_new %}
-1. Type a short, memorable name for your repository. For example, "hello-world".
+            <a href="https://wa.me/YOURNUMBER" class="cta-button">
+                Join My Private WhatsApp Group
+                <span>Start Learning for Free →</span>
+            </a>
+        </main>
 
-   ![Screenshot of the first step in creating a repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
-1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.github %}."
-{% data reusables.repositories.choose-repo-visibility %}
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
+        <footer>
+            <p>&copy; 2026 Digital Wealth Mentorship</p>
+        </footer>
+    </div>
 
-Congratulations! You've successfully created your first repository, and initialized it with a _README_ file.
+</body>
+</html>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-{% endwebui %}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
 
-{% cli %}
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
 
-{% data reusables.cli.cli-learn-more %}
+/* New: Background Image Styling */
+.hero-section {
+    /* Replace 'Background.jpg' with your actual image file name */
+    Background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
+                      url('Background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #334155;
+}
 
-1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
-1. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`.
-1. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
-1. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag. For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+.badge {
+    background: #f59e0b;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
-{% endcli %}
+h1 {
+    font-size: 2.2rem;
+    margin: 20px 0;
+    line-height: 1.2;
+}
 
-## Commit your first change
+.highlight {
+    color: #38bdf8;
+}
 
-{% webui %}
+.subtitle {
+    color: #cbd5e1; /* Made slightly lighter for readability on the image */
+    margin-bottom: 0;
+}
 
-A [commit](/get-started/learning-about-github/github-glossary#commit) is like a snapshot of all the files in your project at a particular point in time.
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: left;
+    margin-bottom: 30px;
+    border: 1px solid #334155;
+}
 
-When you created your new repository, you initialized it with a _README_ file. _README_ files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your _README_ file are automatically shown on the front page of your repository.
+.card h3 {
+    margin-bottom: 15px;
+    color: #38bdf8;
+}
 
-Let's commit a change to the README file.
+ul {
+    list-style: none;
+}
 
-1. In your repository's list of files, select **README.md**.
+li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
 
-   ![Screenshot of a list of files in a repository. A file name, "README.md", is highlighted with an orange outline.](/assets/images/help/repository/create-commit-open-readme.png)
-{% data reusables.repositories.edit-file-button %}
-1. In the text box, type some information about yourself.
-{% data reusables.files.preview_change %}
-1. Review the changes you made to the file. If you select **Show diff**, you will see the new content in green.
+.cta-button {
+    display: block;
+    background: #22c55e;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.4);
+}
 
-   ![Screenshot of a file preview. The "Show diff" checkbox is enabled and additions to the file are shown with a green line. Both are outlined in orange.](/assets/images/help/repository/create-commit-review.png)
-{% data reusables.files.write_commit_message %}
-{% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_file_change %}
+.cta-button span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+}
 
-{% endwebui %}
+.cta-button:active {
+    transform: scale(0.98);
+}
 
-{% cli %}
+footer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    color: #64748b;
+}
 
-Now that you have created a project, you can start committing changes.
-
-_README_ files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your _README_ file are automatically shown on the front page of your repository. Follow these steps to add a _README_ file.
-
-1. In the command line, navigate to the root directory of your new project. (This directory was created when you ran the `gh repo create` command.)
-1. Create a _README_ file with some information about the project.
-
-    ```shell
-    echo "info about this project" >> README.md
-    ```
-
-1. Enter `git status`. You will see that you have an untracked `README.md` file.
-
-    ```shell
-    $ git status
-
-    Untracked files:
-      (use "git add <file>..." to include in what will be committed)
-      README.md
-
-    nothing added to commit but untracked files present (use "git add" to track)
-    ```
-
-1. Stage and commit the file.
-
-    ```shell
-    git add README.md && git commit -m "Add README"
-    ```
-
-1. Push the changes to your branch.
-
-    ```shell
-    git push --set-upstream origin HEAD
-    ```
-
-{% endcli %}
-
-## Next steps
-
-You have now created a repository, including a _README_ file, and created your first commit on {% data variables.product.prodname_dotcom %}.
-
-{% webui %}
-
-* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository) and [AUTOTITLE](/get-started/git-basics/set-up-git).
-
-{% endwebui %}
-
-* Secure your repository using {% data variables.product.github %}'s available security features. For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
-
-* You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. {% data reusables.getting-started.fork-a-repository %}
-
-* {% data reusables.getting-started.being-social %}
-
-* {% data reusables.support.connect-in-the-forum-bootcamp %}
+    
+</style>
