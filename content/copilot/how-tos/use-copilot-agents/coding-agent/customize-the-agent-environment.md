@@ -80,6 +80,9 @@ jobs:
       # ...
 ```
 
+> [!NOTE]
+> If your repository uses a merge queue, the `push` trigger above will also run when pull requests are added to the merge queue. To prevent this, add `branches-ignore: ['gh-readonly-queue/**']` to the `push` trigger and restrict the `pull_request` trigger to your default branch with `branches: [YOUR-DEFAULT-BRANCH]`. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue).
+
 In your `copilot-setup-steps.yml` file, you can only customize the following settings of the `copilot-setup-steps` job. If you try to customize other settings, your changes will be ignored.
 
 * `steps` (see above)
