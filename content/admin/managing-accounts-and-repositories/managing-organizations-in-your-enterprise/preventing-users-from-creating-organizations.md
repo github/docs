@@ -9,8 +9,10 @@ redirect_from:
 intro: You can prevent users from creating organizations in your enterprise.
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Prevent organization creation
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

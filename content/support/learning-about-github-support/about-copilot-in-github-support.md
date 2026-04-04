@@ -6,7 +6,9 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: About Copilot in GitHub Support
-type: rai
+contentType: rai
+category:
+  - Understand your support options
 ---
 
 ## About {% data variables.copilot.copilot_in_support %}

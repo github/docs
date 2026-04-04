@@ -8,12 +8,10 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository
+category:
+  - Protect your secrets
 ---
 
 ## About enabling {% data variables.secret-scanning.user_alerts %}

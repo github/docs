@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: GitHub Apps & {% data variables.product.prodname_oauth_apps %}
+category:
+  - Understand GitHub Apps
 ---
 
 ## About {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}

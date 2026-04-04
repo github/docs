@@ -1,10 +1,12 @@
 ---
 title: About OpenTelemetry metrics
-intro: 'OpenTelemetry metrics provide a comprehensive monitoring solution for {% data variables.product.prodname_ghe_server %} instances, offering enhanced observability and management capabilities.'
+intro: OpenTelemetry metrics provide a comprehensive monitoring solution for {% data variables.product.prodname_ghe_server %} instances, offering enhanced observability and management capabilities.
 versions:
   feature: ghes-opentelemetry
-type: overview
 shortTitle: OpenTelemetry metrics
+contentType: concepts
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}

@@ -35,7 +35,7 @@ Metrics are available through:
 
 ## Which usage is included?
 
-The {% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple Copilot surfaces. Because many metrics come from IDE telemetry, **end users must have telemetry enabled in their IDE to be included in these metrics**.
+{% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple {% data variables.product.prodname_copilot_short %} surfaces, including IDE and {% data variables.copilot.copilot_cli_short %} activity. Because many metrics come from IDE telemetry, **end users must have telemetry enabled in their IDE to be included in these metrics**.
 
 The data **does not include** activity from other {% data variables.product.prodname_copilot_short %} surfaces, such as:
 
@@ -55,7 +55,6 @@ The following API resources expose {% data variables.product.prodname_copilot_sh
 | --- | --- | --- |
 | [AUTOTITLE](/rest/copilot/copilot-usage-metrics) | Advanced enterprise-, organization-, and user-level event telemetry | Provides unified telemetry across completions, chat, and agent modes. Includes usage and lines of code metrics across all IDE modes, languages, and models. Supports detailed breakdowns by feature, IDE, language, model, and user, and is the primary API resource being actively developed and maintained. |
 | [AUTOTITLE](/rest/copilot/copilot-user-management) | License and seat assignment | Lists assigned {% data variables.product.prodname_copilot_short %} seats for an organization or enterprise, including license state, user association, and `last_activity_at`. This API resource is the source of truth for license and seat information. |
-| [AUTOTITLE](/rest/copilot/copilot-metrics) | Enterprise-, organization-, and team-level usage metrics | Provides aggregated usage data for {% data variables.product.prodname_copilot_short %} features on {% data variables.product.prodname_dotcom_the_website %} (such as pull request summaries) and some IDE-based completions and chat. Does not include Agent or Edit mode telemetry. Offers enterprise-wide and per-feature breakdowns by IDE and language. Does not include individual-level data. |
 
 ## How are metrics attributed across organizations?
 
@@ -93,9 +92,7 @@ To be included in the {% data variables.product.prodname_copilot_short %} usage 
 
 The data in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard and API reports is updated on a regular schedule.
 
-During the preview, you can expect data to be available within **three full days**. This means that data for a given day is processed and made available within three full UTC days after that day closes.
-
-For example, all usage data for a Monday (which closes at midnight UTC) will be visible in the dashboard and API by the end of Thursday UTC. In some cases, such as processing delays over weekends, data may appear up to four calendar days behind the current date.
+You can expect data to be available within **two full days**. This means that data for a given day is processed and made available within two full UTC days after that day closes.
 
 ## What does the data measure?
 
@@ -129,7 +126,7 @@ These metrics can be used together to answer key questions about your teams' usa
 | Which features deliver the most value? | Requests per chat mode, agent adoption |
 | Do developers trust {% data variables.product.prodname_copilot_short %}’s output? | Acceptance rate trends |
 | Are enablement efforts working? | Growth in adoption and engagement after training or communication campaigns |
-| Is {% data variables.product.prodname_copilot_short %} influencing delivery speed or PR throughput? | Pull request merge counts and median time to merge |
+| Is {% data variables.product.prodname_copilot_short %} influencing delivery speed or pull request throughput? | Pull request merge counts and median time to merge |
 
 Look for patterns across these signals rather than focusing on any single number. For example, a steady DAU paired with a rising acceptance rate indicates growing trust and value.
 

@@ -7,15 +7,11 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
-topics:
-  - Dependabot
-  - Alerts
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
 shortTitle: Dependabot quickstart
 redirect_from:
   - /code-security/getting-started/dependabot-quickstart-guide
+category:
+  - Secure your dependencies
 ---
 
 ## About {% data variables.product.prodname_dependabot %}
@@ -57,7 +53,7 @@ For more information about configuring each of these {% data variables.product.p
 
 ## Viewing {% data variables.product.prodname_dependabot_alerts %} for your repository
 
-If {% data variables.product.prodname_dependabot_alerts %} are enabled for a repository, you can view {% data variables.product.prodname_dependabot_alerts %} on the "Security" tab for the repository. You can use the forked repository that you enabled {% data variables.product.prodname_dependabot_alerts %} on in the previous section.
+If {% data variables.product.prodname_dependabot_alerts %} are enabled for a repository, you can view {% data variables.product.prodname_dependabot_alerts %} on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository. You can use the forked repository that you enabled {% data variables.product.prodname_dependabot_alerts %} on in the previous section.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

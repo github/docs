@@ -1,9 +1,11 @@
 ---
 title: About GitHub Enterprise Server
-intro: 'Find out if {% data variables.product.prodname_ghe_server %} is right for your business.'
+intro: Find out if {% data variables.product.prodname_ghe_server %} is right for your business.
 versions:
   ghes: '*'
-type: overview
+contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Your business can benefit from increased control and avoid issues associated the public cloud, while your developers can benefit from familiar features and workflows from {% data variables.product.prodname_dotcom_the_website %}.

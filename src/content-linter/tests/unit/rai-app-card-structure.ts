@@ -121,13 +121,6 @@ describe(raiAppCardStructure.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  test('valid RAI card using legacy type: rai frontmatter produces zero errors', async () => {
-    const markdown = validCard().replace('contentType: rai', 'type: rai')
-    const result = await runRule(raiAppCardStructure, { strings: { markdown } })
-    const errors = result.markdown
-    expect(errors.length).toBe(0)
-  })
-
   test('non-RAI file is skipped entirely', async () => {
     const markdown = [
       '---',

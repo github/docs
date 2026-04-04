@@ -5,6 +5,8 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can reuse assignments from a classroom. {% data reusables.classroom.classroom-admins-link %}'
 shortTitle: Reuse an assignment
+category:
+  - Create and manage assignments
 ---
 
 ## About reusing assignments

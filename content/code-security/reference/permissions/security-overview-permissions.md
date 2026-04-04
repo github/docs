@@ -6,11 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security advisories
-  - Vulnerabilities
-  - Permissions
 contentType: reference
+category:
+  - Secure at scale
 ---
 
 The actions you can take in the security overview depend on your permissions for the repositories in your organization or enterprise.

@@ -8,6 +8,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Download SAML recovery codes
+category:
+  - Configure SAML single sign-on
 ---
 
 Recovery codes should not be shared or distributed. We recommend saving them with a password manager.

@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/c-sharp-compiler-unexpectedly-failing
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/c-sharp-compiler-unexpectedly-failing
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About these errors

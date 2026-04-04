@@ -4,6 +4,8 @@ intro: What to do if your organization does not appear?
 versions:
   fpt: '*'
 shortTitle: Cannot find my organization on GitHub for Nonprofits portal
+category:
+  - Apply for nonprofit benefits
 ---
 
 If you cannot find your organization in the GitHub for Nonprofits portal, ensure that you are logged into GitHub for Nonprofits with an organization rather than an individual account. If you are running into trouble validating your organization as a nonprofit, please try the following steps.

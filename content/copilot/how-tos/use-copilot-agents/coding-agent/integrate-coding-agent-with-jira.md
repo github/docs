@@ -1,6 +1,7 @@
 ---
-title: Integrating Copilot coding agent with Jira
-shortTitle: Integrate coding agent with Jira
+title: Integrating Copilot cloud agent with Jira
+shortTitle: Integrate cloud agent with Jira
+allowTitleToDifferFromFilename: true
 intro: 'You can use the {% data variables.product.github %} integration in Jira to provide context and open pull requests, all from within your Jira workspace.'
 versions:
   feature: copilot
@@ -12,17 +13,22 @@ category:
 ---
 
 > [!NOTE]
-> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
->
-> You can provide feedback about the {% data variables.product.prodname_copilot %} for Jira integration in the [{% data variables.product.github %} survey](https://www.surveymonkey.com/r/CCAforJira).
+> * This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+> * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-coding-agent).
+> * You can provide feedback about the {% data variables.product.prodname_copilot %} for Jira integration in the [{% data variables.product.github %} survey](https://www.surveymonkey.com/r/CCAforJira).
 
 The {% data variables.product.prodname_copilot %} integration in Jira allows you to invoke {% data variables.copilot.copilot_coding_agent %} without leaving your Jira workspace. From within a Jira work item you can initiate {% data variables.copilot.copilot_coding_agent_short %} sessions and open pull requests, using the context of the work item's title, description, labels, and comments.
 
 ## Prerequisites
 
 * You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, or {% data variables.copilot.copilot_enterprise_short %}.
-* You must have a Jira Cloud account with [AI features enabled](https://support.atlassian.com/organization-administration/docs/activate-atlassian-intelligence-for-products).
+* You must have a Jira Cloud account with the following AI features enabled for your organization:
+    * **Jira must be an AI-enabled app** and Rovo must be activated. See [Activate AI for apps](https://support.atlassian.com/organization-administration/docs/activate-atlassian-intelligence-for-products) in the Atlassian documentation.
+    * **Beta AI features** must be turned on. See [Control access to beta AI features](https://support.atlassian.com/organization-administration/docs/control-access-to-beta-ai-features/) in the Atlassian documentation.<!-- markdownlint-disable-line GHD046 -->
 * Installation and authentication must be completed for both Jira and {% data variables.product.github %}.
+
+> [!NOTE]
+> If your Jira site is on release tracks, you should contact Atlassian Support and ask for agents to be enabled in Jira before proceeding with the installation. For more information, see [What are release tracks?](https://support.atlassian.com/organization-administration/docs/what-are-release-tracks/) in the Atlassian documentation.
 
 ## Installation
 
@@ -77,8 +83,18 @@ The first time you use {% data variables.copilot.copilot_coding_agent %} in Jira
 
 Only users with **write** access to a repository can trigger {% data variables.copilot.copilot_coding_agent %} to work in that repository.
 
+You can trigger {% data variables.copilot.copilot_coding_agent %} in three ways:
+
+* **Assign** {% data variables.product.prodname_copilot %} to a work item using the Assignee field.
+* **Mention** `@{% data variables.product.prodname_copilot %}` in a comment on a work item.
+* **Add {% data variables.product.prodname_copilot_short %} to a workflow transition** so it is triggered automatically when a work item moves to a specific status. See [Collaborate on work items with AI agents](https://support.atlassian.com/jira-software-cloud/docs/collaborate-on-work-items-with-ai-agents/#Add-an-agent-to-workflow-transitions) for setup instructions.
+
+To change the model used by {% data variables.copilot.copilot_coding_agent %} for a specific task, include the model name in your instructions to {% data variables.product.prodname_copilot_short %}. For example, you can say `@{% data variables.product.prodname_copilot %} use Claude Sonnet 4.5 to create a new API endpoint for user authentication in octo-org/octorepo`. If you do not specify a model, {% data variables.copilot.copilot_coding_agent %} will use the default model for coding tasks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/changing-the-ai-model).
+
 > [!NOTE]
 > When you assign {% data variables.product.prodname_copilot_short %} to a Jira work item, the context the agent captures from Jira will be added to the pull request and **visible to everyone** if the repository is public.
+
+### Example: Triggering {% data variables.copilot.copilot_coding_agent %} from a Jira work item
 
 1. In Jira, open or create a work item that contains clear requirements you want to delegate to {% data variables.copilot.copilot_coding_agent %}.
 1. To specify a repository you want {% data variables.product.prodname_copilot_short %} to work in, mention it in the work item description or in a comment.
@@ -109,13 +125,24 @@ For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-c
 
 If you run into problems, try the following solutions.
 
+### You can't see the {% data variables.copilot.copilot_coding_agent %} and it is not possible to assign it to a Jira work item
+
+In Jira, check your Atlassian Administration settings for your organization are set as follows.
+
+1. Jira is an AI-enabled app, see [Activate AI for apps](https://support.atlassian.com/organization-administration/docs/activate-atlassian-intelligence-for-products) in the Atlassian documentation.
+1. Beta AI features are enabled, see [Control access to beta AI features](https://support.atlassian.com/organization-administration/docs/control-access-to-beta-ai-features/) in the Atlassian documentation.<!-- markdownlint-disable-line GHD046 -->
+
 ### You can see the {% data variables.copilot.copilot_coding_agent %} but it is not possible to assign it to a Jira work item
 
 Check that you have connected your personal account on {% data variables.product.github %} to the {% data variables.product.prodname_copilot %} for Jira app.
 
-1. In Jira, go to the personal settings page for your user account.
+1. In Jira, go to the settings page for your personal account.
 1. Under your general settings, select the **{% data variables.product.prodname_copilot %} for Jira** app.
-1. If you are not already signed in with {% data variables.product.github %}, follow the prompts to authorize the application.
+1. If you are not already signed in with {% data variables.product.github %}, follow the prompts to sign in and authorize the application.
+
+### When chatting with {% data variables.product.prodname_copilot %}, you are prompted to sign in
+
+To sign in to {% data variables.product.prodname_copilot %} for Jira app, follow the steps above in [You can see the {% data variables.copilot.copilot_coding_agent %} but it is not possible to assign it to a Jira work item](#you-can-see-the-copilot-coding-agent-but-it-is-not-possible-to-assign-it-to-a-jira-work-item)
 
 ### {% data variables.product.prodname_copilot %} is not responding
 
@@ -127,4 +154,5 @@ Check that you have connected your personal account on {% data variables.product
 
 * [AUTOTITLE](/copilot/concepts/coding-agent/coding-agent)
 * [AUTOTITLE](/copilot/concepts/coding-agent/enable-coding-agent)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#example-atlassian)
 * [Collaborate on work items with AI agents](https://support.atlassian.com/jira-software-cloud/docs/collaborate-on-work-items-with-ai-agents/) in the Atlassian documentation

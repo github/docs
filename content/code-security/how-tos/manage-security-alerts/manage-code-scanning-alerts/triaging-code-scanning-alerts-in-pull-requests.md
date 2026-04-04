@@ -15,12 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - Pull requests
-  - Alerts
-  - Repositories
+category:
+  - Find and fix code vulnerabilities
 ---
 
 Depending on your configuration, {% data variables.product.prodname_code_scanning %} results may appear as check results and annotations on pull requests. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/about-code-scanning-alerts#about-alerts-in-pull-requests).
@@ -57,7 +53,7 @@ You can see any {% data variables.product.prodname_code_scanning %} alerts that 
 
 You can also view all {% data variables.product.prodname_code_scanning %} alerts that are inside the diff of the changes introduced in the pull request in the **Files changed** tab.
 
-If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **Security** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository).
+If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository).
 
 If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see [About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/).
 

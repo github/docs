@@ -12,6 +12,8 @@ versions:
 product: 'US-based organization and enterprise accounts that use the {% data variables.product.github %} Customer Agreement, see {% ifversion fpt or ghec %}[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}'
 shortTitle: Add sales tax certificate
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 If you're a {% data variables.product.github %} customer in the United States, you need to ensure that your account is set up to calculate sales tax correctly. If you're exempt from sales tax, you can upload a certificate to your account in JPEG (`.jpg`, `.jpeg`), PNG (`.png`), or PDF (`.pdf`) format.

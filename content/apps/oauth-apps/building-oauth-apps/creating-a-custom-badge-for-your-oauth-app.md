@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Create custom badges
+category:
+  - Build and manage OAuth apps
 ---
 By default, a new {% data variables.product.prodname_oauth_app %} will have an automatically generated [identicon](https://github.com/blog/1586-identicons).
 An identicon badge looks something like this:

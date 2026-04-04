@@ -4,8 +4,10 @@ intro: This article provides steps for exporting your codespace changes to a bra
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
 shortTitle: Exporting changes
+contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 ## About exporting changes

@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 shortTitle: Manage abuse in your org
+category:
+  - Moderate comments and conversations
 ---
 
 You can enable or disable reported content for public repositories owned by an organization.

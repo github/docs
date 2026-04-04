@@ -6,8 +6,13 @@ import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versi
 import type { ExtendedRequest } from '@/types'
 import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
 
+// Maximum time (ms) to wait for the initial response from the upstream
+// AI search service. Streaming may take longer once the connection is
+// established, but the connect + first-byte must complete within this window.
+const AI_SEARCH_TIMEOUT_MS = 9_000
+
 export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
-  const { query, version } = req.body
+  const { query, version } = req.body ?? {}
 
   const errors = []
 
@@ -71,6 +76,7 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
         },
       },
       {
+        timeout: AI_SEARCH_TIMEOUT_MS,
         throwHttpErrors: false,
       },
     )
@@ -143,9 +149,17 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
       }
     }
   } catch (error) {
-    statsd.increment('ai-search.route_error', 1, diagnosticTags)
-    console.error('Error posting /answers to cse-copilot:', error)
-    res.status(500).json({ errors: [{ message: 'Internal server error' }] })
+    const isTimeout = error instanceof Error && error.message.includes('timed out')
+
+    if (isTimeout) {
+      statsd.increment('ai-search.timeout', 1, diagnosticTags)
+      console.error(`AI search request timed out after ${AI_SEARCH_TIMEOUT_MS}ms`)
+      res.status(504).json({ errors: [{ message: 'Upstream request timed out' }] })
+    } else {
+      statsd.increment('ai-search.route_error', 1, diagnosticTags)
+      console.error('Error posting /answers to cse-copilot:', error)
+      res.status(500).json({ errors: [{ message: 'Internal server error' }] })
+    }
   } finally {
     // Ensure reader lock is always released
     if (reader) {

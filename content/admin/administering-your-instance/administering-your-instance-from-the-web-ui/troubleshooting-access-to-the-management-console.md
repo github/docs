@@ -1,12 +1,14 @@
 ---
 title: Troubleshooting access to the Management Console
 shortTitle: Troubleshoot Management Console
-intro: 'You can troubleshoot access problems for the {% data variables.enterprise.management_console %}.'
+intro: You can troubleshoot access problems for the {% data variables.enterprise.management_console %}.
 redirect_from:
   - /admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About problems with {% data variables.enterprise.management_console %} access

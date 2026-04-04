@@ -88,6 +88,9 @@ jobs:
       # Even if if doesn't do anything
       - name: Check out repo
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          fetch-depth: 2
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
@@ -126,10 +129,12 @@ jobs:
 
       - name: Gather files changed
         if: ${{ matrix.name == 'content-linter' }}
-        uses: ./.github/actions/get-changed-files
-        with:
-          head: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
-          output_file: get_diff_files.txt
+        id: changed_files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
+
+      - name: Write changed files to diff file
+        if: ${{ matrix.name == 'content-linter' }}
+        run: echo "${{ steps.changed_files.outputs.all_modified_files }}" > get_diff_files.txt
 
       - uses: ./.github/actions/cache-nextjs
 

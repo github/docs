@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: About 2FA
+category:
+  - Learn about authentication
 ---
 
 {% ifversion mandatory-2fa-dotcom-contributors %}

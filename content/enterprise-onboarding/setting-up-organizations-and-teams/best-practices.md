@@ -3,11 +3,10 @@ title: Best practices for organizing work in your enterprise
 intro: Structure your enterprise and organizations for the best developer experience.
 versions:
   ghec: '*'
-type: how_to
 shortTitle: Best practices
 redirect_from:
   - /enterprise-onboarding/setting-up-organizations-and-teams/best-practices-for-organizations-in-your-enterprise
-contentType: other
+contentType: how-tos
 ---
 
 {% data reusables.enterprise-onboarding.best-practices %}

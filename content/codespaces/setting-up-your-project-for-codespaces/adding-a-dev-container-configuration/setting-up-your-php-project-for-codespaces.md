@@ -2,14 +2,16 @@
 title: Setting up a PHP project for GitHub Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Setting up a PHP project
-intro: 'Get started with a PHP project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container configuration.'
+intro: Get started with a PHP project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container configuration.
 versions:
   fpt: '*'
   ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-php-project-in-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-php-project-for-codespaces
-type: tutorial
+contentType: tutorials
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction

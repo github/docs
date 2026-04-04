@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Set up your account
 ---
 
 ## Recent activity

@@ -15,14 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Actions
-  - Repositories
-  - Pull requests
-  - JavaScript
-  - Python
 shortTitle: Workflow configuration options
 allowTitleToDifferFromFilename: true
 contentType: reference
@@ -50,7 +42,7 @@ Scanning code when someone pushes a change, and whenever a pull request is creat
 
 By default, the {% data variables.code-scanning.codeql_workflow %} uses the `on:push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#on).
 
-If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository).
+If you scan on push, then the results appear in the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your repository. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository).
 
 Additionally, when an `on:push` scan returns results that can be mapped to an open pull request, these alerts will automatically appear on the pull request in the same places as other pull request alerts. The alerts are identified by comparing the existing analysis of the head of the branch to the analysis for the target branch. For more information on {% data variables.product.prodname_code_scanning %} alerts in pull requests, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
 
@@ -294,7 +286,7 @@ In the example below, `scope` is the organization or personal account that publi
 > [!NOTE]
 > If you specify a particular version of a query pack to use, beware that the version you specify may eventually become too old to be used efficiently by the default {% data variables.product.prodname_codeql %} engine used by the {% data variables.product.prodname_codeql %} action. To ensure optimal performance, if you need to specify exact query pack versions, you should consider reviewing periodically whether the pinned version of the query pack needs to be moved forward.
 >
-> For more information about pack compatibility, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility).
+> For more information about pack compatibility, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli/codeql-query-packs#codeql-pack-compatibility).
 
 ### Downloading {% data variables.product.prodname_codeql %} packs from {% data variables.product.prodname_ghe_server %}
 
@@ -473,7 +465,7 @@ query-filters:
       id: js/useless-assignment-to-local
 ```
 
-To find the id of a query, you can click the alert in the list of alerts in the **Security** tab. This opens the alert details page. The `Rule ID` field contains the query id. For more information about the alert details page, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-details).
+To find the id of a query, you can click the alert in the list of alerts in the **{% data variables.product.prodname_security_and_quality_tab %}** tab. This opens the alert details page. The `Rule ID` field contains the query id. For more information about the alert details page, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-details).
 
 > [!TIP]
 > * The order of the filters is important. The first filter instruction that appears after the instructions about the queries and query packs determines whether the queries are included or excluded by default.

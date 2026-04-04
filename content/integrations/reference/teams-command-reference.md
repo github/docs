@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 contentType: reference
 allowTitleToDifferFromFilename: true
+category:
+  - Learn about integrations
 ---
 
 Use these commands in a Microsoft Teams channel by prefixing them with `@GitHub Notifications`. In the {% data variables.product.github %} personal app, omit the prefix.

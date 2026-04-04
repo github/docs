@@ -14,6 +14,7 @@ import {
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key'
 import handleErrors from '@/observability/middleware/handle-errors'
+import expressMetrics from '@/observability/middleware/express-metrics'
 import handleNextDataPath from './handle-next-data-path'
 import detectLanguage from '@/languages/middleware/detect-language'
 import detectVersion from '@/versions/middleware/detect-version'
@@ -66,10 +67,10 @@ import mockVaPortal from './mock-va-portal'
 import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
+import safeRedirect from './safe-redirect'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
 import { initLoggerContext } from '@/observability/logger/lib/logger-context'
 import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
-import appRouterGateway from './app-router-gateway'
 import urlDecode from './url-decode'
 
 const { NODE_ENV } = process.env
@@ -115,6 +116,7 @@ export default function index(app: Express) {
   // *** Logging ***
   app.use(initLoggerContext) // Context for both inline logs (e.g. logger.info) and automatic logs
   app.use(getAutomaticRequestLogger()) // Automatic logging for all requests e.g. "GET /path 200"
+  app.use(expressMetrics) // StatsD metrics for response time and status codes
 
   // Put this early to make it as fast as possible because it's used
   // to check the health of each cluster.
@@ -124,6 +126,10 @@ export default function index(app: Express) {
   // otherwise we won't be able to benefit from that functionality
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
+
+  // Attaches res.safeRedirect() to every response. Must appear before
+  // any middleware that redirects.
+  app.use(safeRedirect)
 
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(asyncMiddleware(archivedEnterpriseVersionsAssets))
@@ -236,9 +242,6 @@ export default function index(app: Express) {
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
-
-  // *** Add App Router Gateway here - before heavy contextualizers ***
-  app.use(asyncMiddleware(appRouterGateway))
 
   // *** Rendering, 2xx responses ***
   app.use('/api', api)

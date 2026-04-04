@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Pagination
+category:
+  - Learn about the REST API
 ---
 
 ## About pagination

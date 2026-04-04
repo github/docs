@@ -6,11 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
-  - CodeQL
 contentType: reference
 children:
   - /telemetry-in-codeql-for-visual-studio-code

@@ -1,13 +1,15 @@
 ---
 title: Restoring a deleted organization
-intro: 'You can partially restore an organization that was previously deleted on {% data variables.location.product_location %}.'
+intro: You can partially restore an organization that was previously deleted on {% data variables.location.product_location %}.
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Restore organization
-permissions: 'Site administrators'
+permissions: Site administrators
 redirect_from:
-   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
+  - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About organization restoration

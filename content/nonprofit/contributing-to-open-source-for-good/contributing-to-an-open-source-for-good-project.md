@@ -3,6 +3,8 @@ title: Contributing to an open source for good project
 intro: How to find an open source for good project
 versions:
   fpt: '*'
+category:
+  - Contribute to open source for good
 ---
 ## Contribute to open source for good projects
 

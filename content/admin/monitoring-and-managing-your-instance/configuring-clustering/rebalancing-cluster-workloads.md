@@ -1,15 +1,17 @@
 ---
 title: Rebalancing cluster workloads
 shortTitle: Rebalance workloads
-intro: 'You can force your {% data variables.product.prodname_ghe_server %} cluster to evenly distribute job allocations for workloads on the cluster''s nodes.'
+intro: You can force your {% data variables.product.prodname_ghe_server %} cluster to evenly distribute job allocations for workloads on the cluster's nodes.
 product: '{% data reusables.gated-features.cluster %}'
-permissions: 'People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can rebalance cluster workloads on the instance.'
+permissions: People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can rebalance cluster workloads on the instance.
 versions:
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/rebalancing-cluster-workloads
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About workload balance for a {% data variables.product.prodname_ghe_server %} cluster

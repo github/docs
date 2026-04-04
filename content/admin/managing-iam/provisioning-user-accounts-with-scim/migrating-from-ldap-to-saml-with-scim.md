@@ -1,11 +1,13 @@
 ---
-title: 'Migrating from LDAP to SAML with SCIM'
-shortTitle: 'Migrate from LDAP'
-intro: 'Learn how to migrate your {% data variables.product.prodname_ghe_server %} instance from LDAP authentication to SAML single sign-on with SCIM provisioning for centralized user management.'
-permissions: 'Site administrators can migrate authentication methods on {% data variables.product.prodname_ghe_server %}.'
+title: Migrating from LDAP to SAML with SCIM
+shortTitle: Migrate from LDAP
+intro: Learn how to migrate your {% data variables.product.prodname_ghe_server %} instance from LDAP authentication to SAML single sign-on with SCIM provisioning for centralized user management.
+permissions: Site administrators can migrate authentication methods on {% data variables.product.prodname_ghe_server %}.
 versions:
   ghes: '>=3.17'
-type: how_to
+contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
 
 ## About migrating from LDAP to SAML and SCIM

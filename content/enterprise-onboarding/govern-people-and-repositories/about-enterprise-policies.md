@@ -1,10 +1,10 @@
 ---
 title: About enterprise policies
 shortTitle: About enterprise policies
-intro: 'Understand what policies are and why they are useful.'
+intro: Understand what policies are and why they are useful.
 versions:
   ghec: '*'
-type: overview
+contentType: concepts
 ---
 
 {% data reusables.enterprise-onboarding.about-policies %}

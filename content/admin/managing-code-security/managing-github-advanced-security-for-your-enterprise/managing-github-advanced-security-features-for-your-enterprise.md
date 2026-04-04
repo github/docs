@@ -1,14 +1,16 @@
 ---
 title: Managing {% data variables.product.prodname_GHAS %} features for your enterprise
-intro: 'You can control {% data variables.product.prodname_GHAS %} features that secure and analyze code across all organizations owned by your enterprise.'
-permissions: 'Enterprise owners can manage {% data variables.product.prodname_AS %} features for organizations in an enterprise.'
+intro: You can control {% data variables.product.prodname_GHAS %} features that secure and analyze code across all organizations owned by your enterprise.
+permissions: Enterprise owners can manage {% data variables.product.prodname_AS %} features for organizations in an enterprise.
 allowTitleToDifferFromFilename: true
 versions:
-  ghes: '<= 3.15'
-type: how_to
+  ghes: '<=3.15'
 shortTitle: Manage {% data variables.product.prodname_GHAS %}
 redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About management of {% data variables.product.prodname_AS %} features

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Manage enterprise accounts
+category:
+  - Get started and make API calls
 ---
 
 ## About managing enterprise accounts with GraphQL

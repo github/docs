@@ -1,14 +1,16 @@
 ---
 title: Planning and tracking work for your team or project
-intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s planning and tracking tools to manage work on a team or project.'
+intro: The essentials for using {% data variables.product.prodname_dotcom %}'s planning and tracking tools to manage work on a team or project.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 redirect_from:
   - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
   - /issues/tracking-your-work-with-issues/configuring-issues/planning-and-tracking-work-for-your-team-or-project
+contentType: concepts
+category:
+  - Create and work with issues
 ---
 ## Introduction
 

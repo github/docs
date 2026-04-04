@@ -1,11 +1,13 @@
 ---
 title: Troubleshooting creation and deletion of codespaces
-intro: 'This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.'
+intro: This article provides troubleshooting steps for common issues you may experience when creating or deleting a codespace, including storage and configuration issues.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
 shortTitle: Creation and deletion
+contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 ## Creating codespaces

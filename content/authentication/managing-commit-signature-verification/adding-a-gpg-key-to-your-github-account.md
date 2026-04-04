@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Add a GPG key
+category:
+  - Sign your commits
 ---
 
 ## About addition of GPG keys to your account

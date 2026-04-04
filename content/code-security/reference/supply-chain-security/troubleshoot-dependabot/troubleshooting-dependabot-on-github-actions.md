@@ -5,20 +5,14 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Actions
-  - Dependabot
-  - Version updates
-  - Security updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Troubleshoot Dependabot on Actions
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-on-github-actions
   - /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions
   - /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-on-github-actions
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows

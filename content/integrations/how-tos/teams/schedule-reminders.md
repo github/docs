@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Use integrations
 ---
 
 You can schedule reminders for pending pull request reviews in Microsoft Teams channels or in the {% data variables.product.github %} personal app. Reminders are available for organizations, not personal accounts.

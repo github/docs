@@ -6,9 +6,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 redirect_from:
   - /get-started/quickstart/setting-up-your-profile
+category:
+  - Set up your account on GitHub
+contentType: how-tos
 ---
 
 ## About your profile

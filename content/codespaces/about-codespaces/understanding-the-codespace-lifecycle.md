@@ -1,16 +1,18 @@
 ---
 title: Understanding the codespace lifecycle
 shortTitle: The codespace lifecycle
-intro: 'Learn how to develop in a {% data variables.product.prodname_github_codespaces %} environment, and maintain your data throughout the entire codespace lifecycle.'
+intro: Learn how to develop in a {% data variables.product.prodname_github_codespaces %} environment, and maintain your data throughout the entire codespace lifecycle.
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
 redirect_from:
   - /codespaces/developing-in-codespaces/codespaces-lifecycle
   - /codespaces/developing-in-codespaces/the-codespace-lifecycle
   - /codespaces/about-codespaces/the-codespace-lifecycle
   - /codespaces/getting-started/understanding-the-codespace-lifecycle
+contentType: concepts
+category:
+  - Get started
 ---
 
 > [!NOTE]

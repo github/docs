@@ -9,10 +9,12 @@ redirect_from:
   - /enterprise/admin/configuration/network-ports
   - /admin/configuration/network-ports
   - /admin/configuration/configuring-network-settings/network-ports
-intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
+intro: Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.
 versions:
   ghes: '*'
-type: reference
+contentType: reference
+category:
+  - Install and configure your instance
 ---
 ## Administrative ports
 

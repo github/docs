@@ -1,13 +1,15 @@
 ---
 title: Creating a README for an enterprise
-intro: 'You can create a README to tell your members what is happening in your enterprise.'
+intro: You can create a README to tell your members what is happening in your enterprise.
 versions:
   feature: enterprise-readme
-type: how_to
 permissions: Enterprise owners can create and edit an enterprise README.
 shortTitle: Create a README
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/create-a-readme-for-your-enterprise
+contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## About READMEs for enterprises

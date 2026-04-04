@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Comment on a PR
+category:
+  - Review pull requests
 ---
 ## About pull request comments
 

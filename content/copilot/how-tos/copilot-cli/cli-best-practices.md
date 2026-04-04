@@ -1,15 +1,15 @@
 ---
 title: Best practices for GitHub Copilot CLI
 shortTitle: Copilot CLI best practices
-intro: 'Learn how to get the most out of {% data variables.copilot.copilot_cli %}.'
+intro: Learn how to get the most out of {% data variables.copilot.copilot_cli %}.
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-contentType: get-started
+contentType: how-tos
 category:
-  - Build with Copilot CLI # Copilot CLI bespoke page
-  - Copilot in the CLI # Copilot CLI bespoke page
-  - Author and optimize with Copilot # Copilot discovery page
+  - Build with Copilot CLI
+  - Copilot in the CLI
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
@@ -65,7 +65,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-custo
 
 ### Configure allowed tools
 
-Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can choose to **Allow once**, or **Always allow** to add the tool to your allowlist for this and future sessions.
+Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can typically choose either to allow it just this time, or allow the tool to be used for the rest of the CLI session.
 
 To reset previously approved tools, use:
 
@@ -76,7 +76,7 @@ To reset previously approved tools, use:
 You can also preconfigure allowed tools via CLI flags:
 
 ```bash
-copilot --allow-tool 'shell(git:*)' --deny-tool 'shell(git push)'
+copilot --allow-tool='shell(git:*)' --deny-tool='shell(git push)'
 ```
 
 **Common permission patterns:**
@@ -496,5 +496,5 @@ Here is what you will learn:
 
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
-* [AUTOTITLE](/copilot/reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

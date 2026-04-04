@@ -9,8 +9,10 @@ redirect_from:
   - /admin/configuration/configuring-network-settings/configuring-dns-nameservers
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Configure DNS servers
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 The nameservers you specify must resolve {% data variables.location.product_location %}'s hostname.
 

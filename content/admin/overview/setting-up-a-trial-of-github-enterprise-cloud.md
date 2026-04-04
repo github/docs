@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Enterprise Cloud trial
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise.about-ghec %} See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud).

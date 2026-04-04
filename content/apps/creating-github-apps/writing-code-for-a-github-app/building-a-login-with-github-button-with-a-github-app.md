@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /apps/creating-github-apps/guides/using-the-web-application-flow-to-generate-a-user-access-token-for-a-github-app
   - /apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app
+category:
+  - Write code for a GitHub App
 ---
 
 ## Introduction

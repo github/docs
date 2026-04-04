@@ -19,6 +19,8 @@ versions:
   ghec: '*'
 shortTitle: GitHub Advanced Security
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 ## Licenses for {% data variables.product.prodname_GHAS %}

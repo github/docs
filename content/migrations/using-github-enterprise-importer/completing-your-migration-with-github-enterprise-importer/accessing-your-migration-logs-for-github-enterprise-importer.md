@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/running-a-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer
+category:
+  - Run an enterprise migration
 ---
 
 ## About migration logs

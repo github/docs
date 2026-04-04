@@ -8,6 +8,8 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/network-access-to-resources-on-ghecom
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
   - /early-access/admin/data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
+category:
+  - Get started with GitHub Enterprise
 ---
 
 To access your enterprise on {% data variables.enterprise.data_residency_site %}, client systems must:
@@ -24,6 +26,14 @@ gh api /meta --hostname octocorp.ghe.com
 ```
 
 For more information, see [AUTOTITLE](/rest/meta/meta).
+
+## Using SSH with {% data variables.enterprise.data_residency_site %}
+
+To clone a repository using Git over SSH from `{% data variables.enterprise.data_residency_domain %}`, where SUBDOMAIN is your enterprise's dedicated subdomain on {% data variables.enterprise.data_residency_site %}, use the SUBDOMAIN as the SSH username instead of `git`.
+
+```shell
+git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPO.git
+```
 
 ## {% data variables.product.github %}'s hostnames
 

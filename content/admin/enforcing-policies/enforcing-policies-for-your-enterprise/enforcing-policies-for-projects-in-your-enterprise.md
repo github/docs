@@ -1,6 +1,6 @@
 ---
 title: Enforcing policies for projects in your enterprise
-intro: 'You can enforce policies for {% data variables.projects.projects_v2_and_v1 %} within your enterprise''s organizations, or allow policies to be set in each organization.'
+intro: You can enforce policies for {% data variables.projects.projects_v2_and_v1 %} within your enterprise's organizations, or allow policies to be set in each organization.
 permissions: Enterprise owners can enforce policies for projects in an enterprise.
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
@@ -14,8 +14,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
 shortTitle: Projects policies
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for projects in your enterprise

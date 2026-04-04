@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Authenticating
+category:
+  - Authenticate API requests
 ---
 
 ## About authentication
@@ -169,4 +171,4 @@ Authentication with username and password is not supported. If you try to authen
 ## Further reading
 
 * [AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)
-* [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)
+* [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authentication)

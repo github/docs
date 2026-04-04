@@ -8,15 +8,11 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Optimize PR creation
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates
+category:
+  - Secure your dependencies
 ---
 
 By default, {% data variables.product.prodname_dependabot %} opens a new pull request to update each dependency. When you enable security updates, new pull requests are opened when a vulnerable dependency is found. When you configure version updates for one or more ecosystems, new pull requests are opened when new versions of dependencies are available, with the frequency defined in the `dependabot.yml` file.

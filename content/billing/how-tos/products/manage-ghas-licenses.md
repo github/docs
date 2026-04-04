@@ -11,6 +11,8 @@ redirect_from:
   - /billing/how-tos/products/manage-ghas-license
 shortTitle: Manage GHAS licenses
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 There are two different ways to pay for {% data variables.product.prodname_GHAS_cs_and_sp %} licenses: volume/subscription licenses purchased in advance or usage-based metered billing paid in arrears. This article is about volume/subscription licenses. For information about the two different billing models, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).

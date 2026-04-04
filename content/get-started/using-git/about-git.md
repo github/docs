@@ -1,11 +1,13 @@
 ---
 title: About Git
-intro: 'Learn about the version control system, Git, and how it works with {% data variables.product.github %}.'
+intro: Learn about the version control system, Git, and how it works with {% data variables.product.github %}.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+category:
+  - Set up Git
+contentType: concepts
 ---
 
 ## About version control and Git

@@ -3,11 +3,6 @@ title: SARIF results file is too large
 shortTitle: Results file too large
 allowTitleToDifferFromFilename: true
 intro: You cannot upload a SARIF results file larger than 10 MB to {% data variables.product.prodname_code_scanning %}. Explore ways to generate a smaller file containing the highest impact results.
-topics:
-  - Code scanning
-  - Errors
-  - SARIF
-  - Troubleshooting
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/file-too-large
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/file-too-large
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

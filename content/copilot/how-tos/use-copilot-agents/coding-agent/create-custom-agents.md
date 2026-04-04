@@ -1,13 +1,14 @@
 ---
 title: Creating custom agents for {% data variables.copilot.copilot_coding_agent %}
 shortTitle: Create custom agents
-intro: 'You can create specialized agents with tailored expertise for specific development tasks.'
+intro: You can create specialized agents with tailored expertise for specific development tasks.
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 category:
   - Configure Copilot
   - Author and optimize with Copilot
+contentType: how-tos
 ---
 
 {% data variables.copilot.custom_agents_caps_short %} allow you to tailor {% data variables.product.prodname_copilot_short %}'s expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
@@ -100,7 +101,7 @@ To configure your {% data variables.copilot.agent_profile %}:
 
 Once you've created a {% data variables.copilot.copilot_custom_agent_short %}, you can use it wherever {% data variables.copilot.copilot_coding_agent %} is available.
 
-* When prompting {% data variables.copilot.copilot_coding_agent %} with a task on {% data variables.product.prodname_dotcom_the_website %}, use the dropdown menu in the agents panel or agents tab to select your {% data variables.copilot.copilot_custom_agent_short %} instead of the default coding agent.
+* When prompting {% data variables.copilot.copilot_coding_agent %} with a task on {% data variables.product.prodname_dotcom_the_website %}, use the dropdown menu in the agents panel or agents tab to select your {% data variables.copilot.copilot_custom_agent_short %} instead of the default {% data variables.copilot.copilot_coding_agent_short %}.
 * When assigning {% data variables.copilot.copilot_coding_agent %} to an issue, you can select your {% data variables.copilot.copilot_custom_agent_short %} from the dropdown menu to handle the issue with your specialized configuration.
 * When using the {% data variables.copilot.copilot_cli %}, you can choose to use a particular {% data variables.copilot.copilot_custom_agent_short %} by using the `/agent` slash command or referencing the agent in a prompt or via a command-line argument. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents).
 
@@ -120,4 +121,4 @@ For more information on {% data variables.copilot.custom_agents_short %} in {% d
 
 * For a hands-on tutorial to create your first {% data variables.copilot.copilot_custom_agent_short %}, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent).
 * For detailed configuration information, see [AUTOTITLE](/copilot/reference/custom-agents-configuration).
-* For information on using coding agents, including your {% data variables.copilot.custom_agents_short %}, to create pull requests, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).
+* For information on using cloud agents, including your {% data variables.copilot.custom_agents_short %}, to create pull requests, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).

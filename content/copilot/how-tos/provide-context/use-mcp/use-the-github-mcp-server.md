@@ -16,7 +16,7 @@ category:
   - Integrate Copilot with your tools
 ---
 
-The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.product.prodname_copilot_short %} Coding Agent require a paid {% data variables.product.prodname_copilot_short %} license.
+The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.copilot.copilot_coding_agent %} require a paid {% data variables.product.prodname_copilot_short %} license.
 
 {% vscode %}
 
@@ -35,8 +35,8 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 {% data reusables.copilot.open-chat-vs-code %}
 {% data reusables.copilot.select-agent %}
-1. To see the available actions, in the {% data variables.copilot.copilot_chat_short %} box, click the **Select tools** icon.
-    * In the **Tools** dropdown, under **MCP Server: {% data variables.product.github %}**, you will see a list of available actions.
+1. To see the available actions, in the {% data variables.copilot.copilot_chat_short %} box, click the **Configure tools** icon.
+    * If you expand the {% data variables.product.github %} MCP server entry, you will see a list of available tools.
 1. In the {% data variables.copilot.copilot_chat_short %} box, type a command or question related to the action you want to perform, and press **Enter**.
     * For example, you can ask the {% data variables.product.github %} MCP server to create a new issue, list pull requests, or retrieve repository information.
 1. The {% data variables.product.github %} MCP server will process your request and provide a response in the chat interface.
@@ -98,7 +98,7 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
    ![Screenshot of the {% data variables.copilot.copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
 1. At the top of the chat panel, click the **Agent** tab.
 1. To see the available actions, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon.
-    * Under **MCP Server: {% data variables.product.github %}**, you will see a list of available actions.
+    * You will see a list of available actions from the {% data variables.product.github %} MCP server.
 1. In the {% data variables.copilot.copilot_chat_short %} box, type a command or question related to the action you want to perform, and press **Enter**.
     * For example, you can ask the {% data variables.product.github %} MCP server to create a new issue, list pull requests, or retrieve repository information.
 1. The {% data variables.product.github %} MCP server will process your request and provide a response in the chat interface.
@@ -127,7 +127,7 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
 1. At the bottom of the chat panel, select **Agent**.
 1. To see the available actions, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon.
-    * Under **MCP Server: {% data variables.product.github %}**, you will see a list of available actions.
+    * You will see a list of available actions from the {% data variables.product.github %} MCP server.
 1. In the {% data variables.copilot.copilot_chat_short %} box, type a command or question related to the action you want to perform, and press **Enter**.
     * For example, you can ask the {% data variables.product.github %} MCP server to create a new issue, list pull requests, or retrieve repository information.
 1. The {% data variables.product.github %} MCP server will process your request and provide a response in the chat interface.

@@ -1,13 +1,16 @@
 ---
 title: Getting started with GitHub Actions for GitHub Enterprise Cloud
 shortTitle: Get started
-intro: 'Learn how to configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}.'
-permissions: 'Enterprise owners can configure {% data variables.product.prodname_actions %}.{% ifversion custom-org-roles %}<br><br>Users with the "Manage organization Actions policies" permission manage all settings on the "Actions General" settings page, except for self-hosted runners settings.<br><br>Users with the "Manage organization runners and runner groups" permission can manage GitHub-hosted runners, self-hosted runners, and runner groups, and control where self-hosted runners can be created.{% endif %}'
+intro: Learn how to configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}.
+permissions: Enterprise owners can configure {% data variables.product.prodname_actions %}.{% ifversion custom-org-roles %}<br><br>Users with the "Manage organization Actions policies" permission manage all settings on the "Actions General" settings page, except for self-hosted runners settings.<br><br>Users with the "Manage organization runners and runner groups" permission can manage GitHub-hosted runners, self-hosted runners, and runner groups, and control where self-hosted runners can be created.{% endif %}
 versions:
   ghec: '*'
-type: how_to
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+  - /enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}

@@ -1,16 +1,18 @@
 ---
 title: Provisioning users and groups with SCIM using the REST API
 shortTitle: SCIM using REST API
-intro: 'Manage the lifecycle of user accounts from your identity provider using {% data variables.product.company_short %}''s REST API for System for Cross-domain Identity Management (SCIM).'
+intro: Manage the lifecycle of user accounts from your identity provider using {% data variables.product.company_short %}'s REST API for System for Cross-domain Identity Management (SCIM).
 product: '{% data reusables.gated-features.emus %}'
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-type: tutorial
 redirect_from:
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api
   - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api
+contentType: tutorials
+category:
+  - Provision and manage enterprise users
 ---
 
 {% ifversion ghec %}

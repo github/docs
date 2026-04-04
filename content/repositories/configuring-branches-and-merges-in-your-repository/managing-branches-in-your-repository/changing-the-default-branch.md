@@ -12,6 +12,8 @@ redirect_from:
   - /github/administering-a-repository/changing-the-default-branch
   - /github/administering-a-repository/managing-branches-in-your-repository/changing-the-default-branch
 shortTitle: Change the default branch
+category:
+  - Manage branches and protect code
 ---
 ## About changing the default branch
 

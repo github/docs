@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Sign your commits
 ---
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 

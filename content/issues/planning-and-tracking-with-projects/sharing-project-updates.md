@@ -1,6 +1,6 @@
 ---
-title: 'Sharing {% data variables.projects.project_v2 %} updates'
-intro: 'You can post updates to your {% data variables.projects.projects_v2 %} that share the current status, start date, and target date of the {% data variables.projects.project_v2 %} itself.'
+title: Sharing {% data variables.projects.project_v2 %} updates
+intro: You can post updates to your {% data variables.projects.projects_v2 %} that share the current status, start date, and target date of the {% data variables.projects.project_v2 %} itself.
 redirect_from:
   - /issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates
 allowTitleToDifferFromFilename: true
@@ -8,8 +8,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
 permissions: Anyone with write access for a project can add a status update. Anyone with read access for a project can view status updates and subscribe.
+contentType: concepts
+category:
+  - Set up and manage projects
 ---
 
 ## About status updates

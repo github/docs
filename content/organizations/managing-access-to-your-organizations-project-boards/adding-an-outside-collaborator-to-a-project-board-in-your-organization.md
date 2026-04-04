@@ -8,6 +8,8 @@ versions:
   feature: projects-v1
 shortTitle: Add a collaborator
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 {% data reusables.projects.project_boards_old %}

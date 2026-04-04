@@ -1,6 +1,6 @@
 ---
 title: Upgrading a cluster
-intro: 'To upgrade a {% data variables.product.prodname_ghe_server %} cluster to the latest release, use the administrative shell (SSH).'
+intro: To upgrade a {% data variables.product.prodname_ghe_server %} cluster to the latest release, use the administrative shell (SSH).
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/upgrading-a-cluster
@@ -10,7 +10,9 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/upgrading-a-cluster
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About upgrades to a {% data variables.product.prodname_ghe_server %} cluster

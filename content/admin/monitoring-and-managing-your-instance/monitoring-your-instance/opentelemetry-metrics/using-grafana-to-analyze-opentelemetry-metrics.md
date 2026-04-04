@@ -3,9 +3,10 @@ title: Using Grafana to analyze OpenTelemetry metrics
 intro: Monitor the health and performance of your instance using dashboards and metrics provided by the OpenTelemetry metrics stack.
 versions:
   feature: ghes-opentelemetry
-type: how_to
 shortTitle: Using Grafana to analyze metrics
-contentType: other
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## Prerequisites

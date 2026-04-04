@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Delete organization
+category:
+  - Set up your organization
 ---
 
 ## About deletion of your organization account

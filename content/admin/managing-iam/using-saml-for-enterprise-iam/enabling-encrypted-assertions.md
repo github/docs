@@ -1,13 +1,15 @@
 ---
 title: Enabling encrypted assertions
 shortTitle: Enable encrypted assertions
-intro: 'You can improve {% data variables.location.product_location %}''s security with SAML single sign-on (SSO) by encrypting the messages that your SAML identity provider (IdP) sends.'
+intro: You can improve {% data variables.location.product_location %}'s security with SAML single sign-on (SSO) by encrypting the messages that your SAML identity provider (IdP) sends.
 permissions: Site administrators
 versions:
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About encrypted assertions

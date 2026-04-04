@@ -4,10 +4,12 @@ intro: You can reopen a codespace that you have closed or stopped and return to 
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Open an existing codespace
 redirect_from:
   - /codespaces/developing-in-codespaces/opening-an-existing-codespace
+contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle).

@@ -1,13 +1,18 @@
 ---
 title: Introducing GitHub Actions to your enterprise
 shortTitle: Introduce Actions
-intro: 'You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.'
+intro: You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+  - /enterprise-onboarding/github-actions-for-your-enterprise/planning-a-rollout-of-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About {% data variables.product.prodname_actions %} for enterprises

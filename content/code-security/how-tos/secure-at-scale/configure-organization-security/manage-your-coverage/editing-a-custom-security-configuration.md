@@ -5,14 +5,11 @@ intro: Meet the security needs of your repositories by editing your {% data vari
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/editing-a-custom-security-configuration
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 {% data reusables.profile.access_org %}

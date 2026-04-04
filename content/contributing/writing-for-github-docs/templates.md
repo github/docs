@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Follow the style guide and content model
 ---
 
 ## Conceptual article template
@@ -19,7 +21,7 @@ title: 'About <subject>'
 shortTitle: '<subject>'
 intro: 'Article intro. See tips for a great intro below.'
 product: "optional product callout"
-type: overview
+contentType: concepts
 versions:
   - version
 ---
@@ -69,7 +71,7 @@ title: Nouns describing your subject
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: "{{ optional product callout }}"
-type: reference
+contentType: reference
 versions:
   - <version>
 ---
@@ -107,9 +109,9 @@ Optionally, include a bulleted list of related articles the user can reference t
 
 <!-- markdownlint-enable search-replace -->
 
-## Procedural article template
+## How-to article template
 
-Use the content model for full instructions and examples on how to write procedural content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/procedural-content-type).
+Use the content model for full instructions and examples on writing how-to content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/how-to-content-type).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -119,13 +121,13 @@ title: Start with a present participle
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: "{{ optional product callout }}"
-type: how_to
+contentType: how-tos
 versions:
   - <version>
 ---
 
 {% comment %}
-Follow the guidelines in https://docs.github.com/contributing/writing-for-github-docs/content-model#procedural to write this article.-- >
+Follow the guidelines in https://docs.github.com/contributing/writing-for-github-docs/content-model to write this article.
 Great intros give readers a quick understanding of what's in the article, so they can tell whether it's relevant to them before moving ahead. For more tips, see https://docs.github.com/contributing/writing-for-github-docs/content-model
 For product callout info, see https://github.com/github/docs/tree/main/content#product
 For product version instructions, see https://github.com/github/docs/tree/main/content#versioning
@@ -168,7 +170,7 @@ Use the content model for full instructions and examples on how to write quickst
 title: Quickstart title
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. Highlight that the guide is quick and to the point.'
-type: quick_start
+contentType: get-started
 versions:
   - <version>
 ---
@@ -235,7 +237,7 @@ title: Tutorial title
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: "{{ optional product callout }}"
-type: tutorial
+contentType: tutorials
 versions:
   - <version>
 ---
@@ -308,7 +310,7 @@ title: Guide title
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: "{{ optional product callout }}"
-type: tutorial
+contentType: tutorials
 versions:
   - <version>
 ---

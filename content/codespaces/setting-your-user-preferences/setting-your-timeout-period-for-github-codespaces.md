@@ -1,14 +1,16 @@
 ---
 title: Setting your timeout period for GitHub Codespaces
 shortTitle: Set the timeout
-intro: 'You can set your default timeout for {% data variables.product.prodname_github_codespaces %} in your personal settings page.'
+intro: You can set your default timeout for {% data variables.product.prodname_github_codespaces %} in your personal settings page.
 redirect_from:
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## About the idle timeout

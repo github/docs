@@ -6,6 +6,9 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Manage security notifications
+contentType: how-tos
+category:
+  - Set up and customize delivery
 ---
 
 ## {% data variables.product.prodname_dependabot_alerts %} notification options

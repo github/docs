@@ -76,7 +76,7 @@ export default async function dynamicAssets(
     //    < 302
     //    < location: /assets/images/site/logo.web
     //
-    return res.redirect(302, req.path)
+    return res.safeRedirect(302, req.path)
   }
 
   // From PNG to WEBP, if the PNG exists

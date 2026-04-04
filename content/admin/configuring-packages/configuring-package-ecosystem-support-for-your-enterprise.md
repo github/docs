@@ -1,15 +1,17 @@
 ---
 title: Configuring package ecosystem support for your enterprise
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% data variables.product.prodname_container_registry %}, Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.'
-permissions: 'Site administrators can enable {% data variables.product.prodname_registry %} and configure enterprise settings.'
+intro: You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% data variables.product.prodname_container_registry %}, Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.
+permissions: Site administrators can enable {% data variables.product.prodname_registry %} and configure enterprise settings.
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-packages-support-for-your-enterprise
   - /admin/packages/configuring-package-ecosystem-support-for-your-enterprise
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Configure package ecosystems
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

@@ -8,16 +8,12 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: dependabot-metrics
 contentType: tutorials
-topics:
-  - Code Security
-  - Dependabot
-  - Code scanning
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-metrics
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities
+category:
+  - Secure your dependencies
 ---
 
 ## Prioritizing {% data variables.product.prodname_dependabot_alerts %} using metrics

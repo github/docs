@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Customize organization profile
+category:
+  - Set up your organization
 ---
 
 

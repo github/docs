@@ -1,15 +1,14 @@
 ---
 title: Removing artifacts from the {% data variables.product.virtual_registry %}
-intro: "Set the storage and deployment status of artifacts to reflect that they are no longer in use."
+intro: Set the storage and deployment status of artifacts to reflect that they are no longer in use.
 versions:
   feature: virtual-registry
-topics:
-  - Vulnerabilities
-  - Dependencies
-contentType: concepts
-product: 'Organization accounts on any plan'
-permissions: 'Write access to the repository where an artifact is built'
+contentType: how-tos
+product: Organization accounts on any plan
+permissions: Write access to the repository where an artifact is built
 shortTitle: Remove linked artifacts
+category:
+  - Secure your dependencies
 ---
 
 It is **not possible** to delete an artifact from the {% data variables.product.virtual_registry %}. However, if an artifact has been removed from your organization's registry or is no longer deployed anywhere, you can update an artifact's storage or deployment record to reflect its status.

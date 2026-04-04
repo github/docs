@@ -5,6 +5,8 @@ redirect_from:
   - /github/site-policy/github-acceptable-use-policies
 versions:
   fpt: '*'
+category:
+  - Follow acceptable use policies
 ---
 
 **Short version:** _We host a wide variety of collaborative projects from all over the world, and that collaboration only works when our users are able to work together in good faith. While using the Service, you must comply with our Acceptable Use Policies, which include some restrictions on content and conduct on GitHub related to user safety, intellectual property, privacy, authenticity, and other limitations. In short, be excellent to each other._
@@ -114,6 +116,7 @@ If you decide to post any promotional materials in your Account, you are solely 
 
 ## 11. User Protection
 
+<!-- localization update 2026-03-11 - Feedback 1131974 -->
 You must not engage in activity that significantly harms other users.
 
 We will interpret our policies and resolve disputes in favor of protecting users as a whole.

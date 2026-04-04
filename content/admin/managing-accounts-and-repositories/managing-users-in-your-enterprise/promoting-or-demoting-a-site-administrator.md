@@ -6,11 +6,13 @@ redirect_from:
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
   - /admin/user-management/promoting-or-demoting-a-site-administrator
   - /admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator
-intro: 'Site administrators can promote any normal user account to a site administrator, as well as demote other site administrators to regular users.'
+intro: Site administrators can promote any normal user account to a site administrator, as well as demote other site administrators to regular users.
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Manage administrators
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 > [!NOTE] For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote).

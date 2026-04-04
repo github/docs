@@ -7,15 +7,11 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Dependency review
-  - Vulnerabilities
-  - Dependencies
-  - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/enforcing-dependency-review-across-an-organization
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 You can enforce the use of the {% data variables.dependency-review.action_name %} in your organization by setting up a repository ruleset that will require a workflow that runs dependency review to pass before pull requests can be merged. For more information about the action, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependency-review#about-the-dependency-review-action).

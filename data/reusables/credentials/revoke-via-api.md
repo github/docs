@@ -1,0 +1,2 @@
+{% ifversion fpt or ghec or ghes > 3.17 %}
+* If the token is owned by someone else, and the actual token value is known, **anyone** can submit a request to revoke it using the REST API. The API doesn't require authentication - anyone with the token value can submit it for revocation. See [AUTOTITLE](/rest/credentials/revoke?apiVersion=2022-11-28#revoke-a-list-of-credentials) in the REST API documentation.{% endif %}

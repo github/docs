@@ -15,6 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Write workflows
+contentType: reference
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -276,7 +279,7 @@ The value of this parameter is a string specifying the data type of the input. T
 
 ## How permissions are calculated for a workflow job
 
-The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
+The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request event other than `pull_request_target` from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
 
 ### Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
 
@@ -1178,6 +1181,45 @@ Additional Docker container resource options. For a list of options, see [`docke
 
 > [!WARNING]
 > The `--network` option is not supported.
+
+{% ifversion fpt or ghec %}
+
+## `jobs.<job_id>.services.<service_id>.command`
+
+Overrides the Docker image's default command (`CMD`). The value is passed as arguments after the image name in the `docker create` command. If you also specify `entrypoint`, `command` provides the arguments to that entrypoint.
+
+### Example of `jobs.<job_id>.services.<service_id>.command`
+
+```yaml
+services:
+  mysql:
+    image: mysql:8
+    command: --sql_mode=STRICT_TRANS_TABLES --max_allowed_packet=512M
+    env:
+      MYSQL_ROOT_PASSWORD: test
+    ports:
+      - 3306:3306
+```
+
+## `jobs.<job_id>.services.<service_id>.entrypoint`
+
+Overrides the Docker image's default `ENTRYPOINT`. The value is a single string defining the executable to run. Use this when you need to replace the image's entrypoint entirely. You can combine `entrypoint` with `command` to pass arguments to the custom entrypoint.
+
+### Example of `jobs.<job_id>.services.<service_id>.entrypoint`
+
+```yaml
+services:
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.17
+    entrypoint: etcd
+    command: >-
+      --listen-client-urls http://0.0.0.0:2379
+      --advertise-client-urls http://0.0.0.0:2379
+    ports:
+      - 2379:2379
+```
+
+{% endif %}
 
 ## `jobs.<job_id>.uses`
 

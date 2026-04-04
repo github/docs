@@ -1,5 +1,5 @@
 ---
-title: 'Creating a {% data variables.projects.project_v2 %}'
+title: Creating a {% data variables.projects.project_v2 %}
 intro: Learn how to create an organization or user project.
 versions:
   fpt: '*'
@@ -7,8 +7,10 @@ versions:
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/creating-a-project
-type: tutorial
 allowTitleToDifferFromFilename: true
+contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 {% data variables.product.prodname_projects_v2 %} are an adaptable collection of items that stay up-to-date with {% data variables.product.company_short %} data. Your projects can track issues, pull requests, and ideas that you note down. You can add custom fields and create views for specific purposes.

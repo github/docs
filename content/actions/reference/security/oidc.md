@@ -1,13 +1,16 @@
 ---
 title: OpenID Connect reference
 shortTitle: OIDC
-intro: 'Find information about using OpenID Connect (OIDC) to authenticate {% data variables.product.prodname_actions %} workflows with cloud providers.'
+intro: Find information about using OpenID Connect (OIDC) to authenticate {% data variables.product.prodname_actions %} workflows with cloud providers.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
 redirect_from:
   - /actions/reference/openid-connect-reference
+category:
+  - Secure your workflows
+contentType: reference
 ---
 
 ## OIDC token claims
@@ -68,6 +71,9 @@ The OIDC token includes the following claims.
 | `repository_id`| The ID of the repository from where the workflow is running.  |
 | `repository_owner`| The name of the organization in which the `repository` is stored.                   |
 | `repository_owner_id`| The ID of the organization in which the `repository` is stored.            |
+| {% ifversion oidc-custom-properties %} |
+| `repo_property_*`| Custom properties defined at the organization or enterprise level that are included as claims in the OIDC token, prefixed with `repo_property_`. For more information, see [Including repository custom properties in OIDC tokens](#including-repository-custom-properties-in-oidc-tokens).                  |
+| {% endif %} |
 | `run_id`| The ID of the workflow run that triggered the workflow.                   |
 | `run_number`| The number of times this workflow has been run.                   |
 | `run_attempt`| The number of times this workflow run has been retried.                    |
@@ -177,6 +183,9 @@ You can security harden your OIDC configuration by customizing the claims that a
 * You can customize values for {% ifversion ghec %}`issuer` or {% endif %}`audience` claims. See {% ifversion ghec %}[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise) and {% endif %}[Customizing the `audience` value](#customizing-the-audience-value).
 * You can customize the format of your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
 * You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. See [AUTOTITLE](/actions/concepts/security/openid-connect#understanding-the-oidc-token).
+{% ifversion oidc-custom-properties %}
+* You can include repository custom properties as claims in OIDC tokens, enabling attribute-based access control policies. See [Including repository custom properties in OIDC tokens](#including-repository-custom-properties-in-oidc-tokens).
+{% endif %}
 
 ### Customizing the `audience` value
 
@@ -211,6 +220,86 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
   "iat": 1755351253
 }
 ```
+
+{% endif %}
+
+{% ifversion oidc-custom-properties %}
+
+### Including repository custom properties in OIDC tokens
+
+Organization and enterprise admins can select repository custom properties to include as claims in {% data variables.product.prodname_actions %} OIDC tokens. Once a custom property is added to the OIDC configuration, every repository in the organization or enterprise that has a value set for that property will automatically include it in its OIDC tokens. The property name appears in the token prefixed with `repo_property_`.
+
+This allows you to create attribute-based access control (ABAC) policies in your cloud provider that bind directly to your repository metadata, reducing configuration drift and eliminating the need to manage separate access configuration for each repository.
+
+#### Claim format
+
+Each enabled custom property appears as a separate claim in the OIDC token. The claim name is the property name prefixed with `repo_property_`.
+
+| Custom property name | Claim name in OIDC token |
+| --- | --- |
+| `business_unit` | `repo_property_business_unit` |
+| `workspace_id` | `repo_property_workspace_id` |
+| `data_classification` | `repo_property_data_classification` |
+
+#### Supported property types
+
+The following custom property types are supported as OIDC claims. The value representation in the token depends on the property type.
+
+| Property type | Example value in OIDC token | Notes |
+| --- | --- | --- |
+| String | `"repo_property_team": "platform-eng"` | Value appears as a plain string. |
+| Single select | `"repo_property_env_tier": "production"` | The selected option appears as a plain string. |
+| Multi select | `"repo_property_regions": "us-east-1,eu-west-1"` | Multiple selected values are joined into a single comma-separated string. |
+| True/false | `"repo_property_pci_compliant": "true"` | Boolean values appear as the string `"true"` or `"false"`. |
+
+#### Multi-select value representation
+
+When a repository has a multi-select custom property with multiple values selected, the values are joined into a single comma-separated string in the OIDC token. For example, if a repository has a `regions` property with the values `us-east-1` and `eu-west-1`, the claim appears as:
+
+```json
+{
+  "repo_property_regions": "us-east-1,eu-west-1"
+} 
+```
+
+When configuring trust policies in your cloud provider, use string matching or contains checks to evaluate multi-select claims.
+
+#### Prerequisites for including custom properties
+
+* Custom properties must already be defined at the organization or enterprise level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+* You must be an organization admin or enterprise admin.
+* After adding a custom property to the OIDC configuration, all repositories in the organization or enterprise that have a value set for that property will automatically include it in their OIDC tokens.
+
+#### Adding a custom property to OIDC token claims
+
+You can manage which custom properties are included in OIDC tokens using the settings UI or the REST API.
+
+* **Using the settings UI:**
+
+  Navigate to your organization's or enterprise's Actions OIDC settings to view and configure which custom properties are included in OIDC tokens.
+
+* **Using the REST API:**
+
+   To add a custom property to your organization's OIDC token claims, send a `POST` request to the appropriate OIDC custom-property inclusion endpoint. For example:
+   * For an organization: `POST /orgs/{org}/actions/oidc/customization/properties/repo`
+   * For an enterprise: `POST /enterprises/{enterprise}/actions/oidc/customization/properties/repo`
+   For request parameters and full details, see the REST API documentation for managing OIDC custom properties: [AUTOTITLE](/rest/actions/oidc).
+
+#### Example token with custom properties
+
+After a custom property is added to the OIDC configuration, repositories with a value set for that property will include it in their tokens. In the following example, two custom properties (`business_unit` and `workspace_id`) are included in the token:
+
+```json
+{
+  "sub": "repo:my-org/my-repo:ref:refs/heads/main",
+  "aud": "https://github.com/my-org",
+  "repository": "my-org/my-repo",
+  "repo_property_business_unit": "payments",
+  "repo_property_workspace_id": "ws-abc123"
+}
+```
+
+You can use these `repo_property_*` claims as conditions in your cloud provider's trust policy. For an example, see [Example: Filtering on a repository custom property](#example-filtering-on-a-repository-custom-property).
 
 {% endif %}
 
@@ -366,6 +455,26 @@ This example demonstrates how to handle context value with `:`. For example, whe
 ```
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `environment` and `repository_owner`. For example: `"sub": "environment:production%3Aeastus:repository_owner:octo-org"`.
+{% endif %}
+
+{% ifversion oidc-custom-properties %}
+
+#### Example: Filtering on a repository custom property
+
+This example template allows the `sub` claim to include a repository custom property claim. Custom properties included in OIDC tokens appear prefixed with `repo_property_` in the token, but the `include_claim_keys` value uses the full claim name as it appears in the token.
+
+{% data reusables.actions.use-request-body-api %}
+
+```json
+{
+   "include_claim_keys": [
+       "repo_property_workspace_id"
+   ]
+}
+```
+
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `repo_property_workspace_id`. For example: `"sub": "repo_property_workspace_id:ws-abc123"`.
+
 {% endif %}
 
 #### Resetting organization template customizations

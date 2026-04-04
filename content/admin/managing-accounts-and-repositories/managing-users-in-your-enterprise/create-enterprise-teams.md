@@ -1,14 +1,16 @@
 ---
 title: Creating enterprise teams
-intro: 'Organize users into teams to simplify license management.'
+intro: Organize users into teams to simplify license management.
 versions:
   feature: enterprise-teams
-type: how_to
 shortTitle: Create enterprise teams
 permissions: Enterprise owners
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/managing-organization-members-in-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-organization-members-in-your-enterprise
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 To simplify administration at scale, you can create enterprise teams. {% data reusables.enterprise.enterprise-teams-can %}

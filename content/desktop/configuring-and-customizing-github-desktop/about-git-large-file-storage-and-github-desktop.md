@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Configure and customize GitHub Desktop
 ---
 When you install {% data variables.product.prodname_desktop %}, {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) is installed, too. {% data variables.large_files.product_name_short %} lets you push files to {% data variables.product.prodname_dotcom %} that exceed the normal limit of {% data variables.large_files.max_github_size %}. For more information about {% data variables.large_files.product_name_short %}, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage).
 

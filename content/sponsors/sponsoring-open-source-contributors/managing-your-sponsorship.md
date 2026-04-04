@@ -7,7 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## Managing the privacy setting for your sponsorship

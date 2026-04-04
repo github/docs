@@ -7,10 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
-topics:
-  - Code scanning
-  - Errors
-  - Troubleshooting
 children:
   - /alerts-in-generated-code
   - /automatic-build-failed

@@ -1,15 +1,17 @@
 ---
 title: Username considerations for external authentication
 shortTitle: Username considerations
-intro: 'When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% data variables.product.github %} follows certain rules to determine the username for each user account {% ifversion ghec %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
+intro: When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% data variables.product.github %} follows certain rules to determine the username for each user account {% ifversion ghec %}in your enterprise{% elsif ghes %}on your instance{% endif %}.
 versions:
   ghec: '*'
   ghes: '*'
-type: reference
 redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/username-considerations-for-external-authentication
   - /admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication
+contentType: reference
+category:
+  - Configure authentication
 ---
 
 {% ifversion ghec %}

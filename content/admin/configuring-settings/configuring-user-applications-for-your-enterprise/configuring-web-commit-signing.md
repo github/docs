@@ -1,14 +1,16 @@
 ---
 title: Configuring web commit signing
 shortTitle: Configure web commit signing
-intro: 'You can enable auto-signing of commits made in the web interface of {% data variables.product.prodname_ghe_server %}.'
+intro: You can enable auto-signing of commits made in the web interface of {% data variables.product.prodname_ghe_server %}.
 versions:
   ghes: '*'
-type: how_to
-permissions: 'Site administrators'
+permissions: Site administrators
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-web-commit-signing
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-web-commit-signing
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About web commit signing

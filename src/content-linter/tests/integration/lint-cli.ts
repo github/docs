@@ -70,8 +70,6 @@ shortTitle: TODOCS This should definitely be caught
 intro: Testing basic linter functionality
 versions:
   feature: test
-topics:
-  - Test
 ---
 
 TODOCS This placeholder should definitely be detected.
@@ -99,8 +97,6 @@ shortTitle: TODOCS Test title
 intro: This is a test article
 versions:
   feature: test
-topics:
-  - Test
 ---
 
 TODOCS This is placeholder content that should now be detected by default.
@@ -127,8 +123,6 @@ shortTitle: TODOCS Test title
 intro: This is a test article
 versions:
   feature: test
-topics:
-  - Test
 ---
 
 TODOCS This file has multiple error types.

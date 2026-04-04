@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Maintain and share your app
 ---
 
 > [!NOTE]

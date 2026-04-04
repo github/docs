@@ -1,11 +1,10 @@
 ---
 title: About SAML for enterprise IAM
 shortTitle: About SAML for IAM
-intro: 'You can use SAML single sign-on (SSO) to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.location.product_location %}{% endif %}.'
+intro: You can use SAML single sign-on (SSO) to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.location.product_location %}{% endif %}.
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account
@@ -18,6 +17,9 @@ redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-saml-for-enterprise-iam
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
+contentType: concepts
+category:
+  - Configure authentication
 ---
 
 ## About SAML SSO for your enterprise

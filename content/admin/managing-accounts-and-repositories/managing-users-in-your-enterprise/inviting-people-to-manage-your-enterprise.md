@@ -1,7 +1,7 @@
 ---
 title: Inviting people to manage your enterprise
-intro: 'You can {% ifversion ghec %}invite{% else %}add{% endif %} and remove enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise account.'
-permissions: 'Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.'
+intro: You can {% ifversion ghec %}invite{% else %}add{% endif %} and remove enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise account.
+permissions: Enterprise owners can {% ifversion ghec %}invite other people to become{% elsif ghes %}add{% endif %} additional enterprise administrators.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
@@ -12,8 +12,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
 shortTitle: Invite people to manage
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About administrator management

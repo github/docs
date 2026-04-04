@@ -3,9 +3,11 @@ title: About GitHub Connect
 intro: '{% data variables.product.prodname_github_connect %} enhances {% data variables.product.prodname_ghe_server %} by giving you access to data and workflows from {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   ghes: '*'
-type: overview
 redirect_from:
   - /admin/configuration/configuring-github-connect/about-github-connect
+contentType: concepts
+category:
+  - Install and configure your instance
 ---
 
 {% data variables.product.prodname_github_connect %} allows {% data variables.location.product_location %} to connect to your enterprise on {% data variables.product.prodname_ghe_cloud %} in limited ways.

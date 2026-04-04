@@ -18,7 +18,9 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About global webhooks

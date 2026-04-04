@@ -2,14 +2,13 @@
 title: About SARIF files for code scanning
 shortTitle: SARIF files
 intro: SARIF files convert third-party analyses into alerts on {% data variables.product.github %}.
-topics:
-  - Code Security
-  - Code scanning
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 >[!NOTE] If you use default setup for {% data variables.product.prodname_code_scanning %}, or an advanced setup that involves using {% data variables.product.prodname_actions %} to run the {% data variables.product.prodname_codeql %} action, then you don't need to interact with SARIF files. Scan results are uploaded and parsed as {% data variables.product.prodname_code_scanning %} alerts automatically.

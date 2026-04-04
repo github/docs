@@ -7,6 +7,8 @@ redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics/enabling-server-statistics
   - /admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise
 shortTitle: Server Statistics
+category:
+  - Install and configure your instance
 ---
 
 ## About {% data variables.product.prodname_server_statistics %}

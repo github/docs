@@ -9,4 +9,6 @@ versions:
 children:
   - /configure-and-manage-deployments
   - /deploy-to-third-party-platforms
+contentType: how-tos
 ---
+

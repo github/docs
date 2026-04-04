@@ -1,12 +1,14 @@
 ---
 title: Locking down single sign-on in your enterprise
-intro: 'Take action in a security incident by blocking SSO for all users except enterprise owners.'
-permissions: 'Enterprise owners and users with the "Manage enterprise single sign-on configuration" fine-grained permission'
-product: 'Enterprises with managed users, or enterprises that have enabled SAML SSO for the enterprise or its organizations'
+intro: Take action in a security incident by blocking SSO for all users except enterprise owners.
+permissions: Enterprise owners and users with the "Manage enterprise single sign-on configuration" fine-grained permission
+product: Enterprises with managed users, or enterprises that have enabled SAML SSO for the enterprise or its organizations
 versions:
   feature: revoke-enterprise-tokens
-type: how_to
 shortTitle: Lock down SSO
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 When your enterprise is affected by a major security incident, you can temporarily block single sign-on for all users except enterprise owners. This allows you to lock down access to your enterprise in order to investigate the incident within a more isolated surface area.

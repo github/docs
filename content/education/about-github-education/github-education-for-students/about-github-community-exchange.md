@@ -8,6 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: About Community Exchange
+category:
+  - Participate in campus and community programs
 ---
 
 ## About {% data variables.product.prodname_community_exchange %}

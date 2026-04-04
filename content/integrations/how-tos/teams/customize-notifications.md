@@ -1,12 +1,14 @@
 ---
-title: 'Customizing notifications for {% data variables.product.github %} in Teams'
+title: Customizing notifications for {% data variables.product.github %} in Teams
 shortTitle: Customize notifications
-intro: 'Customize {% data variables.product.github %} notifications to manage your work within Teams.'
+intro: Customize {% data variables.product.github %} notifications to manage your work within Teams.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: reference
+contentType: how-tos
+category:
+  - Use integrations
 ---
 
 You can customize your notifications by subscribing to activity that is relevant to your Microsoft Teams channel, and unsubscribing from activity that is less helpful to your project.

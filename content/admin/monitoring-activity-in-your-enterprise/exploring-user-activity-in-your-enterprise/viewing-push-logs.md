@@ -10,7 +10,9 @@ redirect_from:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/viewing-push-logs
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 Push log entries show:
 

@@ -1,10 +1,9 @@
 ---
 title: Managing team synchronization for organizations in your enterprise
-intro: 'You can enable team synchronization between Microsoft Entra ID (previously known as Azure AD) and {% data variables.product.github %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
+intro: You can enable team synchronization between Microsoft Entra ID (previously known as Azure AD) and {% data variables.product.github %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   ghec: '*'
-type: how_to
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/managing-team-synchronization-for-organizations-in-your-enterprise-account
@@ -12,6 +11,9 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
 shortTitle: Manage team synchronization
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}

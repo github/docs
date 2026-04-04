@@ -1,18 +1,20 @@
 ---
-title: 'About user provisioning with SCIM on GitHub Enterprise Server'
-shortTitle: 'About SCIM provisioning'
-intro: 'Learn about managing the lifecycle of user accounts with SCIM on {% data variables.location.product_location %}.'
+title: About user provisioning with SCIM on GitHub Enterprise Server
+shortTitle: About SCIM provisioning
+intro: Learn about managing the lifecycle of user accounts with SCIM on {% data variables.location.product_location %}.
 permissions: ''
 versions:
   ghes: '*'
 allowTitleToDifferFromFilename: true
-type: how_to
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
+contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}

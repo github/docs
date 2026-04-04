@@ -18,8 +18,10 @@ redirect_from:
 intro: You can prevent people from using Git over SSH for certain or all repositories on your enterprise.
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Disable SSH for Git
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 ## Disabling Git SSH access to a specific repository
 

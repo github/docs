@@ -1,7 +1,7 @@
 ---
 title: Custom agents
 shortTitle: Custom agents
-intro: 'Discover a collection of custom agent profiles you can use as inspiration for your own workflows and needs.'
+intro: Discover a collection of custom agent profiles you can use as inspiration for your own workflows and needs.
 versions:
   feature: copilot
 children:
@@ -9,4 +9,6 @@ children:
   - /implementation-planner
   - /bug-fix-teammate
   - /cleanup-specialist
+contentType: tutorials
 ---
+

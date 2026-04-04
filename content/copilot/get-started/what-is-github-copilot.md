@@ -40,7 +40,7 @@ You can use {% data variables.product.prodname_copilot_short %} to:
 * Ask for help using the command line.
 * Organize and share context with {% data variables.copilot.copilot_spaces %} to get more relevant answers.
 * Generate descriptions of changes in a pull request.
-* Work on code changes and create a pull request for you to review. Available in {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} only.
+* Research, plan, make code changes, and create pull requests for you to review. Available in {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} only.
 
 Use {% data variables.product.prodname_copilot_short %} in the following places:
 
@@ -61,7 +61,7 @@ You can start using {% data variables.product.prodname_copilot_short %} in sever
 * **Try {% data variables.product.prodname_copilot_short %} for free.** Use {% data variables.copilot.copilot_free_short %} to explore core features with no paid plan required.
 * **Subscribe to a paid plan.** Upgrade to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} for full access to premium features and more generous usage limits. 
   * Try <a href="https://github.com/github-copilot/signup?ref_product=copilot&ref_type=trial&ref_style=text&ref_plan=pro" target="_blank"><span>{% data variables.copilot.copilot_pro_short %} for free</span></a> with a one-time 30-day trial.
-* **Get free access if you're eligible.** Students, teachers, and open source maintainers may qualify for {% data variables.copilot.copilot_pro_short %} at no cost. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
+* **Get free access if you're eligible.** Students, teachers, and open source maintainers may qualify for access to premium features at no cost. See [AUTOTITLE](/copilot/how-tos/manage-your-account/free-access-with-copilot-student) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
 * **Request access from your organization.** If your organization or enterprise has a {% data variables.product.prodname_copilot %} plan, you can request access by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and request access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
 See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan) for more information.

@@ -1,10 +1,10 @@
 ---
 title: Defining policies for repositories in your enterprise
 shortTitle: Create repository policies
-intro: 'Enforce repository policies across your enterprise using custom properties and targeting rules.'
+intro: Enforce repository policies across your enterprise using custom properties and targeting rules.
 versions:
   ghec: '*'
-type: how_to
+contentType: how-tos
 ---
 
 {% data reusables.enterprise.repo-policy-rules-preview %}

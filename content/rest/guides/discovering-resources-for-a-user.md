@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Discover resources for a user
+category:
+  - Build apps and integrations
 ---
 
 

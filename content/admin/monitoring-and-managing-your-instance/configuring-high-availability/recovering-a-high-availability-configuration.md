@@ -1,6 +1,6 @@
 ---
 title: Recovering a high availability configuration
-intro: 'After failing over to a {% data variables.product.prodname_ghe_server %} appliance, you should regain redundancy as soon as possible rather than rely on a single appliance.'
+intro: After failing over to a {% data variables.product.prodname_ghe_server %} appliance, you should regain redundancy as soon as possible rather than rely on a single appliance.
 redirect_from:
   - /enterprise/admin/installation/recovering-a-high-availability-configuration
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
@@ -9,8 +9,10 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/recovering-a-high-availability-configuration
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Recover a HA configuration
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About recovery for a high availability configuration

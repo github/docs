@@ -17,6 +17,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Write workflows
+contentType: reference
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

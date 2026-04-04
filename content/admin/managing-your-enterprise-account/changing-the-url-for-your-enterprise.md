@@ -1,11 +1,13 @@
 ---
 title: Changing the URL for your enterprise
-intro: 'If you want to change the URL where your enterprise is accessed, you can change your enterprise slug.'
+intro: If you want to change the URL where your enterprise is accessed, you can change your enterprise slug.
 versions:
   ghec: '*'
-type: how_to
 permissions: Enterprise owners can change the URL for the enterprise.
 shortTitle: Change enterprise URL
+contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## About changes to enterprise slugs
@@ -16,6 +18,7 @@ If your company pays for {% data variables.product.prodname_ghe_cloud %} by cred
 
 > [!NOTE]
 > If you pay for {% data variables.product.prodname_ghe_cloud %} via invoice, or if your enterprise uses {% data variables.product.prodname_emus %}, you must contact {% data variables.contact.contact_enterprise_sales %} to change your enterprise slug.
+> For enterprises hosted on {% data variables.enterprise.data_residency_site %}, changing the enterprise slug is not currently supported.
 
 ## Considerations when changing your enterprise slug
 

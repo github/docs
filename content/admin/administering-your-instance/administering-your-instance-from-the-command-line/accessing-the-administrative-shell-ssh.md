@@ -16,8 +16,10 @@ redirect_from:
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Access the admin shell (SSH)
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 ## About administrative shell access
 

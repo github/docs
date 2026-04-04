@@ -2,11 +2,6 @@
 title: Using the dependency submission API
 intro: You can use the {% data variables.dependency-submission-api.name %} to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.
 shortTitle: Use dependency submission API
-topics:
-  - API
-  - Dependency graph
-  - Dependencies
-  - REST
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,6 +9,8 @@ versions:
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 The {% data variables.dependency-submission-api.name %} is a method of submitting data to the dependency graph. It allows you to submit dependencies that are not captured by static analysis. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph-data).

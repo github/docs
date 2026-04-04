@@ -12,13 +12,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
-  - Dependabot
-  - Version updates
-  - Actions
 shortTitle: Auto-update actions
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}

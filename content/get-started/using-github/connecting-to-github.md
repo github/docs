@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 ## Introduction

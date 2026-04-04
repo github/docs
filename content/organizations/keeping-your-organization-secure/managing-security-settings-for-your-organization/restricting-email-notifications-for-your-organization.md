@@ -1,6 +1,6 @@
 ---
 title: Restricting email notifications for your organization
-intro: 'To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.'
+intro: To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
@@ -11,8 +11,10 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-type: how_to
 shortTitle: Restrict email notifications
+contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 ## About email restrictions

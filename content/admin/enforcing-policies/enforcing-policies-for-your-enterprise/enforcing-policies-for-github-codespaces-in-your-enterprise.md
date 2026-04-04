@@ -1,16 +1,16 @@
 ---
 title: Enforcing policies for GitHub Codespaces in your enterprise
 shortTitle: GitHub Codespaces policies
-intro: 'You can enforce policies for {% data variables.product.prodname_github_codespaces %} within your enterprise''s organizations.'
-permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_github_codespaces %} in an enterprise.'
+intro: You can enforce policies for {% data variables.product.prodname_github_codespaces %} within your enterprise's organizations.
+permissions: Enterprise owners can enforce policies for {% data variables.product.prodname_github_codespaces %} in an enterprise.
 versions:
   ghec: '*'
-type: how_to
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-codespaces-in-your-enterprise
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
-
->[!NOTE] {% data variables.product.prodname_github_codespaces %} is not available for enterprises that use {% data variables.enterprise.data_residency %}.
 
 ## About enterprise policies for {% data variables.product.prodname_github_codespaces %}
 

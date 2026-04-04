@@ -2,7 +2,7 @@ name: 'Link Check: External'
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST — link & content quality theme
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
   workflow_dispatch:
     inputs:
       max_urls:
@@ -69,7 +69,7 @@ jobs:
 
       - name: Create issue if broken links found
         if: always() && steps.check_report.outputs.has_report == 'true'
-        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
+        uses: peter-evans/create-issue-from-file@65115121ba9a3573cbaded4dc66b90ba1f9b69dc
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/docs-content
@@ -82,3 +82,8 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

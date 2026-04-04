@@ -4,6 +4,8 @@ shortTitle: Tag protection rules
 intro: You can configure tag protection rules for your repository to prevent contributors from creating or deleting tags.
 versions:
   ghes: '<3.16'
+category:
+  - Manage access and repository policies
 ---
 
 >[!NOTE] Tag protection rules are {% data variables.release-phases.closing_down %} in {% data variables.product.prodname_ghe_server %} version 3.16 and later. Use rulesets instead. Any tag protection rules still in use will be auto-migrated. You can read more about this on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).

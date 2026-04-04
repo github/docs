@@ -5,7 +5,9 @@ shortTitle: Configure audit logs
 permissions: Enterprise owners can configure the audit log.
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About audit log configuration

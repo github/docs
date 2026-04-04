@@ -1,12 +1,11 @@
 import fs from 'fs'
-import path from 'path'
 
 import { beforeAll, describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
 import { isApiVersioned, allVersions } from '@/versions/lib/all-versions'
-import getRest from '../lib/index'
+import getRest, { getRestCategories } from '../lib/index'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import frontmatter from '@/frame/lib/frontmatter'
 import getApplicableVersions from '../../versions/lib/get-applicable-versions'
@@ -20,31 +19,20 @@ async function getFlatListOfOperations(version: string): Promise<any[]> {
   const flatList = []
 
   if (isApiVersioned(version)) {
-    const apiVersions = allVersions[version].apiVersions
-
-    for (const apiVersion of apiVersions) {
-      const operations = await getRest(version, apiVersion)
-      flatList.push(...createCategoryList(operations))
+    for (const apiVersion of allVersions[version].apiVersions) {
+      for (const category of getRestCategories(version, apiVersion)) {
+        const ops = await getRest(version, apiVersion, category)
+        flatList.push(...Object.values(ops).flat())
+      }
     }
   } else {
-    const operations = await getRest(version)
-    flatList.push(...createCategoryList(operations))
+    for (const category of getRestCategories(version)) {
+      const ops = await getRest(version, undefined, category)
+      flatList.push(...Object.values(ops).flat())
+    }
   }
 
   return flatList
-}
-
-// OpenAPI operations object has dynamic structure based on categories and subcategories
-function createCategoryList(operations: any): any[] {
-  const catSubCatList = []
-  for (const category of Object.keys(operations)) {
-    const subcategories = Object.keys(operations[category])
-    for (const subcategory of subcategories) {
-      catSubCatList.push(...operations[category][subcategory])
-    }
-  }
-
-  return catSubCatList
 }
 
 describe('markdown for each rest version', () => {
@@ -71,20 +59,19 @@ describe('markdown for each rest version', () => {
 
   beforeAll(async () => {
     for (const version in allVersions) {
+      openApiSchema[version] = {}
       if (isApiVersioned(version)) {
         for (const apiVersion of allVersions[version].apiVersions) {
-          const apiOperations = await getRest(version, apiVersion)
-          for (const category of Object.keys(apiOperations)) {
+          for (const category of getRestCategories(version, apiVersion)) {
             allCategories.add(category)
+            openApiSchema[version][category] = await getRest(version, apiVersion, category)
           }
-          openApiSchema[version] = apiOperations
         }
       } else {
-        const apiOperations = await getRest(version)
-        for (const category of Object.keys(apiOperations)) {
+        for (const category of getRestCategories(version)) {
           allCategories.add(category)
+          openApiSchema[version][category] = await getRest(version, undefined, category)
         }
-        openApiSchema[version] = apiOperations
       }
     }
 
@@ -158,14 +145,13 @@ describe('OpenAPI schema validation', () => {
   // is not yet defined in allVersions (e.g., a GHEC static file can exist
   // even though the version is not yet supported in the docs)
   test('every OpenAPI version must have a schema file in the docs', async () => {
-    const decoratedFilenames = walk(schemasPath).map((filename) => path.basename(filename, '.json'))
-    const openApiBaseNames = Object.values(allVersions).map((version) => version.openApiVersionName)
+    const versionDirs = fs
+      .readdirSync(schemasPath, { withFileTypes: true })
+      .filter((d) => d.isDirectory())
+      .map((d) => d.name)
+    const openApiBaseNames = Object.values(allVersions).map((v) => v.openApiVersionName)
     for (const openApiBaseName of openApiBaseNames) {
-      // Because the rest calendar dates now have latest, next, or calendar date attached to the name, we're
-      // now checking if the decorated file names now start with an openApiBaseName
-      expect(
-        decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName)),
-      ).toBe(true)
+      expect(versionDirs.some((dir) => dir.startsWith(openApiBaseName))).toBe(true)
     }
   })
 
@@ -177,16 +163,20 @@ describe('OpenAPI schema validation', () => {
   })
 
   test('no wrongly detected AppleScript syntax highlighting in schema data', async () => {
-    const countAssertions = Object.keys(allVersions)
-      .map((version) => allVersions[version].apiVersions.length)
-      .reduce((prevLength, currLength) => prevLength + currLength)
-
-    expect.assertions(countAssertions)
     await Promise.all(
       Object.keys(allVersions).map(async (version) => {
-        for (const apiVersion of allVersions[version].apiVersions) {
-          const operations = await getRest(version, apiVersion)
-          expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)
+        if (isApiVersioned(version)) {
+          for (const apiVersion of allVersions[version].apiVersions) {
+            for (const category of getRestCategories(version, apiVersion)) {
+              const ops = await getRest(version, apiVersion, category)
+              expect(JSON.stringify(ops).includes('hljs language-applescript')).toBe(false)
+            }
+          }
+        } else {
+          for (const category of getRestCategories(version)) {
+            const ops = await getRest(version, undefined, category)
+            expect(JSON.stringify(ops).includes('hljs language-applescript')).toBe(false)
+          }
         }
       }),
     )

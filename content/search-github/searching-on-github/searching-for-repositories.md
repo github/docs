@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Search for repositories
+category:
+  - Find repositories and resources
 ---
 You can search for repositories globally across all of {% data variables.product.prodname_dotcom %}, or search for repositories within a particular organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 

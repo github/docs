@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
 shortTitle: Manage sponsorship updates
+category:
+  - Set up your organization
 ---
 
 The developers and organizations that your organization sponsors can send you updates about their work. You can manage the email address that receives these updates.

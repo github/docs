@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Review security log
+category:
+  - Manage access credentials
 ---
 
 ## Accessing your security log

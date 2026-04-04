@@ -6,11 +6,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/using-wireguard-to-create-a-network-overlay
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/using-wireguard-to-create-a-network-overlay
   - /actions/how-tos/using-github-hosted-runners/connecting-to-a-private-network/using-wireguard-to-create-a-network-overlay
+contentType: how-tos
+category:
+  - Use and manage runners
 ---
 
 ## Using WireGuard to create a network overlay

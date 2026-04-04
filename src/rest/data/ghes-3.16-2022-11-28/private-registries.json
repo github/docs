@@ -1,0 +1,768 @@
+{
+  "organization-configurations": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/private-registries",
+      "title": "List private registries for an organization",
+      "category": "private-registries",
+      "subcategory": "organization-configurations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists all private registry configurations available at the organization-level without revealing their encrypted\nvalues.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "total_count": 1,
+              "configurations": [
+                {
+                  "name": "MAVEN_REPOSITORY_SECRET",
+                  "registry_type": "maven_repository",
+                  "username": "monalisa",
+                  "created_at": "2019-08-10T14:59:22Z",
+                  "updated_at": "2020-01-10T14:59:22Z",
+                  "visibility": "selected"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "total_count",
+                "configurations"
+              ],
+              "properties": {
+                "total_count": {
+                  "type": "integer"
+                },
+                "configurations": {
+                  "type": "array",
+                  "items": {
+                    "title": "Organization private registry",
+                    "description": "Private registry configuration for an organization",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The name of the private registry configuration.",
+                        "type": "string"
+                      },
+                      "registry_type": {
+                        "description": "The registry type.",
+                        "enum": [
+                          "maven_repository",
+                          "nuget_feed",
+                          "goproxy_server",
+                          "npm_registry",
+                          "rubygems_server",
+                          "cargo_registry",
+                          "composer_repository",
+                          "docker_registry",
+                          "git_source",
+                          "helm_registry",
+                          "hex_organization",
+                          "hex_repository",
+                          "pub_repository",
+                          "python_index",
+                          "terraform_registry"
+                        ],
+                        "type": "string"
+                      },
+                      "auth_type": {
+                        "description": "The authentication type for the private registry.",
+                        "enum": [
+                          "token",
+                          "username_password",
+                          "oidc_azure",
+                          "oidc_aws",
+                          "oidc_jfrog"
+                        ],
+                        "type": "string"
+                      },
+                      "url": {
+                        "description": "The URL of the private registry.",
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "username": {
+                        "description": "The username to use when authenticating with the private registry.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "replaces_base": {
+                        "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "visibility": {
+                        "description": "Which type of organization repositories have access to the private registry.",
+                        "enum": [
+                          "all",
+                          "private",
+                          "selected"
+                        ],
+                        "type": "string"
+                      },
+                      "tenant_id": {
+                        "description": "The tenant ID of the Azure AD application.",
+                        "type": "string"
+                      },
+                      "client_id": {
+                        "description": "The client ID of the Azure AD application.",
+                        "type": "string"
+                      },
+                      "aws_region": {
+                        "description": "The AWS region.",
+                        "type": "string"
+                      },
+                      "account_id": {
+                        "description": "The AWS account ID.",
+                        "type": "string"
+                      },
+                      "role_name": {
+                        "description": "The AWS IAM role name.",
+                        "type": "string"
+                      },
+                      "domain": {
+                        "description": "The CodeArtifact domain.",
+                        "type": "string"
+                      },
+                      "domain_owner": {
+                        "description": "The CodeArtifact domain owner.",
+                        "type": "string"
+                      },
+                      "jfrog_oidc_provider_name": {
+                        "description": "The JFrog OIDC provider name.",
+                        "type": "string"
+                      },
+                      "audience": {
+                        "description": "The OIDC audience.",
+                        "type": "string"
+                      },
+                      "identity_mapping_name": {
+                        "description": "The JFrog identity mapping name.",
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "registry_type",
+                      "visibility",
+                      "created_at",
+                      "updated_at"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization private registries\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/private-registries/public-key",
+      "title": "Get private registries public key for an organization",
+      "category": "private-registries",
+      "subcategory": "organization-configurations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the org public key, which is needed to encrypt private registry secrets. You need to encrypt a secret before you can create or update secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "key_id": "012345678912345678",
+              "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234"
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "key_id",
+                "key"
+              ],
+              "properties": {
+                "key_id": {
+                  "description": "The identifier for the key.",
+                  "type": "string"
+                },
+                "key": {
+                  "description": "The Base64 encoded public key.",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization private registries\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/private-registries/{secret_name}",
+      "title": "Get a private registry for an organization",
+      "category": "private-registries",
+      "subcategory": "organization-configurations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "secret_name",
+          "description": "<p>The name of the secret.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the configuration of a single private registry defined for an organization, omitting its encrypted value.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "secret_name": "SECRET_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>The specified private registry configuration for the organization</p>",
+            "example": {
+              "name": "MAVEN_REPOSITORY_SECRET",
+              "registry_type": "maven_repository",
+              "username": "monalisa",
+              "visibility": "private",
+              "created_at": "2019-08-10T14:59:22Z",
+              "updated_at": "2020-01-10T14:59:22Z"
+            },
+            "schema": {
+              "title": "Organization private registry",
+              "description": "Private registry configuration for an organization",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the private registry configuration.",
+                  "type": "string"
+                },
+                "registry_type": {
+                  "description": "The registry type.",
+                  "enum": [
+                    "maven_repository",
+                    "nuget_feed",
+                    "goproxy_server",
+                    "npm_registry",
+                    "rubygems_server",
+                    "cargo_registry",
+                    "composer_repository",
+                    "docker_registry",
+                    "git_source",
+                    "helm_registry",
+                    "hex_organization",
+                    "hex_repository",
+                    "pub_repository",
+                    "python_index",
+                    "terraform_registry"
+                  ],
+                  "type": "string"
+                },
+                "auth_type": {
+                  "description": "The authentication type for the private registry.",
+                  "enum": [
+                    "token",
+                    "username_password",
+                    "oidc_azure",
+                    "oidc_aws",
+                    "oidc_jfrog"
+                  ],
+                  "type": "string"
+                },
+                "url": {
+                  "description": "The URL of the private registry.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "username": {
+                  "description": "The username to use when authenticating with the private registry.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "replaces_base": {
+                  "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "visibility": {
+                  "description": "Which type of organization repositories have access to the private registry.",
+                  "enum": [
+                    "all",
+                    "private",
+                    "selected"
+                  ],
+                  "type": "string"
+                },
+                "tenant_id": {
+                  "description": "The tenant ID of the Azure AD application.",
+                  "type": "string"
+                },
+                "client_id": {
+                  "description": "The client ID of the Azure AD application.",
+                  "type": "string"
+                },
+                "aws_region": {
+                  "description": "The AWS region.",
+                  "type": "string"
+                },
+                "account_id": {
+                  "description": "The AWS account ID.",
+                  "type": "string"
+                },
+                "role_name": {
+                  "description": "The AWS IAM role name.",
+                  "type": "string"
+                },
+                "domain": {
+                  "description": "The CodeArtifact domain.",
+                  "type": "string"
+                },
+                "domain_owner": {
+                  "description": "The CodeArtifact domain owner.",
+                  "type": "string"
+                },
+                "jfrog_oidc_provider_name": {
+                  "description": "The JFrog OIDC provider name.",
+                  "type": "string"
+                },
+                "audience": {
+                  "description": "The OIDC audience.",
+                  "type": "string"
+                },
+                "identity_mapping_name": {
+                  "description": "The JFrog identity mapping name.",
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "name",
+                "registry_type",
+                "visibility",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>The specified private registry configuration for the organization</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization private registries\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/private-registries/{secret_name}",
+      "title": "Update a private registry for an organization",
+      "category": "private-registries",
+      "subcategory": "organization-configurations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "secret_name",
+          "description": "<p>The name of the secret.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "registry_type",
+          "description": "<p>The registry type.</p>",
+          "enum": [
+            "maven_repository",
+            "nuget_feed",
+            "goproxy_server",
+            "npm_registry",
+            "rubygems_server",
+            "cargo_registry",
+            "composer_repository",
+            "docker_registry",
+            "git_source",
+            "helm_registry",
+            "hex_organization",
+            "hex_repository",
+            "pub_repository",
+            "python_index",
+            "terraform_registry"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "url",
+          "description": "<p>The URL of the private registry.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "username",
+          "description": "<p>The username to use when authenticating with the private registry. This field should be omitted if the private registry does not require a username for authentication.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "replaces_base",
+          "description": "<p>Whether this private registry should replace the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When set to <code>true</code>, Dependabot will only use this registry and will not fall back to the public registry. When set to <code>false</code> (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</p>",
+          "default": false
+        },
+        {
+          "type": "string",
+          "name": "encrypted_value",
+          "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-server@3.16/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization\">Get private registries public key for an organization</a> endpoint.</p>"
+        },
+        {
+          "type": "string",
+          "name": "key_id",
+          "description": "<p>The ID of the key you used to encrypt the secret.</p>"
+        },
+        {
+          "type": "string",
+          "name": "visibility",
+          "description": "<p>Which type of organization repositories have access to the private registry. <code>selected</code> means only the repositories specified by <code>selected_repository_ids</code> can access the private registry.</p>",
+          "enum": [
+            "all",
+            "private",
+            "selected"
+          ]
+        },
+        {
+          "type": "array of integers",
+          "name": "selected_repository_ids",
+          "description": "<p>An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when <code>visibility</code> is set to <code>selected</code>. This field should be omitted if <code>visibility</code> is set to <code>all</code> or <code>private</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "auth_type",
+          "description": "<p>The authentication type for the private registry. This field cannot be changed after creation. If provided, it must match the existing <code>auth_type</code> of the configuration. To change the authentication type, delete and recreate the configuration.</p>",
+          "enum": [
+            "token",
+            "username_password",
+            "oidc_azure",
+            "oidc_aws",
+            "oidc_jfrog"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "tenant_id",
+          "description": "<p>The tenant ID of the Azure AD application. Required when <code>auth_type</code> is <code>oidc_azure</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "client_id",
+          "description": "<p>The client ID of the Azure AD application. Required when <code>auth_type</code> is <code>oidc_azure</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "aws_region",
+          "description": "<p>The AWS region. Required when <code>auth_type</code> is <code>oidc_aws</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "account_id",
+          "description": "<p>The AWS account ID. Required when <code>auth_type</code> is <code>oidc_aws</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "role_name",
+          "description": "<p>The AWS IAM role name. Required when <code>auth_type</code> is <code>oidc_aws</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "domain",
+          "description": "<p>The CodeArtifact domain. Required when <code>auth_type</code> is <code>oidc_aws</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "domain_owner",
+          "description": "<p>The CodeArtifact domain owner (AWS account ID). Required when <code>auth_type</code> is <code>oidc_aws</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "jfrog_oidc_provider_name",
+          "description": "<p>The JFrog OIDC provider name. Required when <code>auth_type</code> is <code>oidc_jfrog</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "audience",
+          "description": "<p>The OIDC audience. Optional for <code>oidc_aws</code> and <code>oidc_jfrog</code> auth types.</p>"
+        },
+        {
+          "type": "string",
+          "name": "identity_mapping_name",
+          "description": "<p>The JFrog identity mapping name. Optional for <code>oidc_jfrog</code> auth type.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.16/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, or <code>oidc_jfrog</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization private registries\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/private-registries/{secret_name}",
+      "title": "Delete a private registry for an organization",
+      "category": "private-registries",
+      "subcategory": "organization-configurations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "secret_name",
+          "description": "<p>The name of the secret.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Delete a private registry configuration at the organization-level.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "secret_name": "SECRET_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization private registries\" organization permissions": "write"
+          }
+        ]
+      }
+    }
+  ]
+}

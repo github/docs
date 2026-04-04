@@ -1,13 +1,15 @@
 ---
 title: Using a staging environment
-intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging instances.'
+intro: Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging instances.
 versions:
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
   - /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment
 shortTitle: Use staging environment
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About staging environments for {% data variables.product.prodname_ghe_server %}

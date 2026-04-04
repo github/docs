@@ -6,6 +6,8 @@ versions:
 shortTitle: Troubleshooting access
 redirect_from:
   - /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
+category:
+  - Configure SAML single sign-on
 ---
 
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}

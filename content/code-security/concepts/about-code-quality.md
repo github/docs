@@ -6,13 +6,13 @@ intro: Use {% data variables.product.prodname_code_quality %} to flag code quali
 product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
-topics:
-  - Code Quality
 contentType: concepts
 redirect_from:
   - /code-security/code-quality/concepts/about-code-quality
   - /code-security/code-quality/concepts
   - /code-security/code-quality
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}
@@ -65,7 +65,7 @@ When {% data variables.product.prodname_codeql %} finds rule-based problems on p
 
 ### Default branch results
 
-{% data variables.product.prodname_code_quality_short %} findings on the default branch are reported on "{% data variables.code-quality.code_quality_ui %}" pages on the **Security** tab for the repository:
+{% data variables.product.prodname_code_quality_short %} findings on the default branch are reported on "{% data variables.code-quality.code_quality_ui %}" pages on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository:
 
 * **{% data variables.code-quality.all_findings %}** shows the results of {% data variables.product.prodname_codeql %} quality analysis. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-your-codebase).
 * **{% data variables.code-quality.recent_suggestions %}** shows the results of AI-powered analysis of the files most recently pushed to the default branch. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-recent-merges).

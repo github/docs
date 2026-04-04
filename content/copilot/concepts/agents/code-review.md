@@ -80,43 +80,39 @@ If you include these file types in a pull request, {% data variables.copilot.cop
 
 For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 
-## {% data variables.copilot.copilot_code-review-tools_cap_short %}
+## Agentic capabilities for {% data variables.copilot.copilot_code-review_short %}
 
 > [!NOTE]
 >
-> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of preview features.
-> * {% data variables.copilot.copilot_code-review_short %} has several new tools that are in {% data variables.release-phases.public_preview %} and subject to change.
+> * {% data variables.copilot.copilot_code-review_short %} has capabilities that are in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of preview features.
 
-{% data variables.copilot.copilot_code-review_short %} uses full project context gathering to provide more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes. Full project context gathering is generally available and enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
+{% data variables.copilot.copilot_code-review_short %} utilizes agentic capabilities to extend its functionality.
 
-{% data variables.copilot.copilot_code-review_short %} includes additional new tools that are in {% data variables.release-phases.public_preview %}:
+* **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes. Full project context gathering is generally available.
+* **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_coding_agent %} is in public preview and subject to change.
 
-* **Support for static analysis tools like {% data variables.product.prodname_codeql %}, ESLint, and PMD**. This delivers more high-signal, consistent findings for security and quality.
-* **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**. This automates creation of a new pull request against your branch with the suggested fixes applied.
+These capabilities are enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
 
-These tools are also enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
+If {% data variables.product.prodname_actions %} is unavailable or if Actions workflows used by {% data variables.copilot.copilot_code-review_short %} fail, reviews will still be generated. However, they will not include the additional features provided by the agentic capabilities.
 
-If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you can only participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled using preview features. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+### Usage of {% data variables.product.prodname_actions %} runners for agentic capabilities in code review
 
-You do not need to have {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the {% data variables.copilot.copilot_code-review-tools_short %}.
-
-If {% data variables.product.prodname_actions %} is unavailable or if Actions workflows used by {% data variables.copilot.copilot_code-review_short %} fail, reviews will still be generated. However, they will not include the additional features provided by the {% data variables.copilot.copilot_code-review-tools_short %}.
+{% data variables.copilot.copilot_code-review_short %} uses free minutes for {% data variables.product.prodname_actions %} to run the agentic capabilities, including full project context gathering and any capabilities in {% data variables.release-phases.public_preview %}. By default, {% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_dotcom %}-hosted runners. You can also upgrade to larger {% data variables.product.prodname_dotcom %}-hosted runners for better performance.
 
 > [!NOTE]
->
-> The {% data variables.release-phases.public_preview %} includes free actions minutes for the new {% data variables.copilot.copilot_code-review-tools_short %}.
+> Usage of larger {% data variables.product.prodname_dotcom %}-hosted runners is billed per-minute and may incur additional {% data variables.product.prodname_actions %} charges.
 
-## Usage of {% data variables.product.prodname_actions %} runners for tools in code review
+You do not need to have {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the agentic capabilities in code review.
 
-{% data reusables.copilot.code-review.code-review-actions-usage %}
+If your organization has disabled {% data variables.product.prodname_dotcom %}-hosted runners, the agentic capabilities will not be available. In this case, code reviews will fall back to a more limited review. Organizations in this situation can use self-hosted runners.
 
-Organizations in this situation can use self-hosted runners. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-self-hosted-runners).
+For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-runners).
 
 ## Code review monthly quota
 
 Each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one.
 
-If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the pull request author's quota.
+If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the pull request author's quota. If a review is manually requested by another user, the usage is applied to that user's quota instead.
 
 If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to:
 
@@ -127,11 +123,13 @@ If a pull request is created by {% data variables.product.prodname_actions %} or
 
 When you reach your monthly quota, you will not be able to get a code review from {% data variables.product.prodname_copilot_short %} until your quota resets. To continue to use code reviews before your quota resets, you will need to upgrade your {% data variables.product.prodname_copilot_short %} plan or enable additional premium requests.
 
-### Quota for users without a {% data variables.product.prodname_copilot_short %} license
+### Users without a {% data variables.product.prodname_copilot_short %} license or plan that includes {% data variables.copilot.copilot_code-review_short %}
 
-Users without a {% data variables.product.prodname_copilot_short %} license do not have a monthly premium request quota. When {% data variables.copilot.copilot_code-review_short %} is enabled for these users, any premium requests they generate are billed directly to the organization or enterprise as paid overage usage. This applies to both manually requested reviews and automatic code reviews.
+Users without access to {% data variables.copilot.copilot_code-review_short %} do not have a monthly premium request quota. This includes users who have no {% data variables.product.prodname_copilot_short %} license and users on the {% data variables.copilot.copilot_free_short %} plan, which does not include {% data variables.copilot.copilot_code-review_short %}.
 
-Premium requests generated by users without a license are not attributed to any {% data variables.product.prodname_copilot_short %} plan quota. They appear as overage usage in billing reports and premium request analytics. Users with a {% data variables.product.prodname_copilot_short %} license continue to consume premium requests from their assigned plan quota.
+When {% data variables.copilot.copilot_code-review_short %} is enabled for these users, any premium requests they generate are billed directly to the organization or enterprise as paid overage usage. This applies to both manually requested reviews and automatic code reviews.
+
+Premium requests generated by these users are not attributed to any {% data variables.product.prodname_copilot_short %} plan quota. They appear as overage usage in billing reports and premium request analytics. Users with a {% data variables.product.prodname_copilot_short %} license that includes code review continue to consume premium requests from their assigned plan quota.
 
 ## Model usage
 

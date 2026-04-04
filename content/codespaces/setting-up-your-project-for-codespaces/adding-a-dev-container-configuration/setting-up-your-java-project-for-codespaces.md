@@ -2,14 +2,16 @@
 title: Setting up a Java project for GitHub Codespaces
 allowTitleToDifferFromFilename: true
 shortTitle: Setting up a Java project
-intro: 'Get started with a Java project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container configuration.'
+intro: Get started with a Java project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container configuration.
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction

@@ -16,7 +16,7 @@ contentType: how-tos
 
 Plugin marketplaces are registries of plugins for {% data variables.copilot.copilot_cli_short %}. They can be located on {% data variables.product.prodname_dotcom_the_website %}, in any other online Git hosting service, or on your local or shared file system. By creating a marketplace and adding your plugins to it, you can make it easy for other users to find and install your plugins.
 
-{% data reusables.copilot.cli-help-note %}
+{% data reusables.copilot.copilot-cli.cli-help-note %}
 
 ## Prerequisite
 
@@ -31,7 +31,7 @@ You have created one or more plugins that you want to share. See [AUTOTITLE](/co
 
    **Example `marketplace.json` file**
 
-   {% data reusables.copilot.cli-example-marketplace-file %}
+   {% data reusables.copilot.copilot-cli.cli-example-marketplace-file %}
 
    Online examples:
 
@@ -40,13 +40,13 @@ You have created one or more plugins that you want to share. See [AUTOTITLE](/co
 
    The top-level `plugins` field is an array of plugin objects, each containing metadata about a plugin, including its name, description, version, and source.
 
-   {% data reusables.copilot.cli-path-to-plugins %}
+   {% data reusables.copilot.copilot-cli.cli-path-to-plugins %}
 
    For details of the full set of fields you can include in this file, see [AUTOTITLE](/copilot/reference/cli-plugin-reference#marketplacejson).
 
 1. Add the `marketplace.json` file to the `.github/plugin` directory of a repository.
 
-   {% data reusables.copilot.cli-claude-plugin-dir %}
+   {% data reusables.copilot.copilot-cli.cli-claude-plugin-dir %}
 
 1. For each plugin defined in the `marketplace.json` file, add the relevant plugin directory to the appropriate location in the repository.
 

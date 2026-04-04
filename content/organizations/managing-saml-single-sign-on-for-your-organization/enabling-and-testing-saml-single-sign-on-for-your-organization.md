@@ -7,6 +7,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Enable & test SAML SSO
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About SAML single sign-on

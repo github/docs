@@ -3,11 +3,6 @@ title: SARIF file is invalid
 shortTitle: SARIF file invalid
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.product.prodname_code_scanning_caps %} can only process syntactically valid SARIF files. Invalid files are rejected.'
-topics:
-  - Code scanning
-  - Errors
-  - SARIF
-  - Troubleshooting
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/sarif-invalid
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/sarif-invalid
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

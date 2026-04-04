@@ -18,6 +18,8 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces
   - /billing/managing-billing-for-your-products/about-billing-for-github-codespaces
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 ## How use of {% data variables.product.prodname_github_codespaces %} is measured

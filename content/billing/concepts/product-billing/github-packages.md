@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: GitHub Packages
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 ## How use of {% data variables.product.prodname_registry %} is measured

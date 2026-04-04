@@ -1,13 +1,15 @@
 ---
 title: Abilities and restrictions of managed user accounts
 shortTitle: Restrictions for managed users
-intro: 'Learn what users can and cannot do if you manage accounts from an identity provider (IdP).'
+intro: Learn what users can and cannot do if you manage accounts from an identity provider (IdP).
 versions:
   ghec: '*'
-type: reference
 redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/abilities-and-restrictions-of-managed-user-accounts
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts
+contentType: reference
+category:
+  - Configure authentication
 ---
 
 With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
@@ -36,11 +38,10 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## {% data variables.product.prodname_github_codespaces %}
 
-* On {% data variables.product.prodname_dotcom_the_website %}, {% data variables.enterprise.prodname_managed_users %} can only create codespaces that are owned by the enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
+* {% data variables.enterprise.prodname_managed_users %} can only create codespaces that are owned by the enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
   * Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization can pay for {% data variables.product.prodname_github_codespaces %}. See [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization).
   * Cannot create codespaces for their personal repositories, any repositories outside their organizations, or {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}.
   * Cannot publish a codespace created from a template to a new repository.
-* On {% data variables.enterprise.data_residency_site %}, {% data variables.product.prodname_github_codespaces %} is not available to any users.
 
 ## {% data variables.product.prodname_copilot %}
 

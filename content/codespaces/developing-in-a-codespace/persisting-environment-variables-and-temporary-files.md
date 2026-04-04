@@ -4,10 +4,12 @@ intro: You can configure custom environment variables so that they are set to th
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Persist variables and files
 redirect_from:
   - /codespaces/developing-in-codespaces/persisting-environment-variables-and-temporary-files
+contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## Setting persistent environment variables

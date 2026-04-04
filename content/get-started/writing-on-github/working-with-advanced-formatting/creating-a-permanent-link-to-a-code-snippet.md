@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Permanent links to code
+category:
+  - Write and format content
 ---
 
 ## Linking to code

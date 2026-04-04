@@ -6,7 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+category:
+  - Build apps and integrations
+contentType: tutorials
 ---
 
 ## About Octokit.js

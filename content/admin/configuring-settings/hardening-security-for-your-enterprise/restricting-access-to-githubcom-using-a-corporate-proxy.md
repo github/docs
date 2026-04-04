@@ -5,6 +5,8 @@ shortTitle: 'Block personal accounts'
 product: 'Enterprises with {% data variables.product.prodname_emus %} on {% data variables.product.prodname_dotcom_the_website %}'
 versions:
   ghec: '*'
+category:
+  - Secure and govern your enterprise
 ---
 
 If you use {% data variables.product.prodname_emus %}, you can block users on your network from authenticating to {% data variables.product.prodname_dotcom_the_website %} with accounts that are not members of your enterprise. This helps reduce the risk of your company's data being exposed to the public.

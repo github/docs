@@ -37,6 +37,8 @@ shortTitle: View product/license use
 permissions: '{% data reusables.permissions.enhanced-billing-cloud-all %}'
 product: Cloud only
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 > [!TIP]

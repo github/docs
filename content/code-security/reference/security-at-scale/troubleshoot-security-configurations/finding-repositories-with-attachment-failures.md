@@ -6,15 +6,12 @@ intro: You can identify any repositories where the security configuration could 
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/finding-repositories-with-attachment-failures
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/finding-repositories-with-attachment-failures
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## Finding and remediating attachment failures

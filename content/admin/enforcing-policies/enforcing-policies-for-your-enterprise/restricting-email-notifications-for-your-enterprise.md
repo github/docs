@@ -6,7 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise.
-type: how_to
 redirect_from:
   - /admin/policies/restricting-email-notifications-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account-to-approved-domains
@@ -14,6 +13,9 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/restricting-email-notifications-for-your-enterprise-account
   - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
 shortTitle: Restrict email notifications
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About email restrictions for your enterprise

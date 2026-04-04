@@ -5,14 +5,12 @@ intro: You apply a {% data variables.product.prodname_security_configuration %} 
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/unexpected-default-setup
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/unexpected-default-setup
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About the problem

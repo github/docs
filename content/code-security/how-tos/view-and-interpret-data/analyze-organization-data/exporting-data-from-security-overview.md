@@ -7,16 +7,11 @@ product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 versions:
   feature: security-overview-export-data
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
-  - Teams
 redirect_from:
   - /code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages
   - /code-security/security-overview/exporting-data-from-security-overview
+category:
+  - Secure at scale
 ---
 
 {% data reusables.security-overview.download-csv-files %}

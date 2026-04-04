@@ -1,13 +1,16 @@
 ---
 title: Migrating your enterprise to GitHub Actions
 shortTitle: Migrate to Actions
-intro: 'Learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.'
+intro: Learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About enterprise migrations to {% data variables.product.prodname_actions %}

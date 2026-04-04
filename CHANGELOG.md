@@ -1,5 +1,64 @@
 # Docs changelog
 
+**27 March 2026**
+
+We've introduced a new discovery landing page design for all the top-level doc sets on docs.github.com. The landing pages highlight recommended articles and give users the ability to filter articles by category with a drop down menu. Every article across the site now includes category metadata, making it easier to browse doc sets without relying solely on search. This replaces the previous product-landing layout across 35 doc sets.
+
+<hr>
+
+**26 March 2026**
+
+If you use both Copilot CLI and VS Code, when you start the CLI it will automatically connect to a currently open VS Code workspace that matches the directory in which you're using the CLI. You can also manually connect to VS Code by using the `/ide` slash command.
+
+This new article documents this feature and outlines the benefits of sharing context, trust settings, and output between Copilot CLI and VS Code:
+
+[Connecting GitHub Copilot CLI to VS Code](https://docs.github.com/en/copilot/how-tos/copilot-cli/connecting-vs-code)
+
+<hr>
+
+**23 March 2026**
+
+We've added an article with details of the various command-line options for allowing/denying tools that Copilot CLI can use.
+
+[Allowing and denying tool use](https://docs.github.com/en/copilot/how-tos/copilot-cli/allowing-tools)
+
+<hr>
+
+**18 March 2026**
+
+We added documentation for using session data in Copilot CLI—including the `/chronicle` slash command:
+
+* [About GitHub Copilot CLI session data](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle)
+* [Using GitHub Copilot CLI session data](https://docs.github.com/copilot/how-tos/copilot-cli/chronicle)
+
+<hr>
+
+**17 March 2026**
+
+We published [Maintaining codebase standards in a GitHub Copilot rollout](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/roll-out-at-scale/maintain-codebase-standards).
+
+The guide shows how customers can create a strong governance framework for Copilot by leveraging GitHub's enterprise-grade platform alongside cultural best practices.
+
+We also published [Resources for getting approval of GitHub Copilot](https://docs.github.com/enterprise-cloud@latest/copilot/get-started/resources-for-approval), a guide that collects resources for enterprise admins to send to legal, compliance, and cybersecurity teams in their company.
+
+<hr>
+
+**5 March 2026**
+
+We've updated our documentation to include a series of articles about the GitHub integration in Teams (previously, docs for the integration lived in a public repository).
+
+See [GitHub integration in Teams](https://docs.github.com/integrations/how-tos/teams).
+
+<hr>
+
+**4 March 2026**
+
+We've published a new article to coincide with the public preview of the Copilot coding agent for Jira integration.
+
+See [Integrating Copilot coding agent with Jira](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira).
+
+<hr>
+
 **3 March 2026**
 
 We've added a new reference article, [Copilot customization cheat sheet](https://docs.github.com/copilot/reference/customization-cheat-sheet), to help you choose the right Copilot customization approach for your workflow.
@@ -18,7 +77,7 @@ We've added an article about the new `/research` slash command in Copilot CLI:
 
 **27 February 2026**
 
-We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference#custom-agents-reference).
+We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/copilot/reference/cli-command-reference#custom-agents-reference).
 
 <hr>
 

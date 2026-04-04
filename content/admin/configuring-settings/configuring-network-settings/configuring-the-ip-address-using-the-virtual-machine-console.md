@@ -1,6 +1,6 @@
 ---
 title: Configuring the IP address using the virtual machine console
-intro: 'By default, {% data variables.product.prodname_ghe_server %} retrieves network settings via the dynamic host configuration protocol (DHCP). If your platform supports it, or if DHCP is unavailable, you can also configure the network settings using the virtual machine console.'
+intro: By default, {% data variables.product.prodname_ghe_server %} retrieves network settings via the dynamic host configuration protocol (DHCP). If your platform supports it, or if DHCP is unavailable, you can also configure the network settings using the virtual machine console.
 redirect_from:
   - /enterprise/admin/installation/configuring-the-ip-address-using-the-virtual-machine-console
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
@@ -8,8 +8,10 @@ redirect_from:
   - /admin/configuration/configuring-network-settings/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Set the IP using the console
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 > [!NOTE]

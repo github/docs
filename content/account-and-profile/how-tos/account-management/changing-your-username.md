@@ -10,6 +10,8 @@ permissions: '{% ifversion ghec %}Users with personal accounts can change their 
 contentType: how-tos
 redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/changing-your-username
+category:
+  - Change or close your account
 ---
 
 ## Prerequisites

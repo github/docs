@@ -1,14 +1,16 @@
 ---
 title: Security in GitHub Codespaces
-intro: 'Overview of the {% data variables.product.prodname_github_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.'
+intro: Overview of the {% data variables.product.prodname_github_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
 shortTitle: Security in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/security-in-codespaces
   - /codespaces/codespaces-reference/security-in-github-codespaces
+contentType: reference
+category:
+  - Get started
 ---
 
 ## Overview of codespace security

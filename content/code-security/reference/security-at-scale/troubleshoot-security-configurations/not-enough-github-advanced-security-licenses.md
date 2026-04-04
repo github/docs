@@ -5,15 +5,12 @@ intro: If you are on a subscription-based billing model for GHAS, you need avail
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/not-enough-github-advanced-security-licenses
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/not-enough-github-advanced-security-licenses
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 If you are on a volume / subscription-based billing model for {% data variables.product.prodname_GHAS %} (GHAS), you must have an available GHAS license for any additional unique active committers to enable GHAS features on a private{% ifversion ghec or ghes %} or internal{% endif %} repository. To learn about GHAS licensing, as well as unique and active committers, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).

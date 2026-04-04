@@ -9,23 +9,31 @@ redirect_from:
   - /organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization
 introLinks:
   overview: /organizations/collaborating-with-groups-in-organizations/about-organizations
-featuredLinks:
-  startHere:
-    - /get-started/learning-about-github/types-of-github-accounts
-    - /organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization
-    - /organizations/organizing-members-into-teams/about-teams
-    - /organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions
-  popular:
+layout: discovery-landing
+includedCategories:
+  - Set up your organization
+  - Manage members
+  - Organize teams
+  - Assign roles and permissions
+  - Control repository access
+  - Set repository policies
+  - Configure organization features
+  - Manage projects
+  - Configure SAML single sign-on
+  - Manage authentication methods
+  - Manage app and API access
+  - Secure and monitor your organization
+carousels:
+  recommended:
+    - /organizations/collaborating-with-groups-in-organizations/about-organizations
     - /organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch
-    - /organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization
-    - /organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
-    - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment
-  guideCards:
+    - /organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations
     - /organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization
-    - /organizations/managing-membership-in-your-organization/adding-people-to-your-organization
-    - /organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository
+    - /organizations/organizing-members-into-teams/about-teams
+    - /organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization
+    - /organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization
+    - /organizations/managing-organization-settings/governing-how-people-use-repositories-in-your-organization
     - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization
-layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'

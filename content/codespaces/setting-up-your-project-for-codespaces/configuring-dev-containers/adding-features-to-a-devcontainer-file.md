@@ -1,14 +1,16 @@
 ---
 title: Adding features to a devcontainer.json file
 shortTitle: Adding features
-intro: 'With features, you can quickly add tools, runtimes, or libraries to your dev container configuration.'
+intro: With features, you can quickly add tools, runtimes, or libraries to your dev container configuration.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 {% data reusables.codespaces.about-features %} Use the tabs in this article to display instructions for each of these ways of adding features.

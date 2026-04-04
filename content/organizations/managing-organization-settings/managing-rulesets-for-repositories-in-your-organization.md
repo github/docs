@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 permissions: Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.
 shortTitle: Manage rulesets
+category:
+  - Set repository policies
 ---
 
 ## About managing rulesets for an organization

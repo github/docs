@@ -1,9 +1,11 @@
 ---
 title: Browsing sub-issues
-intro: 'Learn how to navigate issue hierarchy in your repositories.'
+intro: Learn how to navigate issue hierarchy in your repositories.
 versions:
-  feature: 'sub-issues'
-type: overview
+  feature: sub-issues
+contentType: concepts
+category:
+  - Create and work with issues
 ---
 
 {% data reusables.issues.about-sub-issues %}

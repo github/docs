@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions
   - /organizations/collaborating-with-groups-in-organizations/viewing-metrics-for-github-actions
+category:
+  - Configure organization features
 ---
 
 {% data reusables.actions.about-actions-metrics %}

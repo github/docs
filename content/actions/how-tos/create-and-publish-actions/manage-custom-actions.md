@@ -1,15 +1,17 @@
 ---
 title: Managing custom actions
 shortTitle: Manage custom actions
-intro: 'Learn how to create and manage your own actions, and customize actions shared by the {% data variables.product.prodname_dotcom %} community.'
+intro: Learn how to create and manage your own actions, and customize actions shared by the {% data variables.product.prodname_dotcom %} community.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 redirect_from:
   - /actions/how-tos/administering-github-actions/managing-custom-actions
   - /actions/how-tos/creating-and-publishing-actions/managing-custom-actions
+contentType: how-tos
+category:
+  - Reuse and share automations
 ---
 
 ## Choosing a location for your action

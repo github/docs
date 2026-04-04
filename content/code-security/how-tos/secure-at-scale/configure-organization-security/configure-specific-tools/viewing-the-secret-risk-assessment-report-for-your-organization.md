@@ -7,15 +7,11 @@ permissions: '{% data reusables.permissions.secret-risk-assessment-report-genera
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-risk-assessment
-topics:
-  - Code Security
-  - Secret scanning
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 {% data reusables.organizations.navigate-to-org %}

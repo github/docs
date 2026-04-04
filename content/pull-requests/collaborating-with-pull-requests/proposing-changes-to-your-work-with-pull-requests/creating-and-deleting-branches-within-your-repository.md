@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Create & delete branches
+category:
+  - Create pull requests
 ---
 
 ## Creating a branch

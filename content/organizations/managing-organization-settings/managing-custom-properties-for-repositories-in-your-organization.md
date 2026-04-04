@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Repository custom properties
+category:
+  - Set repository policies
 ---
 
 ## About custom properties

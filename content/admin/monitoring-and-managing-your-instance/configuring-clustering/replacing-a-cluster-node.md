@@ -1,6 +1,6 @@
 ---
 title: Replacing a cluster node
-intro: 'If a node fails in a {% data variables.product.prodname_ghe_server %} cluster, or if you want to add a new node with more resources, mark any nodes to replace as offline, then add the new node.'
+intro: If a node fails in a {% data variables.product.prodname_ghe_server %} cluster, or if you want to add a new node with more resources, mark any nodes to replace as offline, then add the new node.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/replacing-a-cluster-node
@@ -10,7 +10,9 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About replacement of {% data variables.product.prodname_ghe_server %} cluster nodes

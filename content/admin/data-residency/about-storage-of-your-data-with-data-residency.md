@@ -10,6 +10,8 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/about-data-residency-in-the-european-union
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/about-data-residency-in-the-european-union
   - /early-access/admin/data-residency-for-github-enterprise-cloud/about-data-residency-in-the-european-union
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.data-residency.when-you-adopt-data-residency %}

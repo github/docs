@@ -17,6 +17,8 @@ versions:
   ghec: '*'
 shortTitle: Send enterprise contributions
 contentType: how-tos
+category:
+  - Track your contributions
 ---
 
 > [!IMPORTANT]

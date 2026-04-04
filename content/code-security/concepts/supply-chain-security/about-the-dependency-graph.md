@@ -10,12 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 shortTitle: Dependency graph
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 

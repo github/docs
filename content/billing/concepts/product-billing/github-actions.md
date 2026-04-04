@@ -44,7 +44,7 @@ For **private repositories**, each {% data variables.product.github %} account r
 
 It's important to understand the difference between what you see on {% data variables.product.github %} and what appears on your bill:
 
-* **Current storage:** The amount of storage you have right now (visible in repository settings and the **Billing Overview** page)
+* **Current storage:** The amount of storage you have right now
 * **Accrued storage:** The cumulative total of storage used throughout the billing cycle (determines your bill)
 
 **When you delete artifacts:**
@@ -72,6 +72,27 @@ Deleting artifacts reduces your current storage and prevents future charges, but
 * Example: Storing 3 GB for 10 days = 720 GB-Hours (3 GB × 10 days × 24 hours)
 
 Your monthly bill converts GB-Hours to GB-Months by dividing by the hours in the month (usually 720 hours for a 30-day month).
+
+### Custom image storage
+
+For {% data variables.actions.github_hosted_larger_runners %}, storage for custom images is billed through {% data variables.product.prodname_actions %} storage.
+
+Custom image storage uses the same hourly accrual model as other {% data variables.product.prodname_actions %} storage. Your bill is based on the amount of image data that is stored over time, measured in GB-Hours.
+
+Storage usage for custom images depends on:
+
+* The size of each image version
+* The number of image versions that you retain
+* How long each version is stored
+
+Each successful workflow job that includes the `snapshot` keyword creates a new custom image version. Each retained version contributes to your storage usage until the version is deleted or removed by a retention policy. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-custom-images) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#custom-images-retention-policies).
+
+Custom image storage is based on retained image data over time, not on the number of times that a runner uses or pulls an existing image.
+
+For example:
+
+* Storing one 150 GB custom image version for 24 hours uses 3,600 GB-Hours.
+* Storing four 150 GB versions of the same image for 24 hours uses 14,400 GB-Hours.
 
 ### Examples of how usage is measured
 
@@ -144,7 +165,7 @@ If you use 3 GB of artifact storage for 10 days of March and 12 GB for 21 days o
 At the end of the month, {% data variables.product.github %} rounds your artifact storage to the nearest MB. Therefore, your artifact storage usage for March would be 9.097 GB.
 
 > [!NOTE]
-> {% data variables.product.github %} updates your artifact storage space within a 6 to 12-hour window. If you delete artifacts, the available space will be reflected in your account during the next scheduled update.
+> {% data variables.product.github %} updates your artifact storage usage within 6 to 12 hours. Deleting artifacts frees up space for current storage, but does not reduce your accrued storage usage, which is used to calculate your storage billing for the current billing cycle.
 
 ### Example cache storage cost calculation
 

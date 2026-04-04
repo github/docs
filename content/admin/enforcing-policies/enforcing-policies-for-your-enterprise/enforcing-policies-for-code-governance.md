@@ -1,12 +1,14 @@
 ---
 title: Enforcing code governance in your enterprise with rulesets
 allowTitleToDifferFromFilename: true
-intro: 'You can create a ruleset to target multiple repositories in your enterprise.'
+intro: You can create a ruleset to target multiple repositories in your enterprise.
 versions:
   feature: enterprise-code-rulesets
-permissions: 'Enterprise owners'
+permissions: Enterprise owners
 shortTitle: Create rulesets
-type: how_to
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## Introduction

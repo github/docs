@@ -1,5 +1,5 @@
 ---
-title: 'Error: "Out of disk" or Error: "Out of memory"'
+title: '"Out of disk" and "Out of memory" errors'
 shortTitle: Out of disk or memory
 intro: If you see one of these errors with {% data variables.product.prodname_actions %}, {% ifversion ghes %}try reviewing the specifications of your self-hosted runners.{% else %}you can try alternative runners.{% endif %}
 allowTitleToDifferFromFilename: true
@@ -11,21 +11,18 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/out-of-disk-or-memory
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/out-of-disk-or-memory
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 <!-- CodeQL CLI depends on a short URL generated from this article's URL. If this article's URL ever changes, make sure to update the short URL https://gh.io/troubleshooting-code-scanning/out-of-disk-or-memory. https://thehub.github.com/it/how-to/url-shortening -->
 
 ## About these errors
 
-```text
-Out of disk
-```
+You may see these errors when running {% data variables.product.prodname_code_scanning %} if {% ifversion ghes %}the runners you're using do not have sufficient free memory or disk space.{% else %}the runners you're using don't meet the recommended hardware requirements.{% endif %}
 
-```text
-Out of memory
-```
-
-You may see these errors when running {% data variables.product.prodname_code_scanning %}.
+* `Out of disk`
+* `Out of memory`
 
 ## Confirming the cause of the problem
 

@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Build and manage OAuth apps
 ---
 
 > [!NOTE]

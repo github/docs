@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Transfer ownership
+category:
+  - Build and manage OAuth apps
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

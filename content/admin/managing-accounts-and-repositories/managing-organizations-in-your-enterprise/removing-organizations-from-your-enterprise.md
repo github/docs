@@ -1,13 +1,15 @@
 ---
 title: Removing organizations from your enterprise
-intro: 'Learn how to remove an organization that should no longer be a part of your enterprise.'
+intro: Learn how to remove an organization that should no longer be a part of your enterprise.
 permissions: Enterprise owners can remove any organization from their enterprise.
 versions:
   ghec: '*'
-type: how_to
 shortTitle: Remove organizations
 redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 You can remove an organization that is owned by your enterprise account, so the organization stands alone.

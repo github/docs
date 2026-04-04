@@ -1,13 +1,15 @@
 ---
 title: Accessing your enterprise account if your identity provider is unavailable
 shortTitle: Access your enterprise account
-intro: 'You can sign into {% data variables.product.github %} even if your identity provider is unavailable by bypassing single sign-on (SSO) with a recovery code.'
+intro: You can sign into {% data variables.product.github %} even if your identity provider is unavailable by bypassing single sign-on (SSO) with a recovery code.
 versions:
   ghec: '*'
-type: how_to
 permissions: Enterprise owners can use a recovery code to access an enterprise account.
 redirect_from:
   - /admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About recovery codes

@@ -5,6 +5,4 @@ versions:
   fpt: '*'
 children:
   - /guides
-topics:
-  - Codespaces
 ---

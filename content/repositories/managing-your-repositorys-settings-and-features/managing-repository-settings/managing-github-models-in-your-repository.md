@@ -6,6 +6,8 @@ versions:
   feature: github-models
 permissions: 'Repository administrators'
 allowTitleToDifferFromFilename: true
+category:
+  - Manage access and repository policies
 ---
 
 {% data reusables.models.models-preview-note %}

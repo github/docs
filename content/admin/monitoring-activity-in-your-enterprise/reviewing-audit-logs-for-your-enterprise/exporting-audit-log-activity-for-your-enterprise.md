@@ -5,7 +5,9 @@ shortTitle: Export audit logs
 permissions: Enterprise owners
 versions:
   ghec: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About exports of audit log and Git events data

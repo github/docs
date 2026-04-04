@@ -1,19 +1,18 @@
 ---
 title: Getting started with Copilot SDK
 shortTitle: Quickstart
-intro: 'Learn how to install {% data variables.copilot.copilot_sdk_short %} and send your first message.'
+intro: Learn how to install {% data variables.copilot.copilot_sdk_short %} and send your first message.
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.copilot-sdk %}' 
+product: '{% data reusables.gated-features.copilot-sdk %}'
 versions:
   feature: copilot
-contentType: get-started
+contentType: how-tos
 category:
   - Learn about Copilot
   - Author and optimize with Copilot
 ---
 
-> [!NOTE]
->{% data variables.copilot.copilot_sdk_short %} is currently in {% data variables.release-phases.technical_preview %}. Functionality and availability are subject to change.
+{% data reusables.copilot.copilot-sdk.technical-preview-note %}
 
 {% data variables.copilot.copilot_sdk %} lets you build applications powered by {% data variables.product.prodname_copilot %} in your preferred programming language. In this guide, you'll install the SDK using `npm`, send your first message, and add streaming responses.
 

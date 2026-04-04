@@ -1,6 +1,6 @@
 ---
 title: Initializing the cluster
-intro: 'A {% data variables.product.prodname_ghe_server %} cluster must be set up with a license and initialized using the administrative shell (SSH).'
+intro: A {% data variables.product.prodname_ghe_server %} cluster must be set up with a license and initialized using the administrative shell (SSH).
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
@@ -10,7 +10,9 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initializing-the-cluster
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About initialization of a {% data variables.product.prodname_ghe_server %} cluster

@@ -1,13 +1,15 @@
 ---
 title: Enabling GitHub Packages with MinIO
-intro: 'Set up {% data variables.product.prodname_registry %} with MinIO as your external storage.'
+intro: Set up {% data variables.product.prodname_registry %} with MinIO as your external storage.
 versions:
   ghes: '*'
-type: tutorial
 shortTitle: Enable Packages with MinIO
 redirect_from:
   - /admin/packages/enabling-github-packages-with-minio
   - /admin/configuring-packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
+contentType: tutorials
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 > [!WARNING]

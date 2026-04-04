@@ -1,5 +1,5 @@
 ---
-title: 'About {% data variables.product.prodname_projects_v2 %}'
+title: About {% data variables.product.prodname_projects_v2 %}
 intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -8,7 +8,9 @@ versions:
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/about-projects
-type: overview
+contentType: concepts
+category:
+  - Set up and manage projects
 ---
 
 ## About {% data variables.product.prodname_projects_v2 %}

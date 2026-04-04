@@ -2,14 +2,16 @@
 title: Setting up a C# (.NET) project for GitHub Codespaces
 shortTitle: Setting up a C# (.NET) project
 allowTitleToDifferFromFilename: true
-intro: 'Get started with a C# (.NET) project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container configuration.'
+intro: Get started with a C# (.NET) project in {% data variables.product.prodname_github_codespaces %} by creating a custom dev container configuration.
 redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction

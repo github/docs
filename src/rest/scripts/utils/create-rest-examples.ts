@@ -31,7 +31,6 @@ interface ResponseExample {
 }
 
 interface MergedExample {
-  key: string
   request: {
     contentType?: string
     description: string
@@ -66,20 +65,23 @@ export default async function getCodeSamples(operation: Operation): Promise<Merg
       count[item.request.description] = (count[item.request.description] || 0) + 1
     }
 
-    const newMergedExamples = mergedExamples.map((example, i) => ({
-      ...example,
-      request: {
-        ...example.request,
-        description:
-          count[example.request.description] > 1
-            ? `${example.request.description} ${i + 1}: Status Code ${example.response!.statusCode}`
-            : example.request.description,
-      },
-    }))
-
-    return newMergedExamples
+    return mergedExamples.map((example, i) => {
+      delete (example as any).key
+      return {
+        ...example,
+        request: {
+          ...example.request,
+          description:
+            count[example.request.description] > 1
+              ? `${example.request.description} ${i + 1}: Status Code ${example.response!.statusCode}`
+              : example.request.description,
+        },
+      }
+    })
   }
 
+  // Strip the key field — it's only needed during merging, not at runtime
+  for (const example of mergedExamples) delete (example as any).key
   return mergedExamples
 }
 
@@ -261,6 +263,24 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
 }
 
 /*
+  Recursively removes `example` and `examples` annotation fields from a JSON
+  Schema object. These fields are OpenAPI annotation-only and are never read
+  by the runtime rendering code, but they account for ~131 MB of the total
+  schema.json size across all versions.
+*/
+function stripSchemaExamples(schema: any): any {
+  if (!schema || typeof schema !== 'object') return schema
+  if (Array.isArray(schema)) return schema.map(stripSchemaExamples)
+
+  const result: any = {}
+  for (const [key, value] of Object.entries(schema)) {
+    if (key === 'example' || key === 'examples') continue
+    result[key] = stripSchemaExamples(value)
+  }
+  return result
+}
+
+/*
   Create an example object for each example in the response property
   of the schema. Each response can have more than one status code,
   each with more than one content type. And each content type can
@@ -355,7 +375,10 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
             // Note: Including the schema significantly increases JSON file size (~4x),
             // but it's necessary to support the schema/example toggle in the UI.
             // Users can switch between viewing the example response and the full schema.
-            schema: operation.responses[statusCode].content[contentType].schema,
+            // example/examples annotation fields are stripped as they are not rendered.
+            schema: stripSchemaExamples(
+              operation.responses[statusCode].content[contentType].schema,
+            ),
           },
         }
         responseExamples.push(example)

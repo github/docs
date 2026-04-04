@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 shortTitle: Profile
 contentType: get-started
+category:
+  - Customize your profile
 ---
 
 ## About your {% data variables.product.github %} profile

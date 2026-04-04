@@ -7,6 +7,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Connect an IdP
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About connection of your IdP to your organization

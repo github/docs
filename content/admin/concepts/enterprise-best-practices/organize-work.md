@@ -13,6 +13,8 @@ redirect_from:
   - /admin/concepts/best-practices-for-enterprises
   - /admin/concepts/best-practices
 allowTitleToDifferFromFilename: true
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.best-practices %}

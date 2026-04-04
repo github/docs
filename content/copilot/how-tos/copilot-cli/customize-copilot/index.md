@@ -6,7 +6,7 @@ versions:
   feature: copilot
 contentType: how-tos
 children:
-  - /quickstart-for-customizing
+  - /overview
   - /add-custom-instructions
   - /use-hooks
   - /create-skills

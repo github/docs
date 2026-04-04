@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Write code for a GitHub App
 ---
 ## Introduction
 
@@ -902,7 +904,7 @@ The code above gets the full repository name and the head SHA of the commit from
 
 ## Step 2.3. Run RuboCop
 
-So far, your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [checks annotations](/rest/checks/runs#create-a-check-run).
+So far, your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/latest/usage/getting_started.html) and [checks annotations](/rest/checks/runs#create-a-check-run).
 
 First, you'll add code to run RuboCop and save the style code errors in JSON format.
 
@@ -1144,7 +1146,7 @@ The following steps will show you how to test that the code works and view the C
 
 So far you've created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in [Step 2.5. Update the check run with CI test results](#step-25-update-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event that's triggered when someone clicks the "Fix this" button.
 
-The RuboCop tool offers the `--auto-correct` command-line option to automatically fix the errors it finds. For more information, see [Autocorrecting offenses](https://docs.rubocop.org/rubocop/usage/basic_usage.html#autocorrecting-offenses) in the RuboCop documentation. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to {% data variables.product.prodname_dotcom %} after RuboCop makes the fixes.
+The RuboCop tool offers the `--auto-correct` command-line option to automatically fix the errors it finds. For more information, see [Autocorrecting offenses](https://docs.rubocop.org/rubocop/latest/usage/autocorrect.html) in the RuboCop documentation. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to {% data variables.product.prodname_dotcom %} after RuboCop makes the fixes.
 
 To push to a repository, your app must have write permissions for "Contents" in a repository. You already set that permission to **Read & write** back in [Step 2.2. Allow RuboCop to clone the test repository](#step-22-allow-rubocop-to-clone-the-test-repository).
 

@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Restrict {% data variables.product.prodname_oauth_apps %}
+category:
+  - Manage app and API access
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}

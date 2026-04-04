@@ -1,6 +1,6 @@
 ---
 title: Enabling automatic update checks
-intro: 'You can enable automatic update checks so that {% data variables.location.product_location %} checks for and downloads the latest {% data variables.product.prodname_ghe_server %} release.'
+intro: You can enable automatic update checks so that {% data variables.location.product_location %} checks for and downloads the latest {% data variables.product.prodname_ghe_server %} release.
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-update-checks
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
@@ -10,8 +10,10 @@ redirect_from:
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Enable automatic update checks
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 ## About automatic update checks

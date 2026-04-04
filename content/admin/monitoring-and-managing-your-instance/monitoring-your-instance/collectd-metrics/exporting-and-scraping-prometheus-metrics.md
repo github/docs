@@ -1,12 +1,14 @@
 ---
 title: Exporting and scraping Prometheus metrics
 shortTitle: Export and scrape Prometheus metrics
-intro: "{% data variables.product.prodname_ghe_server %} provides Prometheus-compatible metrics by transforming `collectd` data. These metrics can be scraped from a dedicated endpoint, allowing integration with observability and monitoring tools for performance insights."
+intro: '{% data variables.product.prodname_ghe_server %} provides Prometheus-compatible metrics by transforming `collectd` data. These metrics can be scraped from a dedicated endpoint, allowing integration with observability and monitoring tools for performance insights.'
 versions:
   feature: prometheus-metrics-exporter
-type: how_to
 redirect_from:
   - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/exporting-and-scraping-prometheus-metrics
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.collectd-metrics-future %}

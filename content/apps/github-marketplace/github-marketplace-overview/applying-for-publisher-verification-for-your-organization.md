@@ -9,6 +9,8 @@ redirect_from:
   - /developers/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization
   - /apps/publishing-apps-to-github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization
 shortTitle: Publisher verification
+category:
+  - List your app on GitHub Marketplace
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

@@ -1,12 +1,14 @@
 ---
 title: Configuring a repository cache
-intro: 'You can configure a repository cache for {% data variables.product.prodname_ghe_server %} by creating a new instance, connecting the repository cache to your primary instance, and configuring replication of repository networks to the repository cache.'
+intro: You can configure a repository cache for {% data variables.product.prodname_ghe_server %} by creating a new instance, connecting the repository cache to your primary instance, and configuring replication of repository networks to the repository cache.
 versions:
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/enterprise-management/caching-repositories/configuring-a-repository-cache
   - /admin/monitoring-managing-and-updating-your-instance/caching-repositories/configuring-a-repository-cache
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About configuration for repository caching

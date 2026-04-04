@@ -17,7 +17,9 @@ category:
 
 * **{% data variables.copilot.copilot_free %}** is available to individual developers who don't have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise. This free plan includes limited access to select {% data variables.product.prodname_copilot_short %} features, allowing you to try AI-powered coding assistance at no cost.
 
-* **{% data variables.copilot.copilot_pro %}** is designed for individuals who want more flexibility. This paid plan includes unlimited completions, access to premium models in {% data variables.copilot.copilot_chat_short %}, access to {% data variables.copilot.copilot_coding_agent %}, and a monthly allowance of premium requests. Verified students, teachers, and maintainers of popular open source projects may be eligible for free access.
+* **{% data variables.copilot.copilot_student %}** is available to verified students. The plan includes unlimited completions, access to premium models in {% data variables.copilot.copilot_chat_short %}, access to {% data variables.copilot.copilot_coding_agent %}, and a monthly allowance of premium requests.
+
+* **{% data variables.copilot.copilot_pro %}** is designed for individuals who want more flexibility. This paid plan includes unlimited completions, access to premium models in {% data variables.copilot.copilot_chat_short %}, access to {% data variables.copilot.copilot_coding_agent %}, and a monthly allowance of premium requests. Verified teachers, and maintainers of popular open source projects may be eligible for free access.
 
 * **{% data variables.copilot.copilot_pro_plus %}** offers the highest level of access for individual developers. In addition to everything in {% data variables.copilot.copilot_pro_short %}, this plan includes a larger allowance of premium requests, and full access to all available models in {% data variables.copilot.copilot_chat_short %}. Ideal for AI power users who want access to the most advanced capabilities.
 
@@ -40,6 +42,8 @@ For more information, see [AUTOTITLE](/copilot/about-github-copilot/github-copil
 Start using {% data variables.product.prodname_copilot_short %} by signing up for the plan that best fits your needs.
 
 * **{% data variables.copilot.copilot_free_short %}** — Try {% data variables.product.prodname_copilot_short %} with limited features and requests. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
+
+* **{% data variables.copilot.copilot_student %}** — Get access to {% data variables.product.prodname_copilot_short %}'s premium features for free. [Access {% data variables.copilot.copilot_student %}](/copilot/how-tos/manage-your-account/free-access-with-copilot-student).
 
 * **{% data variables.copilot.copilot_pro_short %}** — Get unlimited completions and access to premium models. Includes a free 30-day trial for eligible users. [Try {% data variables.copilot.copilot_pro_short %} for free](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=trial&ref_style=text&ref_plan=pro).
 

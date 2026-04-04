@@ -1,6 +1,6 @@
 ---
 title: Requesting to add a child team
-intro: 'If you have maintainer permissions in a team, you can request to nest an existing team under your team in your organization’s hierarchy.'
+intro: "If you have maintainer permissions in a team, you can request to nest an existing team under your team in your organization's hierarchy."
 redirect_from:
   - /articles/requesting-to-add-a-child-team
   - /github/setting-up-and-managing-organizations-and-teams/requesting-to-add-a-child-team
@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Add a child team
+category:
+  - Organize teams
 ---
 
 When you request to add a team as a child, a request is sent to the maintainers of the child team. Once a maintainer of the child team approves your request, the child team is nested under the parent team in your organization's hierarchy.

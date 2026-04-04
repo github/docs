@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /early-access/issues/about-slash-commands
   - /issues/tracking-your-work-with-issues/about-slash-commands
+category:
+  - Create and work with issues
 ---
 
 > [!NOTE]

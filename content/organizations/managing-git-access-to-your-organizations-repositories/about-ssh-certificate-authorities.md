@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: SSH certificate authorities
+category:
+  - Manage authentication methods
 ---
 
 ## About SSH certificate authorities
@@ -75,7 +77,7 @@ If you have legacy CAs that are exempt from the expiration requirement, you can 
 If you use a username as the login extension, {% data variables.product.company_short %} validates that the named user has not been renamed since the certificate was issued. This prevents a rename attack, where a certificate issued for a username is valid even if the underlying user account changes. To enforce this, the certificate must include the `valid_after` claim, which tells us when the certificate was issued. This field is often missing if an expiration is not required for the certificate, which is why expirations are now required.
 {% endif %}
 
-To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for USERNAME-1 for the user's account for {% data variables.product.prodname_ghe_cloud %}, and USERNAME-2 for the user's account on {% data variables.product.prodname_ghe_server %} at HOSTNAME.
+To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for USERNAME-1 for the user's account for {% data variables.product.prodname_ghe_cloud %}, and USERNAME-2 for the user's account on {% data variables.product.prodname_ghe_server %} or {% data variables.enterprise.data_residency %} at HOSTNAME.
 
 ```shell
 ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@github.com=USERNAME-1 extension:login@HOSTNAME=USERNAME-2 ./user-key.pub

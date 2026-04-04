@@ -1,6 +1,6 @@
 ---
 title: Allowing built-in authentication for users outside your provider
-intro: 'You can configure fallback authentication to allow built-in authentication for people who don''t have an account on your CAS, LDAP, or SAML authentication provider.'
+intro: You can configure fallback authentication to allow built-in authentication for people who don't have an account on your CAS, LDAP, or SAML authentication provider.
 redirect_from:
   - /enterprise/admin/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
@@ -11,8 +11,10 @@ redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Fallback authentication
+contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About built-in authentication for users outside your provider

@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: View project contributors
+category:
+  - Track repository activity
 ---
 ## About contributors
 

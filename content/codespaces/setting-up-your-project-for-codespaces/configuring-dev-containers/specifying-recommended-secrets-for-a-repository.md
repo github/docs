@@ -6,7 +6,9 @@ permissions: People with write permissions to a repository can create or edit th
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## About recommended secrets

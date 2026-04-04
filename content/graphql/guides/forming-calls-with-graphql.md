@@ -9,6 +9,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Form calls with GraphQL
+category:
+  - Get started and make API calls
 ---
 
 ## Authenticating with GraphQL
