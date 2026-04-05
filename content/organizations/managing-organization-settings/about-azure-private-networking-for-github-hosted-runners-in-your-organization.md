@@ -38,6 +38,12 @@ category:
 
 {% data reusables.actions.azure-vnet-networking-policies %}
 
+## About VNET failover
+
+{% data reusables.actions.azure-vnet-about-failover %}
+
+For more information about configuring a failover network, see [AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#5-optionally-add-a-failover-network-to-a-network-configuration).
+
 ## Using {% data variables.product.company_short %}-hosted runners with an Azure VNET
 
 {% data reusables.actions.azure-vnet-next-steps-links %}

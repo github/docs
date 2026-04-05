@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Understand notifications
 ---
 
 ## Notifications and subscriptions

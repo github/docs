@@ -1,8 +1,8 @@
 ---
-title: Hosting of models for GitHub Copilot Chat
+title: Hosting of models for GitHub Copilot
 shortTitle: Model hosting
 allowTitleToDifferFromFilename: true
-intro: 'Learn how different AI models are hosted for {% data variables.copilot.copilot_chat_short %}.'
+intro: 'Learn how different AI models are hosted for {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
 category:
@@ -21,9 +21,6 @@ Used for:
 * {% data variables.copilot.copilot_gpt_41 %}
 * {% data variables.copilot.copilot_gpt_5_mini %}
 * {% data variables.copilot.copilot_gpt_51 %}
-* {% data variables.copilot.copilot_gpt_51_codex %}
-* {% data variables.copilot.copilot_gpt_51_codex_mini %}
-* {% data variables.copilot.copilot_gpt_51_codex_max %}
 * {% data variables.copilot.copilot_gpt_52 %}
 * {% data variables.copilot.copilot_gpt_52_codex %}
 * {% data variables.copilot.copilot_gpt_53_codex %}
@@ -76,11 +73,10 @@ When using {% data variables.copilot.copilot_claude %}, input prompts and output
 Used for:
 
 * {% data variables.copilot.copilot_gemini_25_pro %}
-* {% data variables.copilot.copilot_gemini_3_pro %}
 * {% data variables.copilot.copilot_gemini_3_flash %}
 * {% data variables.copilot.copilot_gemini_31_pro %}
 
-{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_31_pro %}, {% data variables.copilot.copilot_gemini_3_pro %}, {% data variables.copilot.copilot_gemini_3_flash %}, and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
+{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_31_pro %}, {% data variables.copilot.copilot_gemini_3_flash %}, and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
 To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance#customer_data_retention_and_achieving_zero_data_retention).
 
@@ -103,3 +99,7 @@ Will **only**:
 When using xAI, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
 For more information, see [xAI's enterprise terms of service](https://x.ai/legal/terms-of-service-enterprise) on the xAI website.
+
+## Inline suggestions
+
+Inline suggestions, including ghost text and next edit suggestions, are powered by models hosted on Azure for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans. {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %} user models are hosted on Fireworks AI.

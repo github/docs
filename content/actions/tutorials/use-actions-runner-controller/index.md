@@ -1,6 +1,7 @@
 ---
-title: Use Actions Runner Controller
-intro: You can host your own runners to run workflows in a highly customizable environment.
+title: Actions Runner Controller
+intro: You can use {% data variables.product.prodname_actions_runner_controller %} to host your own runners in a Kubernetes cluster.
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,16 +12,10 @@ journeyTracks:
     title: Set up Actions Runner Controller
     description: Install and configure Actions Runner Controller to run self-hosted runners at scale.
     guides:
-      - href: /actions/tutorials/use-actions-runner-controller/quickstart
-      - href: /actions/tutorials/use-actions-runner-controller/deploy-runner-scale-sets
-      - href: /actions/tutorials/use-actions-runner-controller/authenticate-to-the-api
-      - href: /actions/tutorials/use-actions-runner-controller/use-arc-in-a-workflow
+      - href: /actions/tutorials/use-actions-runner-controller/get-started
       - href: /actions/tutorials/use-actions-runner-controller/troubleshoot
 children:
-  - /quickstart
-  - /deploy-runner-scale-sets
-  - /authenticate-to-the-api
-  - /use-arc-in-a-workflow
+  - /get-started
   - /troubleshoot
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller

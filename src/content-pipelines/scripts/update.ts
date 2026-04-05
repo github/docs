@@ -224,6 +224,14 @@ async function main(): Promise<void> {
       diff = '(diff unavailable)'
     }
 
+    // No source doc files changed — skip the agent.
+    if (!nameStatus.startsWith('(') && !nameStatus.trim()) {
+      console.log(
+        `No changes in ${SOURCE_PATH} between ${storedSha.slice(0, 7)} and ${currentSha.slice(0, 7)}. Skipping agent run.`,
+      )
+      return
+    }
+
     diffContent = [
       `# Source doc changes (${storedSha.slice(0, 7)}..${currentSha.slice(0, 7)})`,
       '',

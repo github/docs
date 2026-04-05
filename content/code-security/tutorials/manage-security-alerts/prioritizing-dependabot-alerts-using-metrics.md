@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-metrics
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities
+category:
+  - Secure your dependencies
 ---
 
 ## Prioritizing {% data variables.product.prodname_dependabot_alerts %} using metrics

@@ -45,7 +45,7 @@ Define the agent's behavior, expertise, and instructions in the Markdown content
 
 The {% data variables.copilot.copilot_custom_agent_short %} `tools` property controls which tools are available to your agent, including those from MCP servers.
 
-Your {% data variables.copilot.copilot_custom_agent_short %} will have access to MCP server tools that have been configured in both its {% data variables.copilot.agent_profile %} and/or the repository settings. For more information on configuring MCP servers for coding agent in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp).
+Your {% data variables.copilot.copilot_custom_agent_short %} will have access to MCP server tools that have been configured in both its {% data variables.copilot.agent_profile %} and/or the repository settings. For more information on configuring MCP servers for cloud agent in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp).
 
 You can configure `tools` using the following approaches:
 

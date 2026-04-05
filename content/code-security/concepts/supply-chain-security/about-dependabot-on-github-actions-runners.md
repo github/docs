@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners

@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts
   - /code-security/dependabot/dependabot-alerts
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 When {% data variables.product.prodname_dependabot %} detects vulnerable dependencies in a repository, it generates alerts. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).

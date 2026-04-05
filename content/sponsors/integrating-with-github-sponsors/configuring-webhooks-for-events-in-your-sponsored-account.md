@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 shortTitle: Webhooks for events
 contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About webhooks for events in your sponsored account

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 ## Pull requests for security updates

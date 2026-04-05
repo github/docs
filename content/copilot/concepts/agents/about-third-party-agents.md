@@ -31,10 +31,12 @@ You can kick off tasks with coding agents in the following locations:
 > [!NOTE]
 > {% data reusables.gated-features.third-party-agents %}
 
-Before you can assign tasks to coding agents, they must be enabled.
+Before you can assign tasks to coding agents on {% data variables.product.github %}, they must be enabled in your account policies.
 
 * For **{% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} subscribers**, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories).
 * For **{% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} subscribers**, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+
+These policies do not apply to **local** agents in {% data variables.product.prodname_vscode %}. To configure agent settings in {% data variables.product.prodname_vscode %}, see [Types of agents](https://code.visualstudio.com/docs/copilot/agents/overview#_types-of-agents) in the {% data variables.product.prodname_vscode %} documentation. To adjust enterprise agent settings in {% data variables.product.prodname_vscode %}, see [Enable or disable the use of agents](https://code.visualstudio.com/docs/enterprise/ai-settings#_enable-or-disable-the-use-of-agents) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Supported coding agents
 

@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-production-context
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code
   - /code-security/tutorials/secure-your-organization/alerts-in-production-code
+category:
+  - Secure at scale
 ---
 
 Application Security (AppSec) managers are often overwhelmed by a high volume of alerts, many of which may not represent real risk because the affected code never makes it to production. By associating production context with your alerts, you can filter and prioritize vulnerabilities that impact artifacts actually approved for production environments. This enables your team to focus remediation efforts on the vulnerabilities that matter most, reducing noise and improving your security posture.
@@ -29,7 +31,7 @@ For more information on updating records, see [AUTOTITLE](/code-security/how-tos
 
 ## 2. Use production context filters
 
-Production context filters are made available in alert views and security campaign views under the **Security** tab.
+Production context filters are made available in alert views and security campaign views under the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 * **{% data variables.product.prodname_dependabot_alerts %} view**: See [Viewing {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts).
 * **{% data variables.product.prodname_code_scanning_caps %} alerts view**: See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).

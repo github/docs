@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
   - /code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}

@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Administer integrations
 ---
 
 ## About the {% data variables.product.github %} integration for Teams

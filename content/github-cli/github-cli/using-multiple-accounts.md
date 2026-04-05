@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 allowTitleToDifferFromFilename: true
+category:
+  - Use and extend the CLI
 ---
 
 If you have accounts on multiple {% data variables.product.github %} platforms, such as a personal account on {% data variables.product.prodname_dotcom_the_website %} and a {% data variables.enterprise.prodname_managed_user %} on {% data variables.enterprise.data_residency_site %}, you can authenticate with `gh auth login` for each account.

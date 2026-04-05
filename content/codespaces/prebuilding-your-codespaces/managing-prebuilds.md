@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 product: '{% data reusables.gated-features.codespaces-repo %}'
 contentType: how-tos
+category:
+  - Speed up codespace creation with prebuilds
 ---
 
 ## About managing prebuilds

@@ -10,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/explore-trial-secret-scanning
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account. See [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
@@ -26,7 +28,7 @@ This guide assumes that you have planned and started a trial of {% data variable
 
 To find out how to run a free secret risk assessment, see [Generating an initial secret risk assessment](/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
-If you have already scanned the code in your organization for leaked secrets using the free secret risk assessment, you will also want to explore that data more completely using the additional views on the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for the organization.
+If you have already scanned the code in your organization for leaked secrets using the free secret risk assessment, you will also want to explore that data more completely using the additional views on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the organization.
 
 For full details of the features available, see [{% data variables.product.prodname_GH_secret_protection_always %}](/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
 
@@ -38,7 +40,7 @@ Most enterprises choose to enable {% data variables.product.prodname_secret_prot
 
 By default, only the repository administrator and the organization owner can view all {% data variables.product.prodname_secret_scanning %} alerts in their area. You should assign the predefined security manager role to all organization teams and users who you want to access the alerts found during the trial. You may also want to give the enterprise account owner this role for each organization in the trial. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 
-You can see a summary of any results found in the organizations in your trial enterprise in the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+You can see a summary of any results found in the organizations in your trial enterprise in the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
 
 ## Identify additional access tokens
 

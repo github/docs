@@ -13,7 +13,7 @@ category:
 
 ## Overview
 
-{% data variables.copilot.copilot_coding_agent %} can be integrated with various tools and platforms to enhance its functionality and streamline your development workflow. With integrations, you can trigger {% data variables.copilot.copilot_coding_agent %} from within your existing tools, providing the coding agent with the context it needs to assist you effectively.
+{% data variables.copilot.copilot_coding_agent %} can be integrated with various tools and platforms to enhance its functionality and streamline your development workflow. With integrations, you can trigger {% data variables.copilot.copilot_coding_agent %} from within your existing tools, providing the cloud agent with the context it needs to assist you effectively.
 
 For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent).
 

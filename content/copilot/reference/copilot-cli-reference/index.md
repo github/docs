@@ -9,6 +9,6 @@ children:
   - /cli-plugin-reference
   - /cli-programmatic-reference
   - /acp-server
+  - /cli-config-dir-reference
 contentType: reference
 ---
-

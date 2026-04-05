@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Secure at scale
 ---
 
 {% data reusables.secret-scanning.push-protection-org-metrics-beta %}

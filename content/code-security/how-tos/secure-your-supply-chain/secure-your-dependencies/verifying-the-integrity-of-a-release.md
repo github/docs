@@ -8,6 +8,8 @@ defaultTool: cli
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/verifying-the-integrity-of-a-release
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 {% cli %}

@@ -120,43 +120,49 @@ For more information, see [AUTOTITLE](/actions/reference/openid-connect-referenc
 
 ## Using repository custom properties as OIDC claims
 
-> [!NOTE]
-> This feature is currently in public preview and is subject to change.
+Organization and enterprise admins can include repository custom properties as claims in OIDC tokens. This enables attribute-based access control (ABAC) policies in your cloud provider, artifact registry, or secrets manager that are driven by repository metadata rather than hard-coded allow lists.
 
-Organization and enterprise admins can include repository custom properties as claims in OIDC tokens. Once added, every repository in the organization or enterprise that has a value set for that custom property will automatically include it in its OIDC tokens, prefixed with `repo_property_`.
+### How custom property claims work
 
-This allows you to create granular access policies that bind directly to your repository metadata, reducing configuration drift and eliminating the need to duplicate governance information across multiple systems.
+The end-to-end flow for using custom properties as OIDC claims is as follows:
+
+1. **Define custom properties.** An organization or enterprise admin creates custom properties (for example, `business_unit`, `data_classification`, or `environment_tier`) and assigns values to repositories. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) and [AUTOTITLE](/actions/reference/security/oidc#including-repository-custom-properties-in-oidc-tokens). 
+1. **Enable properties in OIDC tokens.** An organization or enterprise admin selects which custom properties should be included in OIDC tokens, using the settings UI or the REST API.
+1. **Claims appear automatically.** Every workflow run in a repository that has a value set for an enabled property will include that value in its OIDC token, prefixed with `repo_property_`. No workflow-level configuration changes are required.
+1. **Update cloud trust policies.** You update your cloud provider's trust conditions to evaluate the new `repo_property_*` claims, enabling fine-grained, attribute-based access decisions.
+
+Because this builds on {% data variables.product.prodname_dotcom %}'s existing OIDC short-lived credential model, no long-lived secrets are required, and every token is scoped, auditable, and automatically rotated per workflow run.
 
 ### Prerequisites
 
-* Custom properties must already be defined at the organization or enterprise level.
+* Custom properties must already be defined at the organization or enterprise level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 * You must be an organization admin or enterprise admin.
 
 ### Adding a custom property to OIDC token claims
 
 To include a custom property in OIDC tokens, use the REST API or the settings UI for your organization or enterprise.
 
-**Using the settings UI:** Navigate to your organization or enterprise's Actions OIDC settings page to view and manage which custom properties are included in OIDC tokens.
+* **Using the settings UI:** Navigate to your organization or enterprise's Actions OIDC settings page to view and manage which custom properties are included in OIDC tokens.
 
-![Screenshot of the OIDC settings for an organization or enterprise.](/assets/images/help/actions/actions-oidc-settings.png)
+* **Using the REST API:** Send a `POST` request to the `/orgs/{org}/actions/oidc/customization/properties/repo` endpoint to add a custom property to the OIDC token claims for your organization. For request parameters and full details, see the REST API documentation for managing OIDC custom properties: [AUTOTITLE](/rest/actions/oidc).
 
+### Example OIDC token with custom properties
 
-* **Using the REST API:** Send a `POST` request to add a custom property to the OIDC token claims for your organization:
-
-### Example OIDC token with a custom property
-
-The following example shows an OIDC token that includes the `workspace_id` custom property:
+The following example shows an OIDC token that includes two custom properties: a single-select property `business_unit` and a string property `workspace_id`. Each custom property appears in the token with the `repo_property_` prefix.
 
 ```json
 {
   "sub": "repo:my-org/my-repo:ref:refs/heads/main",
   "aud": "https://github.com/my-org",
   "repository": "my-org/my-repo",
+  "repository_owner": "my-org",
+  "ref": "refs/heads/main",
+  "repo_property_business_unit": "payments",
   "repo_property_workspace_id": "ws-abc123"
 }
 ```
 
-You can use the `repo_property_*` claims in your cloud provider's trust conditions to create flexible, attribute-based access control policies. For more information, see [AUTOTITLE](/actions/reference/openid-connect-reference#including-repository-custom-properties-in-oidc-tokens).
+You can use the `repo_property_*` claims in your cloud provider's trust conditions to create flexible, attribute-based access control policies. For more information about the claim format, supported property types, and limits, see [AUTOTITLE](/actions/reference/openid-connect-reference#including-repository-custom-properties-in-oidc-tokens).
 
 {% endif %}
 

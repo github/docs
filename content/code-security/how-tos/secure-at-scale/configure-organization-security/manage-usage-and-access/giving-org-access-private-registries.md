@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About the importance of providing access to private registries
@@ -39,7 +41,7 @@ You need to be an **organization owner** to set up access to private registries 
 1. In the expanded list of secrets and variables, select **Private registries** to display the "Private Registries" page.
 1. Select **New private registry** to add access details for a private registry.
 1. Use the **URL** and **Type** fields to define the location and type of the registry:
-   * **URL** is the location where you access the private registry. For example, to use the {% data variables.product.prodname_registry %} registry for NuGet: `https://nuget.pkg.github.com/`.
+   * **URL** is the location where you access the private registry. For example, to use the {% data variables.product.prodname_registry %} registry for NuGet: `https://nuget.pkg.github.com/ORGANIZATION/index.json`, where `ORGANIZATION` is the name of your organization on {% data variables.product.github %}.
    * **Type** is the type of registry.
 1. Select either **Token** or **Username and password**, depending on the authentication method, then enter data into the appropriate fields.
    Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select the **Username and password** option for these and enter the relevant username as **Username** and the token as **Password**.

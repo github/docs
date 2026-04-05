@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/results-exceed-limit
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/results-exceed-limit
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About {% data variables.product.prodname_code_scanning %} limits on SARIF results

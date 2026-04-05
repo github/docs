@@ -1,5 +1,5 @@
 ---
-title: 'Piloting GitHub Copilot coding agent in your organization'
+title: 'Piloting GitHub Copilot cloud agent in your organization'
 shortTitle: 'Pilot {% data variables.copilot.copilot_coding_agent_short %}'
 intro: 'Follow best practices to enable {% data variables.copilot.copilot_coding_agent %} in your organization.'
 allowTitleToDifferFromFilename: true
@@ -21,7 +21,7 @@ category:
 
 {% data variables.copilot.copilot_coding_agent %}:
 
-* **Joins your team**: Developers can delegate work to {% data variables.product.prodname_copilot_short %} unlike IDE-based coding agents that require synchronous pairing sessions. {% data variables.product.prodname_copilot_short %} opens draft pull requests for team members to review and iterates based on feedback, as a developer would.
+* **Joins your team**: Developers can delegate work to {% data variables.product.prodname_copilot_short %} unlike IDE-based agents that require synchronous pairing sessions. {% data variables.product.prodname_copilot_short %} opens draft pull requests for team members to review and iterates based on feedback, as a developer would.
 * **Reduces context switching**: Developers working in JetBrains IDEs, {% data variables.product.prodname_vscode_shortname %}, {% data variables.product.prodname_vs %}, or {% data variables.product.prodname_dotcom_the_website %} can ask {% data variables.copilot.copilot_coding_agent %} to create a pull request to complete small tasks without stopping what they are currently doing.
 * **Executes tasks in parallel**: {% data variables.product.prodname_copilot_short %} can work on multiple issues simultaneously, handling tasks in the background while your team focuses on other priorities.
 

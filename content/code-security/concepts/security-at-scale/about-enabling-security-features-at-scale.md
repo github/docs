@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories
   - /code-security/concepts/security-at-scale/choosing-a-security-configuration-for-your-repositories
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 ## About securing your organization

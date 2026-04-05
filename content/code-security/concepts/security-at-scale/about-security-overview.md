@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 {% ifversion fpt %}
@@ -63,7 +65,7 @@ There are dedicated views for each type of security alert. You can limit your an
 
 The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. For example, the team can use the "Overview" dashboard view to track your organization's security landscape and progression. {% ifversion pre-security-configurations %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).{% endif %}
 
-You can find security overview on the **Security** tab for any organization. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected.
+You can find security overview on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for any organization. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected.
 
 Security overview has multiple views that provide different ways to explore enablement and alert data.
 
@@ -83,7 +85,7 @@ You also create and manage security campaigns to remediate alerts from security 
 
 ## About security overview for enterprises
 
-You can find security overview on the **Security** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise.
+You can find security overview on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise.
 
 Security overview for enterprises has multiple views that provide different ways to explore data, including an overview dashboard that visualizes alert trends. For information about the dashboard, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights) and [AUTOTITLE](/code-security/reference/security-at-scale/security-overview-dashboard-metrics).
 

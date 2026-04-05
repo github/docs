@@ -74,7 +74,7 @@ redirect_from:
 | `/add-dir PATH`                                     | Add a directory to the allowed list for file access. |
 | `/agent`                                            | Browse and select from available agents (if any). |
 | `/allow-all`, `/yolo`                               | Enable all permissions (tools, paths, and URLs). |
-| `/clear`, `/new`                                    | Clear the conversation history. |
+| `/clear [PROMPT]`, `/new [PROMPT]`                  | Start a new conversation. |
 | `/compact`                                          | Summarize the conversation history to reduce context window usage. |
 | `/context`                                          | Show the context window token usage and visualization. |
 | `/cwd`, `/cd [PATH]`                                | Change the working directory or display the current directory. |
@@ -125,7 +125,6 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--allow-all-urls`                 | Allow access to all URLs without confirmation. |
 | `--allow-tool=TOOL ...`            | Tools the CLI has permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--allow-url=URL ...`              | Allow access to specific URLs or domains. For multiple URLs, use a quoted, comma-separated list. |
-| `--alt-screen=VALUE`             | Use the terminal alternate screen buffer (`on` or `off`). |
 | `--autopilot`                      | Enable autopilot continuation in prompt mode. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--available-tools=TOOL ...`       | Only these tools will be available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--banner`                         | Show the startup banner. |
@@ -147,7 +146,6 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--log-level=LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
 | `--max-autopilot-continues=COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--model=MODEL`                    | Set the AI model you want to use. |
-| `--no-alt-screen`                  | Disable the terminal alternate screen buffer. |
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
 | `--no-auto-update`                 | Disable downloading CLI updates automatically. |
 | `--no-bash-env`                    | Disable `BASH_ENV` support for bash shells. |
@@ -168,6 +166,56 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--yolo`                           | Enable all permissions (equivalent to `--allow-all`). |
 
 For a complete list of commands and options, run `copilot help`.
+
+## Tool availability values
+
+The `--available-tools` and `--excluded-tools` options support the following values for specifying tools:
+
+### Shell tools
+
+| Tool name | Description |
+|---|---|
+| `bash` / `powershell` | Execute commands |
+| `read_bash` / `read_powershell` | Read output from a shell session |
+| `write_bash` / `write_powershell` | Send input to a shell session |
+| `stop_bash` / `stop_powershell` | Terminate a shell session |
+| `list_bash` / `list_powershell` | List active shell sessions |
+
+### File operation tools
+
+| Tool name | Description |
+|---|---|
+| `view` | Read files or directories |
+| `create` | Create new files |
+| `edit` | Edit files via string replacement |
+| `apply_patch` | Apply patches (used by some models instead of `edit`/`create`) |
+
+### Agent and task delegation tools
+
+| Tool name | Description |
+|---|---|
+| `task` | Run sub-agents |
+| `read_agent` | Check background agent status |
+| `list_agents` | List available agents |
+
+### Other tools
+
+| Tool name | Description |
+|---|---|
+| `grep` (or `rg`) | Search for text in files |
+| `glob` | Find files matching patterns |
+| `web_fetch` | Fetch and parse web content |
+| `skill` | Invoke custom skills |
+| `ask_user` | Ask the user a question |
+| `report_intent` | Report what the agent plans to do |
+| `show_file` | Display a file prominently |
+| `fetch_copilot_cli_documentation` | Look up CLI documentation |
+| `update_todo` | Update task checklist |
+| `store_memory` | Persist facts across sessions |
+| `task_complete` | Signal task is done (autopilot only) |
+| `exit_plan_mode` | Exit plan mode |
+| `sql` | Query session data (experimental) |
+| `lsp` | Language server refactoring (experimental) |
 
 ## Tool permission patterns
 
@@ -209,6 +257,7 @@ copilot --allow-tool='MyMCP'
 | `COPILOT_EDITOR` | Editor command for interactive editing (checked after `$VISUAL` and `$EDITOR`). Defaults to `vi` if none are set. |
 | `COPILOT_GITHUB_TOKEN` | Authentication token. Takes precedence over `GH_TOKEN` and `GITHUB_TOKEN`. |
 | `COPILOT_HOME` | Override the configuration and state directory. Default: `$HOME/.copilot`. |
+| `COPILOT_CACHE_HOME` | Override the cache directory (used for marketplace caches, auto-update packages, and other ephemeral data). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#changing-the-location-of-the-configuration-directory) for platform defaults. |
 | `GH_TOKEN` | Authentication token. Takes precedence over `GITHUB_TOKEN`. |
 | `GITHUB_TOKEN` | Authentication token. |
 | `USE_BUILTIN_RIPGREP` | Set to `false` to use the system ripgrep instead of the bundled version. |
@@ -231,7 +280,6 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `allowed_urls` | `string[]` | `[]` | URLs or domains allowed without prompting. |
-| `alt_screen` | `boolean` | `false` | Use the terminal alternate screen buffer. |
 | `auto_update` | `boolean` | `true` | Automatically download CLI updates. |
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
 | `bash_env` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. |
@@ -240,12 +288,12 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | `custom_agents.default_local_only` | `boolean` | `false` | Only use local custom agents. |
 | `denied_urls` | `string[]` | `[]` | URLs or domains blocked (takes precedence over `allowed_urls`). |
 | `experimental` | `boolean` | `false` | Enable experimental features. |
-| `include_coauthor` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
+| `includeCoAuthoredBy` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. |
 | `log_level` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
 | `model` | `string` | varies | AI model to use (see the `/model` command). |
 | `powershell_flags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
-| `reasoning_effort` | `"low"` \| `"medium"` \| `"high"` \| `"xhigh"` | `"medium"` | Reasoning effort level for extended thinking. Higher levels use more compute. |
+| `effortLevel` | `string` | `"medium"` | Reasoning effort level for extended thinking (e.g., `"low"`, `"medium"`, `"high"`, `"xhigh"`). Higher levels use more compute. |
 | `render_markdown` | `boolean` | `true` | Render Markdown in terminal output. |
 | `screen_reader` | `boolean` | `false` | Enable screen reader optimizations. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
@@ -253,6 +301,10 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | `streamer_mode` | `boolean` | `false` | Hide preview model names and quota details (useful when recording). |
 | `theme` | `"auto"` \| `"dark"` \| `"light"` | `"auto"` | Terminal color theme. |
 | `trusted_folders` | `string[]` | `[]` | Folders with pre-granted file access. |
+| `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. |
+| `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file picker. |
+| `disableAllHooks` | `boolean` | `false` | Disable all hooks. |
+| `hooks` | `object` | — | Inline user-level hook definitions. |
 | `update_terminal_title` | `boolean` | `true` | Show the current intent in the terminal title. |
 
 ### Repository settings (`.github/copilot/settings.json`)
@@ -345,6 +397,8 @@ Prompt hooks auto-submit text as if the user typed it. They are only supported o
 | `postToolUse` | After each tool completes. | No |
 | `agentStop` | The main agent finishes a turn. | Yes — can block and force continuation. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. |
+| `subagentStart` | A subagent is spawned (before it runs). Returns `additionalContext` prepended to the subagent's prompt. Supports `matcher` to filter by agent name. | No — cannot block creation. |
+| `preCompact` | Context compaction is about to begin (manual or automatic). Supports `matcher` to filter by trigger (`"manual"` or `"auto"`). | No — notification only. |
 | `errorOccurred` | An error occurs during execution. | No |
 
 ### `preToolUse` decision control
@@ -479,6 +533,7 @@ Skills are loaded from these locations in priority order (first found wins for d
 | `.claude/skills/` | Project | Claude-compatible location. |
 | Parent `.github/skills/` | Inherited | Monorepo parent directory support. |
 | `~/.copilot/skills/` | Personal | Personal skills for all projects. |
+| `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
 | `~/.claude/skills/` | Personal | Claude-compatible personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
@@ -678,6 +733,9 @@ Lifecycle events recorded on the active `chat` or `invoke_agent` span.
 
 | Event | Description | Key attributes |
 |-------|-------------|----------------|
+| `github.copilot.hook.start` | A hook began executing | `github.copilot.hook.type`, `github.copilot.hook.invocation_id` |
+| `github.copilot.hook.end` | A hook completed successfully | `github.copilot.hook.type`, `github.copilot.hook.invocation_id` |
+| `github.copilot.hook.error` | A hook failed | `github.copilot.hook.type`, `github.copilot.hook.invocation_id`, `github.copilot.hook.error_message` |
 | `github.copilot.session.truncation` | Conversation history was truncated | `github.copilot.token_limit`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed` |
 | `github.copilot.session.compaction_start` | History compaction began | None |
 | `github.copilot.session.compaction_complete` | History compaction completed | `github.copilot.success`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed` |
@@ -718,3 +776,4 @@ When content capture is enabled, the following attributes are populated.
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference)

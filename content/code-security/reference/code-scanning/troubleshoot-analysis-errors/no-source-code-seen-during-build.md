@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/no-source-code-seen-during-build
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/no-source-code-seen-during-build
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 <!-- CodeQL CLI depends on a short URL generated from this article's URL. If this article's URL ever changes, make sure to update the short URL https://gh.io/troubleshooting-code-scanning/no-source-code-seen-during-build. https://thehub.github.com/it/how-to/url-shortening -->

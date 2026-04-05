@@ -10,11 +10,16 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets
+category:
+  - Secure at scale
 ---
 
 ## Prerequisites
 
-Before you configure {% data variables.product.prodname_GH_secret_protection %}, you should run the free {% data variables.product.prodname_secret_risk_assessment %} to inform your enablement strategy. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk).
+Before you configure {% data variables.product.prodname_GH_secret_protection %}:
+
+* Run the free {% data variables.product.prodname_secret_risk_assessment %} to inform your enablement strategy. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk).
+* Review best practices for choosing pilot repositories. See [AUTOTITLE](/code-security/concepts/security-at-scale/best-practices-for-selecting-pilot-repositories).
 
 ## Configuring {% data variables.product.prodname_GH_secret_protection %}
 

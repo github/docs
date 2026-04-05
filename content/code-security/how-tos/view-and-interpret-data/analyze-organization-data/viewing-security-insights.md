@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/security-overview/viewing-security-insights-for-your-organization
   - /code-security/security-overview/viewing-security-insights
 allowTitleToDifferFromFilename: true
+category:
+  - Secure at scale
 ---
 
 The overview page in security overview provides a consolidated dashboard of your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}'s security landscape. You can filter the dashboard by time period, tool, and other criteria to focus on specific areas of interest. For more information about the overview dashboard, available metrics, and access permissions, see [AUTOTITLE](/code-security/concepts/security-at-scale/about-security-overview).
@@ -28,7 +30,7 @@ You can download a CSV file of the overview dashboard data for your organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. The overview page is the primary view that you will see after clicking on the "Security" tab. To get to the dashboard from another security overview page, in the sidebar, click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Overview**.{% ifversion security-overview-3-tab-dashboard %}
+1. The overview page is the primary view that you will see after clicking on the **{% data variables.product.prodname_security_and_quality_tab %}** tab. To get to the dashboard from another security overview page, in the sidebar, click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Overview**.{% ifversion security-overview-3-tab-dashboard %}
 1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.{% endif %}
 {% data reusables.security-overview.filter-and-toggle %}
 

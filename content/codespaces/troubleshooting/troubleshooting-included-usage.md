@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Get started
 ---
 
 Personal {% data variables.product.prodname_dotcom %} accounts include a quota of free use of {% data variables.product.prodname_github_codespaces %} every month.

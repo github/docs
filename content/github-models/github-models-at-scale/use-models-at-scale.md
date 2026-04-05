@@ -6,6 +6,8 @@ versions:
   feature: github-models
 permissions: 'Organization owners and enterprise owners'
 allowTitleToDifferFromFilename: true
+category:
+  - Manage GitHub Models for your organization
 ---
 
 {% data reusables.models.models-preview-note %}

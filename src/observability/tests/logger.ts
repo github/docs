@@ -389,4 +389,139 @@ describe('createLogger', () => {
       expect(logOutput).toContain('included.key=value')
     })
   })
+
+  describe('pod identity fields in production logs', () => {
+    it('should include podName, podNamespace, nodeHostname in logfmt output when env vars are set', async () => {
+      vi.stubEnv('POD_NAME', 'webapp-abc123')
+      vi.stubEnv('POD_NAMESPACE', 'docs-internal-staging-cedar')
+      vi.stubEnv('KUBE_NODE_HOSTNAME', 'ghe-k8s-node-42')
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+
+      // Reset modules so pod-identity is re-evaluated with the new env vars
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      logger.info('Pod identity test')
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).toContain('podName=webapp-abc123')
+      expect(logOutput).toContain('podNamespace=docs-internal-staging-cedar')
+      expect(logOutput).toContain('nodeHostname=ghe-k8s-node-42')
+    })
+
+    it('should not include pod identity fields in logfmt output when env vars are absent', async () => {
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+      // Ensure pod env vars are absent
+      delete process.env.POD_NAME
+      delete process.env.POD_NAMESPACE
+      delete process.env.KUBE_NODE_HOSTNAME
+
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      logger.info('No pod identity test')
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).not.toContain('podName=')
+      expect(logOutput).not.toContain('podNamespace=')
+      expect(logOutput).not.toContain('nodeHostname=')
+    })
+  })
+
+  describe('BUILD_SHA in production logs', () => {
+    it('should include build_sha in logfmt output when BUILD_SHA env var is set', async () => {
+      vi.stubEnv('BUILD_SHA', 'abc123def456')
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      logger.info('Build SHA test')
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).toContain('build_sha=abc123def456')
+    })
+
+    it('should not include build_sha in logfmt output when BUILD_SHA env var is absent', async () => {
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+      delete process.env.BUILD_SHA
+
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      logger.info('No build SHA test')
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).not.toContain('build_sha=')
+    })
+  })
+
+  describe('error serialization in production logs', () => {
+    it('should include error_code and error_name when Error has a .code property', async () => {
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      const error = new Error('Connection reset') as NodeJS.ErrnoException
+      error.code = 'ECONNRESET'
+      logger.error('Network failure', error)
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).toContain('included.error="Connection reset"')
+      expect(logOutput).toContain('included.error_code=ECONNRESET')
+      expect(logOutput).toContain('included.error_name=Error')
+      expect(logOutput).toContain('included.error_stack=')
+    })
+
+    it('should include error_name even when .code is undefined', async () => {
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      const error = new TypeError('Cannot read property')
+      logger.error('Type error occurred', error)
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).toContain('included.error="Cannot read property"')
+      expect(logOutput).toContain('included.error_name=TypeError')
+      // When .code is undefined, error_code is present but empty
+      expect(logOutput).toMatch(/included\.error_code= /)
+      expect(logOutput).toContain('included.error_stack=')
+    })
+
+    it('should serialize multiple errors with indexed keys', async () => {
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      const error1 = new Error('First') as NodeJS.ErrnoException
+      error1.code = 'ERR_FIRST'
+      const error2 = new Error('Second')
+      logger.error('Multiple errors', error1, error2)
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).toContain('included.error_1=First')
+      expect(logOutput).toContain('included.error_1_code=ERR_FIRST')
+      expect(logOutput).toContain('included.error_1_name=Error')
+      expect(logOutput).toContain('included.error_2=Second')
+      expect(logOutput).toContain('included.error_2_name=Error')
+    })
+  })
 })

@@ -8,6 +8,8 @@ shortTitle: Persist variables and files
 redirect_from:
   - /codespaces/developing-in-codespaces/persisting-environment-variables-and-temporary-files
 contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## Setting persistent environment variables

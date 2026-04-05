@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/detaching-repositories-from-their-security-configurations
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 If you decide that the security needs of a repository are too specific for a {% data variables.product.prodname_security_configuration %} to be useful, you can detach that repository from the linked configuration and instead manage security enablement settings at the repository level.

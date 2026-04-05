@@ -4,6 +4,90 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument 'classifications: [SecurityAdvisoryClassification!]<code>added to field</code>Repository.vulnerabilityAlerts'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-04-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>value</code> was added to object type <code>IssueFieldSingleSelectValue</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-03-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>IssueFieldAddedEvent</code> was added</p>",
+          "<p><code>IssueFieldAddedEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Field <code>color</code> was added to object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Field <code>issueField</code> was added to object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Field <code>value</code> was added to object type <code>IssueFieldAddedEvent</code></p>",
+          "<p>Type <code>IssueFieldChangedEvent</code> was added</p>",
+          "<p><code>IssueFieldChangedEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>issueField</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>newColor</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>newValue</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>previousColor</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Field <code>previousValue</code> was added to object type <code>IssueFieldChangedEvent</code></p>",
+          "<p>Type <code>IssueFieldRemovedEvent</code> was added</p>",
+          "<p><code>IssueFieldRemovedEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>IssueFieldRemovedEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldRemovedEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldRemovedEvent</code></p>",
+          "<p>Field <code>issueField</code> was added to object type <code>IssueFieldRemovedEvent</code></p>",
+          "<p>Type <code>IssueSearchType</code> was added</p>",
+          "<p>Enum value <code>HYBRID</code> was added to enum <code>IssueSearchType</code></p>",
+          "<p>Enum value <code>LEXICAL</code> was added to enum <code>IssueSearchType</code></p>",
+          "<p>Enum value <code>SEMANTIC</code> was added to enum <code>IssueSearchType</code></p>",
+          "<p>Type <code>LexicalFallbackReason</code> was added</p>",
+          "<p>Enum value 'NON_ISSUE_TARGET<code>was added to enum</code>LexicalFallbackReason'</p>",
+          "<p>Enum value 'NO_ACCESSIBLE_REPOS<code>was added to enum</code>LexicalFallbackReason'</p>",
+          "<p>Enum value 'NO_TEXT_TERMS<code>was added to enum</code>LexicalFallbackReason'</p>",
+          "<p>Enum value 'ONLY_NON_SEMANTIC_FIELDS_REQUESTED<code>was added to enum</code>LexicalFallbackReason'</p>",
+          "<p>Enum value 'OR_BOOLEAN_NOT_SUPPORTED<code>was added to enum</code>LexicalFallbackReason'</p>",
+          "<p>Enum value 'QUOTED_TEXT<code>was added to enum</code>LexicalFallbackReason'</p>",
+          "<p>Enum value 'SERVER_ERROR<code>was added to enum</code>LexicalFallbackReason'</p>",
+          "<p>Member <code>IssueFieldAddedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>IssueFieldChangedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>IssueFieldRemovedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>IssueFieldAddedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>IssueFieldChangedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>IssueFieldRemovedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Field <code>issueSearchType</code> was added to object type <code>SearchResultItemConnection</code></p>",
+          "<p>Field <code>lexicalFallbackReason</code> was added to object type <code>SearchResultItemConnection</code></p>",
+          "<p>Enum value 'ISSUE_HYBRID<code>was added to enum</code>SearchType'</p>",
+          "<p>Enum value 'ISSUE_SEMANTIC<code>was added to enum</code>SearchType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-03-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>optionId</code> was added to object type <code>IssueFieldSingleSelectValue</code></p>"
         ]
       }

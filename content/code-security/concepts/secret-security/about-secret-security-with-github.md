@@ -10,7 +10,11 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-security-with-github
+category:
+  - Protect your secrets
 ---
+
+Exposed secrets in your repositories can lead to unauthorized access, data breaches, and significant costs to your organization. For details about these risks and how to protect against them, see [AUTOTITLE](/code-security/concepts/secret-security/secret-leakage-risks).
 
 {% data variables.product.github %} provides tools to help you understand and address your organization's exposure to leaked secrets:
 

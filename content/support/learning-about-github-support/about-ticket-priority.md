@@ -5,6 +5,8 @@ shortTitle: Ticket priority
 versions:
   ghec: '*'
   ghes: '*'
+category:
+  - Understand your support options
 ---
 
 ## About ticket priorities

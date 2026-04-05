@@ -1,5 +1,5 @@
 ---
-title: Adding GitHub Copilot coding agent to your organization
+title: Adding GitHub Copilot cloud agent to your organization
 intro: 'Enable {% data variables.copilot.copilot_coding_agent %} for your members and control the repositories where it is available.'
 allowTitleToDifferFromFilename: true
 permissions: Organization owners
@@ -40,7 +40,7 @@ Organizations with {% data variables.copilot.copilot_enterprise_short %} or {% d
 
 ## Disabling or enabling {% data variables.copilot.copilot_coding_agent %} in your repositories
 
-By default, {% data variables.copilot.copilot_coding_agent %} is available in all repositories for users who have access to the agent, but you can block it from being used in some or all repositories owned by your organization.
+By default, {% data variables.copilot.copilot_coding_agent %} is available in all repositories for users who have access to the agent, but you can block it from being used in some or all repositories owned by your organization. You can manage repository availability using the following instructions, or programmatically using the [REST API](/rest/copilot/copilot-coding-agent-management).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -50,9 +50,14 @@ By default, {% data variables.copilot.copilot_coding_agent %} is available in al
 
 Once {% data variables.copilot.copilot_coding_agent %} is enabled for a repository, any user with access to {% data variables.copilot.copilot_coding_agent %} and write permission for the repository can delegate work to {% data variables.product.prodname_copilot_short %}.
 
+## Managing the agent firewall for your organization
+
+Organization owners can configure the {% data variables.copilot.copilot_coding_agent %} firewall for their organization, including whether it is enabled for the organization and which external hosts and URLs the agent can access. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-firewall).
+
 ## Next steps
 
-* Tell the members of repositories where {% data variables.copilot.copilot_coding_agent %} is available that they can delegate work to the coding agent.
+* Tell the members of repositories where {% data variables.copilot.copilot_coding_agent %} is available that they can delegate work to the {% data variables.copilot.copilot_coding_agent_short %}.
+* Configure the default runner type for {% data variables.copilot.copilot_coding_agent %} in your organization. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent).
 * Encourage members to educate themselves about setting up their repository to get the most from {% data variables.copilot.copilot_coding_agent %}. Useful resources:
 
    * [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)

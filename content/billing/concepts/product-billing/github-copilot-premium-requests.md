@@ -61,9 +61,9 @@ When you use {% data variables.copilot.copilot_coding_agent %}, including any {%
 * **{% data variables.product.prodname_actions %} minutes** come from your account’s monthly allowance of free minutes for {% data variables.product.github %}-hosted runners. This allowance is shared with all {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes).
 * **Premium requests** come from the monthly allowance associated with your {% data variables.product.prodname_copilot_short %} license. This allowance is shared with other features, such as {% data variables.copilot.copilot_chat_short %}.
 
-Each coding agent **session** consumes one premium request. A session begins when you:
+Each cloud agent **session** consumes one premium request. A session begins when you:
 
-* Ask {% data variables.product.prodname_copilot_short %} to create or edit a pull request
+* Prompt {% data variables.product.prodname_copilot_short %} to undertake a task.
 * Assign {% data variables.product.prodname_copilot_short %} to an issue
 
 If you run out of free minutes or premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.

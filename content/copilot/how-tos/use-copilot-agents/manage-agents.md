@@ -1,8 +1,8 @@
 ---
-title: Managing coding agents
+title: Managing cloud agents
 shortTitle: Manage agents
 intro: View your agent's progress and keep it on task.
-product: 'Coding agents are available with the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} plans.<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: 'Cloud agents are available with the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} plans.<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
@@ -20,7 +20,7 @@ category:
     * Open the [Agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text)
     * Use the **Task** button or `/task` command from [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)
     * Open the Agents panel by clicking the {% octicon "agent" aria-label="The Agents icon" %} at the top of any page on {% data variables.product.github %}
-1. Using the dropdown menu, select the repository you want the coding agent to work in.
+1. Using the dropdown menu, select the repository you want the cloud agent to work in.
 1. Optionally, select a base branch for {% data variables.product.prodname_copilot_short %}'s pull request.
 {% data reusables.copilot.optional-select-custom-agent-dotcom %}
 1. Optionally, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.

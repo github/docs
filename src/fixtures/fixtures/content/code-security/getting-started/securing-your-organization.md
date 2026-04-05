@@ -6,11 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Organizations
-  - Dependencies
-  - Vulnerabilities
-  - Advanced Security
 shortTitle: Secure your organization
 ---
 

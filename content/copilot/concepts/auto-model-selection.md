@@ -40,10 +40,11 @@ Experience less rate limiting and reduce the mental load of choosing a model by 
 
 When you select **Auto** in {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} may choose from the following list of models, subject to your policies and subscription type. Models may change over time.
   * {% data variables.copilot.copilot_gpt_41 %}
-  * {% data variables.copilot.copilot_gpt_52_codex %}
   * {% data variables.copilot.copilot_gpt_53_codex %}
+  * {% data variables.copilot.copilot_gpt_54 %}
+  * {% data variables.copilot.copilot_gpt_54_mini %}
   * {% data variables.copilot.copilot_claude_haiku_45 %}
-  * {% data variables.copilot.copilot_claude_sonnet_45 %}
+  * {% data variables.copilot.copilot_claude_sonnet_46 %}
   * {% data variables.copilot.copilot_grok_code %}
   * {% data variables.copilot.copilot_raptor_mini %}
 

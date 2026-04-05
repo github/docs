@@ -4,6 +4,8 @@ intro: MRVA lets you test a query in {% data variables.product.prodname_vscode %
 versions:
   feature: codeql-vs-code-mrva
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About MRVA

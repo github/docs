@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 shortTitle: Develop in a codespace
 contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## About development with {% data variables.product.prodname_github_codespaces %}

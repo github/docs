@@ -109,9 +109,9 @@
   cli: false
   vscode: true
   vs: true
-  eclipse: false
-  xcode: false
-  jetbrains: false
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: GPT-4.1
   dotcom: true

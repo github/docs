@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 shortTitle: Dependency scope
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}

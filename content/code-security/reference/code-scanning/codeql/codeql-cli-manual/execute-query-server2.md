@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/execute-query-server2
   - /code-security/codeql-cli/codeql-cli-manual/execute-query-server2
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

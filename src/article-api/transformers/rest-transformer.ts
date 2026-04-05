@@ -2,11 +2,20 @@ import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import type { Operation } from '@/rest/components/types'
 import { renderContent } from '@/content-render/index'
+import { engine } from '@/content-render/liquid/engine'
+import { apiTransformerTags } from '@/article-api/liquid-renderers'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { summarizeSchema } from '@/article-api/lib/summarize-schema'
 import matter from '@gr2m/gray-matter'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 import GithubSlugger from 'github-slugger'
+
+// Register article-api-specific Liquid tags on the shared engine.
+// These are only used by REST templates and kept here (not in engine.ts)
+// to avoid a circular dependency: rest-tags → renderContent → engine.
+for (const [tagName, tagClass] of Object.entries(apiTransformerTags)) {
+  engine.registerTag(tagName, tagClass as any)
+}
 
 const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 
@@ -58,15 +67,14 @@ export class RestTransformer implements PageTransformer {
     const subcategory = pathParts[restIndex + 2] // May be undefined for category-only pages
 
     // Get the REST operations data
-    const restData = await getRest(currentVersion, effectiveApiVersion)
+    const categoryData = await getRest(currentVersion, effectiveApiVersion, category)
 
     let operations: Operation[] = []
 
-    if (subcategory && restData[category]?.[subcategory]) {
-      operations = restData[category][subcategory]
-    } else if (category && restData[category]) {
+    if (subcategory && categoryData?.[subcategory]) {
+      operations = categoryData[subcategory]
+    } else if (category && categoryData) {
       // For categories without subcategories, operations are nested directly
-      const categoryData = restData[category]
       // Flatten all operations from all subcategories
       operations = Object.values(categoryData).flat()
     }

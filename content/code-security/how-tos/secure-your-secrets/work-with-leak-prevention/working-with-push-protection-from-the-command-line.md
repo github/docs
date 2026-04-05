@@ -10,6 +10,8 @@ versions:
 contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line
+category:
+  - Protect your secrets
 ---
 
 ## Resolving a blocked push

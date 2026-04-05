@@ -10,13 +10,15 @@ versions:
 contentType: how-tos
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository
+category:
+  - Find and fix code vulnerabilities
 ---
 
 Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
 
 ## Viewing the alerts for a repository
 
-You need write permission to view a summary of all the alerts for a repository on the **Security** tab.
+You need write permission to view a summary of all the alerts for a repository on the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 By default, the {% data variables.product.prodname_code_scanning %} alerts page is filtered to show alerts for the default branch of the repository only.
 

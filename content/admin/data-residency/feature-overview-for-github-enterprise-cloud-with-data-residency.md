@@ -47,6 +47,7 @@ The following features are either specific to {% data variables.enterprise.data_
 
 * [API access](#api-access)
 * [URL differences](#url-differences)
+* [Organization names and usernames](#organization-names-and-usernames)
 * [{% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}](#github-actions-workflows-from-github-marketplace)
 * [Retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}](#retirement-of-namespaces-for-actions-accessed-on-githubcom)
 * [GitHub Connect](#github-connect)
@@ -71,8 +72,13 @@ The following examples are not exhaustive.
 | OIDC trusts for {% data variables.product.prodname_actions %} deployments | The OIDC token is issued from `https://token.actions.githubusercontent.com`. | The OIDC token is issued from `https://token.actions.SUBDOMAIN.ghe.com` |
 | Raw URLs | `https://raw.githubusercontent.com/` | `https://raw.SUBDOMAIN.ghe.com/` |
 | Anonymized URLs for images and videos | `https://private-user-images.githubusercontent.com/` | `https://SUBDOMAIN.ghe.com/user-attachments/assets/` |
+| Cloning repositories using SSH | `git clone git@github.com:OWNER/REPOSITORY.git` | `git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPOSITORY.git` |
 
 {% endrowheaders %}
+
+### Organization names and usernames
+
+{% data variables.enterprise.data_residency_site %} reserves certain usernames and organization names for internal use. If you try to create a user or organization with one of these names, you'll get an error stating the name is unavailable.
 
 ### {% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}
 
@@ -103,4 +109,6 @@ Some features on {% data variables.enterprise.data_residency_site %} are current
 
 ### {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %}.
+{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %} and are available in all {% data variables.enterprise.data_residency %} regions: EU, Australia, US, and Japan.
+
+To use {% data variables.product.prodname_github_codespaces %} from {% data variables.product.prodname_vscode_shortname %} desktop with an enterprise on {% data variables.enterprise.data_residency_site %}, you must configure the `Github-enterprise: Uri` and `Github > Codespaces: Auth Provider` settings. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code#connecting-to-an-enterprise-on-ghecom).

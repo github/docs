@@ -153,3 +153,5 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 | User access token for a {% data variables.product.prodname_github_app %} | `ghu_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) |
 | Installation access token for a {% data variables.product.prodname_github_app %} | `ghs_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation) |
 | Refresh token for a {% data variables.product.prodname_github_app %} | `ghr_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens) |
+
+For more information {% data variables.product.github %}'s token types and their management, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types).

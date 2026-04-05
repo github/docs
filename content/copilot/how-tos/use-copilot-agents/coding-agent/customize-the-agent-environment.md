@@ -1,6 +1,7 @@
 ---
-title: Customizing the development environment for GitHub Copilot coding agent
+title: Customizing the development environment for GitHub Copilot cloud agent
 shortTitle: Customize the agent environment
+allowTitleToDifferFromFilename: true
 intro: 'Learn how to customize {% data variables.product.prodname_copilot %}''s development environment with additional tools.'
 versions:
   feature: copilot
@@ -31,6 +32,9 @@ In addition, you can:
 
 * [Set environment variables in {% data variables.product.prodname_copilot_short %}'s environment](#setting-environment-variables-in-copilots-environment)
 * [Disable or customize the agent's firewall](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
+
+> [!NOTE]
+> Organization owners can configure the default runner type for {% data variables.copilot.copilot_coding_agent %} across all repositories in their organization, and choose whether repositories are allowed to override this default. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent).
 
 ## Customizing {% data variables.product.prodname_copilot_short %}'s development environment with {% data variables.product.prodname_copilot_short %} setup steps
 

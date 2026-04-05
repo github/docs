@@ -1,0 +1,528 @@
+{
+  "deploy-keys": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/keys",
+      "title": "List deploy keys",
+      "category": "deploy-keys",
+      "subcategory": "deploy-keys",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "id": 1,
+                "key": "ssh-rsa AAA...",
+                "url": "https://api.github.com/repos/octocat/Hello-World/keys/1",
+                "title": "octocat@octomac",
+                "verified": true,
+                "created_at": "2014-12-10T15:53:42Z",
+                "read_only": true,
+                "added_by": "octocat",
+                "last_used": "2022-01-10T15:53:42Z",
+                "enabled": true
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Deploy Key",
+                "description": "An SSH key granting access to a single repository.",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "verified": {
+                    "type": "boolean"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  },
+                  "read_only": {
+                    "type": "boolean"
+                  },
+                  "added_by": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "last_used": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "key",
+                  "url",
+                  "title",
+                  "verified",
+                  "created_at",
+                  "read_only"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/keys",
+      "title": "Create a deploy key",
+      "category": "deploy-keys",
+      "subcategory": "deploy-keys",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "title",
+          "description": "<p>A name for the key.</p>"
+        },
+        {
+          "type": "string",
+          "name": "key",
+          "description": "<p>The contents of the key.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "read_only",
+          "description": "<p>If <code>true</code>, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.</p>\n<p>Deploy keys with write access can perform the same actions as an organization member with admin access, or a collaborator on a personal repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/articles/repository-permission-levels-for-an-organization/\">Repository permission levels for an organization</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.19/articles/permission-levels-for-a-user-account-repository/\">Permission levels for a user account repository</a>.\"</p>"
+        }
+      ],
+      "descriptionHTML": "<p>You can create a read-only deploy key.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "title": "octocat@octomac",
+              "key": "ssh-rsa AAA...",
+              "read_only": true
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 1,
+              "key": "ssh-rsa AAA...",
+              "url": "https://api.github.com/repos/octocat/Hello-World/keys/1",
+              "title": "octocat@octomac",
+              "verified": true,
+              "created_at": "2014-12-10T15:53:42Z",
+              "read_only": true,
+              "added_by": "octocat",
+              "last_used": "2022-01-10T15:53:42Z",
+              "enabled": true
+            },
+            "schema": {
+              "title": "Deploy Key",
+              "description": "An SSH key granting access to a single repository.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "verified": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "read_only": {
+                  "type": "boolean"
+                },
+                "added_by": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "last_used": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "key",
+                "url",
+                "title",
+                "verified",
+                "created_at",
+                "read_only"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/keys/{key_id}",
+      "title": "Get a deploy key",
+      "category": "deploy-keys",
+      "subcategory": "deploy-keys",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "key_id",
+          "description": "<p>The unique identifier of the key.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "key_id": "KEY_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 1,
+              "key": "ssh-rsa AAA...",
+              "url": "https://api.github.com/repos/octocat/Hello-World/keys/1",
+              "title": "octocat@octomac",
+              "verified": true,
+              "created_at": "2014-12-10T15:53:42Z",
+              "read_only": true,
+              "added_by": "octocat",
+              "last_used": "2022-01-10T15:53:42Z",
+              "enabled": true
+            },
+            "schema": {
+              "title": "Deploy Key",
+              "description": "An SSH key granting access to a single repository.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "verified": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "read_only": {
+                  "type": "boolean"
+                },
+                "added_by": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "last_used": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "key",
+                "url",
+                "title",
+                "verified",
+                "created_at",
+                "read_only"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/keys/{key_id}",
+      "title": "Delete a deploy key",
+      "category": "deploy-keys",
+      "subcategory": "deploy-keys",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "key_id",
+          "description": "<p>The unique identifier of the key.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Deploy keys are immutable. If you need to update a key, remove the key and create a new one instead.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "key_id": "KEY_ID"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "write"
+          }
+        ]
+      }
+    }
+  ]
+}

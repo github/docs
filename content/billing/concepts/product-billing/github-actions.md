@@ -44,7 +44,7 @@ For **private repositories**, each {% data variables.product.github %} account r
 
 It's important to understand the difference between what you see on {% data variables.product.github %} and what appears on your bill:
 
-* **Current storage:** The amount of storage you have right now (visible in repository settings and the **Billing Overview** page)
+* **Current storage:** The amount of storage you have right now
 * **Accrued storage:** The cumulative total of storage used throughout the billing cycle (determines your bill)
 
 **When you delete artifacts:**
@@ -165,7 +165,7 @@ If you use 3 GB of artifact storage for 10 days of March and 12 GB for 21 days o
 At the end of the month, {% data variables.product.github %} rounds your artifact storage to the nearest MB. Therefore, your artifact storage usage for March would be 9.097 GB.
 
 > [!NOTE]
-> {% data variables.product.github %} updates your artifact storage space within a 6 to 12-hour window. If you delete artifacts, the available space will be reflected in your account during the next scheduled update.
+> {% data variables.product.github %} updates your artifact storage usage within 6 to 12 hours. Deleting artifacts frees up space for current storage, but does not reduce your accrued storage usage, which is used to calculate your storage billing for the current billing cycle.
 
 ### Example cache storage cost calculation
 

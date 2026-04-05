@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 product: '{% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}'
 contentType: how-tos
+category:
+  - Manage codespaces for your organization
 ---
 
 ## About enabling and disabling {% data variables.product.prodname_github_codespaces %}

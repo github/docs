@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}

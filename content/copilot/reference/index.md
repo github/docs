@@ -20,6 +20,7 @@ children:
   - /metrics-data
   - /copilot-billing
   - /agentic-audit-log-events
+  - /agent-session-filters
   - /review-excluded-files
   - /copilot-usage-metrics
 contentType: reference

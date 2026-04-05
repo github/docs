@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/enabling-default-setup-takes-too-long
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/enabling-default-setup-takes-too-long
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 

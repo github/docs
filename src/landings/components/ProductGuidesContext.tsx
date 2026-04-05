@@ -15,7 +15,6 @@ export type ArticleGuide = {
   title: string
   intro: string
   contentType: string
-  topics: Array<string>
 }
 
 export type ProductGuidesContextT = {
@@ -77,7 +76,6 @@ export const getProductGuidesContextFromRequest = (req: ExtendedRequest): Produc
         title: (guide.title as string) || '',
         intro: (guide.intro as string) || '',
         contentType: (guide.contentType as string) || '',
-        topics: (guide.topics as Array<string>) || [],
       }
     }),
   }

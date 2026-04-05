@@ -1,6 +1,7 @@
 ---
-title: Changing the AI model for GitHub Copilot coding agent
+title: Changing the AI model for GitHub Copilot cloud agent
 shortTitle: Changing the AI model
+allowTitleToDifferFromFilename: true
 intro: 'In supported entrypoints, when starting a task with {% data variables.copilot.copilot_coding_agent %}, you can select the model used.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:

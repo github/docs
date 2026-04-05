@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /codespaces/developing-in-codespaces/connecting-to-a-private-network
 contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## About codespace networking
