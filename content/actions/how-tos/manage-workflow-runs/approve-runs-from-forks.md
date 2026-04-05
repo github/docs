@@ -1,4 +1,4 @@
----
+content/actions/how-tos/manage-workflow-runs/approve-runs-from-forks.md---
 title: Approving workflow runs from forks
 intro: You can manually approve workflow runs that have been triggered by a contributor's pull request.
 versions:
