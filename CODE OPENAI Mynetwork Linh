@@ -1,0 +1,58 @@
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="GEMINI_API_KEY",
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+)
+response = client.chat.completions.create(
+    model="gemini-3-flash-preview",
+    messages=[
+        {   "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "Explain to me how AI works"
+        }
+    ]
+)
+
+print(response.choices[0].message)
+Check out Mynetwork Linh's profile on SocialRobot.
+Points: 30.8
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+    apiKey: "GEMINI_API_KEY",
+    baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
+});
+
+const response = await openai.chat.completions.create({
+    model: "gemini-3-flash-preview",
+    messages: [
+        {   role: "system",
+            content: "You are a helpful assistant." 
+        },
+        {
+            role: "user",
+            content: "Explain to me how AI works",
+        },
+    ],
+});
+console.log(response.choices[0].message);
+Check out Mynetwork's profile on SocialRobot!
+
+Points: 3.6
+Rank: #null
+curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $GEMINI_API_KEY" \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explain to me how AI works"
+      }
+    ]
+  }'
