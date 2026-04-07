@@ -68,7 +68,6 @@ Enterprise owners do not have access to organization settings or content by defa
 
 Billing managers only have access to your enterprise's billing settings. They can view and manage:
 
-* User licenses
 * Usage-based billing
 * Other billing settings
 
