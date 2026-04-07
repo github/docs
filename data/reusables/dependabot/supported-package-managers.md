@@ -171,7 +171,7 @@ When configuring {% data variables.product.prodname_dependabot %} for Helm chart
 
 ### Nix
 
-{% data variables.product.prodname_dependabot %} monitors your `flake.lock` file and opens pull requests when newer commits are available upstream for your flake inputs. GitHub, GitLab, Sourcehut, and plain git inputs are all supported. Updating pinned refs inside `flake.nix` itself (for example, changing `github:cachix/devenv/v0.5` to a newer tag) is not supported.
+{% data variables.product.prodname_dependabot %} monitors your `flake.lock` file and opens pull requests when newer commits are available upstream for your flake inputs. {% data variables.product.github %}, GitLab, SourceHut, and plain Git inputs are all supported. Updating pinned refs inside `flake.nix` itself (for example, changing `github:cachix/devenv/v0.5` to a newer tag) is not supported.
 
 {% data variables.product.prodname_dependabot %} does not currently support private repositories for the `nix` ecosystem.
 

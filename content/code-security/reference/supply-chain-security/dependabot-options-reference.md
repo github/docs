@@ -881,7 +881,7 @@ New version `2.0.0`
 * `widen`: new constraint `>=1.0.0 <3.0.0`
 
 > [!NOTE]
-> If the package manager you use does not yet support configuring the `versioning-strategy` parameter, or does not support a value you need. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in <https://github.com/dependabot/dependabot-core/>.
+> If the package manager you use does not yet support configuring the `versioning-strategy` parameter, or does not support a value you need, the strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in <https://github.com/dependabot/dependabot-core/>.
 
 {% ifversion dependabot-updates-supported-versioning-tags %}
 
