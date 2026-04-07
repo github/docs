@@ -308,6 +308,7 @@ When set to `dependency-name`, {% data variables.product.prodname_dependabot %} 
 **Limitations of cross-directory grouping**
 
 When using `group-by: dependency-name`:
+
 * All directories must use the same package ecosystem (for example, all `npm` or all `bundler`)
 * Applies to **version updates only**
 * If directories have incompatible version constraints for a dependency, {% data variables.product.prodname_dependabot %} will create separate pull requests
@@ -537,6 +538,9 @@ Package manager | YAML value      | Supported versions |
 | Go modules     | `gomod`          | v1               |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
+| {% ifversion dependabot-nix-support %} |
+| Nix flakes | `nix`            | Not applicable   |
+| {% endif %} |
 | npm            | `npm`            |  v7, v8, v9, v10   |
 | NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} |
 | {% ifversion dependabot-opentofu-support %} |
@@ -713,6 +717,7 @@ Examples : `0 9 * * *`, `every day at 5pm`
 `0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
 
 > [!NOTE]
+>
 > * Timezones must be specified in the [`timezone`](#timezone) parameter and not in the `cronjob`.
 > * A `cronjob` type schedule is required to use a `cron` interval.
 
@@ -872,11 +877,11 @@ New version `1.2.0`
 New version `2.0.0`
 
 * `increase`: new constraint `^2.0.0`
-* `increase-if-necessary`: new constraint `^2.0.0 `
+* `increase-if-necessary`: new constraint `^2.0.0`
 * `widen`: new constraint `>=1.0.0 <3.0.0`
 
 > [!NOTE]
-> If the package manager you use does not yet support configuring the `versioning-strategy` parameter, or does not support a value you need. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in https://github.com/dependabot/dependabot-core/.
+> If the package manager you use does not yet support configuring the `versioning-strategy` parameter, or does not support a value you need. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in <https://github.com/dependabot/dependabot-core/>.
 
 {% ifversion dependabot-updates-supported-versioning-tags %}
 
