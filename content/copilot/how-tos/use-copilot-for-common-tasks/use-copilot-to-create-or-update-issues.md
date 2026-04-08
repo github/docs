@@ -125,7 +125,7 @@ The draft appears in the workbench, where you can review and edit it. To publish
 
 ## Assigning issues to {% data variables.product.prodname_copilot_short %}
 
-To assign an issue to {% data variables.product.prodname_copilot_short %}, you need to have {% data variables.copilot.copilot_coding_agent %} enabled. See [AUTOTITLE](/copilot/concepts/coding-agent/about-enabling-coding-agent).
+To assign an issue to {% data variables.product.prodname_copilot_short %}, you need to have {% data variables.copilot.copilot_cloud_agent %} enabled. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
 
 You can assign the issue during creation in one of two ways:
 

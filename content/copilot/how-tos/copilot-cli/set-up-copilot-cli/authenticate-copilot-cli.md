@@ -12,13 +12,39 @@ category:
 
 ## About authentication
 
-{% data variables.copilot.copilot_cli %} supports three authentication methods. The method you use depends on whether you are working interactively or in an automated environment.
+If you use your own LLM provider API keys (BYOK), {% data variables.product.github %} authentication is not required.
+
+Authentication is required for any other {% data variables.copilot.copilot_cli %} usage.
+
+When authentication is required, {% data variables.copilot.copilot_cli_short %} supports three methods. The method you use depends on whether you are working interactively or in an automated environment.
 
 * **OAuth device flow**: The default and recommended method for interactive use. When you run `/login` in {% data variables.copilot.copilot_cli_short %}, the CLI generates a one-time code and directs you to authenticate in your browser. This is the simplest way to authenticate.
 * **Environment variables**: Recommended for CI/CD pipelines, containers, and non-interactive environments. You set a supported token as an environment variable (`COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN`), and the CLI uses it automatically without prompting.
 * **{% data variables.product.prodname_cli %} fallback**: If you have {% data variables.product.prodname_cli %} (`gh`) (note: the `gh` CLI, not `copilot`) installed and authenticated, {% data variables.copilot.copilot_cli_short %} can use its token automatically. This is the lowest priority method and activates only when no other credentials are found.
 
 Once authenticated, {% data variables.copilot.copilot_cli_short %} remembers your login and automatically uses the token for all {% data variables.product.prodname_copilot_short %} API requests. You can log in with multiple accounts, and the CLI will remember the last-used account. Token lifetime and expiration depend on how the token was created on your account or organization settings.
+
+## Unauthenticated use
+
+If you configure {% data variables.copilot.copilot_cli_short %} to use your own LLM provider API keys (BYOK), {% data variables.product.github %} authentication is **not required**. {% data variables.copilot.copilot_cli_short %} can connect directly to your configured provider without a {% data variables.product.github %} account or token.
+
+However, without {% data variables.product.github %} authentication, the following features are **not available**:
+
+* `/delegate`: Requires {% data variables.copilot.copilot_cloud_agent %}, which runs on {% data variables.product.github %}'s servers
+* {% data variables.product.github %} MCP server: Requires authentication to access {% data variables.product.github %} APIs
+* {% data variables.product.github %} Code Search: Requires authentication to query {% data variables.product.github %}'s search index
+
+You can combine BYOK with {% data variables.product.github %} authentication to get the best of both: your preferred model for AI responses, plus access to {% data variables.product.github %}-hosted features like `/delegate` and code search.
+
+### Offline mode
+
+ If you set the `COPILOT_OFFLINE` environment variable to `true`, {% data variables.copilot.copilot_cli_short %} runs without contacting {% data variables.product.github %}'s servers. In offline mode:
+
+* No {% data variables.product.github %} authentication is attempted.
+* The CLI only makes network requests to your configured BYOK provider.
+* Telemetry is fully disabled.
+
+Offline mode is **only fully air-gapped** if your BYOK provider is local or otherwise within the same isolated environment (for example, a model running on-premises with no external network access). If `COPILOT_PROVIDER_BASE_URL` points to a remote or internet-accessible endpoint, prompts and code context will still be sent over the network to that provider. Without offline mode, even when using BYOK without {% data variables.product.github %} authentication, telemetry is still sent normally.
 
 ### Supported token types
 
@@ -50,7 +76,8 @@ When you run a command, {% data variables.copilot.copilot_cli_short %} checks fo
 1. GitHub CLI (`gh auth token`) fallback
 
 > [!NOTE]
-> An environment variable silently overrides a stored OAuth token. If you set `GH_TOKEN` for another tool, the CLI uses that token instead of the OAuth token from `copilot login`. To avoid unexpected behavior, unset environment variables you do not intend the CLI to use.
+> * An environment variable silently overrides a stored OAuth token. If you set `GH_TOKEN` for another tool, the CLI uses that token instead of the OAuth token from `copilot login`. To avoid unexpected behavior, unset environment variables you do not intend the CLI to use.
+> * When you configure BYOK provider environment variables (for example, `COPILOT_PROVIDER_BASE_URL`, `COPILOT_PROVIDER_API_KEY`), {% data variables.copilot.copilot_cli_short %} uses these for AI model requests regardless of your {% data variables.product.github %} authentication status. {% data variables.product.github %} tokens are only needed for {% data variables.product.github %}-hosted features.
 
 ## Authenticating with OAuth
 

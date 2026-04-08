@@ -23,9 +23,9 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [`changelog`](#changelog)
   - [`defaultPlatform`](#defaultplatform)
   - [`defaultTool`](#defaulttool)
-  - [`learningTracks`](#learningtracks)
-  - [`includeGuides`](#includeguides)
+
   - [`journeyTracks`](#journeytracks)
+  - [`journeyArticlesHeading`](#journeyarticlesheading)
   - [`contentType`](#contenttype)
   - [`communityRedirect`](#communityRedirect)
   - [`effectiveDate`](#effectiveDate)
@@ -40,7 +40,6 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [Legacy filepaths and redirects for links](#legacy-filepaths-and-redirects-for-links)
   - [Index pages](#index-pages)
   - [Home page](#homepage)
-  - [Creating new product guides pages](#creating-new-product-guides-pages)
 
 ## Frontmatter
 
@@ -230,27 +229,6 @@ defaultPlatform: linux
 defaultTool: cli
 ```
 
-### `learningTracks`
-- Purpose: Render a list of learning tracks on a product's sub-landing page.
-- type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-- Optional
-
-**Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
-
-### `includeGuides`
-- Purpose: Render a list of articles, filterable by `contentType`. Only applicable when used with `layout: product-guides`.
-- Type: `Array`
-- Optional.
-
-Example:
-
-```yaml
-includeGuides:
-  - /actions/guides/about-continuous-integration
-  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-  - /actions/guides/building-and-testing-nodejs
-  - /actions/guides/building-and-testing-powershell
-```
 
 ### `journeyTracks`
 - Purpose: Define journeys for journey landing pages.
@@ -282,6 +260,24 @@ journeyTracks:
     guides:
       - href: '/actions/using-workflows/workflow-syntax-for-github-actions'
       - href: '/actions/deployment/deploying-with-github-actions'
+```
+
+### `journeyArticlesHeading`
+- Purpose: Override the default "Articles" heading shown above the article list on single-track journey landing pages.
+- Type: `String`
+- Only applicable when used with `layout: journey-landing` and a single journey track.
+- Optional. If omitted, the heading defaults to the translated value of `journey_landing.articles_heading` ("Articles").
+
+Example:
+
+```yaml
+layout: journey-landing
+journeyArticlesHeading: "Guides"
+journeyTracks:
+  - id: ado_migration
+    title: Run your migration
+    guides:
+      - href: /migrations/ado/understand-migrations-from-azure-devops-to-github
 ```
 
 ### `contentType`
@@ -433,13 +429,3 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 
 `childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
 
-### Creating new product guides pages
-
-To create a product guides page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
-
-1. Use the product guides page template by referencing `layout: product-guides`.
-1. (optional) Include the learning tracks in [`learningTracks`](#learningTracks).
-1. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
-
-If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-If using `includeGuides`, make sure each of the articles in this list has [`contentType`](#contenttype) in its frontmatter.

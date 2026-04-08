@@ -101,6 +101,14 @@ For more information about premium requests, see [AUTOTITLE](/copilot/managing-c
 
 For more information about fallback and LTS models, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
 
+## Evaluation models
+{% data variables.product.prodname_copilot %} offers access to evaluation models—including top-performing open source and open-weight models—to provide the most advanced coding suggestions available.
+
+> [!NOTE]
+> Testing of evaluation models has revealed that some may perform worse than other models on security-related or other categories of prompts. Customers are encouraged to validate code, including code security, using a range of models and thorough human review before incorporating suggestions into production.
+
+Evaluation models may be added, updated, or removed without notice. Availability and rate limits may differ from generally available models.
+
 ## Next steps
 
 * For task-based guidance on selecting a model, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).

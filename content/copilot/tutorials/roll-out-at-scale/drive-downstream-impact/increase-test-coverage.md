@@ -135,7 +135,7 @@ Developers **should not**:
 * [{% data variables.copilot.copilot_chat_dotcom_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github)
 * [{% data variables.product.prodname_copilot_short %} inline suggestions](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
 * [{% data variables.copilot.copilot_chat_short %} in the IDE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide)
-* [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent)
+* [{% data variables.copilot.copilot_cloud_agent %}](/copilot/concepts/about-copilot-cloud-agent)
 
 ## Metrics to watch
 

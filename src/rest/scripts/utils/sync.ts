@@ -120,6 +120,12 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
 
 // Every time we update the REST data files, we'll want to make sure the
 // config.json file is updated with the latest api versions.
+// This function rebuilds each version's date array from the schemas that were
+// actually synced, so deprecated calendar-date versions are automatically
+// removed. Only version keys that appear in the incoming schemas are touched —
+// keys absent from this sync run (e.g. during a partial --versions run) are
+// left unchanged. We never remove an entire version key (e.g. "ghes-3.14");
+// that is handled separately by the GHES deprecation process.
 async function updateRestConfigData(schemas: string[]): Promise<void> {
   const restConfigFilename = 'src/rest/lib/config.json'
   const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8')) as Record<
@@ -127,28 +133,33 @@ async function updateRestConfigData(schemas: string[]): Promise<void> {
     any
   >
   const restApiVersionData = restConfigData['api-versions'] || {}
-  // If the version isn't one of the OpenAPI version,
-  // then it's an api-versioned schema
+
+  // Phase 1: Collect the dates present in the incoming schemas, keyed by
+  // OpenAPI version name. Only calendar-date schemas contribute — those that
+  // don't exactly match a base OPENAPI_VERSION_NAMES entry but do start with one.
+  const incomingDates: Record<string, Set<string>> = {}
+
   for (const schema of schemas) {
     const schemaBaseName = path.basename(schema, '.json')
     if (!OPENAPI_VERSION_NAMES.includes(schemaBaseName)) {
-      const openApiVer = OPENAPI_VERSION_NAMES.find((ver) => schemaBaseName.startsWith(ver))
+      const openApiVer = OPENAPI_VERSION_NAMES.find((ver) => schemaBaseName.startsWith(`${ver}-`))
       if (!openApiVer) {
         throw new Error(`Could not find the OpenAPI version for schema ${schemaBaseName}`)
       }
-      const date = schemaBaseName.split(`${openApiVer}-`)[1]
-
-      if (!restApiVersionData[openApiVer]) {
-        restApiVersionData[openApiVer] = []
-      }
-      if (!restApiVersionData[openApiVer].includes(date)) {
-        const dates = restApiVersionData[openApiVer]
-        dates.push(date)
-        restApiVersionData[openApiVer] = dates
-      }
+      const date = schemaBaseName.slice(openApiVer.length + 1)
+      if (!incomingDates[openApiVer]) incomingDates[openApiVer] = new Set()
+      incomingDates[openApiVer].add(date)
     }
-    restConfigData['api-versions'] = restApiVersionData
   }
+
+  // Phase 2: For each version key that appeared in this sync run, replace its
+  // date array with exactly what was synced. This removes any deprecated dates
+  // that are no longer present in the upstream schemas.
+  for (const [openApiVer, dates] of Object.entries(incomingDates)) {
+    restApiVersionData[openApiVer] = [...dates].sort()
+  }
+
+  restConfigData['api-versions'] = restApiVersionData
   await writeFile(restConfigFilename, JSON.stringify(restConfigData, null, 2))
 }
 

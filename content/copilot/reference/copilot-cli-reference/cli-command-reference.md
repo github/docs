@@ -17,7 +17,7 @@ redirect_from:
 | Command                | Purpose                                            |
 |------------------------|----------------------------------------------------|
 | `copilot`              | Launch the interactive user interface.              |
-| `copilot help [topic]` | Display help information. Help topics include: `config`, `commands`, `environment`, `logging`, and `permissions`. |
+| `copilot help [topic]` | Display help information. Help topics include: `config`, `commands`, `environment`, `logging`, `permissions`, and `providers`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot update`       | Download and install the latest version.           |
 | `copilot version`      | Display version information and check for updates. |
@@ -74,37 +74,44 @@ redirect_from:
 | `/add-dir PATH`                                     | Add a directory to the allowed list for file access. |
 | `/agent`                                            | Browse and select from available agents (if any). |
 | `/allow-all`, `/yolo`                               | Enable all permissions (tools, paths, and URLs). |
+| `/changelog [SUMMARIZE] [VERSION]`                  | Display the CLI changelog with an optional AI-generated summary. |
 | `/clear [PROMPT]`, `/new [PROMPT]`                  | Start a new conversation. |
 | `/compact`                                          | Summarize the conversation history to reduce context window usage. |
 | `/context`                                          | Show the context window token usage and visualization. |
+| `/copy`                                             | Copy the last response to the clipboard. |
 | `/cwd`, `/cd [PATH]`                                | Change the working directory or display the current directory. |
 | `/delegate [PROMPT]`                                | Delegate changes to a remote repository with an AI-generated pull request. |
 | `/diff`                                             | Review the changes made in the current directory. |
 | `/exit`, `/quit`                                    | Exit the CLI. |
-| `/experimental [on\|off]`                           | Toggle or turn on/off experimental features. |
+| `/experimental [on\|off\|show]`                     | Toggle, set, or show experimental features. |
 | `/feedback`                                         | Provide feedback about the CLI. |
 | `/fleet [PROMPT]`                                   | Enable parallel subagent execution of parts of a task. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet). |
 | `/help`                                             | Show the help for interactive commands. |
 | `/ide`                                              | Connect to an IDE workspace. |
 | `/init`                 | Initialize {% data variables.product.prodname_copilot_short %} custom instructions and agentic features for this repository. |
+| `/instructions`                                     | View and toggle custom instruction files. |
 | `/list-dirs`                                        | Display all of the directories for which file access has been allowed. |
 | `/login`                                            | Log in to {% data variables.product.prodname_copilot_short %}. |
 | `/logout`                                           | Log out of {% data variables.product.prodname_copilot_short %}. |
 | `/lsp [show\|test\|reload\|help] [SERVER-NAME]`     | Manage the language server configuration. |
-| `/mcp [show\|add\|edit\|delete\|disable\|enable] [SERVER-NAME]`      | Manage the MCP server configuration. |
+| `/mcp [show\|add\|edit\|delete\|disable\|enable\|auth\|reload] [SERVER-NAME]` | Manage the MCP server configuration. |
 | `/model`, `/models [MODEL]`                         | Select the AI model you want to use. |
+| `/on-air`, `/streamer-mode`                         | Toggle streamer mode (hides preview model names). |
 | `/plan [PROMPT]`                                    | Create an implementation plan before coding. |
 | `/plugin [marketplace\|install\|uninstall\|update\|list] [ARGS...]` | Manage plugins and plugin marketplaces. |
-| `/rename NAME`                                      | Rename the current session (alias for `/session rename`). |
+| `/pr [view\|create\|fix\|auto]`                     | Operate on pull requests for the current branch. |
+| `/rename [NAME]`                                    | Rename the current session (auto-generates a name if omitted; alias for `/session rename`). |
 | `/reset-allowed-tools`                              | Reset the list of allowed tools. |
+| `/restart`                                          | Restart the CLI, preserving the current session. |
 | `/resume [SESSION-ID]`                              | Switch to a different session by choosing from a list (optionally specify a session ID). |
 | `/review [PROMPT]`                                  | Run the code review agent to analyze changes. |
 | `/session [checkpoints [n]\|files\|plan\|rename NAME]`  | Show session information and a workspace summary. Use the subcommands for details. |
-| `/share [file\|gist] [PATH]`                            | Share the session to a Markdown file or GitHub gist. |
+| `/share [file\|gist] [session\|research] [PATH]`    | Share the session to a Markdown file or {% data variables.product.github %} gist. |
 | `/skills [list\|info\|add\|remove\|reload] [ARGS...]`   | Manage skills for enhanced capabilities. |
 | `/terminal-setup`      | Configure the terminal for multiline input support (<kbd>Shift</kbd>+<kbd>Enter</kbd> and <kbd>Ctrl</kbd>+<kbd>Enter</kbd>). |
 | `/theme [show\|set\|list] [auto\|THEME-ID]`         | View or configure the terminal theme. |
 | `/usage`                                            | Display session usage metrics and statistics. |
+| `/undo`, `/rewind`                                  | Rewind the last turn and revert file changes. |
 | `/user [show\|list\|switch]`                        | Manage the current {% data variables.product.github %} user. |
 
 For a complete list of available slash commands enter `/help` in the CLI's interactive interface.
@@ -137,7 +144,9 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--disable-mcp-server=SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
 | `--disable-parallel-tools-execution` | Disable parallel execution of tools (LLM can still make parallel tool calls, but they will be executed sequentially). |
 | `--disallow-temp-dir`              | Prevent automatic access to the system temporary directory. |
+| `--effort=LEVEL`, `--reasoning-effort=LEVEL` | Set the reasoning effort level (`low`, `medium`, `high`). |
 | `--enable-all-github-mcp-tools`    | Enable all {% data variables.product.github %} MCP server tools, instead of the default CLI subset. Overrides the `--add-github-mcp-toolset` and `--add-github-mcp-tool` options. |
+| `--enable-reasoning-summaries`     | Request reasoning summaries for OpenAI models that support it. |
 | `--excluded-tools=TOOL ...`        | These tools will not be available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--experimental`                   | Enable experimental features (use `--no-experimental` to disable). |
 | `-h`, `--help`                     | Display help. |
@@ -146,19 +155,22 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--log-level=LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
 | `--max-autopilot-continues=COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--model=MODEL`                    | Set the AI model you want to use. |
+| `--mouse[=VALUE]`                  | Enable mouse support in alt screen mode. VALUE can be `on` (default) or `off`. When enabled, the CLI captures mouse events in alt screen mode—scroll wheel, clicks, etc. When disabled, the terminal's native mouse behavior is preserved. Once set the setting is persisted by being written to your configuration file.|
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
 | `--no-auto-update`                 | Disable downloading CLI updates automatically. |
 | `--no-bash-env`                    | Disable `BASH_ENV` support for bash shells. |
 | `--no-color`                       | Disable all color output. |
 | `--no-custom-instructions`         | Disable loading of custom instructions from `AGENTS.md` and related files. |
 | `--no-experimental`                | Disable experimental features. |
+| `--no-mouse`                       | Disable mouse support. |
 | `--output-format=FORMAT`           | FORMAT can be `text` (default) or `json` (outputs JSONL: one JSON object per line). |
 | `-p PROMPT`, `--prompt=PROMPT`     | Execute a prompt programmatically (exits after completion). |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
+| `--plugin-dir=DIRECTORY`           | Load a plugin from a local directory (can be used multiple times). |
 | `--resume=SESSION-ID`              | Resume a previous interactive session by choosing from a list (optionally specify a session ID). |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
 | `--screen-reader`                  | Enable screen reader optimizations. |
-| `--secret-env-vars=VAR ...`        | An environment variable whose value you want redacted in output. For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted by default. |
+| `--secret-env-vars=VAR ...`        | Redact an environment variable from shell and MCP server environments (can be used multiple times). For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted from output by default. |
 | `--share=PATH`                     | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
 | `--stream=MODE`                    | Enable or disable streaming mode (mode choices: `on` or `off`). |
@@ -280,32 +292,32 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | `allowed_urls` | `string[]` | `[]` | URLs or domains allowed without prompting. |
-| `auto_update` | `boolean` | `true` | Automatically download CLI updates. |
+| `autoUpdate` | `boolean` | `true` | Automatically download CLI updates. |
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
-| `bash_env` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. |
+| `bashEnv` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. |
 | `beep` | `boolean` | `true` | Play an audible beep when attention is required. |
-| `compact_paste` | `boolean` | `true` | Collapse large pastes into compact tokens. |
+| `compactPaste` | `boolean` | `true` | Collapse large pastes into compact tokens. |
 | `custom_agents.default_local_only` | `boolean` | `false` | Only use local custom agents. |
 | `denied_urls` | `string[]` | `[]` | URLs or domains blocked (takes precedence over `allowed_urls`). |
 | `experimental` | `boolean` | `false` | Enable experimental features. |
 | `includeCoAuthoredBy` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. |
-| `log_level` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
+| `logLevel` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
 | `model` | `string` | varies | AI model to use (see the `/model` command). |
-| `powershell_flags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
+| `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
 | `effortLevel` | `string` | `"medium"` | Reasoning effort level for extended thinking (e.g., `"low"`, `"medium"`, `"high"`, `"xhigh"`). Higher levels use more compute. |
-| `render_markdown` | `boolean` | `true` | Render Markdown in terminal output. |
-| `screen_reader` | `boolean` | `false` | Enable screen reader optimizations. |
+| `renderMarkdown` | `boolean` | `true` | Render Markdown in terminal output. |
+| `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
-| `store_token_plaintext` | `boolean` | `false` | Store authentication tokens in plaintext in the config file when no system keychain is available. |
-| `streamer_mode` | `boolean` | `false` | Hide preview model names and quota details (useful when recording). |
+| `storeTokenPlaintext` | `boolean` | `false` | Store authentication tokens in plain text in the configuration file when no system keychain is available. |
+| `streamerMode` | `boolean` | `false` | Hide preview model names and quota details (useful when demonstrating {% data variables.copilot.copilot_cli_short %}). |
 | `theme` | `"auto"` \| `"dark"` \| `"light"` | `"auto"` | Terminal color theme. |
 | `trusted_folders` | `string[]` | `[]` | Folders with pre-granted file access. |
 | `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file picker. |
 | `disableAllHooks` | `boolean` | `false` | Disable all hooks. |
 | `hooks` | `object` | — | Inline user-level hook definitions. |
-| `update_terminal_title` | `boolean` | `true` | Show the current intent in the terminal title. |
+| `updateTerminalTitle` | `boolean` | `true` | Show the current intent in the terminal title. |
 
 ### Repository settings (`.github/copilot/settings.json`)
 
@@ -316,7 +328,6 @@ Repository settings apply to everyone who works in the repository. Only a subset
 | `companyAnnouncements` | `string[]` | Replaced—repository takes precedence | Messages shown randomly on startup. |
 | `enabledPlugins` | `Record<string, boolean>` | Merged—repository overrides user for same key | Declarative plugin auto-install. |
 | `extraKnownMarketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces available in this repository. |
-| `marketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces (deprecated—use `extraKnownMarketplaces`). | <!-- markdownlint-disable-line GHD046 -->
 
 ### Local settings (`.github/copilot/settings.local.json`)
 
@@ -394,12 +405,15 @@ Prompt hooks auto-submit text as if the user typed it. They are only supported o
 | `sessionEnd` | The session terminates. | No |
 | `userPromptSubmitted` | The user submits a prompt. | No |
 | `preToolUse` | Before each tool executes. | Yes — can allow, deny, or modify. |
-| `postToolUse` | After each tool completes. | No |
+| `postToolUse` | After each tool completes successfully. | Yes — can replace the successful result (SDK programmatic hooks only). |
+| `postToolUseFailure` | After a tool completes with a failure. | Yes — can provide recovery guidance via `additionalContext` (exit code `2` for command hooks). |
 | `agentStop` | The main agent finishes a turn. | Yes — can block and force continuation. |
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. |
 | `subagentStart` | A subagent is spawned (before it runs). Returns `additionalContext` prepended to the subagent's prompt. Supports `matcher` to filter by agent name. | No — cannot block creation. |
 | `preCompact` | Context compaction is about to begin (manual or automatic). Supports `matcher` to filter by trigger (`"manual"` or `"auto"`). | No — notification only. |
+| `permissionRequest` | Before showing a permission dialog to the user, after rule-based checks find no matching allow or deny rule. Supports `matcher` regex on `toolName`. | Yes — can allow or deny programmatically. |
 | `errorOccurred` | An error occurs during execution. | No |
+| `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports `matcher` regex on `notification_type`. | Optional — can inject `additionalContext` into the session. |
 
 ### `preToolUse` decision control
 
@@ -418,6 +432,63 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 | `decision` | `"block"`, `"allow"` | `"block"` forces another agent turn using `reason` as the prompt. |
 | `reason` | string | Prompt for the next turn when `decision` is `"block"`. |
 
+### `permissionRequest` decision control
+
+The `permissionRequest` hook fires when a tool-level permission dialog is about to be shown. It fires after rule-based permission checks find no matching allow or deny rule. Use it to approve or deny tool calls programmatically—especially useful in pipe mode (`-p`) and CI environments where no interactive prompt is available.
+
+**Matcher:** Optional regex tested against `toolName`. When set, the hook fires only for matching tool names.
+
+Output JSON to stdout to control the permission decision:
+
+| Field | Values | Description |
+|-------|--------|-------------|
+| `behavior` | `"allow"`, `"deny"` | Whether to approve or deny the tool call. |
+| `message` | string | Reason fed back to the LLM when denying. |
+| `interrupt` | boolean | When `true` combined with `"deny"`, stops the agent entirely. |
+
+Return empty output or `{}` to fall through to the default behavior (show the user dialog, or deny in pipe mode). Exit code `2` is treated as a deny; if the hook also outputs JSON on stdout, those fields are merged with the deny decision.
+
+### `notification` hook
+
+The `notification` hook fires asynchronously when the CLI emits a system notification. These hooks are fire-and-forget: they never block the session, and any errors are logged and skipped.
+
+**Input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    hook_event_name: "Notification";
+    message: string;           // Human-readable notification text
+    title?: string;            // Short title (e.g., "Permission needed", "Shell completed")
+    notification_type: string; // One of the types listed below
+}
+```
+
+**Notification types:**
+
+| Type | When it fires |
+|------|---------------|
+| `shell_completed` | A background (async) shell command finishes |
+| `shell_detached_completed` | A detached shell session completes |
+| `agent_completed` | A background sub-agent finishes (completed or failed) |
+| `agent_idle` | A background agent finishes a turn and enters idle state (waiting for `write_agent`) |
+| `permission_prompt` | The agent requests permission to execute a tool |
+| `elicitation_dialog` | The agent requests additional information from the user |
+
+**Output:**
+
+```typescript
+{
+    additionalContext?: string; // Injected into the session as a user message
+}
+```
+
+If `additionalContext` is returned, the text is injected into the session as a prepended user message. This can trigger further agent processing if the session is idle. Return `{}` or empty output to take no action.
+
+**Matcher:** Optional regex on `notification_type`. The pattern is anchored as `^(?:pattern)$`. Omit `matcher` to receive all notification types.
+
 ### Tool names for hook matching
 
 | Tool name | Description |
@@ -432,7 +503,7 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 | `web_fetch` | Fetch web pages. |
 | `task` | Run subagent tasks. |
 
-If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. Hook failures (non-zero exit codes or timeouts) are logged and skipped—they never block agent execution.
+If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. For `postToolUseFailure` command hooks, exiting with code `2` causes stderr to be returned as recovery guidance for the assistant. Hook failures (non-zero exit codes or timeouts) are logged and skipped—they never block agent execution.
 
 ## MCP server configuration
 
@@ -468,7 +539,12 @@ MCP servers provide additional tools to the CLI agent. Configure persistent serv
 | `headers` | No | HTTP headers. Supports variable expansion. |
 | `oauthClientId` | No | Static OAuth client ID (skips dynamic registration). |
 | `oauthPublicClient` | No | Whether the OAuth client is public. Default: `true`. |
+| `oidc` | No | Enable OIDC token injection. When `true`, injects a `GITHUB_COPILOT_OIDC_MCP_TOKEN` environment variable (local servers) or a `Bearer` `Authorization` header (remote servers). |
 | `timeout` | No | Tool call timeout in milliseconds. |
+
+### OAuth re-authentication
+
+Remote MCP servers that use OAuth may show a `needs-auth` status when a token expires or when a different account is required. Use `/mcp auth <server-name>` to trigger a fresh OAuth flow. This opens a browser authentication prompt, allowing you to sign in or switch accounts. After completing the flow, the server reconnects automatically.
 
 ### Filter mapping
 
@@ -537,6 +613,7 @@ Skills are loaded from these locations in priority order (first found wins for d
 | `~/.claude/skills/` | Personal | Claude-compatible personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
+| (bundled with CLI) | Built-in | Skills shipped with the CLI. Lowest priority—overridable by any other source. |
 
 ### Commands (alternative skill format)
 
@@ -551,6 +628,7 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 | Agent | Default model | Description |
 |-------|--------------|-------------|
 | `code-review` | claude-sonnet-4.5 | High signal-to-noise code review. Analyzes diffs for bugs, security issues, and logic errors. |
+| `critic` | complementary model | Adversarial feedback on proposals, designs, and implementations. Identifies weak points and suggests improvements. Experimental—requires `--experimental`. |
 | `explore` | claude-haiku-4.5 | Fast codebase exploration. Searches files, reads code, and answers questions. Returns focused answers under 300 words. Safe to run in parallel. |
 | `general-purpose` | claude-sonnet-4.5 | Full-capability agent for complex multi-step tasks. Runs in a separate context window. |
 | `research` | claude-sonnet-4.6 | Deep research agent. Generates a report based on information in your codebase, in relevant repositories, and on the web. |
@@ -591,16 +669,6 @@ When the CLI prompts for permission to execute an operation, you can respond wit
 
 Session approvals reset when you run `/clear` or start a new session.
 
-| Flag | Tier | Description |
-|------|------|-------------|
-| `AUTOPILOT_MODE` | `experimental` | Autonomous operation mode. |
-| `BACKGROUND_AGENTS` | `staff` | Run agents in the background. |
-| `QUEUED_COMMANDS` | `staff` | Queue commands while the agent is running. |
-| `LSP_TOOLS` | `on` | Language Server Protocol tools. |
-| `PLAN_COMMAND` | `on` | Interactive planning mode. |
-| `AGENTIC_MEMORY` | `on` | Persistent memory across sessions. |
-| `CUSTOM_AGENTS` | `on` | Custom agent definitions. |
-
 ## OpenTelemetry monitoring
 
 {% data variables.copilot.copilot_cli_short %} can export traces and metrics via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/).
@@ -632,35 +700,36 @@ The runtime emits a hierarchical span tree for each agent interaction. Each tree
 
 #### `invoke_agent` span attributes
 
-Wraps the entire agent invocation: all LLM calls and tool executions for one user message. Span kind: `CLIENT`.
+Wraps the entire agent invocation: all LLM calls and tool executions for one user message.
 
-| Attribute | Description |
-|-----------|-------------|
-| `gen_ai.operation.name` | `invoke_agent` |
-| `gen_ai.provider.name` | Provider (for example, `github`, `anthropic`) |
-| `gen_ai.agent.id` | Session identifier |
-| `gen_ai.agent.name` | Agent name (subagents only) |
-| `gen_ai.agent.description` | Agent description (subagents only) |
-| `gen_ai.agent.version` | Runtime version |
-| `gen_ai.conversation.id` | Session identifier |
-| `gen_ai.request.model` | Requested model |
-| `gen_ai.response.model` | Resolved model |
-| `gen_ai.response.id` | Last response ID |
-| `gen_ai.response.finish_reasons` | `["stop"]` or `["error"]` |
-| `gen_ai.usage.input_tokens` | Total input tokens (all turns) |
-| `gen_ai.usage.output_tokens` | Total output tokens (all turns) |
-| `gen_ai.usage.cache_read.input_tokens` | Cached input tokens read |
-| `gen_ai.usage.cache_creation.input_tokens` | Cached input tokens created |
-| `github.copilot.turn_count` | Number of LLM round-trips |
-| `github.copilot.cost` | Monetary cost |
-| `github.copilot.aiu` | AI units consumed |
-| `server.address` | Server hostname |
-| `server.port` | Server port |
-| `error.type` | Error class name (on error) |
-| `gen_ai.input.messages` | Full input messages as JSON (content capture only) |
-| `gen_ai.output.messages` | Full output messages as JSON (content capture only) |
-| `gen_ai.system_instructions` | System prompt content as JSON (content capture only) |
-| `gen_ai.tool.definitions` | Tool schemas as JSON (content capture only) |
+* **Top-level sessions** use span kind `CLIENT` (remote service invocation) with `server.address` and `server.port`.
+* **Subagent invocations** (for example, explore, task) use span kind `INTERNAL` (in-process) without server attributes.
+
+| Attribute | Description | Span kind |
+|-----------|-------------|-----------|
+| `gen_ai.operation.name` | `invoke_agent` | Both |
+| `gen_ai.provider.name` | Provider (for example, `github`, `anthropic`) | Both |
+| `gen_ai.agent.id` | Session identifier | Both |
+| `gen_ai.agent.name` | Agent name (when available) | Both |
+| `gen_ai.agent.description` | Agent description (when available) | Both |
+| `gen_ai.agent.version` | Runtime version | Both |
+| `gen_ai.conversation.id` | Session identifier | Both |
+| `gen_ai.request.model` | Requested model | Both |
+| `gen_ai.response.finish_reasons` | `["stop"]` or `["error"]` | Both |
+| `gen_ai.usage.input_tokens` | Total input tokens (all turns) | Both |
+| `gen_ai.usage.output_tokens` | Total output tokens (all turns) | Both |
+| `gen_ai.usage.cache_read.input_tokens` | Cached input tokens read | Both |
+| `gen_ai.usage.cache_creation.input_tokens` | Cached input tokens created | Both |
+| `github.copilot.turn_count` | Number of LLM round-trips | Both |
+| `github.copilot.cost` | Monetary cost | Both |
+| `github.copilot.aiu` | AI units consumed | Both |
+| `server.address` | Server hostname | `CLIENT` only |
+| `server.port` | Server port | `CLIENT` only |
+| `error.type` | Error class name (on error) | Both |
+| `gen_ai.input.messages` | Full input messages as JSON (content capture only) | Both |
+| `gen_ai.output.messages` | Full output messages as JSON (content capture only) | Both |
+| `gen_ai.system_instructions` | System prompt content as JSON (content capture only) | Both |
+| `gen_ai.tool.definitions` | Tool schemas as JSON (content capture only) | Both |
 
 #### `chat` span attributes
 
@@ -685,6 +754,7 @@ One span per LLM request. Span kind: `CLIENT`.
 | `github.copilot.initiator` | Request initiator |
 | `github.copilot.turn_id` | Turn identifier |
 | `github.copilot.interaction_id` | Interaction identifier |
+| `github.copilot.time_to_first_chunk` | Time to first streaming chunk, in seconds (streaming only) |
 | `server.address` | Server hostname |
 | `server.port` | Server port |
 | `error.type` | Error class name (on error) |
@@ -736,9 +806,9 @@ Lifecycle events recorded on the active `chat` or `invoke_agent` span.
 | `github.copilot.hook.start` | A hook began executing | `github.copilot.hook.type`, `github.copilot.hook.invocation_id` |
 | `github.copilot.hook.end` | A hook completed successfully | `github.copilot.hook.type`, `github.copilot.hook.invocation_id` |
 | `github.copilot.hook.error` | A hook failed | `github.copilot.hook.type`, `github.copilot.hook.invocation_id`, `github.copilot.hook.error_message` |
-| `github.copilot.session.truncation` | Conversation history was truncated | `github.copilot.token_limit`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed` |
+| `github.copilot.session.truncation` | Conversation history was truncated | `github.copilot.token_limit`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.pre_messages`, `github.copilot.post_messages`, `github.copilot.tokens_removed`, `github.copilot.messages_removed`, `github.copilot.performed_by` |
 | `github.copilot.session.compaction_start` | History compaction began | None |
-| `github.copilot.session.compaction_complete` | History compaction completed | `github.copilot.success`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed` |
+| `github.copilot.session.compaction_complete` | History compaction completed | `github.copilot.success`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed`, `github.copilot.message` (content capture only) |
 | `github.copilot.skill.invoked` | A skill was invoked | `github.copilot.skill.name`, `github.copilot.skill.path`, `github.copilot.skill.plugin_name`, `github.copilot.skill.plugin_version` |
 | `github.copilot.session.shutdown` | Session is shutting down | `github.copilot.shutdown_type`, `github.copilot.total_premium_requests`, `github.copilot.lines_added`, `github.copilot.lines_removed`, `github.copilot.files_modified_count` |
 | `github.copilot.session.abort` | User cancelled the current operation | `github.copilot.abort_reason` |
@@ -770,6 +840,23 @@ When content capture is enabled, the following attributes are populated.
 | `gen_ai.tool.definitions` | Tool schemas (JSON) |
 | `gen_ai.tool.call.arguments` | Tool input arguments |
 | `gen_ai.tool.call.result` | Tool output |
+
+## Feature flag reference
+
+Feature flags enable functionality that is not yet generally available. Enable flags via the `COPILOT_CLI_ENABLED_FEATURE_FLAGS` environment variable (comma-separated list) or by using the `/experimental` slash command.
+
+| Flag | Tier | Description |
+|------|------|-------------|
+| `CRITIC_AGENT` | experimental | Critic subagent for adversarial feedback on code and designs (Claude and GPT models) |
+| `BACKGROUND_SESSIONS` | experimental | Multiple concurrent sessions with background management |
+| `MULTI_TURN_AGENTS` | experimental | Multi-turn subagent message passing via `write_agent` |
+| `EXTENSIONS` | experimental | Programmatic extensions with custom tools and hooks |
+| `QUEUED_COMMANDS` | staff-or-experimental | Queue commands with <kbd>Ctrl</kbd>+<kbd>Enter</kbd> while the agent runs |
+| `PERSISTED_PERMISSIONS` | staff-or-experimental | Persist tool permissions across sessions per location |
+| `SESSION_STORE` | staff-or-experimental | SQLite-based session store for cross-session history |
+| `COMPUTER_USE` | staff | Built-in computer use MCP server (screen capture and mouse/keyboard control) |
+| `copilot-feature-agentic-memory` | on | Persistent memory tools across sessions |
+| `COPILOT_SWE_AGENT_BACKGROUND_AGENTS` | on | Background agent task execution |
 
 ## Further reading
 

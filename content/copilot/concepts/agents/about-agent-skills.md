@@ -2,7 +2,7 @@
 title: About agent skills
 shortTitle: Agent skills
 intro: Skills allow {% data variables.product.prodname_copilot_short %} to perform specialized tasks.
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><br>{% data reusables.gated-features.copilot-cli %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><br>{% data reusables.gated-features.copilot-cli %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 category:
@@ -12,7 +12,7 @@ contentType: concepts
 ---
 
 > [!NOTE]
-> Agent skills work with {% data variables.copilot.copilot_coding_agent %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
+> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
 
 ## About agent skills
 
@@ -31,6 +31,6 @@ Support for organization-level and enterprise-level skills is coming soon.
 
 To create an agent skill, see:
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-skills)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-skills)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)

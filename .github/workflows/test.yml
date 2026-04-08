@@ -58,7 +58,6 @@ jobs:
           - graphql
           - landings
           - languages
-          - learning-track
           # - links
           - observability
           # - open-source

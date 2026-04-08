@@ -5,7 +5,6 @@ import { turnOffExperimentsInPage, turnOnExperimentsInPage } from '../helpers/tu
 const pages: { [key: string]: string } = {
   category: '/actions/category',
   codeAnnotations: '/get-started/markdown/code-annotations',
-  guides: '/code-security/guides',
   homepage: '/',
   learningPath:
     '/code-security/getting-started/quickstart?learn=foo_bar&learnProduct=code-security',
@@ -18,8 +17,6 @@ const pages: { [key: string]: string } = {
   search: '/search?q=playwright',
   switchers: '/get-started/liquid/tool-platform-switcher',
   tableWithHeaders: '/get-started/liquid/table-row-headers',
-  video: '/get-started',
-  videoTranscript: '/get-started/video-transcripts/transcript--my-awesome-video',
 }
 
 // create a test for each page, will eventually be separated into finer grain tests

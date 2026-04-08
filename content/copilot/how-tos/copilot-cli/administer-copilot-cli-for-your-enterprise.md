@@ -36,9 +36,9 @@ Users can only access AI models that are enabled at the enterprise level. When y
 
 Enterprise-configured custom agents are available to use with {% data variables.copilot.copilot_cli_short %}.
 
-### {% data variables.copilot.copilot_coding_agent %} enablement
+### {% data variables.copilot.copilot_cloud_agent %} enablement
 
-Both the {% data variables.copilot.copilot_cli_short %} policy and the {% data variables.copilot.copilot_coding_agent %} policy must be enabled for users to be able to use the `/delegate` command in {% data variables.copilot.copilot_cli_short %}.
+Both the {% data variables.copilot.copilot_cli_short %} policy and the {% data variables.copilot.copilot_cloud_agent %} policy must be enabled for users to be able to use the `/delegate` command in {% data variables.copilot.copilot_cli_short %}.
 
 ### Audit logging
 
@@ -55,6 +55,7 @@ All other controls do **not** affect {% data variables.copilot.copilot_cli_short
 * **Model Context Protocol (MCP) server policies**: Enterprise policies that control whether MCP servers can be used, or which MCP registry servers are allowed
 * **IDE-specific policies**: Policies configured for specific IDEs or editor extensions
 * **Content exclusions**: File path-based content exclusions
+* **User-configured model providers (BYOK)**: Users can configure {% data variables.copilot.copilot_cli_short %} to use their own model providers via environment variables. This is configured at the _user level_ and cannot be controlled by enterprise policies.
 
 ## Why can't my developers access {% data variables.copilot.copilot_cli_short %}?
 

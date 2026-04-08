@@ -234,3 +234,15 @@ Then the `build-push-action` action builds and pushes the Docker image to Docker
 > * To maintain a consistent digest and allow a single attestation to verify all copies, push to one registry first and use a tool like [`crane copy`](https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane_copy.md) to replicate the image elsewhere.
 > * If you choose to build and push to each registry separately instead, you must generate a distinct attestation for each one to ensure your artifacts remain verifiable.
 {% endif %}
+
+## Hands-on practice
+
+Practice publishing Docker images with the [Publishing Docker images](https://github.com/skills/publish-docker-images) {% data variables.product.prodname_learning %} exercise.
+
+In this exercise, you will learn how to:
+
+* Authenticate to {% data variables.product.prodname_registry %} using the `GITHUB_TOKEN`.
+* Build and publish container images to the {% data variables.product.prodname_container_registry %} (`ghcr.io`).
+* Use official Docker actions, such as `docker/login-action`, `docker/build-push-action`, and `docker/setup-buildx-action`.
+* Generate tags automatically with `docker/metadata-action` based on branches, pull requests, and releases.
+* Create features, pull requests, and releases with proper container versioning.

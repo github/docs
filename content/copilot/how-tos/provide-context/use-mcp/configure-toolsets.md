@@ -16,7 +16,7 @@ The {% data variables.product.github %} MCP server includes default toolsets (`r
 
 * **Enabling individual toolsets** such as `actions`, `code_security`, or `secret_protection`
 * **Using special keywords** like `all` to enable every available toolset, or [`default`](https://github.com/github/github-mcp-server?tab=readme-ov-file#default-toolset) to include the standard set alongside others (for example, `default,stargazers`)
-* **Accessing remote-only toolsets** such as `copilot` (for {% data variables.copilot.copilot_coding_agent %}) and `github_support_docs_search`, which are only available on the remote MCP server
+* **Accessing remote-only toolsets** such as `copilot` (for {% data variables.copilot.copilot_cloud_agent %}) and `github_support_docs_search`, which are only available on the remote MCP server
 * **Selecting specific tools** for granular control when you want to exclude specific tools or combine toolsets with individual tools
 
 For a complete list of available toolsets, see [Tools](https://github.com/github/github-mcp-server/blob/main/README.md#tools) in the `github/github-mcp-server` repository. For configuration examples, see [Server configuration](https://github.com/github/github-mcp-server/blob/main/docs/server-configuration.md). For a full introduction to the {% data variables.product.github %} MCP server and an overview of MCP, see [AUTOTITLE](/copilot/concepts/context/mcp).

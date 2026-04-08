@@ -328,11 +328,11 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
       // This is a fallback to allow using the `example` property in
       // the schema. If we start to enforce using examples vs. example using
       // a linter, we can remove the check for `example`.
-      // For now, we'll use the key default, which is a common default
-      // example name in the OpenAPI schema.
+      // We key by statusCode so that operations with multiple success
+      // responses (e.g. 200 + 201) get unique keys instead of colliding.
       if (operation.responses[statusCode].content[contentType].example) {
         examples = {
-          default: {
+          [statusCode]: {
             value: operation.responses[statusCode].content[contentType].example,
           },
         }

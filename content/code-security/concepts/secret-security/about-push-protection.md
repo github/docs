@@ -18,7 +18,7 @@ category:
 
 ## What is push protection?
 
-Push protection is a {% data variables.product.prodname_secret_scanning %} feature designed to prevent sensitive information, such as secrets or tokens, from ever being pushed to your repository. Unlike {% data variables.product.prodname_secret_scanning %}, which detects secrets after they have been committed, push protection proactively scans your code for secrets during the push process, then blocks the push if any are detected.
+Push protection is a {% data variables.product.prodname_secret_scanning %} feature designed to prevent hardcoded credentials, such as secrets or tokens, from ever being pushed to your repository. Rather than alerting you to credential leaks after the fact, push protection blocks pushes that contain secrets _before_ they reach your repository.
 
 ## How push protection works
 
@@ -74,9 +74,9 @@ If you want greater control over which contributors can bypass push protection a
 
 ## Benefits of push protection
 
-* **Preventative security:** Push protection acts as a frontline defense mechanism by scanning code for secrets at the time of the push. This preventative approach helps to catch potential issues before they are merged into a repository.
+* **Preventative security:** Push protection acts as a frontline defense mechanism by scanning code for hardcoded secrets at the time of the push. This preventative approach helps prevent credential leaks before they become ingrained in the repository's history, making it easier to address and remediate threats.
 * **Immediate feedback:** Developers receive instant feedback if a potential secret is detected during a push attempt. This immediate notification allows for quick remediation, reducing the likelihood of sensitive information being exposed.
-* **Reduced risk of data leaks:** By blocking commits that contain sensitive information, push protection significantly reduces the risk of accidental data leaks. This helps in safeguarding against unauthorized access to your infrastructure, services, and data.
+* **Reduced risk of credential leaks:** By blocking commits that contain hardcoded credentials, push protection significantly reduces the risk of accidental credential leaks and secret sprawl. This helps in safeguarding against potential breaches and maintaining the integrity of the codebase.
 * **Efficient secret management:** Instead of retrospectively dealing with exposed secrets, developers can address issues at the source. This makes secret management more efficient and less time-consuming.
 * **Bypass functionality for flexibility:** For cases where false positives occur or when certain patterns are necessary, you can bypass push protection for users, and designated users can use the delegated bypass feature to bypass push protection for repositories. {% ifversion push-protection-org-enterprise-exemptions %}Additionally, you can exempt trusted actors {% ifversion push-protection-repo-exemptions %}{% else %}at the organization and enterprise levels {% endif %}from push protection entirely. {% endif %}This provides flexibility without compromising overall security.
 * **Ability to detect custom patterns (for repositories in organizations):** Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push protection can effectively identify and block even non-standard secrets.

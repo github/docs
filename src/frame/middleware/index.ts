@@ -52,7 +52,6 @@ import features from '@/versions/middleware/features'
 import productExamples from './context/product-examples'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
-import learningTrack from '@/learning-track/middleware/learning-track'
 import journeyTrack from '@/journeys/middleware/journey-track'
 import next from './next'
 import renderPage from './render-page'
@@ -285,7 +284,6 @@ export default function index(app: Express) {
   app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(resolveCarousels))
-  app.use(asyncMiddleware(learningTrack))
   app.use(asyncMiddleware(journeyTrack))
 
   if (ENABLE_FASTLY_TESTING) {

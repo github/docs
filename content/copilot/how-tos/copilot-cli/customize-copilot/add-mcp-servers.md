@@ -28,7 +28,7 @@ For installation instructions, available tools, and URLs for specific MCP server
 1. Next to **Server Name**, enter a unique name for the MCP server. This is the name you will use to refer to the server.
 1. Next to **Server Type**, select a type by pressing the corresponding number. The following types are available:
 
-   * **Local** or **STDIO**: starts a local process and communicates over standard input/output (`stdin`/`stdout`). Both options work the same way. **STDIO** is the standard MCP protocol type name, so choose this if you want your configuration to be compatible with {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.copilot_coding_agent %}, and other MCP clients.
+   * **Local** or **STDIO**: starts a local process and communicates over standard input/output (`stdin`/`stdout`). Both options work the same way. **STDIO** is the standard MCP protocol type name, so choose this if you want your configuration to be compatible with {% data variables.product.prodname_vscode_shortname %}, the {% data variables.copilot.copilot_cloud_agent %}, and other MCP clients.
    * **HTTP** or **SSE**: connects to a remote MCP server. **HTTP** uses the Streamable HTTP transport. **SSE** uses the legacy HTTP with Server-Sent Events transport, which is deprecated in the MCP specification but still supported for backwards compatibility. <!-- markdownlint-disable-line GHD046 -->
 
 1. The remaining fields depend on the server type you selected:
@@ -74,7 +74,7 @@ The following example shows a configuration file with a local server and a remot
 }
 ```
 
-For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
 ## Managing MCP servers
 
@@ -100,4 +100,4 @@ Once you have added an MCP server, {% data variables.product.prodname_copilot_sh
 
 * [AUTOTITLE](/copilot/concepts/about-mcp)
 * [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp)
