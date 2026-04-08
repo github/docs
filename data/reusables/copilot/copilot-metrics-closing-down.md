@@ -1,0 +1,2 @@
+>[!WARNING]
+> These {% data variables.product.prodname_copilot_short %} metrics endpoints were closed down on April 2, 2026. Use the **{% data variables.product.prodname_copilot_short %} usage metrics** endpoints instead, which provide more depth and flexibility. For more details, see [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2026-01-29-closing-down-notice-of-legacy-copilot-metrics-apis/).

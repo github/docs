@@ -1,1 +1,0 @@
-1. "{% data variables.product.prodname_dotcom %} API URL"の下で、 {% if currentVersion == "free-pro-team@latest" %}https://api.github.com {% else %}{% data variables.product.prodname_enterprise %}にアクセスするためのURL{% endif %}を入力してください。 ![{% data variables.product.prodname_enterprise %} API URLフィールド](/assets/images/help/insights/enterprise-api-url.png)

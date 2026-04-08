@@ -1,1 +1,0 @@
-1. 求められた場合には、Organization から削除するメンバーおよび外部コラボレーターに関する情報を読んでください。 変更を確認するためにOrganization名を入力し、**Remove members & require two-factor authentication（メンバーを削除 & 2要素認証が必要）**をクリックしてください。 ![2 要素の施行の確定ボックス](/assets/images/help/organizations/confirm-require-2fa.png)

@@ -1,5 +1,0 @@
----
-advanced_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[pesquisa avançada](https://github.com/search/advanced) página{% else %}página de pesquisa avançada (`https://[hostname]/search/advanced`){% endif %}
-search_page_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[search](https://github.com/search) page{% else %}página de pesquisa (`https://[hostname]/search`){% endif %}

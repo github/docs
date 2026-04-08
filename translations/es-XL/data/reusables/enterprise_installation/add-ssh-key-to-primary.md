@@ -1,1 +1,0 @@
-1. Para agregar una llave pública a la lista de llaves autorizadas en el aparato principal, ingresa a `https://PRIMARY-HOSTNAME/setup/settings` y agrega a la lista la llave que copiaste de la réplica.

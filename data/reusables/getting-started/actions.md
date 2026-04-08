@@ -1,0 +1,1 @@
+With {% data variables.product.prodname_actions %}, you can automate and customize your enterprise's development workflow on {% data variables.product.github %}. You can create your own actions, and use and customize actions shared by the {% data variables.product.github %} community. For more information, see [AUTOTITLE](/actions/learn-github-actions).

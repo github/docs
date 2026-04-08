@@ -1,1 +1,0 @@
-Quando o Git solicitar a sua senha, insira seu token de acesso pessoal (PAT).{% if currentVersion != "github-ae@latest" %} Autenticação baseada em senha para o Git está obsoleta, e usar um PAT é mais seguro.{% endif %} Para obter mais informações, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)".

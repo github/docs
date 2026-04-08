@@ -7,16 +7,16 @@ redirect_from:
   - /github/building-a-strong-community/accessing-a-projects-community-profile
 versions:
   fpt: '*'
-topics:
-  - Community
+  ghec: '*'
 shortTitle: Access community profiles
+category:
+  - Set up your project for contributions
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Community**.
-![Community in left sidebar](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
+1. In the left sidebar, click **Community Standards** to show the checklist for the community profile of the repository.
 
 ## Further reading
 
-- "[About community profiles for public repositories](/articles/about-community-profiles-for-public-repositories)"
+* [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)

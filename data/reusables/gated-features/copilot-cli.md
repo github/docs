@@ -1,0 +1,1 @@
+{% data variables.copilot.copilot_cli %} is available with all {% data variables.product.prodname_copilot_short %} plans. If you receive {% data variables.product.prodname_copilot_short %} from an organization, the {% data variables.copilot.copilot_cli_short %} policy must be enabled in the organization's settings.

@@ -1,1 +1,0 @@
-詳しい情報については、「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」または「[グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)」を参照してください。

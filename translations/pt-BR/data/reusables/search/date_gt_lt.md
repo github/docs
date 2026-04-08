@@ -1,1 +1,0 @@
-Ao pesquisar uma data, você pode usar qualificadores de maior que, menor que e intervalo para filtrar os resultados ainda mais. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".

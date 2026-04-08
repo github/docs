@@ -1,2 +1,1 @@
-1. In the domain field, type the domain you'd like to verify, then click **Add domain**.
-    ![Add a domain field](/assets/images/help/organizations/add-domain-field.png)
+1. Under "What domain would you like to add?", type the domain you'd like to verify, then click **Add domain**.

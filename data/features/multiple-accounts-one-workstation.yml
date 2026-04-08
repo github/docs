@@ -1,0 +1,6 @@
+# Issue #7330
+# Documentation for managing multiple GitHub accounts on one workstation
+
+versions:
+  fpt: '*'
+  ghec: '*'

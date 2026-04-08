@@ -1,2 +1,1 @@
-1. Under "{% data variables.large_files.product_name_short %}", click **Enable** or **Disable**.
-![Disable button](/assets/images/enterprise/management-console/git-lfs-toggle.png)
+1. In the "{% data variables.large_files.product_name_short %}" section, next to "Toggle {% data variables.large_files.product_name_short %} access", click **Enable** or **Disable**.

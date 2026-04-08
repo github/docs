@@ -1,0 +1,6 @@
+# Issue #1115697
+# Documentation for updates to the organization-level security manager role
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.16'

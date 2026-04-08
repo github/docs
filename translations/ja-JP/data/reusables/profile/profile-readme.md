@@ -1,1 +1,0 @@
-自分のユーザ名と同じ名前のパブリックリポジトリのルートにREADMEファイルを追加したなら、そのREADMEは自動的に自分のプロフィールページに表示されます。 プロフィールのREADMEは、{% data variables.product.company_short %}形式のMarkdownで編集し、プロフィール中にパーソナライズされたセクションを作成できます。 詳しい情報については、「[プロフィール README の管理](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)」を参照してください。

@@ -1,1 +1,0 @@
-1. Klicke auf der Seitenleiste des Enterprise-Kontos auf {% octicon "law" aria-label="The law icon" %} **Policies** (Richtlinien). ![Registerkarte „Policies“ (Richtlinien) auf der Seitenleiste des Enterprise-Kontos](/assets/images/help/business-accounts/enterprise-account-policies-tab.png)

@@ -1,0 +1,6 @@
+# Reference: issue  #13480
+# Support for pub private registries with Dependabot - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.12'

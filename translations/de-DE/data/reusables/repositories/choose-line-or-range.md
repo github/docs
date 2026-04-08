@@ -1,3 +1,0 @@
-1. Wähle, ob eine einzelne Zeile oder ein Bereich ausgewählt werden soll:
-    - Um eine einzelne Codezeile zu auszuwählen, klicke auf die Zeilennummer, um die Zeile hervorzuheben. ![Datei mit Auswahl einer einzelnen Codezeile](/assets/images/help/repository/highlight-line-of-code.png)
-      - Klicke zum Auswählen eines Codebereichs auf die Zeilennummer der ersten Zeile im Bereich, um die Codezeile hervorzuheben. Bewege anschließend den Mauszeiger über die letzte Zeile im Codebereich, drücke <kbd>Shift</kbd> (Umschalttaste), und klicke auf die Zeilennummer, um den Bereich hervorzuheben. ![Datei mit Auswahl eines Codebereichs](/assets/images/help/repository/highlight-range-of-code.png)

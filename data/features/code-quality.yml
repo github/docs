@@ -1,0 +1,6 @@
+# Reference: #17415
+# Code quality (public preview)
+# This feature is not yet available for GitHub Enterprise Server.
+versions:
+  fpt: '*'
+  ghec: '*'

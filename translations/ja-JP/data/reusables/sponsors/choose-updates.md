@@ -1,1 +1,0 @@
-4. スポンサードアカウントからのメールによる更新を受信するかを決定し、"Receive email updates from _ACCOUNT_（アカウントからのメール更新を受信する）"を選択もしくは選択解除してください。 ![スポンサードアカウントからの更新を受け取るためのチェックボックス](/assets/images/help/sponsors/updates-checkbox-manage.png)

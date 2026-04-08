@@ -1,0 +1,1 @@
+Most official {% data variables.product.github %}-authored actions are automatically bundled with {% data variables.product.prodname_ghe_server %}, and are captured at a point in time from {% data variables.product.prodname_marketplace %}.

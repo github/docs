@@ -1,0 +1,1 @@
+1. Optionally, add a review comment. The comment will be added to the review request timeline and the {% data variables.product.prodname_secret_scanning %} alert timeline. For example, you may wish to explain the reason for the approval or denial of the request for auditing and reporting reasons, and suggest next steps for the contributor to take.

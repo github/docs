@@ -1,0 +1,50 @@
+name: Local development
+
+# **What it does**: Basic smoke test to ensure local dev server starts and serves content
+# **Why we have it**: Catch catastrophic "npm start is completely broken" scenarios
+# **Who does it impact**: Engineers, Contributors.
+
+on:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  local-dev:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - name: Disable Next.js telemetry
+        run: npx next telemetry disable
+
+      - name: Start server and basic smoke test
+        run: |
+          # Start server in background
+          npm start > /tmp/stdout.log 2> /tmp/stderr.log &
+          SERVER_PID=$!
+
+          # Wait for server to be ready and test homepage
+          if curl --fail --retry-connrefused --retry 10 --retry-delay 2 http://localhost:4000/; then
+            echo "✅ Local dev server started successfully and serves homepage"
+            kill $SERVER_PID 2>/dev/null || true
+          else
+            echo "❌ Local dev server failed to start or serve content"
+            echo "____STDOUT____"
+            cat /tmp/stdout.log
+            echo "____STDERR____"
+            cat /tmp/stderr.log
+            kill $SERVER_PID 2>/dev/null || true
+            exit 1
+          fi

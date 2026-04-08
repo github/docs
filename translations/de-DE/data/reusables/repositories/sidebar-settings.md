@@ -1,1 +1,0 @@
-1. Klicke unter Deinem Repository-Namen auf {% octicon "gear" aria-label="The gear icon" %} **Settings** (Einstellungen). ![Schaltfläche „Repository settings" (Repository-Einstellungen)](/assets/images/help/repository/repo-actions-settings.png)

@@ -1,0 +1,7 @@
+# References:
+# Issue #18165 - Dependabot adds vNet (Virtual Network) support for security and version updates
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.17'

@@ -1,1 +1,0 @@
-任何参与开源项目并居住在受支持地区的人都有资格成为被赞助的开发者。 贡献包括但不仅限于错误报告、议题分类、代码、文档、领导、业务开发、项目管理、指导和设计。 如果您住在 {% data variables.product.prodname_sponsors %} 尚不支持的地区，可以注册加入等候名单以与 {% data variables.product.prodname_sponsors %} 测试。

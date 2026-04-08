@@ -1,5 +1,0 @@
-- Use espaços em vez de abas.
-- Inclua um espaço depois de `:` para cada par de valore-chave, como `timezone: Africa/Nairobi`.
-- Use apenas caracteres com codificação UTF-8.
-- Coloque entre aspas quaisquer caracteres especiais, como `:`, como, por exemplo, `title: "my awesome site: an adventure in parse errors"`.
-- Para valores de várias linhas, use `£` para criar linhas novas e `>` para ignorar as novas linhas.

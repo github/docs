@@ -1,1 +1,0 @@
-1. 如果您使用静态站点生成器在本地构建站点，并将生成的文件推送到 {% data variables.product.product_name %}，请拉取将_CNAME_文件添加到本地仓库的提交。 更多信息请参阅“[自定义域和 {% data variables.product.prodname_pages %} 故障排除](/articles/troubleshooting-custom-domains-and-github-pages#cname-errors)”。

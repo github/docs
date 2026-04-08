@@ -1,1 +1,0 @@
-1. Opcionalmente, para exigir que membros utilizem certificados SSH, selecione **Require SSH Certificates** (Exigir certificados SSH), depois clique em **Save** (Salvar). ![Solicite caixa de seleção do Certificado SSH e s o botã0 salvzr](/assets/images/help/organizations/require-ssh-cert.png)

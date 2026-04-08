@@ -1,0 +1,528 @@
+---
+upcoming_changes:
+  - location: LegacyMigration.uploadUrlTemplate
+    description: '`uploadUrlTemplate` will be removed. Use `uploadUrl` instead.'
+    reason:
+      '`uploadUrlTemplate` is being removed because it is not a standard URL and
+      adds an extra user step.'
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - location: AssignedEvent.user
+    description: '`user` will be removed. Use the `assignee` field instead.'
+    reason: Assignees can now be mannequins.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - location: UnassignedEvent.user
+    description: '`user` will be removed. Use the `assignee` field instead.'
+    reason: Assignees can now be mannequins.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - location: Issue.timeline
+    description: '`timeline` will be removed. Use Issue.timelineItems instead.'
+    reason: '`timeline` will be removed'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - location: PullRequest.timeline
+    description: '`timeline` will be removed. Use PullRequest.timelineItems instead.'
+    reason: '`timeline` will be removed'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - location: MergeStateStatus.DRAFT
+    description: '`DRAFT` will be removed. Use PullRequest.isDraft instead.'
+    reason:
+      DRAFT state will be removed from this enum and `isDraft` should be used
+      instead
+    date: '2021-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: nplasterer
+  - location: PackageType.DOCKER
+    description: '`DOCKER` will be removed.'
+    reason:
+      DOCKER will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2021-06-21'
+    criticality: breaking
+    owner: reybard
+  - location: ReactionGroup.users
+    description: '`users` will be removed. Use the `reactors` field instead.'
+    reason: Reactors can now be mannequins, bots, and organizations.
+    date: '2021-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: synthead
+  - location: AddPullRequestToMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are added to the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: DependencyGraphDependency.packageLabel
+    description:
+      '`packageLabel` will be removed. Use normalized `packageName` field
+      instead.'
+    reason: '`packageLabel` will be removed.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/dependency_graph
+  - location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are removed from the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: PackageType.NPM
+    description: '`NPM` will be removed.'
+    reason:
+      NPM will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2022-11-21'
+    criticality: breaking
+    owner: s-anupam
+  - location: PackageType.NUGET
+    description: '`NUGET` will be removed.'
+    reason:
+      NUGET will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2022-11-21'
+    criticality: breaking
+    owner: s-anupam
+  - location: PackageType.RUBYGEMS
+    description: '`RUBYGEMS` will be removed.'
+    reason:
+      RUBYGEMS will be removed from this enum as this type will be migrated to
+      only be used by the Packages REST API.
+    date: '2022-12-28'
+    criticality: breaking
+    owner: ankitkaushal01
+  - location: Commit.changedFiles
+    description: '`changedFiles` will be removed. Use `changedFilesIfAvailable` instead.'
+    reason: '`changedFiles` will be removed.'
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: adamshwert
+  - location: ProjectV2View.visibleFields
+    description:
+      '`visibleFields` will be removed. Check out the `ProjectV2View#fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#visibleFields` API is deprecated in favour of the more
+      capable `ProjectV2View#fields` API.
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mattruggio
+  - location: PackageType.MAVEN
+    description: '`MAVEN` will be removed.'
+    reason:
+      MAVEN will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2023-02-10'
+    criticality: breaking
+    owner: ankitkaushal01
+  - location: ProjectV2View.groupBy
+    description:
+      '`groupBy` will be removed. Check out the `ProjectV2View#group_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#order_by` API is deprecated in favour of the more capable
+      `ProjectV2View#group_by_field` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: alcere
+  - location: ProjectV2View.sortBy
+    description:
+      '`sortBy` will be removed. Check out the `ProjectV2View#sort_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#sort_by` API is deprecated in favour of the more capable
+      `ProjectV2View#sort_by_fields` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: traumverloren
+  - location: ProjectV2View.verticalGroupBy
+    description:
+      '`verticalGroupBy` will be removed. Check out the `ProjectV2View#vertical_group_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#vertical_group_by` API is deprecated in favour of the
+      more capable `ProjectV2View#vertical_group_by_fields` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: traumverloren
+  - location: Repository.squashPrTitleUsedAsDefault
+    description:
+      '`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle`
+      instead.'
+    reason: '`squashPrTitleUsedAsDefault` will be removed.'
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/pull_requests
+  - location: Commit.pushedDate
+    description: '`pushedDate` will be removed.'
+    reason: '`pushedDate` is no longer supported.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: darthwillis
+  - location: ProjectV2ItemFieldGroup.field
+    description:
+      '`field` will be removed. Check out the `ProjectV2ItemFieldGroup#groupByField`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2ItemFieldGroup#field` API is deprecated in favour of the more
+      capable `ProjectV2ItemFieldGroup#groupByField` API.
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: stevepopovich
+  - location: AddPullRequestReviewCommentInput.body
+    description:
+      '`body` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.commitOID
+    description:
+      '`commitOID` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.inReplyTo
+    description:
+      '`inReplyTo` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.path
+    description:
+      '`path` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.position
+    description:
+      '`position` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.pullRequestId
+    description:
+      '`pullRequestId` will be removed. use addPullRequestReviewThread or
+      addPullRequestReviewThreadReply instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.pullRequestReviewId
+    description:
+      '`pullRequestReviewId` will be removed. use addPullRequestReviewThread
+      or addPullRequestReviewThreadReply instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewInput.comments
+    description: '`comments` will be removed. use the `threads` argument instead'
+    reason: We are deprecating comment fields that use diff-relative positioning
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: PullRequestReviewComment.originalPosition
+    description: '`originalPosition` will be removed.'
+    reason: We are phasing out diff-relative positioning for PR comments
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: PullRequestReviewComment.position
+    description:
+      '`position` will be removed. Use the `line` and `startLine` fields
+      instead, which are file line numbers instead of diff line numbers'
+    reason: We are phasing out diff-relative positioning for PR comments
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: TopicSuggestionDeclineReason.NOT_RELEVANT
+    description: '`NOT_RELEVANT` will be removed.'
+    reason: Suggested topics are no longer supported
+    date: '2024-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: calvinchilds
+  - location: TopicSuggestionDeclineReason.PERSONAL_PREFERENCE
+    description: '`PERSONAL_PREFERENCE` will be removed.'
+    reason: Suggested topics are no longer supported
+    date: '2024-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: calvinchilds
+  - location: TopicSuggestionDeclineReason.TOO_GENERAL
+    description: '`TOO_GENERAL` will be removed.'
+    reason: Suggested topics are no longer supported
+    date: '2024-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: calvinchilds
+  - location: TopicSuggestionDeclineReason.TOO_SPECIFIC
+    description: '`TOO_SPECIFIC` will be removed.'
+    reason: Suggested topics are no longer supported
+    date: '2024-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: calvinchilds
+  - location: CreateTeamDiscussionCommentInput.body
+    description:
+      '`body` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionCommentInput.discussionId
+    description:
+      '`discussionId` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionCommentPayload.teamDiscussionComment
+    description:
+      '`teamDiscussionComment` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionInput.body
+    description:
+      '`body` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionInput.private
+    description:
+      '`private` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionInput.teamId
+    description:
+      '`teamId` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionInput.title
+    description:
+      '`title` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionPayload.teamDiscussion
+    description:
+      '`teamDiscussion` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: OrganizationInvitation.inviter
+    description: '`inviter` will be removed. `inviter` will be replaced by `inviterActor`.'
+    reason: '`inviter` will be removed.'
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jdennes
+  - location: PullRequest.databaseId
+    description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
+    reason:
+      '`databaseId` will be removed because it does not support 64-bit signed
+      integer identifiers.'
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: JanKoszewski
+  - location: PullRequestReview.databaseId
+    description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
+    reason:
+      '`databaseId` will be removed because it does not support 64-bit signed
+      integer identifiers.'
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: JanKoszewski
+  - location: PullRequestReviewComment.databaseId
+    description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
+    reason:
+      '`databaseId` will be removed because it does not support 64-bit signed
+      integer identifiers.'
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: JanKoszewski
+  - location: TeamDiscussion.authorAssociation
+    description:
+      '`authorAssociation` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.bodyVersion
+    description:
+      '`bodyVersion` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.comments
+    description:
+      '`comments` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.commentsResourcePath
+    description:
+      '`commentsResourcePath` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.commentsUrl
+    description:
+      '`commentsUrl` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.isPinned
+    description:
+      '`isPinned` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.isPrivate
+    description:
+      '`isPrivate` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.number
+    description:
+      '`number` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.resourcePath
+    description:
+      '`resourcePath` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.team
+    description:
+      '`team` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.title
+    description:
+      '`title` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.url
+    description:
+      '`url` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.viewerCanPin
+    description:
+      '`viewerCanPin` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussionComment.authorAssociation
+    description:
+      '`authorAssociation` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussionComment.bodyVersion
+    description:
+      '`bodyVersion` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussionComment.discussion
+    description:
+      '`discussion` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussionComment.number
+    description:
+      '`number` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussionComment.resourcePath
+    description:
+      '`resourcePath` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussionComment.url
+    description:
+      '`url` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges

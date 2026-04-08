@@ -1,1 +1,0 @@
-1. En la esquina superior derecha de la vista del archivo, haz clic en {% octicon "pencil" aria-label="The edit icon" %} para abrir el editor de archivos. ![Botón Editar archivo](/assets/images/help/repository/edit-file-edit-button.png)

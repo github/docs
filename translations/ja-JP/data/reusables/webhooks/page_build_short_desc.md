@@ -1,1 +1,0 @@
-成功か否かにかかわらず、{% data variables.product.prodname_pages %}サイトの試行されたビルドを表します。 {% data variables.product.prodname_pages %}が有効化されたブランチ（プロジェクトのPagesなら`gh-pages`、ユーザ及びOrganizationのPagesならデフォルトブランチ）へのプッシュがこのイベントをトリガーします。

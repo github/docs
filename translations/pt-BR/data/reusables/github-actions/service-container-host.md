@@ -1,1 +1,0 @@
-Este fluxo de trabalho configura um trabalho que é executado em `node:10.18-jessie` e usa o contêiner `ubuntu-latest` {% data variables.product.prodname_dotcom %}-do executor hospedado como host do Docker para o contêiner. Para obter mais informações sobre o contêiner `node:10.18-jessie`, consulte a [node image](https://hub.docker.com/_/node) no Docker Hub.

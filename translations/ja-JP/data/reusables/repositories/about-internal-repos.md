@@ -1,1 +1,0 @@
-インターナルリポジトリを使って、Enterprise内で「インナーソース」を実践できます。 Enterpriseアカウントのメンバーは、{% if enterpriseServerVersions contains currentVersion %}プライベートモードを無効化されていても、{% endif %}プロプライエタリな情報をパブリックに共有することなく、オープンソースの方法論を用いてコラボレートできます。

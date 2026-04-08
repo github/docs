@@ -1,0 +1,1 @@
+This article contains commands or examples that use the `{% data variables.product.product_url %}` domain. You might access {% data variables.product.github %} at a different domain, such as `{% data variables.enterprise.data_residency_example_domain %}`.

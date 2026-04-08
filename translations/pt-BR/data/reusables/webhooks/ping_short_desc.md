@@ -1,1 +1,0 @@
-Ao criar um novo webhook, enviaremos um simples evento de `ping` para informar que você configurou o webhook corretamente. Este evento não é armazenado. Portanto, não é recuperável através do ponto de extremidade da [API de Eventos](/rest/reference/activity#ping-a-repository-webhook).

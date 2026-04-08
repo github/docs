@@ -1,1 +1,0 @@
-Cuando presentes nuevamente una solicitud, carga una imagen de tu número de identificación dentro de la escuela, tu certificado analítico o cualquier otro documento que sirva como evidencia de tu situación académica, en el cual se pueda visualizar con claridad al menos una fecha.

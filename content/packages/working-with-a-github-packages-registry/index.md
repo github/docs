@@ -10,8 +10,8 @@ redirect_from:
   - /packages/guides/container-guides-for-github-packages
 versions:
   fpt: '*'
-  ghes: '>=2.22'
-  ghae: '*'
+  ghes: '*'
+  ghec: '*'
 children:
   - /working-with-the-container-registry
   - /working-with-the-docker-registry
@@ -23,9 +23,3 @@ children:
   - /migrating-to-the-container-registry-from-the-docker-registry
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
-{% ifversion fpt %}
-![Diagram showing packages support for Docker, Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
-{% else %}
-![Diagram showing packages support for Docker, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
-{% endif %}

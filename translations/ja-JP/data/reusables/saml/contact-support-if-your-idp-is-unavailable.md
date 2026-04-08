@@ -1,1 +1,0 @@
-{% data variables.product.product_name %}がSAML IdPと通信できないためにEnterpriseにサインインできない場合は、SAML SSOの設定を更新するための{% data variables.product.product_name %}へのアクセスを支援してくれる{% data variables.contact.github_support %}に連絡してください。 詳しい情報については、「[{% data variables.contact.github_support %} からの支援を受ける](/admin/enterprise-support/receiving-help-from-github-support)」を参照してください。

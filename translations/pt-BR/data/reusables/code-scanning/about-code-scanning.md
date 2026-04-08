@@ -1,1 +1,0 @@
-{% data variables.product.prodname_code_scanning_capc %} é um recurso que você usa para analisar o código em um repositório de {% data variables.product.prodname_dotcom %} para localizar vulnerabilidades de segurança e erros de codificação. Quaisquer problemas identificados pela análise são exibidos em {% data variables.product.product_name %}.

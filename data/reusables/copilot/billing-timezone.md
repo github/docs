@@ -1,0 +1,1 @@
+{% data variables.product.prodname_copilot %} uses UTC for your billing cycle’s timezone. For example, if your cycle ends at 11:59 PM UTC, canceling a seat at 7:00 PM EST (which is 12:00 AM UTC) will fall into the next cycle, and you will be charged for that seat.

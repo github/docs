@@ -1,2 +1,1 @@
-1. Under {% ifversion ghes > 2.21 or ghae %} {% octicon "law" aria-label="The law icon" %} **Policies**{% else %}"{% octicon "gear" aria-label="The Settings gear" %} Settings"{% endif %}, click **Options**.
-![Options tab in the enterprise account settings sidebar](/assets/images/enterprise/business-accounts/settings-options-tab.png)
+1. Under {% ifversion ghes %} **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**{% else %}"{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings"{% endif %}, click **Options**.

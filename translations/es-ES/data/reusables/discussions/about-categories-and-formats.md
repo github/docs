@@ -1,1 +1,0 @@
-Todos los debates deben crearse en una categoría. Las personas con permisos de mantenedor o administrador definen las categorías de un repositorio. Cada categoría tiene un formato: debate abierto, pregunta y respuesta o anucio.

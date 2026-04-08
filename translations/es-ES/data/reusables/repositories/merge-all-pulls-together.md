@@ -1,1 +1,0 @@
-No puedes fusionar solicitudes de fusión individuales en una bifurcación privada temporal. En vez de esto, fusionas todas las solicitudes de extracción al mismo tiempo en la asesoría de seguridad correspondiente.

@@ -1,1 +1,1 @@
-{% data variables.product.prodname_ghe_server %} sends updates hourly.
+{% data variables.product.github %} requests updates hourly using {% data variables.product.prodname_github_connect %}.

@@ -1,1 +1,0 @@
-1. Em "{% data variables.product.prodname_sponsors %}", à direita da conta patrocinada, clique em {% octicon "triangle-down" aria-label="The down triangle octicon" %} ao lado do montante da camada e, em seguida, clique em **Alterar a camada**. ![Botão de alterar camada](/assets/images/help/billing/edit-sponsor-billing.png)

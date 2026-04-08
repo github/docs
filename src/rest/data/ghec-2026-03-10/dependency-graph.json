@@ -1,0 +1,841 @@
+{
+  "dependency-review": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}",
+      "title": "Get a diff of the dependencies between commits",
+      "category": "dependency-graph",
+      "subcategory": "dependency-review",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "basehead",
+          "description": "<p>The base and head Git revisions to compare. The Git revisions will be resolved to commit SHAs. Named revisions will be resolved to their corresponding HEAD commits, and an appropriate merge base will be determined. This parameter expects the format <code>{base}...{head}</code>.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "name",
+          "description": "<p>The full path, relative to the repository root, of the dependency manifest file.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the diff of the dependency changes between two commits of a repository, based on the changes to the dependency manifests made in those commits.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "basehead": "BASEHEAD"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "change_type": "removed",
+                "manifest": "package.json",
+                "ecosystem": "npm",
+                "name": "helmet",
+                "version": "4.6.0",
+                "package_url": "pkg:npm/helmet@4.6.0",
+                "license": "MIT",
+                "source_repository_url": "https://github.com/helmetjs/helmet",
+                "vulnerabilities": []
+              },
+              {
+                "change_type": "added",
+                "manifest": "package.json",
+                "ecosystem": "npm",
+                "name": "helmet",
+                "version": "5.0.0",
+                "package_url": "pkg:npm/helmet@5.0.0",
+                "license": "MIT",
+                "source_repository_url": "https://github.com/helmetjs/helmet",
+                "vulnerabilities": []
+              },
+              {
+                "change_type": "added",
+                "manifest": "Gemfile",
+                "ecosystem": "rubygems",
+                "name": "ruby-openid",
+                "version": "2.7.0",
+                "package_url": "pkg:gem/ruby-openid@2.7.0",
+                "license": null,
+                "source_repository_url": "https://github.com/openid/ruby-openid",
+                "vulnerabilities": [
+                  {
+                    "severity": "critical",
+                    "advisory_ghsa_id": "GHSA-fqfj-cmh6-hj49",
+                    "advisory_summary": "Ruby OpenID",
+                    "advisory_url": "https://github.com/advisories/GHSA-fqfj-cmh6-hj49"
+                  }
+                ]
+              }
+            ],
+            "schema": {
+              "title": "Dependency Graph Diff",
+              "description": "A diff of the dependencies between two commits.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "change_type": {
+                    "type": "string",
+                    "enum": [
+                      "added",
+                      "removed"
+                    ]
+                  },
+                  "manifest": {
+                    "type": "string"
+                  },
+                  "ecosystem": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  },
+                  "package_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "license": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "source_repository_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "vulnerabilities": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "severity": {
+                          "type": "string"
+                        },
+                        "advisory_ghsa_id": {
+                          "type": "string"
+                        },
+                        "advisory_summary": {
+                          "type": "string"
+                        },
+                        "advisory_url": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "severity",
+                        "advisory_ghsa_id",
+                        "advisory_summary",
+                        "advisory_url"
+                      ]
+                    }
+                  },
+                  "scope": {
+                    "description": "Where the dependency is utilized. `development` means that the dependency is only utilized in the development environment. `runtime` means that the dependency is utilized at runtime and in the development environment.",
+                    "type": "string",
+                    "enum": [
+                      "unknown",
+                      "runtime",
+                      "development"
+                    ]
+                  }
+                },
+                "required": [
+                  "change_type",
+                  "manifest",
+                  "ecosystem",
+                  "name",
+                  "version",
+                  "package_url",
+                  "license",
+                  "source_repository_url",
+                  "vulnerabilities",
+                  "scope"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Response for a private repository when GitHub Advanced Security is not enabled, or if used against a fork</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
+  "dependency-submission": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/snapshots",
+      "title": "Create a snapshot of dependencies for a repository",
+      "category": "dependency-graph",
+      "subcategory": "dependency-submission",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "integer",
+          "name": "version",
+          "description": "<p>The version of the repository snapshot submission.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "object",
+          "name": "job",
+          "description": "",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "id",
+              "description": "<p>The external ID of the job.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "correlator",
+              "description": "<p>Correlator provides a key that is used to group snapshots submitted over time. Only the \"latest\" submitted snapshot for a given combination of <code>job.correlator</code> and <code>detector.name</code> will be considered when calculating a repository's current dependencies. Correlator should be as unique as it takes to distinguish all detection runs for a given \"wave\" of CI workflow you run. If you're using GitHub Actions, a good default value for this could be the environment variables GITHUB_WORKFLOW and GITHUB_JOB concatenated together. If you're using a build matrix, then you'll also need to add additional key(s) to distinguish between each submission inside a matrix variation.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "html_url",
+              "description": "<p>The url for the job.</p>"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "name": "sha",
+          "description": "<p>The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "ref",
+          "description": "<p>The repository branch that triggered this snapshot.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "object",
+          "name": "detector",
+          "description": "<p>A description of the detector used.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>The name of the detector used.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "version",
+              "description": "<p>The version of the detector used.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "url",
+              "description": "<p>The url of the detector used.</p>",
+              "isRequired": true
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "metadata",
+          "description": "<p>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</p>"
+        },
+        {
+          "type": "object",
+          "name": "manifests",
+          "description": "<p>A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.</p>",
+          "childParamsGroups": [
+            {
+              "type": "object",
+              "name": "key",
+              "description": "<p>A user-defined key to represent an item in <code>manifests</code>.</p>",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the manifest.</p>",
+                  "isRequired": true
+                },
+                {
+                  "type": "object",
+                  "name": "file",
+                  "description": "",
+                  "childParamsGroups": [
+                    {
+                      "type": "string",
+                      "name": "source_location",
+                      "description": "<p>The path of the manifest file relative to the root of the Git repository.</p>"
+                    }
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "metadata",
+                  "description": "<p>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</p>"
+                },
+                {
+                  "type": "object",
+                  "name": "resolved",
+                  "description": "<p>A collection of resolved package dependencies.</p>",
+                  "childParamsGroups": [
+                    {
+                      "type": "object",
+                      "name": "key",
+                      "description": "<p>A user-defined key to represent an item in <code>resolved</code>.</p>",
+                      "childParamsGroups": [
+                        {
+                          "type": "string",
+                          "name": "package_url",
+                          "description": "<p>Package-url (PURL) of dependency. See <a href=\"https://github.com/package-url/purl-spec\">https://github.com/package-url/purl-spec</a> for more details.</p>"
+                        },
+                        {
+                          "type": "object",
+                          "name": "metadata",
+                          "description": "<p>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</p>"
+                        },
+                        {
+                          "type": "string",
+                          "name": "relationship",
+                          "description": "<p>A notation of whether a dependency is requested directly by this manifest or is a dependency of another dependency.</p>",
+                          "enum": [
+                            "direct",
+                            "indirect"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "scope",
+                          "description": "<p>A notation of whether the dependency is required for the primary build artifact (runtime) or is only used for development. Future versions of this specification may allow for more granular scopes.</p>",
+                          "enum": [
+                            "runtime",
+                            "development"
+                          ]
+                        },
+                        {
+                          "type": "array of strings",
+                          "name": "dependencies",
+                          "description": "<p>Array of package-url (PURLs) of direct child dependencies.</p>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "name": "scanned",
+          "description": "<p>The time at which the snapshot was scanned.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Create a new snapshot of a repository's dependencies.</p>\n<p>The authenticated user must have access to the repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "version": 0,
+              "sha": "ce587453ced02b1526dfb4cb910479d431683101",
+              "ref": "refs/heads/main",
+              "job": {
+                "correlator": "yourworkflowname_youractionname",
+                "id": "yourrunid"
+              },
+              "detector": {
+                "name": "octo-detector",
+                "version": "0.0.1",
+                "url": "https://github.com/octo-org/octo-repo"
+              },
+              "scanned": "2022-06-14T20:25:00Z",
+              "manifests": {
+                "package-lock.json": {
+                  "name": "package-lock.json",
+                  "file": {
+                    "source_location": "src/package-lock.json"
+                  },
+                  "resolved": {
+                    "@actions/core": {
+                      "package_url": "pkg:/npm/%40actions/core@1.1.9",
+                      "dependencies": [
+                        "@actions/http-client"
+                      ]
+                    },
+                    "@actions/http-client": {
+                      "package_url": "pkg:/npm/%40actions/http-client@1.0.7",
+                      "dependencies": [
+                        "tunnel"
+                      ]
+                    },
+                    "tunnel": {
+                      "package_url": "pkg:/npm/tunnel@0.0.6"
+                    }
+                  }
+                }
+              }
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 12345,
+              "created_at": "2018-05-04T01:14:52Z",
+              "message": "Dependency results for the repo have been successfully updated.",
+              "result": "SUCCESS"
+            },
+            "schema": {
+              "type": "object",
+              "required": [
+                "id",
+                "created_at",
+                "result",
+                "message"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "ID of the created snapshot."
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "The time at which the snapshot was created."
+                },
+                "result": {
+                  "type": "string",
+                  "description": "Either \"SUCCESS\", \"ACCEPTED\", or \"INVALID\". \"SUCCESS\" indicates that the snapshot was successfully created and the repository's dependencies were updated. \"ACCEPTED\" indicates that the snapshot was successfully created, but the repository's dependencies were not updated. \"INVALID\" indicates that the snapshot was malformed."
+                },
+                "message": {
+                  "type": "string",
+                  "description": "A message providing further details about the result, such as why the dependencies were not updated."
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "sboms": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom",
+      "title": "Export a software bill of materials (SBOM) for a repository.",
+      "category": "dependency-graph",
+      "subcategory": "sboms",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Exports the software bill of materials (SBOM) for a repository in SPDX JSON format.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "sbom": {
+                "SPDXID": "SPDXRef-DOCUMENT",
+                "spdxVersion": "SPDX-2.3",
+                "creationInfo": {
+                  "created": "2021-09-01T00:00:00Z",
+                  "creators": [
+                    "Tool: GitHub.com-Dependency-Graph"
+                  ]
+                },
+                "name": "github/example",
+                "dataLicense": "CC0-1.0",
+                "documentNamespace": "https://spdx.org/spdxdocs/protobom/15e41dd2-f961-4f4d-b8dc-f8f57ad70d57",
+                "packages": [
+                  {
+                    "name": "rails",
+                    "SPDXID": "SPDXRef-Package",
+                    "versionInfo": "1.0.0",
+                    "downloadLocation": "NOASSERTION",
+                    "filesAnalyzed": false,
+                    "licenseConcluded": "MIT",
+                    "licenseDeclared": "MIT",
+                    "copyrightText": "Copyright (c) 1985 GitHub.com",
+                    "externalRefs": [
+                      {
+                        "referenceCategory": "PACKAGE-MANAGER",
+                        "referenceType": "purl",
+                        "referenceLocator": "pkg:gem/rails@1.0.0"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "github/example",
+                    "SPDXID": "SPDXRef-Repository",
+                    "versionInfo": "main",
+                    "downloadLocation": "NOASSERTION",
+                    "filesAnalyzed": false,
+                    "externalRefs": [
+                      {
+                        "referenceCategory": "PACKAGE-MANAGER",
+                        "referenceType": "purl",
+                        "referenceLocator": "pkg:github/example@main"
+                      }
+                    ]
+                  }
+                ],
+                "relationships": [
+                  {
+                    "relationshipType": "DEPENDS_ON",
+                    "spdxElementId": "SPDXRef-Repository",
+                    "relatedSpdxElement": "SPDXRef-Package"
+                  },
+                  {
+                    "relationshipType": "DESCRIBES",
+                    "spdxElementId": "SPDXRef-DOCUMENT",
+                    "relatedSpdxElement": "SPDXRef-Repository"
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "title": "Dependency Graph SPDX SBOM",
+              "description": "A schema for the SPDX JSON format returned by the Dependency Graph.",
+              "type": "object",
+              "properties": {
+                "sbom": {
+                  "type": "object",
+                  "properties": {
+                    "SPDXID": {
+                      "type": "string",
+                      "description": "The SPDX identifier for the SPDX document."
+                    },
+                    "spdxVersion": {
+                      "type": "string",
+                      "description": "The version of the SPDX specification that this document conforms to."
+                    },
+                    "comment": {
+                      "type": "string",
+                      "description": "An optional comment about the SPDX document."
+                    },
+                    "creationInfo": {
+                      "type": "object",
+                      "properties": {
+                        "created": {
+                          "type": "string",
+                          "description": "The date and time the SPDX document was created."
+                        },
+                        "creators": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "The tools that were used to generate the SPDX document."
+                        }
+                      },
+                      "required": [
+                        "created",
+                        "creators"
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the SPDX document."
+                    },
+                    "dataLicense": {
+                      "type": "string",
+                      "description": "The license under which the SPDX document is licensed."
+                    },
+                    "documentNamespace": {
+                      "type": "string",
+                      "description": "The namespace for the SPDX document."
+                    },
+                    "packages": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "SPDXID": {
+                            "type": "string",
+                            "description": "A unique SPDX identifier for the package."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The name of the package."
+                          },
+                          "versionInfo": {
+                            "type": "string",
+                            "description": "The version of the package. If the package does not have an exact version specified,\na version range is given."
+                          },
+                          "downloadLocation": {
+                            "type": "string",
+                            "description": "The location where the package can be downloaded,\nor NOASSERTION if this has not been determined."
+                          },
+                          "filesAnalyzed": {
+                            "type": "boolean",
+                            "description": "Whether the package's file content has been subjected to\nanalysis during the creation of the SPDX document."
+                          },
+                          "licenseConcluded": {
+                            "type": "string",
+                            "description": "The license of the package as determined while creating the SPDX document."
+                          },
+                          "licenseDeclared": {
+                            "type": "string",
+                            "description": "The license of the package as declared by its author, or NOASSERTION if this information\nwas not available when the SPDX document was created."
+                          },
+                          "supplier": {
+                            "type": "string",
+                            "description": "The distribution source of this package, or NOASSERTION if this was not determined."
+                          },
+                          "copyrightText": {
+                            "type": "string",
+                            "description": "The copyright holders of the package, and any dates present with those notices, if available."
+                          },
+                          "externalRefs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "referenceCategory": {
+                                  "type": "string",
+                                  "description": "The category of reference to an external resource this reference refers to."
+                                },
+                                "referenceLocator": {
+                                  "type": "string",
+                                  "description": "A locator for the particular external resource this reference refers to."
+                                },
+                                "referenceType": {
+                                  "type": "string",
+                                  "description": "The category of reference to an external resource this reference refers to."
+                                }
+                              },
+                              "required": [
+                                "referenceCategory",
+                                "referenceLocator",
+                                "referenceType"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "SPDXID",
+                        "name",
+                        "versionInfo",
+                        "downloadLocation",
+                        "filesAnalyzed"
+                      ]
+                    },
+                    "relationships": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "relationshipType": {
+                            "type": "string",
+                            "description": "The type of relationship between the two SPDX elements."
+                          },
+                          "spdxElementId": {
+                            "type": "string",
+                            "description": "The SPDX identifier of the package that is the source of the relationship."
+                          },
+                          "relatedSpdxElement": {
+                            "type": "string",
+                            "description": "The SPDX identifier of the package that is the target of the relationship."
+                          }
+                        }
+                      },
+                      "required": [
+                        "relationshipType",
+                        "spdxElementId",
+                        "relatedSpdxElement"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "SPDXID",
+                    "spdxVersion",
+                    "creationInfo",
+                    "name",
+                    "dataLicense",
+                    "documentNamespace",
+                    "packages"
+                  ]
+                }
+              },
+              "required": [
+                "sbom"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ]
+}

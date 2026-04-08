@@ -1,1 +1,0 @@
-默认情况下，{% data variables.product.prodname_dependabot %} 会提出带 `dependencies` 标签的所有拉取请求。 如果定义了多个软件包管理器， {% data variables.product.prodname_dependabot %} 在每个拉取请求上包含一个附加标签。 这表明拉取请求将更新哪种语言或生态系统，例如：Gradle 更新的 `java` 和 Git 子模块更新的 `submodules`。 {% data variables.product.prodname_dependabot %} 将根据需要自动在您的仓库中创建这些默认标签。

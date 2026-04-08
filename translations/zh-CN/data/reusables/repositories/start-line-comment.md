@@ -1,1 +1,0 @@
-1. 将鼠标悬停在您要添加评论的代码行上，然后单击蓝色评论图标。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} 要在多行上添加评论，请单击并拖动以选择行范围，然后单击蓝色评论图标。{% endif %} ![蓝色评论图标](/assets/images/help/commits/hover-comment-icon.gif)

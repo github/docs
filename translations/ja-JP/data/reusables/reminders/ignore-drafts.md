@@ -1,1 +1,0 @@
-1. あるいは、スケジュールされたリマインダーからドラフトのプルリクエストを除外するには、**Ignore drafts（ドラフトを無視）**を選択してください。 詳しい情報については「[ドラフトプルリクエスト](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)」を参照してください。 ![ドラフトプルリクエストの無視のチェックボックス](/assets/images/help/settings/scheduled-reminders-ignore-drafts.png)

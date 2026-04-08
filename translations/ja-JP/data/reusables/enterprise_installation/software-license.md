@@ -1,1 +1,0 @@
-{% data variables.product.prodname_enterprise %}のライセンスファイルを持っていなければなりません。 既存のライセンスファイルをダウンロードするか、トライアルライセンスをリクエストするには、[enterprise.github.com](https://enterprise.github.com/download)にアクセスしてください。 詳しい情報については「[{% data variables.product.prodname_enterprise %}ライセンスの管理](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license/)」を参照してください。

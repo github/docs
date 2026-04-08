@@ -1,1 +1,0 @@
-1. En la parte superior de {% data variables.enterprise.management_console %}, da clic en **Actualizaciones**. ![Actualiza el elemento del menú](/assets/images/enterprise/management-console/updates_tab.png)

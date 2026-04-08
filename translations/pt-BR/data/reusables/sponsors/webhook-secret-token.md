@@ -1,1 +1,0 @@
-5. Digite um token secreto. Para obter mais informações, consulte "[Protegendo seus webhooks](/webhooks/securing/#securing-your-secret-token)". ![Campos para token secreto e outras opções de personalização](/assets/images/help/sponsors/webhook-secret-token.png)

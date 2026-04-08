@@ -1,0 +1,16 @@
+{
+  "actions": [
+    {
+      "slug": "get-github-actions-cache-retention-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
+    }
+  ]
+}

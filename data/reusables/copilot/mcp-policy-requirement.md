@@ -1,0 +1,1 @@
+If you are a member of an organization or enterprise with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the "MCP servers in Copilot" policy must be enabled in order to use MCP with {% data variables.product.prodname_copilot_short %}.

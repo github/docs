@@ -1,0 +1,10 @@
+---
+title: Security Policies
+versions:
+  fpt: '*'
+children:
+  - /coordinated-disclosure-of-security-vulnerabilities
+  - /github-bug-bounty-program-legal-safe-harbor
+  - /github-sirt-description-rfc-2350
+---
+

@@ -1,0 +1,1 @@
+If an invitee does not accept the invitation within seven days, the pending invitation expires automatically. {% ifversion ghec %}If a SCIM request from your identity provider (IdP) generates the invitation, the invitation will not expire.{% endif %}

@@ -1,0 +1,1 @@
+If the dependency graph is not available on your {% data variables.product.prodname_ghe_server %} instance, ask an enterprise owner to enable it. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).

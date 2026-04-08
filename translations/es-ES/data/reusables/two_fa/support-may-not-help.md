@@ -1,1 +1,0 @@
-Por razones de seguridad, la Asistencia de {% data variables.product.product_name %} no puede restaurar el acceso a las cuentas con autenticación de dos factores habilitada si pierdes tus credenciales de autenticación de dos factores o si pierdes acceso a los métodos de recuperación de tu cuenta.

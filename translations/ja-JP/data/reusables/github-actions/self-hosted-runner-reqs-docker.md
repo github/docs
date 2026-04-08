@@ -1,1 +1,0 @@
-セルフホストランナーでDockerコンテナアクションを実行するためには、Linuxオペレーティングシステムを使い、Dockerがインストールされていなければなりません。 セルフホストランナーに対する要求に関する詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines)」を参照してください。

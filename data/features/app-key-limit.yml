@@ -1,0 +1,6 @@
+# Reference: #https://github.com/github/docs-content/issues/15738
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.17'

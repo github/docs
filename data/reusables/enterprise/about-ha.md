@@ -1,0 +1,1 @@
+To support your plan for disaster recovery and supplement your backups, or to improve network and write performance for geographically distributed users, you can configure high availability for {% data variables.location.product_location %}.

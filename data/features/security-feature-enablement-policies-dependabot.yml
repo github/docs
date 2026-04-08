@@ -1,0 +1,5 @@
+# Reference: #10253. Related issue: #7661.
+# Improvement issue to fix versioning for enforcing a policy for Dependabot.
+versions:
+  ghec: '*'
+  ghes: '>=3.9'

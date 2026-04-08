@@ -1,0 +1,5 @@
+# https://github.com/github/releases/issues/6053
+# Allows enterprise owners to designate app managers for enterprise-owned GitHub Apps
+versions:
+  ghec: '*'
+  ghes: '>=3.19'

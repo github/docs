@@ -1,1 +1,0 @@
-1. Da clic en la etiqueta de la aplicación que creaste para tu cuenta empresarial.

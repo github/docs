@@ -1,0 +1,1 @@
+The specific webhook events that you can select for your {% data variables.product.prodname_github_app %} registration are determined by the type of permissions you selected for your app. You will first need to select the permissions you would like your app to have, and then you can subscribe your app to webhook events that are related to that set of permissions.

@@ -1,0 +1,3 @@
+With {% data variables.product.prodname_spark %}, you can describe what you want in natural language and get a fullstack web app with data storage, AI features, and {% data variables.product.github %} authentication built in. You can iterate using prompts, visual tools, or code, and then deploy with a click to a fully managed runtime.
+
+{% data variables.product.prodname_spark_short %} is seamlessly integrated with {% data variables.product.github %} so you can develop your spark via a synced {% data variables.product.github %} codespace with {% data variables.product.prodname_copilot_short %} for advanced editing. You can also create a repository for team collaboration, and leverage {% data variables.product.github %}'s ecosystem of tools and integrations.

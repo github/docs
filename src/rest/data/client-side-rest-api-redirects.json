@@ -1,0 +1,6 @@
+{
+  "/rest/repos#deploy-keys": "/rest/deploy-keys",
+  "/rest/deployments#deploy-keys": "/rest/deploy-keys",
+  "/rest/repos#statuses": "/rest/commits/statuses",
+  "/rest/enterprise-admin#code-security-and-analysis": "/rest/enterprise-admin/code-security-and-analysis"
+}

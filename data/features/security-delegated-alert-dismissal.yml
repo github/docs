@@ -1,0 +1,7 @@
+# Reference: #16384 and #16319
+# Documentation for Delegated alert dismissal for code scanning and Delegated alert closures for secret scanning, both Public Preview
+# Ref 17108 Advanced Security available to Team plans
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.16'

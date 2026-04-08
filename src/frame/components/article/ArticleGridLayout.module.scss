@@ -1,0 +1,36 @@
+.containerBox {
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "topper"
+    "intro"
+    "sidebar"
+    "content";
+
+  row-gap: 8px;
+
+  @media (min-width: 1012px) {
+    max-width: none;
+    padding-top: 24px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: minmax(500px, 720px) minmax(220px, 1fr);
+    grid-template-areas:
+      "topper sidebar"
+      "intro sidebar"
+      "content sidebar";
+    column-gap: 80px;
+    row-gap: 0;
+  }
+}
+
+.sidebarBox {
+  @media (min-width: 1012px) {
+    position: sticky;
+    padding-top: 24px;
+    top: 5em;
+    max-height: calc(100vh - 5em);
+    overflow-y: auto;
+    padding-bottom: 40px !important;
+  }
+}

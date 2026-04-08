@@ -1,0 +1,11 @@
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
+// https://tetralogical.com/blog/2023/06/08/focus-in-view/
+
+:target {
+  scroll-margin-top: 105px !important; // 88 + 8 + 8 + 1
+
+  @include breakpoint-xxl {
+    scroll-margin-top: 65px !important; // 48 + 8 + 8 + 1
+  }
+}

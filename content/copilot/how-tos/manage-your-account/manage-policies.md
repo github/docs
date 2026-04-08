@@ -1,0 +1,92 @@
+---
+title: Managing GitHub Copilot policies as an individual subscriber
+shortTitle: Manage policies
+intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
+product: '{% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_free_short %}'
+versions:
+  feature: copilot
+redirect_from:
+  - /copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
+  - /github/copilot/about-github-copilot-telemetry
+  - /github/copilot/github-copilot-telemetry-terms
+  - /copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber
+  - /copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber
+contentType: how-tos
+category: 
+  - Configure Copilot
+---
+
+## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.github %}
+
+In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.github %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
+
+## Enabling or disabling suggestions matching public code
+
+> [!NOTE] If you are a member of an organization on {% data variables.product.prodname_ghe_cloud %} who has been assigned a {% data variables.product.prodname_copilot %} seat through your organization, you will not be able to configure suggestions matching public code in your personal account settings. Your setting for suggestions matching public code will be inherited from your organization or enterprise.
+
+Your personal settings for {% data variables.product.prodname_copilot %} include an option to either allow or block code suggestions that match publicly available code.
+
+If you choose to block suggestions matching public code, in most {% data variables.product.prodname_copilot %} products, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown to you.
+
+If you choose to allow suggestions matching public code or use a product that does not support "Block" mode, when {% data variables.product.prodname_copilot_short %} suggests matching code you can display details of the matches and click through to the relevant repositories on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
+
+{% data reusables.user-settings.copilot-settings %}
+1. To the right of **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
+
+## Disabling or enabling {% data variables.copilot.copilot_cloud_agent %} in your repositories
+
+{% data variables.copilot.copilot_cloud_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or prompt {% data variables.product.prodname_copilot_short %} to undertake a task autonomously, such as deep research of a repository, planning, or code changes, with the option to create a pull request when you're ready.
+
+> [!NOTE]
+> * {% data reusables.gated-features.copilot-cloud-agent %}
+
+{% data variables.copilot.copilot_cloud_agent %} is enabled in all repositories by default, but you can block it from being used in repositories owned by your own personal account by changing your account settings.
+
+{% data reusables.user-settings.copilot-settings %}
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Cloud agent**.
+1. On the {% data variables.copilot.copilot_cloud_agent %} page, under "Policies," click the dropdown button for "Repository access," then choose either **No repositories**, **All repositories**, or **Only selected repositories**.
+1. If you choose **Only selected repositories**, click **Select repositories** and choose the repositories where you want to enable {% data variables.copilot.copilot_cloud_agent %}.
+
+{% data reusables.copilot.cloud-agent.enabling-for-orgs-and-enterprises %}
+
+{% ifversion fpt %}
+
+## Enabling or disabling third-party coding agents in your repositories
+
+> [!NOTE]
+> {% data reusables.gated-features.third-party-agents %}
+
+You can choose whether to allow the following coding agents to be enabled in your personal account:
+
+* {% data variables.product.prodname_anthropic_claude %}
+* {% data variables.product.prodname_openai_codex %}
+
+Coding agents have access to the same repositories that {% data variables.copilot.copilot_cloud_agent %} has been enabled in.
+
+To enable coding agents:
+
+1. Navigate to your account's [cloud agent settings](https://github.com/settings/copilot/coding_agent?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-cca-settings-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026).
+1. On the {% data variables.copilot.copilot_cloud_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
+
+## Enabling or disabling web search for {% data variables.copilot.copilot_chat %}
+
+You can enable web search for {% data variables.copilot.copilot_chat %}. This setting is disabled by default. If you enable this setting, {% data variables.copilot.copilot_chat_short %} will use Bing to search the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
+
+{% data reusables.user-settings.copilot-settings %}
+1. To the right of **{% data variables.product.prodname_copilot_short %} access to Bing**, select the dropdown menu, and then click **Enabled** or **Disabled**.
+
+## Model training and improvements
+
+{% data reusables.copilot.model-training-policy %}
+
+{% data reusables.user-settings.copilot-settings %}
+
+1. Select the "Allow GitHub to use my data for AI model training" dropdown menu and click **Disabled**.
+
+    If you don't see "Allow GitHub to use my data for AI model training", verify that you are not signed in with an account that has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license. {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} customers' data is protected under {% data variables.product.github %}'s Data Protection Agreement, so the setting is not displayed for these plans.
+
+    1. To verify your account type, see [AUTOTITLE](/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan).
+
+{% endif %}

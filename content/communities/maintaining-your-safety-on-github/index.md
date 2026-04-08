@@ -10,8 +10,7 @@ redirect_from:
   - /github/building-a-strong-community/maintaining-your-safety-on-github
 versions:
   fpt: '*'
-topics:
-  - Community
+  ghec: '*'
 children:
   - /blocking-a-user-from-your-personal-account
   - /viewing-users-youve-blocked-from-your-personal-account

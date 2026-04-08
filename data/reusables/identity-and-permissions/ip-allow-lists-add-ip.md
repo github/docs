@@ -1,2 +1,3 @@
-1. At the bottom of the "IP allow list" section, enter an IP address, or a range of addresses in CIDR notation.
-  ![Key field to add IP address](/assets/images/help/security/ip-address-field.png)
+1. At the bottom of the "IP allow list" section, in the "IP address or range in CIDR notation" field, type an IP address, or a range of addresses in CIDR notation.
+
+   ![Screenshot of the IP allow list settings. A text field, labeled "IP address or range in CIDR notation", is highlighted with an orange outline.](/assets/images/help/security/ip-address-field.png)

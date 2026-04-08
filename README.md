@@ -1,58 +1,31 @@
-## GitHub Docs <!-- omit in toc -->
+# GitHub Docs <!-- omit in toc -->
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing).
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
-In this article:
+## Quick links by contributor type
 
-- [Contributing](#contributing)
-- [READMEs](#readmes)
-- [License](#license)
+):** See [CONTRIBUTING.md](https://github.repositories: 
 
-## Contributing
+- **`github/docs`** (public)
+- **`github/docs-internal`*: For GitHub employee contributions. 
 
-### Start contributing right now:
+The two repositories sync frequently. Content changes in one are reflected in the other.  Hubbers might prefer to post in `docs` when working with a customer, but `docs` has limitations on the types of contributions it accepts to safeguard the site and our workflows. Internal contributions should usually go to `docs-internal`.
 
-We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
+**Important:** The `docs` repository accepts contributions to content files (`.md` files in `/content` and select `/data` sections like reusables only). Infrastructure files, workflows, and site-building code are not open for external modification.
 
-#### Click **make a contribution** from docs
+## New to contributing
 
-As you're using GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
+Here are some resources to help you get started with open source contributions:
 
-<img src="./assets/images/contribution_cta.png" width="400">
-
-#### Open an issue
-
-If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
-
-#### Solve an issue
-
-If you have a solution to one of the open issues, you will need to fork the repository and submit a pull request using the [template](https://github.com/github/docs/blob/main/CONTRIBUTING.md#pull-request-template) that is visible automatically in the pull request body. For more details about this process, please check out [Getting Started with Contributing](/CONTRIBUTING.md).
-
-#### Join us in discussions
-
-We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
-
-#### And that's it!
-
-That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
-
-If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.md).
-
-There are a few more things to know when you're getting started with this repo:
-
-1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
-2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
-
-## READMEs
-
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail
+* [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
+* [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)
+* [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
+* [Collaborating with pull requests](https://docs.github.com/en/github/collabo
 
 ## License
 
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+This project is dual-licensed under:
 
-All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
-
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+* **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
+* **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))

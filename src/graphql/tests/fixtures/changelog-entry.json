@@ -1,0 +1,31 @@
+{
+  "previewChanges": [
+    {
+      "changes": [
+        "<p>Type for argument <code>changeTypeArgument</code> on field 'PreviewType.field1<code>changed from</code>Int<code>to</code>Float'</p>",
+        "<p>Field <code>Query.previewField</code> changed type from <code>PreviewType</code> to <code>PreviewType!</code></p>"
+      ],
+      "title": "The [Test preview](/graphql/overview/schema-previews#test-preview) includes these changes:"
+    }
+  ],
+  "schemaChanges": [
+    {
+      "changes": [
+        "<p>Field <code>removedField</code> was removed from object type <code>Query</code></p>",
+        "<p>Argument <code>removedRequiredArgument: Int!</code> was removed from field <code>Query.argumentsField</code></p>",
+        "<p>Argument <code>removedOptionalArgument: Int!</code> was removed from field <code>Query.argumentsField</code></p>",
+        "<p>Type for argument <code>argumentMadeRequired</code> on field <code>Query.argumentsField</code> changed from <code>Int</code> to <code>Int!</code></p>",
+        "<p>Type for argument <code>argumentMadeOptional</code> on field <code>Query.argumentsField</code> changed from <code>Int!</code> to <code>Int</code></p>"
+      ],
+      "title": "The GraphQL schema includes these changes:"
+    }
+  ],
+  "upcomingChanges": [
+    {
+      "changes": [
+        "<p>On member <code>Query.stableField</code>:<code>stableField</code> will be removed. <strong>Effective 2021-06-01</strong>.</p>"
+      ],
+      "title": "The following changes will be made to the schema:"
+    }
+  ]
+}

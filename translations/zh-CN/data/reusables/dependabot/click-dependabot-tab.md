@@ -1,1 +1,0 @@
-4. 在“Dependency graph（依赖关系图）”下，单击 **{% data variables.product.prodname_dependabot %}**。 ![依赖关系图，{% data variables.product.prodname_dependabot %} 选项卡](/assets/images/help/dependabot/dependabot-tab-beta.png)

@@ -1,1 +1,0 @@
-Private forks inherit the permissions structure of the upstream or parent repository. For example, if the upstream repository is private and gives read/write access to a team, then the same team will have read/write access to any forks of the private upstream repository. This helps owners of private repositories maintain control over their code.

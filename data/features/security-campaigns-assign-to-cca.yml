@@ -1,0 +1,5 @@
+# Reference: #19968
+# Assign to CCA via the Security Campaigns UI
+versions:
+  fpt: '*'
+  ghec: '*'

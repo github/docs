@@ -1,0 +1,202 @@
+# Automated pipelines
+
+Our automated pipelines directory contains code shared by our automated pipelines, including REST, GraphQL, Webhooks, CodeQL CLI, and GitHub Apps.
+
+## What are automated pipelines
+
+An automated pipeline consumes data from an external source that is used to create content for docs.github.com. An automated pipeline does not automate documentation that is created by our content writing team. For example, if a writer creates a structured data file like YAML or JSON that lives in the `docs-internal` repo, using that data to create a page does not create an automated pipeline.
+
+Automated pages allow for manually created content to be prepended to the automated content, but do not allow for manually created content to be appended or interspersed within automated content. Manually created content (that is prepended to automated content) lives in the Markdown file associated with the automated page, along with the article's frontmatter metadata.
+
+## What automation pipelines are available
+
+- [Audit Logs](../audit-logs/README.md)
+- [CodeQL CLI](../codeql-cli/README.md)
+- [GitHub Apps](../github-apps/README.md)
+- [GraphQL](../graphql/README.md)
+- [REST](../rest/README.md)
+- [Secret Scanning](../secret-scanning/README.md)
+- [Webhooks](../webhooks/README.md)
+
+## How does it work
+
+We currently have two patterns that we used to create automated pipelines:
+
+- REST, Webhooks, GitHub Apps, and GraphQL pipelines consume external structured data and transform that data into a JSON file that is used to create content for a page on docs.github.com. Typically, data files are a 1:1 mapping to a specific page on docs.github.com.
+- The CodeQL CLI pipeline takes an unstructured ReStructuredText file and transforms it directly into a Markdown file with frontmatter, that uses the same authoring format as the rest of the docs.
+
+## Creating a new pipeline
+
+Each pipeline should be evaluated individually to determine the best architecture for simplicity, maintainability, and requirements.
+For example:
+
+- Is the content being displayed basic Markdown content? For example, does the content avoid using complex tables and interactive elements? If so, then writing the Markdown content directly and avoiding the need to create a structured data file that requires a React component may be the best approach. This was the case for the CodeQL CLI pipeline. One caveat to think about before writing Markdown directly is whether the content will need liquid versioning. The current pipeline that writes Markdown directly does not need to use liquid versioning. Liquid versioning which would increase the complexity quite a bit. All of the Markdown content in each article that is generated from the CodeQL CLI pipeline applies to all versions listed in the `versions` frontmatter property, simplifying the Markdown generation process.
+- Is the page interactive like the REST and Webhooks pages? If so, then the data will likely need to be structured data. In that case, a new React component may be needed to display the data.
+
+### Initial migrations
+
+When creating a new pipeline, the source data that is being consumed may not have all of the necessary data needed to create the page. Oftentimes, source data does not contain descriptions and prose that our content writers have crafted to describe properties or concepts. In this case, it's common to need to scrape data from our docs and merge it into a new field in the structured data file that we intend to consume. When creating a new pipeline, you'll need to work with the team that owns the source data to create a plan for adding any additional properties and agreeing on a format that will work best for both teams.
+
+### What to include in a new pipeline
+
+- Create a new directory in the `src` directory with the name of the pipeline. For example, `src/codeql-cli`.
+- Add a README.md file that describes the pipeline and how to use it. This should include any dependencies, how to run the pipeline, and any other information that is needed to use the pipeline. It's strongly recommended to include a diagram showing the overall flow of the pipeline.
+- Each pipeline typically requires a workflow to allow scheduling or manually running the pipeline. The workflow should be placed in the `.github/workflows` directory and named `sync-<pipeline-name>.ts`. Each workflow typically requires adding a manual run option and an input parameter to specify the source repo's branch to use.
+- Each pipeline will need a `scripts` directory with (at minimum) a `scripts/sync.ts` file to run the pipeline.
+- If the pipeline will contain structured data, you will need to add a `src/<pipeline-name>/data` directory. The files inside the `data` directory are typically organized by version (e.g., `src/webhooks/data/fpt/*`).
+- Pipelines typically have tests specific to the pipeline that are placed in the `src/<pipeline-name>/tests` directory. There is no need to add tests that render the page because all autogenerated pages are tested in `src/automated-pipelines/tests/rendering.ts`.
+  - If the pipeline uses a Next.js page component (e.g., `pages/**/*.tsx`), ensure there is a test that fails if that page component is moved or deleted.
+
+## How to get help
+
+Slack: `#docs-engineering`
+Repo: `github/docs-engineering`
+
+If you have a question about automation pipelines, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with one of the automation pipelines, you can open an issue in the `github/docs-engineering` repository.
+
+## Sample Pipeline Template
+
+### Basic pipeline structure
+
+```
+src/<pipeline-name>/
+├── README.md                 # Pipeline documentation
+├── scripts/
+│   └── sync.ts              # Main sync script
+├── data/                    # Generated structured data (optional)
+│   ├── fpt/
+│   ├── ghec/
+│   └── ghes-*/
+├── lib/                     # Utilities and helpers
+├── components/              # React components (if needed)
+├── pages/                   # Next.js pages (if needed)
+└── tests/                   # Pipeline-specific tests
+### Minimal sync script example
+
+```typescript
+// scripts/sync.ts
+import { Command } from 'commander'
+
+const program = new Command()
+  .description('Sync <pipeline-name> data')
+  .option('--source-branch <branch>', 'Source repo branch', 'main')
+  .parse()
+
+const opts = program.opts()
+
+async function main() {
+  // 1. Fetch data from external source
+  // 2. Transform data
+  // 3. Write to data/ directory (or generate Markdown)
+  // 4. Validate output
+}
+
+main()
+```
+
+### Workflow example
+
+```yaml
+# .github/workflows/sync-<pipeline-name>.yml
+name: Sync <pipeline-name>
+
+on:
+  workflow_dispatch:
+    inputs:
+      SOURCE_BRANCH:
+        description: 'Branch to sync from'
+        default: 'main'
+  schedule:
+    - cron: '16 20 * * *'  # Daily
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run sync-<pipeline-name>
+```
+
+## Ownership Table
+
+| Pipeline | Owning Team | Source Data Owner | Sync Frequency |
+|----------|-------------|-------------------|----------------|
+| REST | Docs Engineering | API Platform | Daily |
+| GraphQL | Docs Engineering | API Platform | Daily |
+| Webhooks | Docs Engineering | API Platform | Daily |
+| CodeQL CLI | Docs Engineering | Code Scanning | Per release |
+| GitHub Apps | Docs Engineering | Integrations | Daily |
+| Audit Logs | Docs Engineering | Enterprise | Daily |
+| Secret Scanning | Docs Engineering | Security | Daily |
+
+## Migration Status
+
+### Active pipelines (✅ Production)
+- REST API - Fully automated, daily sync
+- GraphQL API - Fully automated, daily sync
+- Webhooks - Fully automated, daily sync
+- GitHub Apps - Fully automated, daily sync
+- Secret Scanning - Fully automated, daily sync
+- Audit Logs - Fully automated, daily sync
+
+### Manual sync per release
+- CodeQL CLI - Manual sync per release
+
+### Legacy pipelines (📦 To migrate)
+- None currently identified
+
+### Migration patterns
+
+When migrating manual content to automated pipelines:
+1. **Audit existing content** - Document current structure
+2. **Source data analysis** - Identify gaps between source and docs
+3. **Data enrichment** - Work with source team to add missing fields
+4. **Scraping phase** - Temporarily scrape existing content to preserve prose
+5. **Gradual migration** - Migrate section by section
+6. **Validation** - Compare old vs new output
+7. **Deprecate manual** - Remove manual content once automated is stable
+
+## Shared Components
+
+Components in `src/automated-pipelines/components/` available for reuse:
+- Parameter tables
+- Response schemas
+- Code example formatting
+- Common layout patterns
+
+## Testing Strategy
+
+### Automated pipeline tests
+
+All autogenerated pages tested in `src/automated-pipelines/tests/rendering.ts`:
+- Page renders without errors
+- Required sections present
+- Links are valid
+- Schema validation
+
+### Pipeline-specific tests
+
+Each pipeline in `src/<pipeline-name>/tests/` should test:
+- Data transformation logic
+- Schema validation
+- Version handling
+- Edge cases specific to that pipeline
+
+### Testing locally
+
+```bash
+# Run all automated pipeline tests
+npm run test -- src/automated-pipelines/tests
+
+# Run specific pipeline tests
+npm run test -- src/<pipeline-name>/tests
+```
+
+We are not expecting significant investment here, but we will add and support pipelines as needed to meet business needs.
+
+### Developer experience
+- Pipeline scaffolding tool
+- Validation helpers
+- Testing fixtures
+- Documentation generator

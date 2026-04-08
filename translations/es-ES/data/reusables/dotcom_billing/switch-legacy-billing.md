@@ -1,1 +1,0 @@
-Si tu organización está utilizando un plan de facturación por repositorio heredado, puedes cambiar a precio por usuario en cualquier momento. No podrás volver a cambiar al precio por repositorio una vez que hayas subido de categoría a precio por usuario.

@@ -1,0 +1,7 @@
+# Reference: #14183 (C# beta)
+# Reference: #15544 (C# GA)
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.15'

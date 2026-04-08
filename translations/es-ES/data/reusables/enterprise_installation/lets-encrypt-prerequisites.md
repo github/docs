@@ -1,1 +1,0 @@
-Para utilizar la automatización de Let's Encrypt, tu aplicativo debe configurarse con un nombre de host al que se pueda acceder públicamente mediante HTTP. También se le debe permitir al aplicativo realizar conexiones HTTPS salientes.

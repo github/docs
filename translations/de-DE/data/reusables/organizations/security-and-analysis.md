@@ -1,1 +1,0 @@
-1. Klicke in der linken Seitenleiste auf **Security & analysis** (Sicherheit und Analysen). ![Registerkarte "Security & analysis" (Sicherheit und Analysen) in den Organisationseinstellungen](/assets/images/help/organizations/org-settings-security-and-analysis.png)

@@ -1,1 +1,0 @@
-1. Behebe Mergekonflikte auf Deine bevorzugte Weise mithilfe eines Texteditors, der Befehlszeile oder eines anderen Tools. For more information, see "[Addressing merge conflicts](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)."

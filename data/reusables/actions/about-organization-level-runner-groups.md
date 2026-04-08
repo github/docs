@@ -1,0 +1,1 @@
+By default, all repositories in an organization are granted access to organization-level runner groups. To restrict which repositories have access, organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} must configure organization runner groups and choose which repositories have access.

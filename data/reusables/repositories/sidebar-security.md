@@ -1,2 +1,1 @@
-1. Under your repository name, click **{% octicon "shield" aria-label="The shield symbol" %} Security**.
-![Security tab](/assets/images/help/repository/security-tab.png)
+1. Under the repository name, click the **{% data variables.product.prodname_security_and_quality_tab %}** tab. If you cannot see the "{% data variables.product.prodname_security_and_quality_tab %}" tab, select the **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}** dropdown menu, and then click **{% data variables.product.prodname_security_and_quality_tab %}**.

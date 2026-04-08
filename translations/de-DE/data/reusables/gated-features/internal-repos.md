@@ -1,1 +1,0 @@
-Internal repositories are available with {% data variables.product.prodname_ghe_cloud %}{% if currentVersion == "github-ae@latest" %}, {% data variables.product.prodname_ghe_managed %},{% endif %} and {% data variables.product.prodname_ghe_server %} 2.20+. Weiter Informationen findest Du unter „<a href="/articles/githubs-products" class="dotcom-only">GitHub Produkte</a>."

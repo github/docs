@@ -1,1 +1,1 @@
-If you remove a user from a repository or organization and the user is also a collaborator on a security advisory, the user will still have access to the security advisory.
+If you remove a user from a repository or organization, and the user is also a collaborator on a security advisory, {% data variables.product.prodname_dotcom %} will automatically remove the user as a collaborator for the security advisory. This prevents any unauthorized access from ex-collaborators.

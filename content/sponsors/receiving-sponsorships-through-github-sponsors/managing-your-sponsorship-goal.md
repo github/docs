@@ -6,11 +6,11 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-goal
 versions:
   fpt: '*'
-type: how_to
-topics:
-  - Open Source
-  - Sponsors profile
+  ghec: '*'
 shortTitle: Manage sponsor goals
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About sponsorship goals
@@ -45,3 +45,11 @@ After you retire a goal, you won't be able to reactivate the goal. You must crea
 {% data reusables.sponsors.navigate-to-your-goals-tab %}
 {% data reusables.sponsors.edit-goal %}
 {% data reusables.sponsors.retire-goal %}
+
+## Sharing a goal
+
+You can share your sponsorship goal on social media or embed it on your personal website.
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-your-goals-tab %}
+1. Under your goal, click the **Share** or **Embed it** button.

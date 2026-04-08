@@ -1,0 +1,36 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
+.indentNested {
+  padding-inline-start: 0;
+}
+
+.nested {
+  ul div li {
+    padding-left: 4em;
+  }
+  li {
+    padding-left: 2em;
+  }
+}
+
+.miniToc {
+  li a {
+    padding: 4px 0 4px 0;
+    margin-left: 7px;
+    overflow-wrap: anywhere;
+  }
+}
+
+.heading {
+  font-size: var(--text-body-size-small);
+
+  @include breakpoint(lg) {
+    margin-top: 2rem;
+
+    @include breakpoint-xxl {
+      margin-top: 0;
+    }
+  }
+}

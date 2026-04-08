@@ -1,0 +1,1 @@
+Any time you need help with the {% data variables.product.prodname_gei_cli_short %}, you can use the `--help` flag with a command. For example, `gh gei --help` will list all the available commands, and `gh gei migrate-repo --help` will list all the options available for the `migrate-repo` command.

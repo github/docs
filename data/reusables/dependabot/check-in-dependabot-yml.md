@@ -1,1 +1,1 @@
-1. Check the *dependabot.yml* configuration file in to the `.github` directory of the repository.
+1. Check the `dependabot.yml` configuration file in to the `.github` directory of the repository.

@@ -1,0 +1,7 @@
+# Issue: 15674
+# Description: Once a commit signature is verified, it remains verified within its repository's network
+# Usage: {% ifversion persistent-commit-verification %} ... {% endif %}
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.17'

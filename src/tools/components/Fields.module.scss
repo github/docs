@@ -1,0 +1,12 @@
+.extrasDisplay {
+  > span:first-child {
+    display: none;
+  }
+}
+
+.linkItem {
+  &:hover {
+    text-decoration: none;
+    text-align: left;
+  }
+}

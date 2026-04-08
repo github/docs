@@ -1,1 +1,0 @@
-{% data reusables.gated-features.actions-shared %} Os ambientes, regras de proteção de ambiente e segredos de ambiente estão disponíveis em repositórios públicos para todos os produtos e em repositórios privados para {% data variables.product.prodname_enterprise %}. {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}

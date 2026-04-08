@@ -1,1 +1,0 @@
-1. Gib eine Beschreibung der zulässigen IP-Adresse oder des zulässigen Bereichs ein. ![Schlüsselfeld zum Hinzufügen des Namens der IP-Adresse](/assets/images/help/security/ip-address-edit-name-field.png)

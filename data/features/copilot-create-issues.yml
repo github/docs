@@ -1,0 +1,6 @@
+# Reference: #19182
+# Copilot create issues public beta
+
+versions:
+  fpt: '*'
+  ghec: '*'

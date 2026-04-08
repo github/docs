@@ -1,1 +1,0 @@
-1. Debajo de "etiquetas ignoradas", teclea una lista de etiquetas separadas por comas. Los recordatorios programados no incluirán ninguna solicitud de extracción que tenga una o más de estas etiquetas. ![Campo de etiquetas ignoradas](/assets/images/help/settings/scheduled-reminders-ignored-labels-field.png)

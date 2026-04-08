@@ -1,1 +1,0 @@
-1. En la barra lateral izquierda, haz clic en **Security** (Seguridad). ![Pestaña Security (Seguridad) en la barra lateral de parámetros de la cuenta de empresa](/assets/images/help/business-accounts/enterprise-account-settings-security-tab.png)

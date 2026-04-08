@@ -1,1 +1,0 @@
-1. Unter „{% data variables.large_files.product_name_short %}", klicke auf **Enable** (Aktivieren) oder **Disable** (Deaktivieren). ![Schaltfläche „Disable" (Deaktivieren)](/assets/images/enterprise/management-console/git-lfs-toggle.png)

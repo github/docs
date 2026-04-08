@@ -1,0 +1,3 @@
+# In GHES 3.16, ability to scrape prometheus-compatible metrics is introduced
+versions:
+  ghes: '>=3.16'

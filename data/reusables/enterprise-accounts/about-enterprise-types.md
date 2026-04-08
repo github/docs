@@ -1,0 +1,1 @@
+To control access to your enterprise's resources, you can allow people to use a personal account on {% data variables.product.prodname_dotcom_the_website %} and optionally configure additional SAML access restrictions, or you can provision and control the accounts for your enterprise using your identity provider (IdP) with {% data variables.product.prodname_emus %}.

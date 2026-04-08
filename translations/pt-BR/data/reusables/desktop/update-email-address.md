@@ -1,1 +1,0 @@
-Se os commits que você cria em {% data variables.product.prodname_desktop %} estiverem associados à conta errada no {% data variables.product.product_name %}, atualize o endereço de e-mail na configuração do Git usando {% data variables.product.prodname_desktop %}.

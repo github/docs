@@ -1,0 +1,6 @@
+# Reference: #19113
+# Rust toolchain support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.20'

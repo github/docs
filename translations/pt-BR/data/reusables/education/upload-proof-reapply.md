@@ -1,1 +1,0 @@
-Quando você se candidatar novamente, faça upload de uma imagem do ID da sua escola, do histórico acadêmico ou de outros documentos que sejam uma comprovação do seu status acadêmico, mostrando pelo menos uma data.

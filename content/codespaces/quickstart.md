@@ -1,85 +1,120 @@
 ---
 title: Quickstart for GitHub Codespaces
-intro: 'Try out {% data variables.product.prodname_codespaces %} in 5 minutes or less.'
+shortTitle: Quickstart
+intro: 'Get started with {% data variables.product.prodname_github_codespaces %} quickly.'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /codespaces/codespaces-reference/about-codespaces
+  - /github/developing-online-with-github-codespaces/about-github-codespaces
+  - /github/developing-online-with-codespaces/about-codespaces
+  - /codespaces/getting-started-with-codespaces/about-codespaces
+  - /codespaces/getting-started/quickstart
 versions:
   fpt: '*'
-type: quick_start
-topics:
-  - Codespaces
-redirect_from:
-  - /codespaces/codespaces-quickstart
-shortTitle: Quickstart
+  ghec: '*'
+category:
+  - Get started
 ---
-
-{% data reusables.codespaces.release-stage %}
 
 ## Introduction
 
-In this guide, you'll create a codespace from the [sample repository](https://github.com/2percentsilk/haikus-for-codespaces) and explore some of the essential features available to you within the codespace.
+In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace. You'll work in the browser version of {% data variables.product.prodname_vscode %}, which is initially the default editor for {% data variables.product.prodname_github_codespaces %}. After trying out this quickstart you can use {% data variables.product.prodname_codespaces %} in other editors, and you can change the default editor. Links are provided at the end of this guide.
 
-The following example shows you how to create a codespace, connect to a forwarded port to view your running application, and personalize your setup with additional extensions and dotfiles.
+From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, publish your codespace to a new repository, and personalize your setup with extensions.
+
+For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide [AUTOTITLE](/codespaces/about-codespaces/deep-dive).
 
 ## Creating your codespace
 
-1. Navigate to the main page of the [sample repository](https://github.com/2percentsilk/haikus-for-codespaces).
+1. Navigate to the [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces) template repository.
+{% data reusables.codespaces.use-this-template %}
 
-2. Under the repository name, use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**.
+## Running the application
 
-  ![Open with Codespaces button](/assets/images/help/codespaces/open-with-codespaces-button.png)
+Once your codespace is created, the template repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
 
-3. To create a codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the `package.json` file, which starts up the web application defined in the sample repository.
 
-  ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+   ![Screenshot of the Terminal in {% data variables.product.prodname_vscode_shortname %} with the "npm run dev" command entered.](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
-## Run the application
+   If you're following along with a different application type, enter the corresponding start command for that project.
 
-With your project open in a codespace, you can now run the application and launch it in a browser.
+1. When your application starts, the codespace recognizes the port the application is running on and displays a pop-up message to let you know that the port has been forwarded.
 
-1. Start the application by entering `npm run dev` in the terminal. This command executes the `dev` script in the package.json file and starts up the web application defined in the sample repository.
-   
-   ![npm run dev in terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
+   ![Screenshot of the pop-up message: "Your application running on port 3000 is available." Below this is a green button, labeled "Open in Browser."](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses. 
+1. Click **Open in Browser** to view your running application in a new tab.
 
-  ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
+## Edit the application and view changes
 
-3. Click **Open in Browser** to view your running application in a new tab.
+1. Switch back to your codespace and open the `haikus.json` file by clicking it in the Explorer.
 
-## Personalize with a theme extension
+1. Edit the `text` field of the first haiku to personalize the application with your own haiku.
 
-Within a codespace, you have access to the Visual Studio Code Marketplace. For this example, you'll install an extension that alters the theme but you can install any extension that is useful for your workflow.
+1. Go back to the running application tab in your browser and refresh to see your changes.
 
-1. In the left sidebar, click the Extensions icon.
+   {% octicon "light-bulb" aria-hidden="true" aria-label="light-bulb" %} If you've closed the browser tab, click the Ports tab in {% data variables.product.prodname_vscode_shortname %}, hover over the **Local Address** value for the running port, and click the **Open in Browser** icon.
 
-2.  In the search bar, enter `fairyfloss` and install the fairyfloss extension.
+   ![Screenshot of the "Ports" panel. The "Ports" tab and a globe icon, which opens the forwarded port in a browser, are highlighted with orange outlines.](/assets/images/help/codespaces/quickstart-forward-port.png)
 
-  ![Add an extension](/assets/images/help/codespaces/add-extension.png)
+## Committing and pushing your changes
 
-3. Select the `fairyfloss` theme by selecting it from the list.
+Now that you've made a few changes, you can use the integrated terminal or the source view to publish your work to a new repository.
 
-  ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
+{% data reusables.codespaces.source-control-activity-bar %}
+1. To stage your changes, click {% octicon "plus" aria-label="Stage Changes" %} next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
-4. Changes you make to your editor setup in the current codespace, such as theme and keyboard bindings, are synced automatically to other codespaces via [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync).
+   ![Screenshot of the "Source control" side bar with the staging button (a plus sign), to the right of "Changes," highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
-## Personalize with dotfiles
+1. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
 
-If your user account on GitHub owns a public repository named dotfiles, GitHub automatically uses this repository to personalize your codespace environment during codespace creation.
+   ![Screenshot of the "Source control" side bar. The commit message, "Change haiku text and styles," and the "Commit" button are outlined in orange.](/assets/images/help/codespaces/vscode-commit-button.png)
 
-This example guides you through creating a dotfiles repository for your codespaces.
+1. Click **Publish Branch**.
 
-1. Navigate to the sample [dotfiles repository](https://github.com/aw-test-93/dotfiles/).
- 
-2. Fork the repository to your account and ensure it's public.
-   
-   Verify the repository created under your account is named dotfiles, for example `yourname/dotfiles`. Any other name will cause {% data variables.product.prodname_codespaces %} to ignore the repository for personalization.
+   ![Screenshot of the "Source control" side bar showing the "Publish Branch" button.](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
-3. Create a new codespace from the [sample application repository](https://github.com/2percentsilk/haikus-for-codespaces) as dotfile updates are only applied at creation time. The sample dotfiles will change the command prompt to bold purple and blue text.
+1. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.prodname_dotcom %} private repository** or **Publish to {% data variables.product.prodname_dotcom %} public repository**.
 
-  ![Custom command prompt](/assets/images/help/codespaces/custom-prompt.png)
+   ![Screenshot of the repository name dropdown in {% data variables.product.prodname_vscode_shortname %}. Two options are shown, for publishing to a private or a public repository.](/assets/images/help/codespaces/choose-new-repository.png)
 
-## Next Steps
+   The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
+1. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.prodname_dotcom %}** to view the new repository on {% data variables.product.github %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
 
-You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_codespaces %}.
-  - "[Getting Started guides](/codespaces/getting-started-with-codespaces)" for using {% data variables.product.prodname_codespaces %} with specific languages
-  - [Create a custom configuration](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project) to configure {% data variables.product.prodname_codespaces %} for your project.
+   ![Screenshot of a confirmation message for a successfully published repository, showing the "Open on {% data variables.product.prodname_dotcom %}" button.](/assets/images/help/codespaces/open-on-github.png)
+
+## Personalizing with an extension
+
+When you connect to a codespace using the browser, or the {% data variables.product.prodname_vscode %} desktop application, you can access the {% data variables.product.prodname_vscode %} Marketplace directly from the editor. For this example, you'll install a {% data variables.product.prodname_vscode_shortname %} extension that alters the theme, but you can install any extension that's useful for your workflow.
+
+1. In the Activity Bar, click the Extensions icon.
+
+   ![Screenshot of the Activity Bar. The Extensions icon is highlighted with an orange outline.](/assets/images/help/codespaces/extensions-activity-bar-icon.png)
+
+1. In the search bar, type `fairyfloss` and click **Install**.
+
+   ![Screenshot of "Extensions: Marketplace". The search box shows "fairyfloss." The results show the "fairyfloss" extension with an "Install" button.](/assets/images/help/codespaces/add-extension.png)
+
+1. Select the `fairyfloss` theme by selecting it from the list.
+
+   ![Screenshot of the "Select Color Theme" dropdown, with the "fairyfloss" theme selected.](/assets/images/help/codespaces/fairyfloss.png)
+
+### About Settings Sync
+
+You can enable Settings Sync to sync extensions and other settings across devices and instances of {% data variables.product.prodname_vscode_shortname %}. {% data reusables.codespaces.about-settings-sync %} For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync).
+
+## Next steps
+
+You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
+
+* [AUTOTITLE](/codespaces/about-codespaces/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration): These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
+
+## Further reading
+
+* [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)
+* [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+* [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)
+* [AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces).
+* [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)

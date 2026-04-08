@@ -1,2 +1,1 @@
-1. Use the **Edit** drop-down and click **Add seats**.
-  ![Edit drop-down menu](/assets/images/help/billing/add-seats-dropdown.png)
+1. Under "Current plan", next to the name of your plan, select **Edit** and click **Add seats**.
