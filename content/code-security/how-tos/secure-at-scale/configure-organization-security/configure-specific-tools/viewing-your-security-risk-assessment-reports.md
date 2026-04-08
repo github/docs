@@ -1,7 +1,7 @@
 ---
-title: Viewing the secret risk assessment report for your organization
+title: Viewing your security risk assessment reports
 shortTitle: View risk report
-intro: Understand your organization's exposure to leaked secrets at a glance by viewing your most recent {% data variables.product.prodname_secret_risk_assessment %} report.
+intro: Understand your organization's exposure to leaked secrets and code vulnerabilities by viewing your most recent security risk assessment reports.
 product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 allowTitleToDifferFromFilename: true
@@ -17,3 +17,4 @@ category:
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.security-overview.open-assessments-view %} You can see the most recent report on this page.
+1. Click the **{% data variables.product.UI_code_security_scanning %}** or **{% data variables.product.UI_secret_protection_scanning %}** tab to switch between reports.
