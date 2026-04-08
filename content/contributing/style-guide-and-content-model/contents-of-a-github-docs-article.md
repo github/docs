@@ -53,20 +53,15 @@ Titles can be challenging. Use these general guidelines to help create clear, he
 
 ## Intro
 
-The top of every page has an intro that provides context and sets expectations, allowing readers to quickly decide if the page is relevant to them. Intros also are displayed in search results to provide contextual information to help readers choose a result.
+Every page and article has an intro which describes what they’re about. The text we use for intros is also displayed within search results, making them important for SEO.  
 
 ### How to write an intro
 
-* Article intros are one to two sentences long.
-* Map topic and category intros are one sentence long.
-* API reference intros are one sentence long.
-  * The intro for an API page should define the feature so that someone knows whether the feature meets their needs without reading the entire article.
-* Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail.
-  * Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible.
-* Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.
-* For searchability, include keywords on the page's subject in the intro.
-* When a term in the intro has an acronym we’ll use elsewhere in the article, indicate the acronym.
-* Intros generally don't contain permissions for any tasks contained within the article.
+* Intros should be concise, ideally one sentence long.
+* Intros help people know if they’re in the right place for what they need. Let the user know what value is being provided to them, using words they would use and search for.
+* Intros are also an invitation to continue reading. A good intro reassures the reader that their time is being well spent. 
+* If an important term has a related acronym that is generally used in its place, include the acronym in the intro. (Example: Search engine optimization and SEO.)
+* Finally, review your intro to ensure it is search engine friendly by including relevant keywords and phrases.
 
 ## Permissions statements
 

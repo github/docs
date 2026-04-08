@@ -47,7 +47,7 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 
    {% data variables.product.prodname_copilot_short %} drafts the issues in `https://github.com/copilot`, where the PM can refine them and publish them to the repository.
 
-   The PM marks some of the issues as nice-to-haves or maintenance. These may be good candidates for {% data variables.copilot.copilot_coding_agent %}.
+   The PM marks some of the issues as nice-to-haves or maintenance. These may be good candidates for {% data variables.copilot.copilot_cloud_agent %}.
 
    ![Screenshot of Copilot Chat. Copilot asks if the user would like to proceed with creating a set of prioritized issues.](/assets/images/help/copilot/sdlc-guide/issue-creation.png)
 
@@ -108,16 +108,16 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 1. As an additional compliance check, an enterprise owner has created a **{% data variables.copilot.copilot_custom_agent %}** with key context on industry regulations and internal policies. The developer selects the {% data variables.copilot.copilot_custom_agent_short %} at `https://github.com/copilot/agents`, prompting {% data variables.product.prodname_copilot_short %} to carefully review the pull request for compliance and applying any necessary changes before requesting a human review.
 1. The developer's colleague reviews and approves the pull request. The work is ready to merge.
 
-## 6. Optimize with {% data variables.copilot.copilot_coding_agent %}
+## 6. Optimize with {% data variables.copilot.copilot_cloud_agent %}
 
 1. After the release, the product manager collects customer feedback and identifies an opportunity to improve the widget's suggestions by switching to a more reliable API for weather data. They create an issue to implement this change, and **assign it to {% data variables.product.prodname_copilot_short %}** directly on {% data variables.product.github %}.
-1. {% data variables.copilot.copilot_coding_agent %} works in the background and opens a pull request, which the product manager marks as ready for review.
+1. {% data variables.copilot.copilot_cloud_agent %} works in the background and opens a pull request, which the product manager marks as ready for review.
 
-   ![Screenshot of a pull request created by {% data variables.copilot.copilot_coding_agent %}.](/assets/images/help/copilot/sdlc-guide/agent-pr.png)
+   ![Screenshot of a pull request created by {% data variables.copilot.copilot_cloud_agent %}.](/assets/images/help/copilot/sdlc-guide/agent-pr.png)
 
 1. A developer reviews {% data variables.product.prodname_copilot_short %}'s pull request and leaves feedback, which {% data variables.product.prodname_copilot_short %} incorporates. Finally, the developer merges the pull request.
 
-   >[!TIP] {% data variables.copilot.copilot_coding_agent %} comes with default guardrails. For example, {% data variables.product.prodname_copilot_short %} cannot merge pull requests by itself. You can define additional protections for target branches using repository rulesets.
+   >[!TIP] {% data variables.copilot.copilot_cloud_agent %} comes with default guardrails. For example, {% data variables.product.prodname_copilot_short %} cannot merge pull requests by itself. You can define additional protections for target branches using repository rulesets.
 
 1. Later, while working on a separate feature, the developer notices a small bug in the code for the AI widget. To avoid context switching, the developer instructs {% data variables.product.prodname_copilot_short %} to open a pull request directly from {% data variables.product.prodname_vscode_shortname %}.
 
@@ -155,8 +155,8 @@ To integrate agentic AI features effectively into your workstreams, you'll need 
 | {% data variables.product.prodname_github_models %} playground ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground) |
 | Custom instructions | [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode) |
 | {% data variables.copilot.copilot_code-review_short %} | [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review) |
-| {% data variables.copilot.copilot_custom_agents %} | [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents) |
-| {% data variables.copilot.copilot_coding_agent %} | [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org) |
+| {% data variables.copilot.copilot_custom_agents %} | [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents) |
+| {% data variables.copilot.copilot_cloud_agent %} | [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent) |
 | {% data variables.copilot.copilot_autofix_short %} | [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) |
 
 {% endrowheaders %}

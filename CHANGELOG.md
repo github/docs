@@ -16,6 +16,15 @@ We've expanded the documentation for custom agents in Copilot CLI, adding inform
 
 <hr>
 
+**31 March 2026**
+
+The documentation for Copilot CLI now includes a new reference article about the `~/.copilot` directory, and information on how a Copilot skill can run a script:
+
+* [GitHub Copilot CLI configuration directory](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference)
+* [Creating agent skills for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-skills#enabling-a-skill-to-run-a-script)
+
+<hr>
+
 **27 March 2026**
 
 We've introduced a new discovery landing page design for all the top-level doc sets on docs.github.com. The landing pages highlight recommended articles and give users the ability to filter articles by category with a drop down menu. Every article across the site now includes category metadata, making it easier to browse doc sets without relying solely on search. This replaces the previous product-landing layout across 35 doc sets.

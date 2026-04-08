@@ -30,7 +30,7 @@ If you configure {% data variables.copilot.copilot_cli_short %} to use your own 
 
 However, without {% data variables.product.github %} authentication, the following features are **not available**:
 
-* `/delegate`: Requires {% data variables.copilot.copilot_coding_agent %}, which runs on {% data variables.product.github %}'s servers
+* `/delegate`: Requires {% data variables.copilot.copilot_cloud_agent %}, which runs on {% data variables.product.github %}'s servers
 * {% data variables.product.github %} MCP server: Requires authentication to access {% data variables.product.github %} APIs
 * {% data variables.product.github %} Code Search: Requires authentication to query {% data variables.product.github %}'s search index
 

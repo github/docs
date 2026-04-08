@@ -22,14 +22,14 @@ Examples include:
 
 * Using {% data variables.copilot.copilot_chat_short %} with premium models
 * Large context windows or advanced reasoning models
-* Features like {% data variables.copilot.copilot_coding_agent %}
+* Features like {% data variables.copilot.copilot_cloud_agent %}
 * {% data variables.product.prodname_spark_short %} app creation
 
 Each product's premium request usage is attributed to a premium request SKU:
 
 * **{% data variables.product.prodname_copilot_short %} premium requests** - Chat, CLI, Code Review, Extensions, and Spaces
 * **{% data variables.product.prodname_spark_short %} premium requests** - {% data variables.product.prodname_spark_short %} app creation
-* **{% data variables.copilot.copilot_coding_agent %} premium requests** - {% data variables.copilot.copilot_coding_agent %} sessions
+* **{% data variables.copilot.copilot_cloud_agent %} premium requests** - {% data variables.copilot.copilot_cloud_agent %} sessions
 
 See [AUTOTITLE](/copilot/concepts/billing/copilot-requests) for details on which models and features consume premium requests and their SKU attribution.
 
@@ -54,9 +54,9 @@ If you receive licenses from multiple enterprises, you must choose which entity 
 * For example, advanced reasoning models may consume 5× or 20× the standard rate.
 * If you exceed your allowance and overages are enabled, extra usage is billed at the standard rate.
 
-### Usage by {% data variables.copilot.copilot_coding_agent %}
+### Usage by {% data variables.copilot.copilot_cloud_agent %}
 
-When you use {% data variables.copilot.copilot_coding_agent %}, including any {% data variables.copilot.copilot_custom_agents %}, both **{% data variables.product.prodname_actions %} minutes** and **premium requests** are consumed:
+When you use {% data variables.copilot.copilot_cloud_agent %}, including any {% data variables.copilot.copilot_custom_agents %}, both **{% data variables.product.prodname_actions %} minutes** and **premium requests** are consumed:
 
 * **{% data variables.product.prodname_actions %} minutes** come from your account’s monthly allowance of free minutes for {% data variables.product.github %}-hosted runners. This allowance is shared with all {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes).
 * **Premium requests** come from the monthly allowance associated with your {% data variables.product.prodname_copilot_short %} license. This allowance is shared with other features, such as {% data variables.copilot.copilot_chat_short %}.
@@ -68,9 +68,9 @@ Each cloud agent **session** consumes one premium request. A session begins when
 
 If you run out of free minutes or premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.
 
-{% data variables.copilot.copilot_coding_agent %} uses a dedicated {% data variables.copilot.copilot_coding_agent %} premium request SKU. This SKU still pulls from your monthly allowance of premium requests, but allows for more granular budget control and monitoring.
+{% data variables.copilot.copilot_cloud_agent %} uses a dedicated {% data variables.copilot.copilot_cloud_agent %} premium request SKU. This SKU still pulls from your monthly allowance of premium requests, but allows for more granular budget control and monitoring.
 
-For more information about {% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_custom_agents %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent) and [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
+For more information about {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_custom_agents %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent) and [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
 
 ## Using more than your included premium requests
 
@@ -83,7 +83,7 @@ If you exceed your allowance, set a budget for additional premium requests or up
 ### Organizations and enterprises
 
 * Admins can control whether members are allowed to exceed their premium request allowance across AI features using the **Premium request paid usage** policy.
-* Separate policy options are available for {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_spark_short %}, and {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
+* Separate policy options are available for {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_spark_short %}, and {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
 * Premium request budgets can be set to either monitor or block overages, with options for bundled or individual SKU management.
 * Enterprises can also upgrade frequent users to {% data variables.copilot.copilot_enterprise_short %} for higher included allowances.
 
@@ -102,7 +102,7 @@ To help manage your budget for premium requests, consider the following strategi
 You can set a budget in your personal billing settings to receive alerts when you reach 75%, 90%, or 100% of your budget. Setting a premium request budget depends on the level of granularity you need:
 
 * **Bundled premium request budget** - Combines all premium requests into a single budget (Recommended for most users)
-* **Individual SKU budgets** - Set separate budgets for each AI product (Copilot, {% data variables.product.prodname_spark_short %}, {% data variables.copilot.copilot_coding_agent %})
+* **Individual SKU budgets** - Set separate budgets for each AI product (Copilot, {% data variables.product.prodname_spark_short %}, {% data variables.copilot.copilot_cloud_agent %})
 
 ### Budget options for organizations and enterprises
 

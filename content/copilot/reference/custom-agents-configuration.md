@@ -9,7 +9,7 @@ category:
   - Configure Copilot
 ---
 
-This reference article provides detailed configuration information for {% data variables.copilot.custom_agents_short %}. For general information about creating {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+This reference article provides detailed configuration information for {% data variables.copilot.custom_agents_short %}. For general information about creating {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
 
 {% data reusables.copilot.custom-agents-ide-preview %}
 
@@ -26,9 +26,9 @@ The following table outlines the properties that you can configure for {% data v
 | `target` | string     | Target environment or context for the {% data variables.copilot.copilot_custom_agent_short %} (`vscode` or `github-copilot`). If unset, defaults to both environments. |
 | `tools`       | list of strings, string | List of tool names the {% data variables.copilot.copilot_custom_agent_short %} can use. Supports both a comma separated string and yaml string array. If unset, defaults to all tools. See [Tools](#tools). |
 | `model`       | string | Model to use when this {% data variables.copilot.copilot_custom_agent_short %} executes. If unset, inherits the default model. |
-| `disable-model-invocation`  | boolean | Disables {% data variables.copilot.copilot_coding_agent %} from automatically using this {% data variables.copilot.copilot_custom_agent_short %} based on task context. When `true`, the agent must be manually selected. Setting `disable-model-invocation: true` is equivalent to `infer: false`. If both are set, `disable-model-invocation` takes precedence. If unset, defaults to `false`. |
+| `disable-model-invocation`  | boolean | Disables {% data variables.copilot.copilot_cloud_agent %} from automatically using this {% data variables.copilot.copilot_custom_agent_short %} based on task context. When `true`, the agent must be manually selected. Setting `disable-model-invocation: true` is equivalent to `infer: false`. If both are set, `disable-model-invocation` takes precedence. If unset, defaults to `false`. |
 | `user-invocable` | boolean | Controls whether this {% data variables.copilot.copilot_custom_agent_short %} can be selected by a user. When `false`, the agent cannot be manually selected and can only be accessed programmatically. If unset, defaults to `true`. |
-| `infer`       | boolean | **{% data variables.release-phases.retired_caps %}**. Use `disable-model-invocation` and `user-invocable` instead. Enables {% data variables.copilot.copilot_coding_agent %} to automatically use this {% data variables.copilot.copilot_custom_agent_short %} based on task context. When `false`, the agent must be manually selected. If unset, defaults to `true`. |
+| `infer`       | boolean | **{% data variables.release-phases.retired_caps %}**. Use `disable-model-invocation` and `user-invocable` instead. Enables {% data variables.copilot.copilot_cloud_agent %} to automatically use this {% data variables.copilot.copilot_custom_agent_short %} based on task context. When `false`, the agent must be manually selected. If unset, defaults to `true`. |
 | `mcp-servers` | object                  | Additional MCP servers and tools that should be used by the {% data variables.copilot.copilot_custom_agent_short %}. **Not used in {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %}.** |
 | `metadata`   | object consisting of a name and value pair, both strings | Allows annotation of the agent with useful data. **Not used in {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %}.** |
 
@@ -38,14 +38,14 @@ Define the agent's behavior, expertise, and instructions in the Markdown content
 
 > [!NOTE]
 >
-> * The `argument-hint` and `handoffs` properties from {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %} are currently not supported for {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}. They are ignored to ensure compatibility.
+> * The `argument-hint` and `handoffs` properties from {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %} are currently not supported for {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}. They are ignored to ensure compatibility.
 > * For more information on {% data variables.copilot.copilot_custom_agent_short %} file structure in {% data variables.product.prodname_vscode_shortname %}, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Tools
 
 The {% data variables.copilot.copilot_custom_agent_short %} `tools` property controls which tools are available to your agent, including those from MCP servers.
 
-Your {% data variables.copilot.copilot_custom_agent_short %} will have access to MCP server tools that have been configured in both its {% data variables.copilot.agent_profile %} and/or the repository settings. For more information on configuring MCP servers for cloud agent in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp).
+Your {% data variables.copilot.copilot_custom_agent_short %} will have access to MCP server tools that have been configured in both its {% data variables.copilot.agent_profile %} and/or the repository settings. For more information on configuring MCP servers for cloud agent in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
 
 You can configure `tools` using the following approaches:
 
@@ -62,19 +62,19 @@ All unrecognized tool names are ignored, which allows product-specific tools to 
 
 The following tool aliases are available for {% data variables.copilot.custom_agents_short %}. All aliases are case insensitive:
 
-| Primary alias | Compatible aliases                        | {% data variables.copilot.copilot_coding_agent_short_cap_c %} mapping | Purpose                                                                                          |
+| Primary alias | Compatible aliases                        | {% data variables.copilot.copilot_cloud_agent_short_cap_c %} mapping | Purpose                                                                                          |
 | ------------- | -------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `execute`       | `shell`, `Bash`, `powershell`                         | Shell tools: `bash` or `powershell`                             | Execute a command in the appropriate shell for the operating system.                                     |
 | `read`        | `Read`, `NotebookRead`                       | `view`                                                           | Read file contents.                                                                                      |
 | `edit`        | `Edit`, `MultiEdit`, `Write`, `NotebookEdit` | Edit tools: e.g. `str_replace`, `str_replace_editor`             | Allow LLM to edit. Exact arguments can vary.                                                            |
 | `search`      | `Grep`, `Glob`                               | `search`                                                         | Search for files or text in files.                                                                       |
 | `agent` | `custom-agent`, `Task`                                       | "{% data variables.copilot.copilot_custom_agent_caps_short %}" tools                                             | Allows a different {% data variables.copilot.copilot_custom_agent_short %} to be invoked to accomplish a task. |
-| `web`         | `WebSearch`, `WebFetch`                      | Currently not applicable for {% data variables.copilot.copilot_coding_agent_short %}. | Allows fetching content from URLs and performing a web search                                            |
-| `todo`        | `TodoWrite`                                  | Currently not applicable for {% data variables.copilot.copilot_coding_agent_short %}. | Creates and manages structured task lists. Not supported in {% data variables.copilot.copilot_coding_agent_short %} today, but supported by {% data variables.product.prodname_vscode_shortname %}. |
+| `web`         | `WebSearch`, `WebFetch`                      | Currently not applicable for {% data variables.copilot.copilot_cloud_agent_short %}. | Allows fetching content from URLs and performing a web search                                            |
+| `todo`        | `TodoWrite`                                  | Currently not applicable for {% data variables.copilot.copilot_cloud_agent_short %}. | Creates and manages structured task lists. Not supported in {% data variables.copilot.copilot_cloud_agent_short %} today, but supported by {% data variables.product.prodname_vscode_shortname %}. |
 
 ### Tool names for "out-of-the-box" MCP servers
 
-The following MCP servers are available out-of-box for {% data variables.copilot.copilot_coding_agent %} and can be referenced using namespacing:
+The following MCP servers are available out-of-box for {% data variables.copilot.copilot_cloud_agent %} and can be referenced using namespacing:
 
 | MCP server name | Available tools |
 | --------------- | --------------- |
@@ -103,18 +103,18 @@ mcp-servers:
 Prompt with suggestions for behavior and output
 ```
 
-The `mcp-servers` property in an {% data variables.copilot.agent_profile %} is a YAML representation of the JSON configuration format used to configure MCP servers for {% data variables.copilot.copilot_coding_agent %}.
+The `mcp-servers` property in an {% data variables.copilot.agent_profile %} is a YAML representation of the JSON configuration format used to configure MCP servers for {% data variables.copilot.copilot_cloud_agent %}.
 
-Most sub-properties are the same as the JSON representation. The following sections describe changes from the initial implementation of MCP configuration in {% data variables.copilot.copilot_coding_agent %} that are relevant to {% data variables.copilot.custom_agents_short %}. For more information about the JSON configuration format, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+Most sub-properties are the same as the JSON representation. The following sections describe changes from the initial implementation of MCP configuration in {% data variables.copilot.copilot_cloud_agent %} that are relevant to {% data variables.copilot.custom_agents_short %}. For more information about the JSON configuration format, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
 ### MCP server type
 
-For compatibility, the `stdio` type used by Claude Code and {% data variables.product.prodname_vscode_shortname %} is mapped to {% data variables.copilot.copilot_coding_agent_short %}'s `local` type.
+For compatibility, the `stdio` type used by Claude Code and {% data variables.product.prodname_vscode_shortname %} is mapped to {% data variables.copilot.copilot_cloud_agent_short %}'s `local` type.
 
 ### MCP server environment variables and secrets
 
 > [!NOTE]
-> If your MCP server requires secrets or environment variables, these must be configured in the {% data variables.product.prodname_copilot_short %} environment in each repository where the {% data variables.copilot.copilot_custom_agent_short %} will be used. For more information on setting up environment variables, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment#setting-environment-variables-in-copilots-environment).
+> If your MCP server requires secrets or environment variables, these must be configured in the {% data variables.product.prodname_copilot_short %} environment in each repository where the {% data variables.copilot.copilot_custom_agent_short %} will be used. For more information on setting up environment variables, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment#setting-environment-variables-in-copilots-environment).
 
 {% data variables.copilot.copilot_custom_agent_caps_short %} MCP configuration supports the same environment variable and secret replacement capabilities as existing repository-level MCP configurations. Similar to repository-level configurations, secrets and variables can be sourced from the "copilot" environment in the repository's settings. The syntax for referencing these values has been expanded to support common patterns used in {% data variables.product.prodname_actions %} and Claude Code.
 

@@ -45,7 +45,7 @@ You can customize the default funnel order on the "Alert prioritization" graph t
 
 ### 2. Focus on critical and high severity alerts
 
-Start by identifying alerts with the highest severity by using the the `severity-critical` or `severity-high` filters. These vulnerabilities pose the greatest risk and are often prioritized by compliance standards. You can then
+Start by identifying alerts with the highest severity by using the `severity-critical` or `severity-high` filters. These vulnerabilities pose the greatest risk and are often prioritized by compliance standards.
 
 ### 3. Assess exploitability and reachability
 

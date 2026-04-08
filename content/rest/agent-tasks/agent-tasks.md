@@ -1,7 +1,7 @@
 ---
 title: Agent tasks
 shortTitle: Agent tasks
-intro: Use the REST API to start and manage {% data variables.copilot.copilot_coding_agent %} tasks.
+intro: Use the REST API to start and manage {% data variables.copilot.copilot_cloud_agent %} tasks.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

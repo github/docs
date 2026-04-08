@@ -415,6 +415,323 @@ Prompt hooks auto-submit text as if the user typed it. They are only supported o
 | `errorOccurred` | An error occurs during execution. | No |
 | `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports `matcher` regex on `notification_type`. | Optional — can inject `additionalContext` into the session. |
 
+### Hook event input payloads
+
+Each hook event delivers a JSON payload to the hook handler. Two payload formats are supported, selected by the event name used in the hook configuration:
+
+* **camelCase format** — Configure the event name in camelCase (for example, `sessionStart`). Fields use camelCase.
+* **{% data variables.product.prodname_vscode_shortname %} compatible format** — Configure the event name in PascalCase (for example, `SessionStart`). Fields use snake_case to match the {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} extension format.
+
+#### `sessionStart` / `SessionStart`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;      // Unix timestamp in milliseconds
+    cwd: string;
+    source: "startup" | "resume" | "new";
+    initialPrompt?: string;
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "SessionStart";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    source: "startup" | "resume" | "new";
+    initial_prompt?: string;
+}
+```
+
+#### `sessionEnd` / `SessionEnd`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    reason: "complete" | "error" | "abort" | "timeout" | "user_exit";
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "SessionEnd";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    reason: "complete" | "error" | "abort" | "timeout" | "user_exit";
+}
+```
+
+#### `userPromptSubmitted` / `UserPromptSubmit`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    prompt: string;
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "UserPromptSubmit";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    prompt: string;
+}
+```
+
+#### `preToolUse` / `PreToolUse`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    toolName: string;
+    toolArgs: unknown;
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+When configured with the PascalCase event name `PreToolUse`, the payload uses snake_case field names to match the {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} extension format:
+
+```typescript
+{
+    hook_event_name: "PreToolUse";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    tool_name: string;
+    tool_input: unknown;    // Tool arguments (parsed from JSON string when possible)
+}
+```
+
+#### `postToolUse` / `PostToolUse`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    toolName: string;
+    toolArgs: unknown;
+    toolResult: {
+        resultType: "success";
+        textResultForLlm: string;
+    }
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "PostToolUse";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    tool_name: string;
+    tool_input: unknown;
+    tool_result: {
+        result_type: "success" | "failure" | "denied" | "error";
+        text_result_for_llm: string;
+    }
+}
+```
+
+#### `postToolUseFailure` / `PostToolUseFailure`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    toolName: string;
+    toolArgs: unknown;
+    error: string;
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "PostToolUseFailure";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    tool_name: string;
+    tool_input: unknown;
+    error: string;
+}
+```
+
+#### `agentStop` / `Stop`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    transcriptPath: string;
+    stopReason: "end_turn";
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "Stop";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    transcript_path: string;
+    stop_reason: "end_turn";
+}
+```
+
+#### `subagentStart`
+
+**Input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    transcriptPath: string;
+    agentName: string;
+    agentDisplayName?: string;
+    agentDescription?: string;
+}
+```
+
+#### `subagentStop` / `SubagentStop`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    transcriptPath: string;
+    agentName: string;
+    agentDisplayName?: string;
+    stopReason: "end_turn";
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "SubagentStop";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    transcript_path: string;
+    agent_name: string;
+    agent_display_name?: string;
+    stop_reason: "end_turn";
+}
+```
+
+#### `errorOccurred` / `ErrorOccurred`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    error: {
+        message: string;
+        name: string;
+        stack?: string;
+    };
+    errorContext: "model_call" | "tool_execution" | "system" | "user_input";
+    recoverable: boolean;
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "ErrorOccurred";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    error: {
+        message: string;
+        name: string;
+        stack?: string;
+    };
+    error_context: "model_call" | "tool_execution" | "system" | "user_input";
+    recoverable: boolean;
+}
+```
+
+#### `preCompact` / `PreCompact`
+
+**camelCase input:**
+
+```typescript
+{
+    sessionId: string;
+    timestamp: number;
+    cwd: string;
+    transcriptPath: string;
+    trigger: "manual" | "auto";
+    customInstructions: string;
+}
+```
+
+**{% data variables.product.prodname_vscode_shortname %} compatible input:**
+
+```typescript
+{
+    hook_event_name: "PreCompact";
+    session_id: string;
+    timestamp: string;      // ISO 8601 timestamp
+    cwd: string;
+    transcript_path: string;
+    trigger: "manual" | "auto";
+    custom_instructions: string;
+}
+```
+
 ### `preToolUse` decision control
 
 The `preToolUse` hook can control tool execution by writing a JSON object to stdout.
@@ -628,7 +945,7 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 | Agent | Default model | Description |
 |-------|--------------|-------------|
 | `code-review` | claude-sonnet-4.5 | High signal-to-noise code review. Analyzes diffs for bugs, security issues, and logic errors. |
-| `critic` | complementary model | Adversarial feedback on proposals, designs, and implementations. Identifies weak points and suggests improvements. Experimental—requires `--experimental`. |
+| `critic` | complementary model | Rubber-duck adversarial feedback on proposals, designs, and implementations. Identifies weak points and suggests improvements. Available for Claude models. Experimental—requires `--experimental`. |
 | `explore` | claude-haiku-4.5 | Fast codebase exploration. Searches files, reads code, and answers questions. Returns focused answers under 300 words. Safe to run in parallel. |
 | `general-purpose` | claude-sonnet-4.5 | Full-capability agent for complex multi-step tasks. Runs in a separate context window. |
 | `research` | claude-sonnet-4.6 | Deep research agent. Generates a report based on information in your codebase, in relevant repositories, and on the web. |
@@ -847,7 +1164,7 @@ Feature flags enable functionality that is not yet generally available. Enable f
 
 | Flag | Tier | Description |
 |------|------|-------------|
-| `CRITIC_AGENT` | experimental | Critic subagent for adversarial feedback on code and designs (Claude and GPT models) |
+| `RUBBER_DUCK_AGENT` | experimental | Rubber-duck subagent for adversarial feedback on code and designs (available for Claude models) |
 | `BACKGROUND_SESSIONS` | experimental | Multiple concurrent sessions with background management |
 | `MULTI_TURN_AGENTS` | experimental | Multi-turn subagent message passing via `write_agent` |
 | `EXTENSIONS` | experimental | Programmatic extensions with custom tools and hooks |

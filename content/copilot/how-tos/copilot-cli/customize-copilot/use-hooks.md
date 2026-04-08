@@ -12,19 +12,19 @@ redirect_from:
   - /copilot/how-tos/copilot-cli/use-hooks
 ---
 
-{% data reusables.copilot.coding-agent.hooks-intro %}
+{% data reusables.copilot.cloud-agent.hooks-intro %}
 
 ## Creating a hook in a repository on {% data variables.product.github %}
 
-{% data reusables.copilot.coding-agent.create-hooks-instructions %}
+{% data reusables.copilot.cloud-agent.create-hooks-instructions %}
 
 ## Troubleshooting
 
-{% data reusables.copilot.coding-agent.troubleshoot-hooks %}
+{% data reusables.copilot.cloud-agent.troubleshoot-hooks %}
 
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/hooks-configuration)
-* [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent)
+* [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)

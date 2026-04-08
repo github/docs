@@ -16,7 +16,7 @@ category:
   - Integrate Copilot with your tools
 ---
 
-The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.copilot.copilot_coding_agent %} require a paid {% data variables.product.prodname_copilot_short %} license.
+The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.copilot.copilot_cloud_agent %} require a paid {% data variables.product.prodname_copilot_short %} license.
 
 {% vscode %}
 
@@ -204,4 +204,4 @@ The {% data variables.product.github %} MCP server in {% data variables.copilot.
 ## Further reading
 
 * [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp)

@@ -37,7 +37,7 @@ To configure self-hosted runners for {% data variables.copilot.copilot_code-revi
     * `api.githubcopilot.com`
     * `uploads.github.com`
     * `user-images.githubusercontent.com`
-1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).
+1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment#preinstalling-tools-or-dependencies-in-copilots-environment).
 
    ```yaml
    # ...

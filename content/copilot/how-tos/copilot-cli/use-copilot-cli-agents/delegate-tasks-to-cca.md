@@ -22,9 +22,9 @@ There are two ways to use autopilot mode:
 
 For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
 
-## Delegate tasks to {% data variables.copilot.copilot_coding_agent %}
+## Delegate tasks to {% data variables.copilot.copilot_cloud_agent %}
 
-The delegate command lets you push your current session to {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.github %}. This lets you hand off work while preserving all the context {% data variables.product.prodname_copilot_short %} needs to complete your task.
+The delegate command lets you push your current session to {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.github %}. This lets you hand off work while preserving all the context {% data variables.product.prodname_copilot_short %} needs to complete your task.
 
 You can delegate a task using the slash command, followed by a prompt:
 
@@ -38,7 +38,7 @@ Alternatively, prefix a prompt with `&` to delegate it:
 & complete the API integration tests and fix any failing edge cases
 ```
 
-{% data variables.product.prodname_copilot_short %} will ask to commit any of your unstaged changes as a checkpoint in a new branch it creates. {% data variables.copilot.copilot_coding_agent %} will open a draft pull request, make changes in the background, and request a review from you.
+{% data variables.product.prodname_copilot_short %} will ask to commit any of your unstaged changes as a checkpoint in a new branch it creates. {% data variables.copilot.copilot_cloud_agent %} will open a draft pull request, make changes in the background, and request a review from you.
 
 {% data variables.product.prodname_copilot_short %} will provide a link to the pull request and agent session on {% data variables.product.github %} once the session begins.
 

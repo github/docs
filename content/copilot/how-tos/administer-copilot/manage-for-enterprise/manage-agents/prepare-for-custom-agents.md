@@ -36,4 +36,4 @@ Enterprise-level {% data variables.copilot.custom_agents_short %} are defined in
 
 To reduce your administrative burden and empower your SMEs, you can delegate the creation and management of {% data variables.copilot.custom_agents_short %} in your enterprise by creating a team of AI managers. See [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/establish-ai-managers).
 
-If you prefer to maintain full control over your enterprise's tooling to ensure security and compliance, you can create and manage {% data variables.copilot.custom_agents_short %} yourself. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/test-custom-agents).
+If you prefer to maintain full control over your enterprise's tooling to ensure security and compliance, you can create and manage {% data variables.copilot.custom_agents_short %} yourself. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/test-custom-agents).
