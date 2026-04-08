@@ -100,9 +100,9 @@ You can leverage {% data variables.product.prodname_copilot_short %} to help res
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-If {% data variables.copilot.copilot_coding_agent %} is enabled in the repository, you can also assign alerts to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-coding-agent).
+If {% data variables.copilot.copilot_cloud_agent %} is enabled in the repository, you can also assign alerts to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).
 
-By assigning multiple alerts, {% data variables.copilot.copilot_coding_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
+By assigning multiple alerts, {% data variables.copilot.copilot_cloud_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
 
 {% endif %}
 

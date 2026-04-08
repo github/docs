@@ -44,10 +44,10 @@ copilot_code-review-tools-preview_cap: 'New tools (public preview) in GitHub Cop
 copilot_code-review-tools_short: 'tools in Copilot code review'
 copilot_code-review-tools_cap_short: 'Tools in Copilot code review'
 
-## Copilot cloud agent (previously coding agent / Padawan) -> {% data variables.copilot.copilot_coding_agent %}
-copilot_coding_agent: 'Copilot cloud agent'
-copilot_coding_agent_short: 'cloud agent'
-copilot_coding_agent_short_cap_c: 'Cloud agent'
+## Copilot cloud agent (previously coding agent / Padawan) -> {% data variables.copilot.copilot_cloud_agent %}
+copilot_cloud_agent: 'Copilot cloud agent'
+copilot_cloud_agent_short: 'cloud agent'
+copilot_cloud_agent_short_cap_c: 'Cloud agent'
 copilot_cloud_agent_tmp: 'Copilot cloud agent (formerly Copilot coding agent)'
 
 ## Short for "Copilot Extensions agent" -> {% data variables.copilot.copilot_agent_short %}

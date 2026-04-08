@@ -1,5 +1,13 @@
 # Docs changelog
 
+**3 April 2026**
+
+We've published documentation for the GitHub Copilot SDK, now available in public preview. These docs were migrated from the `github/copilot-sdk` repo and cover getting started, setup, authentication, usage patterns, hooks, observability, integrations, and troubleshooting.
+
+See [GitHub Copilot SDK documentation](https://docs.github.com/en/copilot/how-tos/copilot-sdk).
+
+<hr>
+
 **2 April 2026**
 
 We've expanded the documentation for custom agents in Copilot CLI, adding information about the built-in agents.

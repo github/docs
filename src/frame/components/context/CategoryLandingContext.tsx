@@ -1,5 +1,4 @@
 import { createContext, useContext } from 'react'
-import { LearningTrack } from './ArticleContext'
 import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
 import type { TocItem } from '@/landings/types'
 import { mapRawTocItemToTocItem } from '@/landings/types'
@@ -14,7 +13,6 @@ export type CategoryLandingContextT = {
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
   renderedPage: string
-  currentLearningTrack?: LearningTrack
   currentLayout: string
   spotlight?: SpotlightItem[]
 }
@@ -45,7 +43,6 @@ export const getCategoryLandingContextFromRequest = (req: any): CategoryLandingC
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),
     renderedPage: req.context.renderedPage,
-    currentLearningTrack: req.context.currentLearningTrack,
     currentLayout: req.context.currentLayoutName,
     spotlight: req.context.page.spotlight,
   }

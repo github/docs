@@ -90,7 +90,6 @@ toc:
   popular: Popular
   startHere: Start here
   whats_new: What's new
-  videos: Videos
   all_changelogs: All changelog posts
 pages:
   article_version: 'Article version'
@@ -98,7 +97,6 @@ pages:
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
   permissions_callout_title: Who can use this feature?
-  video_from_transcript: See video for this transcript
   copy_as_markdown: Copy as Markdown
   copy_as_markdown_desc: Use with any LLM
   view_as_markdown: View as Markdown
@@ -285,6 +283,7 @@ product_landing:
   try_ghas_for_free: Try GitHub Advanced Security for free
   generate_secret_risk_assessment_report_for_free: Find out how to run a free secret risk assessment
   plan_your_migration: Plan your migration
+  ado_key_differences: Key differences between Azure DevOps and GitHub
   releases: Releases
   guides: Guides
   explore_guides: Explore guides
@@ -305,32 +304,8 @@ product_landing:
   docs: docs
   explore_release_notes: Explore release notes
   view: View all
-  view_transcript: View video transcript
   all_docs: 'All {{ title }} docs'
   all_content: 'View all {{ title }} content'
-product_guides:
-  learning_paths_title: '{{ name }} learning paths'
-  start_path: Start learning path
-  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
-  more_guides: more guides
-  load_more: Load more guides
-  all_guides_title: 'All {{ name }} guides'
-  filter_instructions: Filter the guide list using these controls
-  guides_found:
-    multiple: '{n} guides found'
-    one: 1 guide found
-    none: No guides found
-  guide_types:
-    get-started: Quickstart
-    concepts: Concepts
-    how-tos: How-to guide
-    tutorials: Tutorial
-    reference: Reference
-learning_track_nav:
-  prev_guide: Previous
-  next_guide: Next
-  more_guides: More guides →
-  current_progress: '{i} of {n} in learning path'
 journey_track_nav:
   prev_article: Previous
   next_article: Next

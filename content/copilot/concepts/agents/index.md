@@ -6,7 +6,7 @@ intro: Learn how {% data variables.product.prodname_copilot %} can independently
 versions:
   feature: copilot
 children:
-  - /coding-agent
+  - /cloud-agent
   - /copilot-cli
   - /code-review
   - /copilot-memory

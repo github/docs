@@ -61,7 +61,7 @@ Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry L
 1. For a remote OpenAI endpoint, also set your API key.
 
    ```shell
-   export COPILOT_PROVIDER_BASE_URL=https://api.openai.com
+   export COPILOT_PROVIDER_BASE_URL=https://api.openai.com/v1
    export COPILOT_PROVIDER_API_KEY=YOUR-OPENAI-API-KEY
    export COPILOT_MODEL=YOUR-MODEL-NAME
    ```
@@ -95,6 +95,7 @@ Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry L
 
    ```shell
    export COPILOT_PROVIDER_TYPE=anthropic
+   export COPILOT_PROVIDER_BASE_URL=https://api.anthropic.com
    export COPILOT_PROVIDER_API_KEY=YOUR-ANTHROPIC-API-KEY
    export COPILOT_MODEL=YOUR-MODEL-NAME
    ```

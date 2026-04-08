@@ -53,16 +53,16 @@ Common settings include:
 | `theme` | string | Color theme: `"auto"`, `"dark"`, or `"light"` |
 | `mouse` | boolean | Enable mouse support in alt screen mode (default: `true`) |
 | `banner` | string | Animated banner frequency: `"always"`, `"once"`, or `"never"` (default: `"once"`) |
-| `render_markdown` | boolean | Render markdown in responses (default: `true`) |
-| `screen_reader` | boolean | Enable screen reader optimizations (default: `false`) |
-| `auto_update` | boolean | Automatically download CLI updates (default: `true`) |
+| `renderMarkdown` | boolean | Render Markdown in responses (default: `true`) |
+| `screenReader` | boolean | Enable screen reader optimizations (default: `false`) |
+| `autoUpdate` | boolean | Automatically download CLI updates (default: `true`) |
 | `stream` | boolean | Stream responses token by token (default: `true`) |
 | `includeCoAuthoredBy` | boolean | Add Co-authored-by to agent-created commits (default: `true`) |
 | `respectGitignore` | boolean | Exclude gitignored files from the `@` file picker (default: `true`) |
 | `trusted_folders` | string[] | Folders where read/execute permission has been granted |
 | `allowed_urls` | string[] | URLs or domains allowed without prompting |
 | `denied_urls` | string[] | URLs or domains that are always denied |
-| `log_level` | string | Log verbosity: `"none"`, `"error"`, `"warning"`, `"info"`, `"debug"`, `"all"`, or `"default"` (default: `"default"`) |
+| `logLevel` | string | Log verbosity: `"none"`, `"error"`, `"warning"`, `"info"`, `"debug"`, `"all"`, or `"default"` (default: `"default"`) |
 | `disableAllHooks` | boolean | Disable all hooks (default: `false`) |
 | `hooks` | object | Inline user-level hook definitions |
 

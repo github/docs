@@ -110,7 +110,7 @@ function normalizeGuidePath(path: string): string {
   // First ensure we have a leading slash for consistent processing
   const pathWithSlash = path.startsWith('/') ? path : `/${path}`
 
-  // Use the same normalization pattern as learning tracks and other middleware
+  // Use the same normalization pattern as other middleware
   const withoutVersion = getPathWithoutVersion(pathWithSlash)
   const withoutLanguage = getPathWithoutLanguage(withoutVersion)
 

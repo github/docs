@@ -58,9 +58,9 @@ You can also use the Autofix API for historical alerts endpoints to generate, ge
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-## Assigning alerts to {% data variables.copilot.copilot_coding_agent %}
+## Assigning alerts to {% data variables.copilot.copilot_cloud_agent %}
 
->[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_coding_agent %} must be available in the repository.
+>[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_cloud_agent %} must be available in the repository.
 
 You can assign {% data variables.product.prodname_copilot_short %} to apply an autofix. {% data variables.product.prodname_copilot_short %} analyzes the code scanning alert, creates a remediation plan, and implements the necessary code changes in a pull request.
 

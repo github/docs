@@ -48,7 +48,7 @@ Good DevOps practices ensure that your code is automatically tested before being
 
 ## 3. Scan code for vulnerabilities
 
-{% data variables.product.prodname_copilot_short %} is already designed to avoid introducing vulnerabilities into your codebase. For example, code created by {% data variables.copilot.copilot_coding_agent %} is automatically scanned for vulnerable patterns and secrets such as API keys.
+{% data variables.product.prodname_copilot_short %} is already designed to avoid introducing vulnerabilities into your codebase. For example, code created by {% data variables.copilot.copilot_cloud_agent %} is automatically scanned for vulnerable patterns and secrets such as API keys.
 
 However, it is good practice to regularly scan all code for vulnerabilities and secrets, and to prevent developers from introducing vulnerabilities in the first place.
 

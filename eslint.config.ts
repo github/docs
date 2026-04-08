@@ -215,7 +215,6 @@ export default [
       'src/content-linter/scripts/pretty-print-results.ts',
       'src/content-linter/style/base.ts',
       'src/content-linter/tests/integration/lint-cli.ts',
-      'src/content-linter/tests/learning-track-liquid.ts',
       'src/content-linter/tests/lint-files.ts',
       'src/content-linter/tests/lint-frontmatter-links.ts',
       'src/content-linter/tests/unit/table-column-integrity-simple.ts',

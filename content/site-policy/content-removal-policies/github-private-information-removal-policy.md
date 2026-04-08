@@ -87,7 +87,7 @@ These guidelines are designed to make the processing of requests to remove priva
 
 ## How to Submit Your Request
 
-You can submit your request to remove private information via our [contact form](https://support.github.com/contact?tags=docs-private-information). Please include a plain-text version of your request in the body of your message. Sending your request in an attachment may result in processing delays.
+You can submit your request to remove private information via our [contact form](https://support.github.com/contact/private-information). Please include a plain-text version of your request in the body of your message. Sending your request in an attachment may result in processing delays.
 
 ## Disputes
 

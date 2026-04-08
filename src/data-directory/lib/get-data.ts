@@ -247,15 +247,6 @@ function getDataByDir(
     return getYamlContent(dir, fullPath.join(path.sep), englishRoot)
   }
 
-  if (first === 'learning-tracks') {
-    const key = split.pop()!
-    const basename = split.pop()!
-    fullPath.push(...split)
-    fullPath.push(`${basename}.yml`)
-    const allData = getYamlContent(dir, fullPath.join(path.sep), englishRoot)
-    return key ? allData[key] : undefined
-  }
-
   throw new Error(`Can't find the key '${dottedPath}' in the scope.`)
 }
 
