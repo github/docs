@@ -88,7 +88,7 @@ You can subscribe to {% data variables.copilot.copilot_pro_short %} or {% data v
 
 1. Go to the [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 1. Click **Get started** under the plan you want to subscribe to.
-1. Choose whether you want to pay monthly or yearly, and click **Subscribe to {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}**.
+1. Click **Subscribe to {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}**.
 
    If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} plan instead of a trial or paid plan, you will automatically be taken to step 6.
 

@@ -1,9 +1,12 @@
-import { load } from 'cheerio'
-import type { Element } from 'domhandler'
-import { range } from 'lodash-es'
-
 import { renderContent } from '@/content-render/index'
 import type { Context } from '@/types'
+
+export interface CollectedHeading {
+  href: string
+  title: string
+  headingLevel: number
+  platform: string
+}
 
 interface MiniTocContents {
   href: string
@@ -24,81 +27,38 @@ interface FlatTocItem {
   items?: FlatTocItem[]
 }
 
-// Keep maxHeadingLevel=2 for accessibility reasons, see docs-engineering#2701 for more info
-export default function getMiniTocItems(
-  html: string,
+// Build MiniTocItems from pre-collected heading data (from the collect-mini-toc
+// rehype plugin). This is the only path for generating mini-TOC items — headings
+// are collected directly from the AST during rendering, avoiding any HTML
+// re-parsing.
+// Keep maxHeadingLevel=2 for accessibility reasons, see docs-engineering#2701
+export function buildMiniTocFromCollected(
+  collected: CollectedHeading[],
   maxHeadingLevel = 2,
-  headingScope = '',
 ): MiniTocItem[] {
-  const $ = load(html, { xmlMode: true })
+  const effectiveMax = maxHeadingLevel > 0 ? maxHeadingLevel : 2
+  const headings = collected.filter((h) => h.headingLevel >= 2 && h.headingLevel <= effectiveMax)
 
-  // eg `h2, h3` or `h2, h3, h4` depending on maxHeadingLevel
-  const selector = range(2, maxHeadingLevel + 1)
-    .map((num) => `${headingScope} h${num}`)
-    .join(', ')
-  const headings = $(selector)
-
-  // return an array of objects containing each heading's contents, level, and optional platform.
-  // Article layout uses these as follows:
-  //  - `title` and `link` to render the mini TOC headings
-  //  - `headingLevel` the `2` in `h2`; used for determining required indentation
-  //  - `platform` to show or hide platform-specific headings via client JS
-
-  // H1 = highest importance, H6 = lowest importance
   let mostImportantHeadingLevel: number | undefined
-  const flatToc = headings
-    .get()
-    .filter((item) => {
-      const parent = item.parent as Element | null
-      if (!parent || !parent.attribs) return true
-      const { attribs } = parent
-      return !('hidden' in attribs)
-    })
-    .map((item) => {
-      // remove any <span> tags including their content
-      $('span', item).remove()
 
-      // Capture the anchor tag nested within the header, get its href and remove it
-      const anchor = $('a.heading-link', item)
-      const href = anchor.attr('href')
-      if (!href) {
-        // Can happen if the, for example, `<h2>` tag was put there
-        // manually with HTML into the Markdown content. Then it wouldn't
-        // be rendered with an expected `<a class="heading-link" href="#..."`
-        // link in front of it.
-        // The `return null` will be filtered after the `.map()`
-        return null
-      }
+  const flatToc: FlatTocItem[] = headings.map((h) => {
+    if (mostImportantHeadingLevel === undefined || h.headingLevel < mostImportantHeadingLevel) {
+      mostImportantHeadingLevel = h.headingLevel
+    }
+    return {
+      contents: { href: h.href, title: h.title },
+      headingLevel: h.headingLevel,
+      platform: h.platform,
+      indentationLevel: 0,
+    }
+  })
 
-      // remove any <strong> tags but leave content
-      $('strong', item).map((i, el) => $(el).replaceWith($(el).contents()))
+  // Set indentation relative to the most important heading
+  for (const item of flatToc) {
+    item.indentationLevel = item.headingLevel - (mostImportantHeadingLevel ?? item.headingLevel)
+  }
 
-      const contents: MiniTocContents = { href, title: $(item).text().trim() }
-      const element = $(item)[0] as Element
-      const headingLevel = parseInt(element.name.match(/\d+/)![0], 10) || 0 // the `2` from `h2`
-
-      const platform = $(item).parent('.ghd-tool').attr('class') || ''
-
-      // track the most important heading level while we're looping through the items
-      if (headingLevel < mostImportantHeadingLevel! || mostImportantHeadingLevel === undefined) {
-        mostImportantHeadingLevel = headingLevel
-      }
-
-      return { contents, headingLevel, platform }
-    })
-    .filter(Boolean)
-    .map((item) => {
-      // set the indentation level for each item based on the most important
-      // heading level in the current article
-      return {
-        ...item!,
-        indentationLevel: item!.headingLevel - mostImportantHeadingLevel!,
-      }
-    })
-
-  // convert the flatToc to a nested structure to simplify semantic rendering on the client
   const nestedToc = buildNestedToc(flatToc)
-
   return minimalMiniToc(nestedToc)
 }
 
@@ -179,6 +139,10 @@ export async function getAutomatedPageMiniTocItems(
       })
       .join('')
 
-  const toc = await renderContent(titles, context)
-  return getMiniTocItems(toc, depth, '')
+  // Collect headings during render via the rehype plugin
+  const collectMiniToc: CollectedHeading[] = []
+  const renderContext = { ...context, collectMiniToc }
+  await renderContent(titles, renderContext)
+
+  return buildMiniTocFromCollected(collectMiniToc, depth)
 }

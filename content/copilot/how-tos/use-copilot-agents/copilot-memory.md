@@ -13,7 +13,7 @@ category:
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
-{% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to learn about your codebase, helping {% data variables.copilot.copilot_coding_agent %}, {% data variables.copilot.copilot_code-review_short %}, and {% data variables.copilot.copilot_cli_short %} to work more effectively in a repository.
+{% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to learn about your codebase, helping {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, and {% data variables.copilot.copilot_cli_short %} to work more effectively in a repository.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
@@ -59,7 +59,7 @@ If the organization belongs to an enterprise, the ability for organization owner
 
 If you have an individual {% data variables.product.prodname_copilot_short %} subscription, from a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, {% data variables.copilot.copilot_memory %} is enabled by default. You can disable or re-enable {% data variables.copilot.copilot_memory %} in your personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.github %}.
 
-When enabled, {% data variables.copilot.copilot_memory %} will be used in any repository in which you use {% data variables.copilot.copilot_coding_agent %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %}.
+When enabled, {% data variables.copilot.copilot_memory %} will be used in any repository in which you use {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %}.
 
 {% data reusables.user-settings.copilot-settings %}
 1. Under "Features", scroll down to the setting for **{% data variables.copilot.copilot_memory %}**.

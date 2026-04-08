@@ -92,7 +92,7 @@ These models are designed for tasks that require step-by-step reasoning, complex
 | {% data variables.copilot.copilot_gpt_54 %}           | Great at complex reasoning, code analysis, and technical decision-making.                                                                                       |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure.                                                                     |
 | {% data variables.copilot.copilot_claude_opus_46 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus_45 %}.                                                               |
-| {% data variables.copilot.copilot_gemini_3_pro %}     | Advanced reasoning across long contexts and scientific or technical analysis.                                                                                   |
+| {% data variables.copilot.copilot_gemini_31_pro %}    | Advanced reasoning across long contexts and scientific or technical analysis.                                                                                   |
 | {% data variables.copilot.copilot_goldeneye %}        | Complex problem-solving challenges and sophisticated reasoning.                                                                                                 |
 
 ### When to use these models
@@ -118,7 +118,7 @@ Use these models when you want to ask questions about screenshots, diagrams, UI 
 |-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_gpt_5_mini %}       | Reliable default for most coding and writing tasks. Fast, accurate, and supports multimodal input for visual reasoning tasks. Works well across languages and frameworks. |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure.                                                                               |
-| {% data variables.copilot.copilot_gemini_3_pro %}     | Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows.                                                                       |
+| {% data variables.copilot.copilot_gemini_31_pro %}    | Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows.                                                                       |
 
 ### When to use these models
 

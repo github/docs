@@ -29,7 +29,6 @@
 | GHD008 | early-access-references | Files that are not early access should not reference early-access or early-access files | error | feature, early-access |
 | GHD009 | frontmatter-early-access-references | Files that are not early access should not have frontmatter that references early-access | error | frontmatter, feature, early-access |
 | GHD010 | frontmatter-hidden-docs | Articles with frontmatter property `hidden` can only be located in specific products | error | frontmatter, feature, early-access |
-| GHD011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
 | GHD012 | frontmatter-schema | Frontmatter must conform to the schema | error | frontmatter, schema |
 | GHD013 | github-owned-action-references | GitHub-owned action references should not be hardcoded | error | feature, actions |
 | GHD014 | liquid-data-references-defined | Liquid data or indented data references were found in content that have no value or do not exist in the data directory | error | liquid |

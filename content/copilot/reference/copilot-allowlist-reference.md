@@ -41,9 +41,9 @@ Depending on the security policies and editors your organization uses, you may n
 
 Every user of the proxy server or firewall also needs to configure their own environment to connect to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot).
 
-## {% data variables.copilot.copilot_coding_agent %} recommended allowlist
+## {% data variables.copilot.copilot_cloud_agent %} recommended allowlist
 
-The {% data variables.copilot.copilot_coding_agent %} includes a built-in firewall with a recommended allowlist that is enabled by default. The recommended allowlist allows access to:
+The {% data variables.copilot.copilot_cloud_agent %} includes a built-in firewall with a recommended allowlist that is enabled by default. The recommended allowlist allows access to:
 
 * Common operating system package repositories (for example, Debian, Ubuntu, Red Hat).
 * Common container registries (for example, Docker Hub, Azure Container Registry, AWS Elastic Container Registry).
@@ -51,7 +51,7 @@ The {% data variables.copilot.copilot_coding_agent %} includes a built-in firewa
 * Common certificate authorities (to allow SSL certificates to be validated).
 * Hosts used to download web browsers for the Playwright MCP server.
 
-For more information about configuring the {% data variables.copilot.copilot_coding_agent %} firewall, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-firewall).
+For more information about configuring the {% data variables.copilot.copilot_cloud_agent %} firewall, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).
 
 The allowlist allows access to the following hosts:
 

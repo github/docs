@@ -44,6 +44,7 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 
    ![Screenshot of the template chooser for an issue. Below the template choices, a link, labeled "Open a blank issue," is outlined in dark orange.](/assets/images/help/issues/blank-issue-link.png)
 {% data reusables.repositories.type-issue-title-and-description %}
+   To cross-reference a related discussion, paste the discussion's URL into the issue description.
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 

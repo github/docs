@@ -3,6 +3,8 @@ title: GitHub DPA-Covered Previews
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
+category:
+  - Review product and program terms
 ---
 
 ## GitHub DPA-Covered Previews

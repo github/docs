@@ -8,6 +8,7 @@ introLinks:
 redirect_from:
   - /categories/supporting-the-open-source-community-with-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors
+  - /sponsors/guides
 changelog:
   label: sponsors
 layout: discovery-landing
@@ -36,5 +37,4 @@ children:
   - /sponsoring-open-source-contributors
   - /receiving-sponsorships-through-github-sponsors
   - /integrating-with-github-sponsors
-  - /guides
 ---

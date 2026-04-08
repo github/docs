@@ -1,7 +1,7 @@
 ---
 title: Security and code quality documentation
 shortTitle: Security and code quality
-intro: Build security and code quality into your {% data variables.product.github %} workflow to secure your software supply chain, prevent data leaks, and automatically find and fix vulnerabilities and code health issues in your codebase.
+intro: Build security and code quality into your {% data variables.product.github %} workflow with integrated tooling.
 redirect_from:
   - /code-security/guides
 introLinks:
@@ -48,4 +48,3 @@ children:
   - /tutorials
   - /responsible-use
 ---
-

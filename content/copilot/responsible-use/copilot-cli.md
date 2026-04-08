@@ -107,6 +107,30 @@ You can grant {% data variables.copilot.copilot_cli_short %} specific permission
 
 For more information about security practices while using {% data variables.copilot.copilot_cli %}, see "Security considerations" in [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#security-considerations).
 
+## Data handling when using your own model provider
+
+When you configure {% data variables.copilot.copilot_cli_short %} to use your own model provider, your prompts, code context, and generated responses are sent directly to the provider you configure. They are not routed through {% data variables.product.github %}. You are responsible for reviewing and complying with the terms of service and data handling policies of your chosen provider.
+
+### Telemetry
+
+When you use your own model provider without offline mode, {% data variables.copilot.copilot_cli_short %} continues to send telemetry to {% data variables.product.github %} as usual. This telemetry does not include your prompts or code, but it does include usage metadata.
+
+If you enable offline mode by setting the `COPILOT_OFFLINE` environment variable to `true`, all telemetry is disabled. In offline mode, {% data variables.copilot.copilot_cli_short %} only makes network requests to your configured model provider.
+
+### Authentication and feature availability
+
+{% data variables.product.github %} authentication is not required when using your own model provider (BYOK). Without {% data variables.product.github %} authentication, the following features are unavailable:
+
+* `/delegate`, which hands off the session to {% data variables.product.github %}'s server-side {% data variables.product.prodname_copilot_short %}
+* The {% data variables.product.github %} MCP server
+* {% data variables.product.github %} Code Search
+
+In offline mode, web-based tools such as `web_fetch` and {% data variables.product.github %} Code Search are also disabled.
+
+### No fallback to {% data variables.product.github %}-hosted models
+
+If your model provider configuration is invalid, {% data variables.copilot.copilot_cli_short %} exits with an error. It does not fall back to {% data variables.product.github %}-hosted models. Common failures, such as connection refused, authentication errors, model not found, and timeouts, produce user-friendly messages with actionable guidance.
+
 ## Limitations of {% data variables.copilot.copilot_cli %}
 
 Depending on factors such as your codebase and input data, you may experience different levels of performance when using {% data variables.copilot.copilot_cli %}. The following information is designed to help you understand system limitations and key concepts about performance as they apply to {% data variables.copilot.copilot_cli %}.

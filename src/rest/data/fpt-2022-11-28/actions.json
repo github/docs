@@ -5732,8 +5732,7 @@
         {
           "type": "array of strings",
           "name": "include_claim_keys",
-          "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>",
-          "isRequired": true
+          "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates or updates the customization template for an OpenID Connect (OIDC) subject claim.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
@@ -7338,11 +7337,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -8757,11 +8751,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -11723,9 +11712,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean"
                       },
                       "archived": {
                         "type": "boolean"
@@ -15385,9 +15371,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -17508,11 +17491,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -18288,11 +18266,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -20620,11 +20593,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -21410,11 +21378,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -23740,9 +23703,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean"
                       },
                       "archived": {
                         "type": "boolean"
@@ -28337,9 +28297,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -29039,9 +28996,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "type": "boolean"
                           },
                           "archived": {
                             "type": "boolean"
@@ -30661,9 +30615,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -31363,9 +31314,6 @@
                         "all",
                         "collaborators_only"
                       ]
-                    },
-                    "has_commit_comments": {
-                      "type": "boolean"
                     },
                     "archived": {
                       "type": "boolean"
@@ -33443,9 +33391,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -34145,9 +34090,6 @@
                         "all",
                         "collaborators_only"
                       ]
-                    },
-                    "has_commit_comments": {
-                      "type": "boolean"
                     },
                     "archived": {
                       "type": "boolean"
@@ -37954,9 +37896,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -38656,9 +38595,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "type": "boolean"
                           },
                           "archived": {
                             "type": "boolean"

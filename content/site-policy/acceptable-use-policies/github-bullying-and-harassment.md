@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /github/site-policy/github-bullying-and-harassment
   - /github/site-policy/github-community-guidelines#bullying-and-harassment
+category:
+  - Follow acceptable use policies
 ---
 
 We do not tolerate harassment, bullying, or abuse of any kind, whether directly or by encouraging others to take part in the prohibited conduct. This includes:

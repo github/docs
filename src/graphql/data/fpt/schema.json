@@ -15790,7 +15790,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -21578,7 +21578,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -28651,7 +28651,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -31626,7 +31626,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -32245,6 +32245,150 @@
       ]
     },
     {
+      "name": "IssueFieldAddedEvent",
+      "kind": "objects",
+      "id": "issuefieldaddedevent",
+      "href": "/graphql/reference/objects#issuefieldaddedevent",
+      "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "color",
+          "description": "<p>The color if it is a single-select field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldAddedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The issue field added.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        },
+        {
+          "name": "value",
+          "description": "<p>The value of the added field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldChangedEvent",
+      "kind": "objects",
+      "id": "issuefieldchangedevent",
+      "href": "/graphql/reference/objects#issuefieldchangedevent",
+      "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldChangedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The issue field changed.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        },
+        {
+          "name": "newColor",
+          "description": "<p>The new color if it is a single-select field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "newValue",
+          "description": "<p>The new value of the field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "previousColor",
+          "description": "<p>The previous color if it was a single-select field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "previousValue",
+          "description": "<p>The previous value of the field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "IssueFieldDate",
       "kind": "objects",
       "id": "issuefielddate",
@@ -32473,6 +32617,54 @@
       ]
     },
     {
+      "name": "IssueFieldRemovedEvent",
+      "kind": "objects",
+      "id": "issuefieldremovedevent",
+      "href": "/graphql/reference/objects#issuefieldremovedevent",
+      "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldRemovedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The issue field removed.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        }
+      ]
+    },
+    {
       "name": "IssueFieldSingleSelect",
       "kind": "objects",
       "id": "issuefieldsingleselect",
@@ -32668,6 +32860,14 @@
           "name": "optionId",
           "description": "<p>The selected option's global relay ID.</p>",
           "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "value",
+          "description": "<p>The option's name text (alias for <code>name</code>, for consistency with other field value types).</p>",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -57995,7 +58195,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -58498,7 +58698,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -70167,6 +70367,16 @@
               }
             },
             {
+              "name": "classifications",
+              "description": "<p>Filter by the classification of the alert's associated security advisory.</p>",
+              "type": {
+                "name": "[SecurityAdvisoryClassification!]",
+                "id": "securityadvisoryclassification",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#securityadvisoryclassification"
+              }
+            },
+            {
               "name": "dependencyScopes",
               "description": "<p>Filter by the scope of the alert's dependency.</p>",
               "type": {
@@ -73570,6 +73780,22 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "issueSearchType",
+          "description": "<p>The type of search that was performed for issues (lexical, semantic, or hybrid).</p>",
+          "type": "IssueSearchType",
+          "id": "issuesearchtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuesearchtype"
+        },
+        {
+          "name": "lexicalFallbackReason",
+          "description": "<p>When a semantic or hybrid search falls back to lexical, the reasons why the fallback occurred.</p>",
+          "type": "[LexicalFallbackReason!]",
+          "id": "lexicalfallbackreason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#lexicalfallbackreason"
         },
         {
           "name": "nodes",
@@ -86926,7 +87152,7 @@
         },
         {
           "name": "minimizedReason",
-          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
+          "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code>, <code>spam</code>, and <code>low-quality</code>. Note that the\ncase and formatting of these values differs from the inputs to the\n<code>MinimizeComment</code> mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -91507,6 +91733,27 @@
       ]
     },
     {
+      "name": "IssueSearchType",
+      "kind": "enums",
+      "id": "issuesearchtype",
+      "href": "/graphql/reference/enums#issuesearchtype",
+      "description": "<p>Type of issue search performed.</p>",
+      "values": [
+        {
+          "name": "HYBRID",
+          "description": "<p>Hybrid search combining lexical and semantic approaches.</p>"
+        },
+        {
+          "name": "LEXICAL",
+          "description": "<p>Lexical (keyword-based) search.</p>"
+        },
+        {
+          "name": "SEMANTIC",
+          "description": "<p>Semantic (meaning-based) search using embeddings.</p>"
+        }
+      ]
+    },
+    {
       "name": "IssueState",
       "kind": "enums",
       "id": "issuestate",
@@ -91850,6 +92097,43 @@
         {
           "name": "SIZE",
           "description": "<p>Order languages by the size of all files containing the language.</p>"
+        }
+      ]
+    },
+    {
+      "name": "LexicalFallbackReason",
+      "kind": "enums",
+      "id": "lexicalfallbackreason",
+      "href": "/graphql/reference/enums#lexicalfallbackreason",
+      "description": "<p>Reason why a semantic or hybrid issue search fell back to lexical search.</p>",
+      "values": [
+        {
+          "name": "NON_ISSUE_TARGET",
+          "description": "<p>Query targets non-issue types (e.g., pull requests).</p>"
+        },
+        {
+          "name": "NO_ACCESSIBLE_REPOS",
+          "description": "<p>Scoped query resolved to zero accessible repositories.</p>"
+        },
+        {
+          "name": "NO_TEXT_TERMS",
+          "description": "<p>Query has only qualifiers and no free text terms.</p>"
+        },
+        {
+          "name": "ONLY_NON_SEMANTIC_FIELDS_REQUESTED",
+          "description": "<p>Query uses an in: qualifier targeting non-semantic fields.</p>"
+        },
+        {
+          "name": "OR_BOOLEAN_NOT_SUPPORTED",
+          "description": "<p>Query contains OR operators (nested boolean qualifiers).</p>"
+        },
+        {
+          "name": "QUOTED_TEXT",
+          "description": "<p>Query contains quoted text requiring exact matches.</p>"
+        },
+        {
+          "name": "SERVER_ERROR",
+          "description": "<p>Embedding generation failed or timed out.</p>"
         }
       ]
     },
@@ -95062,6 +95346,14 @@
           "description": "<p>Returns results matching issues in repositories.</p>"
         },
         {
+          "name": "ISSUE_HYBRID",
+          "description": "<p>Returns results matching issues using hybrid (lexical + semantic) search.</p>"
+        },
+        {
+          "name": "ISSUE_SEMANTIC",
+          "description": "<p>Returns results matching issues using semantic search.</p>"
+        },
+        {
           "name": "REPOSITORY",
           "description": "<p>Returns results matching repositories.</p>"
         },
@@ -97597,6 +97889,21 @@
           "href": "/graphql/reference/objects#issuecommentunpinnedevent"
         },
         {
+          "name": "IssueFieldAddedEvent",
+          "id": "issuefieldaddedevent",
+          "href": "/graphql/reference/objects#issuefieldaddedevent"
+        },
+        {
+          "name": "IssueFieldChangedEvent",
+          "id": "issuefieldchangedevent",
+          "href": "/graphql/reference/objects#issuefieldchangedevent"
+        },
+        {
+          "name": "IssueFieldRemovedEvent",
+          "id": "issuefieldremovedevent",
+          "href": "/graphql/reference/objects#issuefieldremovedevent"
+        },
+        {
           "name": "IssueTypeAddedEvent",
           "id": "issuetypeaddedevent",
           "href": "/graphql/reference/objects#issuetypeaddedevent"
@@ -98696,6 +99003,21 @@
           "name": "IssueCommentUnpinnedEvent",
           "id": "issuecommentunpinnedevent",
           "href": "/graphql/reference/objects#issuecommentunpinnedevent"
+        },
+        {
+          "name": "IssueFieldAddedEvent",
+          "id": "issuefieldaddedevent",
+          "href": "/graphql/reference/objects#issuefieldaddedevent"
+        },
+        {
+          "name": "IssueFieldChangedEvent",
+          "id": "issuefieldchangedevent",
+          "href": "/graphql/reference/objects#issuefieldchangedevent"
+        },
+        {
+          "name": "IssueFieldRemovedEvent",
+          "id": "issuefieldremovedevent",
+          "href": "/graphql/reference/objects#issuefieldremovedevent"
         },
         {
           "name": "IssueTypeAddedEvent",

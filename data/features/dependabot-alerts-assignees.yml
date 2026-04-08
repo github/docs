@@ -1,5 +1,5 @@
 # References:
-# Releases issue #7526 - Dependabot alerts assignees
+# Releases issue #7526 and docs-content issue #20888 - Dependabot alerts assignees
 versions:
   fpt: '*'
   ghec: '*'

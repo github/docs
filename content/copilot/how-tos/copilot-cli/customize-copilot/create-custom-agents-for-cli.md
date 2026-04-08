@@ -20,7 +20,7 @@ When you prompt {% data variables.product.prodname_copilot_short %} to carry out
 
 Work performed by a {% data variables.copilot.copilot_custom_agent_short %} is carried out using a subagent, which is a temporary agent spun up to complete the task. The subagent has its own context window, which can be populated by information that is not relevant to the main agent. In this way, especially for larger tasks, parts of the work can be offloaded to {% data variables.copilot.custom_agents_short %}, without cluttering the main agent's context window. The main agent can then focus on higher-level planning and coordination.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
+For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents).
 
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %}
 

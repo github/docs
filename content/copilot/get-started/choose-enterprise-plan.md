@@ -49,13 +49,13 @@ The following table shows examples of goals your company might set for a {% data
 
 | Goal | Problem to solve | How {% data variables.copilot.copilot_enterprise_short %} helps |
 | ---- | ---------------- | --------------------------------------------------------------- |
-| **Reduce your backlog** | Teams may not have capacity to work on backlog issues or non-essential issues that come up during development. This can lead to a gradual degradation in feature quality. | With more premium requests, users can assign more issues to **{% data variables.copilot.copilot_coding_agent %}**, which can complete tasks like fixing bugs or adding feature enhancements in the background. |
+| **Reduce your backlog** | Teams may not have capacity to work on backlog issues or non-essential issues that come up during development. This can lead to a gradual degradation in feature quality. | With more premium requests, users can assign more issues to **{% data variables.copilot.copilot_cloud_agent %}**, which can complete tasks like fixing bugs or adding feature enhancements in the background. |
 | **Accelerate pull requests** | Teams often experience delays in merging pull requests due to lengthy review cycles. This can lead to bottlenecks in the development process and slow down the delivery and improvement of features. | With more premium requests, users can receive more reviews on pull requests from **{% data variables.copilot.copilot_code-review_short %}**, often flagging bugs or possible improvements before a human reviewer is available. |
 | **Reduce technical debt** | Inefficient or hard-to-read code can accumulate over time, making it harder for team members to onboard and understand new areas of the code. | With more premium requests and access to the latest models, users can use agent mode in their IDE to refactor code, choosing models with **greater contextual awareness** that are more suited to tasks like complex refactoring. |
 
 ## Is {% data variables.copilot.copilot_enterprise_short %} the most cost effective choice?
 
-We recommend considering the number of premium requests in the {% data variables.copilot.copilot_business_short %} plan as a baseline, not a limit. Developers using agentic workflows including features like agent mode, {% data variables.copilot.copilot_coding_agent %}, and {% data variables.copilot.copilot_code-review_short %} are likely to surpass this allowance.
+We recommend considering the number of premium requests in the {% data variables.copilot.copilot_business_short %} plan as a baseline, not a limit. Developers using agentic workflows including features like agent mode, {% data variables.copilot.copilot_cloud_agent %}, and {% data variables.copilot.copilot_code-review_short %} are likely to surpass this allowance.
 
 If your company is gaining value from agentic workflows, you will likely want to make more requests available to developers. Depending on how many requests people are using, the most cost effective way to do that is either to upgrade users to {% data variables.copilot.copilot_enterprise_short %} or to enable paid usage for requests beyond your plan's allowance.
 

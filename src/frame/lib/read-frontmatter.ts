@@ -34,7 +34,6 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
 
     if (filepath) error.filepath = filepath
     const errors = [error]
-    console.warn(errors)
 
     return { errors }
   }

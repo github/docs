@@ -39,8 +39,7 @@ For more information, see [`lib/frontmatter.ts`](https://github.com/github/docs/
 * [`changelog`](#changelog)
 * [`defaultPlatform`](#defaultplatform)
 * [`defaultTool`](#defaulttool)
-* [`learningTracks`](#learningtracks)
-* [`includeGuides`](#includeguides)
+
 * [`journeyTracks`](#journeytracks)
 * [`type`](#type)
 * [`communityRedirect`](#communityredirect)
@@ -226,30 +225,6 @@ defaultPlatform: linux
 defaultTool: cli
 ```
 
-### `learningTracks`
-
-* Purpose: Render a list of learning tracks on a product's sub-landing page.
-* Type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
-* Optional
-
-> [!NOTE]
-> The featured track is set by a specific property in the learning tracks YAML. See that [README](https://github.com/github/docs/blob/main/data/learning-tracks/README.md) for details.
-
-### `includeGuides`
-
-* Purpose: Render a list of articles, filterable by `type`. Only applicable when used with `layout: product-guides`.
-* Type: `Array`
-* Optional.
-
-Example:
-
-```yaml
-includeGuides:
-  - /actions/guides/about-continuous-integration
-  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-  - /actions/guides/building-and-testing-nodejs
-  - /actions/guides/building-and-testing-powershell
-```
 
 ### `journeyTracks`
 
@@ -338,13 +313,3 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 
 `childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`. The `children` in the array must be present in the `children` frontmatter property.
 
-## Creating new product guides pages
-
-To create a product guides page (e.g. [{% data variables.product.prodname_actions %} Guide page](/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
-
-* Use the product guides page template by referencing `layout: product-guides`.
-* Include the learning tracks in [`learningTracks`](#learningtracks). Optional.
-* Define which articles to include with [`includeGuides`](#includeguides). Optional.
-
-If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
-If using `includeGuides`, make sure each of the articles in this list has [`type`](#type) in its frontmatter.

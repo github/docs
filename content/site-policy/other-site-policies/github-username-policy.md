@@ -7,6 +7,8 @@ redirect_from:
   - /github/site-policy/github-terms-and-other-site-policies/github-username-policy
 versions:
   fpt: '*'
+category:
+  - Review company and general policies
 ---
 
 GitHub account names are available on a first-come, first-served basis, and are intended for immediate and active use.

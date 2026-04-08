@@ -13,7 +13,6 @@ import {
   frontmatterEarlyAccessReferences,
 } from '@/content-linter/lib/linting-rules/early-access-references'
 import { frontmatterHiddenDocs } from '@/content-linter/lib/linting-rules/frontmatter-hidden-docs'
-import { frontmatterVideoTranscripts } from '@/content-linter/lib/linting-rules/frontmatter-video-transcripts'
 import { yamlScheduledJobs } from '@/content-linter/lib/linting-rules/yaml-scheduled-jobs'
 import { internalLinksOldVersion } from '@/content-linter/lib/linting-rules/internal-links-old-version'
 import { hardcodedDataVariable } from '@/content-linter/lib/linting-rules/hardcoded-data-variable'
@@ -85,7 +84,6 @@ export const gitHubDocsMarkdownlint = {
     earlyAccessReferences, // GHD008
     frontmatterEarlyAccessReferences, // GHD009
     frontmatterHiddenDocs, // GHD010
-    frontmatterVideoTranscripts, // GHD011
     frontmatterSchema, // GHD012
     githubOwnedActionReferences, // GHD013
     liquidDataReferencesDefined, // GHD014

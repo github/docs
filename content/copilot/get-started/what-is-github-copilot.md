@@ -40,7 +40,7 @@ You can use {% data variables.product.prodname_copilot_short %} to:
 * Ask for help using the command line.
 * Organize and share context with {% data variables.copilot.copilot_spaces %} to get more relevant answers.
 * Generate descriptions of changes in a pull request.
-* Work on code changes and create a pull request for you to review. Available in {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} only.
+* Research, plan, make code changes, and create pull requests for you to review. Available in {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} only.
 
 Use {% data variables.product.prodname_copilot_short %} in the following places:
 

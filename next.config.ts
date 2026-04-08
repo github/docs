@@ -70,16 +70,16 @@ const config: NextConfig = {
   turbopack: {
     resolveAlias: {
       fs: {
-        browser: './empty.ts', // Point to empty module when fs is requested for browser
+        browser: './stub.ts',
       },
       async_hooks: {
-        browser: './empty.ts', // Point to empty module when async_hooks is requested for browser
+        browser: './stub.ts',
       },
       '@/observability/logger': {
-        browser: './empty.ts',
+        browser: './stub.ts',
       },
       '@/observability/logger/lib/logger-context': {
-        browser: './empty.ts',
+        browser: './stub.ts',
       },
       '@/observability/lib/tracing': {
         browser: './src/observability/lib/tracing.browser.ts',

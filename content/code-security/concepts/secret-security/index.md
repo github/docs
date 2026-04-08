@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 contentType: concepts
 children:
+  - /secret-leakage-risks
   - /about-secret-scanning
   - /about-push-protection
   - /about-secret-security-with-github

@@ -5,7 +5,7 @@ The **journeys** subject provides guided learning experiences (called "tracks") 
 ## Purpose & Scope
 
 This subject is responsible for:
-- Rendering journey landing pages that display multiple learning tracks
+- Rendering journey landing pages that display multiple journey tracks
 - Providing prev/next navigation within journey track articles
 - Resolving journey context based on the current article path
 - Rendering Liquid templates in journey metadata (titles, descriptions, guide paths)

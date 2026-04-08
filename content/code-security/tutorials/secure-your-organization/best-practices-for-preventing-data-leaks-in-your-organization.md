@@ -66,7 +66,7 @@ No matter how well you tighten your organization to prevent data leaks, some may
 
 ### Use {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.prodname_secret_scanning_caps %} helps secure code and keep secrets safe across organizations and repositories by scanning and detecting secrets that were accidentally committed over the full Git history of every branch in {% data variables.product.prodname_dotcom %} repositories. Any strings that match patterns {% ifversion fpt or ghec %}provided by secret scanning partners, by other service providers, or {% endif %}defined by you or your organization, are reported as alerts in the **Security** tab of repositories.
+{% data variables.product.prodname_secret_scanning_caps %} helps secure code and keep secrets safe across organizations and repositories by scanning and detecting secrets that were accidentally committed over the full Git history of every branch in {% data variables.product.prodname_dotcom %} repositories. Any strings that match patterns {% ifversion fpt or ghec %}provided by secret scanning partners, by other service providers, or {% endif %}defined by you or your organization, are reported as alerts in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of repositories.
 
 {% ifversion fpt or ghec %}
 There are two forms of {% data variables.product.prodname_secret_scanning %} available: **{% data variables.secret-scanning.partner_alerts_caps %}** and **{% data variables.secret-scanning.user_alerts_caps %}**.

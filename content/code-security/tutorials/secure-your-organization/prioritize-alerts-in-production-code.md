@@ -1,7 +1,7 @@
 ---
 title: Prioritizing Dependabot and code scanning alerts using production context
 shortTitle: Prioritize alerts in production code
-intro: Focus remediation on real risk by targeting {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts in artifacts deployed to production, using metadata from external registries like JFrog Artifactory, your own CI/CD workflows, or from {% data variables.product.prodname_microsoft_defender %}.
+intro: Focus remediation on real risk by targeting {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts in artifacts deployed to production, using metadata from external systems and integrations like Dynatrace, JFrog Artifactory, {% data variables.product.prodname_microsoft_defender %}, or your own CI/CD workflows.
 versions:
   fpt: '*'
   ghec: '*'
@@ -31,7 +31,7 @@ For more information on updating records, see [AUTOTITLE](/code-security/how-tos
 
 ## 2. Use production context filters
 
-Production context filters are made available in alert views and security campaign views under the **Security** tab.
+Production context filters are made available in alert views and security campaign views under the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 * **{% data variables.product.prodname_dependabot_alerts %} view**: See [Viewing {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts).
 * **{% data variables.product.prodname_code_scanning_caps %} alerts view**: See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).

@@ -16,6 +16,7 @@
     "all-documents": "tsx src/content-render/scripts/all-documents/cli.ts",
     "analyze-text": "tsx src/search/scripts/analyze-text.ts",
     "analyze-comment": "tsx src/events/scripts/analyze-comment-cli.ts",
+    "benchmark-pages": "tsx src/workflows/benchmark-pages.ts",
     "build": "next build --webpack",
     "check-content-type": "tsx src/workflows/check-content-type.ts",
     "check-github-github-links": "tsx src/links/scripts/check-github-github-links.ts",
@@ -116,7 +117,8 @@
     "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
     "warmup-remotejson": "tsx src/archives/scripts/warmup-remotejson.ts",
     "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.ts",
-    "writers": "tsx src/workflows/writers-help-metadata.ts"
+    "writers": "tsx src/workflows/writers-help-metadata.ts",
+    "postinstall": "npx --no-install patch-package"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
@@ -136,7 +138,6 @@
       "data/variables",
       "data/glossaries",
       "data/product-examples",
-      "data/learning-tracks",
       "rest-api-description",
       "semmle-code"
     ]
@@ -194,7 +195,6 @@
     "cheerio": "^1.2.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
-    "connect-datadog": "^0.0.9",
     "connect-timeout": "1.9.1",
     "cookie-parser": "^1.4.7",
     "cuss": "2.2.0",
@@ -234,7 +234,7 @@
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
     "micromark-extension-gfm": "^3.0.0",
-    "next": "^16.1.6",
+    "next": "^16.1.7",
     "ora": "^9.3.0",
     "parse5": "7.1.2",
     "quick-lru": "7.0.1",
@@ -262,7 +262,7 @@
     "swr": "^2.4.0",
     "tcp-port-used": "1.0.2",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "unified": "^11.0.5",
     "unist-util-find": "^3.0.0",
     "unist-util-visit": "^5.1.0",
@@ -280,7 +280,6 @@
     "@octokit/rest": "22.0.0",
     "@playwright/test": "^1.58.2",
     "@types/accept-language-parser": "1.5.7",
-    "@types/connect-datadog": "^0.0.10",
     "@types/connect-timeout": "1.9.0",
     "@types/cookie": "0.6.0",
     "@types/cookie-parser": "1.4.8",

@@ -23,6 +23,7 @@ copilot-cli:
     - content/copilot/reference/copilot-cli-reference/cli-command-reference.md
     - content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md
     - content/copilot/reference/copilot-cli-reference/acp-server.md
+    - content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md
   exclusions: []
   content-mapping: |
     cli-plugin-reference.md covers only plugin-specific content.

@@ -81,6 +81,16 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- nota -%}', 'es')).toBe('{%- note -%}')
     })
 
+    test('fixes otra → else', () => {
+      expect(fix('{% otra %}', 'es')).toBe('{% else %}')
+      expect(fix('{%- otra %}', 'es')).toBe('{%- else %}')
+    })
+
+    test('fixes encabezados de fila → rowheaders', () => {
+      expect(fix('{% encabezados de fila %}', 'es')).toBe('{% rowheaders %}')
+      expect(fix('{%- encabezados de fila %}', 'es')).toBe('{%- rowheaders %}')
+    })
+
     test('fixes multiple or-translations in single ifversion', () => {
       expect(fix('{% ifversion fpt o ghec o ghes %}', 'es')).toBe(
         '{% ifversion fpt or ghec or ghes %}',
@@ -211,6 +221,26 @@ describe('correctTranslatedContentStrings', () => {
         '{%- assign supportLevel = entry.support -%}',
       )
     })
+
+    test('fixes garbled endif with percent placed after keyword', () => {
+      // `{ endif% %}` — percent appears after "endif" instead of after the opening brace
+      expect(fix('some content\n{ endif% %}\nmore', 'ja')).toBe('some content\n{% endif %}\nmore')
+    })
+
+    test('fixes truncated それ以外の → else', () => {
+      expect(fix('{% それ以外の %}', 'ja')).toBe('{% else %}')
+      expect(fix('{%- それ以外の %}', 'ja')).toBe('{%- else %}')
+    })
+
+    test('fixes それ以外の場合 ifversion X → elsif X', () => {
+      expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview %}', 'ja')).toBe(
+        '{% elsif codeql-rust-public-preview %}',
+      )
+      // no space before closing tag
+      expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview%}', 'ja')).toBe(
+        '{% elsif codeql-rust-public-preview %}',
+      )
+    })
   })
 
   // ─── PORTUGUESE (pt) ───────────────────────────────────────────────
@@ -264,6 +294,25 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% ifversion fpt ou ghec %}', 'pt')).toBe('{% ifversion fpt or ghec %}')
       expect(fix('{%- elsif fpt ou ghec %}', 'pt')).toBe('{%- elsif fpt or ghec %}')
     })
+
+    test('fixes ou → or in if tags', () => {
+      expect(fix('{% if condition ou other %}', 'pt')).toBe('{% if condition or other %}')
+    })
+
+    test('fixes fully translated reutilizáveis reusables path', () => {
+      // `reutilizáveis` is Portuguese for "reusables"
+      expect(fix('{% dados reutilizáveis.repositórios.reaction_list %}', 'pt')).toBe(
+        '{% data reusables.repositories.reaction_list %}',
+      )
+      expect(fix('{% dados reutilizáveis.foo.bar %}', 'pt')).toBe('{% data reusables.foo.bar %}')
+    })
+
+    test('fixes translated repositórios path segment', () => {
+      // `repositórios` is Portuguese for "repositories"
+      expect(fix('{% data reusables.repositórios.reaction_list %}', 'pt')).toBe(
+        '{% data reusables.repositories.reaction_list %}',
+      )
+    })
   })
 
   // ─── CHINESE (zh) ──────────────────────────────────────────────────
@@ -295,6 +344,11 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes 或 → or in ifversion tags', () => {
       expect(fix('{% ifversion fpt 或 ghec %}', 'zh')).toBe('{% ifversion fpt or ghec %}')
       expect(fix('{%- elsif fpt 或 ghec %}', 'zh')).toBe('{%- elsif fpt or ghec %}')
+    })
+
+    test('fixes 否则 → else', () => {
+      expect(fix('{% 否则 %}', 'zh')).toBe('{% else %}')
+      expect(fix('{%- 否则 %}', 'zh')).toBe('{%- else %}')
     })
   })
 
@@ -450,6 +504,15 @@ describe('correctTranslatedContentStrings', () => {
         fix('{% octicon "организация" aria-hidden="true" aria-label="organization" %}', 'ru'),
       ).toBe('{% octicon "organization" aria-hidden="true" aria-label="organization" %}')
     })
+
+    test('fixes иначе → else', () => {
+      expect(fix('{% иначе %}', 'ru')).toBe('{% else %}')
+      expect(fix('{%- иначе %}', 'ru')).toBe('{%- else %}')
+    })
+
+    test('fixes capitalized Mac → mac platform tag', () => {
+      expect(fix('{% Mac %}', 'ru')).toBe('{% mac %}')
+    })
   })
 
   // ─── FRENCH (fr) ───────────────────────────────────────────────────
@@ -481,6 +544,19 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- elsif fpt ou ghec %}', 'fr')).toBe('{%- elsif fpt or ghec %}')
     })
 
+    test('fixes ou → or in if tags', () => {
+      expect(
+        fix('{% if query.apiVersion == nil ou "2026-03-10" <= query.apiVersion %}', 'fr'),
+      ).toBe('{% if query.apiVersion == nil or "2026-03-10" <= query.apiVersion %}')
+    })
+
+    test('fixes French guillemets « » → " in if/ifversion tags', () => {
+      expect(
+        fix('{% if query.apiVersion == nil ou « 2026-03-10 » <= query.apiVersion %}', 'fr'),
+      ).toBe('{% if query.apiVersion == nil or "2026-03-10" <= query.apiVersion %}')
+      expect(fix('{% ifversion « ghec » %}', 'fr')).toBe('{% ifversion "ghec" %}')
+    })
+
     test('fixes translated block tags', () => {
       expect(fix('{% remarque %}', 'fr')).toBe('{% note %}')
       expect(fix('{%- remarque %}', 'fr')).toBe('{%- note %}')
@@ -491,6 +567,30 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% conseil %}', 'fr')).toBe('{% tip %}')
       expect(fix('{%- conseil %}', 'fr')).toBe('{%- tip %}')
       expect(fix('{%- conseil -%}', 'fr')).toBe('{%- tip -%}')
+    })
+
+    test('removes orphaned endif when no matching ifversion/elsif opener exists', () => {
+      // Caused by translations where only the closing tag survived (e.g. user-api.md reusable)
+      expect(fix('Some content\n{% endif %}\nMore content', 'fr')).toBe(
+        'Some content\n\nMore content',
+      )
+      expect(fix('Line one\n{%- endif %}\nLine two', 'fr')).toBe('Line one\n\nLine two')
+      expect(fix('Text {%- endif -%} more', 'fr')).toBe('Text  more')
+    })
+
+    test('preserves endif when matching ifversion opener is present', () => {
+      const input = '{% ifversion ghec %}content{% endif %}'
+      expect(fix(input, 'fr')).toBe(input)
+    })
+
+    test('preserves endif when elsif opener is present', () => {
+      const input = '{% ifversion fpt %}a{% elsif ghec %}b{% endif %}'
+      expect(fix(input, 'fr')).toBe(input)
+    })
+
+    test('fixes sinon → else', () => {
+      expect(fix('{% sinon %}', 'fr')).toBe('{% else %}')
+      expect(fix('{%- sinon %}', 'fr')).toBe('{%- else %}')
     })
   })
 
@@ -535,6 +635,17 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes Korean glossary template', () => {
       expect(fix('{{ 용어집.term }}', 'ko')).toBe('{{ glossary.term }}')
+    })
+
+    test('fixes 그렇지 않으면 → else', () => {
+      expect(fix('{% 그렇지 않으면 %}', 'ko')).toBe('{% else %}')
+      expect(fix('{%- 그렇지 않으면 %}', 'ko')).toBe('{%- else %}')
+    })
+
+    test('fixes 옥티콘 → octicon', () => {
+      expect(fix('{% 옥티콘 "check" aria-label="Supported" %}', 'ko')).toBe(
+        '{% octicon "check" aria-label="Supported" %}',
+      )
     })
   })
 
@@ -586,11 +697,53 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% für entry in list %}', 'de')).toBe('{% for entry in list %}')
     })
+
+    test('fixes wiederverwendbare reusables path', () => {
+      // `wiederverwendbare` is German for "reusables"
+      expect(fix('{% data wiederverwendbare.audit_log.reference %}', 'de')).toBe(
+        '{% data reusables.audit_log.reference %}',
+      )
+      expect(fix('{% Daten wiederverwendbare.audit_log.reference %}', 'de')).toBe(
+        '{% data reusables.audit_log.reference %}',
+      )
+      // Full real-world example: `{% Data wiederverwendbare.audit_log.referenz-nach-kategorie-gruppiert %}`
+      // The `{% Data ` → `{% data ` fix runs before this, so by the time we check:
+      expect(
+        fix('{% Data wiederverwendbare.audit_log.referenz-nach-kategorie-gruppiert %}', 'de'),
+      ).toBe('{% data reusables.audit_log.referenz-nach-kategorie-gruppiert %}')
+    })
+    test('fixes wiederverwendbar (without trailing e) reusables path', () => {
+      expect(fix('{% Daten wiederverwendbar.user-settings.access_settings %}', 'de')).toBe(
+        '{% data reusables.user-settings.access_settings %}',
+      )
+    })
+
+    test('fixes ansonsten → else', () => {
+      expect(fix('{% ansonsten %}', 'de')).toBe('{% else %}')
+      expect(fix('{%- ansonsten %}', 'de')).toBe('{%- else %}')
+    })
+
+    test('fixes Zeilenkopfzeilen → rowheaders', () => {
+      expect(fix('{% Zeilenkopfzeilen %}', 'de')).toBe('{% rowheaders %}')
+      expect(fix('{%- Zeilenkopfzeilen %}', 'de')).toBe('{%- rowheaders %}')
+    })
   })
 
-  // ─── GENERIC FIXES ────────────────────────────────────────────────
-
   describe('Generic fixes (all languages)', () => {
+    test('strips LLM sentinel markers and preserves word boundaries', () => {
+      expect(fix('Hello<|endoftext|>World', 'es')).toBe('Hello World')
+      expect(fix('Hello <|endoftext|> World', 'es')).toBe('Hello World')
+      expect(fix('end of sentence.<|endoftext|>Start', 'es')).toBe('end of sentence. Start')
+    })
+
+    test('fixes capitalized Data Liquid keyword', () => {
+      expect(fix('{% Data variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{% Data reusables.foo %}', 'es')).toBe('{% data reusables.foo %}')
+      expect(fix('{% Data ifversion ghec %}', 'es')).toBe('{% data ifversion ghec %}')
+    })
+
     test('fixes AUTOTITLE corruption patterns', () => {
       expect(fix('["AUTOTITLE](/path)', 'es')).toBe('"[AUTOTITLE](/path)')
       expect(fix('[ AUTOTITLE](/path)', 'es')).toBe('[AUTOTITLE](/path)')

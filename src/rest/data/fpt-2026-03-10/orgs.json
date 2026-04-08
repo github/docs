@@ -2929,9 +2929,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -5330,6 +5327,12 @@
           "type": "string",
           "name": "github_repository",
           "description": "<p>The name of the GitHub repository associated with the artifact. This should be used\nwhen there are no provenance attestations available for the artifact. The repository\nmust belong to the organization specified in the path parameter.</p>\n<p>If a provenance attestation is available for the artifact, the API will use\nthe repository information from the attestation instead of this parameter.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "return_records",
+          "description": "<p>If true, the endpoint will return the created or updated record in the response body.</p>",
+          "default": true
         }
       ],
       "descriptionHTML": "<p>Create or update deployment records for an artifact associated\nwith an organization.\nThis endpoint allows you to record information about a specific\nartifact, such as its name, digest, environments, cluster, and\ndeployment.\nThe deployment name has to be uniqe within a cluster (i.e a\ncombination of logical, physical environment and cluster) as it\nidentifies unique deployment.\nMultiple requests for the same combination of logical, physical\nenvironment, cluster and deployment name will only create one\nrecord, successive request will update the existing record.\nThis allows for a stable tracking of a deployment where the actual\ndeployed artifact can change over time.</p>",
@@ -5447,7 +5450,10 @@
                     }
                   }
                 }
-              }
+              },
+              "required": [
+                "total_count"
+              ]
             }
           }
         }
@@ -5456,6 +5462,14 @@
         {
           "httpStatusCode": "200",
           "description": "<p>Artifact deployment record stored successfully.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -5570,6 +5584,12 @@
               "description": "<p>A list of runtime risks associated with the deployment.\nSupported values are: <code>critical-resource</code>, <code>internet-exposed</code>, <code>lateral-movement</code>, <code>sensitive-data</code></p>"
             }
           ]
+        },
+        {
+          "type": "boolean",
+          "name": "return_records",
+          "description": "<p>If true, the endpoint will return the set records in the response body</p>",
+          "default": true
         }
       ],
       "descriptionHTML": "<p>Set deployment records for a given cluster.\nIf proposed records in the 'deployments' field have identical 'cluster', 'logical_environment',\n'physical_environment', and 'deployment_name' values as existing records, the existing records will be updated.\nIf no existing records match, new records will be created.</p>",
@@ -5692,7 +5712,10 @@
                     }
                   }
                 }
-              }
+              },
+              "required": [
+                "total_count"
+              ]
             }
           }
         }
@@ -5701,6 +5724,14 @@
         {
           "httpStatusCode": "200",
           "description": "<p>Deployment records created or updated successfully.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -5790,6 +5821,12 @@
           "type": "string",
           "name": "github_repository",
           "description": "<p>The name of the GitHub repository associated with the artifact. This should be used\nwhen there are no provenance attestations available for the artifact. The repository\nmust belong to the organization specified in the path parameter.</p>\n<p>If a provenance attestation is available for the artifact, the API will use\nthe repository information from the attestation instead of this parameter.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "return_records",
+          "description": "<p>If true, the endpoint will return the created record in the response body.</p>",
+          "default": true
         }
       ],
       "descriptionHTML": "<p>Create metadata storage records for artifacts associated with an organization.\nThis endpoint will create a new artifact storage record on behalf of any artifact matching the provided digest and\nassociated with a repository owned by the organization.</p>",
@@ -5878,7 +5915,10 @@
                     }
                   }
                 }
-              }
+              },
+              "required": [
+                "total_count"
+              ]
             }
           }
         }
@@ -5887,6 +5927,14 @@
         {
           "httpStatusCode": "200",
           "description": "<p>Artifact metadata storage record stored successfully.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -14488,6 +14536,16 @@
           "name": "network_settings_ids",
           "description": "<p>A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>",
           "isRequired": true
+        },
+        {
+          "type": "array of strings",
+          "name": "failover_network_settings_ids",
+          "description": "<p>A list of identifiers of the failover network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "failover_network_enabled",
+          "description": "<p>Indicates whether the failover network resource is enabled.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates a hosted compute network configuration for an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:network_configurations</code> scope to use this endpoint.</p>",
@@ -14773,6 +14831,16 @@
           "type": "array of strings",
           "name": "network_settings_ids",
           "description": "<p>A list of identifiers of the network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "failover_network_settings_ids",
+          "description": "<p>A list of identifiers of the failover network settings resources to use for the network configuration. Exactly one resource identifier must be specified in the list.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "failover_network_enabled",
+          "description": "<p>Indicates whether the failover network resource is enabled.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates a hosted compute network configuration for an organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:network_configurations</code> scope to use this endpoint.</p>",
@@ -15072,7 +15140,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the organization roles available in this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>read_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists the organization roles available in this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>View organization roles</strong> (<code>read_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -15852,7 +15920,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets an organization role that is available to this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>read_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets an organization role that is available to this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>View organization roles</strong> (<code>read_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -18363,9 +18431,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -19914,9 +19979,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "type": "boolean"
                   },
                   "archived": {
                     "type": "boolean"
@@ -30617,6 +30679,19 @@
           "required": false,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "status",
+          "description": "<p>Returns webhook deliveries filtered by delivery outcome classification based on <code>status_code</code> range. A <code>status</code> of <code>success</code> returns deliveries with a <code>status_code</code> in the 200-399 range (inclusive). A <code>status</code> of <code>failure</code> returns deliveries with a <code>status_code</code> in the 400-599 range (inclusive).</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "success",
+              "failure"
+            ]
           }
         }
       ],

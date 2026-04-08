@@ -1,7 +1,7 @@
 ---
 title: Hooks configuration
 shortTitle: Hooks configuration
-intro: 'Find information about configuring hooks for use with {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_coding_agent %}.'
+intro: 'Find information about configuring hooks for use with {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_cloud_agent %}.'
 versions:
   feature: copilot
 contentType: reference
@@ -10,7 +10,7 @@ category:
   - Configure Copilot CLI
 ---
 
-This reference article describes the available hook types with examples, including their input and output formats, script best practices, and advanced patterns for logging, security enforcement, and external integrations. For general information about creating hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks). For a tutorial on creating hooks for the CLI, see [AUTOTITLE](/copilot/tutorials/copilot-cli-hooks).
+This reference article describes the available hook types with examples, including their input and output formats, script best practices, and advanced patterns for logging, security enforcement, and external integrations. For general information about creating hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-hooks). For a tutorial on creating hooks for the CLI, see [AUTOTITLE](/copilot/tutorials/copilot-cli-hooks).
 
 ## Hook types
 
@@ -552,6 +552,6 @@ fi
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/agents/coding-agent)
+* [AUTOTITLE](/copilot/concepts/agents/cloud-agent)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

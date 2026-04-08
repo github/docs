@@ -7,6 +7,9 @@ versions:
   ghes: '*'
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+  - /enterprise-onboarding/github-actions-for-your-enterprise/planning-a-rollout-of-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
 contentType: how-tos
 category:
   - Enable GitHub features for your enterprise

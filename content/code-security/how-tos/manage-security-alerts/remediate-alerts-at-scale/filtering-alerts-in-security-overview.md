@@ -43,7 +43,7 @@ All security views have features to help you define filters. These provide an ea
 ## Accessing security overview for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. Click the **Security** tab. The "Overview" dashboard of security overview is displayed.
+1. Click the **{% data variables.product.prodname_security_and_quality_tab %}** tab. The "Overview" dashboard of security overview is displayed.
 
 ## Applying simple filters
 

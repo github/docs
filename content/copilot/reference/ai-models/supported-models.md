@@ -66,11 +66,6 @@ The following table shows which models are available in each client.
 > [!NOTE]
 > * {% data reusables.copilot.auto-model-selection %}
 > * {% data reusables.copilot.gpt-5-codex-vscode-support %}
-> * {% data variables.copilot.copilot_gpt_51_codex %} and {% data variables.copilot.copilot_gpt_51_codex_mini %} are supported in: 
->   * Visual Studio Code versions 1.104.1 or higher
->   * JetBrains, Copilot plugin versions 1.5.61 or higher
->   * Xcode, Copilot plugin versions 0.45.0 or later
->   * Eclipse, Copilot plugin versions 0.13.0 or later 
 
 {% rowheaders %}
 
@@ -105,6 +100,14 @@ For more information about premium requests, see [AUTOTITLE](/copilot/managing-c
 ## Fallback and long-term support (LTS) models
 
 For more information about fallback and LTS models, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
+
+## Evaluation models
+{% data variables.product.prodname_copilot %} offers access to evaluation models—including top-performing open source and open-weight models—to provide the most advanced coding suggestions available.
+
+> [!NOTE]
+> Testing of evaluation models has revealed that some may perform worse than other models on security-related or other categories of prompts. Customers are encouraged to validate code, including code security, using a range of models and thorough human review before incorporating suggestions into production.
+
+Evaluation models may be added, updated, or removed without notice. Availability and rate limits may differ from generally available models.
 
 ## Next steps
 

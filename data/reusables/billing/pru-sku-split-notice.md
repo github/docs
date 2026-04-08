@@ -1,1 +1,1 @@
-Premium requests for {% data variables.product.prodname_spark_short %} and {% data variables.copilot.copilot_coding_agent %} are tracked in dedicated SKUs from November 1, 2025. This provides better cost visibility and budget control for each AI product.
+Premium requests for {% data variables.product.prodname_spark_short %} and {% data variables.copilot.copilot_cloud_agent %} are tracked in dedicated SKUs from November 1, 2025. This provides better cost visibility and budget control for each AI product.

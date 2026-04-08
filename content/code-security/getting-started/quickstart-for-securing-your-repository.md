@@ -147,9 +147,9 @@ As an alternative to default setup, you can use advanced setup, which generates 
 
 ## Setting a security policy
 
-If you are a repository maintainer, it's good practice to specify a security policy for your repository by creating a file named `SECURITY.md` in the repository. This file instructs users about how to best contact you and collaborate with you when they want to report security vulnerabilities in your repository. You can view the security policy of a repository from the repository’s **Security** tab.
+If you are a repository maintainer, it's good practice to specify a security policy for your repository by creating a file named `SECURITY.md` in the repository. This file instructs users about how to best contact you and collaborate with you when they want to report security vulnerabilities in your repository. You can view the security policy of a repository from the repository’s **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
-1. From the main page of your repository, click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security**.
+1. From the main page of your repository, click **{% data variables.product.prodname_security_and_quality_tab %}**.
 1. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" aria-label="law" %} Policy**.
 1. Click **Start setup**.
 1. Add information about supported versions of your project and how to report vulnerabilities.

@@ -18,7 +18,6 @@ Landing pages serve as navigational hubs that provide a hierarchical view of the
 | Landing Page Type | Layout Value | Purpose |
 |-------------------|--------------|---------|
 | Product landing | `product-landing` | Product overview pages with featured links and release notes |
-| Product guides | `product-guides` | Product guides listing organized by categories |
 | Category landing | `category-landing` | Category pages with hierarchical navigation |
 | Table of contents | `toc-landing` | Table of contents pages |
 | Journey landing | `journey-landing` | Guided learning journey pages with track navigation |
@@ -43,7 +42,6 @@ npm run test -- src/landings/tests
 ### Dependencies
 - [`@/frame`](../frame/README.md) - Context object, page data, shared components
 - [`@/content-render`](../content-render/README.md) - Renders Liquid in featured link titles
-- [`@/learning-track`](../learning-track/README.md) - Learning track data resolution
 - [`@/journeys`](../journeys/README.md) - Journey track components and data
 - [`@/products`](../products/README.md) - Product metadata and groupings
 - [`@/versions`](../versions/README.md) - Version-aware content filtering

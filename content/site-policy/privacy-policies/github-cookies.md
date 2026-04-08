@@ -5,6 +5,8 @@ redirect_from:
   - /github-cookies
 versions:
   fpt: '*'
+category:
+  - Review privacy and security policies
 ---
 
 

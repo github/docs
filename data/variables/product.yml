@@ -269,6 +269,7 @@ prodname_security_advisories: 'GitHub Security Advisories'
 prodname_advisory_database: 'GitHub Advisory Database'
 
 # Security configurations and organization-level security settings
+prodname_security_and_quality_tab: '{% octicon "shield" aria-hidden="true" aria-label="shield" %} {% ifversion security-and-quality-tab %}Security and quality{% else %}Security{% endif %}'
 prodname_security_configurations: 'security configurations'
 prodname_security_configurations_caps: 'Security configurations'
 prodname_security_configuration: 'security configuration'

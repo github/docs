@@ -20,6 +20,7 @@ children:
   - /allowing-tools
   - /automate-copilot-cli
   - /customize-copilot
+  - /connecting-vs-code
   - /use-copilot-cli-agents
   - /administer-copilot-cli-for-your-enterprise
   - /speeding-up-task-completion

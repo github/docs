@@ -762,6 +762,10 @@
                         "properties": {
                           "text": {
                             "type": "string"
+                          },
+                          "markdown": {
+                            "type": "string",
+                            "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                           }
                         }
                       },
@@ -2112,6 +2116,10 @@
                         "properties": {
                           "text": {
                             "type": "string"
+                          },
+                          "markdown": {
+                            "type": "string",
+                            "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                           }
                         }
                       },
@@ -2919,6 +2927,10 @@
                       "properties": {
                         "text": {
                           "type": "string"
+                        },
+                        "markdown": {
+                          "type": "string",
+                          "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                         }
                       }
                     },
@@ -3768,6 +3780,10 @@
                       "properties": {
                         "text": {
                           "type": "string"
+                        },
+                        "markdown": {
+                          "type": "string",
+                          "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                         }
                       }
                     },

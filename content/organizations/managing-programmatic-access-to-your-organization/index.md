@@ -19,5 +19,6 @@ children:
   - /reviewing-and-revoking-personal-access-tokens-in-your-organization
   - /limiting-oauth-app-and-github-app-access-requests-and-installations
   - /viewing-api-insights-in-your-organization
+  - /github-credential-types
 shortTitle: Manage programmatic access
 ---

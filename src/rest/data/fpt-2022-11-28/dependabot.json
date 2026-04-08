@@ -18,6 +18,14 @@
           }
         },
         {
+          "name": "classification",
+          "in": "query",
+          "description": "<p>A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.</p>\n<p>Can be: <code>malware</code>, <code>general</code></p>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "state",
           "in": "query",
           "description": "<p>A comma-separated list of states. If specified, only alerts with these states will be returned.</p>\n<p>Can be: <code>auto_dismissed</code>, <code>dismissed</code>, <code>fixed</code>, <code>open</code></p>",
@@ -225,12 +233,10 @@
                       "score": 8.7
                     }
                   },
-                  "epss": [
-                    {
-                      "percentage": 0.00045,
-                      "percentile": "0.16001e0"
-                    }
-                  ],
+                  "epss": {
+                    "percentage": 0.00045,
+                    "percentile": "0.16001e0"
+                  },
                   "cwes": [
                     {
                       "cwe_id": "CWE-200",
@@ -662,6 +668,7 @@
                           "unknown",
                           "direct",
                           "transitive",
+                          "inconclusive",
                           null
                         ]
                       }
@@ -781,6 +788,15 @@
                           "medium",
                           "high",
                           "critical"
+                        ]
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "The classification of the advisory.",
+                        "readOnly": true,
+                        "enum": [
+                          "general",
+                          "malware"
                         ]
                       },
                       "cvss": {
@@ -1879,6 +1895,14 @@
           }
         },
         {
+          "name": "classification",
+          "in": "query",
+          "description": "<p>A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.</p>\n<p>Can be: <code>malware</code>, <code>general</code></p>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "state",
           "in": "query",
           "description": "<p>A comma-separated list of states. If specified, only alerts with these states will be returned.</p>\n<p>Can be: <code>auto_dismissed</code>, <code>dismissed</code>, <code>fixed</code>, <code>open</code></p>",
@@ -2111,12 +2135,10 @@
                       "score": 8.7
                     }
                   },
-                  "epss": [
-                    {
-                      "percentage": 0.00045,
-                      "percentile": "0.16001e0"
-                    }
-                  ],
+                  "epss": {
+                    "percentage": 0.00045,
+                    "percentile": "0.16001e0"
+                  },
                   "cwes": [
                     {
                       "cwe_id": "CWE-200",
@@ -2548,6 +2570,7 @@
                           "unknown",
                           "direct",
                           "transitive",
+                          "inconclusive",
                           null
                         ]
                       }
@@ -2667,6 +2690,15 @@
                           "medium",
                           "high",
                           "critical"
+                        ]
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "The classification of the advisory.",
+                        "readOnly": true,
+                        "enum": [
+                          "general",
+                          "malware"
                         ]
                       },
                       "cvss": {
@@ -3782,6 +3814,14 @@
           }
         },
         {
+          "name": "classification",
+          "in": "query",
+          "description": "<p>A comma-separated list of vulnerability classifications. If specified, only alerts for vulnerabilities with these classifications will be returned.</p>\n<p>Can be: <code>malware</code>, <code>general</code></p>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "state",
           "in": "query",
           "description": "<p>A comma-separated list of states. If specified, only alerts with these states will be returned.</p>\n<p>Can be: <code>auto_dismissed</code>, <code>dismissed</code>, <code>fixed</code>, <code>open</code></p>",
@@ -3998,12 +4038,10 @@
                       "score": 8.7
                     }
                   },
-                  "epss": [
-                    {
-                      "percentage": 0.00045,
-                      "percentile": "0.16001e0"
-                    }
-                  ],
+                  "epss": {
+                    "percentage": 0.00045,
+                    "percentile": "0.16001e0"
+                  },
                   "cwes": [
                     {
                       "cwe_id": "CWE-200",
@@ -4301,6 +4339,7 @@
                           "unknown",
                           "direct",
                           "transitive",
+                          "inconclusive",
                           null
                         ]
                       }
@@ -4420,6 +4459,15 @@
                           "medium",
                           "high",
                           "critical"
+                        ]
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "The classification of the advisory.",
+                        "readOnly": true,
+                        "enum": [
+                          "general",
+                          "malware"
                         ]
                       },
                       "cvss": {
@@ -5263,12 +5311,10 @@
                     "score": 8.5
                   }
                 },
-                "epss": [
-                  {
-                    "percentage": 0.00045,
-                    "percentile": "0.16001e0"
-                  }
-                ],
+                "epss": {
+                  "percentage": 0.00045,
+                  "percentile": "0.16001e0"
+                },
                 "cwes": [
                   {
                     "cwe_id": "CWE-532",
@@ -5419,6 +5465,7 @@
                         "unknown",
                         "direct",
                         "transitive",
+                        "inconclusive",
                         null
                       ]
                     }
@@ -5538,6 +5585,15 @@
                         "medium",
                         "high",
                         "critical"
+                      ]
+                    },
+                    "classification": {
+                      "type": "string",
+                      "description": "The classification of the advisory.",
+                      "readOnly": true,
+                      "enum": [
+                        "general",
+                        "malware"
                       ]
                     },
                     "cvss": {
@@ -6553,6 +6609,7 @@
                         "unknown",
                         "direct",
                         "transitive",
+                        "inconclusive",
                         null
                       ]
                     }
@@ -6672,6 +6729,15 @@
                         "medium",
                         "high",
                         "critical"
+                      ]
+                    },
+                    "classification": {
+                      "type": "string",
+                      "description": "The classification of the advisory.",
+                      "readOnly": true,
+                      "enum": [
+                        "general",
+                        "malware"
                       ]
                     },
                     "cvss": {
@@ -9140,9 +9206,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean"
                       },
                       "archived": {
                         "type": "boolean"

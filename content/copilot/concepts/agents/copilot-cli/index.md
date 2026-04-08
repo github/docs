@@ -7,6 +7,7 @@ versions:
   feature: copilot
 children:
   - /about-copilot-cli
+  - /about-custom-agents
   - /about-cli-plugins
   - /comparing-cli-features
   - /autopilot

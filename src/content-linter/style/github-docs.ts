@@ -209,12 +209,6 @@ export const githubDocsFrontmatterConfig = {
     'partial-markdown-files': false,
     'yml-files': false,
   },
-  'frontmatter-video-transcripts': {
-    // GHD011
-    severity: 'error',
-    'partial-markdown-files': false,
-    'yml-files': false,
-  },
   'frontmatter-schema': {
     // GHD012
     severity: 'error',

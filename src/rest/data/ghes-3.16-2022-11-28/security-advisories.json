@@ -298,12 +298,10 @@
                     "name": "Uncontrolled Resource Consumption"
                   }
                 ],
-                "epss": [
-                  {
-                    "percentage": 0.00045,
-                    "percentile": "0.16001e0"
-                  }
-                ],
+                "epss": {
+                  "percentage": 0.00045,
+                  "percentile": "0.16001e0"
+                },
                 "credits": [
                   {
                     "user": {

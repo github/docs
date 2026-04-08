@@ -13,7 +13,6 @@ versions:
   ghec: '*'
 children:
   - /getting-started
-  - /guides
   - /secret-scanning
   - /codeql-cli
 ---

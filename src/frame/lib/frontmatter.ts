@@ -37,7 +37,6 @@ const layoutNames = [
   'default',
   'graphql-explorer',
   'product-landing',
-  'product-guides',
   'release-notes',
   'inline',
   'category-landing',
@@ -59,6 +58,10 @@ export const contentTypesEnum = [
   'rai', // Only applies to files that live in directories with 'responsible-use' in the name.
   'other', // Everything else.
 ]
+
+// Values supported in the docsTeamMetrics frontmatter property. Used to track
+// related articles (e.g. by feature or subject) that may span different directories.
+export const docsTeamMetricsEnum = ['copilot-cli']
 
 export const schema: Schema = {
   type: 'object',
@@ -163,24 +166,6 @@ export const schema: Schema = {
           type: 'string',
           translatable: true,
         },
-        videos: {
-          type: 'array',
-          items: {
-            type: 'object',
-            properties: {
-              title: {
-                type: 'string',
-              },
-              href: {
-                type: 'string',
-              },
-            },
-          },
-        },
-        // allows you to use an alternate heading for the videos column
-        videosHeading: {
-          type: 'string',
-        },
       },
     },
     // Shown in `product-landing.html` "What's new" section
@@ -202,11 +187,11 @@ export const schema: Schema = {
       type: 'string',
       enum: contentTypesEnum,
     },
-    includeGuides: {
-      type: 'array',
-    },
-    learningTracks: {
-      type: 'array',
+    // Optional heading override for the single-track journey landing UI
+    journeyArticlesHeading: {
+      type: 'string',
+      translatable: true,
+      description: 'Override the default "Articles" heading on single-track journey landing pages',
     },
     // Journey tracks for journey landing pages
     journeyTracks: {
@@ -258,20 +243,19 @@ export const schema: Schema = {
     beta_product: {
       type: 'boolean',
     },
-    // Show in `product-landing.html`
-    product_video: {
-      type: 'string',
-    },
-    // Show in `product-landing.html`
-    product_video_transcript: {
-      type: 'string',
-    },
     // Hero image for landing pages
     heroImage: {
       type: 'string',
     },
     interactive: {
       type: 'boolean',
+    },
+    docsTeamMetrics: {
+      type: 'array',
+      items: {
+        type: 'string',
+        enum: docsTeamMetricsEnum,
+      },
     },
     communityRedirect: {
       type: 'object',

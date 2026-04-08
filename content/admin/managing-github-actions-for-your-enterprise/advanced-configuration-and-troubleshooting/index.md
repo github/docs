@@ -8,6 +8,7 @@ children:
   - /backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
   - /using-a-staging-environment
   - /troubleshooting-github-actions-for-your-enterprise
+  - /updating-the-credentials-for-github-actions-storage
 shortTitle: HA & troubleshooting
 redirect_from:
   - /admin/github-actions/advanced-configuration-and-troubleshooting
