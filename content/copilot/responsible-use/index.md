@@ -15,7 +15,7 @@ children:
   - /pull-request-summaries
   - /copilot-commit-message-generation
   - /code-review
-  - /copilot-cloud-agent
+  - /copilot-coding-agent
   - /spark
   - /copilot-spaces
 redirect_from:

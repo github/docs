@@ -6,7 +6,7 @@ versions:
   feature: copilot
 children:
   - /manage-agents
-  - /cloud-agent
+  - /coding-agent
   - /request-a-code-review
   - /copilot-memory
 redirect_from:
