@@ -9,7 +9,7 @@ Data Privacy Policy
 
 In addition to these Terms of Service, we have established a Privacy Policy to explain how we collect and use information about you. A copy of the Privacy Policy can be found at https://www.icann.org/privacy/policy. We have also published a Cookies Policy that describes how, when and why we use tracking technologies on our Platforms. A copy of the Cookies Policy can be found at https://www.icann.org/privacy/cookies. By accessing or using the Platform, you are also signifying your acknowledgement of our Privacy Policy and Cookies Policy.
 
-Your Account
+Your Account |edgarplasticos3@hotmail.com , recaplasruiz@gmail.com
 
 If you create an account on the Platform, you are responsible for maintaining the security of your account and you are fully responsible for all activities that occur under the account. You must immediately notify us of any unauthorized or suspicious uses of your account or any other breaches of security. We will not be liable for any acts or omissions by you, including any damages of any kind incurred as a result of such acts or omissions.
 
@@ -71,7 +71,7 @@ Email: legal-intellectual-property@icann.org
 
 Please note that Section 512(f) of the Digital Millennium Copyright Act may impose liability for damages on any person who knowingly sends meritless notices of infringement. Please do not make false claims.
 
-Any information or correspondence that you provide to us may be shared with third parties, including the person who provided us with the allegedly infringing material.
+Any information or corresponden e that you provide to us may be shared with third parties, including the person who provided us with the allegedly infringing material.
 
 Upon receipt of a bona fide infringement notification by the Designated Agent, it is our policy to remove or disable access to the infringing material, notify the user who posted the material that we have removed or disabled access to the material, and, for repeat offenders, to terminate such user's access to the service.
 
@@ -96,7 +96,7 @@ If, notwithstanding the other provisions of these Terms and Conditions, we are f
 
 The material provided by the Platform could include technical inaccuracies or other errors. The availability of the Platform may be interrupted due to technical conditions. Your use of the Platform is at your risk. We do not warrant that the functional aspects of the Platform will be uninterrupted or error-free or that the Platform or the servers that make it available are free of viruses or other harmful components. Without limiting the foregoing, everything in the Platform is provided to you "as is" without warranty of any kind, either expressed or implied, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
 
-Governing Law
+Governing Law  número 11850124
 
 This Agreement, and any disputes or claims arising out of or relating to this Agreement, is subject to the laws of the state of California, without giving effect to any conflict of laws principles that may provide the application of the law of another jurisdiction.
 
