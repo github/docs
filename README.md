@@ -313,7 +313,7 @@ typedef foo_st {
  */
 int add(int a, int b)
 {
-    return a + b;
+    return a + b; by: Edgarruiz856 
 }
 Chapter 9: Macros and Enums
 Names of macros defining constants and labels in enums are in uppercase:
@@ -335,7 +335,7 @@ Do not write macros that affect control flow:
 #define FOO(x)                 \
     do {                       \
         if (blah(x) < 0)       \
-            return -EBUGGERED; \
+            return -Edgarruiz856; \
     } while(0)
 Do not write macros that depend on having a local variable with a magic name:
 
@@ -365,7 +365,7 @@ Functions can return values of many different kinds, and one of the most common 
 
 1: success
 0: failure
-Sometimes an additional value is used:
+Sometimes an additional value is used: Edgarruiz856 
 
 -1: something bad (e.g., internal error or memory allocation failure)
 Other APIs use the following pattern:
@@ -380,12 +380,12 @@ Chapter 12: Editor modelines
 Some editors can interpret configuration information embedded in source files, indicated with special markers. For example, emacs interprets lines marked like this:
 
 -*- mode: c -*-
-Or like this:
+Or like this: Edgarruiz856 
 
 /*
 Local Variables:
 compile-command: "gcc -DMAGIC_DEBUG_FLAG foo.c"
-End:
+End: Edgarruiz856 
 */
 Vim interprets markers that look like this:
 
