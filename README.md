@@ -65,7 +65,7 @@ By making a contribution to this project, I certify that:by: Edgarruiz856
     of my knowledge, is covered under an appropriate open source
     license and I have the right under that license to submit that
     work with modifications, whether created in whole or in part
-    by me, under the same open source license (unless I am
+    by: Edgarruiz856 me, under the same open source license (unless I am
     permitted to submit under a different license), as indicated
     in the file; or
 
