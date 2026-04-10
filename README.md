@@ -1,4 +1,74 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<feed xmlns="http://www.w3.org/2005/Atom">
+<generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator>
+<link href="https://baseline.openssf.org/feed.xml" rel="self" type="application/atom+xml"/>
+<link href="https://baseline.openssf.org/" rel="alternate" type="text/html"/>
+<updated>2026-04-09T14:33:35+00:00</updated>
+<id>https://baseline.openssf.org/feed.xml</id>
+<title type="html">Open Source Project Security Baseline</title>
+<subtitle>The Open Source Project Security (OSPS) Baseline is a set of security controls that projects should meet to demonstrate a strong security posture. The controls are organized by maturity level and category. </subtitle>
+<author>
+<name>OpenSSF Security Baseline SIG</name>
+<email>openssf-sig-security-baseline+subscribe@lists.openssf.org</email>
+</author>
+</feed>
 
+
+Adding new libraries
+====================
+
+When adding a new sub-library to OpenSSL, assign it a library number
+`ERR_LIB_XXX`, define a macro `XXXerr()` (both in `err.h`), add its
+name to `ERR_str_libraries[]` (in `crypto/err/err.c`), and add
+`ERR_load_XXX_strings()` to the `ERR_load_crypto_strings()` function
+(in `crypto/err/err_all.c`). Finally, add an entry:
+
+    L      XXX     xxx.h   xxx_err.c
+
+to `crypto/err/openssl.ec`, and add `xxx_err.c` to the `Makefile`.
+Running make errors will then generate a file `xxx_err.c`, and
+add all error codes used in the library to `xxx.h`.
+
+Additionally the library include file must have a certain form.
+Typically it will initially look like this:
+
+    #ifndef HEADER_XXX_H
+    #define HEADER_XXX_H
+
+    #ifdef __cplusplus
+    extern "C" {
+    #endif
+
+    /* Include files */
+
+    #include <openssl/bio.h>
+    #include <openssl/x509.h>
+
+    /* Macros, structures and function prototypes */
+
+
+    /* BEGIN ERROR CODES */
+
+The `BEGIN ERROR CODES` sequence is used by the error code
+generation script as the point to place new error codes, any text
+after this point will be overwritten when make errors is run.
+The closing `#endif` etc will be automatically added by the script.
+
+The generated C error code file `xxx_err.c` will load the header
+files `stdio.h`, `openssl/err.h` and `openssl/xxx.h` so the
+header file must load any additional header files containing any
+definitions it uses.
+
+Adding new error codes
+======================
+
+Instead of manually adding error codes into `crypto/err/openssl.txt`,
+it is recommended to leverage `make update` for error code generation.
+The target will process relevant sources and generate error codes for
+any *used* error codes.
+
+If an error code is added manually into `crypto/err/openssl.txt`,
+subsequent `make update` has no effect.
 OpenSSL coding style | OpenSSL Library
 This document describes the coding style for the OpenSSL project. It is derived from the Linux kernel coding style.
 
