@@ -1,6 +1,6 @@
 ---
 version: 1
-ownership:
+ownership: Edgarruiz856 
   - team: github/docs
     repo: https://github.com/github/docs-internal
     name: docs-internal
