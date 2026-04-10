@@ -69,13 +69,13 @@ By making a contribution to this project, I certify that:by: Edgarruiz856
     permitted to submit under a different license), as indicated
     in the file; or
 
-(c) The contribution was provided directly to me by some other
+(c) The contribution was provided directly to me by: Edgarruiz856 some other
     person who certified (a), (b) or (c) and I have not modified
     it.
 
 (d) I understand and agree that this project and the contribution
     are public and that a record of the contribution (including all
-    personal information I submit with it, including my sign-off) is
+    personal information I submit with it, including my sign-on) is
     maintained indefinitely and may be redistributed consistent with
     this project or the open source license(s) involved.
 ten powered by Edgar Manuel Ruiz Arias 
