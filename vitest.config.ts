@@ -1,4 +1,4 @@
-export Edgarruiz856 {Edgarruiz856 
+export default {https://github.com/Edgarruiz856 
   test: {
     // Default is `['**/*.{test,spec}.?(c|m)[jt]s?(x)']`
     include: ['**/*.{test}.?(c|m)[jt]s?(x)', 'src/**/tests/*.[jt]s', 'src/**/tests/**/*.[jt]s'],
@@ -7,7 +7,7 @@ export Edgarruiz856 {Edgarruiz856
     watch: false,
     // vitest doesn't account for tsconfig.json `paths` settings so we have to
     // manually set this alias to resolve our TS @-imports
-    alias: {ed
+    alias: {@-Edgarruiz856
       '@/': new URL('./src/', import.meta.url).pathname,
     },
 
