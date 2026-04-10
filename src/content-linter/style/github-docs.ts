@@ -119,11 +119,14 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  'rai-reusable-usage': {
-    // GHD035
-    severity: 'error',
-    'partial-markdown-files': true,
-  },
+  // 'rai-reusable-usage': {
+  //   // GHD035
+  //   // Temporarily disabled until RAI application card PRs merge.
+  //   // Re-enable by uncommenting this block.
+  //   // See: github/docs-internal#59611, #59934, #59936
+  //   severity: 'error',
+  //   'partial-markdown-files': true,
+  // },
   'image-no-gif': {
     // GHD036
     severity: 'error',
@@ -187,13 +190,14 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  'rai-app-card-structure': {
-    // GHD064
-    // Disabled until RAI content migration is complete (github/docs-team#6340).
-    // To enable, change severity to 'error'.
-    severity: 'warning',
-    'partial-markdown-files': false,
-  },
+  // 'rai-app-card-structure': {
+  //   // GHD064
+  //   // Temporarily disabled until RAI application card PRs merge.
+  //   // Re-enable by uncommenting this block (use 'error' once migration is complete per github/docs-team#6340).
+  //   // See: github/docs-internal#59611, #59934, #59936
+  //   severity: 'warning',
+  //   'partial-markdown-files': false,
+  // },
 }
 
 export const githubDocsFrontmatterConfig = {

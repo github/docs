@@ -17,7 +17,7 @@ This policy controls the use of {% data variables.copilot.copilot_code-review_sh
 
 For an introduction to {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/concepts/code-review).
 
-For more information about {% data variables.copilot.copilot_for_prs %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-for-common-tasks/create-a-pr-summary).
+For more information about {% data variables.copilot.copilot_for_prs %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/create-a-pr-summary).
 
 ## Enabling {% data variables.copilot.copilot_code-review_short %} for your {% data variables.product.prodname_copilot_short %} subscribers
 

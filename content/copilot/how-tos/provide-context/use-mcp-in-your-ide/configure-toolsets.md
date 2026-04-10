@@ -1,12 +1,13 @@
 ---
 title: Configuring toolsets for the GitHub MCP Server
-intro: 'Learn how to configure toolsets and tools for the {% data variables.product.github %} MCP server for fine-grained control and optimized performance.'
+intro: Learn how to configure toolsets and tools for the {% data variables.product.github %} MCP server for fine-grained control and optimized performance.
 shortTitle: Configure toolsets
 versions:
   feature: copilot
 defaultTool: vscode
 redirect_from:
   - /copilot/how-tos/context/use-mcp/configure-toolsets
+  - /copilot/how-tos/provide-context/use-mcp/configure-toolsets
 contentType: how-tos
 category:
   - Configure Copilot

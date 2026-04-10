@@ -337,6 +337,28 @@ Create `.github/copilot/settings.local.json` in the repository, for personal ove
 
 The local configuration file uses the same schema as the repository configuration file (`.github/copilot/settings.json`) and takes precedence over it.
 
+## Project initialization for {% data variables.product.prodname_copilot_short %}
+
+When you use the command `copilot init`, or the slash command `/init` within an interactive session, {% data variables.product.prodname_copilot_short %} analyzes your codebase and writes or updates a `.github/copilot-instructions.md` file in the repository. This custom instructions file contains project-specific guidance that will improve future CLI sessions.
+
+You will typically use `copilot init`, or `/init`, when you start a new project, or when you start using {% data variables.copilot.copilot_cli_short %} in an existing repository.
+
+The `copilot-instructions.md` file that's created or updated typically documents:
+
+* Build, test, and lint commands.
+* High-level architecture.
+* Codebase-specific conventions.
+
+If the file already exists, {% data variables.product.prodname_copilot_short %} suggests improvements which you can choose to apply or reject.
+
+The CLI looks for the `copilot-instructions.md` file on startup, and if it's missing, it displays the message:
+
+> 💡 No copilot instructions found. Run /init to generate a copilot-instructions.md file for this project.
+
+If you don't want to create this file, you can permanently hide this startup message by using the `/init suppress` slash command, which adds a `suppress_init_folders` setting for this repository to your {% data variables.product.prodname_copilot_short %} configuration file.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+
 ## Hooks reference
 
 Hooks are external commands that execute at specific lifecycle points during a session, enabling custom automation, security controls, and integrations. Hook configuration files are loaded automatically from `.github/hooks/*.json` in your repository.

@@ -108,7 +108,7 @@ Now that you’ve generated and refined your project issues, you can assign them
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-or-update-issues)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/use-copilot-to-create-or-update-issues)
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent)
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
 * [AUTOTITLE](/copilot/tutorials/speed-up-development-work)

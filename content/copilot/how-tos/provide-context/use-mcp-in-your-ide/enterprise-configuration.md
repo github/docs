@@ -1,6 +1,6 @@
 ---
 title: Configuring the GitHub MCP Server for GitHub Enterprise
-intro: 'Learn how to configure the GitHub Model Context Protocol (MCP) server to work with {% data variables.product.prodname_ghe_server %} or {% data variables.enterprise.data_residency %}.'
+intro: Learn how to configure the GitHub Model Context Protocol (MCP) server to work with {% data variables.product.prodname_ghe_server %} or {% data variables.enterprise.data_residency %}.
 shortTitle: Enterprise configuration
 versions:
   feature: copilot
@@ -8,6 +8,8 @@ defaultTool: vscode
 contentType: how-tos
 category:
   - Configure Copilot
+redirect_from:
+  - /copilot/how-tos/provide-context/use-mcp/enterprise-configuration
 ---
 
 The {% data variables.product.github %} MCP server can be configured to work with {% data variables.product.prodname_ghe_server %} and {% data variables.enterprise.data_residency %}. The configuration steps differ depending on whether you are using the remote or local MCP server.

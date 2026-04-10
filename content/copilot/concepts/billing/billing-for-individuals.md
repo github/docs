@@ -31,15 +31,9 @@ category:
 
 {% ifversion fpt %}
 
-### About the 30-day trial for {% data variables.copilot.copilot_pro_short %}
+> [!NOTE] {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} are paid plans. Billing starts when you subscribe. If you already have a billing cycle, charges are prorated and included in your next bill.
 
-> [!NOTE] {% data variables.copilot.copilot_pro_plus_short %} does not include a trial. You will be billed immediately upon subscribing.
-
-Before starting a paid plan for a personal account, you can set up a one-time {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_copilot_short %}. To begin a trial, you will need to provide a payment method. If you do not cancel the trial before the end of the {% data reusables.copilot.trial-period %} days, the trial will automatically convert to a paid plan.
-
-You can cancel your {% data variables.product.prodname_copilot_short %} trial at any time during the {% data reusables.copilot.trial-period %} days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot_short %} until the {% data reusables.copilot.trial-period %}-day trial period ends. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user).
-
-{% data reusables.copilot.tp-users-trial-eligibility %}{% endif %}
+{% endif %}
 
 ## About premium requests
 
@@ -71,7 +65,7 @@ You can cancel your {% data variables.product.prodname_copilot_short %} plan at 
 Your billing date will depend on whether or not you are already being billed by {% data variables.product.prodname_dotcom %}.
 
 * **If you are not already being billed by {% data variables.product.prodname_dotcom %}**, in most cases your billing cycle will start on the day you sign up for {% data variables.product.prodname_copilot_short %}. For example, if you sign up on 3 September, with monthly billing, your initial billing cycle will run from 3 September until and including 2 October, and then on the same days of subsequent months.
-* **If you already have a billing cycle**, billing for {% data variables.product.prodname_copilot_short %} will be included in your next bill, or your first bill after the end of your 30-day {% data variables.product.prodname_copilot_short %} trial. You will be charged on a pro rata basis for that initial period. If you do not already have an established billing date, you will be billed for {% data variables.copilot.copilot_pro_short %} at the end of your 30-day trial, or when you set up a new paid {% data variables.product.prodname_copilot_short %} plan.
+* **If you already have a billing cycle**, billing for {% data variables.product.prodname_copilot_short %} will be included in your next bill. You will be charged on a pro rata basis for that initial period.
 
 ## Further reading
 

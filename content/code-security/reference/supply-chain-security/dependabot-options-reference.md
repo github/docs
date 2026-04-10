@@ -682,8 +682,6 @@ Reviewers must have at least read access to the repository.
 | {% endif %} |
 | [`timezone`](#timezone) | Specify the timezone of the `time` value.  |
 
-{% ifversion fpt or ghec %}
-
 ### `interval`
 
 Supported values: `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron`
@@ -698,22 +696,12 @@ Each package manager **must** define a schedule interval.
 * Use `yearly` to run on the first day of January.
 * Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
 
-{% elsif ghes %}
-
-### `interval`
-
-Supported values: `daily`, `weekly`, `monthly`{% ifversion dependabot-schedule-updates %}, or `cron`{% endif %}
-
-Each package manager **must** define a schedule interval.
-
-* Use `daily` to run on every weekday, Monday to Friday.
-* Use `weekly` to run once a week, by default on Monday.
-* Use `monthly` to run on the first day of each month.{% ifversion dependabot-schedule-updates %}
-* Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).{% endif %}
-
-{% endif %}
+>[!NOTE]
+> The supported values `quarterly`, `semiannually`, and `yearly` are only available on {% data variables.product.prodname_ghe_server %} from version 3.19.
 
 By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  {% ifversion dependabot-schedule-updates %}If you use a `cron` interval, you can define the update time with a `cronjob` expression.{% endif %}
+
+
 
 ### `day`
 

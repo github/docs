@@ -1,6 +1,6 @@
 ---
-title: Using the GitHub MCP Server
-intro: 'Learn how to use the GitHub Model Context Protocol (MCP) server to interact with repositories, issues, pull requests, and other GitHub features, directly from {% data variables.copilot.copilot_chat_short %}.'
+title: Using the GitHub MCP Server in your IDE
+intro: Learn how to use the GitHub Model Context Protocol (MCP) server to interact with repositories, issues, pull requests, and other GitHub features, directly from {% data variables.copilot.copilot_chat_short %} in your IDE.
 shortTitle: Use the GitHub MCP Server
 versions:
   feature: copilot
@@ -11,8 +11,9 @@ redirect_from:
   - /copilot/how-tos/context/model-context-protocol/use-the-github-mcp-server
   - /copilot/how-tos/context/use-mcp/use-the-github-mcp-server
   - /copilot/how-tos/provide-context/install-copilot-extensions/use-copilot-extensions
+  - /copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server
 contentType: how-tos
-category: 
+category:
   - Integrate Copilot with your tools
 ---
 
@@ -166,40 +167,6 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 {% data reusables.copilot.mcp.troubleshooting-mcp-server %}
 
 {% endeclipse %}
-
-{% webui %}
-
-## About MCP in {% data variables.copilot.copilot_chat_dotcom_short %}
-
-The {% data variables.product.github %} MCP server is a Model Context Protocol (MCP) server provided and maintained by {% data variables.product.github %}. MCP allows you to integrate AI capabilities with other tools and services, enhancing your development experience by providing context-aware AI assistance.
-
-For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction).
-
-Within {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data variables.product.github %} MCP server is automatically configured, with a limited set of skills available. This allows you to instruct {% data variables.copilot.copilot_chat_short %} to perform tasks such as creating branches or merging pull requests on your behalf. For a full list of available skills, see [AUTOTITLE](/copilot/reference/github-copilot-chat-cheat-sheet#mcp-skills).
-
-## Using the {% data variables.product.github %} MCP server in {% data variables.copilot.copilot_chat_dotcom_short %}
-
-The {% data variables.product.github %} MCP server is automatically configured in {% data variables.copilot.copilot_chat_dotcom_short %}. You can start using it immediately without any additional setup.
-
-{% data reusables.copilot.access-chat-instructions %}
-1. In the prompt box, type a request related to the skill you want {% data variables.copilot.copilot_chat_short %} to perform, and press **Enter**.
-
-    Some examples of requests you can make are:
-
-    {% prompt %}Create a new branch called [BRANCH-NAME] in the repository [OWNER/REPO-NAME].{% endprompt %}
-
-    {% prompt %}Search for users with the name [USER-NAME]{% endprompt %}
-
-    {% prompt %}Merge the pull request [PR-NUMBER] in the repository [OWNER/REPO-NAME].{% endprompt %}
-
-1. {% data variables.copilot.copilot_chat_short %} will ask you to confirm that you want to proceed with the action. Click **Allow** to confirm.
-1. {% data variables.copilot.copilot_chat_short %} will use the relevant skill from the {% data variables.product.github %} MCP server to perform the action you requested. {% data variables.copilot.copilot_chat_short %} will show you the result of the action in the chat interface.
-
-## Limitations
-
-The {% data variables.product.github %} MCP server in {% data variables.copilot.copilot_chat_dotcom_short %} is currently limited to a set of predefined skills. If you ask {% data variables.copilot.copilot_chat_short %} to perform an action that is not supported by the MCP server, it will still attempt to provide a helpful response, but it may not be able to perform the action as expected. For example, if you ask {% data variables.copilot.copilot_chat_short %} to create a new issue, it may provide you with a draft issue template, but you will still need to manually create the issue.
-
-{% endwebui %}
 
 ## Further reading
 

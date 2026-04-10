@@ -2,13 +2,15 @@
 title: Changing your MCP registry in your IDE
 allowTitleToDifferFromFilename: true
 shortTitle: Change MCP registry
-intro: 'Customize the MCP registry you can use with {% data variables.copilot.copilot_chat_short %}.'
+intro: Customize the MCP registry you can use with {% data variables.copilot.copilot_chat_short %}.
 versions:
   feature: copilot
 defaultTool: jetbrains
 contentType: how-tos
 category:
   - Configure Copilot
+redirect_from:
+  - /copilot/how-tos/provide-context/use-mcp/change-mcp-registry
 ---
 
 MCP registries for {% data variables.product.prodname_copilot_short %} in your IDE streamline the process of discovering and setting up MCP servers. By default, {% data variables.product.prodname_copilot_short %} uses the {% data variables.product.github %} MCP Registry, but you can configure your own MCP registry to customize the list of servers available in your environment.

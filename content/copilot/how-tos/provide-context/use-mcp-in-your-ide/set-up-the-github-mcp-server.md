@@ -1,6 +1,6 @@
 ---
 title: Setting up the GitHub MCP Server
-intro: 'Learn how to configure the GitHub Model Context Protocol (MCP) server.'
+intro: Learn how to configure the GitHub Model Context Protocol (MCP) server.
 shortTitle: Set up the GitHub MCP Server
 versions:
   feature: copilot
@@ -13,8 +13,9 @@ redirect_from:
   - /copilot/how-tos/use-copilot-extensions/set-up-copilot-extensions
   - /copilot/how-tos/provide-context/install-copilot-extensions/install-extensions
   - /copilot/how-tos/provide-context/install-copilot-extensions/install-personal-extensions
+  - /copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server
 contentType: how-tos
-category: 
+category:
   - Integrate Copilot with your tools
 ---
 

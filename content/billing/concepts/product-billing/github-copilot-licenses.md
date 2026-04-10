@@ -40,14 +40,6 @@ There are several ways to use {% data variables.product.prodname_copilot_short %
 * Intended for **individual use only** (not suitable for organizations or enterprises).
 * For usage beyond the free plan limits, upgrade to {% data variables.copilot.copilot_pro_short %}.
 
-### 30-day trial for {% data variables.copilot.copilot_pro_short %}
-
-* Before starting a paid plan for a personal account, you can activate a **one-time 30-day trial**. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot).
-* You must provide a payment method.
-* If you do not cancel before the end of the trial, it automatically converts to a paid plan.
-* You can cancel any time during the 30 days. If you cancel, you will not be charged and will keep access until the trial ends.
-* Free trials are limited to three per payment method. Additional trials will continue as paid subscriptions.
-
 ### Educational and open source benefits
 
 * {% data variables.copilot.copilot_student_short %} offers free access to {% data variables.product.prodname_copilot_short %}'s premium features for verified students. See [AUTOTITLE](/copilot/how-tos/manage-your-account/free-access-with-copilot-student).

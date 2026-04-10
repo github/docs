@@ -2,7 +2,7 @@
 title: Extending GitHub Copilot Chat with Model Context Protocol (MCP) servers
 allowTitleToDifferFromFilename: true
 shortTitle: Extend Copilot Chat with MCP
-intro: 'Connect MCP servers to {% data variables.copilot.copilot_chat_short %} to share context from other applications.'
+intro: Connect MCP servers to {% data variables.copilot.copilot_chat_short %} to share context from other applications.
 versions:
   feature: copilot
 defaultTool: vscode
@@ -12,8 +12,9 @@ redirect_from:
   - /copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp
   - /copilot/how-tos/context/model-context-protocol/extend-copilot-chat-with-mcp
   - /copilot/how-tos/context/use-mcp/extend-copilot-chat-with-mcp
+  - /copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp
 contentType: how-tos
-category: 
+category:
   - Integrate Copilot with your tools
 ---
 
