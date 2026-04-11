@@ -1,3 +1,269 @@
+
+ATT&CK Changes Between v12.1 and v13.0
+This JSON file contains the machine readble output used to create this page: changelog.json
+
+Minor Version Changes
+[T1548] Abuse Elevation Control Mechanism
+Current version: 1.1
+
+Version changed from: 1.0 → 1.1
+
+Details
+[T1546.008] Event Triggered Execution: Accessibility Features
+Current version: 1.1
+
+Version changed from: 1.0 → 1.1
+
+Details
+[T1531] Account Access Removal
+Current version: 1.2
+
+Version changed from: 1.1 → 1.2
+
+
+Old Description	
+New Description
+t	1	Adversaries may interrupt availability of system and network	t	1	Adversaries may interrupt availability of system and network
+>	 resources by inhibiting access to accounts utilized by legi		>	 resources by inhibiting access to accounts utilized by legi
+>	timate users. Accounts may be deleted, locked, or manipulate		>	timate users. Accounts may be deleted, locked, or manipulate
+>	d (ex: changed credentials) to remove access to accounts. Ad		>	d (ex: changed credentials) to remove access to accounts. Ad
+>	versaries may also subsequently log off and/or perform a [Sy		>	versaries may also subsequently log off and/or perform a [Sy
+>	stem Shutdown/Reboot](https://attack.mitre.org/techniques/T1		>	stem Shutdown/Reboot](https://attack.mitre.org/techniques/T1
+>	529) to set malicious changes into place.(Citation: CarbonBl		>	529) to set malicious changes into place.(Citation: CarbonBl
+>	ack LockerGoga 2019)(Citation: Unit42 LockerGoga 2019)  In W		>	ack LockerGoga 2019)(Citation: Unit42 LockerGoga 2019)  In W
+>	indows, [Net](https://attack.mitre.org/software/S0039) utili		>	indows, [Net](https://attack.mitre.org/software/S0039) utili
+>	ty, <code>Set-LocalUser</code> and <code>Set-ADAccountPasswo		>	ty, <code>Set-LocalUser</code> and <code>Set-ADAccountPasswo
+>	rd</code> [PowerShell](https://attack.mitre.org/techniques/T		>	rd</code> [PowerShell](https://attack.mitre.org/techniques/T
+>	1059/001) cmdlets may be used by adversaries to modify user 		>	1059/001) cmdlets may be used by adversaries to modify user 
+>	accounts. In Linux, the <code>passwd</code> utility may be u		>	accounts. In Linux, the <code>passwd</code> utility may be u
+>	sed to change passwords. Accounts could also be disabled by 		>	sed to change passwords. Accounts could also be disabled by 
+>	Group Policy.   Adversaries who use ransomware may first per		>	Group Policy.   Adversaries who use ransomware or similar at
+>	form this and other Impact behaviors, such as [Data Destruct		>	tacks may first perform this and other Impact behaviors, suc
+>	ion](https://attack.mitre.org/techniques/T1485) and [Defacem		>	h as [Data Destruction](https://attack.mitre.org/techniques/
+>	ent](https://attack.mitre.org/techniques/T1491), before comp		>	T1485) and [Defacement](https://attack.mitre.org/techniques/
+>	leting the [Data Encrypted for Impact](https://attack.mitre.		>	T1491), in order to impede incident response/recovery before
+>	org/techniques/T1486) objective. 		>	 completing the [Data Encrypted for Impact](https://attack.m
+ 		>	itre.org/techniques/T1486) objective. 
+Details
+[T1087] Account Discovery
+Current version: 2.4
+
+Version changed from: 2.3 → 2.4
+
+
+Old Description	
+New Description
+t	1	Adversaries may attempt to get a listing of accounts on a sy	t	1	Adversaries may attempt to get a listing of valid accounts, 
+>	stem or within an environment. This information can help adv		>	usernames, or email addresses on a system or within a compro
+>	ersaries determine which accounts exist to aid in follow-on 		>	mised environment. This information can help adversaries det
+>	behavior.		>	ermine which accounts exist, which can aid in follow-on beha
+ 		>	vior such as brute-forcing, spear-phishing attacks, or accou
+ 		>	nt takeovers (e.g., [Valid Accounts](https://attack.mitre.or
+ 		>	g/techniques/T1078)).  Adversaries may use several methods t
+ 		>	o enumerate accounts, including abuse of existing tools, bui
+ 		>	lt-in commands, and potential misconfigurations that leak ac
+ 		>	count names and roles or permissions in the targeted environ
+ 		>	ment.  For examples, cloud environments typically provide ea
+ 		>	sily accessible interfaces to obtain user lists. On hosts, a
+ 		>	dversaries can use default [PowerShell](https://attack.mitre
+ 		>	.org/techniques/T1059/001) and other command line functional
+ 		>	ity to identify accounts. Information about email addresses 
+ 		>	and accounts may also be extracted by searching an infected 
+ 		>	system’s files.
+Dropped Mitigations:
+
+T1087: Account Discovery Mitigation
+Details
+[T1098] Account Manipulation
+Current version: 2.5
+
+Version changed from: 2.4 → 2.5
+
+Details
+[T1583] Acquire Infrastructure
+Current version: 1.2
+
+Version changed from: 1.1 → 1.2
+
+
+Old Description	
+New Description
+t	1	Adversaries may buy, lease, or rent infrastructure that can 	t	1	Adversaries may buy, lease, or rent infrastructure that can 
+>	be used during targeting. A wide variety of infrastructure e		>	be used during targeting. A wide variety of infrastructure e
+>	xists for hosting and orchestrating adversary operations. In		>	xists for hosting and orchestrating adversary operations. In
+>	frastructure solutions include physical or cloud servers, do		>	frastructure solutions include physical or cloud servers, do
+>	mains, and third-party web services.(Citation: TrendmicroHid		>	mains, and third-party web services.(Citation: TrendmicroHid
+>	eoutsLease) Additionally, botnets are available for rent or 		>	eoutsLease) Additionally, botnets are available for rent or 
+>	purchase.  Use of these infrastructure solutions allows an a		>	purchase.  Use of these infrastructure solutions allows adve
+>	dversary to stage, launch, and execute an operation. Solutio		>	rsaries to stage, launch, and execute operations. Solutions 
+>	ns may help adversary operations blend in with traffic that 		>	may help adversary operations blend in with traffic that is 
+>	is seen as normal, such as contact to third-party web servic		>	seen as normal, such as contacting third-party web services 
+>	es. Depending on the implementation, adversaries may use inf		>	or acquiring infrastructure to support [Proxy](https://attac
+>	rastructure that makes it difficult to physically tie back t		>	k.mitre.org/techniques/T1090).(Citation: amnesty_nso_pegasus
+>	o them as well as utilize infrastructure that can be rapidly		>	) Depending on the implementation, adversaries may use infra
+>	 provisioned, modified, and shut down.		>	structure that makes it difficult to physically tie back to 
+ 		>	them as well as utilize infrastructure that can be rapidly p
+ 		>	rovisioned, modified, and shut down.
+Details
+[T1098.001] Account Manipulation: Additional Cloud Credentials
+Current version: 2.5
+
+Version changed from: 2.4 → 2.5
+
+
+Old Description	
+New Description
+t	1	Adversaries may add adversary-controlled credentials to a cl	t	1	Adversaries may add adversary-controlled credentials to a cl
+>	oud account to maintain persistent access to victim accounts		>	oud account to maintain persistent access to victim accounts
+>	 and instances within the environment.  For example, adversa		>	 and instances within the environment.  For example, adversa
+>	ries may add credentials for Service Principals and Applicat		>	ries may add credentials for Service Principals and Applicat
+>	ions in addition to existing legitimate credentials in Azure		>	ions in addition to existing legitimate credentials in Azure
+>	 AD.(Citation: Microsoft SolarWinds Customer Guidance)(Citat		>	 AD.(Citation: Microsoft SolarWinds Customer Guidance)(Citat
+>	ion: Blue Cloud of Death)(Citation: Blue Cloud of Death Vide		>	ion: Blue Cloud of Death)(Citation: Blue Cloud of Death Vide
+>	o) These credentials include both x509 keys and passwords.(C		>	o) These credentials include both x509 keys and passwords.(C
+>	itation: Microsoft SolarWinds Customer Guidance) With suffic		>	itation: Microsoft SolarWinds Customer Guidance) With suffic
+>	ient permissions, there are a variety of ways to add credent		>	ient permissions, there are a variety of ways to add credent
+>	ials including the Azure Portal, Azure command line interfac		>	ials including the Azure Portal, Azure command line interfac
+>	e, and Azure or Az PowerShell modules.(Citation: Demystifyin		>	e, and Azure or Az PowerShell modules.(Citation: Demystifyin
+>	g Azure AD Service Principals)  In infrastructure-as-a-servi		>	g Azure AD Service Principals)  In infrastructure-as-a-servi
+>	ce (IaaS) environments, after gaining access through [Cloud 		>	ce (IaaS) environments, after gaining access through [Cloud 
+>	Accounts](https://attack.mitre.org/techniques/T1078/004), ad		>	Accounts](https://attack.mitre.org/techniques/T1078/004), ad
+>	versaries may generate or import their own SSH keys using ei		>	versaries may generate or import their own SSH keys using ei
+>	ther the <code>CreateKeyPair</code> or <code>ImportKeyPair</		>	ther the <code>CreateKeyPair</code> or <code>ImportKeyPair</
+>	code> API in AWS or the <code>gcloud compute os-login ssh-ke		>	code> API in AWS or the <code>gcloud compute os-login ssh-ke
+>	ys add</code> command in GCP.(Citation: GCP SSH Key Add) Thi		>	ys add</code> command in GCP.(Citation: GCP SSH Key Add) Thi
+>	s allows persistent access to instances within the cloud env		>	s allows persistent access to instances within the cloud env
+>	ironment without further usage of the compromised cloud acco		>	ironment without further usage of the compromised cloud acco
+>	unts.(Citation: Expel IO Evil in AWS)(Citation: Expel Behind		>	unts.(Citation: Expel IO Evil in AWS)(Citation: Expel Behind
+>	 the Scenes)  Adversaries may also use the <code>CreateAcces		>	 the Scenes)  Adversaries may also use the <code>CreateAcces
+>	sKey</code> API in AWS or the <code>gcloud iam service-accou		>	sKey</code> API in AWS or the <code>gcloud iam service-accou
+>	nts keys create</code> command in GCP to add access keys to 		>	nts keys create</code> command in GCP to add access keys to 
+>	an account. If the target account has different permissions 		>	an account. If the target account has different permissions 
+>	from the requesting account, the adversary may also be able 		>	from the requesting account, the adversary may also be able 
+>	to escalate their privileges in the environment (i.e. [Cloud		>	to escalate their privileges in the environment (i.e. [Cloud
+>	 Accounts](https://attack.mitre.org/techniques/T1078/004)).(		>	 Accounts](https://attack.mitre.org/techniques/T1078/004)).(
+>	Citation: Rhino Security Labs AWS Privilege Escalation)		>	Citation: Rhino Security Labs AWS Privilege Escalation)  In 
+ 		>	AWS environments, adversaries with the appropriate permissio
+ 		>	ns may also use the `sts:GetFederationToken` API call to cre
+ 		>	ate a temporary set of credentials tied to the permissions o
+ 		>	f the original user account. These credentials may remain va
+ 		>	lid for the duration of their lifetime even if the original 
+ 		>	account’s API credentials are deactivated. (Citation: Crowds
+ 		>	trike AWS User Federation Persistence)
+Dropped Detections:
+
+DS0026: Active Directory (Active Directory Object Modification)
+Details
+[T1098.003] Account Manipulation: Additional Cloud Roles
+Current version: 2.2
+
+Version changed from: 2.1 → 2.2
+
+Details
+[T1546.010] Event Triggered Execution: AppInit DLLs
+Current version: 1.1
+
+Version changed from: 1.0 → 1.1
+
+Details
+[T1550.001] Use Alternate Authentication Material: Application Access Token
+Current version: 1.5
+
+Version changed from: 1.4 → 1.5
+
+
+Old Description	
+New Description
+t	1	Adversaries may use stolen application access tokens to bypa	t	1	Adversaries may use stolen application access tokens to bypa
+>	ss the typical authentication process and access restricted 		>	ss the typical authentication process and access restricted 
+>	accounts, information, or services on remote systems. These 		>	accounts, information, or services on remote systems. These 
+>	tokens are typically stolen from users or services and used 		>	tokens are typically stolen from users or services and used 
+>	in lieu of login credentials.  Application access tokens are		>	in lieu of login credentials.  Application access tokens are
+>	 used to make authorized API requests on behalf of a user or		>	 used to make authorized API requests on behalf of a user or
+>	 service and are commonly used as a way to access resources 		>	 service and are commonly used to access resources in cloud,
+>	in cloud and container-based applications and software-as-a-		>	 container-based applications, and software-as-a-service (Sa
+>	service (SaaS).(Citation: Auth0 - Why You Should Always Use 		>	aS).(Citation: Auth0 - Why You Should Always Use Access Toke
+>	Access Tokens to Secure APIs Sept 2019)   In AWS and GCP env		>	ns to Secure APIs Sept 2019)   OAuth is one commonly impleme
+>	ironments, adversaries can trigger a request for a short-liv		>	nted framework that issues tokens to users for access to sys
+>	ed access token with the privileges of another user account.		>	tems. These frameworks are used collaboratively to verify th
+>	(Citation: Google Cloud Service Account Credentials)(Citatio		>	e user and determine what actions the user is allowed to per
+>	n: AWS Temporary Security Credentials) The adversary can the		>	form. Once identity is established, the token allows actions
+>	n use this token to request data or perform actions the orig		>	 to be authorized, without passing the actual credentials of
+>	inal account could not. If permissions for this feature are 		>	 the user. Therefore, compromise of the token can grant the 
+>	misconfigured – for example, by allowing all users to reques		>	adversary access to resources of other sites through a malic
+>	t a token for a particular account - an adversary may be abl		>	ious application.(Citation: okta)  For example, with a cloud
+>	e to gain initial access to a Cloud Account or escalate thei		>	-based email service, once an OAuth access token is granted 
+>	r privileges.(Citation: Rhino Security Labs Enumerating AWS 		>	to a malicious application, it can potentially gain long-ter
+>	Roles)  OAuth is one commonly implemented framework that iss		>	m access to features of the user account if a "refresh" toke
+>	ues tokens to users for access to systems. These frameworks 		>	n enabling background access is awarded.(Citation: Microsoft
+>	are used collaboratively to verify the user and determine wh		>	 Identity Platform Access 2019) With an OAuth access token a
+>	at actions the user is allowed to perform. Once identity is 		>	n adversary can use the user-granted REST API to perform fun
+>	established, the token allows actions to be authorized, with		>	ctions such as email searching and contact enumeration.(Cita
+>	out passing the actual credentials of the user. Therefore, c		>	tion: Staaldraad Phishing with OAuth 2017)  Compromised acce
+>	ompromise of the token can grant the adversary access to res		>	ss tokens may be used as an initial step in compromising oth
+>	ources of other sites through a malicious application.(Citat		>	er services. For example, if a token grants access to a vict
+>	ion: okta)  For example, with a cloud-based email service on		>	im’s primary email, the adversary may be able to extend acce
+>	ce an OAuth access token is granted to a malicious applicati		>	ss to all other services which the target subscribes by trig
+>	on, it can potentially gain long-term access to features of 		>	gering forgotten password routines. In AWS and GCP environme
+>	the user account if a "refresh" token enabling background ac		>	nts, adversaries can trigger a request for a short-lived acc
+>	cess is awarded.(Citation: Microsoft Identity Platform Acces		>	ess token with the privileges of another user account.(Citat
+>	s 2019) With an OAuth access token an adversary can use the 		>	ion: Google Cloud Service Account Credentials)(Citation: AWS
+>	user-granted REST API to perform functions such as email sea		>	 Temporary Security Credentials) The adversary can then use 
+>	rching and contact enumeration.(Citation: Staaldraad Phishin		>	this token to request data or perform actions the original a
+>	g with OAuth 2017)  Compromised access tokens may be used as		>	ccount could not. If permissions for this feature are miscon
+>	 an initial step in compromising other services. For example		>	figured – for example, by allowing all users to request a to
+>	, if a token grants access to a victim’s primary email, the 		>	ken for a particular account - an adversary may be able to g
+>	adversary may be able to extend access to all other services		>	ain initial access to a Cloud Account or escalate their priv
+>	 which the target subscribes by triggering forgotten passwor		>	ileges.(Citation: Rhino Security Labs Enumerating AWS Roles)
+>	d routines. Direct API access through a token negates the ef		>	  Direct API access through a token negates the effectivenes
+>	fectiveness of a second authentication factor and may be imm		>	s of a second authentication factor and may be immune to int
+>	une to intuitive countermeasures like changing passwords. Ac		>	uitive countermeasures like changing passwords.  For example
+>	cess abuse over an API channel can be difficult to detect ev		>	, in AWS environments, an adversary who compromises a user’s
+>	en from the service provider end, as the access can still al		>	 AWS API credentials may be able to use the `sts:GetFederati
+>	ign well with a legitimate workflow.		>	onToken` API call to create a federated user session, which 
+ 		>	will have the same permissions as the original user but may 
+ 		>	persist even if the original user credentials are deactivate
+ 		>	d.(Citation: Crowdstrike AWS User Federation Persistence) Ad
+ 		>	ditionally, access abuse over an API channel can be difficul
+ 		>	t to detect even from the service provider end, as the acces
+ 		>	s can still align well with a legitimate workflow.
+Details
+[T1071] Application Layer Protocol
+Current version: 2.1
+
+Version changed from: 2.0 → 2.1
+
+
+Old Description	
+New Description
+t	1	Adversaries may communicate using application layer protocol	t	1	Adversaries may communicate using OSI application layer prot
+>	s to avoid detection/network filtering by blending in with e		>	ocols to avoid detection/network filtering by blending in wi
+>	xisting traffic. Commands to the remote system, and often th		>	th existing traffic. Commands to the remote system, and ofte
+>	e results of those commands, will be embedded within the pro		>	n the results of those commands, will be embedded within the
+>	tocol traffic between the client and server.   Adversaries m		>	 protocol traffic between the client and server.   Adversari
+>	ay utilize many different protocols, including those used fo		>	es may utilize many different protocols, including those use
+>	r web browsing, transferring files, electronic mail, or DNS.		>	d for web browsing, transferring files, electronic mail, or 
+>	 For connections that occur internally within an enclave (su		>	DNS. For connections that occur internally within an enclave
+>	ch as those between a proxy or pivot node and other nodes), 		>	 (such as those between a proxy or pivot node and other node
+>	commonly used protocols are SMB, SSH, or RDP. 		>	s), commonly used protocols are SMB, SSH, or RDP. 
+Details
+[T1010] Application Window Discovery
+Current version: 1.3
+
+Version changed from: 1.2 → 1.3
+
+
+Old Description	
+New Description
+t	1	Adversaries may attempt to get a listing of open application	t	1	Adversaries may attempt to get a listing of open application
+>	 windows. Window listings could convey information about how		>	 windows. Window listings could convey information about how
+>	 the system is used or give context to information collected		>	 the system is used.(Citation: Prevailion DarkWatchman 2021)
+>	 by a keylogger.(Citation: Prevailion DarkWatchman 2021)		>	 For example, information about application windows could be
+ 		>	 used identify potential data to collect as well as identify
+ 		>	ing security tooling ([Security Software Discovery](https://
+ 		>	a
+>
+
 This XML file does not appear to have any style information associated with it. The document tree is shown below.
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator>
