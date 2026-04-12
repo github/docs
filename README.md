@@ -1,4 +1,261 @@
+Personal information charter
+If you’re an officer of a company or other corporate entity, or a beneficial owner of an overseas entity
+This section of the privacy notice sets out how the Registrar of Companies (the registrar) handles the personal data of officers of companies and other corporate entities.
 
+It also sets out how the registrar handles the personal data of beneficial owners of overseas entities. It then sets out how the registrar ensures that the public register of companies (the register) and Register of Overseas Entities (ROE) comply with the requirements of the UK General Data Protection Regulation (UK GDPR).
+
+Any references to ‘registers’ covers both the register of companies and ROE.
+
+See our guidance for more information on the Companies House register and how to protect your personal data.
+
+Identity of controller and Data Protection Officer (DPO)
+The registrar is the controller of your personal data. This means it’s the registrar who decides how and why your personal data is processed.
+
+The Companies Act 2006 requires the registrar to collect and publish information, including the personal data of officers of companies and other entities, on the register. The registrar is also required to collect similar information on ROE by the Economic Crime (Transparency and Enforcement) Act 2022.
+
+In certain circumstances (for example, if an individual or company is being investigated for a criminal offence) the controller may be our sponsoring department, the Department for Business and Trade (DBT). Companies House is an executive agency of DBT and many of the day-to-day controller responsibilities have been formally delegated to Companies House.
+
+Purpose for processing
+Personal data featuring on the public register of companies or ROE is processed for the purpose of making data available for public inspection under a statutory obligation. The registrar’s legal basis for processing is described in more detail below.
+
+Lawful basis for processing
+The register of companies
+The registrar is required by the Companies Act 2006 to make certain information, including personal data, publicly available.
+
+Part 35 of the Companies Act 2006 sets out the registrar’s obligations, including the requirement to make information, including personal data, available for public inspection. It also sets out many of the requirements for handling personal data - including how it can be rectified in certain circumstances, and how inaccuracies can be amended.
+
+The Register of Overseas Entities (ROE)
+The registrar is required by the Economic Crime (Transparency and Enforcement) Act 2022 to make certain information, including personal data, publicly available. Part 1 of this Act sets out the registrars functions, powers and obligations in respect of ROE, including many of the requirements for handling personal data. This includes how such data may be rectified and inaccuracies amended.
+
+The UK GDPR is legislation that gives legal effect in the UK to GDPR, which, as a European Regulation, previously had direct effect. This means that, unless otherwise stated in this charter, the provisions previously set out in GDPR still apply.
+
+The Data Protection Act 2018 provides for some domestic exemptions for the UK. Paragraph 5 of Schedule 2 Part 1 of the Data Protection Act 2018 provides the following exemption from specified UK GDPR provisions:
+
+The listed GDPR provisions do not apply to personal data consisting of information that the controller is obliged by an enactment to make available to the public, to the extent that the application of those provisions would prevent the controller from complying with that obligation.
+
+Since the registrar is required by the Companies Act and Economic Crime (Transparency and Enforcement) Act to make information available to the public, they’re entitled to rely on this exemption. Therefore, they have an exemption from some elements of UK GDPR, including:
+
+the requirement to provide ‘privacy notices’ to individuals
+the requirement to provide personal data in response to subject access requests
+the requirement to rectify personal data when it is inaccurate
+the requirement to comply with requests to be ‘forgotten’
+most of the principles of UK GDPR
+This means it’s unlikely the registrar will be required, or able, to comply with any exercise of these UK GDPR rights in respect of personal data appearing on the public register or ROE, except where the law allows it.
+
+For example, the registrar will be unable to comply with any request for an individual to be ‘forgotten’ from the public register or ROE where they have a legal obligation under the Companies Act to continue to make this personal data available.
+
+If you have any queries or concerns about this, you can contact the DPO at dpo@companieshouse.gov.uk.
+
+Verifying your identity
+Identity verification is a new legal requirement which has been put in place to deter people intending to use companies for illegal purposes. 
+
+Directors and people with significant control (PSCs) may choose to verify their identity from 8 April 2025. In the future, this will be a legal requirement for all directors, PSCs and anyone else who files documents with Companies House.
+
+You can verify your details:
+
+online through GOV.UK One Login
+in person at a Post Office
+using an Authorised Corporate Service Provider (ACSP)
+For more information, read Verifying your identity for Companies House.
+
+If you verify through GOV.UK One Login, you will be directed to an external website to provide the information required. Read the GOV.UK One Login privacy notice to find out how your data will be processed.
+
+Any supporting information you provide to verify your identity does not form part of the public register. It is not made available to the public through any of our services. As with other non-public data, we may obtain and share this information where it is appropriate or necessary for lawful purposes.
+
+We may also use other third-party identity checking services. If so, you will be directed to their website to provide the information required and advised to read their privacy notice to see how your data will be processed.
+
+Presenter’s details
+If you file a paper form, you have the option to include certain contact details for the presenter of the form. If you include these presenter details, they’ll be placed onto the public record in the same way as all other information contained within the filing.
+
+What we do with your data
+Before becoming an officer of a company or other entity or beneficial owner of an overseas entity, it’s important that you’re familiar with the legal implications. We are required by law to publish some of your personal data on the register or ROE. These registers are publicly available and accessible by anyone.
+
+Commercial organisations may sometimes use data from these registers to create their own online products. These organisations then become controllers of your personal data. These organisations must establish how they comply with the data protection law as set out in UK GDPR.
+
+If you have any concerns about company data on third party products and websites, you’ll need to contact the organisation directly. We’re not able to advise other organisations on UK GDPR compliance, and we cannot advise you on whether other organisations are complying with the law.
+
+We may obtain information from third parties and public sources to verify your address or other personal details where this is appropriate, lawful and proportionate. Such sources may include credit reference agencies or electoral rolls.
+
+Non-public data
+Some of your personal data will not be made available to the public. This includes the address you provide as your usual residential address and the day of your date of birth.
+
+We must collect this information, but it will not be placed on the public register or ROE - as long as you do not provide it when asked to give a service address.
+
+We may share personal information about you with a third party fraud prevention agency who will use it to prevent fraud and money-laundering and to protect your identity. If fraud is detected, the fraud prevention agency will keep a record of any fraud risk. This may result in others refusing to provide you with certain services, finance, or employment. For more information, see the Cifas website.
+
+We may share your personal data with:
+
+other government departments and enforcement agencies
+debt recovery agents and their appointed solicitors
+Legal Counsel (in rare complex cases)
+commercial printers (for instance when we need to print statutory notices)
+third parties providing legal support to govern appeals processes and other registrar functions
+Sharing will only take place in certain circumstances, and only where permitted or required by law.
+
+Processing personal data obtained from third parties
+We may obtain information about you from third parties where this is appropriate or necessary for lawful purposes. Such purposes include:
+
+where it is necessary to carry out our legal obligations
+where it is substantially in the public interest and is necessary for:
+performing our statutory functions, objectives and requirements
+the prevention, detection and investigation of criminal offences or other unlawful acts
+We may share this and other information with:
+
+other government departments
+enforcement authorities and agents
+Sharing will only take place in certain circumstances, and only where the law allows.
+
+If you’re a director or person with significant control (PSC) of a company, the Companies Act 2006 also allows the registrar to share information on your usual residential address and your full date of birth with credit reference agencies - unless you qualify for protection. This information is not placed onto the public register.
+
+Data processors
+Since the registrar is a controller for personal data appearing on the registers, the registrar is not acting as a data processor (as defined by UK GDPR) when maintaining a public register.
+
+Individuals, companies, agents and other representatives provide personal data for the public registers because they’re required to by law, and not for the registrar to process personal data on their behalf. Because of this, the registrar does not have to provide a ‘statement of UK GDPR compliance’, or compliance with Article 28 of the UK GDPR as a data processor.
+
+In some cases, we employ third-party organisations as data processors to carry out elements of processing. For example, an external company to shred paper filings, which may contain personal data, or the use of third-party software solutions hosted in the cloud.
+
+In all cases, contracts with these companies have been reviewed for UK GDPR compliance, and we’ve had assurance from all third-party processors of their own compliance.
+
+The organisations we employ under contract as data processors are:
+
+cloud services in the UK or EU/EEA
+UK based contact centre
+UK based secure disposal
+adjudicators for appeals of late filing penalties
+UK based debt recovery
+mail delivery and printing
+Overseas transfers
+The register of companies and ROE are freely accessible and available to the public, including overseas.
+
+Article 49(1)(g) of UK GDPR states that a transfer of personal data overseas can take place in the absence of specific safeguards where the transfer is made from a register intended to provide information to the public. This means we do not need to consider the adequacy of data protection regimes in all countries before making these public registers freely available online.
+
+Retention of personal data
+Companies House retains all records of companies as long as they’re active. Records of dissolved companies are retained for 20 years, before they’re transferred to the Public Records Office at The National Archives (TNA). This includes all information relating to company directors or its officers.
+
+Companies House has an agreement with TNA to transfer a selection of our records 20 years after a company is dissolved. This agreement and the criteria for selection is set out in their operational selection policy.
+
+TNA will direct us to destroy any records that are not transferred.
+
+You can apply to remove your residential address if it’s publicly available in records of live and dissolved companies.
+
+Following the government’s response to the Corporate Transparency and Register Reform consultation, we’ve stopped removing dissolved records from Companies House service (CHS) and added the records of all companies dissolved since January 2010.
+
+Previously, records of dissolved companies on CHS were removed after 6 years (from the date of dissolution). These dissolved records are currently available for 20 years on other Companies House products for a fee.
+
+See Searching the Companies House register.
+
+Complaints
+If you have a complaint about the way we’re managing your personal data, you can let us know in the first instance by emailing dpo@companieshouse.gov.uk.
+
+If you’re still dissatisfied, you can raise your concerns with The Information Commissioner’s Office:
+
+The Information Commissioner’s Office
+Wycliffe House
+Water Lane
+Wilmslow
+Cheshire
+SK9 5AF
+
+To verify the identity of clients who need to be registered with Companies House, agents must register as an Authorised Corporate Service Provider (ACSP), also known as an authorised agent. To do so, the agent must already be registered with an Anti-Money Laundering (AML) supervisory body.
+
+Identity of controller and Data Protection Officer (DPO)
+The registrar is the controller of the personal data you provide when applying to become an authorised agent. The registrar is therefore responsible for deciding how and why your personal data is processed.
+
+The Companies Act 2006 requires that individuals’ identity be verified by the registrar, including by way of the delivery of a verification statement by an authorised agent. To become an authorised agent, the applicant must meet certain conditions and provide information, as set out in Applying to register as a Companies House authorised agent.
+
+Purpose for processing
+Personal data provided as part of the application is processed for the purposes of enabling the registrar to be satisfied that the applicant meets the requirements to act as an authorised agent.
+
+Lawful basis for processing
+The data is processed to enable the registrar and the applicant to meet their legal requirements as set out at sections 1098A to 1098H of the Companies Act 2006.
+
+The law requires that the registrar must not make available for public inspection any application for authorised agent status, any other document delivered in support of that application, or other relevant updates.
+
+We may share your personal data with:
+
+other government departments and enforcement agencies
+debt recovery agents and their appointed solicitors
+Legal Counsel (in rare complex cases)
+commercial printers (for instance when we need to print statutory notices)
+third parties providing legal support to govern appeals processes and other registrar functions
+Sharing will only take place in certain circumstances, and only where permitted or required by law.
+
+Data processors
+In some cases, we employ third-party organisations as data processors to carry out elements of processing. For example, an external company to shred paper filings, which may contain personal data, or the use of third-party software solutions hosted in the cloud.
+
+In all cases, contracts with these companies have been reviewed for UK GDPR compliance, and we’ve had assurance from all third-party processors of their own compliance.
+
+The organisations we employ under contract as data processors are:
+
+cloud services in the UK or EU/EEA
+UK based contact centre
+UK based secure disposal
+adjudicators for appeals of late filing penalties
+UK based debt recovery
+mail delivery and printing
+Retention of personal data
+Companies House will retain records of ACSP applicants for 20 years after the applicant has ceased to have authorised agent status. Some information may be transferred to the Public Records Office at The National Archives (TNA) at the end of that period.
+
+Individual rights
+The GDPR provides certain rights that individuals may exercise in respect of their own personal data. If you want to exercise any of these rights, you can contact the DPO at dpo@companieshouse.gov.uk
+
+Complaints
+If you have a complaint about the way we’re managing your personal data, you can let us know in the first instance by emailing dpo@companieshouse.gov.uk
+
+If you’re still dissatisfied, you can raise your concerns with The Information Commissioner’s Office:
+
+The Information Commissioner’s Office
+Wycliffe House
+Water Lane
+Wilmslow
+Cheshire
+SK9 5AF
+
+You may have written to us, or contacted us by phone, because you have a complaint, or to to ask a question. This section of the privacy notice sets out how we comply with UK GDPR in handling your correspondence.
+
+If you contact us by phone or in writing, we have no control over the personal data you include in your correspondence, or that you tell us about. We would always advise you to limit the amount of personal data you include in your correspondence, as much as possible.
+
+Once received, your personal data will be handled in line with the following privacy notice. This also applies to the personal data of any third-parties that can be identified from your correspondence.
+
+Identity of controller and Data Protection Officer (DPO)
+The registrar is the controller of your personal data. This means it’s the registrar who decides how and why your personal data is processed. As the registrar is responsible for operating the register, they’re also responsible for handling complaints and queries about the register.
+
+In certain circumstances, the controller may be our sponsoring department, the Department for Business and Trade (DBT), such as if an individual or company is being investigated for a criminal offence.
+
+Data processors
+When you write to us or call us, your enquiry will usually be handled by our contact centre (unless you have an ongoing case with a specific team at Companies House).
+
+Our contact centre is provided by a third-party organisation. We employ third-party organisations for other elements of processing.
+
+In all cases, contracts with these companies have been reviewed for UK GDPR compliance, and we’ve had assurance from all third-party processors of their own compliance.
+
+The organisations we employ under contract as data processors are:
+
+cloud services in the UK or EU/EEA
+UK based contact centre
+UK based secure disposal
+adjudicators for appeals of late filing penalties
+UK based debt recovery
+mail delivery and printing
+Purpose for processing
+When you write to us or call us with a complaint or enquiry, your personal data will only be used for the purpose of handling, investigating and resolving your issue. We’ll use the contact details provided to respond to your correspondence.
+
+If you’ve made a complaint about a third-party, we may use the contact details you’ve provided for them to investigate your issue.
+
+Call recording
+In some areas of Companies House, calls are recorded. Calls are recorded for training, quality and monitoring purposes.
+
+If your call is being recorded, you’ll be told about this by Edgarruiz856 an automated message, which will also direct you to this guidance for further information.
+
+Lawful basis for processing
+Our core public function is to provide a public register that’s available for anyone to inspect. We consider the handling of complaints and enquiries about the public register a necessary process for this public function.
+
+Often your complaint or enquiry will need specialist advice, and will be passed to the relevant team within Companies House for consideration.
+
+In certain circumstances, and only where permitted or required by law, we’ll share data with other government departments and enforcement agencies.
+
+Retention of personal data
+Companies House retains written correspondence from cu
 ATT&CK Changes Between v12.1 and v13.0
 This JSON file contains the machine readble output used to create this page: changelog.json
 
