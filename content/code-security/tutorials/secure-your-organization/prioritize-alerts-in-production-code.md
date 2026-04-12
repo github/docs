@@ -1,7 +1,7 @@
 ---
 title: Prioritizing Dependabot and code scanning alerts using production context
 shortTitle: Prioritize alerts in production code
-intro: Focus remediation on real risk by targeting {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts in artifacts deployed to production, using metadata from external registries like JFrog Artifactory, your own CI/CD workflows, or from {% data variables.product.prodname_microsoft_defender %}.
+intro: Focus remediation on real risk by targeting {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts in artifacts deployed to production, using metadata from external systems and integrations like Dynatrace, JFrog Artifactory, {% data variables.product.prodname_microsoft_defender %}, or your own CI/CD workflows.
 versions:
   fpt: '*'
   ghec: '*'
@@ -25,7 +25,7 @@ To provide production context, you should configure your system to:
 * Update **storage records** in the {% data variables.product.virtual_registry %} whenever an artifact is promoted to a production-approved package repository.
 * Update **deployment records** when an artifact is deployed to a production environment.
 
-{% data variables.product.github %} processes this metadata and uses it to power alert filters, such as `artifact-registry-url` and `artifact-registry` from storage records, and `has:deployment` and `runtime-risk` from deployment records.
+{% data variables.product.github %} processes this metadata and uses it to power alert filters, such as `artifact-registry-url` and `artifact-registry` from storage records, and `has:deployment` and `runtime-risk` from deployment records. Runtime risks from deployment records are also visible as properties on individual {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} alert pages.
 
 For more information on updating records, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/upload-linked-artifacts).
 

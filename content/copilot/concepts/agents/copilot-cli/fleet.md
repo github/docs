@@ -9,6 +9,8 @@ contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page
   - Learn about Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction

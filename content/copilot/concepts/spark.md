@@ -107,13 +107,13 @@ Agent mode is useful when you have a specific task in mind and want to enable {%
 
 See [{% data variables.product.prodname_copilot_short %} agent mode](/copilot/how-tos/chat-with-copilot/chat-in-ide#agent-mode).
 
-### {% data variables.copilot.copilot_coding_agent %}
+### {% data variables.copilot.copilot_cloud_agent %}
 
-Once your spark is connected to a {% data variables.product.github %} repository, you can use {% data variables.copilot.copilot_coding_agent %} to help you to continue to build and maintain your app, while you focus on other things.
+Once your spark is connected to a {% data variables.product.github %} repository, you can use {% data variables.copilot.copilot_cloud_agent %} to help you to continue to build and maintain your app, while you focus on other things.
 
-With the cloud agent, you delegate specific tasks to {% data variables.product.prodname_copilot_short %} (either by assigning an issue to {% data variables.product.prodname_copilot_short %}, or prompting {% data variables.product.prodname_copilot_short %} to create a pull request), and {% data variables.product.prodname_copilot_short %} will autonomously work in the background to complete the task. {% data variables.copilot.copilot_coding_agent %} can fix bugs, refactor code, improve test coverage and more.
+With the cloud agent, you delegate specific tasks to {% data variables.product.prodname_copilot_short %} (either by assigning an issue to {% data variables.product.prodname_copilot_short %}, or prompting {% data variables.product.prodname_copilot_short %} to create a pull request), and {% data variables.product.prodname_copilot_short %} will autonomously work in the background to complete the task. {% data variables.copilot.copilot_cloud_agent %} can fix bugs, refactor code, improve test coverage and more.
 
-See [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent).
+See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
 ## Sharing your spark
 

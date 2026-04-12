@@ -88,16 +88,7 @@
                 "code_scanning_default_setup": "enabled",
                 "secret_scanning": "enabled",
                 "secret_scanning_push_protection": "enabled",
-                "secret_scanning_delegated_bypass": "enabled",
-                "secret_scanning_delegated_bypass_options": {
-                  "reviewers": [
-                    {
-                      "security_configuration_id": 17,
-                      "reviewer_id": 5678,
-                      "reviewer_type": "TEAM"
-                    }
-                  ]
-                },
+                "secret_scanning_delegated_bypass": "disabled",
                 "secret_scanning_validity_checks": "enabled",
                 "enforcement": "enforced",
                 "url": "https://api.github.com/orgs/octo-org/code-security/configurations/17",
@@ -561,8 +552,8 @@
               "dependabot_security_updates": "not_set",
               "code_scanning_default_setup": "disabled",
               "secret_scanning": "enabled",
-              "secret_scanning_push_protection": "disabled",
-              "secret_scanning_delegated_bypass": "disabled",
+              "secret_scanning_push_protection": "enabled",
+              "secret_scanning_delegated_bypass": "enabled",
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "enforcement": "enforced",
@@ -1222,8 +1213,8 @@
               "dependabot_security_updates": "not_set",
               "code_scanning_default_setup": "disabled",
               "secret_scanning": "enabled",
-              "secret_scanning_push_protection": "disabled",
-              "secret_scanning_delegated_bypass": "disabled",
+              "secret_scanning_push_protection": "enabled",
+              "secret_scanning_delegated_bypass": "enabled",
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "enforcement": "enforced",
@@ -2120,8 +2111,8 @@
                   "dependabot_security_updates": "not_set",
                   "code_scanning_default_setup": "disabled",
                   "secret_scanning": "enabled",
-                  "secret_scanning_push_protection": "disabled",
-                  "secret_scanning_delegated_bypass": "disabled",
+                  "secret_scanning_push_protection": "enabled",
+                  "secret_scanning_delegated_bypass": "enabled",
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "enforcement": "enforced",

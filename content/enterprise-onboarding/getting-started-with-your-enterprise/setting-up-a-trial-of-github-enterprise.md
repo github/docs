@@ -18,7 +18,6 @@ To set up a trial, you must be signed in to a personal account.
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-* {% data variables.copilot.copilot_for_business %}
 * {% data variables.product.prodname_GH_cs_and_sp %}
 * An **enterprise account**, which allows you to manage multiple organizations.
 * Up to **50 licenses** to grant access to users.
@@ -27,6 +26,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.copilot.copilot_enterprise %}
+* {% data variables.copilot.copilot_for_business %}
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}

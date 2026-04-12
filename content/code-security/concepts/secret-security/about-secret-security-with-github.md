@@ -14,7 +14,7 @@ category:
   - Protect your secrets
 ---
 
-Exposed secrets in your repositories can lead to unauthorized access, data breaches, and significant costs to your organization. For details about these risks and how to protect against them, see [AUTOTITLE](/code-security/concepts/secret-security/secret-leakage-risks).
+Hardcoded credentials in your repositories can lead to credential leaks, unauthorized access, data breaches, and significant costs to your organization. For details about these risks and how to protect against them, see [AUTOTITLE](/code-security/concepts/secret-security/secret-leakage-risks).
 
 {% data variables.product.github %} provides tools to help you understand and address your organization's exposure to leaked secrets:
 
@@ -23,7 +23,7 @@ Exposed secrets in your repositories can lead to unauthorized access, data breac
 
 ## Secret risk assessment
 
-The secret risk assessment provides organization owners and security managers with a free point-in-time scan of their organization's repositories to identify leaked secrets like API keys, tokens, and passwords.
+The secret risk assessment provides organization owners and security managers with a free point-in-time scan of their organization's repositories to identify hardcoded credentials like API keys, tokens, and passwords, and understand the extent of secret sprawl across your organization.
 
 {% data variables.secret-scanning.secret-risk-assessment-cta-product %}
 
@@ -52,13 +52,13 @@ Regular assessment helps prevent:
 While the {% data variables.product.prodname_secret_risk_assessment %} provides a point-in-time view of your organization's current secret exposure, {% data variables.product.prodname_GH_secret_protection %}:
 
 * **Implements continuous monitoring** and expands scanned surfaces beyond code to include pull requests, issues, wikis, and discussions
-* **Prevents secret leaks** by blocking commits containing secrets before they are saved to {% data variables.product.github %}
+* **Prevents credential leaks** by blocking commits containing hardcoded secrets before they are saved to {% data variables.product.github %}
 * **Creates actionable alerts** that can be grouped into campaigns and assigned to team members for remediation
 * **Meets your specific needs** by scanning for patterns unique to your organization and unstructured secrets like passwords
 * **Supports governance at scale** with settings dictating who can bypass protections and dismiss alerts
 * **Surfaces key analytics** through a view dedicated to your organization's secret security
 
-Through these features, {% data variables.product.prodname_GH_secret_protection %} provides complete coverage for your organization, reducing the risk of costly secret leaks and high-effort remediation processes.
+Through these features, {% data variables.product.prodname_GH_secret_protection %} provides complete coverage for your organization, reducing the risk of costly credential leaks, secret sprawl, and high-effort remediation.
 
 For more information about the specific features of {% data variables.product.prodname_GH_secret_protection %}, see [AUTOTITLE](/code-security/getting-started/github-security-features#available-with-github-secret-protection).
 

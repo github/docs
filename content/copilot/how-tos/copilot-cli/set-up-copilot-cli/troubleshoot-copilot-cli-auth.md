@@ -7,6 +7,8 @@ versions:
 contentType: how-tos
 category:
   - Configure Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Authentication errors

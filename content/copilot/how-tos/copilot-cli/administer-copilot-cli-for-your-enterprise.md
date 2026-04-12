@@ -9,6 +9,8 @@ allowTitleToDifferFromFilename: true
 category:
   - Manage Copilot for a team # Copilot discovery page
   - Administer Copilot CLI # Copilot CLI bespoke landing page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Enabling or disabling {% data variables.copilot.copilot_cli_short %}
@@ -36,9 +38,9 @@ Users can only access AI models that are enabled at the enterprise level. When y
 
 Enterprise-configured custom agents are available to use with {% data variables.copilot.copilot_cli_short %}.
 
-### {% data variables.copilot.copilot_coding_agent %} enablement
+### {% data variables.copilot.copilot_cloud_agent %} enablement
 
-Both the {% data variables.copilot.copilot_cli_short %} policy and the {% data variables.copilot.copilot_coding_agent %} policy must be enabled for users to be able to use the `/delegate` command in {% data variables.copilot.copilot_cli_short %}.
+Both the {% data variables.copilot.copilot_cli_short %} policy and the {% data variables.copilot.copilot_cloud_agent %} policy must be enabled for users to be able to use the `/delegate` command in {% data variables.copilot.copilot_cli_short %}.
 
 ### Audit logging
 

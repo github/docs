@@ -8,11 +8,11 @@ import getEnglishHeadings from '@/languages/lib/get-english-headings'
 import { getAlertTitles } from '@/languages/lib/get-alert-titles'
 import Permalink from './permalink'
 import { renderContent } from '@/content-render/index'
-import processLearningTracks from '@/learning-track/lib/process-learning-tracks'
+
 import { productMap } from '@/products/lib/all-products'
 import slash from 'slash'
 import readFileContents from './read-file-contents'
-import getLinkData from '@/learning-track/lib/get-link-data'
+
 import getDocumentType from '@/events/lib/get-document-type'
 import { allTools } from '@/tools/lib/all-tools'
 import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
@@ -58,12 +58,6 @@ type CommunityRedirect = {
   href: string
 }
 
-type GuideWithContentType = {
-  href: string
-  title: string
-  contentType?: string
-}
-
 export class FrontmatterErrorsError extends Error {
   public frontmatterErrors: string[]
 
@@ -89,10 +83,6 @@ class Page {
   public showMiniToc?: boolean
   public hidden?: boolean
   public redirect_from?: string[]
-  public learningTracks?: any[]
-  public rawLearningTracks?: string[]
-  public includeGuides?: GuideWithContentType[]
-  public rawIncludeGuides?: string[]
   public introLinks?: Record<string, string>
   public rawIntroLinks?: Record<string, string>
   public carousels?: Record<string, string[]>
@@ -221,8 +211,6 @@ class Page {
     this.rawShortTitle = this.shortTitle
     this.rawProduct = this.product
     this.rawPermissions = this.permissions
-    this.rawLearningTracks = this.learningTracks
-    this.rawIncludeGuides = this.includeGuides as any
     this.rawIntroLinks = this.introLinks
     this.rawCarousels = this.carousels
 
@@ -359,12 +347,6 @@ class Page {
       this.permissions = await renderContentWithFallback(this, 'rawPermissions', context)
     }
 
-    // Learning tracks may contain Liquid and need to have versioning processed.
-    if (this.rawLearningTracks) {
-      const { learningTracks } = await processLearningTracks(this.rawLearningTracks, context)
-      this.learningTracks = learningTracks
-    }
-
     // introLinks may contain Liquid and need to have versioning processed.
     if (this.rawIntroLinks) {
       const introLinks: Record<string, string> = {}
@@ -375,19 +357,6 @@ class Page {
       }
 
       this.introLinks = introLinks
-    }
-
-    if (this.rawIncludeGuides) {
-      this.includeGuides = (await getLinkData(
-        this.rawIncludeGuides,
-        context,
-      )) as GuideWithContentType[]
-      this.includeGuides?.map((guide: any) => {
-        const { page } = guide
-        guide.contentType = page.contentType
-        delete guide.page
-        return guide
-      })
     }
 
     // set a flag so layout knows whether to render a mac/windows/linux switcher element

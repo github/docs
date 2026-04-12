@@ -7,7 +7,7 @@ versions:
 children:
   - /prepare-for-custom-agents
   - /monitor-agentic-activity
-  - /manage-copilot-coding-agent
+  - /manage-copilot-cloud-agent
   - /manage-copilot-code-review
 contentType: how-tos
 ---

@@ -15,7 +15,7 @@ const GITHUB_DOMAINS = [
 
 const DEFAULT_OPTIONS = {
   crossOriginResourcePolicy: true,
-  crossOriginEmbedderPolicy: false, // doesn't work with youtube
+  crossOriginEmbedderPolicy: false,
   referrerPolicy: {
     policy: 'no-referrer-when-downgrade' as const,
   },
@@ -48,7 +48,6 @@ const DEFAULT_OPTIONS = {
           ? 'https://support.github.com'
           : // Assume that a developer is not testing the VA iframe locally if this env var is not set
             process.env.SUPPORT_PORTAL_URL || '',
-        'https://www.youtube-nocookie.com',
       ].filter(Boolean) as string[],
       frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: [...GITHUB_DOMAINS, "'self'", "'unsafe-inline'", 'data:'],

@@ -34,7 +34,7 @@ Most individual developers can start using {% data variables.copilot.copilot_fre
 
 * You have a {% data variables.enterprise.prodname_managed_user %}.
 * You are assigned a {% data variables.product.prodname_copilot_short %} seat through an organization.
-* You have an existing {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan or {% data variables.copilot.copilot_pro_short %} trial.
+* You have an existing {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
 * You have access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_student_short %}.
 * You have free access to {% data variables.copilot.copilot_pro_short %} as a teacher or open-source maintainer.
 
@@ -75,7 +75,7 @@ If you’re already using {% data variables.copilot.copilot_free_short %} and re
   You’ll receive a message with your reset date and a link to upgrade to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}.
 
 * **In other IDEs**:
-  You’ll see an error message. You can start a trial or paid plan from your [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
+  You’ll see an error message. You can start a paid plan from your [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
 
 * **In {% data variables.product.prodname_mobile %}**:
   When you hit the usage limit, you’ll be prompted to upgrade via in-app purchase.
@@ -90,7 +90,7 @@ You can subscribe to {% data variables.copilot.copilot_pro_short %} or {% data v
 1. Click **Get started** under the plan you want to subscribe to.
 1. Click **Subscribe to {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}**.
 
-   If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} plan instead of a trial or paid plan, you will automatically be taken to step 6.
+   If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} plan instead of a paid plan, you will automatically be taken to step 6.
 
 1. To enable usage beyond your included premium request allowance, select **Yes, I want to enable additional usage for {% data variables.product.prodname_copilot_short %} premium requests**. You can change this setting at any time. Click **Save & continue**.
 1. Follow the steps to enter and confirm your billing information and payment details, then click **Submit**.

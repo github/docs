@@ -146,10 +146,9 @@
                   "artifacts": [
                     {
                       "provider": "github",
-                      "type": "github_resource",
+                      "type": "pull",
                       "data": {
-                        "id": 42,
-                        "type": "pull_request"
+                        "id": 42
                       }
                     }
                   ],
@@ -293,25 +292,24 @@
                             "type": {
                               "type": "string",
                               "enum": [
-                                "github_resource",
+                                "pull",
                                 "branch"
                               ],
-                              "description": "Discriminator for data shape"
+                              "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
                             },
                             "data": {
                               "oneOf": [
                                 {
                                   "type": "object",
                                   "description": "A GitHub resource (pull request, issue, etc.)",
+                                  "required": [
+                                    "id"
+                                  ],
                                   "properties": {
                                     "id": {
                                       "type": "integer",
                                       "format": "int64",
                                       "description": "GitHub resource ID"
-                                    },
-                                    "type": {
-                                      "type": "string",
-                                      "description": "Resource type (e.g., pull_request, issue)"
                                     },
                                     "global_id": {
                                       "type": "string",
@@ -322,6 +320,10 @@
                                 {
                                   "type": "object",
                                   "description": "A Git branch reference",
+                                  "required": [
+                                    "head_ref",
+                                    "base_ref"
+                                  ],
                                   "properties": {
                                     "head_ref": {
                                       "type": "string",
@@ -434,19 +436,9 @@
       ],
       "bodyParameters": [
         {
-          "type": "integer",
-          "name": "agent_id",
-          "description": "<p>Agent ID (optional, defaults to coding agent)</p>"
-        },
-        {
           "type": "string",
-          "name": "problem_statement",
-          "description": "<p>Additional prompting for the agent</p>"
-        },
-        {
-          "type": "string",
-          "name": "event_content",
-          "description": "<p>User's written prompt</p>",
+          "name": "prompt",
+          "description": "<p>The user's prompt for the agent</p>",
           "isRequired": true
         },
         {
@@ -455,14 +447,10 @@
           "description": "<p>The model to use for this task. The allowed models may change over time and depend on the user's GitHub Copilot plan and organization policies. Currently supported values: <code>claude-sonnet-4.6</code>, <code>claude-opus-4.6</code>, <code>gpt-5.2-codex</code>, <code>gpt-5.3-codex</code>, <code>gpt-5.4</code>, <code>claude-sonnet-4.5</code>, <code>claude-opus-4.5</code></p>"
         },
         {
-          "type": "string",
-          "name": "custom_agent",
-          "description": "<p>Custom agent identifier</p>"
-        },
-        {
           "type": "boolean",
           "name": "create_pull_request",
-          "description": "<p>Whether to create a PR</p>"
+          "description": "<p>Whether to create a PR.</p>",
+          "default": false
         },
         {
           "type": "string",
@@ -470,7 +458,7 @@
           "description": "<p>Base ref for new branch/PR</p>"
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Creates a new task for a repository</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Creates a new task for a repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -478,8 +466,7 @@
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
             "bodyParameters": {
-              "event_content": "Fix the login button on the homepage",
-              "create_pull_request": true,
+              "prompt": "Fix the login button on the homepage",
               "base_ref": "main"
             },
             "parameters": {
@@ -639,25 +626,24 @@
                       "type": {
                         "type": "string",
                         "enum": [
-                          "github_resource",
+                          "pull",
                           "branch"
                         ],
-                        "description": "Discriminator for data shape"
+                        "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
                       },
                       "data": {
                         "oneOf": [
                           {
                             "type": "object",
                             "description": "A GitHub resource (pull request, issue, etc.)",
+                            "required": [
+                              "id"
+                            ],
                             "properties": {
                               "id": {
                                 "type": "integer",
                                 "format": "int64",
                                 "description": "GitHub resource ID"
-                              },
-                              "type": {
-                                "type": "string",
-                                "description": "Resource type (e.g., pull_request, issue)"
                               },
                               "global_id": {
                                 "type": "string",
@@ -668,6 +654,10 @@
                           {
                             "type": "object",
                             "description": "A Git branch reference",
+                            "required": [
+                              "head_ref",
+                              "base_ref"
+                            ],
                             "properties": {
                               "head_ref": {
                                 "type": "string",
@@ -806,10 +796,9 @@
               "artifacts": [
                 {
                   "provider": "github",
-                  "type": "github_resource",
+                  "type": "pull",
                   "data": {
-                    "id": 42,
-                    "type": "pull_request"
+                    "id": 42
                   }
                 }
               ],
@@ -834,9 +823,10 @@
                   "created_at": "2025-01-01T00:00:00Z",
                   "updated_at": "2025-01-01T01:00:00Z",
                   "completed_at": "2025-01-01T01:00:00Z",
-                  "event_content": "Fix the login button on the homepage",
+                  "prompt": "Fix the login button on the homepage",
                   "head_ref": "copilot/fix-1",
-                  "base_ref": "main"
+                  "base_ref": "main",
+                  "model": "claude-sonnet-4.6"
                 }
               ]
             },
@@ -968,25 +958,24 @@
                           "type": {
                             "type": "string",
                             "enum": [
-                              "github_resource",
+                              "pull",
                               "branch"
                             ],
-                            "description": "Discriminator for data shape"
+                            "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
                           },
                           "data": {
                             "oneOf": [
                               {
                                 "type": "object",
                                 "description": "A GitHub resource (pull request, issue, etc.)",
+                                "required": [
+                                  "id"
+                                ],
                                 "properties": {
                                   "id": {
                                     "type": "integer",
                                     "format": "int64",
                                     "description": "GitHub resource ID"
-                                  },
-                                  "type": {
-                                    "type": "string",
-                                    "description": "Resource type (e.g., pull_request, issue)"
                                   },
                                   "global_id": {
                                     "type": "string",
@@ -997,6 +986,10 @@
                               {
                                 "type": "object",
                                 "description": "A Git branch reference",
+                                "required": [
+                                  "head_ref",
+                                  "base_ref"
+                                ],
                                 "properties": {
                                   "head_ref": {
                                     "type": "string",
@@ -1090,15 +1083,6 @@
                               }
                             }
                           },
-                          "agent_id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "description": "Agent ID"
-                          },
-                          "agent_task_id": {
-                            "type": "string",
-                            "description": "Agent internal task ID"
-                          },
                           "task_id": {
                             "type": "string",
                             "description": "Task ID this session belongs to"
@@ -1132,46 +1116,9 @@
                             "format": "date-time",
                             "description": "Completion timestamp"
                           },
-                          "event_type": {
-                            "type": "string",
-                            "description": "Type of event that triggered this session"
-                          },
-                          "event_url": {
-                            "type": "string",
-                            "description": "URL of the triggering event"
-                          },
-                          "event_content": {
+                          "prompt": {
                             "type": "string",
                             "description": "Content of the triggering event"
-                          },
-                          "event_identifiers": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "description": "Identifiers for tracking"
-                          },
-                          "resource_type": {
-                            "type": "string",
-                            "description": "Type of resource associated with this session"
-                          },
-                          "resource_id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "description": "Resource ID"
-                          },
-                          "resource_number": {
-                            "type": "integer",
-                            "format": "int32",
-                            "description": "Resource number (e.g., PR number)"
-                          },
-                          "resource_global_id": {
-                            "type": "string",
-                            "description": "GraphQL global ID of the resource"
-                          },
-                          "resource_state": {
-                            "type": "string",
-                            "description": "State of the associated resource"
                           },
                           "head_ref": {
                             "type": "string",
@@ -1181,19 +1128,9 @@
                             "type": "string",
                             "description": "Base branch name"
                           },
-                          "workflow_run_id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "description": "GitHub Actions workflow run ID"
-                          },
                           "model": {
                             "type": "string",
                             "description": "Model used for this session"
-                          },
-                          "premium_requests": {
-                            "type": "number",
-                            "format": "double",
-                            "description": "Premium request count"
                           },
                           "error": {
                             "type": "object",
@@ -1358,10 +1295,9 @@
                   "artifacts": [
                     {
                       "provider": "github",
-                      "type": "github_resource",
+                      "type": "pull",
                       "data": {
-                        "id": 42,
-                        "type": "pull_request"
+                        "id": 42
                       }
                     }
                   ],
@@ -1505,25 +1441,24 @@
                             "type": {
                               "type": "string",
                               "enum": [
-                                "github_resource",
+                                "pull",
                                 "branch"
                               ],
-                              "description": "Discriminator for data shape"
+                              "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
                             },
                             "data": {
                               "oneOf": [
                                 {
                                   "type": "object",
                                   "description": "A GitHub resource (pull request, issue, etc.)",
+                                  "required": [
+                                    "id"
+                                  ],
                                   "properties": {
                                     "id": {
                                       "type": "integer",
                                       "format": "int64",
                                       "description": "GitHub resource ID"
-                                    },
-                                    "type": {
-                                      "type": "string",
-                                      "description": "Resource type (e.g., pull_request, issue)"
                                     },
                                     "global_id": {
                                       "type": "string",
@@ -1534,6 +1469,10 @@
                                 {
                                   "type": "object",
                                   "description": "A Git branch reference",
+                                  "required": [
+                                    "head_ref",
+                                    "base_ref"
+                                  ],
                                   "properties": {
                                     "head_ref": {
                                       "type": "string",
@@ -1666,10 +1605,9 @@
               "artifacts": [
                 {
                   "provider": "github",
-                  "type": "github_resource",
+                  "type": "pull",
                   "data": {
-                    "id": 42,
-                    "type": "pull_request"
+                    "id": 42
                   }
                 }
               ],
@@ -1694,9 +1632,10 @@
                   "created_at": "2025-01-01T00:00:00Z",
                   "updated_at": "2025-01-01T01:00:00Z",
                   "completed_at": "2025-01-01T01:00:00Z",
-                  "event_content": "Fix the login button on the homepage",
+                  "prompt": "Fix the login button on the homepage",
                   "head_ref": "copilot/fix-1",
-                  "base_ref": "main"
+                  "base_ref": "main",
+                  "model": "claude-sonnet-4.6"
                 }
               ]
             },
@@ -1828,25 +1767,24 @@
                           "type": {
                             "type": "string",
                             "enum": [
-                              "github_resource",
+                              "pull",
                               "branch"
                             ],
-                            "description": "Discriminator for data shape"
+                            "description": "Type of artifact. Available Values: `pull`, `branch`.\n"
                           },
                           "data": {
                             "oneOf": [
                               {
                                 "type": "object",
                                 "description": "A GitHub resource (pull request, issue, etc.)",
+                                "required": [
+                                  "id"
+                                ],
                                 "properties": {
                                   "id": {
                                     "type": "integer",
                                     "format": "int64",
                                     "description": "GitHub resource ID"
-                                  },
-                                  "type": {
-                                    "type": "string",
-                                    "description": "Resource type (e.g., pull_request, issue)"
                                   },
                                   "global_id": {
                                     "type": "string",
@@ -1857,6 +1795,10 @@
                               {
                                 "type": "object",
                                 "description": "A Git branch reference",
+                                "required": [
+                                  "head_ref",
+                                  "base_ref"
+                                ],
                                 "properties": {
                                   "head_ref": {
                                     "type": "string",
@@ -1950,15 +1892,6 @@
                               }
                             }
                           },
-                          "agent_id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "description": "Agent ID"
-                          },
-                          "agent_task_id": {
-                            "type": "string",
-                            "description": "Agent internal task ID"
-                          },
                           "task_id": {
                             "type": "string",
                             "description": "Task ID this session belongs to"
@@ -1992,46 +1925,9 @@
                             "format": "date-time",
                             "description": "Completion timestamp"
                           },
-                          "event_type": {
-                            "type": "string",
-                            "description": "Type of event that triggered this session"
-                          },
-                          "event_url": {
-                            "type": "string",
-                            "description": "URL of the triggering event"
-                          },
-                          "event_content": {
+                          "prompt": {
                             "type": "string",
                             "description": "Content of the triggering event"
-                          },
-                          "event_identifiers": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "description": "Identifiers for tracking"
-                          },
-                          "resource_type": {
-                            "type": "string",
-                            "description": "Type of resource associated with this session"
-                          },
-                          "resource_id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "description": "Resource ID"
-                          },
-                          "resource_number": {
-                            "type": "integer",
-                            "format": "int32",
-                            "description": "Resource number (e.g., PR number)"
-                          },
-                          "resource_global_id": {
-                            "type": "string",
-                            "description": "GraphQL global ID of the resource"
-                          },
-                          "resource_state": {
-                            "type": "string",
-                            "description": "State of the associated resource"
                           },
                           "head_ref": {
                             "type": "string",
@@ -2041,19 +1937,9 @@
                             "type": "string",
                             "description": "Base branch name"
                           },
-                          "workflow_run_id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "description": "GitHub Actions workflow run ID"
-                          },
                           "model": {
                             "type": "string",
                             "description": "Model used for this session"
-                          },
-                          "premium_requests": {
-                            "type": "number",
-                            "format": "double",
-                            "description": "Premium request count"
                           },
                           "error": {
                             "type": "object",

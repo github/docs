@@ -46,15 +46,15 @@ The merge block banner may specify the minimum severity level. All findings at t
 
 In order to unblock your pull request, you need to resolve each required finding by deciding whether to **fix** the issue in your code or **dismiss** the comment.
 
-### Leveraging {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_coding_agent %} to fix findings
+### Leveraging {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_cloud_agent %} to fix findings
 
 #### {% data variables.copilot.copilot_autofix_short %}
 
 {% data reusables.code-quality.fix-findings-with-copilot-autofix %}
 
-#### {% data variables.copilot.copilot_coding_agent %}
+#### {% data variables.copilot.copilot_cloud_agent %}
 
-{% data reusables.code-quality.fix-findings-with-coding-agent %}
+{% data reusables.code-quality.fix-findings-with-cloud-agent %}
 
 ### Dismissing the finding
 

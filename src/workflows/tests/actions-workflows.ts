@@ -13,15 +13,30 @@ const actionHashRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
 const checkoutRegexp = /^[actions/checkout]+@(v\d+(\.\d+)*|[0-9a-f]{40})$/
 const permissionsRegexp = /(read|write)/
 
+interface WorkflowTriggers {
+  schedule?: Array<{ cron: string }>
+  [key: string]: unknown
+}
+
 type WorkflowMeta = {
   filename: string
   fullpath: string
   data: {
     name: string
-    on: Record<string, any>
-    permissions: Record<string, any>
-    jobs: Record<string, any>
+    on: WorkflowTriggers
+    permissions: Record<string, string>
+    jobs: Record<string, WorkflowJob>
   }
+}
+
+interface WorkflowJob {
+  if?: string
+  steps: WorkflowStep[]
+}
+
+interface WorkflowStep {
+  uses?: string
+  [key: string]: unknown
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -69,12 +84,12 @@ const alertWorkflows = workflows
 // to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
 
 const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
-  data.on.schedule.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
+  data.on.schedule!.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
 )
 
 // Weekly workflows have a single day-of-week digit (e.g. "20 16 * * 1")
 const weeklyWorkflows = dailyWorkflows.filter(({ data }) =>
-  data.on.schedule.find(({ cron }: { cron: string }) => /^20 16 \* \* \d$/.test(cron)),
+  data.on.schedule!.find(({ cron }: { cron: string }) => /^20 16 \* \* \d$/.test(cron)),
 )
 
 describe('GitHub Actions workflows', () => {
@@ -87,7 +102,7 @@ describe('GitHub Actions workflows', () => {
   test.each(scheduledWorkflows)(
     'schedule workflow runs at 20 minutes past $filename',
     ({ data }) => {
-      for (const { cron } of data.on.schedule) {
+      for (const { cron } of data.on.schedule!) {
         expect(cron).toMatch(/^20/)
       }
     },
@@ -96,15 +111,15 @@ describe('GitHub Actions workflows', () => {
   test.each(dailyWorkflows)(
     'daily scheduled workflows run at 16:20 UTC / 8:20 PST $filename',
     ({ data }) => {
-      for (const { cron } of data.on.schedule) {
-        const hour = cron.match(/^20 ([^*\s]+)/)[1]
+      for (const { cron } of data.on.schedule!) {
+        const hour = cron.match(/^20 ([^*\s]+)/)![1]
         expect(hour).toEqual('16')
       }
     },
   )
 
   test.each(dailyWorkflows)('daily scheduled workflows only run Mon-Fri $filename', ({ data }) => {
-    for (const { cron } of data.on.schedule) {
+    for (const { cron } of data.on.schedule!) {
       const fields = cron.trim().split(/\s+/)
       const dayOfWeek = fields[4]
       // Day-of-week must be 1-5 (Mon-Fri) or a range within 1-5
@@ -113,7 +128,7 @@ describe('GitHub Actions workflows', () => {
   })
 
   test.each(weeklyWorkflows)('weekly scheduled workflows run on Monday $filename', ({ data }) => {
-    for (const { cron } of data.on.schedule) {
+    for (const { cron } of data.on.schedule!) {
       const fields = cron.trim().split(/\s+/)
       const dayOfWeek = fields[4]
       // Day-of-week must be 1 (Monday)
@@ -141,9 +156,7 @@ describe('GitHub Actions workflows', () => {
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {
         if (
-          !job.steps.find(
-            (step: Record<string, any>) => step.uses === './.github/actions/slack-alert',
-          )
+          !job.steps.find((step: WorkflowStep) => step.uses === './.github/actions/slack-alert')
         ) {
           throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
         }
@@ -157,8 +170,7 @@ describe('GitHub Actions workflows', () => {
       for (const [name, job] of Object.entries(data.jobs)) {
         if (
           !job.steps.find(
-            (step: Record<string, any>) =>
-              step.uses === './.github/actions/create-workflow-failure-issue',
+            (step: WorkflowStep) => step.uses === './.github/actions/create-workflow-failure-issue',
           )
         ) {
           throw new Error(`Job ${filename} # ${name} missing create-workflow-failure-issue on fail`)
@@ -171,7 +183,7 @@ describe('GitHub Actions workflows', () => {
     'performs a checkout before calling composite action $filename',
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {
-        if (!job.steps.find((step: Record<string, any>) => checkoutRegexp.test(step.uses))) {
+        if (!job.steps.find((step: WorkflowStep) => checkoutRegexp.test(step.uses || ''))) {
           throw new Error(
             `Job ${filename} # ${name} missing a checkout before calling the composite action`,
           )

@@ -16,4 +16,6 @@ children:
   - /plugins-finding-installing
   - /plugins-creating
   - /plugins-marketplace
+docsTeamMetrics:
+  - copilot-cli
 ---

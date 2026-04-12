@@ -7,7 +7,7 @@ versions:
 children:
   - /copilot-chat-cookbook
   - /customization-library
-  - /coding-agent
+  - /cloud-agent
   - /spark
   - /use-custom-instructions
   - /enhance-agent-mode-with-mcp

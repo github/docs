@@ -49,9 +49,9 @@ This version of this article is for using repository custom instructions on the 
 
 ## Creating repository-wide custom instructions
 
-You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_coding_agent %} to generate one for you.
+You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_cloud_agent %} to generate one for you.
 
-### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `copilot-instructions.md` file
+### Asking {% data variables.copilot.copilot_cloud_agent %} to generate a `copilot-instructions.md` file
 
 1. Navigate to the agents tab at [github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 
@@ -150,12 +150,12 @@ You can create your own custom instructions file from scratch. See [Writing your
    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
 > [!TIP]
-> The first time you create a pull request in a given repository with {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions for the repository.
+> The first time you create a pull request in a given repository with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions for the repository.
 
 ## Creating path-specific custom instructions
 
 > [!NOTE]
-> Currently, on {% data variables.product.prodname_dotcom_the_website %}, path-specific custom instructions are only supported for {% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_code-review_short %}.
+> Currently, on {% data variables.product.prodname_dotcom_the_website %}, path-specific custom instructions are only supported for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 
 {% data reusables.copilot.custom-instructions-path %}
 

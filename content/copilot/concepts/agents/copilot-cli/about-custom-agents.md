@@ -7,6 +7,8 @@ versions:
 category:
   - Learn about Copilot
 contentType: concepts
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 {% data reusables.copilot.copilot-cli.custom-agents-about-intro %}

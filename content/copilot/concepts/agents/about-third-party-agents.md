@@ -12,9 +12,9 @@ contentType: concepts
 
 ## Introduction
 
-You can use third-party coding agents alongside {% data variables.copilot.copilot_coding_agent %} to work asynchronously on your development tasks. You can assign an existing issue or give a prompt to an agent, which will work on the required changes and create a pull request. When the agent finishes, it will request a review from you, and you can leave pull request comments to ask the agent to iterate.
+You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %} to work asynchronously on your development tasks. You can assign an existing issue or give a prompt to an agent, which will work on the required changes and create a pull request. When the agent finishes, it will request a review from you, and you can leave pull request comments to ask the agent to iterate.
 
-Coding agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_coding_agent %}. To learn more about how you can use coding agents, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent).
+Coding agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. To learn more about how you can use coding agents, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
 ### Where you can use coding agents
 

@@ -231,9 +231,9 @@ To see details of the matching code:
 
 1. Click the name of a repository to display that repository on {% data variables.product.prodname_dotcom_the_website %}.
 
-## View code references for {% data variables.copilot.copilot_coding_agent %}
+## View code references for {% data variables.copilot.copilot_cloud_agent %}
 
-When {% data variables.product.prodname_copilot_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+When {% data variables.product.prodname_copilot_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
 
 {% endwebui %}
 

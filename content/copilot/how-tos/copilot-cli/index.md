@@ -33,6 +33,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/research
   - /content/copilot/concepts/agents/copilot-cli/chronicle
+  - /content/copilot/concepts/agents/copilot-cli/context-management
   - /set-up-copilot-cli/install-copilot-cli
   - /set-up-copilot-cli/configure-copilot-cli
   - /automate-copilot-cli/quickstart
@@ -64,4 +65,6 @@ includedCategories:
   - Configure Copilot CLI
   - Build with Copilot CLI
   - Administer Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---

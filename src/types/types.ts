@@ -57,11 +57,7 @@ export type PageFrontmatter = {
   featuredLinks?: FeaturedLinks
   changelog?: ChangeLog
   contentType?: string
-  includeGuides?: string[]
-  learningTracks?: string[]
   beta_product?: boolean
-  product_video?: boolean
-  product_video_transcript?: string
   interactive?: boolean
   communityRedirect?: {
     name: string
@@ -80,11 +76,6 @@ type FeaturedLinks = {
   guideCards?: string[]
   popular?: string[]
   popularHeading?: string
-  videos?: {
-    title: string
-    href: string
-  }[]
-  videoHeadings?: string
 }
 
 export type ChildGroup = {
@@ -186,45 +177,11 @@ export type Context = {
   productUserExamples?: ProductExample[]
   productGroups?: ProductGroup[]
   featuredLinks?: FeaturedLinksExpanded
-  currentLearningTrack?: LearningTrack | null
   renderedPage?: string
   miniTocItems?: MiniTocItem[]
   markdownRequested?: boolean
   markdownViaUrl?: boolean
 }
-export type LearningTracks = {
-  [group: string]: {
-    [track: string]: {
-      title: string
-      description: string
-      versions?: FrontmatterVersions
-      guides: string[]
-    }
-  }
-}
-export type LearningTrack = {
-  trackName: string
-  trackProduct: string
-  trackTitle: string
-  numberOfGuides?: number
-  currentGuideIndex?: number
-  nextGuide?: {
-    href: string
-    title: string | undefined
-  }
-  prevGuide?: {
-    href: string
-    title: string | undefined
-  }
-}
-
-export type TrackGuide = {
-  href: string
-  page: Page
-  title: string
-  intro: string
-}
-
 export type FeaturedLinkExpanded = {
   href: string
   title: string

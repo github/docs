@@ -11,5 +11,7 @@ children:
   - /steer-agents
   - /agentic-code-review
 contentType: how-tos
+docsTeamMetrics:
+  - copilot-cli
 ---
 

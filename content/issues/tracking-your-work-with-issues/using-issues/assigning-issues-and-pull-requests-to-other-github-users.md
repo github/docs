@@ -23,7 +23,7 @@ You can assign multiple people to each issue or pull request, including: yoursel
 
 {% ifversion copilot %}
 
-You may also be able to assign {% data variables.product.prodname_copilot_short %} to an issue, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
+You may also be able to assign {% data variables.product.prodname_copilot_short %} to an issue, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
 
 {% endif %}
 
@@ -53,7 +53,7 @@ Both issues and pull requests support up to 10 assignees.
 
 ## Assigning an issue to {% data variables.product.prodname_copilot_short %}
 
-If you assign an issue to {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} will work autonomously on the issue, creating a pull request and, when it has finished, requesting that you review the pull request. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
+If you assign an issue to {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} will work autonomously on the issue, creating a pull request and, when it has finished, requesting that you review the pull request. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
 {% endif %}
 

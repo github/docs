@@ -31,7 +31,6 @@ To set up a trial, you must be signed in to a personal account. If you don't hav
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-* {% data variables.copilot.copilot_for_business %}
 * {% data variables.product.prodname_GH_cs_and_sp %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
 * Access to the **new billing platform**.{% ifversion enhanced-billing-platform %} See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
@@ -44,6 +43,8 @@ Your trial **won't** include access to {% data variables.product.prodname_ghe_se
 
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.copilot.copilot_enterprise %}
+* {% data variables.copilot.copilot_for_business %}
+  * Contact {% data variables.contact.github_support %} to enable {% data variables.copilot.copilot_for_business %} during your trial.
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}
@@ -54,7 +55,7 @@ If you invite an existing organization into your trial enterprise, **all of thes
 
 ## Do I need to provide a payment method?
 
-You do not need to provide a payment method to start a trial. If you want to use {% data variables.copilot.copilot_business_short %} during the trial, you need to provide a credit card. You **won't** be charged for using {% data variables.copilot.copilot_business_short %} during the trial.
+You do not need to provide a payment method to start a trial. If you want to use {% data variables.copilot.copilot_business_short %} during the trial, you can contact {% data variables.contact.github_support %} for approval. Once your request is approved, you will need to provide a credit card for additional validation. You **won't** be charged for using {% data variables.copilot.copilot_business_short %} during the trial.
 
 ## During the trial
 

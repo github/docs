@@ -8,6 +8,8 @@ contentType: how-tos
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 Where a task involves multiple operations, some or all of which can be worked on in parallel, the `/fleet` slash command can speed up task completion. When you use this command, {% data variables.product.prodname_copilot_short %} assigns separate parts of the work to subagents.

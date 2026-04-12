@@ -31,19 +31,55 @@ let promisedWarmServer: Promise<WarmServerResult> | undefined
 async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResult> {
   const startTime = Date.now()
 
-  logger.debug(
-    `Priming context information...${languagesOnly && languagesOnly.length ? ` ${languagesOnly.join(',')} only` : ''}`,
-  )
+  const langSuffix =
+    languagesOnly && languagesOnly.length ? ` (${languagesOnly.join(',')})` : ' (all languages)'
 
+  logger.info(`warm-server: starting${langSuffix}`)
+
+  let stepStart = Date.now()
   const unversionedTree = await dog.loadUnversionedTree(languagesOnly)
+  logger.info('warm-server: loadUnversionedTree complete', {
+    durationMs: Date.now() - stepStart,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
+
+  stepStart = Date.now()
   const siteTree = await dog.loadSiteTree(unversionedTree, languagesOnly)
+  logger.info('warm-server: loadSiteTree complete', {
+    durationMs: Date.now() - stepStart,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
+
+  stepStart = Date.now()
   const pageList = await dog.loadPages(unversionedTree, languagesOnly)
+  logger.info('warm-server: loadPages complete', {
+    durationMs: Date.now() - stepStart,
+    pageCount: pageList.length,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
+
+  stepStart = Date.now()
   const pageMap = await dog.loadPageMap(pageList)
+  logger.info('warm-server: loadPageMap complete', {
+    durationMs: Date.now() - stepStart,
+    permalinkCount: Object.keys(pageMap).length,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
+
+  stepStart = Date.now()
   const redirects = await dog.loadRedirects(pageList)
+  logger.info('warm-server: loadRedirects complete', {
+    durationMs: Date.now() - stepStart,
+    redirectCount: Object.keys(redirects).length,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
 
   statsd.gauge('memory_heap_used', process.memoryUsage().heapUsed, ['event:warm-server'])
 
-  logger.debug(`Context primed in ${Date.now() - startTime} ms`)
+  logger.info('warm-server: complete', {
+    totalDurationMs: Date.now() - startTime,
+    heapUsedMb: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  })
 
   return {
     pages: pageMap,

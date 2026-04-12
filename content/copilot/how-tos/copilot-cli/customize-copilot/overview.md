@@ -11,6 +11,8 @@ category:
   - Configure Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/how-tos/copilot-cli/customize-copilot/quickstart-for-customizing
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 You can download and install {% data variables.copilot.copilot_cli_short %}, and start using it straight away, without any additional configuration. However, you'll find that you can improve {% data variables.product.prodname_copilot_short %}'s responses if you spend a little time providing it with guidelines and context, and giving it access to tools that are relevant to your project. This article introduces the various ways in which you can customize {% data variables.copilot.copilot_cli_short %}.

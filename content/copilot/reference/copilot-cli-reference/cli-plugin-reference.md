@@ -10,6 +10,8 @@ category:
 contentType: reference
 redirect_from:
   - /copilot/reference/cli-plugin-reference
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 {% data reusables.copilot.copilot-cli.cli-help-note %}

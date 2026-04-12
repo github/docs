@@ -30,8 +30,6 @@ carousels:
     - /codespaces/reference/security-in-github-codespaces
 changelog:
   label: codespaces
-product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
-product_video_transcript: /video-transcripts/transcript-codespaces-your-instant-dev-box-in-the-cloud
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/codespaces'
@@ -42,6 +40,7 @@ redirect_from:
     /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
   - /codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains
   - /codespaces/guides
+  - /video-transcripts/transcript-codespaces-your-instant-dev-box-in-the-cloud
 versions:
   fpt: '*'
   ghec: '*'

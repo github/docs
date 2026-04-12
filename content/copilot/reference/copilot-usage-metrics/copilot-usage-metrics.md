@@ -92,10 +92,12 @@ For example schemas of the data returned by the APIs, see [AUTOTITLE](/copilot/r
 | `totals_by_model_feature` / `totals_by_language_model` | Model-specific breakdowns for chat activity (not completions). When {% data variables.copilot.copilot_auto_model_selection_short %} is enabled, activity is attributed to the actual model used rather than appearing as `Auto`. |
 | `last_known_ide_version` / `last_known_plugin_version` | The most recent IDE and {% data variables.copilot.copilot_chat_short %} extension version detected for each user. |
 | `daily_active_cli_users` | Number of unique users in the enterprise or organization who used {% data variables.product.prodname_copilot_short %} via the CLI on a given day. This field is **independent** of IDE active user counts and is **not** included in IDE-based active user definitions. Omitted for enterprises or organizations with no CLI usage on that day. |
-| `totals_by_cli` | Breakdown of CLI-specific metrics for the enterprise or organization on a given day. Independent of IDE metrics—CLI usage is **not** reflected in other fields such as `totals_by_ide` or `totals_by_feature`. Omitted for enterprises or organizations with no CLI usage on that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields-api-only) below. |
+| `totals_by_cli` | Breakdown of CLI-specific metrics for the enterprise, organization, or user on a given day. Independent of IDE metrics—CLI usage is **not** reflected in other fields such as `totals_by_ide` or `totals_by_feature`. Omitted when there's no CLI usage on that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields-api-only) below. |
 | `used_cli` | Captures whether the user has used {% data variables.copilot.copilot_cli_short %} that day. |
-| `used_agent` | Captures whether the user has used IDE agent mode that day. |
+| `used_agent` | Captures whether the user has used agent mode in the IDE that day. Does not include {% data variables.copilot.copilot_code-review_short %} activity, which is captured separately in `used_copilot_code_review_active` and `used_copilot_code_review_passive`. |
 | `used_chat` | Captures whether the user has used IDE chat that day. |
+| `used_copilot_code_review_active` | Captures whether the user actively engaged with {% data variables.copilot.copilot_code-review_short %} that day. A user is considered active if they manually requested a {% data variables.product.prodname_copilot_short %} review, or applied a {% data variables.product.prodname_copilot_short %} review suggestion. |
+| `used_copilot_code_review_passive` | Captures whether the user had {% data variables.product.prodname_copilot_short %} automatically assigned to review their pull request that day, without actively engaging with the review. |
 
 ### {% data variables.copilot.copilot_cli_short %} metrics fields (API only)
 
