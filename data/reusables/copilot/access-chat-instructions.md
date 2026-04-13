@@ -1,3 +1,1 @@
-1. At the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar.
-
-   {% data variables.copilot.copilot_chat_short %} is displayed.
+1. Navigate to [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).

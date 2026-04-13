@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react'
 import { getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
 import { mapRawTocItemToTocItem } from '@/landings/types'
 import type { TocItem } from '@/landings/types'
-import type { ExtendedRequest, Context, LearningTrack } from '@/types'
+import type { ExtendedRequest, Context } from '@/types'
 import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 import type { FeaturedLink } from '@/landings/components/ProductLandingContext'
 
@@ -18,7 +18,6 @@ export type LandingContextT = {
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
   renderedPage: string
-  currentLearningTrack?: LearningTrack | null
   currentLayout: string
   heroImage?: string
   // For landing pages with carousels
@@ -29,6 +28,7 @@ export type LandingContextT = {
   introLinks?: Record<string, string> | null
   // For journey landing pages
   journeyTracks?: JourneyTrack[]
+  journeyArticlesHeading?: string | null
   // For article grid category filtering
   includedCategories?: string[]
 }
@@ -42,6 +42,7 @@ type LandingPage = NonNullable<Context['page']> & {
   rawPermissions?: string
   introLinks?: Record<string, string> | null
   resolvedJourneyTracks?: JourneyTrack[]
+  journeyArticlesHeading?: string
 }
 
 export const LandingContext = createContext<LandingContextT | null>(null)
@@ -103,12 +104,12 @@ export const getLandingContextFromRequest = async (
     variant: context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),
     renderedPage: context.renderedPage ?? '',
-    currentLearningTrack: context.currentLearningTrack ?? null,
     currentLayout: context.currentLayoutName ?? '',
     heroImage: page.heroImage || '/assets/images/banner-images/hero-1',
     introLinks: page.introLinks || null,
     carousels,
     journeyTracks,
+    journeyArticlesHeading: page.journeyArticlesHeading || null,
     includedCategories: page.includedCategories || [],
   }
 }

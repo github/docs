@@ -157,7 +157,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/6063
         - |
-          Releases support immutability, locking release assets from being added, modified, or deleted after publication and protecting the release tag from being moved or deleted. This helps protect distributed artifacts from supply chain attacks. Release attestations are not supported on GHES and are only available on GitHub.com.
+          Releases support immutability, locking release assets from being added, modified, or deleted after publication. The release tag cannot be moved, and cannot be deleted while the release exists. If the release is deleted, the tag can be removed but cannot be reused. This helps protect distributed artifacts from supply chain attacks. Release attestations are not supported on GHES and are only available on GitHub.com.
   
   changes:
     - |

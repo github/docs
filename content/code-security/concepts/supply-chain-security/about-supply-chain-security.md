@@ -81,7 +81,7 @@ For more information about dependency review, see [AUTOTITLE](/code-security/sup
 {% data variables.product.prodname_dependabot %} keeps your dependencies up to date by informing you of any security vulnerabilities in your dependencies and automatically opening pull requests to upgrade your dependencies. {% data variables.product.prodname_dependabot %} pull requests will target the next available secure version when a {% data variables.product.prodname_dependabot %} alert is triggered, or to the latest version when a release is published.
 
 The term "{% data variables.product.prodname_dependabot %}" encompasses the following features:
-* {% data variables.product.prodname_dependabot_alerts %}: Displayed notification on the **Security** tab for the repository, and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
+* {% data variables.product.prodname_dependabot_alerts %}: Displayed notification on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository, and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
 * {% data variables.product.prodname_dependabot_updates %}:
   * {% data variables.product.prodname_dependabot_security_updates %}: Triggered updates to upgrade your dependencies to a secure version when an alert is triggered.
   * {% data variables.product.prodname_dependabot_version_updates %}: Scheduled updates to keep your dependencies up to date with the latest version.
@@ -113,7 +113,7 @@ For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dep
   * A new advisory is added to the {% data variables.product.prodname_advisory_database %}{% else %}
   * New advisory data is synchronized to your instance each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
   * The dependency graph for the repository changes
-* {% data variables.product.prodname_dependabot_alerts %} are displayed on the **Security** tab for the repository and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
+* {% data variables.product.prodname_dependabot_alerts %} are displayed on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
 
 For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
@@ -129,7 +129,7 @@ For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alert
 * The dependency graph for a repository changes
 
 You can view {% data variables.product.prodname_dependabot_malware_alerts_short %} for a repository:
-* From the **Security** tab
+* From the **{% data variables.product.prodname_security_and_quality_tab %}** tab
 * In the dependency graph
 
 Each alert includes a link to the affected file in the project, as well as the patch version number for the package (if available).

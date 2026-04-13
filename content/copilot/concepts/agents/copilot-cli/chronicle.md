@@ -9,6 +9,8 @@ contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page
   - Learn about Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -91,4 +93,4 @@ To reindex the session store, use the following slash command in an interactive 
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/chronicle)
-* [AUTOTITLE](/copilot/reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

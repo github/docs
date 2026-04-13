@@ -3427,7 +3427,7 @@
             "false",
             "legacy"
           ],
-          "default": true
+          "default": "true"
         }
       ],
       "descriptionHTML": "<p>Users with push access to the repository can edit a release.</p>",

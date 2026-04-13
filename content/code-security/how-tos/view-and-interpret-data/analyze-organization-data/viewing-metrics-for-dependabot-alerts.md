@@ -22,7 +22,7 @@ This article explains how to access and view these metrics for your organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "dependabot" aria-hidden="true" aria-label="dependabot" %} {% data variables.product.prodname_dependabot %} dashboard**.
+1. In the sidebar, under "Insights", click **{% octicon "dependabot" aria-hidden="true" aria-label="dependabot" %} {% data variables.product.prodname_dependabot %} dashboard**.
 1. Optionally, use the filters at your disposal, or build your own filters. {% data reusables.security-overview.dependabot-filters-link %}
 1. Optionally, click on a number on the x-axis of the chart to filter the alert list by the relevant criteria (for example `has:patch severity:critical,high epss_percentage:>=0.01`).
 1. Optionally, click on an individual repository to see the associated {% data variables.product.prodname_dependabot_alerts %}.
@@ -33,7 +33,7 @@ The default funnel order is `has:patch, severity:critical,high, epss_percentage>
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "dependabot" aria-hidden="true" aria-label="dependabot" %} {% data variables.product.prodname_dependabot %} dashboard**.
+1. In the sidebar, under "Insights", click **{% octicon "dependabot" aria-hidden="true" aria-label="dependabot" %} {% data variables.product.prodname_dependabot %} dashboard**.
 1. On the top right of the "Alert prioritization" graph, click {% octicon "gear" aria-label="Configure funnel categories" %}.
 1. In the "Configure funnel order" dialog, move the criteria as desired.
 1. Once you're done, click **Move** to save your changes.

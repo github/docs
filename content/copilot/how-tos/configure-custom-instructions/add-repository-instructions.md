@@ -49,11 +49,9 @@ This version of this article is for using repository custom instructions on the 
 
 ## Creating repository-wide custom instructions
 
-You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_coding_agent %} to generate one for you.
+You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_cloud_agent %} to generate one for you.
 
-You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_coding_agent %} to generate one for you.
-
-### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `copilot-instructions.md` file
+### Asking {% data variables.copilot.copilot_cloud_agent %} to generate a `copilot-instructions.md` file
 
 1. Navigate to the agents tab at [github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 
@@ -63,12 +61,12 @@ You can create your own custom instructions file from scratch. See [Writing your
 1. Copy the following prompt and paste it into the prompt field, customizing it if needed:
 
    ```markdown copy
-   Your task is to "onboard" this repository to Copilot coding agent by adding a .github/copilot-instructions.md file in the repository that contains information describing how a coding agent seeing it for the first time can work most efficiently.
+   Your task is to "onboard" this repository to Copilot cloud agent by adding a .github/copilot-instructions.md file in the repository that contains information describing how a cloud agent seeing it for the first time can work most efficiently.
 
    You will do this task only one time per repository and doing a good job can SIGNIFICANTLY improve the quality of the agent's work, so take your time, think carefully, and search thoroughly before writing the instructions.
 
    <Goals>
-   - Reduce the likelihood of a coding agent pull request getting rejected by the user due to
+   - Reduce the likelihood of a cloud agent pull request getting rejected by the user due to
    generating code that fails the continuous integration build, fails a validation pipeline, or
    having misbehavior.
    - Minimize bash command and build failures.
@@ -127,7 +125,7 @@ You can create your own custom instructions file from scratch. See [Writing your
    - All project files.
    - All configuration and linting files.
    - For each file:
-   - think: are the contents or the existence of the file information that the coding agent will need to implement, build, test, validate, or demo a code change?
+   - think: are the contents or the existence of the file information that the cloud agent will need to implement, build, test, validate, or demo a code change?
    - If yes:
       - Document the command or information in detail.
       - Explicitly indicate which commands work and which do not and the order in which commands should be run.
@@ -152,12 +150,12 @@ You can create your own custom instructions file from scratch. See [Writing your
    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
 > [!TIP]
-> The first time you create a pull request in a given repository with {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions for the repository.
+> The first time you create a pull request in a given repository with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions for the repository.
 
 ## Creating path-specific custom instructions
 
 > [!NOTE]
-> Currently, on {% data variables.product.prodname_dotcom_the_website %}, path-specific custom instructions are only supported for {% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_code-review_short %}.
+> Currently, on {% data variables.product.prodname_dotcom_the_website %}, path-specific custom instructions are only supported for {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 
 {% data reusables.copilot.custom-instructions-path %}
 

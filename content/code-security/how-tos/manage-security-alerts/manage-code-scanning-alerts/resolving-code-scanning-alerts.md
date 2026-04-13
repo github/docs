@@ -58,9 +58,9 @@ You can also use the Autofix API for historical alerts endpoints to generate, ge
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-## Assigning alerts to {% data variables.copilot.copilot_coding_agent %}
+## Assigning alerts to {% data variables.copilot.copilot_cloud_agent %}
 
->[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_coding_agent %} must be available in the repository.
+>[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_cloud_agent %} must be available in the repository.
 
 You can assign {% data variables.product.prodname_copilot_short %} to apply an autofix. {% data variables.product.prodname_copilot_short %} analyzes the code scanning alert, creates a remediation plan, and implements the necessary code changes in a pull request.
 
@@ -95,7 +95,7 @@ Alerts may be fixed in one branch but not in another. You can use the "branch" f
 
 There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert.
 
-Dismissing an alert is a way of closing an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} You can dismiss alerts from {% data variables.product.prodname_code_scanning %} annotations in code, or from the summary list within the **Security** tab.
+Dismissing an alert is a way of closing an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} You can dismiss alerts from {% data variables.product.prodname_code_scanning %} annotations in code, or from the summary list within the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 When you dismiss an alert:
 

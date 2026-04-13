@@ -10,6 +10,8 @@ category:
 contentType: reference
 redirect_from:
   - /copilot/reference/acp-server
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 > [!NOTE]
@@ -17,7 +19,7 @@ redirect_from:
 
 ## Overview
 
-The Agent Client Protocol (ACP) is a protocol that standardizes communication between clients (such as code editors and IDEs) and coding agents (such as {% data variables.copilot.copilot_cli_short %}). For more details about this protocol, see the [official introduction](https://agentclientprotocol.com/get-started/introduction).
+The Agent Client Protocol (ACP) is a protocol that standardizes communication between clients (such as code editors and IDEs) and agents (such as {% data variables.copilot.copilot_cli_short %}). For more details about this protocol, see the [official introduction](https://agentclientprotocol.com/get-started/introduction).
 
 ## Use cases
 

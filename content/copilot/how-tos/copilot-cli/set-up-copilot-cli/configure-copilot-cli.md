@@ -8,6 +8,8 @@ contentType: how-tos
 category:
   - Configure Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -267,6 +269,7 @@ This flag combines:
 
 > [!TIP] During an interactive session, you can also enable all permissions with the `/allow-all` or `/yolo` slash commands.
 
-## Next steps
+## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference)

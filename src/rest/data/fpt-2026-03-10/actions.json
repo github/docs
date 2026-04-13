@@ -5732,8 +5732,7 @@
         {
           "type": "array of strings",
           "name": "include_claim_keys",
-          "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>",
-          "isRequired": true
+          "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates or updates the customization template for an OpenID Connect (OIDC) subject claim.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
@@ -11959,6 +11958,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }
@@ -15614,6 +15622,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }
@@ -23880,6 +23897,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }
@@ -28470,6 +28496,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -29167,6 +29202,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -30782,6 +30826,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -31479,6 +31532,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -33552,6 +33614,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -34249,6 +34320,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -38051,6 +38131,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -38748,6 +38837,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }

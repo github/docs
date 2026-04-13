@@ -8,9 +8,10 @@ import styles from './JourneyLearningTracks.module.scss'
 
 type JourneyLearningTracksProps = {
   tracks: JourneyTrack[]
+  articlesHeading?: string | null
 }
 
-export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) => {
+export const JourneyLearningTracks = ({ tracks, articlesHeading }: JourneyLearningTracksProps) => {
   const { t } = useTranslation('journey_landing')
 
   if (!tracks || tracks.length === 0) {
@@ -55,11 +56,12 @@ export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) =>
   // simple single journey
   if (tracks.length === 1) {
     const track = tracks[0]
+    const headingText = articlesHeading || t('articles_heading')
 
     return (
       <div data-testid="journey-single-track">
         <div className={styles.trackHeader}>
-          <h2 className="h1 text-bold mb-4">{t('articles_heading')}</h2>
+          <h2 className="h1 text-bold mb-4">{headingText}</h2>
         </div>
         <ol className={`${styles.trackGuides} pl-0`} data-testid="journey-articles">
           {(track.guides || []).map((article: { href: string; title: string }) => (

@@ -25,7 +25,7 @@ Memories are tightly scoped pieces of information about a repository, that are d
 * Repository-specific.
 * Only created in response to {% data variables.product.prodname_copilot_short %} activity initiated by users who have had {% data variables.copilot.copilot_memory %} enabled.
 
-Memories created by one part of {% data variables.product.prodname_copilot_short %} can be used by another part of {% data variables.product.prodname_copilot_short %}. So, for example, if {% data variables.copilot.copilot_coding_agent %} discovers how your repository handles database connections, {% data variables.copilot.copilot_code-review_short %} can later apply that knowledge to spot inconsistent patterns in a pull request it is reviewing. Similarly, if {% data variables.copilot.copilot_code-review_short %} learns about settings that must stay synchronized in two separate files, then {% data variables.copilot.copilot_coding_agent %} will know that if it alters the settings in one of those files it must update the other file accordingly.
+Memories created by one part of {% data variables.product.prodname_copilot_short %} can be used by another part of {% data variables.product.prodname_copilot_short %}. So, for example, if {% data variables.copilot.copilot_cloud_agent %} discovers how your repository handles database connections, {% data variables.copilot.copilot_code-review_short %} can later apply that knowledge to spot inconsistent patterns in a pull request it is reviewing. Similarly, if {% data variables.copilot.copilot_code-review_short %} learns about settings that must stay synchronized in two separate files, then {% data variables.copilot.copilot_cloud_agent %} will know that if it alters the settings in one of those files it must update the other file accordingly.
 
 ## Benefits of using {% data variables.copilot.copilot_memory %}
 
@@ -40,7 +40,7 @@ By building and maintaining a persistent, repository-level memory, {% data varia
 
 ## Where is {% data variables.copilot.copilot_memory %} used?
 
-Currently {% data variables.copilot.copilot_memory %} is used by {% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_code-review_short %} when these features are working on pull requests on the {% data variables.product.github %} website, and by {% data variables.copilot.copilot_cli_short %}. Memories are only created and used by {% data variables.product.prodname_copilot_short %} when {% data variables.copilot.copilot_memory %} has been enabled for the user initiating the {% data variables.product.prodname_copilot_short %} operation.
+Currently {% data variables.copilot.copilot_memory %} is used by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %} when these features are working on pull requests on the {% data variables.product.github %} website, and by {% data variables.copilot.copilot_cli_short %}. Memories are only created and used by {% data variables.product.prodname_copilot_short %} when {% data variables.copilot.copilot_memory %} has been enabled for the user initiating the {% data variables.product.prodname_copilot_short %} operation.
 
 Agentic memory will be extended to other parts of {% data variables.product.prodname_copilot_short %}, and for personal and organizational scopes, in future releases.
 

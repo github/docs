@@ -156,9 +156,7 @@ Find the GitHub repository containing the code for the math module in Python.
 
 When enabled, {% data variables.product.prodname_dependabot_alerts %} are automatically generated when {% data variables.product.prodname_dependabot %} detects a security issue in your dependencies, helping you quickly fix vulnerabilities. {% data variables.product.prodname_dependabot %} is available for **free** on all open source {% data variables.product.github %} repositories.
 
-Turn {% data variables.product.prodname_dependabot_alerts %} on for your repository now. Click the **Security** tab for your project's {% data variables.product.github %} repository. Next to {% data variables.product.prodname_dependabot_alerts %}, click **Enable {% data variables.product.prodname_dependabot_alerts %}**. You can access {% data variables.product.prodname_dependabot_alerts %} from the **{% data variables.product.prodname_dependabot %}** tab of the sidebar.
-
-  ![Screenshot of the "Security" page of a repository. The "Security" tab, "{% data variables.product.prodname_dependabot %}" tab, and "Enable {% data variables.product.prodname_dependabot_alerts %}" button are outlined in orange.](/assets/images/help/dependabot/learners-enable-dependabot.png)
+Turn {% data variables.product.prodname_dependabot_alerts %} on for your repository now. Click the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your project's {% data variables.product.github %} repository. Next to {% data variables.product.prodname_dependabot_alerts %}, click **Enable {% data variables.product.prodname_dependabot_alerts %}**. You can access {% data variables.product.prodname_dependabot_alerts %} from the **{% data variables.product.prodname_dependabot %}** tab of the sidebar.
 
 ### 3. Implementing code from a library
 

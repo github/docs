@@ -34,7 +34,7 @@ You should use the `X-GitHub-Api-Version` header to specify an API version. For 
 curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 ```
 
-Requests without the `X-GitHub-Api-Version` header will default to use the `2022-11-28` version.
+Requests without the `X-GitHub-Api-Version` header will default to use the `{{ defaultRestApiVersion }}` version.
 
 If you specify an API version that is no longer supported, you will receive a `400` error.
 

@@ -1,27 +1,8 @@
 import { createContext, useContext } from 'react'
-import pick from 'lodash/pick'
-import type { ExtendedRequest } from '@/types'
-
-export type LearningTrack = {
-  trackName: string
-  trackProduct: string
-  title: string
-  description: string
-  guides?: Array<{ href: string; contentType: string | null; title: string; intro: string }>
-}
-
-export type ArticleGuide = {
-  href: string
-  title: string
-  intro: string
-  contentType: string
-}
 
 export type ProductGuidesContextT = {
   title: string
   intro: string
-  learningTracks: Array<LearningTrack>
-  includeGuides?: Array<ArticleGuide>
 }
 
 export const ProductGuidesContext = createContext<ProductGuidesContextT | null>(null)
@@ -36,47 +17,4 @@ export const useProductGuidesContext = (): ProductGuidesContextT => {
   }
 
   return context
-}
-
-export const getProductGuidesContextFromRequest = (req: ExtendedRequest): ProductGuidesContextT => {
-  if (!req.context || !req.context.page) {
-    throw new Error('Request context or page is missing')
-  }
-
-  const page = req.context.page as typeof req.context.page & {
-    learningTracks?: Array<Record<string, unknown>>
-    includeGuides?: Array<Record<string, unknown>>
-  }
-
-  const learningTracks: LearningTrack[] = (page.learningTracks || []).map(
-    (track: Record<string, unknown>) => ({
-      title: (track.title as string) || '',
-      description: (track.description as string) || '',
-      trackName: (track.trackName as string) || '',
-      trackProduct: (track.trackProduct as string) || '',
-      guides: ((track.guides as Array<Record<string, unknown>>) || []).map(
-        (guide: Record<string, unknown>) => ({
-          title: (guide.title as string) || '',
-          intro: (guide.intro as string) || '',
-          href: (guide.href as string) || '',
-          contentType: ((guide.page as any)?.contentType as string) || null,
-        }),
-      ),
-    }),
-  )
-
-  return {
-    ...pick(page, ['title', 'intro']),
-    title: page.title || '',
-    intro: page.intro || '',
-    learningTracks,
-    includeGuides: (page.includeGuides || []).map((guide: Record<string, unknown>) => {
-      return {
-        href: (guide.href as string) || '',
-        title: (guide.title as string) || '',
-        intro: (guide.intro as string) || '',
-        contentType: (guide.contentType as string) || '',
-      }
-    }),
-  }
 }

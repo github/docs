@@ -23,7 +23,7 @@ When you enable {% data variables.product.prodname_code_quality_short %}, two ty
 
 * **{% data variables.product.prodname_codeql %} quality queries** run using {% data variables.product.prodname_code_scanning %} analysis and identify problems with the maintainability, reliability, or style of code. This runs on changed code in all pull requests against the default branch. It also runs periodically on the full default branch.
 
-* **Large Language Model (LLM)-powered analysis** provides additional insights into potential quality concerns beyond what is covered by deterministic engines like {% data variables.product.prodname_codeql %}. This runs automatically on files changed in recent pushes to the default branch. These findings are displayed in {% data variables.product.prodname_code_quality_short %}'s **{% data variables.code-quality.recent_suggestions %}** dashboard, under the Security tab of the repository.
+* **Large Language Model (LLM)-powered analysis** provides additional insights into potential quality concerns beyond what is covered by deterministic engines like {% data variables.product.prodname_codeql %}. This runs automatically on files changed in recent pushes to the default branch. These findings are displayed in {% data variables.product.prodname_code_quality_short %}'s **{% data variables.code-quality.recent_suggestions %}** dashboard, under the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository.
 
 When a quality issue is detected by either type of analysis, **{% data variables.copilot.copilot_autofix_short %}** suggests a relevant fix that can be reviewed and applied by developers.
 

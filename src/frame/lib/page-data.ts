@@ -1,5 +1,6 @@
 import path from 'path'
 
+import { createLogger } from '@/observability/logger'
 import languages from '@/languages/lib/languages-server'
 import type { Language } from '@/languages/lib/languages'
 import type { UnversionedTree, UnversionLanguageTree, SiteTree, Tree } from '@/types'
@@ -12,6 +13,8 @@ import Page from './page'
 import Permalink from './permalink'
 import frontmatterSchema from './frontmatter'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
+
+const logger = createLogger(import.meta.url)
 
 interface FileSystemError extends Error {
   code?: string
@@ -31,7 +34,13 @@ const THROW_TRANSLATION_ERRORS = Boolean(
 
 const versions = Object.keys(allVersions)
 
-class FrontmatterParsingError extends Error {}
+class FrontmatterParsingError extends Error {
+  isYmlError: boolean
+  constructor(message: string, isYmlError = false) {
+    super(message)
+    this.isYmlError = isYmlError
+  }
+}
 
 // Note! As of Nov 2022, the schema says that 'product' is translatable
 // which is surprising since only a single page has prose in it.
@@ -170,7 +179,7 @@ async function translateTree(
       //
       // If this the case throw error so we can lump this error with
       // how we deal with the file not even being present on disk.
-      throw new FrontmatterParsingError(JSON.stringify(read.errors))
+      throw new FrontmatterParsingError(JSON.stringify(read.errors), true)
     }
 
     for (const { property } of read.errors) {
@@ -187,7 +196,7 @@ async function translateTree(
         const message = `frontmatter error on '${property}' (in ${fullPath}) so falling back to English`
         if (DEBUG_TRANSLATION_FALLBACKS) {
           // The object format is so the health report knows which path the issue is on
-          console.warn({ message, path: relativePath })
+          logger.warn(message, { path: relativePath })
         }
         if (THROW_TRANSLATION_ERRORS) {
           throw new Error(message)
@@ -202,10 +211,17 @@ async function translateTree(
     if ((error as FileSystemError).code === 'ENOENT' || error instanceof FrontmatterParsingError) {
       data = enData
       content = enPage.markdown
-      const message = `Unable to initialize ${fullPath} because translation content file does not exist.`
-      if (DEBUG_TRANSLATION_FALLBACKS) {
-        // The object format is so the health report knows which path the issue is on
-        console.warn({ message, path: relativePath })
+      const message =
+        error instanceof FrontmatterParsingError && error.isYmlError
+          ? `Unable to parse YAML frontmatter in ${fullPath}, falling back to English. Details: ${error.message}`
+          : `Unable to initialize ${fullPath} because translation content file does not exist.`
+      if (error instanceof FrontmatterParsingError && error.isYmlError) {
+        // YAML parse failures are always logged — they indicate a translation file is corrupt
+        // and will silently serve English until the translation repo is fixed.
+        logger.warn(message, { path: relativePath })
+      } else if (DEBUG_TRANSLATION_FALLBACKS) {
+        // Missing translation files are expected and high-volume; only log when opted in.
+        logger.warn(message, { path: relativePath })
       }
       if (THROW_TRANSLATION_ERRORS) {
         throw new Error(message)

@@ -14,6 +14,7 @@ import {
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key'
 import handleErrors from '@/observability/middleware/handle-errors'
+import expressMetrics from '@/observability/middleware/express-metrics'
 import handleNextDataPath from './handle-next-data-path'
 import detectLanguage from '@/languages/middleware/detect-language'
 import detectVersion from '@/versions/middleware/detect-version'
@@ -51,7 +52,6 @@ import features from '@/versions/middleware/features'
 import productExamples from './context/product-examples'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
-import learningTrack from '@/learning-track/middleware/learning-track'
 import journeyTrack from '@/journeys/middleware/journey-track'
 import next from './next'
 import renderPage from './render-page'
@@ -115,6 +115,7 @@ export default function index(app: Express) {
   // *** Logging ***
   app.use(initLoggerContext) // Context for both inline logs (e.g. logger.info) and automatic logs
   app.use(getAutomaticRequestLogger()) // Automatic logging for all requests e.g. "GET /path 200"
+  app.use(expressMetrics) // StatsD metrics for response time and status codes
 
   // Put this early to make it as fast as possible because it's used
   // to check the health of each cluster.
@@ -283,7 +284,6 @@ export default function index(app: Express) {
   app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(resolveCarousels))
-  app.use(asyncMiddleware(learningTrack))
   app.use(asyncMiddleware(journeyTrack))
 
   if (ENABLE_FASTLY_TESTING) {

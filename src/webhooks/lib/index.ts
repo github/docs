@@ -6,8 +6,29 @@ import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 export const WEBHOOK_DATA_DIR = 'src/webhooks/data'
 export const WEBHOOK_SCHEMA_FILENAME = 'schema.json'
 
+interface WebhookBodyParameter {
+  name?: string
+  type?: string
+  description?: string
+  isRequired?: boolean
+  childParamsGroups?: unknown[]
+  [key: string]: unknown
+}
+
+interface WebhookActionData {
+  bodyParameters?: WebhookBodyParameter[]
+  summaryHtml?: string
+  descriptionHtml?: string
+  availability?: string[]
+  payloadExample?: unknown
+  [key: string]: unknown
+}
+
+type WebhookCategory = Record<string, WebhookActionData>
+type WebhookData = Record<string, WebhookCategory>
+
 // cache for webhook data per version
-const webhooksCache = new Map<string, Promise<Record<string, any>>>()
+const webhooksCache = new Map<string, Promise<WebhookData>>()
 // cache for webhook data for when you first visit the webhooks page where we
 // show all webhooks for the current version but only 1 action type per webhook
 // and also no nested parameters
@@ -16,13 +37,7 @@ const initialWebhooksCache = new Map<string, InitialWebhook[]>()
 interface InitialWebhook {
   name: string
   actionTypes: string[]
-  data: {
-    bodyParameters?: Array<{
-      childParamsGroups?: any[]
-      [key: string]: any
-    }>
-    [key: string]: any
-  }
+  data: WebhookActionData
 }
 
 // return the webhoook data as described for `initialWebhooksCache` for the given
@@ -69,13 +84,13 @@ export async function getInitialPageWebhooks(version: string): Promise<InitialWe
 export async function getWebhook(
   version: string,
   webhookCategory: string,
-): Promise<Record<string, any> | undefined> {
+): Promise<WebhookCategory | undefined> {
   const webhooks = await getWebhooks(version)
   return webhooks[webhookCategory]
 }
 
 // returns all the webhook data for the given version
-export async function getWebhooks(version: string): Promise<Record<string, any>> {
+export async function getWebhooks(version: string): Promise<WebhookData> {
   const openApiVersion = getOpenApiVersion(version)
   if (!webhooksCache.has(openApiVersion)) {
     // The `readCompressedJsonFileFallback()` function
@@ -85,7 +100,7 @@ export async function getWebhooks(version: string): Promise<Record<string, any>>
       Promise.resolve(
         readCompressedJsonFileFallback(
           path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME),
-        ) as Record<string, any>,
+        ) as WebhookData,
       ),
     )
   }

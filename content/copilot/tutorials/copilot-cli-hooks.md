@@ -10,6 +10,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Administer Copilot CLI # Copilot CLI bespoke page
 allowTitleToDifferFromFilename: true
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 This tutorial is for DevOps engineers, platform teams, and engineering leaders who support developers using {% data variables.copilot.copilot_cli_short %}.
@@ -693,4 +695,4 @@ Some teams (for example, infrastructure or platform teams) may require broader p
 
 ## Further reading
 
-For troubleshooting hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks#troubleshooting).
+For troubleshooting hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-hooks#troubleshooting).

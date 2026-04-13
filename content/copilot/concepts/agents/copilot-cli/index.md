@@ -7,11 +7,16 @@ versions:
   feature: copilot
 children:
   - /about-copilot-cli
-  - /about-cli-plugins
   - /comparing-cli-features
+  - /about-remote-access
+  - /about-custom-agents
+  - /about-cli-plugins
   - /autopilot
   - /fleet
   - /research
   - /chronicle
+  - /context-management
 contentType: concepts
+docsTeamMetrics:
+  - copilot-cli
 ---

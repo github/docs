@@ -13,6 +13,8 @@ contentType: how-tos
 category:
   - Author and optimize with Copilot
   - Build with Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
@@ -118,7 +120,7 @@ You can prepend your input with `!` to directly run shell commands, without maki
 
 ### Resume an interactive session
 
-You can use the `--resume` command-line option or the `/resume` slash command to select and resume an interactive CLI session, allowing you to pick up right where you left off, with the saved context. You can kick off a {% data variables.copilot.copilot_coding_agent %} session on {% data variables.product.github %}, and then use {% data variables.copilot.copilot_cli %} to bring that session to your local environment.
+You can use the `--resume` command-line option or the `/resume` slash command to select and resume an interactive CLI session, allowing you to pick up right where you left off, with the saved context. You can kick off a {% data variables.copilot.copilot_cloud_agent %} session on {% data variables.product.github %}, and then use {% data variables.copilot.copilot_cli %} to bring that session to your local environment.
 
 > [!TIP]
 > To quickly resume the most recently closed local session, enter this in your terminal:
@@ -208,7 +210,7 @@ In the case of naming conflicts, a system-level agent overrides a repository-lev
   copilot --agent=refactor-agent --prompt "Refactor this code block"
   ```
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
 
 ### Use skills
 
@@ -231,7 +233,7 @@ To extend the functionality available to you in {% data variables.copilot.copilo
 1. Fill in the details for the MCP server you want to add, using the <kbd>Tab</kbd> key to move between fields.
 1. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save the details.
 
-Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
 ### Context management
 
@@ -300,4 +302,5 @@ You can work with agents in {% data variables.copilot.copilot_cli_short %} to su
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/cli-best-practices)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server)

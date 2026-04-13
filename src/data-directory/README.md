@@ -3,18 +3,18 @@
 Purpose-built utilities, schemas, and workflows that power our Liquid `{% data %}` and `{% indented_data_reference %}` tags, reusable content, UI strings, and feature metadata. This subject focuses on how we read, validate, and serve files in `data/` across languages.
 
 ## Purpose & scope
-- Provide a consistent API (`getDataByLanguage`, `getDeepDataByLanguage`) to load `data/` files for Liquid rendering and server contexts.
-- Enforce schemas for critical data (features, variables, learning tracks, release notes, tables, glossaries, code languages, CTAs).
-- Ship CLI and CI helpers that keep `data/` clean (orphaned feature detection, deleted-feature PR guardrails).
-- Exclude: content authoring guidance (see `content/`), page routing (see `src/app`/`src/frame`), and general linter rules (see `src/content-linter`).
+* Provide a consistent API (`getDataByLanguage`, `getDeepDataByLanguage`) to load `data/` files for Liquid rendering and server contexts.
+* Enforce schemas for critical data (features, variables, release notes, tables, glossaries, code languages, CTAs).
+* Ship CLI and CI helpers that keep `data/` clean (orphaned feature detection, deleted-feature PR guardrails).
+* Exclude: content authoring guidance (see `content/`), page routing (see `src/app`/`src/frame`), and general linter rules (see `src/content-linter`).
 
 ## Architecture & key assets
-- `lib/get-data.ts`: translation-aware loader with memoized reads, forced-English exceptions, and UI data merging; used by Liquid tags and server contexts.
-- `lib/data-directory.ts` + `lib/filename-to-key.ts`: generic walker that turns files into dotted-key objects with optional preprocessing.
-- `lib/data-schemas/`: AJV schema registry that auto-discovers `data/tables/*.yml` schemas and registers other critical shapes (features, variables, learning tracks, release notes, glossaries, code languages, CTAs).
-- Middleware: `middleware/data-tables.ts` caches table data into `req.context.tables` (English).
-- Scripts: `scripts/find-orphaned-features/*` (detect/delete unused `data/features/*.yml`) and `scripts/deleted-features-pr-comment.ts` (warn on feature deletions in PRs).
-- Tests: `tests/` cover schema validation, data loading, key normalization, and orphan detection fixtures.
+* `lib/get-data.ts`: translation-aware loader with memoized reads, forced-English exceptions, and UI data merging; used by Liquid tags and server contexts.
+* `lib/data-directory.ts` + `lib/filename-to-key.ts`: generic walker that turns files into dotted-key objects with optional preprocessing.
+* `lib/data-schemas/`: AJV schema registry that auto-discovers `data/tables/*.yml` schemas and registers other critical shapes (features, variables, release notes, glossaries, code languages, CTAs).
+* Middleware: `middleware/data-tables.ts` caches table data into `req.context.tables` (English).
+* Scripts: `scripts/find-orphaned-features/*` (detect/delete unused `data/features/*.yml`) and `scripts/deleted-features-pr-comment.ts` (warn on feature deletions in PRs).
+* Tests: `tests/` cover schema validation, data loading, key normalization, and orphan detection fixtures.
 
 ## Data loading contracts
 - `lib/get-data.ts`

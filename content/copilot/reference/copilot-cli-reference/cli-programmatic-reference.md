@@ -8,6 +8,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: reference
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 In addition to running {% data variables.copilot.copilot_cli_short %} interactively, you can also pass a prompt directly to the CLI in a single command, without entering an interactive session. This allows you to use {% data variables.product.prodname_copilot_short %} programmatically in scripts, CI/CD pipelines, and automation workflows. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically).

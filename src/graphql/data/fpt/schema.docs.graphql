@@ -5824,8 +5824,9 @@ type CommitComment implements Comment & Deletable & Minimizable & Node & Reactab
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -12830,8 +12831,9 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -17940,8 +17942,9 @@ type GistComment implements Comment & Deletable & Minimizable & Node & Updatable
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -20132,8 +20135,9 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Pinnable
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -20540,6 +20544,86 @@ type IssueEdge {
 }
 
 """
+Represents a 'issue_field_added' event on a given issue.
+"""
+type IssueFieldAddedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The color if it is a single-select field.
+  """
+  color: String
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the IssueFieldAddedEvent object
+  """
+  id: ID!
+
+  """
+  The issue field added.
+  """
+  issueField: IssueFields
+
+  """
+  The value of the added field.
+  """
+  value: String
+}
+
+"""
+Represents a 'issue_field_changed' event on a given issue.
+"""
+type IssueFieldChangedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the IssueFieldChangedEvent object
+  """
+  id: ID!
+
+  """
+  The issue field changed.
+  """
+  issueField: IssueFields
+
+  """
+  The new color if it is a single-select field.
+  """
+  newColor: String
+
+  """
+  The new value of the field.
+  """
+  newValue: String
+
+  """
+  The previous color if it was a single-select field.
+  """
+  previousColor: String
+
+  """
+  The previous value of the field.
+  """
+  previousValue: String
+}
+
+"""
 Common fields across different issue field types
 """
 interface IssueFieldCommon {
@@ -20770,6 +20854,31 @@ enum IssueFieldOrderField {
 }
 
 """
+Represents a 'issue_field_removed' event on a given issue.
+"""
+type IssueFieldRemovedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the IssueFieldRemovedEvent object
+  """
+  id: ID!
+
+  """
+  The issue field removed.
+  """
+  issueField: IssueFields
+}
+
+"""
 Represents a single select issue field.
 """
 type IssueFieldSingleSelect implements IssueFieldCommon & Node {
@@ -20942,6 +21051,11 @@ type IssueFieldSingleSelectValue implements IssueFieldValueCommon & Node {
   The selected option's global relay ID.
   """
   optionId: String
+
+  """
+  The option's name text (alias for `name`, for consistency with other field value types).
+  """
+  value: String!
 }
 
 """
@@ -21215,6 +21329,26 @@ enum IssueOrderField {
 }
 
 """
+Type of issue search performed
+"""
+enum IssueSearchType {
+  """
+  Hybrid search combining lexical and semantic approaches
+  """
+  HYBRID
+
+  """
+  Lexical (keyword-based) search
+  """
+  LEXICAL
+
+  """
+  Semantic (meaning-based) search using embeddings
+  """
+  SEMANTIC
+}
+
+"""
 The possible states of an issue.
 """
 enum IssueState {
@@ -21431,6 +21565,9 @@ union IssueTimelineItems =
   | IssueComment
   | IssueCommentPinnedEvent
   | IssueCommentUnpinnedEvent
+  | IssueFieldAddedEvent
+  | IssueFieldChangedEvent
+  | IssueFieldRemovedEvent
   | IssueTypeAddedEvent
   | IssueTypeChangedEvent
   | IssueTypeRemovedEvent
@@ -22477,6 +22614,46 @@ enum LanguageOrderField {
   Order languages by the size of all files containing the language
   """
   SIZE
+}
+
+"""
+Reason why a semantic or hybrid issue search fell back to lexical search
+"""
+enum LexicalFallbackReason {
+  """
+  Query targets non-issue types (e.g., pull requests)
+  """
+  NON_ISSUE_TARGET
+
+  """
+  Scoped query resolved to zero accessible repositories
+  """
+  NO_ACCESSIBLE_REPOS
+
+  """
+  Query has only qualifiers and no free text terms
+  """
+  NO_TEXT_TERMS
+
+  """
+  Query uses an in: qualifier targeting non-semantic fields
+  """
+  ONLY_NON_SEMANTIC_FIELDS_REQUESTED
+
+  """
+  Query contains OR operators (nested boolean qualifiers)
+  """
+  OR_BOOLEAN_NOT_SUPPORTED
+
+  """
+  Query contains quoted text requiring exact matches
+  """
+  QUOTED_TEXT
+
+  """
+  Embedding generation failed or timed out
+  """
+  SERVER_ERROR
 }
 
 """
@@ -25277,8 +25454,9 @@ interface Minimizable {
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -43446,8 +43624,9 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -43716,8 +43895,9 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
 
   """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
-  `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
-  formatting of these values differs from the inputs to the `MinimizeComment` mutation.
+  `outdated`, `resolved`, `duplicate`, `spam`, and `low-quality`. Note that the
+  case and formatting of these values differs from the inputs to the
+  `MinimizeComment` mutation.
   """
   minimizedReason: String
 
@@ -44598,6 +44778,9 @@ union PullRequestTimelineItems =
   | IssueComment
   | IssueCommentPinnedEvent
   | IssueCommentUnpinnedEvent
+  | IssueFieldAddedEvent
+  | IssueFieldChangedEvent
+  | IssueFieldRemovedEvent
   | IssueTypeAddedEvent
   | IssueTypeChangedEvent
   | IssueTypeRemovedEvent
@@ -53197,6 +53380,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     before: String
 
     """
+    Filter by the classification of the alert's associated security advisory
+    """
+    classifications: [SecurityAdvisoryClassification!]
+
+    """
     Filter by the scope of the alert's dependency
     """
     dependencyScopes: [RepositoryVulnerabilityAlertDependencyScope!]
@@ -57245,6 +57433,16 @@ type SearchResultItemConnection {
   issueCount: Int!
 
   """
+  The type of search that was performed for issues (lexical, semantic, or hybrid)
+  """
+  issueSearchType: IssueSearchType
+
+  """
+  When a semantic or hybrid search falls back to lexical, the reasons why the fallback occurred.
+  """
+  lexicalFallbackReason: [LexicalFallbackReason!]
+
+  """
   A list of nodes.
   """
   nodes: [SearchResultItem]
@@ -57313,6 +57511,16 @@ enum SearchType {
   Returns results matching issues in repositories.
   """
   ISSUE_ADVANCED
+
+  """
+  Returns results matching issues using hybrid (lexical + semantic) search.
+  """
+  ISSUE_HYBRID
+
+  """
+  Returns results matching issues using semantic search.
+  """
+  ISSUE_SEMANTIC
 
   """
   Returns results matching repositories.

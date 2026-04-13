@@ -110,6 +110,11 @@ updates:
     registries:
       - example
   - package-ecosystem: "gomod"
+    directories:
+      - "**/*"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
     groups:
       golang:
         applies-to: security-updates
@@ -118,7 +123,7 @@ updates:
 ```
 
 > [!NOTE]
-> In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates, the `directory` must be the path to the manifest files, and you should not specify a `target-branch`.
+> In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates, the `directory` must be the path to the manifest files (or `directories` must contain paths or glob patterns matching the manifest file locations), and you should not specify a `target-branch`.
 
 ## Further reading
 

@@ -93,4 +93,4 @@ Finally, look for the following indicators, which may require additional prevent
 
 ## Next steps
 
-For stronger secret security and additional insights, {% data variables.product.github %} recommends enabling {% data variables.product.prodname_GH_secret_protection %} for all of your repositories. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets).
+After understanding your secret exposure, select repositories for a {% data variables.product.prodname_GH_secret_protection %} pilot. See [AUTOTITLE](/code-security/concepts/security-at-scale/best-practices-for-selecting-pilot-repositories).

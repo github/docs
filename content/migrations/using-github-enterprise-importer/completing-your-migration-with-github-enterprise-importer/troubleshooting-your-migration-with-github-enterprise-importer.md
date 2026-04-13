@@ -170,6 +170,15 @@ This usually happens where commits have been removed with a force push, or a bra
 
 In this case, the comments are not lost, but are migrated as inline pull request comments to preserve history, rather than as a review attached to a specific commit.
 
+### The pull request review is imported as an inline pull request comment
+
+These warnings indicate that a pull request review could not be migrated is in its original form, but as inline pull request comments:
+
+- `INVALID_REVIEW_THREAD`
+- `LINE_NOT_FOUND_IN_DIFF`
+- `REVIEW_THREAD_MISSING_BODY`
+
+
 ### Team references are broken after an organization migration
 
 {% data reusables.enterprise-migration-tool.team-references %}

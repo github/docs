@@ -75,6 +75,6 @@ Your goal is to make the codebase more stable and reliable by implementing worki
    Scan the repository for the most critical bug, then implement a targeted fix and explain your approach.
    ```
 
-The agent task will appear on the page below the text box. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+The agent task will appear on the page below the text box. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
 
 {% data reusables.copilot.custom-agents-further-reading %}

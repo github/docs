@@ -88,7 +88,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
     | :- | :- | :- |
     | IdP Sign-On URL | Login URL, IdP URL | Application's URL on your IdP |
     | IdP Identifier URL | Issuer | IdP's identifier to service providers for SAML authentication |
-    | Signing certificate, Base64-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
+    | Signing certificate, PEM-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
 
 ### Configure your enterprise
 

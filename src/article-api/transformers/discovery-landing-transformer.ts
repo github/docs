@@ -50,8 +50,7 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     // Process carousels (each carousel becomes a section)
     const carousels = discoveryPage.carousels ?? discoveryPage.rawCarousels
     if (carousels && typeof carousels === 'object') {
-      const { default: getLearningTrackLinkData } =
-        await import('@/learning-track/lib/get-link-data')
+      const { default: getPageLinkData } = await import('@/frame/lib/get-link-data')
 
       for (const [carouselKey, articles] of Object.entries(carousels)) {
         if (!Array.isArray(articles) || articles.length === 0) continue
@@ -66,7 +65,7 @@ export class DiscoveryLandingTransformer implements PageTransformer {
           }))
         } else {
           // Raw paths that need resolution
-          const linkData = await getLearningTrackLinkData(articles as string[], context, {
+          const linkData = await getPageLinkData(articles as string[], context, {
             title: true,
             intro: true,
           })
@@ -94,12 +93,11 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     // Intro links (getting started)
     const rawIntroLinks = discoveryPage.introLinks ?? discoveryPage.rawIntroLinks
     if (rawIntroLinks) {
-      const { default: getLearningTrackLinkData } =
-        await import('@/learning-track/lib/get-link-data')
+      const { default: getPageLinkData } = await import('@/frame/lib/get-link-data')
       const links = await Promise.all(
         Object.values(rawIntroLinks).map(async (href): Promise<LinkData> => {
           if (typeof href === 'string') {
-            const linkData = await getLearningTrackLinkData(href, context)
+            const linkData = await getPageLinkData(href, context)
             if (Array.isArray(linkData) && linkData.length > 0) {
               const item = linkData[0]
               return { href: item.href || '', title: item.title || '', intro: item.intro || '' }

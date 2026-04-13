@@ -4545,7 +4545,7 @@
       "codeExamples": [
         {
           "request": {
-            "description": "Example",
+            "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "parameters": {
               "owner": "OWNER",
@@ -5172,6 +5172,66 @@
               ]
             }
           }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ref": "REF"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/vnd.github.diff",
+            "description": "<p>Response</p>",
+            "example": "diff --git a/testfile b/testfile\nindex 9bdeaeb..912c7ef 100644\n--- a/testfile\n+++ b/testfile\n@@ -1 +1 @@\n-test\n+test change\n",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 3: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ref": "REF"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/vnd.github.patch",
+            "description": "<p>Response</p>",
+            "example": "From ac3282a2725be3b1d4979169a7a311c89066af1c Mon Sep 17 00:00:00 2001\nFrom: Mona Lisa <87831417+monalisa@users.noreply.github.com>\nDate: Fri, 6 Mar 2026 11:18:45 +0000\nSubject: [PATCH] Change 'test' to 'test change' in testfile\n\n---\ntestfile | 2 +-\n1 file changed, 1 insertion(+), 1 deletion(-)\n\ndiff --git a/testfile b/testfile\nindex 9bdeaeb..912c7ef 100644\n--- a/testfile\n+++ b/testfile\n@@ -1 +1 @@\n-test\n+test change\n",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 4: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ref": "REF"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/vnd.github.sha",
+            "description": "<p>Response</p>",
+            "example": "ac3282a2725be3b1d4979169a7a311c89066af1c",
+            "schema": {
+              "type": "string"
+            }
+          }
         }
       ],
       "statusCodes": [
@@ -5272,7 +5332,7 @@
       "codeExamples": [
         {
           "request": {
-            "description": "Example",
+            "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
             "parameters": {
               "owner": "OWNER",
@@ -7232,6 +7292,46 @@
                 "total_commits",
                 "commits"
               ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "basehead": "BASEHEAD"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/vnd.github.diff",
+            "description": "<p>Response</p>",
+            "example": "diff --git a/testfile b/testfile\nindex 9bdeaeb..912c7ef 100644\n--- a/testfile\n+++ b/testfile\n@@ -1 +1 @@\n-test\n+test change\n",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 3: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "basehead": "BASEHEAD"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/vnd.github.patch",
+            "description": "<p>Response</p>",
+            "example": "From ac3282a2725be3b1d4979169a7a311c89066af1c Mon Sep 17 00:00:00 2001\nFrom: Mona Lisa <87831417+monalisa@users.noreply.github.com>\nDate: Fri, 6 Mar 2026 11:18:45 +0000\nSubject: [PATCH] Change 'test' to 'test change' in testfile\n\n---\ntestfile | 2 +-\n1 file changed, 1 insertion(+), 1 deletion(-)\n\ndiff --git a/testfile b/testfile\nindex 9bdeaeb..912c7ef 100644\n--- a/testfile\n+++ b/testfile\n@@ -1 +1 @@\n-test\n+test change\n",
+            "schema": {
+              "type": "string"
             }
           }
         }

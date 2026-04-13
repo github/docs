@@ -42,9 +42,9 @@ To use a slash command, type `/github` followed by the command you want to execu
 
 {% ifversion fpt or ghec %}
 
-## Initiating {% data variables.copilot.copilot_coding_agent %} sessions within Slack
+## Initiating {% data variables.copilot.copilot_cloud_agent %} sessions within Slack
 
-The {% data variables.product.github %} app also integrates {% data variables.copilot.copilot_coding_agent %} into Slack. You can use this functionality to summon {% data variables.copilot.copilot_coding_agent %} in threads where important discussions are taking place, and ask it to make changes based on the context of those discussions. See: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack).
+The {% data variables.product.github %} app also integrates {% data variables.copilot.copilot_cloud_agent %} into Slack. You can use this functionality to summon {% data variables.copilot.copilot_cloud_agent %} in threads where important discussions are taking place, and ask it to make changes based on the context of those discussions. See: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack).
 
 {% endif %}
 
