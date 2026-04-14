@@ -6,7 +6,7 @@ introLinks:
   overview: /contributing/collaborating-on-github-docs/about-contributing-to-github-docs
   quickstart: /contributing/writing-for-github-docs/best-practices-for-github-docs
 changelog:
-  label: docs
+  label: docs 00
 layout: discovery-landing
 includedCategories:
   - Understand the GitHub approach to docs
