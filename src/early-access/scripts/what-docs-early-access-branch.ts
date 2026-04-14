@@ -21,7 +21,7 @@ async function main(): Promise<void> {
     console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)
     setOutput(OUTPUT_KEY, BRANCH_NAME)
   } catch (err) {
-    if ((err as any).status === 404) {
+    if (err instanceof Error && 'status' in err && (err as { status: number }).status === 404) {
       console.log(
         `There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`,
       )

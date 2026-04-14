@@ -18,18 +18,20 @@ children:
   - /cli-best-practices
   - /set-up-copilot-cli
   - /allowing-tools
+  - /steer-remotely
   - /automate-copilot-cli
   - /customize-copilot
   - /connecting-vs-code
   - /use-copilot-cli-agents
   - /administer-copilot-cli-for-your-enterprise
-  - /speeding-up-task-completion
+  - /speed-up-task-completion
   - /chronicle
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
   - /content/copilot/concepts/agents/about-agent-skills
   - /content/copilot/concepts/agents/copilot-cli/about-cli-plugins
   - /content/copilot/concepts/agents/copilot-cli/autopilot
+  - /content/copilot/concepts/agents/copilot-cli/about-remote-access
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/research
   - /content/copilot/concepts/agents/copilot-cli/chronicle

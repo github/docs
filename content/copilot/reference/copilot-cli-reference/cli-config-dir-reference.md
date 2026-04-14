@@ -75,7 +75,7 @@ For a full list of configuration settings, enter `copilot help config` in your t
 
 ### `mcp-config.json`
 
-Defines MCP (Model Context Protocol) servers available at the user level. These servers are available in all your sessions, regardless of which project directory you're in. Project-level MCP configurations (in `.mcp.json`, `.github/mcp.json`, or `.vscode/mcp.json`) take precedence over user-level definitions when server names conflict.
+Defines MCP (Model Context Protocol) servers available at the user level. These servers are available in all your sessions, regardless of which project directory you're in. Project-level MCP configurations (in `.mcp.json` or `.github/mcp.json`) take precedence over user-level definitions when server names conflict.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
 

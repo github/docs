@@ -1,10 +1,12 @@
 ---
 title: Speeding up task completion with the `/fleet` command
-shortTitle: Speeding up task completion
+shortTitle: Speed up task completion
 intro: Learn how you can speed up the completion of a multi-step implementation plan by using the `/fleet` slash command.
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/speeding-up-task-completion
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page

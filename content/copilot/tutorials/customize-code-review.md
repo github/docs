@@ -1,7 +1,7 @@
 ---
 title: Using custom instructions to unlock the power of Copilot code review
-shortTitle: Use custom instructions
-intro: 'Learn how to write effective custom instructions that help {% data variables.product.prodname_copilot %} provide more relevant and actionable code reviews.'
+shortTitle: Customize code review
+intro: Learn how to write effective custom instructions that help {% data variables.product.prodname_copilot %} provide more relevant and actionable code reviews.
 versions:
   feature: copilot
 contentType: tutorials
@@ -9,6 +9,8 @@ category:
   - Accelerate PR velocity
   - Team collaboration
   - Configure Copilot
+redirect_from:
+  - /copilot/tutorials/use-custom-instructions
 ---
 
 ## Introduction

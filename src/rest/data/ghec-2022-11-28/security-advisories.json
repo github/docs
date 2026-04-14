@@ -125,7 +125,7 @@
         {
           "name": "published",
           "in": "query",
-          "description": "<p>If specified, only return advisories that were published on a date or date range.</p>\n<p>For more information on the syntax of the date range, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
+          "description": "<p>If specified, only return advisories that were published on a date or date range.</p>\n<p>For more information on the syntax of the date range, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
           "schema": {
             "type": "string"
           }
@@ -133,14 +133,14 @@
         {
           "name": "updated",
           "in": "query",
-          "description": "<p>If specified, only return advisories that were updated on a date or date range.</p>\n<p>For more information on the syntax of the date range, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
+          "description": "<p>If specified, only return advisories that were updated on a date or date range.</p>\n<p>For more information on the syntax of the date range, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
           "schema": {
             "type": "string"
           }
         },
         {
           "name": "modified",
-          "description": "<p>If specified, only show advisories that were updated or published on a date or date range.</p>\n<p>For more information on the syntax of the date range, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
+          "description": "<p>If specified, only show advisories that were updated or published on a date or date range.</p>\n<p>For more information on the syntax of the date range, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "string"
@@ -164,7 +164,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -173,7 +173,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -196,7 +196,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -223,7 +223,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all global security advisories that match the specified parameters. If no other parameters are defined, the request will return only GitHub-reviewed advisories that are not malware.</p>\n<p>By default, all responses will exclude advisories for malware, because malware are not standard vulnerabilities. To list advisories for malware, you must include the <code>type</code> parameter in your request, with the value <code>malware</code>. For more information about the different types of security advisories, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/security-advisories/global-security-advisories/about-the-github-advisory-database#about-types-of-security-advisories\">About the GitHub Advisory database</a>.\"</p>",
+      "descriptionHTML": "<p>Lists all global security advisories that match the specified parameters. If no other parameters are defined, the request will return only GitHub-reviewed advisories that are not malware.</p>\n<p>By default, all responses will exclude advisories for malware, because malware are not standard vulnerabilities. To list advisories for malware, you must include the <code>type</code> parameter in your request, with the value <code>malware</code>. For more information about the different types of security advisories, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database#about-types-of-security-advisories\">About the GitHub Advisory database</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -1649,7 +1649,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1658,7 +1658,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1667,7 +1667,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of advisories to return per page. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of advisories to return per page. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3760,7 +3760,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3769,7 +3769,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3778,7 +3778,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of advisories to return per page. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of advisories to return per page. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7959,7 +7959,7 @@
           "default": false
         }
       ],
-      "descriptionHTML": "<p>Report a security vulnerability to the maintainers of the repository.\nSee \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability\">Privately reporting a security vulnerability</a>\" for more information about private vulnerability reporting.</p>",
+      "descriptionHTML": "<p>Report a security vulnerability to the maintainers of the repository.\nSee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability\">Privately reporting a security vulnerability</a>\" for more information about private vulnerability reporting.</p>",
       "codeExamples": [
         {
           "request": {
@@ -15402,7 +15402,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>If you want a CVE identification number for the security vulnerability in your project, and don't already have one, you can request a CVE identification number from GitHub. For more information see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory#requesting-a-cve-identification-number-optional\">Requesting a CVE identification number</a>.\"</p>\n<p>You may request a CVE for public repositories, but cannot do so for private repositories.</p>\n<p>In order to request a CVE for a repository security advisory, the authenticated user must be a security manager or administrator of that repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>repository_advisories:write</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>If you want a CVE identification number for the security vulnerability in your project, and don't already have one, you can request a CVE identification number from GitHub. For more information see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory#requesting-a-cve-identification-number-optional\">Requesting a CVE identification number</a>.\"</p>\n<p>You may request a CVE for public repositories, but cannot do so for private repositories.</p>\n<p>In order to request a CVE for a repository security advisory, the authenticated user must be a security manager or administrator of that repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>repository_advisories:write</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {

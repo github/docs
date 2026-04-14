@@ -26,7 +26,10 @@ If you prefer {% data variables.product.prodname_copilot_short %} to create a se
 
 ## Resolving merge conflicts
 
-You can ask {% data variables.product.prodname_copilot_short %} to resolve merge conflicts on a pull request by mentioning `@copilot` and asking it to fix the conflicts using natural language, such as "@copilot resolve the merge conflicts on this PR."
+You can ask {% data variables.product.prodname_copilot_short %} to resolve merge conflicts on a pull request in two ways:
+
+* **Using the "Fix with {% data variables.product.prodname_copilot_short %}" button**: If a pull request has merge conflicts, click the **Fix with {% data variables.product.prodname_copilot_short %}** button that appears in the merge box. This button is available if you have access to {% data variables.copilot.copilot_cloud_agent %} and it is enabled for the repository.
+* **Using an @copilot mention**: Mention `@copilot` in a comment on the pull request and ask it to fix the conflicts using natural language, such as "@copilot resolve the merge conflicts on this PR."
 
 {% data variables.product.prodname_copilot_short %} will analyze the conflicting changes, resolve the conflicts, and ensure the build, tests, and linter still pass. Once it has finished, {% data variables.product.prodname_copilot_short %} will request your review so you can verify the conflict resolution before merging.
 

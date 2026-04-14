@@ -25,7 +25,7 @@ By default, the {% data variables.product.prodname_code_scanning %} alerts page 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Optionally, use the free text search box or the dropdown menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
+1. Optionally, use the free text search box or the dropdown menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.{% ifversion code-scanning-link-alert-to-issue %} Linked {% data variables.product.prodname_dotcom %} issues appear alongside their corresponding alerts in the list view.{% endif %}
 
    ![Screenshot of {% data variables.product.prodname_code_scanning %} alerts page. The search box and filter dropdown menus are outlined in dark orange.](/assets/images/help/repository/filter-code-scanning-alerts.png)
 

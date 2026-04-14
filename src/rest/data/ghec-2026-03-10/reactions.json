@@ -38,7 +38,7 @@
         },
         {
           "name": "content",
-          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to a commit comment.</p>",
+          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to a commit comment.</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -57,7 +57,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -66,7 +66,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -75,7 +75,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List the reactions to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/commits/comments#get-a-commit-comment\">commit comment</a>.</p>",
+      "descriptionHTML": "<p>List the reactions to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/commits/comments#get-a-commit-comment\">commit comment</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -345,7 +345,7 @@
         {
           "type": "string",
           "name": "content",
-          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a> to add to the commit comment.</p>",
+          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a> to add to the commit comment.</p>",
           "isRequired": true,
           "enum": [
             "+1",
@@ -359,7 +359,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Create a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/commits/comments#get-a-commit-comment\">commit comment</a>. A response with an HTTP <code>200</code> status means that you already added the reaction type to this commit comment.</p>",
+      "descriptionHTML": "<p>Create a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/commits/comments#get-a-commit-comment\">commit comment</a>. A response with an HTTP <code>200</code> status means that you already added the reaction type to this commit comment.</p>",
       "codeExamples": [
         {
           "request": {
@@ -839,7 +839,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE /repositories/:repository_id/comments/:comment_id/reactions/:reaction_id</code>.</p>\n</div>\n<p>Delete a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/commits/comments#get-a-commit-comment\">commit comment</a>.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE /repositories/:repository_id/comments/:comment_id/reactions/:reaction_id</code>.</p>\n</div>\n<p>Delete a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/commits/comments#get-a-commit-comment\">commit comment</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -914,7 +914,7 @@
         },
         {
           "name": "content",
-          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to an issue comment.</p>",
+          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to an issue comment.</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -933,7 +933,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -942,7 +942,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -951,7 +951,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List the reactions to an <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/issues/comments#get-an-issue-comment\">issue comment</a>.</p>",
+      "descriptionHTML": "<p>List the reactions to an <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/comments#get-an-issue-comment\">issue comment</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1221,7 +1221,7 @@
         {
           "type": "string",
           "name": "content",
-          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a> to add to the issue comment.</p>",
+          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a> to add to the issue comment.</p>",
           "isRequired": true,
           "enum": [
             "+1",
@@ -1235,7 +1235,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Create a reaction to an <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/issues/comments#get-an-issue-comment\">issue comment</a>. A response with an HTTP <code>200</code> status means that you already added the reaction type to this issue comment.</p>",
+      "descriptionHTML": "<p>Create a reaction to an <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/comments#get-an-issue-comment\">issue comment</a>. A response with an HTTP <code>200</code> status means that you already added the reaction type to this issue comment.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1715,7 +1715,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE delete /repositories/:repository_id/issues/comments/:comment_id/reactions/:reaction_id</code>.</p>\n</div>\n<p>Delete a reaction to an <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/issues/comments#get-an-issue-comment\">issue comment</a>.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE delete /repositories/:repository_id/issues/comments/:comment_id/reactions/:reaction_id</code>.</p>\n</div>\n<p>Delete a reaction to an <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/comments#get-an-issue-comment\">issue comment</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1789,7 +1789,7 @@
         },
         {
           "name": "content",
-          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to an issue.</p>",
+          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to an issue.</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1808,7 +1808,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1817,7 +1817,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1826,7 +1826,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List the reactions to an <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/issues/issues#get-an-issue\">issue</a>.</p>",
+      "descriptionHTML": "<p>List the reactions to an <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/issues#get-an-issue\">issue</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2099,7 +2099,7 @@
         {
           "type": "string",
           "name": "content",
-          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a> to add to the issue.</p>",
+          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a> to add to the issue.</p>",
           "isRequired": true,
           "enum": [
             "+1",
@@ -2113,7 +2113,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Create a reaction to an <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/issues/issues#get-an-issue\">issue</a>. A response with an HTTP <code>200</code> status means that you already added the reaction type to this issue.</p>",
+      "descriptionHTML": "<p>Create a reaction to an <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/issues#get-an-issue\">issue</a>. A response with an HTTP <code>200</code> status means that you already added the reaction type to this issue.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2592,7 +2592,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE /repositories/:repository_id/issues/:issue_number/reactions/:reaction_id</code>.</p>\n</div>\n<p>Delete a reaction to an <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/issues/issues#get-an-issue\">issue</a>.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE /repositories/:repository_id/issues/:issue_number/reactions/:reaction_id</code>.</p>\n</div>\n<p>Delete a reaction to an <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/issues#get-an-issue\">issue</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2667,7 +2667,7 @@
         },
         {
           "name": "content",
-          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to a pull request review comment.</p>",
+          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to a pull request review comment.</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -2686,7 +2686,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2695,7 +2695,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2704,7 +2704,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List the reactions to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/pulls/comments#get-a-review-comment-for-a-pull-request\">pull request review comment</a>.</p>",
+      "descriptionHTML": "<p>List the reactions to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/comments#get-a-review-comment-for-a-pull-request\">pull request review comment</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2974,7 +2974,7 @@
         {
           "type": "string",
           "name": "content",
-          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a> to add to the pull request review comment.</p>",
+          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a> to add to the pull request review comment.</p>",
           "isRequired": true,
           "enum": [
             "+1",
@@ -2988,7 +2988,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Create a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/pulls/comments#get-a-review-comment-for-a-pull-request\">pull request review comment</a>. A response with an HTTP <code>200</code> status means that you already added the reaction type to this pull request review comment.</p>",
+      "descriptionHTML": "<p>Create a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/comments#get-a-review-comment-for-a-pull-request\">pull request review comment</a>. A response with an HTTP <code>200</code> status means that you already added the reaction type to this pull request review comment.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3468,7 +3468,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE /repositories/:repository_id/pulls/comments/:comment_id/reactions/:reaction_id.</code></p>\n</div>\n<p>Delete a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/pulls/comments#get-a-review-comment-for-a-pull-request\">pull request review comment</a>.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE /repositories/:repository_id/pulls/comments/:comment_id/reactions/:reaction_id.</code></p>\n</div>\n<p>Delete a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/comments#get-a-review-comment-for-a-pull-request\">pull request review comment</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3542,7 +3542,7 @@
         },
         {
           "name": "content",
-          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to a release.</p>",
+          "description": "<p>Returns a single <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a>. Omit this parameter to list all reactions to a release.</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3559,7 +3559,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -3568,7 +3568,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -3577,7 +3577,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List the reactions to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#get-a-release\">release</a>.</p>",
+      "descriptionHTML": "<p>List the reactions to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/releases/releases#get-a-release\">release</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3842,7 +3842,7 @@
         {
           "type": "string",
           "name": "content",
-          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/reactions/reactions#about-reactions\">reaction type</a> to add to the release.</p>",
+          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/reactions/reactions#about-reactions\">reaction type</a> to add to the release.</p>",
           "isRequired": true,
           "enum": [
             "+1",
@@ -3854,7 +3854,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Create a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#get-a-release\">release</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this release.</p>",
+      "descriptionHTML": "<p>Create a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/releases/releases#get-a-release\">release</a>. A response with a <code>Status: 200 OK</code> means that you already added the reaction type to this release.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4330,7 +4330,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE delete /repositories/:repository_id/releases/:release_id/reactions/:reaction_id</code>.</p>\n</div>\n<p>Delete a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#get-a-release\">release</a>.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou can also specify a repository by <code>repository_id</code> using the route <code>DELETE delete /repositories/:repository_id/releases/:release_id/reactions/:reaction_id</code>.</p>\n</div>\n<p>Delete a reaction to a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/releases/releases#get-a-release\">release</a>.</p>",
       "codeExamples": [
         {
           "request": {

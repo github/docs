@@ -63,15 +63,17 @@ If you cannot connect to the server, you can create a discussion in our [discuss
 
 This is a known issue and our team is working towards a fix. For more information, see this comment on a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/40522#discussioncomment-4701470).
 
-## Error: "Sorry, your request was rate-limited."
+## Error: You've hit a rate limit
 
 This error suggests that you have exceeded the rate limit for {% data variables.product.prodname_copilot_short %} requests. {% data variables.product.github %} uses rate limits to ensure everyone has fair access to the {% data variables.product.prodname_copilot_short %}  service and to protect against abuse.
 
-Most people see rate limiting for preview models, due to limited capacity.
+Most people see rate limiting for select models, due to limited capacity.
 
 Service-level request rate limits ensure high service quality for all {% data variables.product.prodname_copilot_short %}  users and should not affect typical or even deeply engaged {% data variables.product.prodname_copilot_short %} usage. We are aware of some use cases that are affected by it. {% data variables.product.github %} is iterating on {% data variables.product.prodname_copilot_short %}’s rate-limiting heuristics to ensure it doesn’t block legitimate use cases.
 
-In case you experience repeated rate-limiting in {% data variables.product.prodname_copilot_short %}, contact {% data variables.contact.contact_support_page %}.
+In the case you are rate limited, the error message will contain the suggested time to retry for a successful request. Consider [alternative actions](/copilot/concepts/rate-limits#what-to-do-if-you-are-rate-limited) to continue using {% data variables.product.prodname_copilot_short %} while your limit is reset.
+
+In case you experience repeated rate limiting in {% data variables.product.prodname_copilot_short %} contact {% data variables.contact.contact_support_page %}.
 
 ## Can't find {% data variables.copilot.copilot_chat_short %} in my IDE
 

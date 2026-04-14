@@ -42,6 +42,12 @@ You can use {% data variables.product.prodname_copilot_short %} to:
 * Generate descriptions of changes in a pull request.
 * Research, plan, make code changes, and create pull requests for you to review. Available in {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} only.
 
+{% ifversion ghec %}
+
+**For enterprises and organizations with data residency requirements:** If you use {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_copilot_short %} can enforce geographic data residency. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency).
+
+{% endif %}
+
 Use {% data variables.product.prodname_copilot_short %} in the following places:
 
 * Your IDE

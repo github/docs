@@ -45,6 +45,24 @@ The following third-party agents are supported on {% data variables.product.gith
 * [{% data variables.product.prodname_anthropic_claude %}](/copilot/concepts/agents/anthropic-claude)
 * [{% data variables.product.prodname_openai_codex %}](/copilot/concepts/agents/openai-codex)
 
+## AI models for third-party agents
+
+When starting a task with a third-party agent, you can select the AI model used by the agent. You may find that different models perform better, or provide more useful responses, depending on the type of task. For help deciding which model to use, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
+
+You can also select **Auto**, which allows {% data variables.copilot.copilot_auto_model_selection %} to choose the best available model on your behalf. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).
+
+The following models are available for each agent:
+
+### {% data variables.product.prodname_openai_codex %}
+
+* Auto
+{% data reusables.copilot.openai-codex-agent-models %}
+
+### {% data variables.product.prodname_anthropic_claude %}
+
+* Auto
+{% data reusables.copilot.anthropic-claude-agent-models %}
+
 ## Usage costs
 
 Coding agents consume **{% data variables.product.prodname_actions %} minutes** and **{% data variables.product.prodname_copilot %} premium requests**. Each agent **session** consumes one premium request.
