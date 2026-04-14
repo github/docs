@@ -4,9 +4,6 @@ intro: You can invite someone to manage your user owned repositories if you are 
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-user-accounts-repositories
@@ -15,6 +12,8 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories
 shortTitle: Ownership continuity
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 
 ## Inviting a successor

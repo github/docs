@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/running-a-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer
+category:
+  - Run an enterprise migration
 ---
 
 ## About troubleshooting steps for {% data variables.product.prodname_importer_proper_name %}
@@ -24,7 +26,9 @@ Before you investigate further, try these troubleshooting steps that commonly re
 1. Verify that you're using the latest version of the {% data variables.product.prodname_cli %} extension you're using to migrate. If you're not, upgrade to the latest version.
 1. Verify that you meet all the access requirements. For more information, see the appropriate article for your migration path.
 
+   {% ifversion fpt or ghec %}
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops)
+   {% endif %}
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server)
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products)
 
@@ -65,7 +69,9 @@ This error indicates that a {% data variables.product.pat_generic %} you provide
 
 Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided. For more information about required scopes, see the appropriate article for your migration path.
 
+   {% ifversion fpt or ghec %}
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)
+   {% endif %}
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)
    * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)
 
@@ -163,6 +169,15 @@ This warning occurs where a pull request review could not be migrated because th
 This usually happens where commits have been removed with a force push, or a branch has been deleted.
 
 In this case, the comments are not lost, but are migrated as inline pull request comments to preserve history, rather than as a review attached to a specific commit.
+
+### The pull request review is imported as an inline pull request comment
+
+These warnings indicate that a pull request review could not be migrated is in its original form, but as inline pull request comments:
+
+- `INVALID_REVIEW_THREAD`
+- `LINE_NOT_FOUND_IN_DIFF`
+- `REVIEW_THREAD_MISSING_BODY`
+
 
 ### Team references are broken after an organization migration
 

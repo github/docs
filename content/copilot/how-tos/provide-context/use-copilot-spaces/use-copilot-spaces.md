@@ -1,12 +1,10 @@
 ---
 title: Using GitHub Copilot Spaces
 shortTitle: Use Copilot Spaces
-intro: 'Use spaces to ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task.'
+intro: "Use spaces to ground {% data variables.product.prodname_copilot_short %}'s responses in the right context for a specific task."
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Author and optimize with Copilot
@@ -28,7 +26,7 @@ You can also access the information and context from {% data variables.copilot.c
 
 This functionality is available in any IDE that supports the {% data variables.product.prodname_copilot %} extension and the {% data variables.product.github %} MCP server.
 
->[!NOTE] When using {% data variables.copilot.copilot_spaces_short %} in your IDE, repository context is not supported. You will have access to all other sources and instructions from the space.
+>[!NOTE] When using {% data variables.copilot.copilot_spaces_short %} in your IDE, repository context and uploaded files are not supported. You will have access to all other sources, including text content added via "{% octicon "paste" aria-label="Add text content" %} **Add text content**", {% data variables.product.github %} files, issues, pull requests, and instructions from the space.
 
 Once you've accessed space context from your IDE:
 
@@ -38,7 +36,28 @@ Once you've accessed space context from your IDE:
 
 ### Prerequisites
 
-To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need to install the {% data variables.product.github %} MCP server. For setup instructions, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server).
+To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need to:
+
+* Set up the remote {% data variables.product.github %} MCP server for your IDE. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server) and [Remote {% data variables.product.github %} MCP Server](https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md) in the {% data variables.product.github %} MCP server documentation.
+* Configure the set up of the remote {% data variables.product.github %} MCP server so that the {% data variables.copilot.copilot_spaces_short %} toolset is enabled.
+
+  The {% data variables.copilot.copilot_spaces_short %} toolset is not included in the default configuration, so you must explicitly enable it using the `X-MCP-Toolsets` header. The following example configuration enables both the default tools and {% data variables.copilot.copilot_spaces_short %}:
+
+   ```json copy
+   {
+     "servers": {
+       "github": {
+         "type": "http",
+         "url": "https://api.githubcopilot.com/mcp/",
+         "headers": {
+           "X-MCP-Toolsets": "default,copilot_spaces"
+         }
+       }
+     }
+   }
+   ```
+
+   Alternatively, you can use the dedicated {% data variables.copilot.copilot_spaces_short %} toolset URL: `https://api.githubcopilot.com/mcp/x/copilot_spaces`. Note that this configuration provides _only_ {% data variables.copilot.copilot_spaces_short %} tools, without other default {% data variables.product.github %} MCP server functionality.
 
 ### Accessing space context from your IDE
 
@@ -46,8 +65,9 @@ For more detailed information on using the {% data variables.product.github %} M
 
 Note that {% data variables.copilot.copilot_spaces_short %} can only be used in agent mode in your IDE, since spaces are accessed via the {% data variables.product.github %} MCP server.
 
-1. In your IDE, open {% data variables.copilot.copilot_chat_short %} and select **Agent** from the mode dropdown or select the **Agent** tab.
-   * To confirm that the {% data variables.copilot.copilot_spaces_short %} tools are enabled, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon. In the dropdown, expand the list of available tools for **MCP Server: github**, and confirm that the `get_copilot_space` and `list_copilot_spaces` tools are enabled.
+1. In your IDE, open {% data variables.copilot.copilot_chat_short %} and select **Agent** from the agent dropdown menu.
+   * To confirm that the {% data variables.copilot.copilot_spaces_short %} tools are enabled, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon. In the tools list, expand the {% data variables.product.github %} MCP server entry and confirm that the `get_copilot_space` and `list_copilot_spaces` tools are listed and enabled.
+   * If you don't see the tools listed, check that you have completed the prerequisites above, including enabling the `copilot_spaces` toolset in your {% data variables.product.github %} MCP server configuration.
 1. In the {% data variables.copilot.copilot_chat_short %} box, enter a prompt that references the space that you want to use as context. If you know the exact name of the space and the name of the user or organization that owns the space, you can provide that. Otherwise, {% data variables.product.prodname_copilot_short %} will automatically use the `list_copilot_spaces` tool to find spaces that match the name or text you provide and access the context from those spaces.
 
    For example, you could use either of these two prompts:

@@ -13,10 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Leave an organization
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 {% ifversion fpt or ghec %}
 
@@ -30,3 +30,9 @@ contentType: how-tos
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
 1. Under "Organizations", next to the organization you'd like to remove yourself from, click **Leave**.
+
+{% ifversion fpt or ghec %}
+
+If you remove yourself from every organization in an enterprise, you may also be automatically removed from the enterprise account. If you haven't been removed and want to leave an enterprise, see [AUTOTITLE](/account-and-profile/how-tos/organization-membership/removing-yourself-from-an-enterprise).
+
+{% endif %}

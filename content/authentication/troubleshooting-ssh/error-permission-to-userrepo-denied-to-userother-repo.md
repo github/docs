@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Permission denied other-repo
+category:
+  - Troubleshoot authentication issues
 ---
 To fix this, remove the deploy key from the repository, and [add the key to your personal account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) instead.
 

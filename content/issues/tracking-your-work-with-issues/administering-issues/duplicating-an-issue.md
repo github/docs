@@ -3,9 +3,9 @@ title: Duplicating an issue
 intro: 'To quickly create a similar issue, you can duplicate an existing open issue into the same repository or a different one.'
 versions:
   feature: duplicating-an-issue
-topics:
-  - Issues
 shortTitle: Duplicate an issue
+category:
+  - Create and work with issues
 ---
 
 To duplicate an open issue, you must have triage access to the repository that contains the original issue and to the destination repository. The destination repository must allow blank issues. See [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).

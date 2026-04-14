@@ -6,8 +6,6 @@ redirect_from:
   - /admin/github-actions/managing-access-to-actions-from-githubcom
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /about-using-actions-in-your-enterprise
   - /enabling-automatic-access-to-githubcom-actions-using-github-connect

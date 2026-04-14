@@ -4,9 +4,6 @@ shortTitle: Spark
 intro: 'Learn how to use {% data variables.product.prodname_spark %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: spark
-topics:
-  - Copilot
-  - AI
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark
   - /copilot/responsible-use-of-github-copilot-features/spark
@@ -25,7 +22,7 @@ category:
 
 ### Input processing
 
-{% data reusables.copilot.spark-model %}
+{% data reusables.rai.spark-model %}
 
 Input prompts in {% data variables.product.prodname_spark_short %} are pre-processed by {% data variables.product.prodname_copilot_short %}, augmented with contextual information from your current {% data variables.product.prodname_spark_short %} inputs and sent to a large language model powered agent within your development environment. Included context includes information from your spark such as code from your current application, previous prompts supplied in the {% data variables.product.prodname_spark_short %} interface, and any error logs from  your spark’s development environment.
 
@@ -48,10 +45,6 @@ The {% data variables.product.prodname_spark_short %} agent is trained to use fr
 {% data variables.product.prodname_spark_short %}’s SDK natively integrates with {% data variables.product.prodname_github_models %}, allowing you to incorporate model inference into your spark. If {% data variables.product.prodname_spark_short %} determines that your application requires inference capabilities, it will add them using the {% data variables.product.prodname_spark_short %} SDK.
 
 {% data variables.product.prodname_spark_short %} gives you the tools to create, modify, and test the prompts that will be used with these inference capabilities. {% data variables.product.prodname_spark_short %} does not do any testing of the prompts that you create within your application, so you must ensure that your included capabilities act as intended. For more information on responsible use within {% data variables.product.prodname_github_models %}, see the [AUTOTITLE](/github-models/responsible-use-of-github-models).
-
-### Data processing
-
-{% data variables.product.prodname_spark_short %} collects data to operate the service - this includes prompts, suggestions, and code snippets necessary to ensuring continuity between sessions. {% data variables.product.prodname_spark_short %} also collects additional usage information including usage patterns, submitted feedback, and performance telemetry.
 
 ## Use cases for {% data variables.product.prodname_spark_short %}
 

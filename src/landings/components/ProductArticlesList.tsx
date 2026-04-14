@@ -2,6 +2,7 @@ import { ActionList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
 import { Link } from '@/frame/components/Link'
+import { countArticles } from '@/landings/lib/count-articles'
 import clsx from 'clsx'
 import styles from './ProductArticlesList.module.scss'
 
@@ -44,7 +45,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
               {childNode.title}
               {childNode.childPages.length > 0 ? (
                 <small className="color-fg-muted d-inline-block">
-                  &nbsp;&bull; {childNode.childPages.length} articles
+                  &nbsp;&bull; {countArticles(childNode)} articles
                 </small>
               ) : null}
             </ActionList.LinkItem>

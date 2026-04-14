@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Get set up to contribute
 ---
 
 ## About {% data variables.product.prodname_github_codespaces %}

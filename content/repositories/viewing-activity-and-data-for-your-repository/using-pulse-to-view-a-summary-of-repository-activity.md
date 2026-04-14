@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Using Pulse
+category:
+  - Track repository activity
 ---
 
 ## About Pulse

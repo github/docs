@@ -7,11 +7,10 @@ versions:
 redirect_from:
   - /billing/managing-billing-for-github-sponsors/setting-an-end-date-to-a-sponsorship
   - /billing/managing-billing-for-your-products/managing-billing-for-github-sponsors/setting-an-end-date-to-a-sponsorship
-topics:
-  - Billing
-  - Sponsors
 shortTitle: End sponsorship
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 You can set an end date to your sponsorship. The end date assigned will be the last date for which you will be charged for that sponsorship, but the sponsorship will show active for another month.

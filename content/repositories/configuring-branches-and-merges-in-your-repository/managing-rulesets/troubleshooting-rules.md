@@ -6,9 +6,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 shortTitle: Troubleshooting
+category:
+  - Manage branches and protect code
 ---
 
 ## Troubleshooting rulesets

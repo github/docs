@@ -1,6 +1,6 @@
 ---
 title: Quickstart for GitHub Actions
-intro: 'Try out the core features of {% data variables.product.prodname_actions %} in minutes.'
+intro: Try out the core features of {% data variables.product.prodname_actions %} in minutes.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
@@ -11,10 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
-topics:
-  - Fundamentals
 shortTitle: Quickstart
+contentType: get-started
+category:
+  - Get started with GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

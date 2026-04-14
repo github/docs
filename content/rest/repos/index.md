@@ -12,9 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
+  - /attestations
   - /autolinks
   - /bypass-requests
   - /contents

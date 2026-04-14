@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { graphql } from '@octokit/graphql'
 
 import {
@@ -17,28 +16,34 @@ import {
  * @param data GraphQL response data containing PR information
  * @returns Object with isCopilotAuthor boolean and copilotAssignee string
  */
-function getCopilotAuthorInfo(data: Record<string, any>): {
+function getCopilotAuthorInfo(data: Record<string, unknown>): {
   isCopilotAuthor: boolean
   copilotAssignee: string
 } {
+  const item = data.item as Record<string, unknown>
+  const author = item.author as Record<string, unknown> | undefined
+  const assigneesObj = item.assignees as Record<string, unknown> | undefined
+
   // Check if this is a Copilot-authored PR
-  const isCopilotAuthor =
-    data.item.__typename === 'PullRequest' &&
-    data.item.author &&
-    data.item.author.login === 'copilot-swe-agent'
+  const isCopilotAuthor = !!(
+    item.__typename === 'PullRequest' &&
+    author &&
+    author.login === 'copilot-swe-agent'
+  )
 
   // For Copilot PRs, find the appropriate assignee (excluding Copilot itself)
   let copilotAssignee = ''
-  if (isCopilotAuthor && data.item.assignees && data.item.assignees.nodes) {
-    const assignees = data.item.assignees.nodes
-      .map((assignee: Record<string, any>) => assignee.login)
+  if (isCopilotAuthor && assigneesObj && assigneesObj.nodes) {
+    const nodes = assigneesObj.nodes as Array<Record<string, unknown>>
+    const assigneeLogins = nodes
+      .map((assignee: Record<string, unknown>) => assignee.login as string)
       .filter((login: string) => login !== 'copilot-swe-agent')
 
     // Use the first non-Copilot assignee
-    copilotAssignee = assignees.length > 0 ? assignees[0] : ''
+    copilotAssignee = assigneeLogins.length > 0 ? assigneeLogins[0] : ''
   }
 
-  return { isCopilotAuthor, copilotAssignee }
+  return { isCopilotAuthor, copilotAssignee: copilotAssignee || '' }
 }
 
 /**
@@ -66,7 +71,7 @@ function getAuthorFieldValue(
 
 async function run() {
   // Get info about the docs-content review board project
-  const data: Record<string, any> = await graphql(
+  const data: Record<string, unknown> = await graphql(
     `
       query ($organization: String!, $projectNumber: Int!, $id: ID!) {
         organization(login: $organization) {
@@ -123,7 +128,9 @@ async function run() {
   )
 
   // Get the project ID
-  const projectID = data.organization.projectV2.id
+  const organization = data.organization as Record<string, unknown>
+  const projectV2 = organization.projectV2 as Record<string, unknown>
+  const projectID = projectV2.id as string
 
   // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', data)
@@ -148,11 +155,17 @@ async function run() {
   const size = getSize(data)
   const sizeType = findSingleSelectID(size, 'Size', data)
 
+  // Check if the author is a bot account (e.g. dependabot[bot], github-actions[bot]).
+  // GitHub bot logins end with '[bot]' and cannot be resolved as regular GitHub users,
+  // so we skip any user-specific GraphQL queries for them.
+  const isBotAuthor = (process.env.AUTHOR_LOGIN || '').endsWith('[bot]')
+
   // If this is the OS repo, determine if this is a first time contributor
   // If yes, set the author to 'first time contributor' instead of to the author login
+  // Bot accounts (e.g. dependabot[bot]) are not resolvable as GitHub users, so skip this check.
   let firstTimeContributor
-  if (process.env.REPO === 'github/docs') {
-    const contributorData: Record<string, any> = await graphql(
+  if (!isBotAuthor && process.env.REPO === 'github/docs') {
+    const contributorData: Record<string, unknown> = await graphql(
       `
         query ($author: String!) {
           user(login: $author) {
@@ -184,17 +197,30 @@ async function run() {
         },
       },
     )
-    const docsPRData =
-      contributorData.user.contributionsCollection.pullRequestContributionsByRepository.filter(
-        (item: Record<string, any>) => item.repository.nameWithOwner === 'github/docs',
-      )[0]
-    const prCount = docsPRData ? docsPRData.contributions.totalCount : 0
+    const user = contributorData.user as Record<string, unknown>
+    const contributionsCollection = user.contributionsCollection as Record<string, unknown>
+    const pullRequestContributions =
+      contributionsCollection.pullRequestContributionsByRepository as Array<Record<string, unknown>>
+    const docsPRData = pullRequestContributions.filter((item: Record<string, unknown>) => {
+      const repository = item.repository as Record<string, unknown>
+      return repository.nameWithOwner === 'github/docs'
+    })[0]
+    const prContributions = docsPRData
+      ? (docsPRData.contributions as Record<string, unknown>)
+      : undefined
+    const prCount = prContributions ? (prContributions.totalCount as number) : 0
 
-    const docsIssueData =
-      contributorData.user.contributionsCollection.issueContributionsByRepository.filter(
-        (item: Record<string, any>) => item.repository.nameWithOwner === 'github/docs',
-      )[0]
-    const issueCount = docsIssueData ? docsIssueData.contributions.totalCount : 0
+    const issueContributions = contributionsCollection.issueContributionsByRepository as Array<
+      Record<string, unknown>
+    >
+    const docsIssueData = issueContributions.filter((item: Record<string, unknown>) => {
+      const repository = item.repository as Record<string, unknown>
+      return repository.nameWithOwner === 'github/docs'
+    })[0]
+    const issueContributionsObj = docsIssueData
+      ? (docsIssueData.contributions as Record<string, unknown>)
+      : undefined
+    const issueCount = issueContributionsObj ? (issueContributionsObj.totalCount as number) : 0
 
     if (prCount + issueCount <= 1) {
       firstTimeContributor = true
@@ -222,8 +248,8 @@ async function run() {
 
   // Determine which variable to use for the contributor type
   let contributorType
-  if (isCopilotAuthor) {
-    // Treat Copilot PRs as Docs team
+  if (isCopilotAuthor || isBotAuthor) {
+    // Treat Copilot and bot-authored PRs (e.g. dependabot[bot]) as Docs team
     contributorType = docsMemberTypeID
   } else if (await isDocsTeamMember(process.env.AUTHOR_LOGIN || '')) {
     contributorType = docsMemberTypeID

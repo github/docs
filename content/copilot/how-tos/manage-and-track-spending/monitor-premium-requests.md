@@ -5,8 +5,6 @@ intro: 'Learn how you can monitor your monthly usage of {% data variables.produc
 permissions: 'Individual users on a paid {% data variables.product.prodname_copilot_short %} plan can view their own usage and entitlements. For {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans, organization admins and billing managers can view usage reports for members.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
@@ -58,11 +56,11 @@ You can view an overview of your premium request usage at any time in your "Bill
 
 ### Viewing detailed analytics of your usage
 
+{% data reusables.billing.premium-request-analytics-start %}
+
 {% data reusables.user-settings.access_billing_settings_url %}
 1. In the side bar, click **Premium request analytics** to show detailed analytics.
 1. Use the filter, "Group by", and "Timeframe" options to change the data displayed in the chart and table.
-   {% data reusables.billing.premium-request-analytics-start %}
-
 1. Optionally, to download the data shown in the chart, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} button and select your preferred format.
 
    ![Screenshot of the usage chart on the "Premium request analytics" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
@@ -86,8 +84,6 @@ You can use the following strategies to maximize the value of your premium reque
 * **Avoid retrying large prompts unnecessarily**. Submitting the same long or complex prompt multiple times may use more premium requests. Try rephrasing or simplifying your request when needed.
 
 * **Define whether users can use premium requests over their included allowance** (enterprises and organizations only). Set a policy to control whether users can incur extra costs for premium requests when they use up their included allowance. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
-
-{% data reusables.copilot.zero-budget-changes-link %}
 
 ## Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses
 

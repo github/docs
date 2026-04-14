@@ -6,8 +6,6 @@ permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_business_short %} plan'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/upgrading-copilot-for-your-enterprise
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/upgrading-copilot-for-your-enterprise

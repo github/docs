@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Commit blocked by push protection
+category:
+  - Commit changes
 ---
 
 ## Understanding why push protection has blocked your commit

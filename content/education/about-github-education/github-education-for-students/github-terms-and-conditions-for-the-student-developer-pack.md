@@ -4,6 +4,8 @@ intro: 'The Student Developer Pack is a hub of benefits made available to verifi
 versions: 
     fpt: '*'
 shortTitle: Terms for Student Benefits
+category:
+  - Apply for GitHub Education
 ---
 
 

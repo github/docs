@@ -7,6 +7,7 @@ You may encounter a secondary rate limit if you:
 * _Make too many requests per minute._ No more than 90 seconds of CPU time per 60 seconds of real time is allowed. No more than 60 seconds of this CPU time may be for the GraphQL API. You can roughly estimate the CPU time by measuring the total response time for your API requests.
 * _Make too many requests that consume excessive compute resources in a short period of time._
 * _Create too much content on {% data variables.product.company_short %} in a short amount of time._ In general, no more than 80 content-generating requests per minute and no more than 500 content-generating requests per hour are allowed. Some endpoints have lower content creation limits. Content creation limits include actions taken on the {% data variables.product.company_short %} web interface as well as via the REST API and GraphQL API.
+* _Make too many OAuth access token requests in a short period of time._ No more than 2,000 OAuth access token requests per hour are allowed for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
 
 These secondary rate limits are subject to change without notice. You may also encounter a secondary rate limit for undisclosed reasons.
 

@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Community
 shortTitle: Configure
+category:
+  - Create issue and pull request templates
 ---
 
 {% data reusables.repositories.default-issue-templates %}
@@ -40,7 +40,9 @@ shortTitle: Configure
 
 {% data reusables.community.issue-forms-beta %}
 
-With issue forms, you can create issue templates that have customizable web form fields. You can encourage contributors to include specific, structured information by using issue forms in your repository. Issue forms are written in YAML using the {% data variables.product.prodname_dotcom %} form schema. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema). {% data reusables.actions.learn-more-about-yaml %}
+With issue forms, you can create issue templates that have customizable web form fields. You can encourage contributors to include specific, structured information by using issue forms in your repository. 
+
+{% ifversion issue-form-upload %}Issue forms support several field types, including text inputs, dropdowns, checkboxes, and file uploads.{% endif %} Issue forms are written in YAML using the {% data variables.product.prodname_dotcom %} form schema. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema). {% data reusables.actions.learn-more-about-yaml %}
 
 To use an issue form in your repository, you must create a new file and add it to the `.github/ISSUE_TEMPLATE` folder in your repository.
 
@@ -61,7 +63,7 @@ Here is the rendered version of the issue form.
 
 {% data reusables.repositories.issue-template-config %}
 
-You can encourage contributors to use issue templates by setting `blank_issues_enabled` to `false`. If you set `blank_issues_enabled` to `true`, people will have the option to open a blank issue.
+You can encourage contributors to use issue templates by setting `blank_issues_enabled` to `false`. If you set `blank_issues_enabled` to `true`, everyone with access to the repository will see the **Blank issue** option in the template chooser. When `blank_issues_enabled` is set to `false`, users with write access or above (Write, Maintain, or Admin roles) will still see the **Blank issue** option in the template chooser, labeled **Maintainers only**. Contributors with Read or Triage roles will only see the configured templates.
 
 > [!NOTE]
 > If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your _config.yml_ file, the template in `issue_template.md` will be used when people choose to open a blank issue. If you disable blank issues, the template will never be used.
@@ -102,4 +104,3 @@ If you have 10 or more templates, alphanumeric ordering means that `11-bug.yml` 
 ## Further reading
 
 * [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)
-* [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository)

@@ -11,6 +11,7 @@ import article from '@/article-api/middleware/article'
 import webhooks from '@/webhooks/middleware/webhooks'
 import { ExtendedRequest } from '@/types'
 import { noCacheControl } from './cache-control'
+import { STAFFONLY_COOKIE_NAME } from '@/frame/lib/constants'
 
 const router = express.Router()
 
@@ -55,7 +56,7 @@ if (process.env.ELASTICSEARCH_URL) {
 router.get('/cookies', (req, res) => {
   noCacheControl(res)
   const cookies = {
-    isStaff: Boolean(req.cookies?.staffonly?.startsWith('yes')) || false,
+    isStaff: Boolean(req.cookies?.[STAFFONLY_COOKIE_NAME]?.startsWith('yes')) || false,
   }
   res.json(cookies)
 })

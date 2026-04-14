@@ -19,7 +19,7 @@ on:
       - submitted
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -34,12 +34,12 @@ jobs:
       }}
     runs-on: ubuntu-latest
     steps:
-      - name: Close pull request
+      - name: Close pull request and delete branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
-          gh pr close "$PR_URL"
+          gh pr close "$PR_URL" --delete-branch
 
       - name: Comment on the pull request
         env:

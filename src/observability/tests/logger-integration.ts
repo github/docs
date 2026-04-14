@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import type { Request, Response } from 'express'
 import { createLogger } from '@/observability/logger'
 import { initLoggerContext, updateLoggerContext } from '@/observability/logger/lib/logger-context'
 
@@ -8,7 +9,7 @@ describe('logger integration tests', () => {
   let originalConsoleError: typeof console.error
   let originalEnv: typeof process.env
   const consoleLogs: string[] = []
-  const consoleErrors: any[] = []
+  const consoleErrors: unknown[] = []
 
   beforeEach(() => {
     // Store original console methods and environment
@@ -20,7 +21,7 @@ describe('logger integration tests', () => {
     console.log = vi.fn((message: string) => {
       consoleLogs.push(message)
     })
-    console.error = vi.fn((error: any) => {
+    console.error = vi.fn((error: unknown) => {
       consoleErrors.push(error)
     })
 
@@ -78,9 +79,9 @@ describe('logger integration tests', () => {
           'accept-language': 'en-US,en;q=0.9',
         },
         query: { filter: 'active' },
-      } as any
+      } as unknown as Request
 
-      const mockRes = {} as any
+      const mockRes = {} as unknown as Response
 
       // Use a Promise to handle the async local storage execution
       const result = await new Promise<void>((resolve, reject) => {

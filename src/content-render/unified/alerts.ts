@@ -5,7 +5,7 @@ Custom "Alerts", based on similar filter/styling in the monolith code.
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
 import octicons from '@primer/octicons'
-import type { Element } from 'hast'
+import type { Element, Root, ElementContent } from 'hast'
 
 interface AlertType {
   icon: string
@@ -22,36 +22,33 @@ const alertTypes: Record<string, AlertType> = {
 
 // Must contain one of [!NOTE], [!IMPORTANT], ...
 const ALERT_REGEXP = new RegExp(`\\[!(${Object.keys(alertTypes).join('|')})\\]`, 'gi')
-
-// Using any due to conflicting unist/hast type definitions between dependencies
-const matcher = (node: any): boolean =>
-  node.type === 'element' &&
-  node.tagName === 'blockquote' &&
-  ALERT_REGEXP.test(JSON.stringify(node.children))
+// Non-global version for .test() and .match() to avoid stateful lastIndex issues
+const ALERT_REGEXP_DETECT = new RegExp(`\\[!(${Object.keys(alertTypes).join('|')})\\]`, 'i')
 
 export default function alerts({ alertTitles = {} }: { alertTitles?: Record<string, string> }) {
-  // Using any due to conflicting unist/hast type definitions between dependencies
-  return (tree: any) => {
-    // Using any due to conflicting unist/hast type definitions between dependencies
-    visit(tree, matcher, (node: any) => {
-      const key = getAlertKey(node)
+  return (tree: Root) => {
+    visit(tree, 'element', (node) => {
+      const el = node as Element
+      if (el.tagName !== 'blockquote' || !ALERT_REGEXP_DETECT.test(JSON.stringify(el.children)))
+        return
+      const key = getAlertKey(el)
       if (!(key in alertTypes)) {
         console.warn(
           `Alert key '${key}' should be all uppercase (change it to '${key.toUpperCase()}')`,
         )
       }
-      const alertType = alertTypes[getAlertKey(node).toUpperCase()]
-      node.tagName = 'div'
-      node.properties.className = `ghd-alert ghd-alert-${alertType.color}`
-      node.properties.dataContainer = 'alert'
-      node.children = [
+      const alertType = alertTypes[getAlertKey(el).toUpperCase()]
+      el.tagName = 'div'
+      el.properties.className = `ghd-alert ghd-alert-${alertType.color}`
+      el.properties.dataContainer = 'alert'
+      el.children = [
         h(
           'p',
           { className: 'ghd-alert-title' },
           getOcticonSVG(alertType.icon),
           alertTitles[key] || '',
         ),
-        ...removeAlertSyntax(node.children),
+        ...removeAlertSyntax(el.children),
       ]
     })
   }
@@ -59,19 +56,22 @@ export default function alerts({ alertTitles = {} }: { alertTitles?: Record<stri
 
 function getAlertKey(node: Element): string {
   const body = JSON.stringify(node.children)
-  const matches = body.match(ALERT_REGEXP)
+  const matches = body.match(ALERT_REGEXP_DETECT)
   return matches![0].slice(2, -1)
 }
 
-// Using any to handle both array and object node types recursively
-function removeAlertSyntax(node: any): any {
+function removeAlertSyntax(node: ElementContent[]): ElementContent[]
+function removeAlertSyntax(node: ElementContent): ElementContent
+function removeAlertSyntax(
+  node: ElementContent | ElementContent[],
+): ElementContent | ElementContent[] {
   if (Array.isArray(node)) {
-    return node.map(removeAlertSyntax)
+    return node.map((n) => removeAlertSyntax(n))
   }
-  if (node.children) {
-    node.children = node.children.map(removeAlertSyntax)
+  if ('children' in node) {
+    node.children = node.children.map((n) => removeAlertSyntax(n)) as typeof node.children
   }
-  if (node.value) {
+  if ('value' in node) {
     node.value = node.value.replace(ALERT_REGEXP, '')
   }
   return node

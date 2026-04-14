@@ -5,8 +5,6 @@ intro: 'Learn how to request a code review from {% data variables.product.prodna
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /early-access/copilot/code-review/using-copilot-code-review
   - /early-access/copilot/code-reviews/using-copilot-code-review
@@ -27,6 +25,8 @@ category:
 For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/code-review).
 
 {% webui %}
+
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-for-organization-members-without-a-copilot-license).
 
 ## Using {% data variables.copilot.copilot_code-review_short %}
 
@@ -55,9 +55,9 @@ Where possible, {% data variables.product.prodname_copilot_short %}'s feedback i
 
 If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
 
-You can also invoke {% data variables.copilot.copilot_coding_agent %} to implement suggested changes. To do this, you must:
+You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implement suggested changes. To do this, you must:
 
-* Opt into the {% data variables.release-phases.public_preview %} for {% data variables.copilot.copilot_code-review-tools_short %} and enable {% data variables.copilot.copilot_coding_agent %}.
+* Opt into the {% data variables.release-phases.public_preview %} for {% data variables.copilot.copilot_code-review-tools_short %} and enable {% data variables.copilot.copilot_cloud_agent %}.
 * On review comments from {% data variables.copilot.copilot_code-review %}, click **Implement suggestion**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch with the suggestions applied.
 
 ## Providing feedback on {% data variables.product.prodname_copilot_short %}'s reviews

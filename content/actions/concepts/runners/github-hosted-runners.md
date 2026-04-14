@@ -18,6 +18,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up runners
+contentType: concepts
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -88,7 +91,7 @@ Custom images let you start with a {% data variables.product.github %}-provided 
 
 Custom images can include repository code, container images, binaries, certificates, and other dependencies to create a consistent build environment across workflows. This helps you gain control over your supply chain. They help reduce setup time, improve build performance, and strengthen security by reducing the surface attack vector on your images. Administrators can also apply policies to manage image versions, retention, and age to meet organizational security and compliance requirements.
 
-Custom images can only be used with larger runners and are billed at the same per-minute rates as those runners. Storage for custom images is billed and metered through {% data variables.product.prodname_actions %} storage. For more information about billing, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).
+Custom images can only be used with {% data variables.actions.hosted_runners %}. Jobs that use custom images are billed at the same per-minute rates as those runners. Storage for custom images is billed and metered through {% data variables.product.prodname_actions %} storage. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions#custom-image-storage).
 
 To get started with custom images, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-custom-images).
 

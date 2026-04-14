@@ -10,11 +10,11 @@ redirect_from:
   - /github/site-policy/github-privacy-statement
   - /site-policy/privacy-policies/global-privacy-practices
   - /site-policy/privacy-policies/github-privacy-statement
+  - /site-policy/privacy-policies/github-codespaces-privacy-statement
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review privacy and security policies
 ---
 <!-- markdownlint-disable search-replace -->
 

@@ -1,0 +1,174 @@
+{
+  "billing": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/billing/advanced-security",
+      "title": "Get GitHub Advanced Security active committers for an organization",
+      "category": "billing",
+      "subcategory": "billing",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.14/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.14/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the GitHub Advanced Security active committers for an organization per repository.</p>\n<p>Each distinct user login across all repositories is counted as a single Advanced Security seat, so the <code>total_advanced_security_committers</code> is not the sum of advanced_security_committers for each repository.</p>\n<p>If this organization defers to an enterprise for billing, the <code>total_advanced_security_committers</code> returned from the organization API may include some users that are in more than one organization, so they will only consume a single Advanced Security seat at the enterprise level.</p>\n<p>The total number of repositories with committer information is tracked by the <code>total_count</code> field.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Success</p>",
+            "example": {
+              "total_advanced_security_committers": 2,
+              "total_count": 2,
+              "maximum_advanced_security_committers": 4,
+              "purchased_advanced_security_committers": 4,
+              "repositories": [
+                {
+                  "name": "octocat-org/Hello-World",
+                  "advanced_security_committers": 2,
+                  "advanced_security_committers_breakdown": [
+                    {
+                      "user_login": "octocat",
+                      "last_pushed_date": "2021-11-03",
+                      "last_pushed_email": "octocat@github.com"
+                    },
+                    {
+                      "user_login": "octokitten",
+                      "last_pushed_date": "2021-10-25",
+                      "last_pushed_email": "octokitten@github.com"
+                    }
+                  ]
+                },
+                {
+                  "name": "octocat-org/server",
+                  "advanced_security_committers": 1,
+                  "advanced_security_committers_breakdown": [
+                    {
+                      "user_login": "octokitten",
+                      "last_pushed_date": "2021-10-26",
+                      "last_pushed_email": "octokitten@github.com"
+                    }
+                  ]
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total_advanced_security_committers": {
+                  "type": "integer"
+                },
+                "total_count": {
+                  "type": "integer"
+                },
+                "maximum_advanced_security_committers": {
+                  "type": "integer",
+                  "description": "The total number of GitHub Advanced Security licences required if all repositories were to enable GitHub Advanced Security"
+                },
+                "purchased_advanced_security_committers": {
+                  "type": "integer",
+                  "description": "The total number of GitHub Advanced Security licences purchased"
+                },
+                "repositories": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "advanced_security_committers": {
+                        "type": "integer"
+                      },
+                      "advanced_security_committers_breakdown": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "user_login": {
+                              "type": "string"
+                            },
+                            "last_pushed_date": {
+                              "type": "string"
+                            },
+                            "last_pushed_email": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "user_login",
+                            "last_pushed_date",
+                            "last_pushed_email"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "advanced_security_committers",
+                      "advanced_security_committers_breakdown"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "repositories"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Success</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "read"
+          }
+        ]
+      }
+    }
+  ]
+}

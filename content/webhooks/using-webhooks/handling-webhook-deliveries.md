@@ -14,9 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 layout: inline
+category:
+  - Handle webhook deliveries
 ---
 
 ## Introduction

@@ -12,11 +12,10 @@ versions:
 category:
   - Testing code
   - Author and optimize with Copilot
+  - Improve quality and maintainability
 complexity:
   - Advanced
 octicon: beaker
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

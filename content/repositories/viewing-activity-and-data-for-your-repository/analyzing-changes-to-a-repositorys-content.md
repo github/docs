@@ -17,9 +17,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Analyze changes
+category:
+  - Track repository activity
 ---
 
 ## Visualizing commits in a repository

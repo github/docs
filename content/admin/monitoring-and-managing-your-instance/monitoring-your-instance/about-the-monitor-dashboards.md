@@ -1,7 +1,7 @@
 ---
-title: 'About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}'
+title: About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
 allowTitleToDifferFromFilename: true
-intro: 'View historical data for details like CPU and storage usage, application and authentication response times, and general system health.'
+intro: View historical data for details like CPU and storage usage, application and authentication response times, and general system health.
 redirect_from:
   - /enterprise/admin/installation/accessing-the-monitor-dashboard
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
@@ -12,14 +12,10 @@ redirect_from:
   - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 shortTitle: About monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## Accessing the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
@@ -43,7 +39,7 @@ Within the pre-built dashboards you can find various sections grouping graphs of
 
 {% ifversion ghes-opentelemetry %}
 
-If you have enabled metrics for OpenTelemetry, then additional dashboards are available, see: [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/enable-advanced-dashboards).
+If you have enabled metrics for OpenTelemetry, then additional dashboards are available, see: [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/advanced-dashboards).
 
 {% endif %}
 
@@ -60,6 +56,8 @@ On this more detailed dashboard you can get further insights into all aspects of
 {% ifversion ghes-opentelemetry %}
 
 Starting with {% data variables.product.prodname_ghe_server %} 3.18, you can create custom Grafana dashboards and alerts directly inside the {% data variables.enterprise.management_console %}. These custom dashboards and alerts will persist over upgrades, making it easier to maintain your monitoring configuration.
+
+> [!IMPORTANT] Pre-built dashboards can be opened and edited for inspection, but changes cannot be saved. Create a copy of a dashboard to apply and retain any customizations.
 
 You can use OpenTelemetry and collectd metrics concurrently for external monitoring. During the {% data variables.release-phases.public_preview %}, collectd remains enabled and cannot be disabled.
 

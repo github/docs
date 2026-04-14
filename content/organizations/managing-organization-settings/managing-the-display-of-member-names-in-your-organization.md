@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage display of member names
+category:
+  - Configure organization features
 ---
 
 Organization owners can manage the display of member names in an organization.

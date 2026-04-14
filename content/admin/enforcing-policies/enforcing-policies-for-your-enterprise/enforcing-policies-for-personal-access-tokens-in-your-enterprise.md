@@ -7,6 +7,8 @@ versions:
 shortTitle: '{% data variables.product.pat_generic_caps %} policies'
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise
+category:
+  - Secure and govern your enterprise
 ---
 
 ## Restricting access by {% data variables.product.pat_generic_plural %}

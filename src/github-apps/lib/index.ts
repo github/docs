@@ -12,6 +12,7 @@ interface AppsConfig {
 // Note: Using 'any' for AppsData to maintain compatibility with existing consumers that expect different shapes
 type AppsData = any
 
+const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const githubAppsData = new Map<string, Map<string, AppsData>>()
 
@@ -29,6 +30,12 @@ export async function getAppsData(
   docsVersion: string,
   apiVersion?: string,
 ): Promise<AppsData> {
+  if (DEBUG) {
+    console.log(
+      `[DEBUG] getAppsData: ROOT=${process.env.ROOT || '(not set)'}, path=${ENABLED_APPS_DIR}`,
+    )
+  }
+
   const pageTypeMap = githubAppsData.get(pageType)!
   const filename = `${pageType}.json`
   const openApiVersion = getOpenApiVersion(docsVersion) + (apiVersion ? `-${apiVersion}` : '')
@@ -53,9 +60,8 @@ export async function getAppsServerSideProps(
   categoriesWithoutSubcategories: string[]
 }> {
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
-  const { getAutomatedPageContextFromRequest } = await import(
-    '@/automated-pipelines/components/AutomatedPageContext'
-  )
+  const { getAutomatedPageContextFromRequest } =
+    await import('@/automated-pipelines/components/AutomatedPageContext')
   const currentVersion: string = context.query.versionId
   const allVersions = context.req.context.allVersions
   const queryApiVersion: string = context.query.apiVersion

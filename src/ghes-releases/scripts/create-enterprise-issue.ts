@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create release tracking issues for a new GHES version
+ */
 import { readFileSync } from 'fs'
 import { basename } from 'path'
 import { Liquid } from 'liquidjs'
@@ -190,7 +194,7 @@ async function createIssue(
       body,
       labels,
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.log(`#ERROR# ${error}\n🛑 There was an error creating the issue.`)
     throw error
   }
@@ -223,7 +227,7 @@ async function updateIssue(
       body,
       labels,
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.log(
       `#ERROR# ${error}\n🛑 There was an error updating issue ${issueNumber} in ${fullRepo}.`,
     )
@@ -244,8 +248,13 @@ async function addRepoLabels(fullRepo: string, labels: string[]) {
         repo,
         name,
       })
-    } catch (error: any) {
-      if (error.status === 404) {
+    } catch (error: unknown) {
+      if (
+        typeof error === 'object' &&
+        error !== null &&
+        'status' in error &&
+        (error as { status: number }).status === 404
+      ) {
         labelsToAdd.push(name)
       } else {
         console.log(`#ERROR# ${error}\n🛑 There was an error getting the label ${name}.`)
@@ -260,7 +269,7 @@ async function addRepoLabels(fullRepo: string, labels: string[]) {
         repo,
         name,
       })
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.log(`#ERROR# ${error}\n🛑 There was an error adding the label ${name}.`)
       throw error
     }

@@ -12,11 +12,10 @@ versions:
 category:
   - Security analysis
   - Author and optimize with Copilot
+  - Improve quality and maintainability
 complexity:
   - Intermediate
 octicon: code
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

@@ -9,6 +9,8 @@ redirect_from:
 versions:
   ghes: '*'
 shortTitle: Pre-receive hooks
+category:
+  - Merge and close pull requests
 ---
 Pre-receive hooks run tests on code pushed to a repository to ensure contributions meet repository or organization policy. If the commit contents pass the tests, the push will be accepted into the repository. If the commit contents do not pass the tests, the push will not be accepted.
 

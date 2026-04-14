@@ -4,8 +4,6 @@ intro: 'You can view user {% ifversion ghes%}and system {% endif %}activity with
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /activity-dashboard
   - /accessing-reports-for-your-instance

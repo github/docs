@@ -1,15 +1,12 @@
 ---
 title: About roles in an enterprise
 shortTitle: About roles
-intro: 'Understand the different role types in an enterprise and how they control access and permissions.'
+intro: Understand the different role types in an enterprise and how they control access and permissions.
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Enterprise
-  - Permissions
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-access-permissions-on-github
+contentType: concepts
 ---
 
 {% data reusables.enterprise-onboarding.about-roles %}

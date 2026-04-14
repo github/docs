@@ -2,7 +2,6 @@ import { getOctokit } from '@actions/github'
 import { setOutput } from '@actions/core'
 
 async function main(): Promise<void> {
-  // TODO Is there a lib function for this?
   const { BRANCH_NAME, GITHUB_TOKEN } = process.env
   if (!BRANCH_NAME) throw new Error("'BRANCH_NAME' env var not set")
   if (!GITHUB_TOKEN) throw new Error("'GITHUB_TOKEN' env var not set")
@@ -22,7 +21,7 @@ async function main(): Promise<void> {
     console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)
     setOutput(OUTPUT_KEY, BRANCH_NAME)
   } catch (err) {
-    if ((err as any).status === 404) {
+    if (err instanceof Error && 'status' in err && (err as { status: number }).status === 404) {
       console.log(
         `There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`,
       )
