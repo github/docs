@@ -4,6 +4,7 @@ import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import Permalink from '@/frame/lib/permalink'
 import getLinkData from './get-link-data'
+import type { Context, Page } from '@/types'
 
 export interface JourneyContext {
   trackId: string
@@ -44,7 +45,7 @@ type JourneyPage = {
   title?: string
   permalink?: string
   relativePath?: string
-  versions?: any
+  versions?: Record<string, string>
   journeyTracks?: Array<{
     id: string
     title: string
@@ -54,16 +55,6 @@ type JourneyPage = {
       alternativeNextStep?: string
     }>
   }>
-}
-
-type Pages = Record<string, any>
-type ContentContext = {
-  currentProduct?: string
-  currentLanguage?: string
-  currentVersion?: string
-  pages?: Pages
-  redirects?: any
-  [key: string]: any
 }
 
 // Cache for journey pages so we only filter all pages once
@@ -76,16 +67,16 @@ function needsRendering(str: string): boolean {
   return str.includes('{{') || str.includes('{%') || str.includes('[') || str.includes('<')
 }
 
-function getJourneyPages(pages: Pages): JourneyPage[] {
+function getJourneyPages(pages: Record<string, Page>): JourneyPage[] {
   if (!cachedJourneyPages) {
-    cachedJourneyPages = Object.values(pages).filter(
-      (page: any) => page.journeyTracks && page.journeyTracks.length > 0,
-    ) as JourneyPage[]
+    cachedJourneyPages = (Object.values(pages) as JourneyPage[]).filter(
+      (page) => page.journeyTracks && page.journeyTracks.length > 0,
+    )
   }
   return cachedJourneyPages
 }
 
-function getGuidePaths(pages: Pages): Set<string> {
+function getGuidePaths(pages: Record<string, Page>): Set<string> {
   if (!cachedGuidePaths) {
     cachedGuidePaths = new Set()
     const journeyPages = getJourneyPages(pages)
@@ -125,7 +116,7 @@ function normalizeGuidePath(path: string): string {
  */
 async function fetchGuideData(
   guidePath: string,
-  context: ContentContext,
+  context: Context,
 ): Promise<{ href: string; title: string } | null> {
   try {
     const resultData = await getLinkData(guidePath, context, {
@@ -155,8 +146,8 @@ async function fetchGuideData(
  */
 export async function resolveJourneyContext(
   articlePath: string,
-  pages: Pages,
-  context: ContentContext,
+  pages: Record<string, Page>,
+  context: Context,
   currentJourneyPage?: JourneyPage,
 ): Promise<JourneyContext | null> {
   const normalizedPath = normalizeGuidePath(articlePath)
@@ -311,7 +302,7 @@ export async function resolveJourneyContext(
  */
 export async function resolveJourneyTracks(
   journeyTracks: JourneyPage['journeyTracks'],
-  context: ContentContext,
+  context: Context,
 ): Promise<JourneyTrack[]> {
   if (!journeyTracks || journeyTracks.length === 0) {
     return []

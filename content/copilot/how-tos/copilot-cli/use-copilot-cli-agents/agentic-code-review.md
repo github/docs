@@ -8,7 +8,9 @@ versions:
   feature: copilot
 contentType: how-tos
 category:
-  - Build with Copilot CLI 
+  - Build with Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## About agentic code review 

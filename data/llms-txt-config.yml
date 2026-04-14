@@ -34,8 +34,8 @@ pinned_pages:
   - copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp
   - copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server
   - copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server
-  - copilot/how-tos/use-copilot-agents/coding-agent/about-coding-agent
-  - copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents
+  - copilot/how-tos/use-copilot-agents/cloud-agent/about-cloud-agent
+  - copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents
   - github-cli/github-cli
   - github-cli/github-cli/quickstart
   - rest

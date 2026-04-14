@@ -89,7 +89,7 @@ For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 {% data variables.copilot.copilot_code-review_short %} utilizes agentic capabilities to extend its functionality.
 
 * **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes. Full project context gathering is generally available.
-* **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_coding_agent %} is in public preview and subject to change.
+* **The ability to pass suggestions to {% data variables.copilot.copilot_cloud_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_cloud_agent %} is in public preview and subject to change.
 
 These capabilities are enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
 
@@ -106,7 +106,7 @@ You do not need to have {% data variables.product.prodname_actions %} enabled in
 
 If your organization has disabled {% data variables.product.prodname_dotcom %}-hosted runners, the agentic capabilities will not be available. In this case, code reviews will fall back to a more limited review. Organizations in this situation can use self-hosted runners.
 
-For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-runners).
+For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
 
 ## Code review monthly quota
 

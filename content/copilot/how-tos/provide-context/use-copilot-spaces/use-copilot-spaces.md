@@ -26,7 +26,7 @@ You can also access the information and context from {% data variables.copilot.c
 
 This functionality is available in any IDE that supports the {% data variables.product.prodname_copilot %} extension and the {% data variables.product.github %} MCP server.
 
->[!NOTE] When using {% data variables.copilot.copilot_spaces_short %} in your IDE, repository context is not supported. You will have access to all other sources and instructions from the space.
+>[!NOTE] When using {% data variables.copilot.copilot_spaces_short %} in your IDE, repository context and uploaded files are not supported. You will have access to all other sources, including text content added via "{% octicon "paste" aria-label="Add text content" %} **Add text content**", {% data variables.product.github %} files, issues, pull requests, and instructions from the space.
 
 Once you've accessed space context from your IDE:
 

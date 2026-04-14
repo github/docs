@@ -281,7 +281,7 @@ product_landing:
   overview: Overview
   try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
-  generate_secret_risk_assessment_report_for_free: Find out how to run a free secret risk assessment
+  generate_secret_risk_assessment_report_for_free: Assess your organization's security for free
   plan_your_migration: Plan your migration
   ado_key_differences: Key differences between Azure DevOps and GitHub
   releases: Releases

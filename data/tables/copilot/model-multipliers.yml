@@ -45,10 +45,6 @@
   multiplier_paid: 0.33
   multiplier_free: Not applicable
 
-- name: Gemini 3 Pro
-  multiplier_paid: 1
-  multiplier_free: Not applicable
-
 - name: Gemini 3.1 Pro
   multiplier_paid: 1
   multiplier_free: Not applicable
@@ -67,18 +63,6 @@
 
 - name: GPT-5.1
   multiplier_paid: 1
-  multiplier_free: Not applicable
-
-- name: GPT-5.1-Codex
-  multiplier_paid: 1
-  multiplier_free: Not applicable
-
-- name: GPT-5.1-Codex-Mini
-  multiplier_paid: 0.33
-  multiplier_free: Not applicable
-
-- name: GPT-5.1-Codex-Max
-  multiplier_paid: 1.0
   multiplier_free: Not applicable
 
 - name: GPT-5.2

@@ -52,15 +52,15 @@ You can choose whether to allow the following coding agents to be enabled in you
 * {% data variables.product.prodname_anthropic_claude %}
 * {% data variables.product.prodname_openai_codex %}
 
-Coding agents have access to the same repositories that {% data variables.copilot.copilot_coding_agent %} has been enabled in.
+Coding agents have access to the same repositories that {% data variables.copilot.copilot_cloud_agent %} has been enabled in.
 
 To enable coding agents:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.copilot.coding-agent-settings %}
+{% data reusables.copilot.cloud-agent-settings %}
 1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Cloud agent**.
-1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
+1. On the {% data variables.copilot.copilot_cloud_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
 
 ## Opting in to previews or feedback
 

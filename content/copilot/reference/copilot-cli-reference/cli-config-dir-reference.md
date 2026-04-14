@@ -9,6 +9,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: reference
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 {% data variables.copilot.copilot_cli_short %} stores its configuration, session history, logs, and customizations in a single directory on your machine. By default, this directory is `~/.copilot` (that is, `$HOME/.copilot`).
@@ -73,7 +75,7 @@ For a full list of configuration settings, enter `copilot help config` in your t
 
 ### `mcp-config.json`
 
-Defines MCP (Model Context Protocol) servers available at the user level. These servers are available in all your sessions, regardless of which project directory you're in. Project-level MCP configurations (in `.mcp.json`, `.github/mcp.json`, or `.vscode/mcp.json`) take precedence over user-level definitions when server names conflict.
+Defines MCP (Model Context Protocol) servers available at the user level. These servers are available in all your sessions, regardless of which project directory you're in. Project-level MCP configurations (in `.mcp.json` or `.github/mcp.json`) take precedence over user-level definitions when server names conflict.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
 

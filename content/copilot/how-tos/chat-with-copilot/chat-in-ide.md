@@ -77,7 +77,7 @@ For more information, see [Chat overview](https://aka.ms/vscode-copilot-agent) i
 1. In the {% data variables.copilot.copilot_chat_short %} window, click the tools icon.
 1. Enable the `runSubagent` tool.
 
-If you use custom prompt files or {% data variables.copilot.custom_agents_short %}, ensure you specify the `runSubagent` tool in the `tools` frontmatter property. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents#creating-a-custom-agent-profile-in-visual-studio-code), and [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files) in the {% data variables.product.prodname_vscode %} documentation.
+If you use custom prompt files or {% data variables.copilot.custom_agents_short %}, ensure you specify the `runSubagent` tool in the `tools` frontmatter property. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents#creating-a-custom-agent-profile-in-visual-studio-code), and [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files) in the {% data variables.product.prodname_vscode %} documentation.
 
 #### Invoking {% data variables.copilot.subagents_short %}
 
@@ -455,7 +455,7 @@ Use {% data variables.copilot.copilot_edits_short %} to make changes across mult
 
 {% data reusables.copilot.subagent-intro %}
 
-To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
 
 #### Enabling {% data variables.copilot.subagents_short %}
 
@@ -560,6 +560,9 @@ To see all available slash commands, type `/` in the chat prompt box. For more i
 
 ## Using plan mode
 
+> [!NOTE]
+> Plan mode is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
 {% data reusables.copilot.plan-agent-intro %}
 
 To use plan mode:
@@ -594,7 +597,7 @@ To use plan mode:
 
 {% data reusables.copilot.subagent-intro %}
 
-To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
 
 #### Enabling {% data variables.copilot.subagents_short %}
 
@@ -677,6 +680,9 @@ To see all available slash commands, type `/` in the chat prompt box.
 
 ## Using plan mode
 
+> [!NOTE]
+> Plan mode is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
 {% data reusables.copilot.plan-agent-intro %}
 
 To use plan mode:
@@ -710,7 +716,7 @@ To use agent mode:
 
 {% data reusables.copilot.subagent-intro %}
 
-To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents).
 
 #### Enabling {% data variables.copilot.subagents_short %}
 

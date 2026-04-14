@@ -1,6 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
 import { resolveJourneyContext, resolveJourneyTracks } from '../lib/journey-path-resolver'
+import type { Page } from '@/types'
 
 // Mock modules since we just want to test journey functions, not their dependencies or
 // against real content files
@@ -63,7 +64,7 @@ describe('journey-path-resolver', () => {
           },
         ],
       },
-    }
+    } as unknown as Record<string, Page>
 
     test('returns null for article not in any journey track', async () => {
       const result = await resolveJourneyContext('/some-other-article', mockPages, mockContext)

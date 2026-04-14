@@ -68,6 +68,8 @@ If you configure {% data variables.product.prodname_code_scanning %} using {% da
 
 When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_caps %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
 
+{% data reusables.code-scanning.track-alert-in-issue %}
+
 ### About alerts from multiple configurations
 
 You can run multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of {% data variables.product.prodname_code_scanning %} generates a unique set of alerts. For example, an alert generated using the default {% data variables.product.prodname_codeql %} analysis with {% data variables.product.prodname_actions %} comes from a different configuration than an alert generated externally and uploaded via the {% data variables.product.prodname_code_scanning %} API.

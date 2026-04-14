@@ -7,7 +7,9 @@ versions:
   feature: copilot
 contentType: how-tos
 category:
-  - Build with Copilot CLI 
+  - Build with Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Steer the conversation while {% data variables.product.prodname_copilot_short %} is thinking

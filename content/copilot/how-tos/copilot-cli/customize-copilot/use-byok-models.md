@@ -9,6 +9,8 @@ contentType: how-tos
 category:
   - Configure Copilot
   - Configure Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 You can configure {% data variables.copilot.copilot_cli_short %} to use your own LLM provider, also called BYOK (Bring Your Own Key), instead of {% data variables.product.github %}-hosted models. This lets you connect to OpenAI-compatible endpoints, Azure OpenAI, or Anthropic, including locally running models such as Ollama.
@@ -61,7 +63,7 @@ Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry L
 1. For a remote OpenAI endpoint, also set your API key.
 
    ```shell
-   export COPILOT_PROVIDER_BASE_URL=https://api.openai.com
+   export COPILOT_PROVIDER_BASE_URL=https://api.openai.com/v1
    export COPILOT_PROVIDER_API_KEY=YOUR-OPENAI-API-KEY
    export COPILOT_MODEL=YOUR-MODEL-NAME
    ```
@@ -95,6 +97,7 @@ Use the following steps if you are connecting to OpenAI, Ollama, vLLM, Foundry L
 
    ```shell
    export COPILOT_PROVIDER_TYPE=anthropic
+   export COPILOT_PROVIDER_BASE_URL=https://api.anthropic.com
    export COPILOT_PROVIDER_API_KEY=YOUR-ANTHROPIC-API-KEY
    export COPILOT_MODEL=YOUR-MODEL-NAME
    ```

@@ -10,6 +10,8 @@ category:
   - Build with Copilot CLI
   - Copilot in the CLI
   - Author and optimize with Copilot
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -277,14 +279,14 @@ Visualize your current context usage with `/context`. It shows a breakdown of:
 
 * System/tools tokens
 * Message history tokens
-* Available free space
+* Free space
 * Buffer allocation
 
 ## 4. Delegate work effectively
 
 ### The `/delegate` command
 
-**Offload work to run in the cloud using {% data variables.copilot.copilot_coding_agent %}.** This is particularly powerful for:
+**Offload work to run in the cloud using {% data variables.copilot.copilot_cloud_agent %}.** This is particularly powerful for:
 
 * Tasks that can run asynchronously.
 * Changes to other repositories.
@@ -298,7 +300,7 @@ Visualize your current context usage with `/context`. It shows a breakdown of:
 
 **What happens:**
 
-* Your request is sent to {% data variables.copilot.copilot_coding_agent %}.
+* Your request is sent to {% data variables.copilot.copilot_cloud_agent %}.
 * The agent creates a pull request with the changes.
 * You can continue working locally while the cloud agent works.
 

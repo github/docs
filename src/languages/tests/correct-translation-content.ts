@@ -96,6 +96,12 @@ describe('correctTranslatedContentStrings', () => {
         '{% ifversion fpt or ghec or ghes %}',
       )
     })
+
+    test('fixes datos reutilizables → data reusables', () => {
+      expect(fix('{% datos reutilizables.profile.access_org %}', 'es')).toBe(
+        '{% data reusables.profile.access_org %}',
+      )
+    })
   })
 
   // ─── JAPANESE (ja) ──────────────────────────────────────────────────
@@ -232,6 +238,11 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- それ以外の %}', 'ja')).toBe('{%- else %}')
     })
 
+    test('fixes further-truncated それ以外 → else', () => {
+      expect(fix('{% それ以外 %}', 'ja')).toBe('{% else %}')
+      expect(fix('{%- それ以外 %}', 'ja')).toBe('{%- else %}')
+    })
+
     test('fixes それ以外の場合 ifversion X → elsif X', () => {
       expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview %}', 'ja')).toBe(
         '{% elsif codeql-rust-public-preview %}',
@@ -240,6 +251,16 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% それ以外の場合 ifversion codeql-rust-public-preview%}', 'ja')).toBe(
         '{% elsif codeql-rust-public-preview %}',
       )
+    })
+
+    test('fixes 行ヘッダー → rowheaders', () => {
+      expect(fix('{% 行ヘッダー %}', 'ja')).toBe('{% rowheaders %}')
+      expect(fix('{%- 行ヘッダー %}', 'ja')).toBe('{%- rowheaders %}')
+    })
+
+    test('fixes ウィンドウズ → windows', () => {
+      expect(fix('{% ウィンドウズ %}', 'ja')).toBe('{% windows %}')
+      expect(fix('{%- ウィンドウズ %}', 'ja')).toBe('{%- windows %}')
     })
   })
 
@@ -313,6 +334,55 @@ describe('correctTranslatedContentStrings', () => {
         '{% data reusables.repositories.reaction_list %}',
       )
     })
+
+    test('fixes variáveis de dados → data variables', () => {
+      expect(fix('{% variáveis de dados.release-phases.public_preview %}', 'pt')).toBe(
+        '{% data variables.release-phases.public_preview %}',
+      )
+      expect(fix('{% variáveis de dados product.github %}', 'pt')).toBe(
+        '{% data variables product.github %}',
+      )
+    })
+
+    test('fixes dados variáveis → data variables', () => {
+      expect(fix('{% dados variáveis.produto.prodname_pro %}', 'pt')).toBe(
+        '{% data variables.produto.prodname_pro %}',
+      )
+    })
+
+    test('fixes janelas → windows', () => {
+      expect(fix('{% janelas %}', 'pt')).toBe('{% windows %}')
+      expect(fix('{%- janelas %}', 'pt')).toBe('{%- windows %}')
+    })
+
+    test('fixes observação → note', () => {
+      expect(fix('{% observação %}', 'pt')).toBe('{% note %}')
+      expect(fix('{%- observação %}', 'pt')).toBe('{%- note %}')
+    })
+
+    test('fixes comentário → comment', () => {
+      expect(fix('{% comentário %}', 'pt')).toBe('{% comment %}')
+    })
+
+    test('fixes nota de fim → endnote', () => {
+      expect(fix('{% nota de fim %}', 'pt')).toBe('{% endnote %}')
+      expect(fix('{%- nota de fim %}', 'pt')).toBe('{%- endnote %}')
+    })
+
+    test('fixes Dados variables → data variables', () => {
+      expect(fix('{% Dados variables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes fully translated audit_log reusable path', () => {
+      expect(
+        fix(
+          '{% dados agrupados por categoria.complemento.audit_log.reference-grouped-by-category %}',
+          'pt',
+        ),
+      ).toBe('{% data reusables.audit_log.reference-grouped-by-category %}')
+    })
   })
 
   // ─── CHINESE (zh) ──────────────────────────────────────────────────
@@ -349,6 +419,15 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes 否则 → else', () => {
       expect(fix('{% 否则 %}', 'zh')).toBe('{% else %}')
       expect(fix('{%- 否则 %}', 'zh')).toBe('{%- else %}')
+    })
+
+    test('fixes 行标题 → rowheaders', () => {
+      expect(fix('{% 行标题 %}', 'zh')).toBe('{% rowheaders %}')
+      expect(fix('{%- 行标题 %}', 'zh')).toBe('{%- rowheaders %}')
+    })
+
+    test('fixes 数据变量 → data variables', () => {
+      expect(fix('{% 数据变量.product.github %}', 'zh')).toBe('{% data variables.product.github %}')
     })
   })
 
@@ -453,6 +532,16 @@ describe('correctTranslatedContentStrings', () => {
         '{% raw %}some content{% endraw %}',
       )
       expect(fix('{% конец %}', 'ru')).toBe('{% endif %}')
+      expect(fix('{%- конец %}', 'ru')).toBe('{%- endif %}')
+    })
+
+    test('fixes конец для → endfor', () => {
+      expect(fix('{%- конец для %}', 'ru')).toBe('{%- endfor %}')
+    })
+
+    test('fixes заголовки строк → rowheaders', () => {
+      expect(fix('{% заголовки строк %}', 'ru')).toBe('{% rowheaders %}')
+      expect(fix('{%- заголовки строк %}', 'ru')).toBe('{%- rowheaders %}')
     })
 
     test('fixes translated feature flag names', () => {
@@ -513,6 +602,20 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes capitalized Mac → mac platform tag', () => {
       expect(fix('{% Mac %}', 'ru')).toBe('{% mac %}')
     })
+
+    test('fixes Endwindows → endwindows', () => {
+      expect(fix('{% Endwindows %}', 'ru')).toBe('{% endwindows %}')
+      expect(fix('{%- Endwindows %}', 'ru')).toBe('{%- endwindows %}')
+    })
+
+    test('fixes capitalized Elsif → elsif', () => {
+      expect(fix('{% Elsif ghec %}', 'ru')).toBe('{% elsif ghec %}')
+    })
+
+    test('fixes capitalized Linux → linux platform tag', () => {
+      expect(fix('{% Linux %}', 'ru')).toBe('{% linux %}')
+      expect(fix('{%- Linux %}', 'ru')).toBe('{%- linux %}')
+    })
   })
 
   // ─── FRENCH (fr) ───────────────────────────────────────────────────
@@ -548,6 +651,13 @@ describe('correctTranslatedContentStrings', () => {
       expect(
         fix('{% if query.apiVersion == nil ou "2026-03-10" <= query.apiVersion %}', 'fr'),
       ).toBe('{% if query.apiVersion == nil or "2026-03-10" <= query.apiVersion %}')
+    })
+
+    test('fixes et → and in ifversion tags', () => {
+      expect(fix('{% ifversion ghes > 3.14 et ghes < 3.20 %}', 'fr')).toBe(
+        '{% ifversion ghes > 3.14 and ghes < 3.20 %}',
+      )
+      expect(fix('{%- ifversion ghes et fpt %}', 'fr')).toBe('{%- ifversion ghes and fpt %}')
     })
 
     test('fixes French guillemets « » → " in if/ifversion tags', () => {
@@ -592,6 +702,16 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% sinon %}', 'fr')).toBe('{% else %}')
       expect(fix('{%- sinon %}', 'fr')).toBe('{%- else %}')
     })
+
+    test('fixes note de fin → endnote', () => {
+      expect(fix('{% note de fin %}', 'fr')).toBe('{% endnote %}')
+      expect(fix('{%- note de fin %}', 'fr')).toBe('{%- endnote %}')
+    })
+
+    test('fixes éclipse → eclipse platform tag', () => {
+      expect(fix('{% éclipse %}', 'fr')).toBe('{% eclipse %}')
+      expect(fix('{%- éclipse %}', 'fr')).toBe('{%- eclipse %}')
+    })
   })
 
   // ─── KOREAN (ko) ──────────────────────────────────────────────────
@@ -625,6 +745,7 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes translated keywords', () => {
       expect(fix('{% 기타 %}', 'ko')).toBe('{% else %}')
+      expect(fix('{%- 기타 %}', 'ko')).toBe('{%- else %}')
       expect(fix('{% 참고 %}', 'ko')).toBe('{% note %}')
       expect(fix('{% 원시 %}', 'ko')).toBe('{% raw %}')
     })
@@ -646,6 +767,28 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% 옥티콘 "check" aria-label="Supported" %}', 'ko')).toBe(
         '{% octicon "check" aria-label="Supported" %}',
       )
+    })
+
+    test('fixes 데이터 재사용 → data reusables', () => {
+      expect(fix('{% 데이터 재사용.profile.access_org %}', 'ko')).toBe(
+        '{% data reusables.profile.access_org %}',
+      )
+    })
+
+    test('fixes datavariable → data variables', () => {
+      expect(fix('{% datavariable.product.github %}', 'ko')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes 행 머리글 → rowheaders', () => {
+      expect(fix('{% 행 머리글 %}', 'ko')).toBe('{% rowheaders %}')
+      expect(fix('{%- 행 머리글 %}', 'ko')).toBe('{%- rowheaders %}')
+    })
+
+    test('fixes 윈도우즈 → windows', () => {
+      expect(fix('{% 윈도우즈 %}', 'ko')).toBe('{% windows %}')
+      expect(fix('{%- 윈도우즈 %}', 'ko')).toBe('{%- windows %}')
     })
   })
 
@@ -723,9 +866,127 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- ansonsten %}', 'de')).toBe('{%- else %}')
     })
 
+    test('fixes andernfalls and sonst → else', () => {
+      expect(fix('{% andernfalls %}', 'de')).toBe('{% else %}')
+      expect(fix('{%- andernfalls %}', 'de')).toBe('{%- else %}')
+      expect(fix('{% sonst %}', 'de')).toBe('{% else %}')
+      expect(fix('{%- sonst %}', 'de')).toBe('{%- else %}')
+    })
+
+    test('fixes andernfalls/sonst ifversion → elsif', () => {
+      expect(fix('{% andernfalls ifversion ghes %}', 'de')).toBe('{% elsif ghes %}')
+      expect(fix('{% sonst ifversion ghes %}', 'de')).toBe('{% elsif ghes %}')
+    })
+
+    test('fixes Datenvariablen → data variables', () => {
+      expect(fix('{% Datenvariablen.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- Datenvariablen.release-phases.public_preview %}', 'de')).toBe(
+        '{%- data variables.release-phases.public_preview %}',
+      )
+    })
+
+    test('fixes daten wiederverwendbars → data reusables', () => {
+      expect(fix('{% daten wiederverwendbars.enterprise-accounts.ai-controls-tab %}', 'de')).toBe(
+        '{% data reusables.enterprise-accounts.ai-controls-tab %}',
+      )
+    })
+
     test('fixes Zeilenkopfzeilen → rowheaders', () => {
       expect(fix('{% Zeilenkopfzeilen %}', 'de')).toBe('{% rowheaders %}')
       expect(fix('{%- Zeilenkopfzeilen %}', 'de')).toBe('{%- rowheaders %}')
+    })
+
+    test('fixes Rohdaten → raw', () => {
+      expect(fix('{% Rohdaten %}', 'de')).toBe('{% raw %}')
+      expect(fix('{%- Rohdaten %}', 'de')).toBe('{%- raw %}')
+      expect(fix('{%- Rohdaten -%}', 'de')).toBe('{%- raw -%}')
+    })
+
+    test('fixes okticon → octicon', () => {
+      expect(fix('{% okticon "pencil" %}', 'de')).toBe('{% octicon "pencil" %}')
+    })
+
+    test('fixes Endnotiz → endnote', () => {
+      expect(fix('{% Endnotiz %}', 'de')).toBe('{% endnote %}')
+      expect(fix('{%- Endnotiz %}', 'de')).toBe('{%- endnote %}')
+    })
+
+    test('fixes endifen → endif', () => {
+      expect(fix('{% endifen %}', 'de')).toBe('{% endif %}')
+      expect(fix('{%- endifen %}', 'de')).toBe('{%- endif %}')
+    })
+
+    test('fixes Dateninstanz → data', () => {
+      expect(fix('{% Dateninstanz variables.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes ifversion-Sicherheitskonfigurationen', () => {
+      expect(fix('{% ifversion-Sicherheitskonfigurationen %}', 'de')).toBe(
+        '{% ifversion security-configurations %}',
+      )
+    })
+
+    test('fixes ifversion-Unterprobleme', () => {
+      expect(fix('{% ifversion-Unterprobleme %}', 'de')).toBe('{% ifversion sub-issues %}')
+    })
+
+    test('fixes ifversion-Sicherheitskampagnen', () => {
+      expect(fix('{% ifversion-Sicherheitskampagnen %}', 'de')).toBe(
+        '{% ifversion security-campaigns %}',
+      )
+    })
+
+    test('fixes capitalized Windows → windows platform tag', () => {
+      expect(fix('{% Windows %}', 'de')).toBe('{% windows %}')
+      expect(fix('{%- Windows %}', 'de')).toBe('{%- windows %}')
+    })
+
+    test('fixes capitalized Linux → linux platform tag', () => {
+      expect(fix('{% Linux %}', 'de')).toBe('{% linux %}')
+      expect(fix('{%- Linux %}', 'de')).toBe('{%- linux %}')
+    })
+
+    test('fixes capitalized Eclipse → eclipse platform tag', () => {
+      expect(fix('{% Eclipse %}', 'de')).toBe('{% eclipse %}')
+      expect(fix('{%- Eclipse %}', 'de')).toBe('{%- eclipse %}')
+    })
+
+    test('fixes unformatierte → raw', () => {
+      expect(fix('{% unformatierte %}', 'de')).toBe('{% raw %}')
+    })
+
+    test('fixes Daten variables → data variables', () => {
+      expect(fix('{% Daten variables.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
+    test('fixes daten wiederverwendbar/wiederverwendbare → data reusables', () => {
+      expect(fix('{% daten wiederverwendbar.foo.bar %}', 'de')).toBe('{% data reusables.foo.bar %}')
+      expect(fix('{% daten wiederverwendbare.foo.bar %}', 'de')).toBe(
+        '{% data reusables.foo.bar %}',
+      )
+    })
+
+    test('fixes Endifen and Endif → endif', () => {
+      expect(fix('{% Endifen %}', 'de')).toBe('{% endif %}')
+      expect(fix('{% Endif %}', 'de')).toBe('{% endif %}')
+    })
+
+    test('fixes ifversion-repo-policy-rules', () => {
+      expect(fix('{% ifversion-repo-policy-rules %}', 'de')).toBe(
+        '{% ifversion repo-policy-rules %}',
+      )
+    })
+
+    test('fixes ifversion-enterprise-installed-apps', () => {
+      expect(fix('{% ifversion-enterprise-installed-apps %}', 'de')).toBe(
+        '{% ifversion enterprise-installed-apps %}',
+      )
     })
   })
 
@@ -742,6 +1003,12 @@ describe('correctTranslatedContentStrings', () => {
       )
       expect(fix('{% Data reusables.foo %}', 'es')).toBe('{% data reusables.foo %}')
       expect(fix('{% Data ifversion ghec %}', 'es')).toBe('{% data ifversion ghec %}')
+    })
+
+    test('fixes capitalized platform tags across all languages', () => {
+      expect(fix('{% Windows %}', 'zh')).toBe('{% windows %}')
+      expect(fix('{% Eclipse %}', 'zh')).toBe('{% eclipse %}')
+      expect(fix('{% Linux %}', 'zh')).toBe('{% linux %}')
     })
 
     test('fixes AUTOTITLE corruption patterns', () => {

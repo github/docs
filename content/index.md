@@ -112,7 +112,7 @@ childGroups:
     children:
       - copilot
       - copilot/get-started/plans
-      - copilot/how-tos/use-copilot-agents/coding-agent
+      - copilot/how-tos/use-copilot-agents/cloud-agent
       - copilot/tutorials
       - copilot/tutorials/copilot-chat-cookbook
       - copilot/tutorials/customization-library

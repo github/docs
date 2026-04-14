@@ -68,6 +68,11 @@ The following scripts are available for manual execution:
 | `npm run deprecate-ghes-archive`    | Archive deprecation tracking issues.              |
 | `npm run release-banner`            | Update the release banner.                        |
 | `npm run update-enterprise-dates`   | Update enterprise release dates.                  |
+| `npm run generate-release-notes`    | Generate draft release notes using Copilot agent. |
+| `npm run notify-release-pms`        | Notify PMs to review their release notes.         |
+| `npm run check-release-approvals`   | Check PM approval status for release notes.       |
+
+See the [scripts README](scripts/README.md) for a full usage guide covering the release notes generation, notification, and approval workflow.
 
 For example, to create new release tracking issues, run:
 ```bash

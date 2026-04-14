@@ -8,6 +8,8 @@ versions:
 contentType: how-tos
 category:
   - Configure Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## About authentication
@@ -18,9 +20,9 @@ Authentication is required for any other {% data variables.copilot.copilot_cli %
 
 When authentication is required, {% data variables.copilot.copilot_cli_short %} supports three methods. The method you use depends on whether you are working interactively or in an automated environment.
 
-* **OAuth device flow**: The default and recommended method for interactive use. When you run `/login` in {% data variables.copilot.copilot_cli_short %}, the CLI generates a one-time code and directs you to authenticate in your browser. This is the simplest way to authenticate.
-* **Environment variables**: Recommended for CI/CD pipelines, containers, and non-interactive environments. You set a supported token as an environment variable (`COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN`), and the CLI uses it automatically without prompting.
-* **{% data variables.product.prodname_cli %} fallback**: If you have {% data variables.product.prodname_cli %} (`gh`) (note: the `gh` CLI, not `copilot`) installed and authenticated, {% data variables.copilot.copilot_cli_short %} can use its token automatically. This is the lowest priority method and activates only when no other credentials are found.
+* **OAuth device flow**: The default and recommended method for interactive use. When you run `/login` in {% data variables.copilot.copilot_cli_short %}, the CLI generates a one-time code and directs you to authenticate in your browser. This is the simplest way to authenticate. See [Authenticating with OAuth](#authenticating-with-oauth).
+* **Environment variables**: Recommended for CI/CD pipelines, containers, and non-interactive environments. You set a supported token as an environment variable (`COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, or `GITHUB_TOKEN`), and the CLI uses it automatically without prompting. See [Authenticating with environment variables](#authenticating-with-environment-variables).
+* **{% data variables.product.prodname_cli %} fallback**: If you have {% data variables.product.prodname_cli %} (`gh`) (note: the `gh` CLI, not `copilot`) installed and authenticated, {% data variables.copilot.copilot_cli_short %} can use its token automatically. This is the lowest priority method and activates only when no other credentials are found. See [Authenticating with {% data variables.product.prodname_cli %}](#authenticating-with-github-cli).
 
 Once authenticated, {% data variables.copilot.copilot_cli_short %} remembers your login and automatically uses the token for all {% data variables.product.prodname_copilot_short %} API requests. You can log in with multiple accounts, and the CLI will remember the last-used account. Token lifetime and expiration depend on how the token was created on your account or organization settings.
 
@@ -30,7 +32,7 @@ If you configure {% data variables.copilot.copilot_cli_short %} to use your own 
 
 However, without {% data variables.product.github %} authentication, the following features are **not available**:
 
-* `/delegate`: Requires {% data variables.copilot.copilot_coding_agent %}, which runs on {% data variables.product.github %}'s servers
+* `/delegate`: Requires {% data variables.copilot.copilot_cloud_agent %}, which runs on {% data variables.product.github %}'s servers
 * {% data variables.product.github %} MCP server: Requires authentication to access {% data variables.product.github %} APIs
 * {% data variables.product.github %} Code Search: Requires authentication to query {% data variables.product.github %}'s search index
 

@@ -87,6 +87,6 @@ For more information, see [AUTOTITLE](/packages/learn-github-packages/introducti
 
 ## {% data variables.product.prodname_copilot %}
 
-Hosting your repositories on {% data variables.product.github %} unlocks the full power of {% data variables.product.prodname_copilot_short %}. Your codebase provides {% data variables.product.prodname_copilot_short %} with all the context it needs to answer questions in {% data variables.copilot.copilot_chat_short %}, review and make suggestions in your pull requests, and even make changes on your behalf with {% data variables.copilot.copilot_coding_agent %}.
+Hosting your repositories on {% data variables.product.github %} unlocks the full power of {% data variables.product.prodname_copilot_short %}. Your codebase provides {% data variables.product.prodname_copilot_short %} with all the context it needs to answer questions in {% data variables.copilot.copilot_chat_short %}, review and make suggestions in your pull requests, and even make changes on your behalf with {% data variables.copilot.copilot_cloud_agent %}.
 
 See [AUTOTITLE](/copilot/get-started/quickstart).

@@ -9,6 +9,8 @@ contentType: how-tos
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 Connecting {% data variables.copilot.copilot_cli_short %} to {% data variables.product.prodname_vscode_shortname %} gives you the best of both environments: the speed and flexibility of a terminal-based workflow, combined with the rich visual tools of your editor. With a connection established, you can:

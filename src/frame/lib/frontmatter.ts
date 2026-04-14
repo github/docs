@@ -59,6 +59,10 @@ export const contentTypesEnum = [
   'other', // Everything else.
 ]
 
+// Values supported in the docsTeamMetrics frontmatter property. Used to track
+// related articles (e.g. by feature or subject) that may span different directories.
+export const docsTeamMetricsEnum = ['copilot-cli']
+
 export const schema: Schema = {
   type: 'object',
   required: ['title', 'versions'],
@@ -245,6 +249,13 @@ export const schema: Schema = {
     },
     interactive: {
       type: 'boolean',
+    },
+    docsTeamMetrics: {
+      type: 'array',
+      items: {
+        type: 'string',
+        enum: docsTeamMetricsEnum,
+      },
     },
     communityRedirect: {
       type: 'object',

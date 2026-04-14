@@ -5,6 +5,7 @@ intro: Learn how to use {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
 children:
+  - /copilot-on-github
   - /set-up
   - /get-code-suggestions
   - /chat-with-copilot

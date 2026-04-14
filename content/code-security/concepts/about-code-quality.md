@@ -30,7 +30,7 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 * Use **repository dashboards** to track reliability and maintainability scores, identify areas needing attention, and prioritize remediation.
 * Monitor **organization dashboards** to understand the code health of your repositories at a glance and determine which repositories to investigate further.
 * Set up **rulesets** for pull requests to enforce code quality standards and block changes that do not meet your criteria.
-* Easily assign remediation work to **{% data variables.copilot.copilot_coding_agent %}**, if you have a {% data variables.product.prodname_copilot_short %} license.
+* Easily assign remediation work to **{% data variables.copilot.copilot_cloud_agent %}**, if you have a {% data variables.product.prodname_copilot_short %} license.
 
 ## Availability and usage costs
 

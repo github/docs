@@ -58,9 +58,9 @@ You can also use the Autofix API for historical alerts endpoints to generate, ge
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-## Assigning alerts to {% data variables.copilot.copilot_coding_agent %}
+## Assigning alerts to {% data variables.copilot.copilot_cloud_agent %}
 
->[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_coding_agent %} must be available in the repository.
+>[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_cloud_agent %} must be available in the repository.
 
 You can assign {% data variables.product.prodname_copilot_short %} to apply an autofix. {% data variables.product.prodname_copilot_short %} analyzes the code scanning alert, creates a remediation plan, and implements the necessary code changes in a pull request.
 
@@ -79,6 +79,8 @@ Within 30 seconds, {% data variables.product.prodname_copilot_short %} will open
 ## Fixing an alert {% ifversion code-scanning-autofix %}manually{% endif %}
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
+
+{% data reusables.code-scanning.track-alert-in-issue %}
 
 You can use the free text search or the filters to display a subset of alerts and then in turn mark all matching alerts as closed.
 

@@ -129,13 +129,22 @@ A {% data variables.product.prodname_GHAS %} license provides the following addi
 
 {% endif %}
 
-{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
+{% ifversion ghas-products %}
 
-## Run an assessment of your organization's exposure to secret leaks
+## Run a free security risk assessment
 
-{% ifversion secret-risk-assessment %}{% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
+<a href="https://github.com/get_started?with=risk-assessment&ref_product=code-scanning&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Get started with security risk assessments</span> {% octicon "link-external" height:16 %}</a>
 
-Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. This can help you understand the current exposure of repositories in your organization to leaked secrets, as well as help you see how many existing secret leaks could have been prevented by {% data variables.product.prodname_GH_secret_protection %}.{% endif %}{% else %}{% endif %}
+Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run free security risk assessments to understand their exposure to security vulnerabilities:
+
+{% ifversion secret-risk-assessment %}
+* **Secret leaks**: Scan your organization for leaked secrets and see how many could have been prevented by {% data variables.product.prodname_GH_secret_protection %}. See [AUTOTITLE](/code-security/concepts/secret-security/about-secret-security-with-github#secret-risk-assessment).
+{% endif %}
+{% ifversion code-security-risk-assessment %}
+* **Code vulnerabilities**: Scan up to 20 of your most active repositories and see how many vulnerabilities could be automatically fixed with {% data variables.copilot.copilot_autofix_short %} if you enable {% data variables.product.prodname_GH_code_security %}. See [AUTOTITLE](/code-security/concepts/code-scanning/code-security-risk-assessment).
+{% endif %}
+
+{% endif %}
 
 ## Deploying {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %} in your enterprise{% endif %}
 

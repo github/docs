@@ -10,7 +10,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-{% data reusables.copilot.coding-agent.agent-management-intro %}
+{% data reusables.copilot.cloud-agent.agent-management-intro %}
 
 ## 1. Select a repository and choose your agent
 
@@ -34,7 +34,7 @@ category:
 
   {% data variables.product.prodname_copilot_short %} will start work on the task and begin pushing changes to a new pull request, where it will automatically add you as a reviewer.
 
-For more information on ways to start new agent tasks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).
+For more information on ways to start new agent tasks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
 
 ## 2. Monitor agent activity
 
@@ -42,7 +42,7 @@ Once the agent starts working, it will continue to update the session log and ov
 
 Each session displays its status. Click on a session to open the session log, where you can monitor the agent's progress, see the tools it's using, and track how long the session has been running.
 
-{% data variables.copilot.copilot_coding_agent %} sessions can also be tracked from the {% data variables.product.prodname_cli %}, {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_vscode %}, Raycast, and JetBrains IDEs. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+{% data variables.copilot.copilot_cloud_agent %} sessions can also be tracked from the {% data variables.product.prodname_cli %}, {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_vscode %}, Raycast, and JetBrains IDEs. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
 
 ## 3. Redirect agents as needed
 
@@ -71,17 +71,17 @@ You can guide the agent in your local development environment on further changes
 
 At the bottom of the agent session view, click the **{% octicon "vscode" aria-label="VS Code" %} Open in {% data variables.product.prodname_vscode_shortname %}** button to launch the session directly in {% data variables.product.prodname_vscode_shortname %}.
 
-{% data reusables.copilot.coding-agent.use-latest-vscode %}
+{% data reusables.copilot.cloud-agent.use-latest-vscode %}
 
 ### {% data variables.copilot.copilot_cli %}
   1. At the bottom of the agent session view, click the dropdown list next to **{% octicon "vscode" aria-label="VS Code" %} Open in {% data variables.product.prodname_vscode_shortname %}**.
   1. Click **{% octicon "agent" aria-label="Agent" %} Continue in {% data variables.copilot.copilot_cli %}** to copy the `copilot --resume=SESSION-ID` command to your clipboard.
-      ![Screenshot of the session action dropdown list, "Continue in Copilot CLI" is highlighted with a dark orange outline.](/assets/images/help/copilot/coding-agent/open-agent-session-in-copilot-cli.png)
+      ![Screenshot of the session action dropdown list, "Continue in Copilot CLI" is highlighted with a dark orange outline.](/assets/images/help/copilot/cloud-agent/open-agent-session-in-copilot-cli.png)
   1. In your terminal, paste and run the command to resume the agent session.
 
 ## 5. Review and merge agent code
 
-Once the agent completes a session, you can navigate to the pull request to review the changes. From the pull request, you can scan the diff, request further improvements, or approve and merge the changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/review-copilot-prs).
+Once the agent completes a session, you can navigate to the pull request to review the changes. From the pull request, you can scan the diff, request further improvements, or approve and merge the changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/review-copilot-prs).
 
 ## 6. Archive agent sessions
 

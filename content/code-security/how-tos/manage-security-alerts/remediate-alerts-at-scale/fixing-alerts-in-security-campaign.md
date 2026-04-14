@@ -46,13 +46,13 @@ If you want to see the code that triggered the security alert and the suggested 
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-## Assigning alerts to {% data variables.copilot.copilot_coding_agent %}
+## Assigning alerts to {% data variables.copilot.copilot_cloud_agent %}
 
->[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_coding_agent %} must be available in the repository.
+>[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_cloud_agent %} must be available in the repository.
 
 If an autofix has been generated, you can assign one or more alerts to {% data variables.product.prodname_copilot_short %}. {% data variables.product.prodname_copilot_short %} will create pull requests, apply the autofixes, and add you as a requested reviewer.
 
-By assigning multiple alerts, {% data variables.copilot.copilot_coding_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
+By assigning multiple alerts, {% data variables.copilot.copilot_cloud_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
 
 1. In the campaign view for the repository, select the alerts that you want to assign.
 1. Above the list of alerts, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Assign to Copilot**.

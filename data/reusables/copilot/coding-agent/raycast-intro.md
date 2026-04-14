@@ -1,1 +1,0 @@
-[Raycast](https://www.raycast.com/) is an extensible launcher for Windows and macOS. With the {% data variables.product.prodname_copilot %} extension for Raycast, you can start and track {% data variables.copilot.copilot_coding_agent %} tasks and watch session logs live wherever you are on your computer.

@@ -31,6 +31,20 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% de datos variables', '{% data variables')
     content = content.replaceAll('{% datos reusables', '{% data reusables')
     content = content.replaceAll('{% data reutilizables.', '{% data reusables.')
+    // `{% datos reutilizables.` — fully translated "data reusables" path
+    content = content.replaceAll('{% datos reutilizables.', '{% data reusables.')
+    // `{% datos repositorios.` — translated "repositories" path segment
+    content = content.replaceAll('{% datos repositorios.', '{% data reusables.repositories.')
+    // `{% datos de variables.` — reversed word order with extra "de"
+    content = content.replaceAll('{% datos de variables.', '{% data variables.')
+    // `{% variables de datos.` — reversed word order "variables of data"
+    content = content.replaceAll('{% variables de datos.', '{% data variables.')
+    // `{% Datos ` — capitalized "datos" = data
+    content = content.replaceAll('{% Datos variables', '{% data variables')
+    // `{% dato ` — singular form of "datos" = data
+    content = content.replaceAll('{% dato variables', '{% data variables')
+    // `{% variables.` — missing "data" prefix
+    content = content.replaceAll('{% variables.', '{% data variables.')
     // Translated Liquid keywords
     content = content.replaceAll('{% comentario %}', '{% comment %}')
     content = content.replaceAll('{% si ', '{% if ')
@@ -113,6 +127,9 @@ export function correctTranslatedContentStrings(
     // `{% それ以外の %}` — truncated form of "in the other case" = else
     content = content.replaceAll('{% それ以外の %}', '{% else %}')
     content = content.replaceAll('{%- それ以外の %}', '{%- else %}')
+    // `{%- それ以外 %}` — further-truncated form (missing の/場合) = else
+    content = content.replaceAll('{% それ以外 %}', '{% else %}')
+    content = content.replaceAll('{%- それ以外 %}', '{%- else %}')
     // `{% それ以外の場合 ifversion X %}` → `{% elsif X %}` (confused elsif + ifversion)
     content = content.replace(/\{% それ以外の場合 ifversion\s+(.+?)\s*%\}/g, '{% elsif $1 %}')
     // `{%- "supported" %}` → `{%- when "supported" %}` (missing `when`)
@@ -193,6 +210,12 @@ export function correctTranslatedContentStrings(
         return `${dash} assign ${varName} = ${value.trim()} ${closeDash}`
       },
     )
+    // `{% 行ヘッダー %}` — "row headers" = rowheaders
+    content = content.replaceAll('{% 行ヘッダー %}', '{% rowheaders %}')
+    content = content.replaceAll('{%- 行ヘッダー %}', '{%- rowheaders %}')
+    // `{% ウィンドウズ %}` — "Windows" = windows (platform tag)
+    content = content.replaceAll('{% ウィンドウズ %}', '{% windows %}')
+    content = content.replaceAll('{%- ウィンドウズ %}', '{%- windows %}')
   }
 
   if (context.code === 'pt') {
@@ -216,10 +239,35 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% %de dados reusables.', '{% data reusables.')
     content = content.replaceAll('{% %de dados variables.', '{% data variables.')
     content = content.replaceAll('{% %móvel }', '{% mobile %}')
+    // `{% variáveis de dados.` — reversed word order for "data variables" in Portuguese
+    content = content.replaceAll('{% variáveis de dados.', '{% data variables.')
+    content = content.replaceAll('{% variáveis de dados ', '{% data variables ')
+    // `{% dados variáveis.` — alternate word order "data variables"
+    content = content.replaceAll('{% dados variáveis.', '{% data variables.')
+    // `{% janelas %}` — Portuguese "windows" = windows (platform tag)
+    content = content.replaceAll('{% janelas %}', '{% windows %}')
+    content = content.replaceAll('{%- janelas %}', '{%- windows %}')
+    // `{% observação %}` — Portuguese "note" = note
+    content = content.replaceAll('{% observação %}', '{% note %}')
+    content = content.replaceAll('{%- observação %}', '{%- note %}')
+    // `{% comentário %}` — Portuguese "comment" = comment
+    content = content.replaceAll('{% comentário %}', '{% comment %}')
+    // `{% nota de fim %}` — Portuguese "end note" = endnote
+    content = content.replaceAll('{% nota de fim %}', '{% endnote %}')
+    content = content.replaceAll('{%- nota de fim %}', '{%- endnote %}')
+    // `{% Dados variables` — capitalized "Dados"
+    content = content.replaceAll('{% Dados variables', '{% data variables')
+    content = content.replaceAll('{%- Dados variables', '{%- data variables')
     // Catch "ou" between any plan names in ifversion/elsif/if tags
     content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
     })
+    // Fully translated reusable path in audit log article:
+    // `{% dados agrupados por categoria.complemento.audit_log.reference-grouped-by-category %}`
+    content = content.replaceAll(
+      '{% dados agrupados por categoria.complemento.audit_log.reference-grouped-by-category %}',
+      '{% data reusables.audit_log.reference-grouped-by-category %}',
+    )
   }
 
   if (context.code === 'zh') {
@@ -243,6 +291,16 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?或[^%]*?%\}/g, (match) => {
       return match.replace(/ 或 /g, ' or ')
     })
+    // `{% 行标题 %}` — "row headers" = rowheaders
+    content = content.replaceAll('{% 行标题 %}', '{% rowheaders %}')
+    content = content.replaceAll('{%- 行标题 %}', '{%- rowheaders %}')
+    // `{% 数据变量.` — "data variables" = data variables
+    content = content.replaceAll('{% 数据变量.', '{% data variables.')
+    // `{% Windows 操作系统 %}` — "Windows OS" = windows platform tag
+    content = content.replaceAll('{% Windows 操作系统 %}', '{% windows %}')
+    content = content.replaceAll('{%- Windows 操作系统 %}', '{%- windows %}')
+    // `{% Windows终端 %}` — "Windows terminal" = windows platform tag
+    content = content.replaceAll('{% Windows终端 %}', '{% windows %}')
   }
 
   if (context.code === 'ru') {
@@ -287,6 +345,13 @@ export function correctTranslatedContentStrings(
     })
     content = content.replaceAll('{% endif _%}', '{% endif %}')
     content = content.replaceAll('{% конечным %}', '{% endif %}')
+    // `{%- конец %}` — dash-trimmed form of "end" = endif
+    content = content.replaceAll('{%- конец %}', '{%- endif %}')
+    // `{%- конец для %}` — "end for" = endfor
+    content = content.replaceAll('{%- конец для %}', '{%- endfor %}')
+    // `{% заголовки строк %}` — "row headers" = rowheaders (opener; `{% endrowheaders %}` stays in English)
+    content = content.replaceAll('{% заголовки строк %}', '{% rowheaders %}')
+    content = content.replaceAll('{%- заголовки строк %}', '{%- rowheaders %}')
     // `{% конец %}` after `{% raw %}` means `{% endraw %}`, not `{% endif %}`.
     // Handle this BEFORE the generic `{% конец %}` → `{% endif %}` fallback.
     // We use a split-based approach instead of `[^]*?` regex to avoid
@@ -330,6 +395,14 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% запроса %}', '{% endraw %}')
     // `{% Mac %}` — capitalized mac platform tag
     content = content.replaceAll('{% Mac %}', '{% mac %}')
+    // `{% Endwindows %}` — capitalized endwindows
+    content = content.replaceAll('{% Endwindows %}', '{% endwindows %}')
+    content = content.replaceAll('{%- Endwindows %}', '{%- endwindows %}')
+    // `{% Elsif ` — capitalized elsif
+    content = content.replace(/\{% Elsif /g, '{% elsif ')
+    // `{% Linux %}` — capitalized linux platform tag
+    content = content.replaceAll('{% Linux %}', '{% linux %}')
+    content = content.replaceAll('{%- Linux %}', '{%- linux %}')
     // Fix double quotes in Russian YAML files that cause parsing errors
     content = content.replace(/href=""https:\/\//g, 'href="https://')
 
@@ -382,9 +455,16 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% %brut }', '{% raw %}')
     content = content.replaceAll('{% redessiner %}', '{% endraw %}')
     content = content.replaceAll('{% données ', '{% data ')
+    // `{% Données ` — capitalized form
+    content = content.replaceAll('{% Données variables', '{% data variables')
+    content = content.replaceAll('{% Données réutilisables.', '{% data reusables.')
     // Catch remaining "ou" between any plan names in ifversion/elsif/if tags
     content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
+    })
+    // French "et" for "and" in ifversion/elsif/if tags
+    content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?\bet\b[^%]*?%\}/g, (match) => {
+      return match.replace(/ et /g, ' and ')
     })
     // French guillemets «/» → " inside if/ifversion/elsif tags
     content = content.replace(/\{%-?\s*(?:if|ifversion|elsif)\s[^%]*?[«»][^%]*?%\}/g, (match) => {
@@ -407,6 +487,12 @@ export function correctTranslatedContentStrings(
     // `{% sinon %}` / `{%- sinon %}` — French "otherwise" = else
     content = content.replaceAll('{% sinon %}', '{% else %}')
     content = content.replaceAll('{%- sinon %}', '{%- else %}')
+    // `{% note de fin %}` / `{%- note de fin %}` — "end note" = endnote
+    content = content.replaceAll('{% note de fin %}', '{% endnote %}')
+    content = content.replaceAll('{%- note de fin %}', '{%- endnote %}')
+    // `{% éclipse %}` — French accent on "eclipse" platform tag
+    content = content.replaceAll('{% éclipse %}', '{% eclipse %}')
+    content = content.replaceAll('{%- éclipse %}', '{%- eclipse %}')
     // Remove orphaned {% endif %} tags when no ifversion/elsif opener exists in the content.
     // Caused by translations where only the closing tag survived (e.g. user-api.md reusable).
     if (
@@ -431,6 +517,7 @@ export function correctTranslatedContentStrings(
     // Extra `%` before data: `{% % data` → `{% data`
     content = content.replaceAll('{% % data', '{% data')
     content = content.replaceAll('{% 기타 %}', '{% else %}')
+    content = content.replaceAll('{%- 기타 %}', '{%- else %}')
     content = content.replaceAll('{% 참고 %}', '{% note %}')
     content = content.replaceAll('{% 원시 %}', '{% raw %}')
     // Catch "또는" between any plan names in ifversion/elsif/if tags
@@ -445,6 +532,16 @@ export function correctTranslatedContentStrings(
 
     // Korean translation of github-glossary.md
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')
+    // `{% 데이터 재사용.` — Korean translation of "data reusables" path
+    content = content.replaceAll('{% 데이터 재사용.', '{% data reusables.')
+    // `{% datavariable` — compound missing space and plural: "datavariable" → "data variables"
+    content = content.replaceAll('{% datavariable', '{% data variables')
+    // `{% 행 머리글 %}` — "row headers" = rowheaders
+    content = content.replaceAll('{% 행 머리글 %}', '{% rowheaders %}')
+    content = content.replaceAll('{%- 행 머리글 %}', '{%- rowheaders %}')
+    // `{% 윈도우즈 %}` — Korean transliteration of "windows"
+    content = content.replaceAll('{% 윈도우즈 %}', '{% windows %}')
+    content = content.replaceAll('{%- 윈도우즈 %}', '{%- windows %}')
   }
 
   if (context.code === 'de') {
@@ -459,6 +556,23 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% Data wiederverwendbare.', '{% data reusables.')
     // `wiederverwendbar.` (without trailing 'e') — alternate German form
     content = content.replaceAll('{% Daten wiederverwendbar.', '{% data reusables.')
+    // `daten wiederverwendbars.` — lowercase with trailing 's'
+    content = content.replaceAll('{% daten wiederverwendbars.', '{% data reusables.')
+    // `daten wiederverwendbar.` / `daten wiederverwendbare.` — without trailing 's'
+    content = content.replaceAll('{% daten wiederverwendbar.', '{% data reusables.')
+    content = content.replaceAll('{% daten wiederverwendbare.', '{% data reusables.')
+    // `{%- Daten variables` — dash variant
+    content = content.replaceAll('{%- Daten variables', '{%- data variables')
+    // `{% Daten Variablen.` — both German words for "data variables"
+    content = content.replaceAll('{% Daten Variablen.', '{% data variables.')
+    // `{% daten reusables` — lowercase with English "reusables"
+    content = content.replaceAll('{% daten reusables', '{% data reusables')
+    // `{% unformatierte %}` — "unformatted" = raw
+    content = content.replaceAll('{% unformatierte %}', '{% raw %}')
+    content = content.replaceAll('{%- unformatierte %}', '{%- raw %}')
+    // `Datenvariablen.` — German compound word for "data variables" (no space)
+    content = content.replaceAll('{% Datenvariablen.', '{% data variables.')
+    content = content.replaceAll('{%- Datenvariablen.', '{%- data variables.')
     content = content.replaceAll('{%-Daten variables', '{%- data variables')
     content = content.replaceAll('{%-Daten-variables', '{%- data variables')
     content = content.replaceAll('{%- ifversion fpt oder ghec %}', '{%- ifversion fpt or ghec %}')
@@ -484,9 +598,86 @@ export function correctTranslatedContentStrings(
     // `{% ansonsten %}` / `{%- ansonsten %}` — "otherwise" = else
     content = content.replaceAll('{% ansonsten %}', '{% else %}')
     content = content.replaceAll('{%- ansonsten %}', '{%- else %}')
+    // `{% andernfalls %}` / `{% sonst %}` — "otherwise/else" = else
+    content = content.replaceAll('{% andernfalls %}', '{% else %}')
+    content = content.replaceAll('{%- andernfalls %}', '{%- else %}')
+    content = content.replaceAll('{% sonst %}', '{% else %}')
+    content = content.replaceAll('{%- sonst %}', '{%- else %}')
+    // `{% andernfalls ifversion X %}` / `{% sonst ifversion X %}` → `{% elsif X %}`
+    content = content.replace(/\{% andernfalls ifversion\s+(.+?)\s*%\}/g, '{% elsif $1 %}')
+    content = content.replace(/\{% sonst ifversion\s+(.+?)\s*%\}/g, '{% elsif $1 %}')
     // `{% Zeilenkopfzeilen %}` — "row headers" = rowheaders
     content = content.replaceAll('{% Zeilenkopfzeilen %}', '{% rowheaders %}')
     content = content.replaceAll('{%- Zeilenkopfzeilen %}', '{%- rowheaders %}')
+    // `{% Rohdaten %}` — German "raw data" = raw
+    content = content.replaceAll('{% Rohdaten %}', '{% raw %}')
+    content = content.replaceAll('{%- Rohdaten %}', '{%- raw %}')
+    content = content.replaceAll('{%- Rohdaten -%}', '{%- raw -%}')
+    // `{% okticon ` — "octicon" transliterated to "okticon"
+    content = content.replaceAll('{% okticon ', '{% octicon ')
+    // `{% Endnotiz %}` — "end note" = endnote
+    content = content.replaceAll('{% Endnotiz %}', '{% endnote %}')
+    content = content.replaceAll('{%- Endnotiz %}', '{%- endnote %}')
+    // `{% endifen %}` — garbled "endif" = endif
+    content = content.replaceAll('{% endifen %}', '{% endif %}')
+    content = content.replaceAll('{%- endifen %}', '{%- endif %}')
+    // `{% Endifen %}` — capitalized variant
+    content = content.replaceAll('{% Endifen %}', '{% endif %}')
+    content = content.replaceAll('{%- Endifen %}', '{%- endif %}')
+    // `{% Endif %}` — capitalized endif
+    content = content.replaceAll('{% Endif %}', '{% endif %}')
+    content = content.replaceAll('{%- Endif %}', '{%- endif %}')
+    content = content.replaceAll('{%- Endif -%}', '{%- endif -%}')
+    // `{% Dateninstanz` — "data instance" = data
+    content = content.replaceAll('{% Dateninstanz ', '{% data ')
+    // `{% ifversion-Sicherheitskonfigurationen %}` — hyphenated compound
+    content = content.replaceAll(
+      '{% ifversion-Sicherheitskonfigurationen %}',
+      '{% ifversion security-configurations %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion-Sicherheitskonfigurationen %}',
+      '{%- ifversion security-configurations %}',
+    )
+    // `{% ifversion-Unterprobleme %}` — hyphenated compound
+    content = content.replaceAll('{% ifversion-Unterprobleme %}', '{% ifversion sub-issues %}')
+    content = content.replaceAll('{%- ifversion-Unterprobleme %}', '{%- ifversion sub-issues %}')
+    // `{% ifversion-Sicherheitskampagnen %}` — hyphenated compound
+    content = content.replaceAll(
+      '{% ifversion-Sicherheitskampagnen %}',
+      '{% ifversion security-campaigns %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion-Sicherheitskampagnen %}',
+      '{%- ifversion security-campaigns %}',
+    )
+    // `{% ifversion-repo-policy-rules %}` — missing space before feature flag
+    content = content.replaceAll(
+      '{% ifversion-repo-policy-rules %}',
+      '{% ifversion repo-policy-rules %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion-repo-policy-rules %}',
+      '{%- ifversion repo-policy-rules %}',
+    )
+    // `{% ifversion-enterprise-installed-apps %}` — missing space before feature flag
+    content = content.replaceAll(
+      '{% ifversion-enterprise-installed-apps %}',
+      '{% ifversion enterprise-installed-apps %}',
+    )
+    content = content.replaceAll(
+      '{%- ifversion-enterprise-installed-apps %}',
+      '{%- ifversion enterprise-installed-apps %}',
+    )
+    // `{% Windows %}` — capitalized platform tag
+    content = content.replaceAll('{% Windows %}', '{% windows %}')
+    content = content.replaceAll('{%- Windows %}', '{%- windows %}')
+    // `{% Linux %}` — capitalized platform tag
+    content = content.replaceAll('{% Linux %}', '{% linux %}')
+    content = content.replaceAll('{%- Linux %}', '{%- linux %}')
+    // `{% Eclipse %}` — capitalized platform tag
+    content = content.replaceAll('{% Eclipse %}', '{% eclipse %}')
+    content = content.replaceAll('{%- Eclipse %}', '{%- eclipse %}')
   }
 
   // --- Generic fixes (all languages) ---
@@ -499,6 +690,14 @@ export function correctTranslatedContentStrings(
 
   // Capitalized Liquid keyword: `{% Data ` → `{% data `
   content = content.replaceAll('{% Data ', '{% data ')
+
+  // Capitalized platform tags (cross-language)
+  content = content.replaceAll('{% Windows %}', '{% windows %}')
+  content = content.replaceAll('{%- Windows %}', '{%- windows %}')
+  content = content.replaceAll('{% Linux %}', '{% linux %}')
+  content = content.replaceAll('{%- Linux %}', '{%- linux %}')
+  content = content.replaceAll('{% Eclipse %}', '{% eclipse %}')
+  content = content.replaceAll('{%- Eclipse %}', '{%- eclipse %}')
 
   // These run after per-language fixes so that e.g. `{{% данных variables`
   // first becomes `{{% data variables` and then gets caught here.

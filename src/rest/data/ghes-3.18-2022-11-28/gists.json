@@ -2616,7 +2616,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specified gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.base64+json</code></strong>: Returns the base64-encoded contents. This can be useful if your gist contains any invalid UTF-8 sequences.</li>\n</ul>",
+      "descriptionHTML": "<p>Gets a specified gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -3768,7 +3768,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Allows you to update a gist's description and to update, delete, or rename gist files. Files\nfrom the previous version of the gist that aren't explicitly changed during an edit\nare unchanged.</p>\n<p>At least one of <code>description</code> or <code>files</code> is required.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.base64+json</code></strong>: Returns the base64-encoded contents. This can be useful if your gist contains any invalid UTF-8 sequences.</li>\n</ul>",
+      "descriptionHTML": "<p>Allows you to update a gist's description and to update, delete, or rename gist files. Files\nfrom the previous version of the gist that aren't explicitly changed during an edit\nare unchanged.</p>\n<p>At least one of <code>description</code> or <code>files</code> is required.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -9157,7 +9157,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specified gist revision.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.base64+json</code></strong>: Returns the base64-encoded contents. This can be useful if your gist contains any invalid UTF-8 sequences.</li>\n</ul>",
+      "descriptionHTML": "<p>Gets a specified gist revision.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -10785,7 +10785,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the comments on a gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.base64+json</code></strong>: Returns the base64-encoded contents. This can be useful if your gist contains any invalid UTF-8 sequences.</li>\n</ul>",
+      "descriptionHTML": "<p>Lists the comments on a gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -11062,7 +11062,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Creates a comment on a gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.base64+json</code></strong>: Returns the base64-encoded contents. This can be useful if your gist contains any invalid UTF-8 sequences.</li>\n</ul>",
+      "descriptionHTML": "<p>Creates a comment on a gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -11344,7 +11344,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a comment on a gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.base64+json</code></strong>: Returns the base64-encoded contents. This can be useful if your gist contains any invalid UTF-8 sequences.</li>\n</ul>",
+      "descriptionHTML": "<p>Gets a comment on a gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -11627,7 +11627,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Updates a comment on a gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.base64+json</code></strong>: Returns the base64-encoded contents. This can be useful if your gist contains any invalid UTF-8 sequences.</li>\n</ul>",
+      "descriptionHTML": "<p>Updates a comment on a gist.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.18/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown. This is the default if you do not pass any specific media type.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
