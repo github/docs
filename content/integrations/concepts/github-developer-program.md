@@ -22,7 +22,7 @@ Build your own tools that seamlessly integrate with {% data variables.product.gi
 
 ## Have an integration that works with GitHub?
 
-Awesome! Here’s how you can spread the word:
+Awesome! Here’s how you can spread the word:-
 
 * Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with {% data variables.product.github %}.
 * Post a video or a blog on your website about your integration.
