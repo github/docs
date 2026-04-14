@@ -9,7 +9,7 @@
       "subcategory": "apps",
       "parameters": [],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns the GitHub App associated with the authentication credentials used. To see how many app installations are associated with this GitHub App, see the <code>installations_count</code> in the response. For more details about your app's installations, see the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/apps/apps#list-installations-for-the-authenticated-app\">List installations for the authenticated app</a>\" endpoint.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Returns the GitHub App associated with the authentication credentials used. To see how many app installations are associated with this GitHub App, see the <code>installations_count</code> in the response. For more details about your app's installations, see the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/apps/apps#list-installations-for-the-authenticated-app\">List installations for the authenticated app</a>\" endpoint.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -380,7 +380,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Use this endpoint to complete the handshake necessary when implementing the <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/creating-github-apps-from-a-manifest/\">GitHub App Manifest flow</a>. When you create a GitHub App with the manifest flow, you receive a temporary <code>code</code> used to retrieve the GitHub App's <code>id</code>, <code>pem</code> (private key), and <code>webhook_secret</code>.</p>",
+      "descriptionHTML": "<p>Use this endpoint to complete the handshake necessary when implementing the <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/creating-github-apps-from-a-manifest/\">GitHub App Manifest flow</a>. When you create a GitHub App with the manifest flow, you receive a temporary <code>code</code> used to retrieve the GitHub App's <code>id</code>, <code>pem</code> (private key), and <code>webhook_secret</code>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -787,7 +787,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -796,7 +796,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1219,7 +1219,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1228,7 +1228,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1256,7 +1256,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>The permissions the installation has are included under the <code>permissions</code> key.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>The permissions the installation has are included under the <code>permissions</code> key.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2226,7 +2226,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Enables an authenticated GitHub App to find an installation's information using the installation id.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Enables an authenticated GitHub App to find an installation's information using the installation id.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3198,7 +3198,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Uninstalls a GitHub App on a user, organization, or enterprise account. If you prefer to temporarily suspend an app's access to your account's resources, then we recommend the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/apps/apps#suspend-an-app-installation\">Suspend an app installation</a>\" endpoint.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Uninstalls a GitHub App on a user, organization, or enterprise account. If you prefer to temporarily suspend an app's access to your account's resources, then we recommend the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/apps/apps#suspend-an-app-installation\">Suspend an app installation</a>\" endpoint.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3772,7 +3772,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Creates an installation access token that enables a GitHub App to make authenticated API requests for the app's installation on an enterprise, organization, or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of <code>401 - Unauthorized</code>, and requires creating a new installation token. By default the installation token has access to all repositories that the installation can access.</p>\n<p>Optionally, you can use the <code>repositories</code> or <code>repository_ids</code> body parameters to specify individual repositories that the installation access token can access. If you don't use <code>repositories</code> or <code>repository_ids</code> to grant access to specific repositories, the installation access token will have access to all repositories that the installation was granted access to. The installation access token cannot be granted access to repositories that the installation was not granted access to. Up to 500 repositories can be listed in this manner.</p>\n<p>Optionally, use the <code>permissions</code> body parameter to specify the permissions that the installation access token should have. If <code>permissions</code> is not specified, the installation access token will have all of the permissions that were granted to the app. The installation access token cannot be granted permissions that the app was not granted.</p>\n<p>Enterprise account installations do not have access to repositories and cannot be scoped down using the <code>permissions</code> parameter.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Creates an installation access token that enables a GitHub App to make authenticated API requests for the app's installation on an enterprise, organization, or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of <code>401 - Unauthorized</code>, and requires creating a new installation token. By default the installation token has access to all repositories that the installation can access.</p>\n<p>Optionally, you can use the <code>repositories</code> or <code>repository_ids</code> body parameters to specify individual repositories that the installation access token can access. If you don't use <code>repositories</code> or <code>repository_ids</code> to grant access to specific repositories, the installation access token will have access to all repositories that the installation was granted access to. The installation access token cannot be granted access to repositories that the installation was not granted access to. Up to 500 repositories can be listed in this manner.</p>\n<p>Optionally, use the <code>permissions</code> body parameter to specify the permissions that the installation access token should have. If <code>permissions</code> is not specified, the installation access token will have all of the permissions that were granted to the app. The installation access token cannot be granted permissions that the app was not granted.</p>\n<p>Enterprise account installations do not have access to repositories and cannot be scoped down using the <code>permissions</code> parameter.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5136,7 +5136,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Suspends a GitHub App on a user, organization, or enterprise account, which blocks the app from accessing the account's resources. When a GitHub App is suspended, the app's access to the GitHub Enterprise Cloud API or webhook events is blocked for that account.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Suspends a GitHub App on a user, organization, or enterprise account, which blocks the app from accessing the account's resources. When a GitHub App is suspended, the app's access to the GitHub Enterprise Cloud API or webhook events is blocked for that account.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5189,7 +5189,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes a GitHub App installation suspension.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Removes a GitHub App installation suspension.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -7150,7 +7150,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Enables an authenticated GitHub App to find its installation on a particular enterprise.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Enables an authenticated GitHub App to find its installation on a particular enterprise.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -8119,7 +8119,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Enables an authenticated GitHub App to find the organization's installation information.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Enables an authenticated GitHub App to find the organization's installation information.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -9097,7 +9097,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Enables an authenticated GitHub App to find the repository's installation information. The installation's account type will be either an organization or a user account, depending which account the repository belongs to.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10075,7 +10075,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Enables an authenticated GitHub App to find the user’s installation information.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Enables an authenticated GitHub App to find the user’s installation information.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -11037,7 +11037,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -11046,7 +11046,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -11913,7 +11913,7 @@
       "subcategory": "installations",
       "parameters": [],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Revokes the installation token you're using to authenticate as an installation and access this endpoint.</p>\n<p>Once an installation token is revoked, the token is invalidated and cannot be used. Other endpoints that require the revoked installation token must have a new installation token to work. You can create a new token using the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/apps/apps#create-an-installation-access-token-for-an-app\">Create an installation access token for an app</a>\" endpoint.</p>",
+      "descriptionHTML": "<p>Revokes the installation token you're using to authenticate as an installation and access this endpoint.</p>\n<p>Once an installation token is revoked, the token is invalidated and cannot be used. Other endpoints that require the revoked installation token must have a new installation token to work. You can create a new token using the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/apps/apps#create-an-installation-access-token-for-an-app\">Create an installation access token for an app</a>\" endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -11953,7 +11953,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -11962,7 +11962,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13020,7 +13020,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13029,7 +13029,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14064,7 +14064,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
+      "descriptionHTML": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14411,7 +14411,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14420,7 +14420,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14429,7 +14429,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all plans that are part of your GitHub Enterprise Cloud Marketplace listing.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
+      "descriptionHTML": "<p>Lists all plans that are part of your GitHub Enterprise Cloud Marketplace listing.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14608,7 +14608,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14617,7 +14617,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14626,7 +14626,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns user and organization accounts associated with the specified plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
+      "descriptionHTML": "<p>Returns user and organization accounts associated with the specified plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14990,7 +14990,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
+      "descriptionHTML": "<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -15337,7 +15337,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -15346,7 +15346,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -15355,7 +15355,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all plans that are part of your GitHub Enterprise Cloud Marketplace listing.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
+      "descriptionHTML": "<p>Lists all plans that are part of your GitHub Enterprise Cloud Marketplace listing.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -15530,7 +15530,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -15539,7 +15539,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -15548,7 +15548,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns repository and organization accounts associated with the specified plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
+      "descriptionHTML": "<p>Returns repository and organization accounts associated with the specified plan, including free plans. For per-seat pricing, you see the list of accounts that have purchased the plan, including the number of seats purchased. When someone submits a plan change that won't be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>\n<p>GitHub Apps must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint. OAuth apps must use <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication\">basic authentication</a> with their client ID and client secret to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -15895,7 +15895,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -15904,7 +15904,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -16170,7 +16170,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -16179,7 +16179,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -18472,7 +18472,7 @@
       "subcategory": "webhooks",
       "parameters": [],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns the webhook configuration for a GitHub App. For more information about configuring a webhook for your app, see \"<a href=\"/developers/apps/creating-a-github-app\">Creating a GitHub App</a>.\"</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Returns the webhook configuration for a GitHub App. For more information about configuring a webhook for your app, see \"<a href=\"/developers/apps/creating-a-github-app\">Creating a GitHub App</a>.\"</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -18505,7 +18505,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [
@@ -18559,7 +18559,7 @@
         {
           "type": "string",
           "name": "secret",
-          "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value for <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers\">delivery signature headers</a>.</p>"
+          "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value for <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers\">delivery signature headers</a>.</p>"
         },
         {
           "type": "string or number",
@@ -18567,7 +18567,7 @@
           "description": "<p>Determines whether the SSL certificate of the host for <code>url</code> will be verified when delivering payloads. Supported values include <code>0</code> (verification is performed) and <code>1</code> (verification is not performed). The default is <code>0</code>. <strong>We strongly recommend not setting this to <code>1</code> as you are subject to man-in-the-middle and other attacks.</strong></p>"
         }
       ],
-      "descriptionHTML": "<p>Updates the webhook configuration for a GitHub App. For more information about configuring a webhook for your app, see \"<a href=\"/developers/apps/creating-a-github-app\">Creating a GitHub App</a>.\"</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Updates the webhook configuration for a GitHub App. For more information about configuring a webhook for your app, see \"<a href=\"/developers/apps/creating-a-github-app\">Creating a GitHub App</a>.\"</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -18607,7 +18607,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [
@@ -18649,7 +18649,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -18680,7 +18680,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns a list of webhook deliveries for the webhook configured for a GitHub App.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Returns a list of webhook deliveries for the webhook configured for a GitHub App.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -18853,7 +18853,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns a delivery for the webhook configured for a GitHub App.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Returns a delivery for the webhook configured for a GitHub App.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -19093,7 +19093,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Redeliver a delivery for the webhook configured for a GitHub App.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest//apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Redeliver a delivery for the webhook configured for a GitHub App.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-cloud@latest/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {

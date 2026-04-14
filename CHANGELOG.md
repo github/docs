@@ -2,7 +2,12 @@
 
 **9 April 2026**
 
-We have added documentation for the code security risk assessment (CSRA), a free self-serve tool that helps organization admins and security managers understand their organization's exposure to code vulnerabilities.
+We've added a conceptual article to the Copilot CLI documentation explaining the context window, compaction, and checkpoints.
+
+[Managing context in GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/context-management)
+
+We've also added documentation for the code security risk assessment (CSRA), a free self-serve tool that helps organization admins and security managers understand their organization's exposure to code vulnerabilities.
+
 New content includes:
 
 * [Code security risk assessment](https://docs.github.com/en/code-security/concepts/code-scanning/code-security-risk-assessment): What the CSRA is, who can run it, what it scans, and how it relates to the secret risk assessment.

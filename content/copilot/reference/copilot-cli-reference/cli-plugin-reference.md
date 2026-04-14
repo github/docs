@@ -146,9 +146,9 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 | Marketplace manifest | `marketplace.json`, `.plugin/marketplace.json`, `.github/plugin/marketplace.json`, or `.claude-plugin/marketplace.json` (checked in this order) |
 | Agents               | `agents/` (default, overridable in manifest) |
 | Skills               | `skills/` (default, overridable in manifest) |
-| Hooks config         | `hooks.json` or `hooks/hooks.json` |
-| MCP config           | `.mcp.json`, `.vscode/mcp.json`, `.devcontainer/devcontainer.json`, `.github/mcp.json` |
-| LSP config           | `lsp.json` or `.github/lsp.json` |
+| Hooks configuration  | `hooks.json` or `hooks/hooks.json` |
+| MCP configuration    | `.mcp.json`, `.github/mcp.json` |
+| LSP configuration    | `lsp.json` or `.github/lsp.json` |
 
 ## Loading order and precedence
 
@@ -202,9 +202,8 @@ The following diagram illustrates the loading order and precedence rules.
   ┌──────────────────────▼──────────────────────────────────────────────┐
   │  MCP SERVERS - LAST LOADED IS USED (dedup by server name)           │
   │  1. ~/.copilot/mcp-config.json       (lowest priority)              │
-  │  2. .vscode/mcp.json                 (workspace)                    │
-  │  3. PLUGIN: MCP configs              (plugins)                      │
-  │  4. --additional-mcp-config flag     (highest priority)             │
+  │  2. PLUGIN: MCP configs              (plugins)                      │
+  │  3. --additional-mcp-config flag     (highest priority)             │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 

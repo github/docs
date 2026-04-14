@@ -8,6 +8,7 @@ children:
   - /about-storage-of-your-data-with-data-residency
   - /feature-overview-for-github-enterprise-cloud-with-data-residency
   - /getting-started-with-data-residency-for-github-enterprise-cloud
+  - /github-copilot-with-data-residency
   - /network-details-for-ghecom
   - /resolving-issues-with-your-enterprise-on-ghecom
 redirect_from:

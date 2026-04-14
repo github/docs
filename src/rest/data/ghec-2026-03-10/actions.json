@@ -28,7 +28,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -37,7 +37,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -632,7 +632,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -641,7 +641,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1645,7 +1645,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1654,7 +1654,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2216,7 +2216,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2225,7 +2225,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2616,7 +2616,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2625,7 +2625,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5110,7 +5110,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5119,7 +5119,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9296,7 +9296,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9305,7 +9305,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9931,7 +9931,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in an enterprise,\nas well as whether GitHub Actions can submit approving pull request reviews. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest//admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise\">Enforcing a policy for workflow permissions in your enterprise</a>.\"</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in an enterprise,\nas well as whether GitHub Actions can submit approving pull request reviews. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise\">Enforcing a policy for workflow permissions in your enterprise</a>.\"</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10021,7 +10021,7 @@
           "description": "<p>Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.</p>"
         }
       ],
-      "descriptionHTML": "<p>Sets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in an enterprise, and sets\nwhether GitHub Actions can submit approving pull request reviews. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest//admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise\">Enforcing a policy for workflow permissions in your enterprise</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in an enterprise, and sets\nwhether GitHub Actions can submit approving pull request reviews. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise\">Enforcing a policy for workflow permissions in your enterprise</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10766,7 +10766,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -10775,7 +10775,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -12169,7 +12169,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -12178,7 +12178,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13289,7 +13289,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in an organization,\nas well as whether GitHub Actions can submit approving pull request reviews. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization\">Setting the permissions of the GITHUB_TOKEN for your organization</a>.\"</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in an organization,\nas well as whether GitHub Actions can submit approving pull request reviews. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization\">Setting the permissions of the GITHUB_TOKEN for your organization</a>.\"</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -13383,7 +13383,7 @@
           "description": "<p>Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.</p>"
         }
       ],
-      "descriptionHTML": "<p>Sets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in an organization, and sets if GitHub Actions\ncan submit approving pull request reviews. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization\">Setting the permissions of the GITHUB_TOKEN for your organization</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in an organization, and sets if GitHub Actions\ncan submit approving pull request reviews. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization\">Setting the permissions of the GITHUB_TOKEN for your organization</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -13644,7 +13644,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the level of access that workflows outside of the repository have to actions and reusable workflows in the repository.\nThis endpoint only applies to internal and private repositories.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository\">Allowing access to components in a private repository</a>\" and\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository\">Allowing access to components in an internal repository</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the level of access that workflows outside of the repository have to actions and reusable workflows in the repository.\nThis endpoint only applies to internal and private repositories.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository\">Allowing access to components in a private repository</a>\" and\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository\">Allowing access to components in an internal repository</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -13742,7 +13742,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Sets the level of access that workflows outside of the repository have to actions and reusable workflows in the repository.\nThis endpoint only applies to internal and private repositories.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository\">Allowing access to components in a private repository</a>\" and\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository\">Allowing access to components in an internal repository</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets the level of access that workflows outside of the repository have to actions and reusable workflows in the repository.\nThis endpoint only applies to internal and private repositories.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository\">Allowing access to components in a private repository</a>\" and\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository\">Allowing access to components in an internal repository</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14540,7 +14540,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in a repository,\nas well as if GitHub Actions can submit approving pull request reviews.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository\">Setting the permissions of the GITHUB_TOKEN for your repository</a>.\"</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in a repository,\nas well as if GitHub Actions can submit approving pull request reviews.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository\">Setting the permissions of the GITHUB_TOKEN for your repository</a>.\"</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14644,7 +14644,7 @@
           "description": "<p>Whether GitHub Actions can approve pull requests. Enabling this can be a security risk.</p>"
         }
       ],
-      "descriptionHTML": "<p>Sets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in a repository, and sets if GitHub Actions\ncan submit approving pull request reviews.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository\">Setting the permissions of the GITHUB_TOKEN for your repository</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets the default workflow permissions granted to the <code>GITHUB_TOKEN</code> when running workflows in a repository, and sets if GitHub Actions\ncan submit approving pull request reviews.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository\">Setting the permissions of the GITHUB_TOKEN for your repository</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -14709,7 +14709,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14718,7 +14718,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -15068,7 +15068,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#get-an-organization-public-key\">Get an organization public key</a> endpoint.</p>",
+          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#get-an-organization-public-key\">Get an organization public key</a> endpoint.</p>",
           "isRequired": true
         },
         {
@@ -15091,10 +15091,10 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#list-selected-repositories-for-an-organization-secret\">List selected repositories for an organization secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>"
+          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#list-selected-repositories-for-an-organization-secret\">List selected repositories for an organization secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates or updates an organization secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the<code>admin:org</code> scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates or updates an organization secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the<code>admin:org</code> scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -15267,7 +15267,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -15276,7 +15276,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -16159,11 +16159,11 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can add and remove individual repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#add-selected-repository-to-an-organization-secret\">Add selected repository to an organization secret</a> and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>",
+          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can add and remove individual repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#add-selected-repository-to-an-organization-secret\">Add selected repository to an organization secret</a> and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Replaces all repositories for an organization secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint. If the repository is private, the <code>repo</code> scope is also required.</p>",
+      "descriptionHTML": "<p>Replaces all repositories for an organization secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint. If the repository is private, the <code>repo</code> scope is also required.</p>",
       "codeExamples": [
         {
           "request": {
@@ -16241,7 +16241,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Adds a repository to an organization secret when the <code>visibility</code> for\nrepository access is set to <code>selected</code>. For more information about setting the visibility, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#create-or-update-an-organization-secret\">Create or\nupdate an organization secret</a>.</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds a repository to an organization secret when the <code>visibility</code> for\nrepository access is set to <code>selected</code>. For more information about setting the visibility, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#create-or-update-an-organization-secret\">Create or\nupdate an organization secret</a>.</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint. If the repository is private, OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -16319,7 +16319,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes a repository from an organization secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint. If the repository is private, the <code>repo</code> scope is also required.</p>",
+      "descriptionHTML": "<p>Removes a repository from an organization secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint. If the repository is private, the <code>repo</code> scope is also required.</p>",
       "codeExamples": [
         {
           "request": {
@@ -16388,7 +16388,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -16397,7 +16397,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -16524,7 +16524,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -16533,7 +16533,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -16874,7 +16874,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#get-a-repository-public-key\">Get a repository public key</a> endpoint.</p>",
+          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#get-a-repository-public-key\">Get a repository public key</a> endpoint.</p>",
           "isRequired": true
         },
         {
@@ -16884,7 +16884,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Creates or updates a repository secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates or updates a repository secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -17068,7 +17068,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -17077,7 +17077,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -17448,7 +17448,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/actions/secrets#get-an-environment-public-key\">Get an environment public key</a> endpoint.</p>",
+          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/actions/secrets#get-an-environment-public-key\">Get an environment public key</a> endpoint.</p>",
           "isRequired": true
         },
         {
@@ -17458,7 +17458,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Creates or updates an environment secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates or updates an environment secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>Authenticated users must have collaborator access to a repository to create, update, or read secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -17638,7 +17638,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -17647,7 +17647,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -18399,7 +18399,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -18408,7 +18408,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -18785,7 +18785,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -18794,7 +18794,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -19210,7 +19210,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -19219,7 +19219,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -20032,7 +20032,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -20041,7 +20041,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -20343,7 +20343,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -20352,7 +20352,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -21629,7 +21629,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -21638,7 +21638,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -22080,7 +22080,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -22089,7 +22089,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -25062,7 +25062,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -25071,7 +25071,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -28101,7 +28101,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -28110,7 +28110,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -31236,7 +31236,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -31245,7 +31245,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -31784,7 +31784,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -31793,7 +31793,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -32913,7 +32913,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -32922,7 +32922,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -33057,7 +33057,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -33066,7 +33066,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -33572,7 +33572,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 30). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -33581,7 +33581,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -34614,7 +34614,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -34623,7 +34623,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -34632,7 +34632,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists jobs for a specific workflow run attempt. You can use parameters to narrow the list of results. For more information\nabout using parameters, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/getting-started-with-the-rest-api#parameters\">Parameters</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint  with a private repository.</p>",
+      "descriptionHTML": "<p>Lists jobs for a specific workflow run attempt. You can use parameters to narrow the list of results. For more information\nabout using parameters, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/getting-started-with-the-rest-api#parameters\">Parameters</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint  with a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -35072,7 +35072,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -35081,7 +35081,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -35090,7 +35090,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists jobs for a workflow run. You can use parameters to narrow the list of results. For more information\nabout using parameters, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/getting-started-with-the-rest-api#parameters\">Parameters</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "descriptionHTML": "<p>Lists jobs for a workflow run. You can use parameters to narrow the list of results. For more information\nabout using parameters, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/getting-started-with-the-rest-api#parameters\">Parameters</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -35617,7 +35617,7 @@
         },
         {
           "name": "event",
-          "description": "<p>Returns workflow run triggered by the event you specify. For example, <code>push</code>, <code>pull_request</code> or <code>issue</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows\">Events that trigger workflows</a>.\"</p>",
+          "description": "<p>Returns workflow run triggered by the event you specify. For example, <code>push</code>, <code>pull_request</code> or <code>issue</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows\">Events that trigger workflows</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -35651,7 +35651,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -35660,7 +35660,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -35669,7 +35669,7 @@
         },
         {
           "name": "created",
-          "description": "<p>Returns workflow runs created within the given date-time range. For more information on the syntax, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
+          "description": "<p>Returns workflow runs created within the given date-time range. For more information on the syntax, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -35706,7 +35706,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all workflow runs for a repository. You can use parameters to narrow the list of results. For more information about using parameters, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/getting-started-with-the-rest-api#parameters\">Parameters</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>\n<p>This endpoint will return up to 1,000 results for each search when using the following parameters: <code>actor</code>, <code>branch</code>, <code>check_suite_id</code>, <code>created</code>, <code>event</code>, <code>head_sha</code>, <code>status</code>.</p>",
+      "descriptionHTML": "<p>Lists all workflow runs for a repository. You can use parameters to narrow the list of results. For more information about using parameters, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/getting-started-with-the-rest-api#parameters\">Parameters</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>\n<p>This endpoint will return up to 1,000 results for each search when using the following parameters: <code>actor</code>, <code>branch</code>, <code>check_suite_id</code>, <code>created</code>, <code>event</code>, <code>head_sha</code>, <code>status</code>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -40761,7 +40761,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Approves a workflow run for a pull request from a public fork of a first time contributor. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//actions/managing-workflow-runs/approving-workflow-runs-from-public-forks\">\"Approving workflow runs from public forks</a>.\"</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Approves a workflow run for a pull request from a public fork of a first time contributor. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks\">\"Approving workflow runs from public forks</a>.\"</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -43382,7 +43382,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Approve or reject custom deployment protection rules provided by a GitHub App for a workflow run. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub Apps can only review their own custom deployment protection rules. To approve or reject pending deployments that are waiting for review from a specific person or team, see <a href=\"/rest/actions/workflow-runs#review-pending-deployments-for-a-workflow-run\"><code>POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments</code></a>.</p>\n</div>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "descriptionHTML": "<p>Approve or reject custom deployment protection rules provided by a GitHub App for a workflow run. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub Apps can only review their own custom deployment protection rules. To approve or reject pending deployments that are waiting for review from a specific person or team, see <a href=\"/rest/actions/workflow-runs#review-pending-deployments-for-a-workflow-run\"><code>POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments</code></a>.</p>\n</div>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -45055,7 +45055,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p><br>\nThis endpoint is in the process of closing down. Refer to \"<a href=\"https://github.blog/changelog/2025-02-02-actions-get-workflow-usage-and-get-workflow-run-usage-endpoints-closing-down/\">Actions Get workflow usage and Get workflow run usage endpoints closing down</a>\" for more information.</p>\n</div>\n<p>Gets the number of billable minutes and total run time for a specific workflow run. Billable minutes only apply to workflows in private repositories that use GitHub Enterprise Cloud-hosted runners. Usage is listed for each GitHub Enterprise Cloud-hosted runner operating system in milliseconds. Any job re-runs are also included in the usage. The usage does not include the multiplier for macOS and Windows runners and is not rounded up to the nearest whole minute. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions\">Managing billing for GitHub Actions</a>\".</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p><br>\nThis endpoint is in the process of closing down. Refer to \"<a href=\"https://github.blog/changelog/2025-02-02-actions-get-workflow-usage-and-get-workflow-run-usage-endpoints-closing-down/\">Actions Get workflow usage and Get workflow run usage endpoints closing down</a>\" for more information.</p>\n</div>\n<p>Gets the number of billable minutes and total run time for a specific workflow run. Billable minutes only apply to workflows in private repositories that use GitHub Enterprise Cloud-hosted runners. Usage is listed for each GitHub Enterprise Cloud-hosted runner operating system in milliseconds. Any job re-runs are also included in the usage. The usage does not include the multiplier for macOS and Windows runners and is not rounded up to the nearest whole minute. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions\">Managing billing for GitHub Actions</a>\".</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -45323,7 +45323,7 @@
         },
         {
           "name": "event",
-          "description": "<p>Returns workflow run triggered by the event you specify. For example, <code>push</code>, <code>pull_request</code> or <code>issue</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows\">Events that trigger workflows</a>.\"</p>",
+          "description": "<p>Returns workflow run triggered by the event you specify. For example, <code>push</code>, <code>pull_request</code> or <code>issue</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows\">Events that trigger workflows</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -45357,7 +45357,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -45366,7 +45366,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -45375,7 +45375,7 @@
         },
         {
           "name": "created",
-          "description": "<p>Returns workflow runs created within the given date-time range. For more information on the syntax, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
+          "description": "<p>Returns workflow runs created within the given date-time range. For more information on the syntax, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates\">Understanding the search syntax</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -45412,7 +45412,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List all workflow runs for a workflow. You can replace <code>workflow_id</code> with the workflow file name. For example, you could use <code>main.yaml</code>. You can use parameters to narrow the list of results. For more information about using parameters, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/getting-started-with-the-rest-api#parameters\">Parameters</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>\n<p>This endpoint will return up to 1,000 results for each search when using the following parameters: <code>actor</code>, <code>branch</code>, <code>check_suite_id</code>, <code>created</code>, <code>event</code>, <code>head_sha</code>, <code>status</code>.</p>",
+      "descriptionHTML": "<p>List all workflow runs for a workflow. You can replace <code>workflow_id</code> with the workflow file name. For example, you could use <code>main.yaml</code>. You can use parameters to narrow the list of results. For more information about using parameters, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/getting-started-with-the-rest-api#parameters\">Parameters</a>.</p>\n<p>Anyone with read access to the repository can use this endpoint</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>\n<p>This endpoint will return up to 1,000 results for each search when using the following parameters: <code>actor</code>, <code>branch</code>, <code>check_suite_id</code>, <code>created</code>, <code>event</code>, <code>head_sha</code>, <code>status</code>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -47749,7 +47749,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -47758,7 +47758,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -48403,7 +48403,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p><br>\nThis endpoint is in the process of closing down. Refer to \"<a href=\"https://github.blog/changelog/2025-02-02-actions-get-workflow-usage-and-get-workflow-run-usage-endpoints-closing-down/\">Actions Get workflow usage and Get workflow run usage endpoints closing down</a>\" for more information.</p>\n</div>\n<p>Gets the number of billable minutes used by a specific workflow during the current billing cycle. Billable minutes only apply to workflows in private repositories that use GitHub Enterprise Cloud-hosted runners. Usage is listed for each GitHub Enterprise Cloud-hosted runner operating system in milliseconds. Any job re-runs are also included in the usage. The usage does not include the multiplier for macOS and Windows runners and is not rounded up to the nearest whole minute. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions\">Managing billing for GitHub Actions</a>\".</p>\n<p>You can replace <code>workflow_id</code> with the workflow file name. For example, you could use <code>main.yaml</code>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p><br>\nThis endpoint is in the process of closing down. Refer to \"<a href=\"https://github.blog/changelog/2025-02-02-actions-get-workflow-usage-and-get-workflow-run-usage-endpoints-closing-down/\">Actions Get workflow usage and Get workflow run usage endpoints closing down</a>\" for more information.</p>\n</div>\n<p>Gets the number of billable minutes used by a specific workflow during the current billing cycle. Billable minutes only apply to workflows in private repositories that use GitHub Enterprise Cloud-hosted runners. Usage is listed for each GitHub Enterprise Cloud-hosted runner operating system in milliseconds. Any job re-runs are also included in the usage. The usage does not include the multiplier for macOS and Windows runners and is not rounded up to the nearest whole minute. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions\">Managing billing for GitHub Actions</a>\".</p>\n<p>You can replace <code>workflow_id</code> with the workflow file name. For example, you could use <code>main.yaml</code>.</p>\n<p>Anyone with read access to the repository can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
       "codeExamples": [
         {
           "request": {

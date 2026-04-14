@@ -50,6 +50,9 @@
     "aggregate-search-index-failures": "tsx src/search/scripts/aggregate-search-index-failures.ts",
     "general-search-scrape": "tsx src/search/scripts/scrape/scrape-cli.ts",
     "general-search-scrape-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true tsx src/frame/server.ts",
+    "generate-release-notes": "tsx src/ghes-releases/scripts/generate-release-notes.ts",
+    "notify-release-pms": "tsx src/ghes-releases/scripts/notify-release-pms.ts",
+    "check-release-approvals": "tsx src/ghes-releases/scripts/check-release-approvals.ts",
     "ghes-release-scrape-with-server": "cross-env GHES_RELEASE=1 start-server-and-test general-search-scrape-server 4002 general-search-scrape",
     "general-search-scrape-with-server": "cross-env NODE_OPTIONS='--max_old_space_size=8192' start-server-and-test general-search-scrape-server 4002 general-search-scrape",
     "index-ai-search-autocomplete": "tsx src/search/scripts/index/index-cli ai-search-autocomplete",
@@ -223,8 +226,8 @@
     "js-cookie": "^3.0.5",
     "js-yaml": "^4.1.1",
     "liquidjs": "^10.25.0",
-    "lodash": "^4.17.23",
-    "lodash-es": "^4.17.23",
+    "lodash": "^4.18.0",
+    "lodash-es": "^4.18.0",
     "lowdb": "7.0.1",
     "lowlight": "^3.3.0",
     "markdownlint-rule-helpers": "^0.25.0",
@@ -346,7 +349,10 @@
     "website-scraper": "^5.3.1"
   },
   "overrides": {
-    "esbuild": "^0.25"
+    "esbuild": "^0.25",
+    "vite": "^7.3.2",
+    "path-to-regexp": "^8.4.0",
+    "apache-arrow": "file:src/search/vendor/apache-arrow-stub"
   },
   "optionalDependencies": {
     "esm": "^3.2.25"

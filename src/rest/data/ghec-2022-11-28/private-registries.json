@@ -19,7 +19,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -28,7 +28,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -294,7 +294,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization\">Get private registries public key for an organization</a> endpoint. Required when <code>auth_type</code> is <code>token</code> or <code>username_password</code>. Should be omitted for OIDC auth types.</p>"
+          "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization\">Get private registries public key for an organization</a> endpoint. Required when <code>auth_type</code> is <code>token</code> or <code>username_password</code>. Should be omitted for OIDC auth types.</p>"
         },
         {
           "type": "string",
@@ -315,7 +315,7 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/private-registries/organization-configurations#update-a-private-registry-for-an-organization\">Update a private registry for an organization</a> endpoint. This field should be omitted if <code>visibility</code> is set to <code>all</code> or <code>private</code>.</p>"
+          "description": "<p>An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/private-registries/organization-configurations#update-a-private-registry-for-an-organization\">Update a private registry for an organization</a> endpoint. This field should be omitted if <code>visibility</code> is set to <code>all</code> or <code>private</code>.</p>"
         },
         {
           "type": "string",
@@ -380,7 +380,7 @@
           "description": "<p>The JFrog identity mapping name. Optional for <code>oidc_jfrog</code> auth type.</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, or <code>oidc_jfrog</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, or <code>oidc_jfrog</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1084,7 +1084,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization\">Get private registries public key for an organization</a> endpoint.</p>"
+          "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization\">Get private registries public key for an organization</a> endpoint.</p>"
         },
         {
           "type": "string",
@@ -1169,7 +1169,7 @@
           "description": "<p>The JFrog identity mapping name. Optional for <code>oidc_jfrog</code> auth type.</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, or <code>oidc_jfrog</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, or <code>oidc_jfrog</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [],
       "statusCodes": [
         {

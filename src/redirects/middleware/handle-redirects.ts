@@ -41,7 +41,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
 
     // Forward query params to the new URL
-    let queryParams = new URLSearchParams((req?.query as any) || '').toString()
+    let queryParams = new URLSearchParams(req?.query as URLSearchParamsTypes).toString()
     if (queryParams) {
       queryParams = `?${queryParams}`
     }

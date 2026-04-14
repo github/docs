@@ -80,7 +80,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -89,7 +89,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -504,7 +504,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -513,7 +513,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1842,7 +1842,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1851,7 +1851,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1860,7 +1860,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1869,7 +1869,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists Dependabot alerts for repositories that are owned by the specified enterprise.</p>\n<p>The authenticated user must be a member of the enterprise to use this endpoint.</p>\n<p>Alerts are only returned for organizations in the enterprise for which you are an organization owner or a security manager. For more information about security managers, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>security_events</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists Dependabot alerts for repositories that are owned by the specified enterprise.</p>\n<p>The authenticated user must be a member of the enterprise to use this endpoint.</p>\n<p>Alerts are only returned for organizations in the enterprise for which you are an organization owner or a security manager. For more information about security managers, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -3744,7 +3744,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3753,7 +3753,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3762,7 +3762,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5646,7 +5646,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -5655,7 +5655,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -5664,7 +5664,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -8084,7 +8084,7 @@
           "description": "<p>Usernames to assign to this Dependabot Alert.\nPass one or more user logins to <em>replace</em> the set of assignees on this alert.\nSend an empty array (<code>[]</code>) to clear all assignees from the alert.</p>"
         }
       ],
-      "descriptionHTML": "<p>The authenticated user must have access to security alerts for the repository to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts\">Granting access to security alerts</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the <code>public_repo</code> scope instead.</p>",
+      "descriptionHTML": "<p>The authenticated user must have access to security alerts for the repository to use this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts\">Granting access to security alerts</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint. If this endpoint is only used with public repositories, the token can use the <code>public_repo</code> scope instead.</p>",
       "codeExamples": [
         {
           "request": {
@@ -9893,7 +9893,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9902,7 +9902,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -10240,7 +10240,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#get-an-organization-public-key\">Get an organization public key</a> endpoint.</p>"
+          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#get-an-organization-public-key\">Get an organization public key</a> endpoint.</p>"
         },
         {
           "type": "string",
@@ -10261,10 +10261,10 @@
         {
           "type": "array",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret\">List selected repositories for an organization secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>"
+          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret\">List selected repositories for an organization secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates or updates an organization secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates or updates an organization secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10437,7 +10437,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -10446,7 +10446,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -11332,11 +11332,11 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can add and remove individual repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a> and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>",
+          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can add and remove individual repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a> and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Replaces all repositories for an organization secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Replaces all repositories for an organization secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -11414,7 +11414,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Adds a repository to an organization secret when the <code>visibility</code> for\nrepository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#create-or-update-an-organization-secret\">Create or\nupdate an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds a repository to an organization secret when the <code>visibility</code> for\nrepository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#create-or-update-an-organization-secret\">Create or\nupdate an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -11492,7 +11492,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes a repository from an organization secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Removes a repository from an organization secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -11561,7 +11561,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -11570,7 +11570,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -11899,7 +11899,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/dependabot/secrets#get-a-repository-public-key\">Get a repository public key</a> endpoint.</p>"
+          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/dependabot/secrets#get-a-repository-public-key\">Get a repository public key</a> endpoint.</p>"
         },
         {
           "type": "string",
@@ -11907,7 +11907,7 @@
           "description": "<p>ID of the key you used to encrypt the secret.</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates or updates a repository secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates or updates a repository secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {

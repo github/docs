@@ -19,6 +19,7 @@ children:
   - /about-enterprise-accounts-for-copilot-business
   - /policies
   - /mcp-management
+  - /fedramp-models
   - /network-settings
   - /fallback-and-lts-models
 contentType: concepts

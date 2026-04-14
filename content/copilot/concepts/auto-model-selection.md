@@ -21,7 +21,7 @@ Experience less rate limiting and reduce the mental load of choosing a model by 
   * Discounted multipliers for paid plans ({% data variables.copilot.copilot_chat_short %} only)
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} **won't** include these models:
-* Models excluded by administrator policies. See [AUTOTITLE](/copilot/how-tos/use-ai-models/configure-access-to-ai-models).
+* Models excluded by administrator policies. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 * Models with premium request multipliers greater than one. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#model-multipliers).
 * Models not available in your plan. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan).
  

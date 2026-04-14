@@ -127,7 +127,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -136,7 +136,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -145,7 +145,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List issues assigned to the authenticated user across all visible repositories including owned repositories, member\nrepositories, and organization repositories. You can use the <code>filter</code> query parameter to fetch issues that are not\nnecessarily assigned to you.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>List issues assigned to the authenticated user across all visible repositories including owned repositories, member\nrepositories, and organization repositories. You can use the <code>filter</code> query parameter to fetch issues that are not\nnecessarily assigned to you.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -3245,7 +3245,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -3254,7 +3254,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -3263,7 +3263,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List issues in an organization assigned to the authenticated user.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>List issues in an organization assigned to the authenticated user.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -6385,7 +6385,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -6394,7 +6394,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -6403,7 +6403,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List issues in a repository. Only open issues will be listed.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>List issues in a repository. Only open issues will be listed.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -9361,7 +9361,7 @@
           "description": "<p>The name of the issue type to associate with this issue. <em>NOTE: Only users with push access can set the type for new issues. The type is silently dropped otherwise.</em></p>"
         }
       ],
-      "descriptionHTML": "<p>Any user with pull access to a repository can create an issue. If <a href=\"https://docs.github.com/enterprise-cloud@latest//articles/disabling-issues/\">issues are disabled in the repository</a>, the API returns a <code>410 Gone</code> status.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest//github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>Any user with pull access to a repository can create an issue. If <a href=\"https://docs.github.com/enterprise-cloud@latest/articles/disabling-issues/\">issues are disabled in the repository</a>, the API returns a <code>410 Gone</code> status.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -12314,7 +12314,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>The API returns a <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api#follow-redirects\"><code>301 Moved Permanently</code> status</a> if the issue was\n<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/transferring-an-issue-to-another-repository/\">transferred</a> to another repository. If\nthe issue was transferred to or deleted from a repository where the authenticated user lacks read access, the API\nreturns a <code>404 Not Found</code> status. If the issue was deleted from a repository where the authenticated user has read\naccess, the API returns a <code>410 Gone</code> status. To receive webhook events for transferred and deleted issues, subscribe\nto the <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#issues\"><code>issues</code></a> webhook.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>The API returns a <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api#follow-redirects\"><code>301 Moved Permanently</code> status</a> if the issue was\n<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/transferring-an-issue-to-another-repository/\">transferred</a> to another repository. If\nthe issue was transferred to or deleted from a repository where the authenticated user lacks read access, the API\nreturns a <code>404 Not Found</code> status. If the issue was deleted from a repository where the authenticated user has read\naccess, the API returns a <code>410 Gone</code> status. To receive webhook events for transferred and deleted issues, subscribe\nto the <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#issues\"><code>issues</code></a> webhook.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -18237,7 +18237,7 @@
           "description": "<p>The name of the issue type to associate with this issue or use <code>null</code> to remove the current issue type. Only users with push access can set the type for issues. Without push access to the repository, type changes are silently dropped.</p>"
         }
       ],
-      "descriptionHTML": "<p>Issue owners and users with push access or Triage role can edit an issue.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>Issue owners and users with push access or Triage role can edit an issue.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -21207,7 +21207,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Users with push access can lock an issue or pull request's conversation.</p>\n<p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/getting-started-with-the-rest-api#http-method\">HTTP method</a>.\"</p>",
+      "descriptionHTML": "<p>Users with push access can lock an issue or pull request's conversation.</p>\n<p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/getting-started-with-the-rest-api#http-method\">HTTP method</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -21441,7 +21441,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -21450,7 +21450,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -21459,7 +21459,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List issues across owned and member repositories assigned to the authenticated user.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>List issues across owned and member repositories assigned to the authenticated user.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nGitHub's REST API considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the <code>pull_request</code> key. Be aware that the <code>id</code> of a pull request returned from \"Issues\" endpoints will be an <em>issue id</em>. To find out the pull request id, use the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/pulls/pulls#list-pull-requests\">List pull requests</a>\" endpoint.</p>\n</div>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -24476,7 +24476,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -24485,7 +24485,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -24494,7 +24494,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the <a href=\"https://docs.github.com/enterprise-cloud@latest//articles/assigning-issues-and-pull-requests-to-other-github-users/\">available assignees</a> for issues in a repository.</p>",
+      "descriptionHTML": "<p>Lists the <a href=\"https://docs.github.com/enterprise-cloud@latest/articles/assigning-issues-and-pull-requests-to-other-github-users/\">available assignees</a> for issues in a repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -30781,7 +30781,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -30790,7 +30790,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -30799,7 +30799,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to list comments on issues and pull requests for a repository. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>By default, issue comments are ordered by ascending ID.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to list comments on issues and pull requests for a repository. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>By default, issue comments are ordered by ascending ID.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -31588,7 +31588,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to get comments on issues and pull requests. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to get comments on issues and pull requests. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -32377,7 +32377,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>You can use the REST API to update comments on issues and pull requests. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to update comments on issues and pull requests. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -33239,7 +33239,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to pin comments on issues.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to pin comments on issues.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -34158,7 +34158,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -34167,7 +34167,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -34176,7 +34176,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to list comments on issues and pull requests. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>Issue comments are ordered by ascending ID.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to list comments on issues and pull requests. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>Issue comments are ordered by ascending ID.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -34972,7 +34972,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>You can use the REST API to create comments on issues and pull requests. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest//github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>.\nCreating content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to create comments on issues and pull requests. Every pull request is an issue, but not every issue is a pull request.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>.\nCreating content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -35761,7 +35761,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -35770,7 +35770,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -44241,7 +44241,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -44250,7 +44250,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -52580,7 +52580,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -52589,7 +52589,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -52598,7 +52598,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to list the dependencies an issue is blocked by.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to list the dependencies an issue is blocked by.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -55541,7 +55541,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>You can use the REST API to add a 'blocked by' relationship to an issue.</p>\n<p>Creating content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\nand <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to add a 'blocked by' relationship to an issue.</p>\n<p>Creating content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\nand <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -58493,7 +58493,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to remove a dependency that an issue is blocked by.</p>\n<p>Removing content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\nand <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass a specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to remove a dependency that an issue is blocked by.</p>\n<p>Removing content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\nand <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass a specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -61437,7 +61437,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -61446,7 +61446,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -61455,7 +61455,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to list the dependencies an issue is blocking.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to list the dependencies an issue is blocking.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -64393,7 +64393,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -64402,7 +64402,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -64621,7 +64621,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository's organization.\nAdding an empty array will clear all existing field values for the issue.</p>\n<p>This endpoint supports the following field data types:</p>\n<ul>\n<li><strong><code>text</code></strong>: String values for text fields</li>\n<li><strong><code>single_select</code></strong>: Option names for single-select fields (must match an existing option name)</li>\n<li><strong><code>number</code></strong>: Numeric values for number fields</li>\n<li><strong><code>date</code></strong>: ISO 8601 date strings for date fields</li>\n</ul>\n<p>Only users with push access to the repository can add issue field values. If you don't have the proper permissions, you'll receive a <code>403 Forbidden</code> response.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest//github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
+      "descriptionHTML": "<p>Add custom field values to an issue. You can set values for organization-level issue fields that have been defined for the repository's organization.\nAdding an empty array will clear all existing field values for the issue.</p>\n<p>This endpoint supports the following field data types:</p>\n<ul>\n<li><strong><code>text</code></strong>: String values for text fields</li>\n<li><strong><code>single_select</code></strong>: Option names for single-select fields (must match an existing option name)</li>\n<li><strong><code>number</code></strong>: Numeric values for number fields</li>\n<li><strong><code>date</code></strong>: ISO 8601 date strings for date fields</li>\n</ul>\n<p>Only users with push access to the repository can add issue field values. If you don't have the proper permissions, you'll receive a <code>403 Forbidden</code> response.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -64858,7 +64858,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository's organization.</p>\n<p>This endpoint supports the following field data types:</p>\n<ul>\n<li><strong><code>text</code></strong>: String values for text fields</li>\n<li><strong><code>single_select</code></strong>: Option names for single-select fields (must match an existing option name)</li>\n<li><strong><code>number</code></strong>: Numeric values for number fields</li>\n<li><strong><code>date</code></strong>: ISO 8601 date strings for date fields</li>\n</ul>\n<p>This operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the <code>POST</code> endpoint instead.</p>\n<p>Only users with push access to the repository can set issue field values. If you don't have the proper permissions, you'll receive a <code>403 Forbidden</code> response.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest//github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
+      "descriptionHTML": "<p>Set custom field values for an issue, replacing any existing values. You can set values for organization-level issue fields that have been defined for the repository's organization.</p>\n<p>This endpoint supports the following field data types:</p>\n<ul>\n<li><strong><code>text</code></strong>: String values for text fields</li>\n<li><strong><code>single_select</code></strong>: Option names for single-select fields (must match an existing option name)</li>\n<li><strong><code>number</code></strong>: Numeric values for number fields</li>\n<li><strong><code>date</code></strong>: ISO 8601 date strings for date fields</li>\n</ul>\n<p>This operation will replace all existing field values with the provided ones. If you want to add field values without replacing existing ones, use the <code>POST</code> endpoint instead.</p>\n<p>Only users with push access to the repository can set issue field values. If you don't have the proper permissions, you'll receive a <code>403 Forbidden</code> response.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -65084,7 +65084,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Remove a specific custom field value from an issue.</p>\n<p>Only users with push access to the repository can delete issue field values. If you don't have the proper permissions, you'll receive a <code>403 Forbidden</code> response.</p>\n<p>If the specified field does not have a value set on the issue, this operation will return a <code>404</code> error.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest//github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
+      "descriptionHTML": "<p>Remove a specific custom field value from an issue.</p>\n<p>Only users with push access to the repository can delete issue field values. If you don't have the proper permissions, you'll receive a <code>403 Forbidden</code> response.</p>\n<p>If the specified field does not have a value set on the issue, this operation will return a <code>404</code> error.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-cloud@latest/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -65178,7 +65178,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -65187,7 +65187,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -65360,7 +65360,7 @@
         {
           "type": "array of strings",
           "name": "labels",
-          "description": "<p>The names of the labels to add to the issue's existing labels. You can also pass an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key. To replace all of the labels for an issue, use \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/issues/labels#set-labels-for-an-issue\">Set labels for an issue</a>.\"</p>"
+          "description": "<p>The names of the labels to add to the issue's existing labels. You can also pass an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key. To replace all of the labels for an issue, use \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/labels#set-labels-for-an-issue\">Set labels for an issue</a>.\"</p>"
         }
       ],
       "descriptionHTML": "<p>Adds labels to an issue.</p>",
@@ -65537,7 +65537,7 @@
         {
           "type": "array of strings",
           "name": "labels",
-          "description": "<p>The names of the labels to set for the issue. The labels you set replace any existing labels. You can pass an empty array to remove all labels. Alternatively, you can pass a single label as a <code>string</code> or an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key. You can also add labels to the existing labels for an issue. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/issues/labels#add-labels-to-an-issue\">Add labels to an issue</a>.\"</p>"
+          "description": "<p>The names of the labels to set for the issue. The labels you set replace any existing labels. You can pass an empty array to remove all labels. Alternatively, you can pass a single label as a <code>string</code> or an <code>array</code> of labels directly, but GitHub recommends passing an object with the <code>labels</code> key. You can also add labels to the existing labels for an issue. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/issues/labels#add-labels-to-an-issue\">Add labels to an issue</a>.\"</p>"
         }
       ],
       "descriptionHTML": "<p>Removes any previous labels and sets the new labels for an issue.</p>",
@@ -65951,7 +65951,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -65960,7 +65960,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -66647,7 +66647,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -66656,7 +66656,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -66850,7 +66850,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -66859,7 +66859,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -68333,7 +68333,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to get the parent issue of a sub-issue.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to get the parent issue of a sub-issue.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -71271,7 +71271,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>You can use the REST API to remove a sub-issue from an issue.\nRemoving content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"\nThis endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass a specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to remove a sub-issue from an issue.\nRemoving content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"\nThis endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass a specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -74201,7 +74201,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -74210,7 +74210,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -74219,7 +74219,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>You can use the REST API to list the sub-issues on an issue.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to list the sub-issues on an issue.</p>\n<p>This endpoint supports the following custom media types. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw Markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the Markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's Markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -77163,7 +77163,7 @@
           "description": "<p>Option that, when true, instructs the operation to replace the sub-issues current parent issue</p>"
         }
       ],
-      "descriptionHTML": "<p>You can use the REST API to add sub-issues to issues.</p>\n<p>Creating content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
+      "descriptionHTML": "<p>You can use the REST API to add sub-issues to issues.</p>\n<p>Creating content too quickly using this endpoint may result in secondary rate limiting.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits\">Rate limits for the API</a>\"\nand \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/best-practices-for-using-the-rest-api\">Best practices for using the REST API</a>.\"</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw markdown body. Response will include <code>body</code>. This is the default if you do not pass any specific media type.</li>\n<li><strong><code>application/vnd.github.text+json</code></strong>: Returns a text only representation of the markdown body. Response will include <code>body_text</code>.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns HTML rendered from the body's markdown. Response will include <code>body_html</code>.</li>\n<li><strong><code>application/vnd.github.full+json</code></strong>: Returns raw, text, and HTML representations. Response will include <code>body</code>, <code>body_text</code>, and <code>body_html</code>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -83059,7 +83059,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -83068,7 +83068,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
