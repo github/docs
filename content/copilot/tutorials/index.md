@@ -1,7 +1,7 @@
 ---
-title: 'Tutorials for {% data variables.product.prodname_copilot %}'
+title: Tutorials for {% data variables.product.prodname_copilot %}
 shortTitle: Tutorials
-intro: 'Build skills and knowledge about {% data variables.product.prodname_copilot %} through examples and hands-on activities.'
+intro: Build skills and knowledge about {% data variables.product.prodname_copilot %} through examples and hands-on activities.
 versions:
   feature: copilot
 children:
@@ -9,7 +9,7 @@ children:
   - /customization-library
   - /cloud-agent
   - /spark
-  - /use-custom-instructions
+  - /customize-code-review
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work
@@ -54,3 +54,4 @@ includedCategories:
   - Modernize applications
   - Roll Copilot out at scale
 ---
+

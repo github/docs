@@ -73,9 +73,22 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-? para (?:la )?entrada en /g, (match) => {
       return match.replace(/para (?:la )?entrada en/, 'for entry in')
     })
+    // `{% para el modelo en X %}` — "for the model in" = for model in
+    content = content.replace(/\{%-? para el modelo en /g, (match) => {
+      return match.replace('para el modelo en', 'for model in')
+    })
     content = content.replace(/\{%-? cuando /g, (match) => {
       return match.replace('cuando', 'when')
     })
+    // `{% icono "X" ... %}` — "icono" = "icon" = octicon
+    content = content.replaceAll('{% icono ', '{% octicon ')
+    content = content.replaceAll('{%- icono ', '{%- octicon ')
+    // `{% octicon "bombilla" %}` — Spanish "bombilla" = "light-bulb" (translated octicon name)
+    content = content.replaceAll('{% octicon "bombilla"', '{% octicon "light-bulb"')
+    content = content.replaceAll('{%- octicon "bombilla"', '{%- octicon "light-bulb"')
+    // `{% capturar X %}` — "capturar" = "to capture" = capture
+    content = content.replaceAll('{% capturar ', '{% capture ')
+    content = content.replaceAll('{%- capturar ', '{%- capture ')
     // Translated block tags
     content = content.replaceAll('{% nota %}', '{% note %}')
     content = content.replaceAll('{%- nota %}', '{%- note %}')
@@ -216,6 +229,9 @@ export function correctTranslatedContentStrings(
     // `{% ウィンドウズ %}` — "Windows" = windows (platform tag)
     content = content.replaceAll('{% ウィンドウズ %}', '{% windows %}')
     content = content.replaceAll('{%- ウィンドウズ %}', '{%- windows %}')
+    // `{% ウィンドウ %}` — "Window" (without ズ suffix) = windows (alternate transliteration)
+    content = content.replaceAll('{% ウィンドウ %}', '{% windows %}')
+    content = content.replaceAll('{%- ウィンドウ %}', '{%- windows %}')
   }
 
   if (context.code === 'pt') {
@@ -403,6 +419,9 @@ export function correctTranslatedContentStrings(
     // `{% Linux %}` — capitalized linux platform tag
     content = content.replaceAll('{% Linux %}', '{% linux %}')
     content = content.replaceAll('{%- Linux %}', '{%- linux %}')
+    // `{% джетмозги %}` — Russian literal translation of "JetBrains" (джет=jet, мозги=brains)
+    content = content.replaceAll('{% джетмозги %}', '{% jetbrains %}')
+    content = content.replaceAll('{%- джетмозги %}', '{%- jetbrains %}')
     // Fix double quotes in Russian YAML files that cause parsing errors
     content = content.replace(/href=""https:\/\//g, 'href="https://')
 
@@ -493,6 +512,27 @@ export function correctTranslatedContentStrings(
     // `{% éclipse %}` — French accent on "eclipse" platform tag
     content = content.replaceAll('{% éclipse %}', '{% eclipse %}')
     content = content.replaceAll('{%- éclipse %}', '{%- eclipse %}')
+    // `{% données_reutilisables.X %}` — underscore form of "données réutilisables" (no accent)
+    content = content.replaceAll('{% données_reutilisables.', '{% data reusables.')
+    content = content.replaceAll('{%- données_reutilisables.', '{%- data reusables.')
+    // `{% données_réutilisables.X %}` — underscore form with accent
+    content = content.replaceAll('{% données_réutilisables.', '{% data reusables.')
+    content = content.replaceAll('{%- données_réutilisables.', '{%- data reusables.')
+    // `{% composants réutilisables.X %}` — "composants" = "components" as alias for data reusables
+    content = content.replaceAll('{% composants réutilisables.', '{% data reusables.')
+    content = content.replaceAll('{%- composants réutilisables.', '{%- data reusables.')
+    // Fully-translated `{% données réutilisables propriétés-personnalisées valeurs-requises %}`
+    // → `{% data reusables.organizations.custom-properties-required-values %}`
+    // Note: the generic `{% données ` → `{% data ` fix above may already have transformed
+    // `données` to `data`, so we match both the original and the partially-corrected form.
+    content = content.replaceAll(
+      '{% données réutilisables propriétés-personnalisées valeurs-requises %}',
+      '{% data reusables.organizations.custom-properties-required-values %}',
+    )
+    content = content.replaceAll(
+      '{% data réutilisables propriétés-personnalisées valeurs-requises %}',
+      '{% data reusables.organizations.custom-properties-required-values %}',
+    )
     // Remove orphaned {% endif %} tags when no ifversion/elsif opener exists in the content.
     // Caused by translations where only the closing tag survived (e.g. user-api.md reusable).
     if (
@@ -542,6 +582,12 @@ export function correctTranslatedContentStrings(
     // `{% 윈도우즈 %}` — Korean transliteration of "windows"
     content = content.replaceAll('{% 윈도우즈 %}', '{% windows %}')
     content = content.replaceAll('{%- 윈도우즈 %}', '{%- windows %}')
+    // `{% 엔드맥 %}` — Korean translation of "endmac" (end + mac)
+    content = content.replaceAll('{% 엔드맥 %}', '{% endmac %}')
+    content = content.replaceAll('{%- 엔드맥 %}', '{%- endmac %}')
+    // `{% 주석 끝 %}` — Korean "주석 끝" (note end) = endnote
+    content = content.replaceAll('{% 주석 끝 %}', '{% endnote %}')
+    content = content.replaceAll('{%- 주석 끝 %}', '{%- endnote %}')
   }
 
   if (context.code === 'de') {
