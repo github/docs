@@ -176,7 +176,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 > ```powershell
 > git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 > ```
-> 
+>
 > You may need to specify which `ssh-keygen` binary Git should use to avoid conflicts with the binary bundled with Git for Windows. To define which binary is used, run the following command:
 > 
 > ```powershell
