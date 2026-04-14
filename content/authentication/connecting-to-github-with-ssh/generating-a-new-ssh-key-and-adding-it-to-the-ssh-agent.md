@@ -183,7 +183,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 > git config --global gpg.ssh.program "C:/Windows/System32/OpenSSH/ssh-keygen.exe"
 > ```
 > 
-> Alternatively, you can re-install Git for Windows and select the **Use external OpenSSH** option during the installation process.
+> Alternatively, you can reinstall Git for Windows and select the **Use external OpenSSH** option during the installation process.
 
 
 {% endwindows %}
