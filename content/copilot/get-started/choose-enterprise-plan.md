@@ -67,7 +67,7 @@ For more information on managing spending on premium requests, see [AUTOTITLE](/
 
 When you've determined whether premium requests and {% data variables.copilot.copilot_enterprise_short %} features will help you achieve your goals, it's time to choose a plan. Contact our Sales team to get started with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}.
 
-<a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Contact Sales</span></a>
+<a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Contact Sales</span></a>
 
 ## Further reading
 

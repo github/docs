@@ -27,7 +27,7 @@ There are a few ways that you can get access to {% data variables.product.prodna
 
 * **Use {% data variables.product.prodname_copilot_short %} through your organization or enterprise**. If you're part of an organization or enterprise with a {% data variables.product.prodname_copilot_short %} plan, you can request access at [https://github.com/settings/copilot](https://github.com/settings/copilot) under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
-* **Verified students** can sign up to {% data variables.copilot.copilot_student_short %} to access {% data variables.product.prodname_copilot_short %} for free. See [AUTOTITLE](/copilot/how-tos/manage-your-account/free-access-with-copilot-student).
+* **Verified students** can sign up to {% data variables.copilot.copilot_student_short %} to access {% data variables.product.prodname_copilot_short %} for free. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
 
 * **Verified teachers or open source maintainers** may be eligible to use {% data variables.product.prodname_copilot_short %} for free. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
 

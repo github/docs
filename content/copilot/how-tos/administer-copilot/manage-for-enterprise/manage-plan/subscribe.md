@@ -22,8 +22,7 @@ category:
 
 >[!NOTE]
 > {% data reusables.copilot.signup-procedure-enterprise-msft-ea %}
->
-> If you do not yet have a {% data variables.product.prodname_ghe_cloud %} account, you can start a free 30-day trial, which includes {% data variables.copilot.copilot_for_business %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
+
 
 1. Ensure you are signed in as an enterprise admin on {% data variables.product.github %}.
 1. To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).

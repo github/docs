@@ -65,7 +65,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -74,7 +74,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -83,7 +83,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists repositories for the specified organization.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nIn order to see the <code>security_and_analysis</code> block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n</div>",
+      "descriptionHTML": "<p>Lists repositories for the specified organization.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nIn order to see the <code>security_and_analysis</code> block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -1066,7 +1066,7 @@
         {
           "type": "string",
           "name": "license_template",
-          "description": "<p>Choose an <a href=\"https://choosealicense.com/\">open source license template</a> that best suits your needs, and then use the <a href=\"https://docs.github.com/enterprise-cloud@latest//articles/licensing-a-repository/#searching-github-by-license-type\">license keyword</a> as the <code>license_template</code> string. For example, \"mit\" or \"mpl-2.0\".</p>"
+          "description": "<p>Choose an <a href=\"https://choosealicense.com/\">open source license template</a> that best suits your needs, and then use the <a href=\"https://docs.github.com/enterprise-cloud@latest/articles/licensing-a-repository/#searching-github-by-license-type\">license keyword</a> as the <code>license_template</code> string. For example, \"mit\" or \"mpl-2.0\".</p>"
         },
         {
           "type": "boolean",
@@ -4724,7 +4724,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>The <code>parent</code> and <code>source</code> objects are present when the repository is a fork. <code>parent</code> is the repository this repository was forked from, <code>source</code> is the ultimate source for the network.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p></p>\n<ul>\n<li>In order to see the <code>security_and_analysis</code> block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</li>\n<li>To view merge-related settings, you must have the <code>contents:read</code> and <code>contents:write</code> permissions.</li>\n</ul>\n</div>",
+      "descriptionHTML": "<p>The <code>parent</code> and <code>source</code> objects are present when the repository is a fork. <code>parent</code> is the repository this repository was forked from, <code>source</code> is the ultimate source for the network.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p></p>\n<ul>\n<li>In order to see the <code>security_and_analysis</code> block for a repository you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</li>\n<li>To view merge-related settings, you must have the <code>contents:read</code> and <code>contents:write</code> permissions.</li>\n</ul>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -8336,7 +8336,7 @@
         {
           "type": "boolean",
           "name": "private",
-          "description": "<p>Either <code>true</code> to make the repository private or <code>false</code> to make it public. Default: <code>false</code>.<br>\n<strong>Note</strong>: You will get a <code>422</code> error if the organization restricts <a href=\"https://docs.github.com/enterprise-cloud@latest//articles/repository-permission-levels-for-an-organization#changing-the-visibility-of-repositories\">changing repository visibility</a> to organization owners and a non-owner tries to change the value of private.</p>",
+          "description": "<p>Either <code>true</code> to make the repository private or <code>false</code> to make it public. Default: <code>false</code>.<br>\n<strong>Note</strong>: You will get a <code>422</code> error if the organization restricts <a href=\"https://docs.github.com/enterprise-cloud@latest/articles/repository-permission-levels-for-an-organization#changing-the-visibility-of-repositories\">changing repository visibility</a> to organization owners and a non-owner tries to change the value of private.</p>",
           "default": false
         },
         {
@@ -8352,7 +8352,7 @@
         {
           "type": "object or null",
           "name": "security_and_analysis",
-          "description": "<p>Specify which security and analysis features to enable or disable for the repository.</p>\n<p>To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>For example, to enable GitHub Advanced Security, use this data in the body of the <code>PATCH</code> request:\n<code>{ \"security_and_analysis\": {\"advanced_security\": { \"status\": \"enabled\" } } }</code>.</p>\n<p>You can check which security and analysis features are currently enabled by using a <code>GET /repos/{owner}/{repo}</code> request.</p>",
+          "description": "<p>Specify which security and analysis features to enable or disable for the repository.</p>\n<p>To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>For example, to enable GitHub Advanced Security, use this data in the body of the <code>PATCH</code> request:\n<code>{ \"security_and_analysis\": {\"advanced_security\": { \"status\": \"enabled\" } } }</code>.</p>\n<p>You can check which security and analysis features are currently enabled by using a <code>GET /repos/{owner}/{repo}</code> request.</p>",
           "childParamsGroups": [
             {
               "type": "object",
@@ -8405,7 +8405,7 @@
             {
               "type": "object",
               "name": "secret_scanning_ai_detection",
-              "description": "<p>Use the <code>status</code> property to enable or disable secret scanning AI detection for this repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets\">Responsible detection of generic secrets with AI</a>.\"</p>",
+              "description": "<p>Use the <code>status</code> property to enable or disable secret scanning AI detection for this repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets\">Responsible detection of generic secrets with AI</a>.\"</p>",
               "childParamsGroups": [
                 {
                   "type": "string",
@@ -8632,7 +8632,7 @@
           "default": false
         }
       ],
-      "descriptionHTML": "<p><strong>Note</strong>: To edit a repository's topics, use the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/repos/repos#replace-all-repository-topics\">Replace all repository topics</a> endpoint.</p>",
+      "descriptionHTML": "<p><strong>Note</strong>: To edit a repository's topics, use the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/repos/repos#replace-all-repository-topics\">Replace all repository topics</a> endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -12310,7 +12310,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -12319,7 +12319,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -12328,7 +12328,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -12388,7 +12388,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists a detailed history of changes to a repository, such as pushes, merges, force pushes, and branch changes, and associates these changes with commits and users.</p>\n<p>For more information about viewing repository activity,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/viewing-activity-and-data-for-your-repository\">Viewing activity and data for your repository</a>.\"</p>",
+      "descriptionHTML": "<p>Lists a detailed history of changes to a repository, such as pushes, merges, force pushes, and branch changes, and associates these changes with commits and users.</p>\n<p>For more information about viewing repository activity,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/viewing-activity-and-data-for-your-repository\">Viewing activity and data for your repository</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -12661,7 +12661,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Shows whether Dependabot security updates are enabled, disabled or paused for a repository. The authenticated user must have admin read access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/configuring-automated-security-fixes\">Configuring Dependabot security updates</a>\".</p>",
+      "descriptionHTML": "<p>Shows whether Dependabot security updates are enabled, disabled or paused for a repository. The authenticated user must have admin read access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/configuring-automated-security-fixes\">Configuring Dependabot security updates</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -12752,7 +12752,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Enables Dependabot security updates for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/configuring-automated-security-fixes\">Configuring Dependabot security updates</a>\".</p>",
+      "descriptionHTML": "<p>Enables Dependabot security updates for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/configuring-automated-security-fixes\">Configuring Dependabot security updates</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -12815,7 +12815,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Disables Dependabot security updates for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/configuring-automated-security-fixes\">Configuring Dependabot security updates</a>\".</p>",
+      "descriptionHTML": "<p>Disables Dependabot security updates for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/configuring-automated-security-fixes\">Configuring Dependabot security updates</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -12887,7 +12887,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List any syntax errors that are detected in the CODEOWNERS\nfile.</p>\n<p>For more information about the correct CODEOWNERS syntax,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners\">About code owners</a>.\"</p>",
+      "descriptionHTML": "<p>List any syntax errors that are detected in the CODEOWNERS\nfile.</p>\n<p>For more information about the correct CODEOWNERS syntax,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners\">About code owners</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -13043,7 +13043,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13052,7 +13052,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13264,7 +13264,7 @@
           "description": "<p>JSON payload with extra information about the webhook event that your action or workflow may use. The maximum number of top-level properties is 10. The total size of the JSON payload must be less than 64KB.</p>"
         }
       ],
-      "descriptionHTML": "<p>You can use this endpoint to trigger a webhook event called <code>repository_dispatch</code> when you want activity that happens outside of GitHub Enterprise Cloud to trigger a GitHub Actions workflow or GitHub App webhook. You must configure your GitHub Actions workflow or GitHub App to run when the <code>repository_dispatch</code> event occurs. For an example <code>repository_dispatch</code> webhook payload, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#repository_dispatch\">RepositoryDispatchEvent</a>.\"</p>\n<p>The <code>client_payload</code> parameter is available for any extra information that your workflow might need. This parameter is a JSON payload that will be passed on when the webhook event is dispatched. For example, the <code>client_payload</code> can include a message that a user would like to send using a GitHub Actions workflow. Or the <code>client_payload</code> can be used as a test to debug your workflow.</p>\n<p>This input example shows how you can use the <code>client_payload</code> as a test to debug your workflow.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>You can use this endpoint to trigger a webhook event called <code>repository_dispatch</code> when you want activity that happens outside of GitHub Enterprise Cloud to trigger a GitHub Actions workflow or GitHub App webhook. You must configure your GitHub Actions workflow or GitHub App to run when the <code>repository_dispatch</code> event occurs. For an example <code>repository_dispatch</code> webhook payload, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#repository_dispatch\">RepositoryDispatchEvent</a>.\"</p>\n<p>The <code>client_payload</code> parameter is available for any extra information that your workflow might need. This parameter is a JSON payload that will be passed on when the webhook event is dispatched. For example, the <code>client_payload</code> can include a message that a user would like to send using a GitHub Actions workflow. Or the <code>client_payload</code> can be used as a test to debug your workflow.</p>\n<p>This input example shows how you can use the <code>client_payload</code> as a test to debug your workflow.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -13645,7 +13645,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Returns a boolean indicating whether or not private vulnerability reporting is enabled for the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/security-advisories/working-with-repository-security-advisories/evaluating-the-security-settings-of-a-repository\">Evaluating the security settings of a repository</a>\".</p>",
+      "descriptionHTML": "<p>Returns a boolean indicating whether or not private vulnerability reporting is enabled for the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/security-advisories/working-with-repository-security-advisories/evaluating-the-security-settings-of-a-repository\">Evaluating the security settings of a repository</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -13729,7 +13729,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Enables private vulnerability reporting for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability\">Privately reporting a security vulnerability</a>.\"</p>",
+      "descriptionHTML": "<p>Enables private vulnerability reporting for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability\">Privately reporting a security vulnerability</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -13796,7 +13796,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Disables private vulnerability reporting for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability\">Privately reporting a security vulnerability</a>\".</p>",
+      "descriptionHTML": "<p>Disables private vulnerability reporting for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability\">Privately reporting a security vulnerability</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -13863,7 +13863,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -13872,7 +13872,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14005,7 +14005,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14014,7 +14014,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14313,7 +14313,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14322,7 +14322,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -14553,7 +14553,7 @@
           "description": "<p>ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.</p>"
         }
       ],
-      "descriptionHTML": "<p>A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original <code>owner</code>, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see <a href=\"https://docs.github.com/enterprise-cloud@latest//articles/about-repository-transfers/\">about repository transfers</a>.</p>",
+      "descriptionHTML": "<p>A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original <code>owner</code>, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see <a href=\"https://docs.github.com/enterprise-cloud@latest/articles/about-repository-transfers/\">about repository transfers</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -15574,7 +15574,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Shows whether dependency alerts are enabled or disabled for a repository. The authenticated user must have admin read access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/about-security-alerts-for-vulnerable-dependencies\">About security alerts for vulnerable dependencies</a>\".</p>",
+      "descriptionHTML": "<p>Shows whether dependency alerts are enabled or disabled for a repository. The authenticated user must have admin read access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/about-security-alerts-for-vulnerable-dependencies\">About security alerts for vulnerable dependencies</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -15641,7 +15641,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Enables dependency alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/about-security-alerts-for-vulnerable-dependencies\">About security alerts for vulnerable dependencies</a>\".</p>",
+      "descriptionHTML": "<p>Enables dependency alerts and the dependency graph for a repository. The authenticated user must have admin access to the repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/about-security-alerts-for-vulnerable-dependencies\">About security alerts for vulnerable dependencies</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -15704,7 +15704,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Disables dependency alerts and the dependency graph for a repository.\nThe authenticated user must have admin access to the repository. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/about-security-alerts-for-vulnerable-dependencies\">About security alerts for vulnerable dependencies</a>\".</p>",
+      "descriptionHTML": "<p>Disables dependency alerts and the dependency graph for a repository.\nThe authenticated user must have admin access to the repository. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/articles/about-security-alerts-for-vulnerable-dependencies\">About security alerts for vulnerable dependencies</a>\".</p>",
       "codeExamples": [
         {
           "request": {
@@ -15796,7 +15796,7 @@
           "default": false
         }
       ],
-      "descriptionHTML": "<p>Creates a new repository using a repository template. Use the <code>template_owner</code> and <code>template_repo</code> route parameters to specify the repository to use as the template. If the repository is not public, the authenticated user must own or be a member of an organization that owns the repository. To check if a repository is available to use as a template, get the repository's information using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/repos/repos#get-a-repository\">Get a repository</a> endpoint and check that the <code>is_template</code> key is <code>true</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>public_repo</code> or <code>repo</code> scope to create a public repository, and <code>repo</code> scope to create a private repository.</p>",
+      "descriptionHTML": "<p>Creates a new repository using a repository template. Use the <code>template_owner</code> and <code>template_repo</code> route parameters to specify the repository to use as the template. If the repository is not public, the authenticated user must own or be a member of an organization that owns the repository. To check if a repository is available to use as a template, get the repository's information using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/repos/repos#get-a-repository\">Get a repository</a> endpoint and check that the <code>is_template</code> key is <code>true</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>public_repo</code> or <code>repo</code> scope to create a public repository, and <code>repo</code> scope to create a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -19355,7 +19355,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all public repositories in the order that they were created.</p>\n<p>Note:</p>\n<ul>\n<li>For GitHub Enterprise Server, this endpoint will only list repositories available to all users on the enterprise.</li>\n<li>Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a> to get the URL for the next page of repositories.</li>\n</ul>",
+      "descriptionHTML": "<p>Lists all public repositories in the order that they were created.</p>\n<p>Note:</p>\n<ul>\n<li>For GitHub Enterprise Server, this endpoint will only list repositories available to all users on the enterprise.</li>\n<li>Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a> to get the URL for the next page of repositories.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -20272,7 +20272,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -20281,7 +20281,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -24943,7 +24943,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -24952,7 +24952,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -25898,7 +25898,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Store an artifact attestation and associate it with a repository.</p>\n<p>The authenticated user must have write permission to the repository and, if using a fine-grained access token, the <code>attestations:write</code> permission is required.</p>\n<p>Artifact attestations are meant to be created using the <a href=\"https://github.com/actions/attest\">attest action</a>. For more information, see our guide on <a href=\"https://docs.github.com/enterprise-cloud@latest//actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds\">using artifact attestations to establish a build's provenance</a>.</p>",
+      "descriptionHTML": "<p>Store an artifact attestation and associate it with a repository.</p>\n<p>The authenticated user must have write permission to the repository and, if using a fine-grained access token, the <code>attestations:write</code> permission is required.</p>\n<p>Artifact attestations are meant to be created using the <a href=\"https://github.com/actions/attest\">attest action</a>. For more information, see our guide on <a href=\"https://docs.github.com/enterprise-cloud@latest/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds\">using artifact attestations to establish a build's provenance</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -26043,7 +26043,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -26052,7 +26052,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -26061,7 +26061,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -26088,7 +26088,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>List a collection of artifact attestations with a given subject digest that are associated with a repository.</p>\n<p>The authenticated user making the request must have read access to the repository. In addition, when using a fine-grained access token the <code>attestations:read</code> permission is required.</p>\n<p><strong>Please note:</strong> in order to offer meaningful security benefits, an attestation's signature and timestamps <strong>must</strong> be cryptographically verified, and the identity of the attestation signer <strong>must</strong> be validated. Attestations can be verified using the <a href=\"https://cli.github.com/manual/gh_attestation_verify\">GitHub CLI <code>attestation verify</code> command</a>. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest//actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds\">our guide on how to use artifact attestations to establish a build's provenance</a>.</p>",
+      "descriptionHTML": "<p>List a collection of artifact attestations with a given subject digest that are associated with a repository.</p>\n<p>The authenticated user making the request must have read access to the repository. In addition, when using a fine-grained access token the <code>attestations:read</code> permission is required.</p>\n<p><strong>Please note:</strong> in order to offer meaningful security benefits, an attestation's signature and timestamps <strong>must</strong> be cryptographically verified, and the identity of the attestation signer <strong>must</strong> be validated. Attestations can be verified using the <a href=\"https://cli.github.com/manual/gh_attestation_verify\">GitHub CLI <code>attestation verify</code> command</a>. For more information, see <a href=\"https://docs.github.com/enterprise-cloud@latest/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds\">our guide on how to use artifact attestations to establish a build's provenance</a>.</p>",
       "codeExamples": [
         {
           "request": {
@@ -26819,7 +26819,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -26828,7 +26828,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -27544,7 +27544,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the contents of a file or directory in a repository. Specify the file path or directory with the <code>path</code> parameter. If you omit the <code>path</code> parameter, you will receive the contents of the repository's root directory.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw file contents for files and symlinks.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns the file contents in HTML. Markup languages are rendered to HTML using GitHub's open-source <a href=\"https://github.com/github/markup\">Markup library</a>.</li>\n<li><strong><code>application/vnd.github.object+json</code></strong>: Returns the contents in a consistent object format regardless of the content type. For example, instead of an array of objects for a directory, the response will be an object with an <code>entries</code> attribute containing the array of objects.</li>\n</ul>\n<p>If the content is a directory, the response will be an array of objects, one object for each item in the directory. When listing the contents of a directory, submodules have their \"type\" specified as \"file\". Logically, the value <em>should</em> be \"submodule\". This behavior exists <a href=\"https://git.io/v1YCW\">for backwards compatibility purposes</a>. In the next major version of the API, the type will be returned as \"submodule\".</p>\n<p>If the content is a symlink and the symlink's target is a normal file in the repository, then the API responds with the content of the file. Otherwise, the API responds with an object describing the symlink itself.</p>\n<p>If the content is a submodule, the <code>submodule_git_url</code> field identifies the location of the submodule repository, and the <code>sha</code> identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit. If the submodule repository is not hosted on github.com, the Git URLs (<code>git_url</code> and <code>_links[\"git\"]</code>) and the github.com URLs (<code>html_url</code> and <code>_links[\"html\"]</code>) will have null values.</p>\n<p><strong>Notes</strong>:</p>\n<ul>\n<li>To get a repository's contents recursively, you can <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/git/trees#get-a-tree\">recursively get the tree</a>.</li>\n<li>This API has an upper limit of 1,000 files for a directory. If you need to retrieve\nmore files, use the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/git/trees#get-a-tree\">Git Trees API</a>.</li>\n<li>Download URLs expire and are meant to be used just once. To ensure the download URL does not expire, please use the contents API to obtain a fresh download URL for each download.</li>\n<li>If the requested file's size is:\n<ul>\n<li>1 MB or smaller: All features of this endpoint are supported.</li>\n<li>Between 1-100 MB: Only the <code>raw</code> or <code>object</code> custom media types are supported. Both will work as normal, except that when using the <code>object</code> media type, the <code>content</code> field will be an empty\nstring and the <code>encoding</code> field will be <code>\"none\"</code>. To get the contents of these larger files, use the <code>raw</code> media type.</li>\n<li>Greater than 100 MB: This endpoint is not supported.</li>\n</ul>\n</li>\n</ul>",
+      "descriptionHTML": "<p>Gets the contents of a file or directory in a repository. Specify the file path or directory with the <code>path</code> parameter. If you omit the <code>path</code> parameter, you will receive the contents of the repository's root directory.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw file contents for files and symlinks.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns the file contents in HTML. Markup languages are rendered to HTML using GitHub's open-source <a href=\"https://github.com/github/markup\">Markup library</a>.</li>\n<li><strong><code>application/vnd.github.object+json</code></strong>: Returns the contents in a consistent object format regardless of the content type. For example, instead of an array of objects for a directory, the response will be an object with an <code>entries</code> attribute containing the array of objects.</li>\n</ul>\n<p>If the content is a directory, the response will be an array of objects, one object for each item in the directory. When listing the contents of a directory, submodules have their \"type\" specified as \"file\". Logically, the value <em>should</em> be \"submodule\". This behavior exists <a href=\"https://git.io/v1YCW\">for backwards compatibility purposes</a>. In the next major version of the API, the type will be returned as \"submodule\".</p>\n<p>If the content is a symlink and the symlink's target is a normal file in the repository, then the API responds with the content of the file. Otherwise, the API responds with an object describing the symlink itself.</p>\n<p>If the content is a submodule, the <code>submodule_git_url</code> field identifies the location of the submodule repository, and the <code>sha</code> identifies a specific commit within the submodule repository. Git uses the given URL when cloning the submodule repository, and checks out the submodule at that specific commit. If the submodule repository is not hosted on github.com, the Git URLs (<code>git_url</code> and <code>_links[\"git\"]</code>) and the github.com URLs (<code>html_url</code> and <code>_links[\"html\"]</code>) will have null values.</p>\n<p><strong>Notes</strong>:</p>\n<ul>\n<li>To get a repository's contents recursively, you can <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/git/trees#get-a-tree\">recursively get the tree</a>.</li>\n<li>This API has an upper limit of 1,000 files for a directory. If you need to retrieve\nmore files, use the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/git/trees#get-a-tree\">Git Trees API</a>.</li>\n<li>Download URLs expire and are meant to be used just once. To ensure the download URL does not expire, please use the contents API to obtain a fresh download URL for each download.</li>\n<li>If the requested file's size is:\n<ul>\n<li>1 MB or smaller: All features of this endpoint are supported.</li>\n<li>Between 1-100 MB: Only the <code>raw</code> or <code>object</code> custom media types are supported. Both will work as normal, except that when using the <code>object</code> media type, the <code>content</code> field will be an empty\nstring and the <code>encoding</code> field will be <code>\"none\"</code>. To get the contents of these larger files, use the <code>raw</code> media type.</li>\n<li>Greater than 100 MB: This endpoint is not supported.</li>\n</ul>\n</li>\n</ul>",
       "codeExamples": [
         {
           "response": {
@@ -29892,7 +29892,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Creates a new file or replaces an existing file in a repository.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nIf you use this endpoint and the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/repos/contents/#delete-a-file\">Delete a file</a>\" endpoint in parallel, the concurrent requests will conflict and you will receive errors. You must use these endpoints serially instead.</p>\n</div>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint. The <code>workflow</code> scope is also required in order to modify files in the <code>.github/workflows</code> directory.</p>",
+      "descriptionHTML": "<p>Creates a new file or replaces an existing file in a repository.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nIf you use this endpoint and the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/repos/contents/#delete-a-file\">Delete a file</a>\" endpoint in parallel, the concurrent requests will conflict and you will receive errors. You must use these endpoints serially instead.</p>\n</div>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint. The <code>workflow</code> scope is also required in order to modify files in the <code>.github/workflows</code> directory.</p>",
       "codeExamples": [
         {
           "request": {
@@ -30509,7 +30509,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Deletes a file in a repository.</p>\n<p>You can provide an additional <code>committer</code> parameter, which is an object containing information about the committer. Or, you can provide an <code>author</code> parameter, which is an object containing information about the author.</p>\n<p>The <code>author</code> section is optional and is filled in with the <code>committer</code> information if omitted. If the <code>committer</code> information is omitted, the authenticated user's information is used.</p>\n<p>You must provide values for both <code>name</code> and <code>email</code>, whether you choose to use <code>author</code> or <code>committer</code>. Otherwise, you'll receive a <code>422</code> status code.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nIf you use this endpoint and the \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/repos/contents/#create-or-update-file-contents\">Create or update file contents</a>\" endpoint in parallel, the concurrent requests will conflict and you will receive errors. You must use these endpoints serially instead.</p>\n</div>",
+      "descriptionHTML": "<p>Deletes a file in a repository.</p>\n<p>You can provide an additional <code>committer</code> parameter, which is an object containing information about the committer. Or, you can provide an <code>author</code> parameter, which is an object containing information about the author.</p>\n<p>The <code>author</code> section is optional and is filled in with the <code>committer</code> information if omitted. If the <code>committer</code> information is omitted, the authenticated user's information is used.</p>\n<p>You must provide values for both <code>name</code> and <code>email</code>, whether you choose to use <code>author</code> or <code>committer</code>. Otherwise, you'll receive a <code>422</code> status code.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nIf you use this endpoint and the \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/repos/contents/#create-or-update-file-contents\">Create or update file contents</a>\" endpoint in parallel, the concurrent requests will conflict and you will receive errors. You must use these endpoints serially instead.</p>\n</div>",
       "codeExamples": [
         {
           "request": {
@@ -30815,7 +30815,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the preferred README for a repository.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw file contents. This is the default if you do not specify a media type.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns the README in HTML. Markup languages are rendered to HTML using GitHub's open-source <a href=\"https://github.com/github/markup\">Markup library</a>.</li>\n</ul>",
+      "descriptionHTML": "<p>Gets the preferred README for a repository.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw file contents. This is the default if you do not specify a media type.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns the README in HTML. Markup languages are rendered to HTML using GitHub's open-source <a href=\"https://github.com/github/markup\">Markup library</a>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -31032,7 +31032,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the README from a repository directory.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw file contents. This is the default if you do not specify a media type.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns the README in HTML. Markup languages are rendered to HTML using GitHub's open-source <a href=\"https://github.com/github/markup\">Markup library</a>.</li>\n</ul>",
+      "descriptionHTML": "<p>Gets the README from a repository directory.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw file contents. This is the default if you do not specify a media type.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns the README in HTML. Markup languages are rendered to HTML using GitHub's open-source <a href=\"https://github.com/github/markup\">Markup library</a>.</li>\n</ul>",
       "codeExamples": [
         {
           "request": {
@@ -31633,7 +31633,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -31642,7 +31642,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -36336,7 +36336,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -36345,7 +36345,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -36354,7 +36354,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists suites of rule evaluations at the repository level.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#viewing-insights-for-rulesets\">Managing rulesets for a repository</a>.\"</p>",
+      "descriptionHTML": "<p>Lists suites of rule evaluations at the repository level.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#viewing-insights-for-rulesets\">Managing rulesets for a repository</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -36517,7 +36517,7 @@
         },
         {
           "name": "rule_suite_id",
-          "description": "<p>The unique identifier of the rule suite result.\nTo get this ID, you can use <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/repos/rule-suites#list-repository-rule-suites\">GET /repos/{owner}/{repo}/rulesets/rule-suites</a>\nfor repositories and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/orgs/rule-suites#list-organization-rule-suites\">GET /orgs/{org}/rulesets/rule-suites</a>\nfor organizations.</p>",
+          "description": "<p>The unique identifier of the rule suite result.\nTo get this ID, you can use <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/repos/rule-suites#list-repository-rule-suites\">GET /repos/{owner}/{repo}/rulesets/rule-suites</a>\nfor repositories and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/orgs/rule-suites#list-organization-rule-suites\">GET /orgs/{org}/rulesets/rule-suites</a>\nfor organizations.</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -36526,7 +36526,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets information about a suite of rule evaluations from within a repository.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#viewing-insights-for-rulesets\">Managing rulesets for a repository</a>.\"</p>",
+      "descriptionHTML": "<p>Gets information about a suite of rule evaluations from within a repository.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#viewing-insights-for-rulesets\">Managing rulesets for a repository</a>.\"</p>",
       "codeExamples": [
         {
           "request": {
@@ -36776,7 +36776,7 @@
         },
         {
           "name": "branch",
-          "description": "<p>The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use <a href=\"https://docs.github.com/enterprise-cloud@latest//graphql\">the GraphQL API</a>.</p>",
+          "description": "<p>The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use <a href=\"https://docs.github.com/enterprise-cloud@latest/graphql\">the GraphQL API</a>.</p>",
           "in": "path",
           "required": true,
           "schema": {
@@ -36785,7 +36785,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -36794,7 +36794,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -38195,7 +38195,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -38205,7 +38205,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -38365,7 +38365,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -38374,7 +38374,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -39703,7 +39703,7 @@
                                     "properties": {
                                       "alerts_threshold": {
                                         "type": "string",
-                                        "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                        "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                         "enum": [
                                           "none",
                                           "errors",
@@ -39713,7 +39713,7 @@
                                       },
                                       "security_alerts_threshold": {
                                         "type": "string",
-                                        "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                        "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                         "enum": [
                                           "none",
                                           "critical",
@@ -40758,7 +40758,7 @@
                         {
                           "type": "string",
                           "name": "alerts_threshold",
-                          "description": "<p>The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\"</p>",
+                          "description": "<p>The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\"</p>",
                           "isRequired": true,
                           "enum": [
                             "none",
@@ -40770,7 +40770,7 @@
                         {
                           "type": "string",
                           "name": "security_alerts_threshold",
-                          "description": "<p>The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\"</p>",
+                          "description": "<p>The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\"</p>",
                           "isRequired": true,
                           "enum": [
                             "none",
@@ -42166,7 +42166,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -42176,7 +42176,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -43631,7 +43631,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -43641,7 +43641,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -44691,7 +44691,7 @@
                         {
                           "type": "string",
                           "name": "alerts_threshold",
-                          "description": "<p>The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\"</p>",
+                          "description": "<p>The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\"</p>",
                           "isRequired": true,
                           "enum": [
                             "none",
@@ -44703,7 +44703,7 @@
                         {
                           "type": "string",
                           "name": "security_alerts_threshold",
-                          "description": "<p>The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\"</p>",
+                          "description": "<p>The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\"</p>",
                           "isRequired": true,
                           "enum": [
                             "none",
@@ -46100,7 +46100,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -46110,7 +46110,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -46322,7 +46322,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -46331,7 +46331,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -46668,7 +46668,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -46677,7 +46677,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -46774,7 +46774,7 @@
                       },
                       "secret": {
                         "type": "string",
-                        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                       },
                       "insecure_ssl": {
                         "oneOf": [
@@ -46935,7 +46935,7 @@
             {
               "type": "string",
               "name": "secret",
-              "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value for <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers\">delivery signature headers</a>.</p>"
+              "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value for <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers\">delivery signature headers</a>.</p>"
             },
             {
               "type": "string or number",
@@ -46947,7 +46947,7 @@
         {
           "type": "array of strings",
           "name": "events",
-          "description": "<p>Determines what <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads\">events</a> the hook is triggered for.</p>",
+          "description": "<p>Determines what <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads\">events</a> the hook is triggered for.</p>",
           "default": [
             "push"
           ]
@@ -47057,7 +47057,7 @@
                     },
                     "secret": {
                       "type": "string",
-                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                     },
                     "insecure_ssl": {
                       "oneOf": [
@@ -47296,7 +47296,7 @@
                     },
                     "secret": {
                       "type": "string",
-                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                     },
                     "insecure_ssl": {
                       "oneOf": [
@@ -47460,7 +47460,7 @@
             {
               "type": "string",
               "name": "secret",
-              "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value for <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers\">delivery signature headers</a>.</p>"
+              "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value for <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers\">delivery signature headers</a>.</p>"
             },
             {
               "type": "string or number",
@@ -47472,7 +47472,7 @@
         {
           "type": "array of strings",
           "name": "events",
-          "description": "<p>Determines what <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads\">events</a> the hook is triggered for. This replaces the entire array of events.</p>",
+          "description": "<p>Determines what <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads\">events</a> the hook is triggered for. This replaces the entire array of events.</p>",
           "default": [
             "push"
           ]
@@ -47586,7 +47586,7 @@
                     },
                     "secret": {
                       "type": "string",
-                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                     },
                     "insecure_ssl": {
                       "oneOf": [
@@ -47851,7 +47851,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [
@@ -47937,7 +47937,7 @@
         {
           "type": "string",
           "name": "secret",
-          "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value for <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers\">delivery signature headers</a>.</p>"
+          "description": "<p>If provided, the <code>secret</code> will be used as the <code>key</code> to generate the HMAC hex digest value for <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers\">delivery signature headers</a>.</p>"
         },
         {
           "type": "string or number",
@@ -47988,7 +47988,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [
@@ -48061,7 +48061,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -48662,7 +48662,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>This will trigger a <a href=\"https://docs.github.com/enterprise-cloud@latest//webhooks/#ping-event\">ping event</a> to be sent to the hook.</p>",
+      "descriptionHTML": "<p>This will trigger a <a href=\"https://docs.github.com/enterprise-cloud@latest/webhooks/#ping-event\">ping event</a> to be sent to the hook.</p>",
       "codeExamples": [
         {
           "request": {

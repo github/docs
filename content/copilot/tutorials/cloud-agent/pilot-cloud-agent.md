@@ -30,19 +30,13 @@ category:
 
 Before enabling {% data variables.copilot.copilot_cloud_agent %} for members, understand how {% data variables.copilot.copilot_cloud_agent %} will fit into your organization. This will help you evaluate whether {% data variables.copilot.copilot_cloud_agent %} is suitable for your needs and plan communications and training sessions for developers.
 
-1. Learn about {% data variables.copilot.copilot_cloud_agent %}, including the costs, built-in security features, and how it differs from other AI tools your developers may be used to. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
+1. Learn about {% data variables.copilot.copilot_cloud_agent %}, including the costs and how it differs from other AI tools your developers may be used to. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 1. Learn about the tasks that {% data variables.copilot.copilot_cloud_agent %} is best suited for. These are generally well-defined and scoped issues, such as increasing test coverage, fixing bugs or flaky tests, or updating config files or documentation. See [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
 1. Consider how {% data variables.copilot.copilot_cloud_agent %} fits alongside other tools in your organization's workflows. For an example scenario that walks through how to use {% data variables.copilot.copilot_cloud_agent %} alongside other AI features on {% data variables.product.github %}, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/integrating-agentic-ai).
 
 ## 2. Secure
 
-All AI models are trained to meet a request, even if they don't have all the information needed to provide a good answer, and this can lead them to make mistakes. By following best practices, you can build on the default security features of {% data variables.copilot.copilot_cloud_agent %}.
-
-1. Give {% data variables.product.prodname_copilot_short %} the information it needs to work successfully in a repository using a `copilot-instructions.md` file. See [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
-1. Set up the {% data variables.product.prodname_copilot_short %} development environment for a repository with access to the tools and package repositories approved by the organization using a `copilot-setup-steps.yml` file and local MCP servers. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment) and [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
-1. Follow best practices for storing secrets securely. See [AUTOTITLE](/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).
-1. Enable code security features to further lower the risk of leaking secrets and introducing vulnerabilities into the code. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-1. Configure your branch rulesets to ensure that all pull requests raised by {% data variables.product.prodname_copilot_short %} are approved by a second user with write permissions (a sub-option of "Require a pull request before merging"). See {% ifversion ghec %}[AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance), {% endif %}[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) and [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-a-pull-request-before-merging).
+Build on {% data variables.copilot.copilot_cloud_agent %}'s built-in protections before enabling it in an organization. See [AUTOTITLE](/copilot/tutorials/cloud-agent/build-guardrails).
 
 ## 3. Pilot
 

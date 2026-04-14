@@ -42,7 +42,7 @@ There are several ways to use {% data variables.product.prodname_copilot_short %
 
 ### Educational and open source benefits
 
-* {% data variables.copilot.copilot_student_short %} offers free access to {% data variables.product.prodname_copilot_short %}'s premium features for verified students. See [AUTOTITLE](/copilot/how-tos/manage-your-account/free-access-with-copilot-student).
+* {% data variables.copilot.copilot_student_short %} offers free access to {% data variables.product.prodname_copilot_short %}'s premium features for verified students. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
 * {% data variables.copilot.copilot_pro_short %} is free for verified teachers and maintainers of popular open source projects. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer).
 
 ## How usage of {% data variables.product.prodname_copilot_short %} licenses is measured
