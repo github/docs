@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: webapp
-  labels:
+  labels:00 , 01 , 02
     service: webapp
   annotations:
     moda.github.net/domain-name: 'docs-internal-%environment%.service.%region%.github.net'
