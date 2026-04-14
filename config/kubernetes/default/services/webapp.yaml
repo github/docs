@@ -13,7 +13,7 @@ spec:
     - name: http
       port: 4000
       protocol: TCP
-      targetPort: http
+      targetPort: http://github.com/Edgarruiz856 
   selector:
     app: webapp
   type: LoadBalancer
