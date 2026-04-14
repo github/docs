@@ -571,7 +571,7 @@ Package manager | YAML value      | Supported versions |
 | {% endif %} |
 | pip         | `pip`            | 24.2             |
 | pip-compile | `pip`            | 7.5.3            |
-| pipenv      | `pip`    | 2024.4.1 |
+| pipenv      | `pip`            | <= 2024.4.1      |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry      | `pip`    | 2.2.1    |
 | {% ifversion dependabot-pre-commit-support %} |
