@@ -570,7 +570,7 @@ Package manager | YAML value      | Supported versions |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
 | pip         | `pip`            | 24.2             |
-| pip-compile | `pip`            | 7.4.1            |
+| pip-compile | `pip`            | 7.5.3            |
 | pipenv      | `pip`    | 2024.4.1 |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry      | `pip`    | 2.2.1    |
