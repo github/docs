@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: default
 kind: Service
 metadata:
   name: webapp
