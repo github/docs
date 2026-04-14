@@ -1,18 +1,26 @@
-import { describe, expect, test, vi } from 'vitest'
+import { afterEach, describe, expect, test, vi } from 'vitest'
 
 import { resolveJourneyContext, resolveJourneyTracks } from '../lib/journey-path-resolver'
+import getLinkData from '@/journeys/lib/get-link-data'
 import type { Page } from '@/types'
 
 // Mock modules since we just want to test journey functions, not their dependencies or
 // against real content files
 vi.mock('@/journeys/lib/get-link-data', () => ({
-  default: async (path: string) => [
-    {
-      href: `/en/enterprise-cloud@latest${path}`,
-      title: `Mock Title for ${path}`,
-    },
-  ],
+  default: vi.fn(async (rawLinks: string | string[] | undefined) => {
+    const path = Array.isArray(rawLinks) ? rawLinks[0] : rawLinks
+    if (!path) return undefined
+    return [
+      {
+        href: `/en/enterprise-cloud@latest${path}`,
+        title: `Mock Title for ${path}`,
+        page: {} as unknown as Page,
+      },
+    ]
+  }),
 }))
+
+const mockGetLinkData = vi.mocked(getLinkData)
 
 vi.mock('@/content-render/index', () => ({
   renderContent: async (content: string) => content,
@@ -267,6 +275,158 @@ describe('journey-path-resolver', () => {
       const result = await resolveJourneyTracks(trackWithoutDescription, mockContext)
 
       expect(result[0].description).toBeUndefined()
+    })
+  })
+
+  describe('resolveJourneyContext with version-filtered guides', () => {
+    afterEach(() => {
+      // Restore the default implementation after each test in this block
+      mockGetLinkData.mockImplementation(async (rawLinks: string | string[] | undefined) => {
+        const path = Array.isArray(rawLinks) ? rawLinks[0] : rawLinks
+        if (!path) return undefined
+        return [
+          {
+            href: `/en/enterprise-cloud@latest${path}`,
+            title: `Mock Title for ${path}`,
+            page: {} as unknown as Page,
+          },
+        ]
+      })
+    })
+
+    const mockContext = {
+      currentProduct: 'github',
+      currentLanguage: 'en',
+      currentVersion: 'enterprise-cloud@latest',
+    }
+
+    // Track with 4 guides where the 2nd guide is unavailable in the current version:
+    // raw indices: 0=setup, 1=unavailable, 2=config, 3=deploy
+    // filtered:    0=setup,                1=config,  2=deploy
+    const mockPages = {
+      'enterprise-onboarding/index': {
+        layout: 'journey-landing',
+        title: 'Enterprise onboarding',
+        permalink: '/enterprise-onboarding',
+        journeyTracks: [
+          {
+            id: 'getting_started',
+            title: 'Getting started',
+            guides: [
+              { href: '/enterprise-onboarding/setup' },
+              { href: '/enterprise-onboarding/unavailable' },
+              { href: '/enterprise-onboarding/config' },
+              { href: '/enterprise-onboarding/deploy' },
+            ],
+          },
+        ],
+      },
+    } as unknown as Record<string, Page>
+
+    test('resolveJourneyTracks filters out guides unavailable for the current version', async () => {
+      mockGetLinkData.mockImplementation(async (rawLinks: string | string[] | undefined) => {
+        const path = Array.isArray(rawLinks) ? rawLinks[0] : rawLinks
+        if (path === '/enterprise-onboarding/config') return undefined
+        if (!path) return undefined
+        return [
+          {
+            href: `/en/enterprise-cloud@latest${path}`,
+            title: `Mock Title for ${path}`,
+            page: {} as unknown as Page,
+          },
+        ]
+      })
+
+      const tracks = [
+        {
+          id: 'getting_started',
+          title: 'Getting started',
+          guides: [
+            { href: '/enterprise-onboarding/setup' },
+            { href: '/enterprise-onboarding/config' },
+          ],
+        },
+      ]
+      const result = await resolveJourneyTracks(tracks, mockContext)
+
+      // /enterprise-onboarding/config is unavailable, so only /enterprise-onboarding/setup remains
+      expect(result[0].guides).toHaveLength(1)
+      expect(result[0].guides[0].href).toBe(
+        '/en/enterprise-cloud@latest/enterprise-onboarding/setup',
+      )
+    })
+
+    test('numberOfGuides reflects only version-available guides', async () => {
+      mockGetLinkData.mockImplementation(async (rawLinks: string | string[] | undefined) => {
+        const path = Array.isArray(rawLinks) ? rawLinks[0] : rawLinks
+        if (path === '/enterprise-onboarding/unavailable') return undefined
+        if (!path) return undefined
+        return [
+          {
+            href: `/en/enterprise-cloud@latest${path}`,
+            title: `Mock Title for ${path}`,
+            page: {} as unknown as Page,
+          },
+        ]
+      })
+
+      const result = await resolveJourneyContext(
+        '/enterprise-onboarding/config',
+        mockPages,
+        mockContext,
+      )
+
+      expect(result?.numberOfGuides).toBe(3) // 3 available, not 4 raw
+    })
+
+    test('currentGuideIndex reflects position in version-filtered list', async () => {
+      mockGetLinkData.mockImplementation(async (rawLinks: string | string[] | undefined) => {
+        const path = Array.isArray(rawLinks) ? rawLinks[0] : rawLinks
+        if (path === '/enterprise-onboarding/unavailable') return undefined
+        if (!path) return undefined
+        return [
+          {
+            href: `/en/enterprise-cloud@latest${path}`,
+            title: `Mock Title for ${path}`,
+            page: {} as unknown as Page,
+          },
+        ]
+      })
+
+      const result = await resolveJourneyContext(
+        '/enterprise-onboarding/config',
+        mockPages,
+        mockContext,
+      )
+
+      // config is at raw index 2, but filtered index 1 (setup=0, config=1, deploy=2)
+      expect(result?.currentGuideIndex).toBe(1)
+    })
+
+    test('prevGuide skips unavailable guides', async () => {
+      mockGetLinkData.mockImplementation(async (rawLinks: string | string[] | undefined) => {
+        const path = Array.isArray(rawLinks) ? rawLinks[0] : rawLinks
+        if (path === '/enterprise-onboarding/unavailable') return undefined
+        if (!path) return undefined
+        return [
+          {
+            href: `/en/enterprise-cloud@latest${path}`,
+            title: `Mock Title for ${path}`,
+            page: {} as unknown as Page,
+          },
+        ]
+      })
+
+      // config's predecessor in the raw list is "unavailable", but in filtered list it's "setup"
+      const result = await resolveJourneyContext(
+        '/enterprise-onboarding/config',
+        mockPages,
+        mockContext,
+      )
+
+      expect(result?.prevGuide?.href).toBe(
+        '/en/enterprise-cloud@latest/enterprise-onboarding/setup',
+      )
     })
   })
 })

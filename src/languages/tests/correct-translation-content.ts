@@ -91,6 +91,34 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- encabezados de fila %}', 'es')).toBe('{%- rowheaders %}')
     })
 
+    test('fixes icono → octicon', () => {
+      expect(fix('{% icono "copilot" aria-hidden="true" aria-label="Copilot" %}', 'es')).toBe(
+        '{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}',
+      )
+      expect(fix('{%- icono "check" %}', 'es')).toBe('{%- octicon "check" %}')
+    })
+
+    test('fixes octicon "bombilla" → octicon "light-bulb"', () => {
+      expect(fix('{% octicon "bombilla" aria-label="The light-bulb icon" %}', 'es')).toBe(
+        '{% octicon "light-bulb" aria-label="The light-bulb icon" %}',
+      )
+      expect(fix('{%- octicon "bombilla" aria-label="The light-bulb icon" %}', 'es')).toBe(
+        '{%- octicon "light-bulb" aria-label="The light-bulb icon" %}',
+      )
+    })
+
+    test('fixes capturar → capture', () => {
+      expect(fix('{% capturar service_name %}runner{% endcapture %}', 'es')).toBe(
+        '{% capture service_name %}runner{% endcapture %}',
+      )
+    })
+
+    test('fixes para el modelo en → for model in', () => {
+      expect(fix('{% para el modelo en tables.copilot.model-comparison %}', 'es')).toBe(
+        '{% for model in tables.copilot.model-comparison %}',
+      )
+    })
+
     test('fixes multiple or-translations in single ifversion', () => {
       expect(fix('{% ifversion fpt o ghec o ghes %}', 'es')).toBe(
         '{% ifversion fpt or ghec or ghes %}',
@@ -261,6 +289,11 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes ウィンドウズ → windows', () => {
       expect(fix('{% ウィンドウズ %}', 'ja')).toBe('{% windows %}')
       expect(fix('{%- ウィンドウズ %}', 'ja')).toBe('{%- windows %}')
+    })
+
+    test('fixes ウィンドウ (without ズ) → windows', () => {
+      expect(fix('{% ウィンドウ %}', 'ja')).toBe('{% windows %}')
+      expect(fix('{%- ウィンドウ %}', 'ja')).toBe('{%- windows %}')
     })
   })
 
@@ -616,6 +649,11 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% Linux %}', 'ru')).toBe('{% linux %}')
       expect(fix('{%- Linux %}', 'ru')).toBe('{%- linux %}')
     })
+
+    test('fixes джетмозги → jetbrains', () => {
+      expect(fix('{% джетмозги %}', 'ru')).toBe('{% jetbrains %}')
+      expect(fix('{%- джетмозги %}', 'ru')).toBe('{%- jetbrains %}')
+    })
   })
 
   // ─── FRENCH (fr) ───────────────────────────────────────────────────
@@ -712,6 +750,27 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% éclipse %}', 'fr')).toBe('{% eclipse %}')
       expect(fix('{%- éclipse %}', 'fr')).toBe('{%- eclipse %}')
     })
+
+    test('fixes données_reutilisables → data reusables', () => {
+      expect(fix('{% données_reutilisables.user-settings.ssh %}', 'fr')).toBe(
+        '{% data reusables.user-settings.ssh %}',
+      )
+      expect(fix('{% données_réutilisables.codespaces.foo %}', 'fr')).toBe(
+        '{% data reusables.codespaces.foo %}',
+      )
+    })
+
+    test('fixes composants réutilisables → data reusables', () => {
+      expect(fix('{% composants réutilisables.répertoires.barre-latérale-sujets %}', 'fr')).toBe(
+        '{% data reusables.répertoires.barre-latérale-sujets %}',
+      )
+    })
+
+    test('fixes fully-translated données réutilisables propriétés-personnalisées path', () => {
+      expect(
+        fix('{% données réutilisables propriétés-personnalisées valeurs-requises %}', 'fr'),
+      ).toBe('{% data reusables.organizations.custom-properties-required-values %}')
+    })
   })
 
   // ─── KOREAN (ko) ──────────────────────────────────────────────────
@@ -789,6 +848,16 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes 윈도우즈 → windows', () => {
       expect(fix('{% 윈도우즈 %}', 'ko')).toBe('{% windows %}')
       expect(fix('{%- 윈도우즈 %}', 'ko')).toBe('{%- windows %}')
+    })
+
+    test('fixes 엔드맥 → endmac', () => {
+      expect(fix('{% 엔드맥 %}', 'ko')).toBe('{% endmac %}')
+      expect(fix('{%- 엔드맥 %}', 'ko')).toBe('{%- endmac %}')
+    })
+
+    test('fixes 주석 끝 → endnote', () => {
+      expect(fix('{% 주석 끝 %}', 'ko')).toBe('{% endnote %}')
+      expect(fix('{%- 주석 끝 %}', 'ko')).toBe('{%- endnote %}')
     })
   })
 
