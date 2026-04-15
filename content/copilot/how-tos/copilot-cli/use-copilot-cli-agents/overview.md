@@ -216,7 +216,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-
 
 You can create skills to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
 ### Add an MCP server
 

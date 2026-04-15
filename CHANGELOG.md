@@ -1,5 +1,14 @@
 # Docs changelog
 
+**13 April 2026**
+
+To coincide with the release of the ability to [steer your Copilot CLI sessions remotely](https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/) (from GitHub.com, or from GitHub Mobile), we have added these new articles:
+
+* _Conceptual information:_ [About remote access to GitHub Copilot CLI sessions](https://docs.github.com/copilot/concepts/agents/copilot-cli/about-remote-access)
+* _How-to information:_ [Steering a GitHub Copilot CLI session from another device](https://docs.github.com/copilot/how-tos/copilot-cli/steer-remotely)
+
+<hr>
+
 **9 April 2026**
 
 We've added a conceptual article to the Copilot CLI documentation explaining the context window, compaction, and checkpoints.

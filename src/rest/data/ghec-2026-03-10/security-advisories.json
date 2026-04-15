@@ -952,10 +952,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:C/C:H/I:H/A:H",
-                "score": 7.6
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:C/C:H/I:H/A:H",
@@ -5996,10 +5992,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                "score": 9.8
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
@@ -7907,7 +7899,6 @@
                   ]
                 }
               ],
-              "cvss": null,
               "cvss_severities": {
                 "cvss_v3": null,
                 "cvss_v4": null
@@ -9662,10 +9653,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                "score": 9.8
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
@@ -11638,10 +11625,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                "score": 9.8
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
@@ -13407,10 +13390,6 @@
                   ]
                 }
               ],
-              "cvss": {
-                "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                "score": 9.8
-              },
               "cvss_severities": {
                 "cvss_v3": {
                   "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
@@ -15343,7 +15322,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",

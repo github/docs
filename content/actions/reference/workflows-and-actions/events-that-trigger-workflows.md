@@ -515,7 +515,16 @@ on:
 
 Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see [AUTOTITLE](/graphql/reference/objects#pullrequest) in the GraphQL API documentation or [AUTOTITLE](/rest/pulls).
 
-Note that `GITHUB_SHA` for this event is the last merge commit of the pull request merge branch. If you want to get the commit ID for the last commit to the head branch of the pull request, use `github.event.pull_request.head.sha` instead.
+Note that `GITHUB_SHA` for this event is the last merge commit of the pull request merge branch. If you want to get the commit ID for the last commit to the head branch of the pull request, use `github.event.pull_request.head.sha` instead. For more information about merge branches, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#pull-request-refs-and-merge-branches).
+
+### How the merge branch affects your workflow
+
+For open, mergeable pull requests, workflows triggered by the `pull_request` event set `GITHUB_REF` to the merge branch. Because `actions/checkout` uses `GITHUB_REF` by default, it checks out the merge branch. Your CI tests run against the merged result, not just the head branch alone:
+
+* `GITHUB_REF` is set to `refs/pull/PULL_REQUEST_NUMBER/merge`
+* `GITHUB_SHA` is the SHA of the merge commit on the merge branch
+
+To test only the head branch commits without simulating a merge, check out the head branch using `github.event.pull_request.head.sha` in your workflow.
 
 For example, you can run a workflow when a pull request has been opened or reopened.
 

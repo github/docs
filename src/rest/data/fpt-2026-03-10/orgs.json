@@ -9384,8 +9384,13 @@
         {
           "type": "array of objects",
           "name": "options",
-          "description": "<p>Options for single select fields. Only applicable when updating single_select fields.</p>",
+          "description": "<p>Options for single select fields. Only applicable when updating single_select fields. When provided, this array <strong>replaces</strong> the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its <code>id</code>. Options sent without an <code>id</code> are treated as new options and may cause existing options to be deleted and recreated.</p>",
           "childParamsGroups": [
+            {
+              "type": "integer",
+              "name": "id",
+              "description": "<p>The id of an existing option to retain or update. Omit this when creating a new option.</p>"
+            },
             {
               "type": "string",
               "name": "name",

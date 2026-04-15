@@ -1,11 +1,13 @@
 ---
-title: Creating agent skills for {% data variables.copilot.copilot_cli %}
-shortTitle: Create agent skills
+title: Adding agent skills for {% data variables.copilot.copilot_cli %}
+shortTitle: Add agent skills
 allowTitleToDifferFromFilename: true
 intro: 'Modify {% data variables.product.prodname_copilot_short %}''s behavior and abilities when it works on particular tasks.'
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/customize-copilot/create-skills
 category:
   - Configure Copilot # Copilot discovery page
   - Author and optimize with Copilot # Copilot discovery page
@@ -17,6 +19,12 @@ docsTeamMetrics:
 Agent skills are folders of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} can load when relevant to improve its performance in specialized tasks. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
 {% data reusables.copilot.creating-adding-skills %}
+
+1. Start a CLI session, or if you are currently in a CLI session enter `/skills reload`.
+1. Enter `/skills info SKILL-NAME` to check that the skill has reloaded.
+
+   SKILL-NAME is defined in the SKILL.md file and is typically the same as the name of the skill directory.
+
 
 ## Using agent skills
 

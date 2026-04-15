@@ -1,6 +1,6 @@
 ---
-title: Creating agent skills for {% data variables.product.prodname_copilot %}
-shortTitle: Create agent skills
+title: Adding agent skills for {% data variables.product.prodname_copilot %}
+shortTitle: Add agent skills
 allowTitleToDifferFromFilename: true
 intro: 'You can modify {% data variables.product.prodname_copilot_short %}''s behavior and abilities when it works on particular tasks.'
 versions:
@@ -11,6 +11,7 @@ category:
   - Author and optimize with Copilot
 redirect_from:
   - /copilot/how-tos/use-copilot-agents/coding-agent/create-skills
+  - /copilot/how-tos/use-copilot-agents/cloud-agent/create-skills
 ---
 
 > [!NOTE]

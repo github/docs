@@ -5697,7 +5697,6 @@
               "updated_at": "2011-06-20T11:34:15Z",
               "description": "Hello World Examples",
               "comments": 0,
-              "user": null,
               "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
               "owner": {
                 "login": "octocat",

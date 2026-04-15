@@ -2,7 +2,7 @@
 title: 'About {% data variables.product.prodname_copilot_short %} auto model selection'
 allowTitleToDifferFromFilename: true
 shortTitle: 'Auto model selection'
-intro: 'Automatically select models for {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_cloud_agent %}.'
+intro: 'Automatically select models for {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cloud_agent %}, and third-party agents.'
 product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_chat_short %} is available with all {% data variables.product.prodname_copilot %} plans. <br>{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_cloud_agent %} is available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} plans.'
 versions:
   feature: copilot
@@ -66,3 +66,19 @@ When you select **Auto** in {% data variables.copilot.copilot_cloud_agent %}, {%
   {% data reusables.copilot.copilot-cloud-agent-auto-models %}
 
 {% data reusables.copilot.change-the-ai-model-copilot-cloud-agent %}
+
+## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.product.prodname_openai_codex %}
+
+When you select **Auto** in the {% data variables.product.prodname_openai_codex %} coding agent, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} currently chooses from the following list of models, subject to your policies and subscription type:
+
+{% data reusables.copilot.openai-codex-agent-models %}
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/openai-codex).
+
+## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.product.prodname_anthropic_claude %}
+
+When you select **Auto** in the {% data variables.product.prodname_anthropic_claude %} coding agent, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} currently chooses from the following list of models, subject to your policies and subscription type:
+
+{% data reusables.copilot.anthropic-claude-agent-models %}
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/anthropic-claude).

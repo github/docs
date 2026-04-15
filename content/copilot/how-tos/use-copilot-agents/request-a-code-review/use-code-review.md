@@ -235,3 +235,43 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 1. If there is more than one comment, use the up and down arrows, at the top right of the popup, to navigate between comments.
 
 {% endjetbrains %}
+
+{% cli %}
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+* **{% data variables.product.prodname_cli %}**. You must have the {% data variables.product.prodname_cli %} installed and authenticated. See [AUTOTITLE](/github-cli/github-cli/quickstart).
+
+## Using {% data variables.copilot.copilot_code-review_short %}
+
+These instructions explain how to use {% data variables.copilot.copilot_code-review_short %} with the {% data variables.product.prodname_cli %}. To see instructions for other popular coding environments, click the appropriate tab at the top of the page.
+
+### Requesting a review when creating a pull request
+
+You can request a review from {% data variables.product.prodname_copilot_short %} when creating a new pull request using `gh pr create`:
+
+```shell copy
+gh pr create --reviewer @copilot
+```
+
+You can also select {% data variables.product.prodname_copilot_short %} interactively from the searchable reviewer prompt during `gh pr create`.
+
+```text
+? Reviewers  [Use arrows to move, space to select, <right> to all, <left> to none, type to filter]
+  [ ]  Search (7472 more)
+  [x]  monalisa (Mona Lisa)
+> [x]  Copilot (AI)
+```
+
+### Requesting a review on an existing pull request
+
+To request a review from {% data variables.product.prodname_copilot_short %} on an existing pull request, use `gh pr edit`. If you are not on the pull request's branch, specify the pull request number:
+
+```shell copy
+gh pr edit PR-NUMBER --add-reviewer @copilot
+```
+
+Replace `PR-NUMBER` with the number of the pull request you want reviewed. If you have the pull request's branch checked out, you can omit the number.
+
+{% endcli %}

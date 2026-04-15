@@ -26,13 +26,18 @@ When you hit a rate limit, you may temporarily lose access to certain {% data va
 * **Fairness:** Rate limits ensure that all users have equitable access to {% data variables.product.prodname_copilot_short %}.
 * **Abuse mitigation:** Without rate limits, malicious actors could exploit {% data variables.product.prodname_copilot_short %}, leading to degraded service for everyone or even denial of service.
 
+## Types of rate limits
+* **Limits for overall service reliability:** Temporary protections that {% data variables.product.github %} applies to keep {% data variables.product.prodname_copilot %} reliable and fair for everyone. You may see these represented as **global** or **weekly** rate limits.
+* **Limits for specific models or model family capacity:** Plan-based limits that reflect the {% data variables.product.prodname_copilot %} usage you've consumed for a particular model or model family.
+
 ## What to do if you are rate limited
 
 If you receive a rate limit error when using {% data variables.product.prodname_copilot_short %}, you should:
 
 * **Wait and try again.** Rate limits are temporary. Often, waiting a short period and trying again resolves the issue.
 * **Check your usage.** If you’re making frequent or automated requests (for example, rapid-fire completions or large-scale usage), consider adjusting your usage pattern.
-* **Change your model.** Preview models may have stricter rate limits due to limited capacity.
+* **Change your model.** Select models may have stricter rate limits due to limited capacity.
+* **Upgrade your plan.** If you are on an individual {% data variables.product.prodname_copilot_short %} plan, upgrading your plan will allow for additional usage. 
 * **Contact Support.** If you’re repeatedly rate limited and believe it’s impacting legitimate use, contact {% data variables.contact.contact_support_page %} for assistance.
 
->[!NOTE] Service-level rate limits should not affect typical {% data variables.product.prodname_copilot_short %} usage. However, if you’re heavily using preview models, you may encounter rate limits more frequently.
+>[!NOTE] Service-level rate limits should not affect typical {% data variables.product.prodname_copilot_short %} usage. However, if you’re heavily using select models, you may encounter rate limits more frequently.

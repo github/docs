@@ -2,7 +2,7 @@
 title: Managing GitHub Copilot cloud agent in your enterprise
 intro: 'Enable members of your enterprise to use {% data variables.copilot.copilot_cloud_agent %} and control the repositories where it is available.'
 allowTitleToDifferFromFilename: true
-permissions: Enterprise owners
+permissions: Enterprise owners and AI managers
 product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -34,15 +34,19 @@ category:
 
 {% data variables.copilot.copilot_cloud_agent %} and use of third-party MCP servers are blocked by default for users to whom you have assigned a {% data variables.product.prodname_copilot_short %} license. You can allow members to use these features from the AI Controls tab for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#configuring-policies-for-github-copilot).
 
-* On the "Agents" page, click **{% data variables.copilot.copilot_cloud_agent %}**, then select **Enabled everywhere** or **Let organizations decide**.
+* On the "Agents" page, click **{% data variables.copilot.copilot_cloud_agent %}**, then select **Enabled everywhere**, **Let organizations decide**, or **Enable for selected organizations**.
 * On the "MCP" page, for the "MCP servers in {% data variables.product.prodname_copilot_short %}" policy, select **Enabled everywhere** or **Let organizations decide**.
 
 ### Next steps
 
 * If you selected **Enabled everywhere**, tell organization owners that {% data variables.copilot.copilot_cloud_agent %} is enabled for all members. By default, the agent will be available in all repositories, but it is possible to opt out some or all repositories.
 * If you selected **Let organizations decide**, discuss member enablement with organization owners.
+* If you selected **Enable for selected organizations** ({% data variables.copilot.copilot_cloud_agent %} only), tell the owners of the selected organizations that {% data variables.copilot.copilot_cloud_agent %} is enabled for their members. Organizations that aren't selected will not have access.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent).
+
+> [!NOTE]
+> When the {% data variables.copilot.copilot_cloud_agent %} policy is set to **Enabled for selected organizations**, you can select individual organizations in the UI. To select organizations based on custom properties instead, use the REST API. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties) and [AUTOTITLE](/rest/copilot/copilot-coding-agent-management#selecting-organizations-with-custom-properties).
 
 ## Disabling {% data variables.copilot.copilot_cloud_agent %} in your repositories
 

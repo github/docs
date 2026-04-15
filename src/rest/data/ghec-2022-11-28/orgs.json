@@ -489,32 +489,32 @@
                 },
                 "advanced_security_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependabot_alerts_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependabot_security_updates_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependency_graph_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_push_protection_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_push_protection_custom_link_enabled": {
@@ -530,7 +530,7 @@
                 },
                 "secret_scanning_validity_checks_enabled": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
                   "deprecated": true
                 },
                 "created_at": {
@@ -1134,32 +1134,32 @@
                 },
                 "advanced_security_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether GitHub Advanced Security is enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependabot_alerts_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependabot_security_updates_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "dependency_graph_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_push_protection_enabled_for_new_repositories": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\n\nThis field is only visible to organization owners or members of a team with the security manager role.",
                   "deprecated": true
                 },
                 "secret_scanning_push_protection_custom_link_enabled": {
@@ -1175,7 +1175,7 @@
                 },
                 "secret_scanning_validity_checks_enabled": {
                   "type": "boolean",
-                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest/rest/code-security/configurations) instead.\n\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
+                  "description": "**Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.\n\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
                   "deprecated": true
                 },
                 "created_at": {
@@ -13307,8 +13307,13 @@
         {
           "type": "array of objects",
           "name": "options",
-          "description": "<p>Options for single select fields. Only applicable when updating single_select fields.</p>",
+          "description": "<p>Options for single select fields. Only applicable when updating single_select fields. When provided, this array <strong>replaces</strong> the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its <code>id</code>. Options sent without an <code>id</code> are treated as new options and may cause existing options to be deleted and recreated.</p>",
           "childParamsGroups": [
+            {
+              "type": "integer",
+              "name": "id",
+              "description": "<p>The id of an existing option to retain or update. Omit this when creating a new option.</p>"
+            },
             {
               "type": "string",
               "name": "name",
@@ -26966,7 +26971,7 @@
                                     "properties": {
                                       "alerts_threshold": {
                                         "type": "string",
-                                        "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                        "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                         "enum": [
                                           "none",
                                           "errors",
@@ -26976,7 +26981,7 @@
                                       },
                                       "security_alerts_threshold": {
                                         "type": "string",
-                                        "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                        "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                         "enum": [
                                           "none",
                                           "critical",
@@ -29521,7 +29526,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -29531,7 +29536,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -30976,7 +30981,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -30986,7 +30991,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -33537,7 +33542,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -33547,7 +33552,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -35263,7 +35268,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [
@@ -35392,7 +35397,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [

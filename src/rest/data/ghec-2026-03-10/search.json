@@ -2505,7 +2505,6 @@
                     }
                   ],
                   "state": "open",
-                  "assignee": null,
                   "milestone": {
                     "url": "https://api.github.com/repos/octocat/Hello-World/milestones/1",
                     "html_url": "https://github.com/octocat/Hello-World/milestones/v1.0",

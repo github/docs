@@ -15,6 +15,7 @@ children:
   - /fleet
   - /research
   - /chronicle
+  - /lsp-servers
   - /context-management
 contentType: concepts
 docsTeamMetrics:

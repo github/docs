@@ -44,7 +44,6 @@ Your trial **won't** include access to {% data variables.product.prodname_ghe_se
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.copilot.copilot_enterprise %}
 * {% data variables.copilot.copilot_for_business %}
-  * Contact {% data variables.contact.github_support %} to enable {% data variables.copilot.copilot_for_business %} during your trial.
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}
