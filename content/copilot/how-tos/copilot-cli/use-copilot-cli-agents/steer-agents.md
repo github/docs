@@ -16,7 +16,7 @@ docsTeamMetrics:
 
 While {% data variables.product.prodname_copilot_short %} is actively working on a task, you can enter a new prompt at any time. Any input you send while {% data variables.product.prodname_copilot_short %} is thinking is treated as steering and is considered in the context of the current task.
 
-There is no separate instruction queue. To queue additional instructions, simply enter another prompt while {% data variables.product.prodname_copilot_short %} is running. {% data variables.product.prodname_copilot_short %} processes each message in order as part of the active task.
+There is no separate instruction queue. To provide additional instructions, simply enter another prompt while {% data variables.product.prodname_copilot_short %} is running. {% data variables.product.prodname_copilot_short %} processes each message in order as part of the active task.
 
 Steering lets you:
 
