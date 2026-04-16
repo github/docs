@@ -43,13 +43,17 @@ You need to be an **organization owner** to set up access to private registries 
 1. Use the **URL** and **Type** fields to define the location and type of the registry:
    * **URL** is the location where you access the private registry. For example, to use the {% data variables.product.prodname_registry %} registry for NuGet: `https://nuget.pkg.github.com/ORGANIZATION/index.json`, where `ORGANIZATION` is the name of your organization on {% data variables.product.github %}.
    * **Type** is the type of registry.
-1. Select either **Token** or **Username and password**, depending on the authentication method, then enter data into the appropriate fields.
-   Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select the **Username and password** option for these and enter the relevant username as **Username** and the token as **Password**.
+1. Select the authentication method for the registry:
+   * **Token**: Enter the token used to authenticate with the registry.
+   * **Username and password**: Enter the username and password used to authenticate with the registry. Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select this option for these and enter the relevant username as **Username** and the token as **Password**.
+   {% ifversion org-private-registry-oidc %}
+   * **OIDC (OpenID Connect)**: Use short-lived credentials from a cloud identity provider instead of storing long-lived secrets. When you select this option, choose a provider and fill in the provider-specific fields. For more information, see [Configuring OIDC authentication for a private registry](#configuring-oidc-authentication-for-a-private-registry).
+   {% endif %}
 1. Define which repositories in the organization can access the private registry using these details: all, private and internal, or selected repositories only.
 1. When you have finished defining the private registry, select **Add Registry** to save the registry information.
 
 > [!TIP]
-> When you add a private registry to an organization the token or password is stored as an encrypted secret. Once the registry is created, the token or password cannot be viewed again.
+> When you add a private registry to an organization using **Token** or **Username and password** authentication, the token or password is stored as an encrypted secret. Once the registry is created, the token or password cannot be viewed again.
 
 ### Enabling {% data variables.product.prodname_code_scanning %} default setup to use a registry definition
 
@@ -76,6 +80,27 @@ Any private registries used by the build must also be accessible to the workflow
 {% data variables.product.prodname_dependabot %} cannot check for security or version updates for code stored in a private registry unless it can access the registry. If you do not configure access to the private registry, then {% data variables.product.prodname_dependabot %} cannot raise pull requests to update any of the dependencies stored in the registry.
 
 When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot).
+
+{% ifversion org-private-registry-oidc %}
+
+### Configuring OIDC authentication for a private registry
+
+OIDC (OpenID Connect) authentication allows {% data variables.product.prodname_dependabot %} to use short-lived credentials from your cloud identity provider to access private registries, eliminating the need to store long-lived secrets. With OIDC, credentials are generated dynamically for each {% data variables.product.prodname_dependabot %} update job. You must configure a trust relationship between your cloud provider and {% data variables.product.github %} before {% data variables.product.prodname_dependabot %} can authenticate.
+
+> [!NOTE]
+> OIDC authentication for organization-level private registries is currently supported by {% data variables.product.prodname_dependabot %}. It is not supported by {% data variables.product.prodname_code_scanning %} default setup.
+
+When you select **OIDC** as the authentication method for a private registry, choose one of the supported providers and fill in the required fields:
+
+* **Azure**: Enter the **Tenant ID** (Azure AD tenant ID) and **Client ID** (Azure AD application client ID). You must configure a federated credential in Azure AD that trusts {% data variables.product.github %}'s OIDC provider.
+* **AWS CodeArtifact**: Enter the **AWS Region**, **Account ID** (AWS account ID), **Role Name** (IAM role name), **Domain** (CodeArtifact domain), and **Domain Owner** (CodeArtifact domain owner / AWS account ID). You can optionally provide an **Audience**. You must configure an IAM OIDC identity provider in AWS that trusts {% data variables.product.github %}'s OIDC provider.
+* **JFrog Artifactory**: Enter the **OIDC Provider Name**. You can optionally provide an **Audience** and **Identity Mapping Name**.
+
+The authentication type of a private registry cannot be changed after creation. To switch from OIDC to another authentication method, or vice versa, delete the existing registry and create a new one.
+
+For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/security/openid-connect).
+
+{% endif %}
 
 {% ifversion code-quality %}
 
