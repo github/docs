@@ -132,7 +132,10 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     // recursion (e.g. /rest listing /enterprise-admin children that
     // point outside the /rest hierarchy).
     if (discoveryPage.children && discoveryPage.children.length > 0) {
-      const tocItems = await getAllTocItems(page, context)
+      const tocItems = await getAllTocItems(page, context, {
+        recurse: true,
+        renderIntros: true,
+      })
 
       // Flatten to get all leaf articles (excludeParents: true means only get articles, not category pages)
       let allArticles = flattenTocItems(tocItems, { excludeParents: true })
