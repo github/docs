@@ -57,7 +57,7 @@ If you're happy with the changes, you can accept a single suggestion from {% dat
 
 You can also invoke {% data variables.copilot.copilot_cloud_agent %} to implement suggested changes. To do this, you must:
 
-* Opt into the {% data variables.release-phases.public_preview %} for {% data variables.copilot.copilot_code-review-tools_short %} and enable {% data variables.copilot.copilot_cloud_agent %}.
+* Enable {% data variables.copilot.copilot_code-review-tools_short %} and {% data variables.copilot.copilot_cloud_agent %}.
 * On review comments from {% data variables.copilot.copilot_code-review %}, click **Implement suggestion**. This creates a draft comment on the pull request, where you can instruct {% data variables.product.prodname_copilot_short %} to address specific feedback. {% data variables.product.prodname_copilot_short %} will create a new pull request against your branch with the suggestions applied.
 
 ## Providing feedback on {% data variables.product.prodname_copilot_short %}'s reviews
@@ -149,7 +149,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 1. In the Git Changes window, click **Review changes with {% data variables.product.prodname_copilot_short %}**.
    This button appears as a comment icon with a sparkle.
 1. {% data variables.product.prodname_copilot_short %} will begin reviewing your changes. After a few moments, a link showing the number of code review comments appears in the Git Changes window.
-1. Click the link to view and navigate the comments. If no issues are found, you’ll see the message:
+1. Click the link to view and navigate the comments. If no issues are found, you'll see the message:
    {% data variables.product.prodname_copilot_short %} did not comment on any files.
 1. {% data variables.product.prodname_copilot_short %} displays comments in your code with a summary of each potential issue. You can:
 
