@@ -1,4 +1,4 @@
----
+vmess://ewogICJhZGQiOiAiMTE3LjE4LjEyNS4yMDgiLAogICJhaWQiOiAiMCIsCiAgImVuY3J5cHRpb24iOiAiYXV0byIsCiAgImhvc3QiOiAic3BlZWR0ZXN0Lm5ldCIsCiAgImlkIjogIjc2NDA1MDUzLTM0NzUtNGMwYy1iMmZjLTQ5OTZkYzVmMjZmZSIsCiAgIm5ldCI6ICJ3cyIsCiAgInBhdGgiOiAiLzJpbjFfTHYyLjVfTUxEIiwKICAicG9ydCI6ICI4MCIsCiAgInBzIjogIjExNy4xOC4xMjUuMjA4IiwKICAic2VjdXJpdHkiOiAiYXV0byIsCiAgInNraXAtY2VydC12ZXJpZnkiOiBmYWxzZSwKICAidGxzIjogIm5vbmUiLAogICJ0eXBlIjogIm5vbmUiLAogICJ1cmxfZ3JvdXAiOiAidjJyYXkiLAogICJ2IjogIjIiCn0=---
 title: Connecting to GitHub with SSH
 intro: 'You can connect to {% data variables.product.github %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
 redirect_from:
