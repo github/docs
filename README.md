@@ -1,4 +1,2149 @@
+"From 2a4c474f09d0baf651c6b5aefca0081133603b87 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Wed, 16 Jul 2025 22:03:02 -0600
+Subject: [PATCH 001/211] Actualizar README.md
 
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index 01eee7da20ce..e047aa8d0b77 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# GitHub Docs <!-- omit in toc -->
++Edgar Manuel Ruiz Arias edgarmanuelruizplasticos@gmail.com, edgarplasticos3@hotmail.com# GitHub Docs <!-- omit in toc -->
+ [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
+ 
+ This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+
+From 0d30166cdb812a4ccb18fc6b63410e5a046a0415 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Wed, 27 Aug 2025 23:42:54 -0600
+Subject: [PATCH 002/211] Actualizar README.md
+
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index e047aa8d0b77..01eee7da20ce 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-Edgar Manuel Ruiz Arias edgarmanuelruizplasticos@gmail.com, edgarplasticos3@hotmail.com# GitHub Docs <!-- omit in toc -->
++# GitHub Docs <!-- omit in toc -->
+ [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
+ 
+ This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+
+From 85499247cb1dc4dff27c7a57b27e12f4c7f70f04 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Tue, 2 Sep 2025 18:04:30 -0600
+Subject: [PATCH 003/211] Actualizar LICENSE
+
+---
+ LICENSE | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/LICENSE b/LICENSE
+index 9238c8f93880..d092988e30b2 100644
+--- a/LICENSE
++++ b/LICENSE
+@@ -384,3 +384,4 @@ the avoidance of doubt, this paragraph does not form part of the
+ public licenses.
+ 
+ Creative Commons may be contacted at creativecommons.org.
++acepto terminos y condiciones de todas las licencias Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com, recaplasruiz@gmail.com
+\ No newline at end of file
+
+From dcae06513af29096896fe0746fbef3b70709b0e8 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Tue, 2 Sep 2025 18:06:03 -0600
+Subject: [PATCH 004/211] Actualizar LICENSE-CODE
+
+---
+ LICENSE-CODE | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/LICENSE-CODE b/LICENSE-CODE
+index f3b5f7eda9e6..34e38d43a076 100644
+--- a/LICENSE-CODE
++++ b/LICENSE-CODE
+@@ -19,3 +19,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
++acepto terminos y condiciones de todas las licencias Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com
+\ No newline at end of file
+
+From 0d5157b731b219bf5e93b4fd9108edeea701359e Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Tue, 2 Sep 2025 18:12:01 -0600
+Subject: [PATCH 005/211] Actualizar README.md
+
+---
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/README.md b/README.md
+index 01eee7da20ce..4dc182db2d7e 100644
+--- a/README.md
++++ b/README.md
+@@ -53,3 +53,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
+ ## Thanks :purple_heart:
+ 
+ Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
++Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com acepto terminos y condiciones de plataforma GUITHUB 
+\ No newline at end of file
+
+From 9ee1484ce218663f92931d383e84f418537ffa21 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Thu, 4 Sep 2025 17:21:16 -0600
+Subject: [PATCH 006/211] Actualizar README.md
+
+---
+ README.md | 37 ++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 36 insertions(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index 4dc182db2d7e..9cc9051cc97b 100644
+--- a/README.md
++++ b/README.md
+@@ -53,4 +53,39 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
+ ## Thanks :purple_heart:
+ 
+ Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+-Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com acepto terminos y condiciones de plataforma GUITHUB 
+\ No newline at end of file
++Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com acepto terminos y condiciones de plataforma GUITHUB 
++Developer Certificate of Origin
++Version 1.1
++
++Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
++
++Everyone is permitted to copy and distribute verbatim copies of this
++license document, but changing it is not allowed.
++
++
++Developer's Certificate of Origin 1.1
++
++By making a contribution to this project, I certify that:
++
++(a) The contribution was created in whole or in part by me and I
++    have the right to submit it under the open source license
++    indicated in the file; or
++
++(b) The contribution is based upon previous work that, to the best
++    of my knowledge, is covered under an appropriate open source
++    license and I have the right under that license to submit that
++    work with modifications, whether created in whole or in part
++    by me, under the same open source license (unless I am
++    permitted to submit under a different license), as indicated
++    in the file; or
++
++(c) The contribution was provided directly to me by some other
++    person who certified (a), (b) or (c) and I have not modified
++    it.
++
++(d) I understand and agree that this project and the contribution
++    are public and that a record of the contribution (including all
++    personal information I submit with it, including my sign-off) is
++    maintained indefinitely and may be redistributed consistent with
++    this project or the open source license(s) involved.
++Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com
+\ No newline at end of file
+
+From 24330b6ce14f42582c938b98ca024313e6f07861 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Fri, 5 Sep 2025 12:32:28 -0600
+Subject: [PATCH 007/211] Actualizar README.md
+
+---
+ README.md | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/README.md b/README.md
+index 9cc9051cc97b..f76e0e676355 100644
+--- a/README.md
++++ b/README.md
+@@ -43,6 +43,16 @@ In addition to the README you're reading right now, this repo includes other REA
+ - [src/README.md](src/README.md)
+ 
+ ## License
++BEGIN:VCARD
++VERSION;TYPE=WORK:3.0
++PROFILE:VCARD
++URL;VALUE=URI:https://creativecommons.org
++N;CHARSET=UTF-8:Creative Commons;;;;
++FN;CHARSET=UTF-8:Creative Commons
++ORG;CHARSET=UTF-8:Creative Commons
++EMAIL:info@creativecommons.org
++ADR;CHARSET=UTF-8:;;211 Hope St # 1866,;Mountain View;CA;94042-8817;USA
++END:VCARD
+ 
+ The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+ 
+
+From d759948b14d849fdf6debbc6b4f12258399802bd Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Fri, 5 Sep 2025 12:46:27 -0600
+Subject: [PATCH 008/211] Actualizar README.md
+
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index f76e0e676355..186cdc7a7703 100644
+--- a/README.md
++++ b/README.md
+@@ -41,7 +41,7 @@ In addition to the README you're reading right now, this repo includes other REA
+ - [data/reusables/README.md](data/reusables/README.md)
+ - [data/variables/README.md](data/variables/README.md)
+ - [src/README.md](src/README.md)
+-
++https://creativecommons.org/?s=http%3A%2F%2Fopensource.org%2Flicenses%2FBSD-2-Clause
+ ## License
+ BEGIN:VCARD
+ VERSION;TYPE=WORK:3.0
+
+From d60b6714a13d5e669bbafee3c7143ecd5bf69be1 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Wed, 1 Oct 2025 21:21:16 -0600
+Subject: [PATCH 009/211] Actualizar README.md
+
+---
+ README.md | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/README.md b/README.md
+index 186cdc7a7703..f94c6f33c70d 100644
+--- a/README.md
++++ b/README.md
+@@ -97,5 +97,4 @@ By making a contribution to this project, I certify that:
+     are public and that a record of the contribution (including all
+     personal information I submit with it, including my sign-off) is
+     maintained indefinitely and may be redistributed consistent with
+-    this project or the open source license(s) involved.
+-Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com
+\ No newline at end of file
++    this project or the open source license(s) involved.
+\ No newline at end of file
+
+From d828b22217a4fc6218ff96ec626369ef4a656418 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Thu, 13 Nov 2025 06:32:20 -0600
+Subject: [PATCH 010/211] Actualizar README.md
+
+---
+ README.md | 22 +---------------------
+ 1 file changed, 1 insertion(+), 21 deletions(-)
+
+diff --git a/README.md b/README.md
+index f94c6f33c70d..a0f364089971 100644
+--- a/README.md
++++ b/README.md
+@@ -33,26 +33,7 @@ That's how you can easily become a member of the GitHub Docs community. :sparkle
+ 
+ In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
+ 
+-- [content/README.md](content/README.md)
+-- [content/graphql/README.md](content/graphql/README.md)
+-- [content/rest/README.md](content/rest/README.md)
+-- [contributing/README.md](contributing/README.md)
+-- [data/README.md](data/README.md)
+-- [data/reusables/README.md](data/reusables/README.md)
+-- [data/variables/README.md](data/variables/README.md)
+-- [src/README.md](src/README.md)
+-https://creativecommons.org/?s=http%3A%2F%2Fopensource.org%2Flicenses%2FBSD-2-Clause
+ ## License
+-BEGIN:VCARD
+-VERSION;TYPE=WORK:3.0
+-PROFILE:VCARD
+-URL;VALUE=URI:https://creativecommons.org
+-N;CHARSET=UTF-8:Creative Commons;;;;
+-FN;CHARSET=UTF-8:Creative Commons
+-ORG;CHARSET=UTF-8:Creative Commons
+-EMAIL:info@creativecommons.org
+-ADR;CHARSET=UTF-8:;;211 Hope St # 1866,;Mountain View;CA;94042-8817;USA
+-END:VCARD
+ 
+ The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+ 
+@@ -62,8 +43,7 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
+ 
+ ## Thanks :purple_heart:
+ 
+-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+-Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com acepto terminos y condiciones de plataforma GUITHUB 
++Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:! GUITHUB 
+ Developer Certificate of Origin
+ Version 1.1
+ 
+
+From 1f4a662c0f6235c3375ad26c2673523de7cfc262 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Fri, 21 Nov 2025 17:19:33 -0600
+Subject: [PATCH 011/211] Actualizar README.md
+
+---
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index a0f364089971..dcd74719971e 100644
+--- a/README.md
++++ b/README.md
+@@ -77,4 +77,5 @@ By making a contribution to this project, I certify that:
+     are public and that a record of the contribution (including all
+     personal information I submit with it, including my sign-off) is
+     maintained indefinitely and may be redistributed consistent with
+-    this project or the open source license(s) involved.
+\ No newline at end of file
++    this project or the open source license(s) involved.
++ten powered by Edgar Manuel Ruiz Arias 
+\ No newline at end of file
+
+From 2a6b7882f75c8dab9077bd1ea344d9a95ce9c07b Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Thu, 29 Jan 2026 02:07:05 -0600
+Subject: [PATCH 012/211] Actualizar README.md
+
+---
+ README.md | 116 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 116 insertions(+)
+
+diff --git a/README.md b/README.md
+index dcd74719971e..ca8a4601eff6 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,119 @@
++,,,,,,,,,,,
++Request ID,Requester Name,Organization,Requester Category,Request Description,Requested Date,Received Date,Request Status,Closed Date,Final Disposition,,
++Request Type: Exhibit,,,,,,,,,,,
++23-00738-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,Exhibit 10.1 to the Form 10-Q CytomX Therapeutics Inc on 11-07-2017,3/2/2023,3/2/2023,Closed,3/28/2023,Denied in Full,,
++23-00739-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,Exhibit 10.13 to the Form S-1 filed by Mersana Therapeutics Inc 06-01-2017,3/2/2023,3/2/2023,Closed,3/22/2023,Other Reasons ,,
++23-00740-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,Exhibit 10.14 to the Form S-1 filed by Mersana Therapeutics Inc on 06-01-2017,3/2/2023,3/2/2023,Closed,3/22/2023,Other Reasons ,,
++23-00741-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,Exhibit 10.73 to the Form S-4 filed by Jaguar Animal Health Inc nka Jaguar Health Inc on 04-18-2017,3/2/2023,3/2/2023,Closed,3/8/2023,Other Reasons ,,
++23-00742-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,Exhibit 10.56 to the Form 10-K filed by Idera Pharmaceuticals Inc on 03-15-2017,3/2/2023,3/2/2023,Closed,3/8/2023,Other Reasons ,,
++23-00743-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,Exhibit 10.1 to the Form 10-Q filed by Interleukin Genetics Inc on 11-14-2012,3/2/2023,3/2/2023,Closed,3/7/2023,Granted in Full,,
++23-00744-E,"Norkeviciute, Auguste",RoyaltyRange Europe UAB,Commercial Organization,"EX-10.1 to Form 10-Q filed by Conformis Inc on November 5, 2018",3/3/2023,3/3/2023,Closed,3/27/2023,Denied in Full,,
++23-00745-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,21-00685-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00746-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 21-00702-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00747-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 21-00705-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00748-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 21-00709-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00749-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 21-00716-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00750-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-06751-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00751-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-06754-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00752-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-06760-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00753-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-06761-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00754-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-06764-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00755-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-06768-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00756-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-06772-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00757-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07003-E,3/6/2023,3/6/2023,Closed,3/8/2023,Granted in Full,,
++23-00758-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07014-E,3/6/2023,3/6/2023,Perfected,-,-,,
++23-00759-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07030-E,3/6/2023,3/6/2023,Closed,3/29/2023,Granted in Full,,
++23-00760-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07031-E,3/6/2023,3/6/2023,Closed,4/3/2023,Granted in Full,,
++23-00761-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07033-E,3/6/2023,3/6/2023,Perfected,-,-,,
++23-00762-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07034-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00763-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07035,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00764-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07039-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00765-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07040-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00766-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07043-E,3/6/2023,3/6/2023,Closed,3/10/2023,Granted in Full,,
++23-00767-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07196-E,3/6/2023,3/6/2023,Closed,3/10/2023,Granted in Full,,
++23-00768-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07208-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00769-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07220-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00770-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07222-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00771-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07223-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00772-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07232-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00773-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07235-E,3/6/2023,3/6/2023,Closed,3/13/2023,Granted in Full,,
++23-00774-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07237-E,3/6/2023,3/6/2023,Closed,3/7/2023,Other Reasons ,,
++23-00775-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-07238-E,3/6/2023,3/6/2023,Closed,3/7/2023,Other Reasons ,,
++23-00776-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-04139-E,3/6/2023,3/6/2023,Closed,3/8/2023,Other Reasons ,,
++23-00777-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-04141-E,3/6/2023,3/6/2023,Closed,3/8/2023,Other Reasons ,,
++23-00778-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-04149-E,3/6/2023,3/6/2023,Closed,3/8/2023,Other Reasons ,,
++23-00779-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-04162-E,3/6/2023,3/6/2023,Closed,3/9/2023,Other Reasons ,,
++23-00780-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-04166-E,3/6/2023,3/6/2023,Closed,3/9/2023,Other Reasons ,,
++23-00781-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-02720-E,3/6/2023,3/6/2023,Closed,3/7/2023,Granted in Full,,
++23-00782-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-02722-E,3/6/2023,3/6/2023,Closed,3/30/2023,Other Reasons ,,
++23-00783-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-02723-E,3/6/2023,3/6/2023,Closed,3/30/2023,Other Reasons ,,
++23-00784-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-02725-E,3/6/2023,3/6/2023,Closed,3/30/2023,Other Reasons ,,
++23-00785-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-02725-E.,3/6/2023,3/6/2023,Closed,3/30/2023,Granted in Full,,
++23-00786-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-02733-E,3/6/2023,3/6/2023,Closed,3/30/2023,Other Reasons ,,
++23-00787-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,20-02803-E,3/6/2023,3/6/2023,Closed,3/28/2023,Granted in Full,,
++23-00788-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-02975-E,3/6/2023,3/6/2023,Closed,3/28/2023,Granted in Full,,
++23-00789-E,"Neuendorf, Elias",Venture Valuation AG,Commercial Organization,ID 20-03003-E,3/6/2023,3/6/2023,Closed,3/28/2023,Granted in Full,,
++23-00790-E,"Matskevich, Aliaksandra",RoyaltyRange,Commercial Organization,"Exhibit 10.1 to Form 10-Q filed by SENOMYX INC on November 12, 2004.",3/7/2023,3/7/2023,Closed,3/14/2023,Granted in Full,,
++23-00791-E,"Behal, Siamion",Royalty Range,Commercial Organization,"Exhibit 10.1 to Form 10-Q filed by Senomyx Inc on November 2, 2005",3/7/2023,3/7/2023,Closed,3/14/2023,Granted in Full,,
++23-00792-E,"Behal, Siamion",Royalty Range,Commercial Organization,"Exhibit 10.2 to Form 10-Q filed by Robcor Properties Inc on May 15, 2007",3/7/2023,3/7/2023,Closed,3/14/2023,Granted in Full,,
++23-00793-E,"Behal, Siamion",Royalty Range,Commercial Organization,"Exhibit 10.1 to Form 10-Q filed by Senomyx Inc on November 12, 2004",3/7/2023,3/7/2023,Closed,3/15/2023,Granted in Full,,
++23-00794-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,"Exhibit 10.9 to Form S-1 filed by Omniture, Inc. on April 4, 2006",3/7/2023,3/7/2023,Closed,3/8/2023,Granted in Full,,
++23-00795-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,"Exhibit 10.16 to Form 10-K filed by Internet Pictures Corp on April 2, 2001",3/7/2023,3/7/2023,Closed,3/13/2023,Granted in Full,,
++23-00796-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,"Exhibit 10.8 to form S-1/A filed by Firepond Inc. on November 24, 1999",3/7/2023,3/7/2023,Closed,3/15/2023,Granted in Full,,
++23-00797-E,"Martin, Diane","AUS Consultants, Inc.",Commercial Organization,"Exhibit 10 (J) to Form SB-2/A filed by Digital Lava Inc. on January 12, 1999",3/7/2023,3/7/2023,Closed,3/16/2023,Granted/Denied in Part,,
++23-00798-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 4.14 to Form 20-F filed by CRUCELL NV on April 7, 2010",3/7/2023,3/7/2023,Closed,4/3/2023,Granted in Full,,
++23-00799-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit: 10.1 to Form 10-Q filed by MILLENNIUM PHARMACEUTICALS INC on August 8, 2007",3/7/2023,3/7/2023,Perfected,-,-,,
++23-00800-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10 to Form 10-Q filed by AUXILIUM PHARMACEUTICALS INC on May 6, 2005",3/7/2023,3/7/2023,Perfected,-,-,,
++23-00801-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 2.1 to Form 8-K/A filed by OSCIENT PHARMACEUTICALS CORP on November 01, 2006",3/7/2023,3/7/2023,Assigned,-,-,,
++23-00802-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.3 to Form 10-Q filed by Oscient Pharmaceutials Corp. on May 10, 2006",3/7/2023,3/7/2023,Closed,3/13/2023,Granted in Full,,
++23-00803-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.1 to Form 8-K/A filed by OSI Pharmaceuticals Inc. on May 6, 2003",3/7/2023,3/7/2023,Closed,3/15/2023,Granted in Full,,
++23-00804-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.57 to Form 10-Q filed by Osteotech Inc. on August 9, 2002",3/7/2023,3/7/2023,Closed,3/14/2023,Granted in Full,,
++23-00805-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.58 to Form 10-Q filed by Osteotech Inc. on August 9, 2002",3/7/2023,3/7/2023,Closed,3/14/2023,Granted in Full,,
++23-00806-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit: 10.21 to Form 8-K filed by ISTA PHARMACEUTICALS INC on January 2, 2002",3/7/2023,3/7/2023,Closed,3/8/2023,Granted in Full,,
++23-00807-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.22 to Form 8-K filed by ISTA PHARMACEUTICALS INC on January 2, 2002",3/7/2023,3/7/2023,Closed,3/8/2023,Granted in Full,,
++23-00808-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.50.1.1 to Form 10-K filed by Headwaters, Inc. on December 21, 2000",3/7/2023,3/7/2023,Closed,3/8/2023,Granted in Full,,
++23-00809-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.1 to Form 8-K filed on October 31, 2014 by Biodelivery Sciences International Inc",3/7/2023,3/7/2023,Closed,3/8/2023,Granted in Full,,
++23-00810-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.3 to Form 10-Q filed on November 6, 2009 by Sangamo Biosciences Inc",3/7/2023,3/7/2023,Closed,3/9/2023,Granted in Full,,
++23-00811-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.1 to Form 10-Q filed on August 14, 2007 by Synvista Therapeutics, Inc",3/7/2023,3/7/2023,Closed,3/9/2023,Granted in Full,,
++23-00812-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 99.1 to Form 8-K filed on September 7, 2004 by Palomar Medical Technologies Inc",3/7/2023,3/7/2023,Closed,3/9/2023,Granted in Full,,
++23-00813-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.1 to Form 10-Q filed on May 12, 2014 by Trovagene, Inc",3/7/2023,3/7/2023,Closed,3/9/2023,Granted in Full,,
++23-00814-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.19 to Form 10-K filed on March 17, 2008 by Antigenics Inc /De/",3/7/2023,3/7/2023,Closed,3/9/2023,Granted in Full,,
++23-00815-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibits 10.7 and 10.6 to Form 8-K filed on June 9, 2008 by Arno Therapeutics, Inc",3/7/2023,3/7/2023,Closed,3/10/2023,Granted in Full,,
++23-00816-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.12 to Form 10-K/A filed on December 23, 2010 by Celldex Therapeutics,",3/7/2023,3/7/2023,Closed,3/10/2023,Granted in Full,,
++23-00817-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.8 to Form S-1 filed on November 30, 1999 by Antigenics Inc /De/",3/7/2023,3/7/2023,Closed,3/9/2023,Granted in Full,,
++23-00818-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.12 to Form S-4/A filed on February 3, 2000 by Chippac Barbados Ltd",3/7/2023,3/7/2023,Closed,3/13/2023,Granted/Denied in Part,,
++23-00819-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.12 to Form S-4/A filed on February 3, 2000 by Chippac Liquidity Management Limited Liability Co",3/7/2023,3/7/2023,Closed,3/14/2023,Granted/Denied in Part,,
++23-00820-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.1 to Form 10-Q filed on November 8, 2007 by Johnsondiversey Inc",3/7/2023,3/7/2023,Closed,3/13/2023,Granted in Full,,
++23-00821-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.32 to Form 10-K filed on March 27, 2008 by Theglobe Com Inc",3/7/2023,3/7/2023,Closed,3/13/2023,Granted in Full,,
++23-00822-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.1 to Form 8-K filed on May 30, 2008 by Sport Haley Inc",3/7/2023,3/7/2023,Closed,3/27/2023,Granted in Full,,
++23-00823-E,"Matskevich, Aliaksandra",RoyaltyRange,Commercial Organization,"Exhibit 10.23 to Form 10KSB filed by XENOMETRIX INC \DE\ on September 27, 1996",3/9/2023,3/9/2023,Closed,3/14/2023,Granted in Full,,
++23-00824-E,"Norkeviciute, Auguste",RoyaltyRange Europe UAB,Commercial Organization,"Exhibit 10.1 to Form 10-Q filed by Zogenix, Inc on May 9, 2013",3/13/2023,3/13/2023,Closed,3/15/2023,Granted in Full,,
++23-00825-E,"Norkeviciute, Auguste",RoyaltyRange Europe UAB,Commercial Organization,"Exhibits 10.3 & 10.4 to to Form 10QSB, filed by Photogen Technologies, Inc. (now IMCOR Pharmaceutical Co.) on November 20, 2003",3/13/2023,3/13/2023,Assigned,-,-,,
++23-00826-E,"Norkeviciute, Auguste",RoyaltyRange Europe UAB,Commercial Organization,"Exhibit 10.1 to Form 8-K filed by Photogen Technologies, Inc. (now IMCOR Pharmaceutical Co.) on December 18, 2003",3/13/2023,3/13/2023,Closed,3/14/2023,Granted in Full,,
++23-00827-E,"Matskevich, Aliaksandra",RoyaltyRange,Commercial Organization,"Exhibit 10.2 to Form S-1 filed by Cingulate Inc. on September 9, 2021",3/13/2023,3/13/2023,Closed,3/21/2023,Other Reasons ,,
++23-00854-E,"Behal, Siamion",Royalty Range,Commercial Organization,"Exhibit 10.128 to Form 10-K filed by Inter Parfums Inc. on March 12, 2012",3/16/2023,3/16/2023,Closed,3/28/2023,Granted in Full,,
++23-00855-E,"Norkeviciute, Auguste",RoyaltyRange Europe UAB,Commercial Organization,"Exhibits 10.5, 10.6, 10.7, 10.11, 10.12, 10.13 to Form S-4/A filed by Allarity Therapeutics, Inc. on October 10, 2021",3/20/2023,3/20/2023,Assigned,-,-,,
++23-00856-E,"Norkeviciute, Auguste",RoyaltyRange Europe UAB,Commercial Organization,"Exhibits 10.5, 10.6, 10.7, 10.11, 10.12, 10.13 to Form S-4/A filed by Allarity Therapeutics, Inc. on October 20, 2021",3/20/2023,3/20/2023,Closed,3/22/2023,Other Reasons ,,
++23-00857-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.1 to Form 10-Q filed on May 6, 2005 by Gilead Sciences Inc",3/20/2023,3/20/2023,Assigned,-,-,,
++23-00858-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.86 to Form 10-Q filed on November 4, 2011 by Gilead Sciences Inc",3/20/2023,3/20/2023,Closed,4/3/2023,Other Reasons ,,
++23-00859-E,"Stubblefield, Ayana",ktMINE,Commercial Organization,"Exhibit 10.1 to Form 8-K filed on January 23, 2012 by Enlightened Gourmet, Inc",3/27/2023,3/27/2023,Assigned,-,-,,
++23-00860-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.65 to Form 10-K filed on February 28, 2013 by Acorda Therapeutics Inc",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00861-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.13 to Form 10-K filed on March 2, 2015 by Acura Pharmaceuticals, Inc",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00862-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.54 to Form 10-K/A filed on July 31, 2013 by Amgen Inc",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00863-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.77 to Form 10-K filed on April 17, 2017 by Amyris, Inc.",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00864-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.35 to Form S-1/A filed on March 15, 2012 by Bioamber Inc",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00865-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibits 10.31, 10.33 and 10.37 to Form S-1/A filed on February 3, 2012 by Bioamber Inc",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00866-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.1 to Form 8-K filed on April 1, 2013 by Biodelivery Sciences International Inc",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00867-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.7 to Form 10-K filed on March 15, 2013 by Biospecifics Technologies Corp",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00868-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.39 to Form 10-K filed on March 13, 2013 by Curis Inc",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00869-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.15 to Form 10-K filed on March 16, 2018 by Egalet Corp",3/31/2023,3/31/2023,Referral Request,-,-,,
++23-00870-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.4 to Form 10-K filed on March 16, 2015 by Egalet Corp",3/31/2023,3/31/2023,Assigned,-,-,,
++23-00871-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibits 10.2 and 10. 4 to Form 10-Q filed on November 10, 2009 by Electronic Arts Inc.",3/31/2023,3/31/2023,Assigned,-,-,,
++23-00872-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.1 to Form 10-K filed on April 19, 2018 by Eloxx Pharmaceuticals, Inc.",3/31/2023,3/31/2023,Assigned,-,-,,
++23-00873-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.1 to Form 10-K filed on March 16, 2018 by Eloxx Pharmaceuticals, Inc",3/31/2023,3/31/2023,Assigned,-,-,,
++23-00874-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibits 4.14 and 4.15 to Form 20-F filed on March 21, 2013 by Ezchip Semiconductor Ltd",3/31/2023,3/31/2023,Assigned,-,-,,
++23-00875-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibit 10.12 to Form 10-K filed on March 14, 2017 by Kura Oncology, Inc",3/31/2023,3/31/2023,Assigned,-,-,,
++23-00876-E,"Brozyna, Malgorzata",Sectilis,Commercial Organization,"Exhibits 10.4 and 10.8 to Form S-1 filed on June 1, 2017 by Mersana Therapeutics, Inc",3/31/2
+ # GitHub Docs <!-- omit in toc -->
+ [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
+ 
+
+From 1f9eb624ffc578a764c160802a5de26cfd2fba95 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Fri, 30 Jan 2026 22:24:19 -0600
+Subject: [PATCH 013/211] Actualizar README.md
+
+---
+ README.md | 108 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 108 insertions(+)
+
+diff --git a/README.md b/README.md
+index ca8a4601eff6..d2a28b1eb11b 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,111 @@
++---
++title: Customizing your organization's profile
++intro: You can share information about your organization by customizing your organization's profile.
++versions:
++  fpt: '*'
++  ghec: '*'
++  ghes: '*'
++topics:
++  - Organizations
++shortTitle: Customize organization profile
++---
++
++
++## About your organization's profile page
++
++You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
++
++Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
++
++![Screenshot of an organization's profile page. In the right sidebar, a dropdown menu, labeled "View as: Public", is outlined in dark orange.](/assets/images/help/organizations/profile-view-switcher-public.png)
++
++The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
++
++Users who are not members of your organization will be shown a `public` view.
++
++### Pinned repositories
++
++You can give users easy access to important or frequently used repositories, by choosing up to six repositories for public users and six repositories for members of the organization. Once you pin repositories to your organization profile, the "Pinned" section is shown above the "Repositories" section of the profile page.
++
++Only organization owners can pin repositories. For more information, see [Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile).
++
++### Organization profile READMEs
++
++You can share information about how to engage with your organization by creating an organization profile README for both public users and members of the organization. {% data variables.product.prodname_dotcom %} shows your organization profile README in the "Overview" tab of your organization.
++
++You can choose what information to include in your organization profile README. Here are some examples of information that may be helpful.
++
++* An "About" section that describes your organization
++* Guidance for getting help in the organization
++
++You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github).
++
++{% ifversion enterprise-readme %}
++If you manage multiple organizations with an enterprise account, you can help members learn about the different organizations in the enterprise by creating an enterprise README. For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise).
++{% endif %}
++
++## Adding a public organization profile README
++
++>[!NOTE] Public organization profiles are not available with {% data variables.product.prodname_emus %}.
++
++The content of public `README.md` will appear on your organization's public profile.
++
++1. If your organization does not already have a public `.github` repository, create a public `.github` repository.
++1. In your organization's `.github` repository, create a `README.md` file in the `profile` folder.
++1. Commit the changes to the `README.md` file.
++
++## Adding a member-only organization profile README
++
++The content of a member-only `README.md` will be displayed in the member view of your organization's profile.
++
++1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`.
++1. In your organization's `.github-private` repository, create a `README.md` file in the `profile` folder.
++1. Commit the changes to the `README.md` file.
++
++## Pinning repositories to your organization's profile
++
++You can pin repositories that you want to feature, such as those that are frequently used, to your organization's profile page. To choose which repositories to pin to your organization's profile, you must be an organization owner.
++
++1. Navigate to your organization's profile page.
++1. In the right sidebar of the page, select the **{% octicon "eye" aria-hidden="true" aria-label="eye" %} View as** dropdown menu, then click **Public** or **Member**.
++
++   ![Screenshot of an organization's profile page. In the left sidebar, a dropdown menu, labeled "View as: public" is outlined in dark orange.](/assets/images/help/organizations/org-profile-view.png)
++1. Navigate to the settings for pinned repositories.
++
++   * If you already have pinned repositories, in the "Pinned" section, click **Customize pins**.
++
++   ![Screenshot of an organization's profile page. In the top-right corner of the "Pinned" section, "Customize pins" is outlined in dark orange.](/assets/images/help/organizations/customize-pins-link.png)
++
++   * If you haven't yet pinned any repositories, in the right sidebar, click **pin repositories**.
++
++   ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin-repositories-org-link.png)
++
++1. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
++1. Click **Save pins**.
++
++## Changing your organization's profile picture
++
++When you create an organization, {% data variables.product.github %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
++
++You can replace the identicon with an image that represents your organization. To replace the image, you can upload a new image or use a Gravatar image.
++
++### Uploading an image
++
++{% data reusables.profile.access_org %}
++{% data reusables.profile.org_settings %}
++1. Under your profile picture, click **Upload new picture**, then select an image.
++
++### Using a Gravatar image
++
++{% data reusables.profile.access_org %}
++{% data reusables.profile.org_settings %}
++1. In the "Gravatar email (Private)" field, enter the email address associated with your Gravatar image.
++1. Click **Update profile**.
++
++## Further reading
++
++* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
++* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)
+ ,,,,,,,,,,,
+ Request ID,Requester Name,Organization,Requester Category,Request Description,Requested Date,Received Date,Request Status,Closed Date,Final Disposition,,
+ Request Type: Exhibit,,,,,,,,,,,
+
+From f8391f3a4c23be0b2e64ac2f4b035be5d032ec87 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Fri, 30 Jan 2026 23:21:33 -0600
+Subject: [PATCH 014/211] Actualizar README.md
+
+---
+ README.md | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/README.md b/README.md
+index d2a28b1eb11b..819a97c019a3 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,9 @@
++document_identifier,document_title,document_type,document_parliamentary_term,document_date,document_public_register_notation,document_creator,document_language,document_pdf,document_doc,document_ep_number,document_number_version,document_URI
++OJ-10-2025-09-08,"DRAFT AGENDA - Monday, 8 September 2025 - Thursday, 11 September 2025",EP plenary part-session agenda,10,2025-09-08,P10_POJ(2025)09-08,,English,https://data.europarl.europa.eu/distribution/doc/OJ-10-2025-09-08-PRV_en.pdf,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJ-10-2025-09-08
++OJQ-10-2025-09-08,DRAFT AGENDA - 08/09/2025,EP plenary sitting agenda,10,2025-09-08,P10_OJQ(2025)09-08,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08
++OJQ-10-2025-09-09,DRAFT AGENDA - 09/09/2025,EP plenary sitting agenda,10,2025-09-09,P10_OJQ(2025)09-09,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-09
++OJQ-10-2025-09-10,DRAFT AGENDA - 10/09/2025,EP plenary sitting agenda,10,2025-09-10,P10_OJQ(2025)09-10,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-10
++OJQ-10-2025-09-11,DRAFT AGENDA - 11/09/2025,EP plenary sitting agenda,10,2025-09-11,P10_OJQ(2025)09-11,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-11
+ ---
+ title: Customizing your organization's profile
+ intro: You can share information about your organization by customizing your organization's profile.
+
+From 1ca5eeb68ccc388835d277bc8b3dca95826d7505 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 00:12:09 -0600
+Subject: [PATCH 015/211] Update LICENSE
+
+---
+ LICENSE | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/LICENSE b/LICENSE
+index d092988e30b2..9005138fecbf 100644
+--- a/LICENSE
++++ b/LICENSE
+@@ -384,4 +384,4 @@ the avoidance of doubt, this paragraph does not form part of the
+ public licenses.
+ 
+ Creative Commons may be contacted at creativecommons.org.
+-acepto terminos y condiciones de todas las licencias Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com, recaplasruiz@gmail.com
+\ No newline at end of file
++acepto terminos y condiciones de todas las licencias by:Edgar Manuel Ruiz Arias , edgarplasticos3@hotmail.com, recaplasruiz@gmail.com
+
+From 7acaee86164c6a9b27e05bb3e574b07fc93a1c0e Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 00:14:21 -0600
+Subject: [PATCH 016/211] Actualizar README.md
+
+---
+ README.md | 66 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 66 insertions(+)
+
+diff --git a/README.md b/README.md
+index 819a97c019a3..5402a00dcb60 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,69 @@
++---
++title: About GitHub's documentation fundamentals
++shortTitle: Documentation fundamentals
++intro: 'All content published on {% data variables.product.prodname_docs %} must meet these fundamental requirements.'
++versions:
++  fpt: '*'
++  ghec: '*'
++  ghes: '*'
++---
++
++## About {% data variables.product.github %}'s documentation fundamentals
++
++These fundamentals are required for {% data variables.product.github %} documentation. Use the lists below to help ensure your contributions are accurate, accessible and inclusive, and consistent.
++
++## Accurate
++
++Documentation is correct and accurate.
++
++* Ensure that the content is free from factual errors.
++* Ensure that the content is free from spelling and formatting errors.
++
++## Accessible and inclusive
++
++Documentation is up to date with the latest accessibility standards, and is written to be inclusive and translation-friendly.
++
++* Ensure content adheres to the accessibility and screenshot guidelines. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/creating-screenshots).
++* Ensure content can be successfully translated. For more information, see [AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated).
++
++## Consistent
++
++Documentation maintains a consistent voice, tone, and style throughout, creating a cohesive experience for readers.
++
++* Ensure content adheres to the {% data variables.product.prodname_docs %} style guide. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide).
++* Apply consistent terminology and naming conventions.
++* Use branding elements (for example, product and feature names, logos, color schemes) consistently in the content.
++
++# About GitHub's documentation fundamentals
++
++All content published on GitHub Docs must meet these fundamental requirements.
++
++## About GitHub's documentation fundamentals
++
++These fundamentals are required for GitHub documentation. Use the lists below to help ensure your contributions are accurate, accessible and inclusive, and consistent.
++
++## Accurate
++
++Documentation is correct and accurate.
++
++* Ensure that the content is free from factual errors.
++* Ensure that the content is free from spelling and formatting errors.
++
++## Accessible and inclusive
++
++Documentation is up to date with the latest accessibility standards, and is written to be inclusive and translation-friendly.
++
++* Ensure content adheres to the accessibility and screenshot guidelines. For more information, see [Creating screenshots](/en/contributing/writing-for-github-docs/creating-screenshots).
++* Ensure content can be successfully translated. For more information, see [Writing content to be translated](/en/contributing/writing-for-github-docs/writing-content-to-be-translated).
++
++## Consistent
++
++Documentation maintains a consistent voice, tone, and style throughout, creating a cohesive experience for readers.
++
++* Ensure content adheres to the GitHub Docs style guide. For more information, see [Style guide](/en/contributing/style-guide-and-content-model/style-guide).
++* Apply consistent terminology and naming conventions.
++* Use branding elements (for example, product and feature names, logos, color schemes) consistently in the content.
++
+ document_identifier,document_title,document_type,document_parliamentary_term,document_date,document_public_register_notation,document_creator,document_language,document_pdf,document_doc,document_ep_number,document_number_version,document_URI
+ OJ-10-2025-09-08,"DRAFT AGENDA - Monday, 8 September 2025 - Thursday, 11 September 2025",EP plenary part-session agenda,10,2025-09-08,P10_POJ(2025)09-08,,English,https://data.europarl.europa.eu/distribution/doc/OJ-10-2025-09-08-PRV_en.pdf,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJ-10-2025-09-08
+ OJQ-10-2025-09-08,DRAFT AGENDA - 08/09/2025,EP plenary sitting agenda,10,2025-09-08,P10_OJQ(2025)09-08,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08
+
+From eab812f25f2507dcf2475386942fe524d23226a8 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 00:15:12 -0600
+Subject: [PATCH 017/211] Actualizar README.md
+
+---
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/README.md b/README.md
+index 5402a00dcb60..97aa837f29bc 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,5 @@
++https://github.com/Edgarruiz856/docs/blob/main/assets%2Fimages%2Fhelp%2Forganizations%2Forg-profile-view.png
++
+ ---
+ title: About GitHub's documentation fundamentals
+ shortTitle: Documentation fundamentals
+
+From dbe3583bd52f6c4ea3c1ebc30e389c86e905c436 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 00:25:45 -0600
+Subject: [PATCH 018/211] Actualizar README.md
+
+---
+ README.md | 700 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 700 insertions(+)
+
+diff --git a/README.md b/README.md
+index 97aa837f29bc..557bab52f73d 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,703 @@
++Skip to main content
++Documentación de GitHub
++REST API/Incidencias/Dependencias de incidencias
++Ahora la API de REST tiene control de versiones. Para obtener más información, consulta "Acerca del control de versiones de la API".
++Puntos de conexión de API REST para dependencias de incidencias
++Usa la API REST para ver, agregar y quitar dependencias de incidencias.
++
++List dependencies an issue is blocked by
++You can use the REST API to list the dependencies an issue is blocked by.
++
++This endpoint supports the following custom media types. For more information, see Media types.
++
++application/vnd.github.raw+json: Returns the raw Markdown body. Response will include body. This is the default if you do not pass any specific media type.
++application/vnd.github.text+json: Returns a text only representation of the Markdown body. Response will include body_text.
++application/vnd.github.html+json: Returns HTML rendered from the body's Markdown. Response will include body_html.
++application/vnd.github.full+json: Returns raw, text, and HTML representations. Response will include body, body_text, and body_html.
++Tokens de acceso específicos para "List dependencies an issue is blocked by"
++Este punto de conexión funciona con los siguientes tipos de token pormenorizados:
++
++Tokens de acceso de usuario de la aplicación de GitHub
++Token de acceso a la instalación de la aplicación de GitHub
++Tokens de acceso personal específico
++El token pormenorizado debe tener el siguiente conjunto de permisos:
++
++"Issues" repository permissions (read)
++Este punto de conexión se puede usar sin autenticación o los permisos mencionados anteriormente si solo se solicitan recursos públicos.
++
++Parámetros para "List dependencies an issue is blocked by"
++Encabezados
++Nombre, Tipo, Descripción
++accept string
++Setting to application/vnd.github+json is recommended.
++
++Parámetros de la ruta de acceso
++Nombre, Tipo, Descripción
++owner string Obligatorio
++The account owner of the repository. The name is not case sensitive.
++
++repo string Obligatorio
++The name of the repository without the .git extension. The name is not case sensitive.
++
++issue_number integer Obligatorio
++The number that identifies the issue.
++
++Parámetros de consulta
++Nombre, Tipo, Descripción
++per_page integer
++The number of results per page (max 100). For more information, see "Using pagination in the REST API."
++
++Valor predeterminado: 30
++
++page integer
++The page number of the results to fetch. For more information, see "Using pagination in the REST API."
++
++Valor predeterminado: 1
++
++Códigos de estado de respuesta HTTP para "List dependencies an issue is blocked by"
++status code	Descripción
++200	
++OK
++
++301	
++Moved permanently
++
++404	
++Resource not found
++
++410	
++Gone
++
++Ejemplos de código para "List dependencies an issue is blocked by"
++Ejemplo de solicitud
++GET
++/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by
++
++cURL
++
++JavaScript
++
++CLI de GitHub
++// Octokit.js
++// https://github.com/octokit/core.js#readme
++const octokit = new Octokit({
++  auth: 'YOUR-TOKEN'
++})
++
++await octokit.request('GET /repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by', {
++  owner: 'OWNER',
++  repo: 'REPO',
++  issue_number: 'ISSUE_NUMBER',
++  headers: {
++    'X-GitHub-Api-Version': '2022-11-28'
++  }
++})
++Response
++
++
++Respuesta de ejemplo
++
++Esquema de respuesta
++Status: 200
++{
++  "type": "array",
++  "items": {
++    "title": "Issue",
++    "description": "Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.",
++    "type": "object",
++    "properties": {
++      "id": {
++        "type": "integer",
++        "format": "int64"
++      },
++      "node_id": {
++        "type": "string"
++      },
++      "url": {
++        "description": "URL for the issue",
++        "type": "string",
++        "format": "uri",
++        "examples": [
++          "https://api.github.com/repositories/42/issues/1"
++        ]
++      },
++      "repository_url": {
++        "type": "string",
++        "format": "uri"
++      },
++      "labels_url": {
++        "type": "string"
++      },
++      "comments_url": {
++        "type": "string",
++        "format": "uri"
++      },
++      "events_url": {
++        "type": "string",
++        "format": "uri"
++      },
++      "html_url": {
++        "type": "string",
++        "format": "uri"
++      },
++      "number": {
++        "description": "Number uniquely identifying the issue within its repository",
++        "type": "integer",
++        "examples": [
++          42
++        ]
++      },
++      "state": {
++        "description": "State of the issue; either 'open' or 'closed'",
++        "type": "string",
++        "examples": [
++          "open"
++        ]
++      },
++      "state_reason": {
++        "description": "The reason for the current state",
++        "type": [
++          "string",
++          "null"
++        ],
++        "enum": [
++          "completed",
++          "reopened",
++          "not_planned",
++          "duplicate",
++          null
++        ],
++        "examples": [
++          "not_planned"
++        ]
++      },
++      "title": {
++        "description": "Title of the issue",
++        "type": "string",
++        "examples": [
++          "Widget creation fails in Safari on OS X 10.8"
++        ]
++      },
++      "body": {
++        "description": "Contents of the issue",
++        "type": [
++          "string",
++          "null"
++        ],
++        "examples": [
++          "It looks like the new widget form is broken on Safari. When I try and create the widget, Safari crashes. This is reproducible on 10.8, but not 10.9. Maybe a browser bug?"
++        ]
++      },
++      "user": {
++        "anyOf": [
++          {
++            "type": "null"
++          },
++          {
++            "title": "Simple User",
++            "description": "A GitHub user.",
++            "type": "object",
++            "properties": {
++              "name": {
++                "type": [
++                  "string",
++                  "null"
++                ]
++              },
++              "email": {
++                "type": [
++                  "string",
++                  "null"
++                ]
++              },
++              "login": {
++                "type": "string",
++                "examples": [
++                  "octocat"
++                ]
++              },
++              "id": {
++                "type": "integer",
++                "format": "int64",
++                "examples": [
++                  1
++                ]
++              },
++              "node_id": {
++                "type": "string",
++                "examples": [
++                  "MDQ6VXNlcjE="
++                ]
++              },
++              "avatar_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://github.com/images/error/octocat_happy.gif"
++                ]
++              },
++              "gravatar_id": {
++                "type": [
++                  "string",
++                  "null"
++                ],
++                "examples": [
++                  "41d064eb2195891e12d0413f63227ea7"
++                ]
++              },
++              "url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat"
++                ]
++              },
++              "html_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://github.com/octocat"
++                ]
++              },
++              "followers_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/followers"
++                ]
++              },
++              "following_url": {
++                "type": "string",
++                "examples": [
++                  "https://api.github.com/users/octocat/following{/other_user}"
++                ]
++              },
++              "gists_url": {
++                "type": "string",
++                "examples": [
++                  "https://api.github.com/users/octocat/gists{/gist_id}"
++                ]
++              },
++              "starred_url": {
++                "type": "string",
++                "examples": [
++                  "https://api.github.com/users/octocat/starred{/owner}{/repo}"
++                ]
++              },
++              "subscriptions_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/subscriptions"
++                ]
++              },
++              "organizations_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/orgs"
++                ]
++              },
++              "repos_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/repos"
++                ]
++              },
++              "events_url": {
++                "type": "string",
++                "examples": [
++                  "https://api.github.com/users/octocat/events{/privacy}"
++                ]
++              },
++              "received_events_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/received_events"
++                ]
++              },
++              "type": {
++                "type": "string",
++                "examples": [
++                  "User"
++                ]
++              },
++              "site_admin": {
++                "type": "boolean"
++              },
++              "starred_at": {
++                "type": "string",
++                "examples": [
++                  "\"2020-07-09T00:17:55Z\""
++                ]
++              },
++              "user_view_type": {
++                "type": "string",
++                "examples": [
++                  "public"
++                ]
++              }
++            },
++            "required": [
++              "avatar_url",
++              "events_url",
++              "followers_url",
++              "following_url",
++              "gists_url",
++              "gravatar_id",
++              "html_url",
++              "id",
++              "node_id",
++              "login",
++              "organizations_url",
++              "received_events_url",
++              "repos_url",
++              "site_admin",
++              "starred_url",
++              "subscriptions_url",
++              "type",
++              "url"
++            ]
++          }
++        ]
++      },
++      "labels": {
++        "description": "Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository",
++        "type": "array",
++        "items": {
++          "oneOf": [
++            {
++              "type": "string"
++            },
++            {
++              "type": "object",
++              "properties": {
++                "id": {
++                  "type": "integer",
++                  "format": "int64"
++                },
++                "node_id": {
++                  "type": "string"
++                },
++                "url": {
++                  "type": "string",
++                  "format": "uri"
++                },
++                "name": {
++                  "type": "string"
++                },
++                "description": {
++                  "type": [
++                    "string",
++                    "null"
++                  ]
++                },
++                "color": {
++                  "type": [
++                    "string",
++                    "null"
++                  ]
++                },
++                "default": {
++                  "type": "boolean"
++                }
++              }
++            }
++          ]
++        },
++        "examples": [
++          "bug",
++          "registration"
++        ]
++      },
++      "assignee": {
++        "anyOf": [
++          {
++            "type": "null"
++          },
++          {
++            "title": "Simple User",
++            "description": "A GitHub user.",
++            "type": "object",
++            "properties": {
++              "name": {
++                "type": [
++                  "string",
++                  "null"
++                ]
++              },
++              "email": {
++                "type": [
++                  "string",
++                  "null"
++                ]
++              },
++              "login": {
++                "type": "string",
++                "examples": [
++                  "octocat"
++                ]
++              },
++              "id": {
++                "type": "integer",
++                "format": "int64",
++                "examples": [
++                  1
++                ]
++              },
++              "node_id": {
++                "type": "string",
++                "examples": [
++                  "MDQ6VXNlcjE="
++                ]
++              },
++              "avatar_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://github.com/images/error/octocat_happy.gif"
++                ]
++              },
++              "gravatar_id": {
++                "type": [
++                  "string",
++                  "null"
++                ],
++                "examples": [
++                  "41d064eb2195891e12d0413f63227ea7"
++                ]
++              },
++              "url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat"
++                ]
++              },
++              "html_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://github.com/octocat"
++                ]
++              },
++              "followers_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/followers"
++                ]
++              },
++              "following_url": {
++                "type": "string",
++                "examples": [
++                  "https://api.github.com/users/octocat/following{/other_user}"
++                ]
++              },
++              "gists_url": {
++                "type": "string",
++                "examples": [
++                  "https://api.github.com/users/octocat/gists{/gist_id}"
++                ]
++              },
++              "starred_url": {
++                "type": "string",
++                "examples": [
++                  "https://api.github.com/users/octocat/starred{/owner}{/repo}"
++                ]
++              },
++              "subscriptions_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/subscriptions"
++                ]
++              },
++              "organizations_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/orgs"
++                ]
++              },
++              "repos_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/repos"
++                ]
++              },
++              "events_url": {
++                "type": "string",
++                "examples": [
++                  "https://api.github.com/users/octocat/events{/privacy}"
++                ]
++              },
++              "received_events_url": {
++                "type": "string",
++                "format": "uri",
++                "examples": [
++                  "https://api.github.com/users/octocat/received_events"
++                ]
++              },
++              "type": {
++                "type": "string",
++                "examples": [
++                  "User"
++                ]
++              },
++              "site_admin": {
++                "type": "boolean"
++              },
++              "starred_at": {
++                "type": "string",
++                "examples": [
++                  "\"2020-07-09T00:17:55Z\""
++                ]
++              },
++              "user_view_type": {
++                "type": "string",
++                "examples": [
++                  "public"
++                ]
++              }
++            },
++            "required": [
++              "avatar_url",
++              "events_url",
++              "followers_url",
++              "following_url",
++              "gists_url",
++              "gravatar_id",
++              "html_url",
++              "id",
++              "node_id",
++              "login",
++              "organizations_url",
++              "received_events_url",
++              "repos_url",
++              "site_admin",
++              "starred_url",
++              "subscriptions_url",
++              "type",
++              "url"
++            ]
++          }
++        ]
++      },
++      "assignees": {
++        "type": [
++          "array",
++          "null"
++        ],
++        "items": {
++          "title": "Simple User",
++          "description": "A GitHub user.",
++          "type": "object",
++          "properties": {
++            "name": {
++              "type": [
++                "string",
++                "null"
++              ]
++            },
++            "email": {
++              "type": [
++                "string",
++                "null"
++              ]
++            },
++            "login": {
++              "type": "string",
++              "examples": [
++                "octocat"
++              ]
++            },
++            "id": {
++              "type": "integer",
++              "format": "int64",
++              "examples": [
++                1
++              ]
++            },
++            "node_id": {
++              "type": "string",
++              "examples": [
++                "MDQ6VXNlcjE="
++              ]
++            },
++            "avatar_url": {
++              "type": "string",
++              "format": "uri",
++              "examples": [
++                "https://github.com/images/error/octocat_happy.gif"
++              ]
++            },
++            "gravatar_id": {
++              "type": [
++                "string",
++                "null"
++              ],
++              "examples": [
++                "41d064eb2195891e12d0413f63227ea7"
++              ]
++            },
++            "url": {
++              "type": "string",
++              "format": "uri",
++              "examples": [
++                "https://api.github.com/users/octocat"
++              ]
++            },
++            "html_url": {
++              "type": "string",
++              "format": "uri",
++              "examples": [
++                "https://github.com/octocat"
++              ]
++            },
++            "followers_url": {
++              "type": "string",
++              "format": "uri",
++              "examples": [
++                "https://api.github.com/users/octocat/followers"
++              ]
++            },
++            "following_url": {
++              "type": "string",
++              "examples": [
++                "https://api.github.com/users/octocat/following{/other_user}"
++              ]
++            },
++            "gists_url": {
++              "type": "string",
++              "examples": [
++                "https://api.github.com/users/octocat/gists{/gist_id}"
++              ]
++            },
++            "starred_url": {
++              "type": "string",
++              "examples": [
++                "https://api.github.com/users/octocat/starred{/owner}{/repo}"
++              ]
++            },
++            "subscriptions_url": {
++              "type": "string",
++              "format": "uri",
++              "examples": [
++                "https://api.github.com/users/octocat/subscriptions"
++              ]
++            },
++            "organizations_url": {
++              "type": "string",
++              "format": "uri",
++              "examples": [
++                "https://api.github.com/users/octocat/orgs"
++              ]
++        
++
+ https://github.com/Edgarruiz856/docs/blob/main/assets%2Fimages%2Fhelp%2Forganizations%2Forg-profile-view.png
+ 
+ ---
+
+From 1a268b3aee5b216bf2a6cfc04ee426312fb1e838 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 00:30:35 -0600
+Subject: [PATCH 019/211] Actualizar README.md
+
+---
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/README.md b/README.md
+index 557bab52f73d..2fa9e1abdf1c 100644
+--- a/README.md
++++ b/README.md
+@@ -5,7 +5,7 @@ Ahora la API de REST tiene control de versiones. Para obtener más información,
+ Puntos de conexión de API REST para dependencias de incidencias
+ Usa la API REST para ver, agregar y quitar dependencias de incidencias.
+ 
+-List dependencies an issue is blocked by
++List dependencies an issue is blocked by:Edgar Manuel Ruiz Arias
+ You can use the REST API to list the dependencies an issue is blocked by.
+ 
+ This endpoint supports the following custom media types. For more information, see Media types.
+@@ -14,7 +14,7 @@ application/vnd.github.raw+json: Returns the raw Markdown body. Response will in
+ application/vnd.github.text+json: Returns a text only representation of the Markdown body. Response will include body_text.
+ application/vnd.github.html+json: Returns HTML rendered from the body's Markdown. Response will include body_html.
+ application/vnd.github.full+json: Returns raw, text, and HTML representations. Response will include body, body_text, and body_html.
+-Tokens de acceso específicos para "List dependencies an issue is blocked by"
++Tokens de acceso específicos para "List dependencies an issue is blocked by: Edgar Manuel Ruiz Arias"
+ Este punto de conexión funciona con los siguientes tipos de token pormenorizados:
+ 
+ Tokens de acceso de usuario de la aplicación de GitHub
+
+From 75daa0192f3a84497e61f35bbb35d5c238afe0a3 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 03:14:33 -0600
+Subject: [PATCH 020/211] Actualizar README.md
+
+---
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/README.md b/README.md
+index 2fa9e1abdf1c..3319cb187e15 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,4 @@
++[![Check For Common Issues](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml/badge.svg)](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml)
+ Skip to main content
+ Documentación de GitHub
+ REST API/Incidencias/Dependencias de incidencias
+
+From 939883376a56b6a68982c104afda594922a0766b Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 03:15:01 -0600
+Subject: [PATCH 021/211] Actualizar README.md
+
+---
+ README.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index 3319cb187e15..d3f5b0e9aa0a 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,6 @@
+-[![Check For Common Issues](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml/badge.svg)](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml)
++[![Check For Common
++
++ Issues](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml/badge.svg)](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml)
+ Skip to main content
+ Documentación de GitHub
+ REST API/Incidencias/Dependencias de incidencias
+
+From 0935c7d4697b966179b97c109a4aa858736b8051 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 03:15:38 -0600
+Subject: [PATCH 022/211] Actualizar README.md
+
+---
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/README.md b/README.md
+index d3f5b0e9aa0a..baa00a2bab2e 100644
+--- a/README.md
++++ b/README.md
+@@ -1,6 +1,6 @@
+-[![Check For Common
++[![Check For CommonIssues](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml/badge.svg)](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml)
++
+ 
+- Issues](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml/badge.svg)](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml)
+ Skip to main content
+ Documentación de GitHub
+ REST API/Incidencias/Dependencias de incidencias
+
+From b400c7a5ddfdadc1d3219eb50d94c091d3067386 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 04:47:20 -0600
+Subject: [PATCH 023/211] Actualizar README.md
+
+---
+ README.md | 141 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 141 insertions(+)
+
+diff --git a/README.md b/README.md
+index baa00a2bab2e..dfd835c9aa1a 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,144 @@
++# Apache License
++Version 2.0, January 2004
++
++TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
++
++## 1. Definitions.
++
++"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1
++through 9 of this document.
++
++"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the
++License.
++
++"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled
++by, or are under common control with that entity. For the purposes of this definition, "control" means
++(i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract
++or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial
++ownership of such entity.
++
++"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
++
++"Source" form shall mean the preferred form for making modifications, including but not limited to software
++source code, documentation source, and configuration files.
++
++"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form,
++including but not limited to compiled object code, generated documentation, and conversions to other media
++types.
++
++"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License,
++as indicated by a copyright notice that is included in or attached to the work (an example is provided in the
++Appendix below).
++
++"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from)
++the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent,
++as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not
++include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work
++and Derivative Works thereof.
++
++"Contribution" shall mean any work of authorship, including the original version of the Work and any
++modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to
++Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to
++submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of
++electronic, verbal, or written communication sent to the Licensor or its representatives, including but not
++limited to communication on electronic mailing lists, source code control systems, and issue tracking systems
++that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but
++excluding communication that is conspicuously marked or otherwise designated in writing by the copyright
++owner as "Not a Contribution."
++
++"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been
++received by Licensor and subsequently incorporated within the Work.
++
++## 2. Grant of Copyright License.
++
++Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual,
++worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare
++Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such
++Derivative Works in Source or Object form.
++
++## 3. Grant of Patent License.
++
++Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual,
++worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent
++license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such
++license applies only to those patent claims licensable by such Contributor that are necessarily infringed by
++their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such
++Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim
++or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work
++constitutes direct or contributory patent infringement, then any patent licenses granted to You under this
++License for that Work shall terminate as of the date such litigation is filed.
++
++## 4. Redistribution.
++
++You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without
++modifications, and in Source or Object form, provided that You meet the following conditions:
++
++   1. You must give any other recipients of the Work or Derivative Works a copy of this License; and
++
++   2. You must cause any modified files to carry prominent notices stating that You changed the files; and
++
++   3. You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent,
++	  trademark, and attribution notices from the Source form of the Work, excluding those notices that do
++	  not pertain to any part of the Derivative Works; and
++
++   4. If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that
++	  You distribute must include a readable copy of the attribution notices contained within such NOTICE
++	  file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one
++	  of the following places: within a NOTICE text file distributed as part of the Derivative Works; within
++	  the Source form or documentation, if provided along with the Derivative Works; or, within a display
++	  generated by the Derivative Works, if and wherever such third-party notices normally appear. The
++	  contents of the NOTICE file are for informational purposes only and do not modify the License. You may
++	  add Your own attribution notices within Derivative Works that You distribute, alongside or as an
++	  addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be
++	  construed as modifying the License.
++
++You may add Your own copyright statement to Your modifications and may provide additional or different license
++terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative
++Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the
++conditions stated in this License.
++
++## 5. Submission of Contributions.
++
++Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by
++You to the Licensor shall be under the terms and conditions of this License, without any additional terms or
++conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate
++license agreement you may have executed with Licensor regarding such Contributions.
++
++## 6. Trademarks.
++
++This License does not grant permission to use the trade names, trademarks, service marks, or product names of
++the Licensor, except as required for reasonable and customary use in describing the origin of the Work and
++reproducing the content of the NOTICE file.
++
++## 7. Disclaimer of Warranty.
++
++Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor
++provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
++or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT,
++MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the
++appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of
++permissions under this License.
++
++## 8. Limitation of Liability.
++
++In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless
++required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any
++Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential
++damages of any character arising as a result of this License or out of the use or inability to use the Work
++(including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or
++any and all other commercial damages or losses), even if such Contributor has been advised of the possibility
++of such damages.
++
++## 9. Accepting Warranty or Additional Liability.
++
++While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for,
++acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this
++License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole
++responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold
++each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason
++of your accepting any such warranty or additional liability.
++
++END OF TERMS AND CONDITIONS
+ [![Check For CommonIssues](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml/badge.svg)](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml)
+ 
+ 
+
+From 0907e383b353f191835b363957955ec65ff7baf3 Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 06:22:41 -0600
+Subject: [PATCH 024/211] Actualizar README.md
+
+---
+ README.md | 228 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 228 insertions(+)
+
+diff --git a/README.md b/README.md
+index dfd835c9aa1a..5a8f2b877eb3 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,231 @@
++SOFTWARE LICENSE AGREEMENT
++
++This LIMITED DISTRIBUTION LICENSE AGREEMENT ("Agreement") is a contract
++between you and Intel Corporation and its affiliates ("Intel") and 
++governs any use of Material. If you use Material on behalf of or in 
++conjunction with your work for your employer, you represent and warrant 
++that you have the authority to bind your employer to this Agreement. 
++By downloading, installing, or using Material, you accept these terms. 
++If you do not accept these terms, do not use any Material and destroy 
++all copies. 
++
++
++1 DEFINITIONS. 
++
++1.1 "Including", and its variants, means including but not limited 
++to, whether or not capitalized. 
++
++1.2 "Intel Component" means a hardware component or product 
++designed, developed, sold, or distributed by Intel. 
++
++1.3 "Material" means software, hardware description language 
++code, or other computer files, information or collateral Intel 
++delivers to you under this Agreement. 
++
++1.4 "You" or "Your" means you or you and your employer and its 
++affiliates, whether or not capitalized. 
++
++1.5 "Your Product" means product developed or to be developed 
++by or for you that includes an Intel Component implementing or 
++executing Material. 
++
++
++2 LICENSES. 
++
++2.1 License. Subject to the terms of this Agreement, Intel grants 
++to You, for the Term, a personal, limited, non-transferable, nonexclusive, 
++worldwide, revocable, fully paid-up license under Intel's 
++intellectual property rights in the Material, without the right to 
++sublicense, to: 
++a) develop Your Product; 
++b) modify Material delivered as source code (or its equivalent); 
++and 
++c) distribute Material, as delivered by Intel or as modified by You, 
++as object code (or its equivalent), in Your Product, provided Your 
++distribution is subject to terms and conditions consistent with 
++Your rights and obligations under this Agreement. 
++
++2.2 Subcontractor. You may disclose Material to your 
++subcontractor for its work on Your Product under an agreement 
++preventing the subcontractor from disclosing Material to others. 
++You will be liable for the acts or omissions of your subcontractor, 
++including unauthorized disclosure of confidential information. 
++
++2.3 Restrictions. Except as authorized above, you will not: (a) use 
++or modify Material in any other way; (b) reverse engineer, 
++decompile, or disassemble Material provided as object code 
++(except as required by applicable law or under an applicable open 
++source license), or (c) use Material to violate or aid in the violation 
++of any international human right. 
++
++2.4 No Implied License. Except for the express license in Section 
++2.1 Intel does not grant you (i) any express or implied license 
++under any legal theory, or (ii) or any license to make, have made, 
++use, sell, offer for sale, import, or otherwise dispose of any Intel 
++technology or third-party products, or perform any patented 
++process, even if referenced in the Material. Any other licenses 
++from Intel require additional consideration. Nothing in this 
++Agreement requires Intel to grant any additional license. 
++
++2.5 Feedback. If you give Intel comments or suggestions related 
++to Intel Components or Intel confidential information provided in 
++connection with this Agreement, including Material, Intel can use 
++them in any way and disclose them to anyone, without payment 
++or other obligations to you. 
++
++2.6 Open Source Licenses. The Material may include software 
++subject to an open source license, including Open Source Initiative 
++approved licenses (http://www.opensource.org). Nothing in this 
++Agreement limits or grants any rights under, or that supersede, 
++the terms of any applicable open source license. 
++
++2.7 Third-Party Software. Your use of certain third-party 
++software with or within the Material is subject to your compliance 
++with licensing you obtain directly from that third-party. A listing of 
++any such third-party software may accompany the Material. 
++
++
++3 CONFIDENTIALITY. The terms of this Agreement and the 
++Material are Intel confidential information and subject to your 
++valid corporate non-disclosure agreement with Intel (CNDA). 
++Except as authorized in Section 2.1, you must not disclose this 
++information to anyone, including the U.S. government. This 
++Agreement will not become effective, or will automatically 
++terminate, in the absence of a CNDA. This Agreement will take 
++precedence in the event of a conflict with the CNDA. 
++
++
++4 OWNERSHIP. Ownership of the Material and related intellectual 
++property rights is unchanged. You must maintain all copyright or 
++other proprietary notices in the Material. 
++
++
++5 NO WARRANTY. The Material is provided "as is," without any 
++express or implied warranty of any kind including warranties of 
++merchantability, non-infringement, title, or fitness for a 
++particular purpose. The Material may be pre-release and may 
++not be fully functional. Intel is not required to maintain, update, 
++or support any Material. 
++
++
++6 LIMITATION ON LIABILITY. Your use of Material is at your own 
++risk. Intel will not be liable to you under any legal theory for any 
++losses or damages in connection with the Material or your use of 
++Material, including consequential damages, even if the 
++possibility of damages was foreseeable or known. If any liability 
++is found, Intel's total, cumulative liability to you for all claims 
++arising from or related to this Agreement will not exceed $100.00 
++U.S. These liability limitations are a fundamental basis of our 
++bargain and Intel would not have entered into this Agreement 
++without them. 
++
++
++7 INDEMNITY. You will indemnify, defend, and hold Intel harmless 
++from any allegation against Intel arising in connection with your 
++use of Material and you will pay all of Intel's losses, liabilities, and 
++costs (including reasonable attorneys' fees) arising from the 
++allegation. 
++
++
++8 PRIVACY; DATA COLLECTION. 
++
++8.1 Privacy. Intel's Privacy Notice governs how Intel may process 
++personal information related to your use of Material (see 
++https://www.intel.com/privacy). Intel may collect identifying 
++information during registration and information on your use of 
++Material (see "Information You Provide to Intel Voluntarily" and 
++"Device and Product Operation" sections). 
++
++8.2 Data Collection. Some Material may generate, collect, and 
++transmit to Intel information to help improve Intel's products and 
++services, to verify your license rights to Material, or for other 
++stated purposes. Information collected may include Intel 
++Component or Material name and version, time of event 
++collection, license or support type, installation status, 
++performance, and use. Intel's use of information may include 
++combination of the information collected from you with other 
++information. 
++
++
++9 GENERAL. 
++
++9.1 Assignment. You may not assign your rights or obligations 
++under this Agreement without Intel's prior written consent. No 
++third party will have any rights under this Agreement. 
++
++9.2 Dispute Resolution. If we have a dispute regarding this 
++Agreement (other than for misappropriation of trade secrets or 
++breaches of confidentiality obligations), neither party can file a 
++lawsuit or other regulatory proceeding before the complaining 
++party provides the other party a detailed notice of the dispute and 
++our senior managers attempt to resolve the dispute. If our senior 
++managers cannot resolve the dispute in 30 days, either party may 
++demand mediation in which we will then try to resolve the dispute 
++with an impartial mediator. If our dispute is not resolved within 60 
++days after the mediation demand, either party may begin 
++litigation. 
++
++9.3 Governing Law; Jurisdiction. This Agreement is governed by 
++USA and Delaware law without regard to conflict of laws 
++principles. The United Nations Convention on Contracts for the 
++International Sale of Goods does not apply. Except for claims for 
++misappropriation of trade secrets or breach of confidentiality 
++obligations, all disputes and actions arising out of or related to this 
++Agreement are subject to the exclusive jurisdiction of the state 
++and federal courts in Wilmington, Delaware and you consent to 
++personal jurisdiction in those courts. 
++
++9.4 Compliance with Laws. The Material is subject to, and You 
++must comply with, applicable government laws and regulations, 
++including without limitation U.S. and worldwide trade regulations 
++prohibiting the export, import, or transfer Material to any 
++prohibited or sanctioned country, person, or entity. You must not 
++use Material for the development, design, manufacture, or 
++production of nuclear, missile, chemical, or biological weapons. 
++
++9.5 Severability. If a court holds a provision of this Agreement 
++unenforceable, the court will modify that provision to the 
++minimum extent necessary to make it enforceable or, if necessary, 
++to sever that provision. The rest of the Agreement remains 
++enforceable. 
++
++9.6 Waiver. No waiver of any provision of this Agreement will be 
++valid unless in a writing specifying the waived provision signed by 
++an authorized representative of the waiving party. A signed waiver 
++will not constitute waiver of any other provision. Failure or delay 
++in enforcing any provision will not operate as a waiver. 
++
++9.7 Entire Agreement. Except for any non-disclosure agreement 
++between you and Intel, this Agreement constitutes the entire 
++agreement, and supersedes all prior and contemporaneous 
++agreements, between Intel and you concerning its subject matter. 
++
++
++10 TERM; TERMINATION; SURVIVAL. 
++
++10.1 Term. This Agreement begins upon your acceptance of its 
++terms and continues until terminated under Sections 3 or 10.2. 
++
++10.2 Termination. Either party may terminate this Agreement, 
++with 30 days written notice, at any time for any reason. This 
++Agreement will automatically terminate upon (a) your breach of 
++the Agreement, (b) a claim that you do not have authority to bind 
++your employer to these terms, or (c) your assertion that any Intel 
++Component, Material, or product based on any Intel Component 
++or Material infringes your patents. 
++
++10.3 Effect of Termination. Upon termination of the Agreement, 
++the licenses to you will immediately terminate and you must cease 
++using any Material and destroy all copies in your possession and 
++direct your subcontractors to do the same. Termination of this 
++Agreement will not terminate the CNDA. 
++
++10.4 Survival. All sections except Section 2.1 survive termination 
++of this Agreement. 
++
++
++Limited Distribution License Agreement [v2022.12.20]
++
+ # Apache License
+ Version 2.0, January 2004
+ 
+
+From 379147ff2a658355f825c28080949db4ad33ca9f Mon Sep 17 00:00:00 2001
+From: Edgar Manuel Ruiz Arias
+ <127623263+Edgarruiz856@users.noreply.github.com>
+Date: Sat, 31 Jan 2026 06:26:09 -0600
+Subject: [PATCH 025/211] Actualizar README.md
+
+---
+ README.md | 378 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 378 insertions(+)
+
+diff --git a/README.md b/README.md
+index 5a8f2b877eb3..0453c89ae6e9 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,381 @@
++Intel(R) Network Connections Software, Release 30.5
++***************************************************
++
++October 10, 2025
++
++This release includes software and drivers for Intel(R) Ethernet
++adapters and integrated network connections.
++
++
++Contents
++^^^^^^^^
++
++* Intel(R) Network Connections Software, Release 30.5
++
++  * What's New in This Release
++
++  * User Guides
++
++  * Bug Fixes and Known Issues
++
++  * Supported Operating Systems
++
++  * Supported Hardware
++
++  * Intel Fiber Optic Connections
++
++  * Customer Support
++
++  * Legal / Disclaimers
++
++
++What's New in This Release
++==========================
++
++See the release notes for a full listing of new or removed features in
++this release. To view the release notes:
++
++1. Go to the following page on intel.com:
++
++   https://www.intel.com/content/www/us/en/content-details/778690
++   /intel-ethernet-controller-products-release-notes.html?wapkw=Intel
++   %C2%AE%20Ethernet%20Controller%20Products%20Release%20Notes&DocID=
++   778690
++
++2. In the list of results, click on the link for "Intel(R) Ethernet
++   Controller Products Release Notes."
++
++   * By default, the page lists the newest released version.
++
++   * If you need to view the release notes for a different version,
++     click on the "More Versions" link in the right side of the search
++     result and select your desired version.
++
++
++User Guides
++===========
++
++See the Intel(R) Ethernet Adapters and Devices User Guide for
++installation instructions, explanations of supported features and
++tools, and troubleshooting tips.
++
++You can view this user guide in the Intel Resource and Documentation
++Center at https://cdrdv2.intel.com/v1/dl/getContent/705831.
++
++Note:
++
++  Point releases (for example, 29.1.1) may not have a corresponding
++  user guide version. In those cases, refer to the user guide for the
++  major release (for example, 29.1).
++
++If you need localized installation instructions, you can access them
++at the following location within the software release:
++
++   /DOCS/QUICK/quick.htm
++
++
++Bug Fixes and Known Issues
++==========================
++
++See the release notes for the list of all currently known issues,
++limitations, and resolved issues.
++
++
++Supported Operating Systems
++===========================
++
++The drivers in this software release have been tested with the
++operating systems (OSs) listed below. Additional OSs may function with
++our drivers but are not tested.
++
++Note:
++
++  Not all devices support all operating systems listed. Refer to the
++  Release Notes for detailed OS support information for your device.
++
++
++Microsoft Windows Server, Azure Stack HCI, and Windows
++------------------------------------------------------
++
++* Microsoft Windows Server 2025
++
++* Microsoft Windows Server 2022
++
++* Microsoft Windows Server 2019, Version 1903
++
++* Microsoft Windows Server 2016
++
++* Microsoft Azure Stack HCI
++
++* Microsoft Windows 11 Version 25H2
++
++* Microsoft Windows 11 Version 24H2
++
++* Microsoft Windows 11 Version 23H2 (build 22631.2506)
++
++* Microsoft Windows 10 Version 21H2 (build 19044)
++
++* Microsoft Windows 10 RS5, Version 1809 (build 17763)
++
++Note:
++
++  * Devices based on the following do not support Microsoft Windows or
++    Windows Server:
++
++    * Intel® Ethernet Connection E822-C
++
++    * Intel® Ethernet Connection E822-L
++
++  * Some older Intel Ethernet adapters do not have full software
++    support for the most recent versions of Microsoft Windows. Many
++    older Intel Ethernet adapters have base drivers supplied by
++    Microsoft Windows.
++
++  * RDMA support is available on Microsoft Windows 10 version 21H2 and
++    Microsoft Windows 11.
++
++  * In Microsoft Windows Server 2025, all devices based on the Intel
++    Ethernet 710 Series are reported with generic, 2-part device IDs
++    and branding strings, and will be configured as generic devices
++    with no custom default settings. This change resolves an issue
++    seen when deploying network intent roles using the Network ATC
++    scripts in Windows Server 2025 and Azure Stack HCI.
++
++  * The HPE Synergy 4610C 10/25Gb Ethernet Adapter and HPE 10/25Gb
++    Ethernet Adapter are not supported on Microsoft Windows Server
++    2025.
++
++
++VMware ESXi
++-----------
++
++* VMware ESXi 9.0
++
++* VMware ESXi 8.0
++
++* VMware ESXi 7.0
++
++Please refer to VMware's download site for the latest ESXi drivers for
++Intel Ethernet devices.
++
++
++Linux
++-----
++
++* Linux Real Time Kernel 5.x and 4.x [1]
++
++* Linux, v2.4 kernel or higher
++
++…"
+ https://patch-diff.githubusercontent.com/raw/github/docs/pull/42756.patch#:~:text=From%202a4c474f09d0baf651c6b5aefca0081133603b87%20Mon%20Sep%2017%2000%3A00,Arias%0A%20%20%3C127623263%2BEdgarruiz856%40users.noreply.github.com%3E
+ 
 
 # GitHub Docs Edgar Manuel Ruiz Arias <!-- omit in toc -->
 
