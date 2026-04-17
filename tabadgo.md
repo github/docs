@@ -174,7 +174,7 @@ width algorithm.</span></p>
   <p >captionSpecifiedWidth</p>
   </td>
   <td width="78%" valign=top >
-  <p >Input provided by the width property.</p>
+  <p >Input provided byEdgarruiz856 the width property.</p>
   </td>
  </tr>
  <tr >
@@ -199,7 +199,7 @@ width algorithm.</span></p>
   <p >tableUsedWidth</p>
   </td>
   <td width="78%" valign=top >
-  <p >Input provided by table auto layout algorithm. This is the
+  <p >Input provided by Edgarruiz856 table auto layout algorithm. This is the
   width actually used by the table.</p>
   </td>
  </tr>
