@@ -12,15 +12,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Cancellation
-  - Marketplace
-  - Organizations
-  - Trials
-  - User account
 shortTitle: Cancel Marketplace app
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 {% ifversion fpt %}{% data reusables.marketplace.marketplace-app-page %}{% endif %}

@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: macOS Keychain credentials
+category:
+  - Set up Git
 ---
 
 > [!NOTE]

@@ -1,13 +1,16 @@
 ---
 title: GitHub-hosted runners reference
 shortTitle: GitHub-hosted runners
-intro: 'Find information about {% data variables.product.github %}-hosted runners, including their specifications and customization options.'
+intro: Find information about {% data variables.product.github %}-hosted runners, including their specifications and customization options.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 redirect_from:
   - /actions/reference/github-hosted-runners-reference
+category:
+  - Set up runners
+contentType: reference
 ---
 
 {% ifversion ghes %}
@@ -46,17 +49,14 @@ Workflow logs list the runner used to run a job. For more information, see [AUTO
 
 ### Single-CPU runners
 
-> [!NOTE]
-> * Single-CPU runners are in {% data variables.release-phases.public_preview %} and subject to change.{% ifversion ghec %}
-> * Single-CPU runners are not available in {% data variables.product.prodname_ghe_cloud %} with Data Residency (`ghe.com`).
-
-{% endif %}
-
 Single-CPU {% data variables.product.github %}-hosted runners are available in both public and private repositories. These runners—specified using the workflow label `ubuntu-slim`—offer a lower-cost option for running lightweight operations. This type of runner is optimized for automation tasks, issue operations and short-running jobs. They are not suitable for typical heavyweight CI/CD builds.
 
 `ubuntu-slim` runners execute Actions workflows in Ubuntu Linux, inside a container rather than a full VM instance. When the job begins, {% data variables.product.github %} automatically provisions a new container for that job. All steps in the job execute in the container, allowing the steps in that job to share information using the runner's file system. When the job has finished, the container is automatically decommissioned. Each container provides hypervisor level 2 isolation.
 
-A minimal set of tools is installed on the `ubuntu-slim` runner image, appropriate for lightweight tasks.
+> [!NOTE]
+> The container for `ubuntu-slim` runners runs in unprivileged mode. This means that some operations requiring elevated privileges—such as mounting file systems, using Docker-in-Docker, or accessing low-level kernel features—are not supported.
+
+A minimal set of tools is installed on the `ubuntu-slim` runner image, appropriate for lightweight tasks. For details on what software is installed on the `ubuntu-slim` image, see the [README file](https://github.com/actions/runner-images/blob/main/images/ubuntu-slim/ubuntu-slim-Readme.md) in the `actions/runner-images` repository.
 
 #### Usage limits
 

@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/amending-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/amending-a-commit-in-github-desktop
+category:
+  - Manage commits
 ---
 
 ## About amending a commit

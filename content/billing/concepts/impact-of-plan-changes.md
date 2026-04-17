@@ -10,14 +10,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Fundamentals
-  - Organizations
-  - Upgrades
-  - User account
 shortTitle: Impact of plan changes
 contentType: concepts
+category:
+  - Manage your plan and licenses
 ---
 
 ## How plan changes affect billing

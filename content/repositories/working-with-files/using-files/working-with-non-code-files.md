@@ -29,9 +29,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Working with non-code files
+category:
+  - Work with files
 ---
 
 ## Rendering and diffing images

@@ -4,8 +4,6 @@ shortTitle: Manage and track spending
 intro: Manage and track spending on Copilot for your company.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /monitor-premium-requests
   - /manage-request-allowances

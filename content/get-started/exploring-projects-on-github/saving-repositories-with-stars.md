@@ -13,9 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Save repositories with stars
+category:
+  - Explore and contribute
 ---
 You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.
 

@@ -13,7 +13,7 @@ import styles from './SearchResults.module.scss'
 
 import type { SearchQueryContentT } from '@/search/components/types'
 import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from '@/search/types'
-import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
+import type { estypes } from '@elastic/elasticsearch'
 import { GENERAL_SEARCH_RESULTS } from '@/events/components/event-groups'
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
   searchParams: SearchQueryContentT
 }
 export function SearchResults({ results, searchParams }: Props) {
-  const pages = Math.ceil((results.meta.found as SearchTotalHits).value / results.meta.size)
+  const pages = Math.ceil((results.meta.found as estypes.SearchTotalHits).value / results.meta.size)
   const { page } = results.meta
   const searchEventGroupId = useRef<string>('')
   useEffect(() => {

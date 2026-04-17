@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: View project contributors
+category:
+  - Track repository activity
 ---
 ## About contributors
 

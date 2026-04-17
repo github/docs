@@ -12,12 +12,10 @@ redirect_from:
   - /copilot/how-tos/personal-settings/configuring-github-copilot-in-your-environment
   - /copilot/how-tos/personal-settings/configure-in-your-environment
   - /copilot/how-tos/configure-personal-settings/configure-in-your-environment
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -54,7 +52,7 @@ Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts
 You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays inline suggestions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
 
 {% data reusables.copilot.jetbrains-settings %}
-{% data reusables.copilot.jetbrains-languages-and-frameworks %}
+{% data reusables.copilot.jetbrains-tools %}, and review the **General** and **Completions** settings.
 1. Edit the settings according to your personal preferences.
    * To adjust the behavior and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
    * If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
@@ -68,7 +66,7 @@ If you make changes to the language settings in your `github-copilot.xml` file, 
 ### Configuring language settings in the IDE
 
 {% data reusables.copilot.jetbrains-settings %}
-{% data reusables.copilot.jetbrains-languages-and-frameworks %}
+{% data reusables.copilot.jetbrains-tools %}, then click **Completions**.
 1. Under "Languages," select or deselect the checkboxes for the languages you want to activate or deactivate {% data variables.product.prodname_copilot %} for.
 1. Click **Apply**, and then click **OK**.
 1. Restart your JetBrains IDE for the changes to take effect.
@@ -360,6 +358,12 @@ You can configure the {% data variables.product.prodname_copilot %} extension to
 
 After updating the extension, Xcode must be restarted for the changes to take effect.
 
+## Disabling {% data variables.copilot.next_edit_suggestions %}
+
+{% data variables.copilot.next_edit_suggestions_caps %} are enabled by default. To disable {% data variables.copilot.next_edit_suggestions %}, go to the "Advanced" tab in the {% data variables.product.prodname_copilot %} for Xcode extension settings. You can also choose to disable the option to "Accept suggestions with Tab".
+
+{% data reusables.copilot.editor-preview-settings %}
+
 {% data reusables.copilot.dotcom-settings %}
 
 {% endxcode %}
@@ -386,6 +390,12 @@ If you don't want to use the default keyboard shortcuts for {% data variables.pr
 ## Settings and configurations
 
 For advanced settings, you can set auto-completion behavior, configure proxy, and assign a {% data variables.product.prodname_enterprise %} authentication endpoint.
+
+## Enabling {% data variables.copilot.next_edit_suggestions %}
+
+You can enable {% data variables.copilot.next_edit_suggestions %} under "Completions" in the {% data variables.product.prodname_copilot %} extension settings in Eclipse.
+
+{% data reusables.copilot.editor-preview-settings %}
 
 {% data reusables.copilot.dotcom-settings %}
 

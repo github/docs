@@ -1,0 +1,4 @@
+# This directory stores the last-processed commit SHA for each content pipeline.
+# SHA files are created and updated by the content-pipelines workflow.
+# Diff files (.diff) are ephemeral and should not be committed.
+*.diff

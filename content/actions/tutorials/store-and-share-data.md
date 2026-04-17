@@ -17,10 +17,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Workflows
 allowTitleToDifferFromFilename: true
+contentType: tutorials
+category:
+  - Write workflows
 ---
 
 ## Prerequisites

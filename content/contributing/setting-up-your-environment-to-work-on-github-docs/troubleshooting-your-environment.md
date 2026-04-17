@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Get set up to contribute
 ---
 
 ## Troubleshooting tests that fail locally but pass in CI

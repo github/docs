@@ -5,12 +5,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Fundamentals
-  - Profile
 shortTitle: Email addresses
 contentType: concepts
+category:
+  - Manage your email
 ---
 
 ## Adding an email address to your {% data variables.product.github %} account

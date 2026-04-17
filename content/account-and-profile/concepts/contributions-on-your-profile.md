@@ -5,12 +5,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Profile contributions
 contentType: concepts
 redirect_from:
   - /account-and-profile/concepts/contributions-visible-on-your-profile
+category:
+  - Track your contributions
 ---
 
 ## About your contribution graph

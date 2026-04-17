@@ -4,12 +4,12 @@ intro: 'You can search for apps and actions that are available on {% data variab
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
   - /github/searching-for-information-on-github/searching-on-github/searching-github-marketplace
 shortTitle: Search GitHub Marketplace
+category:
+  - Find repositories and resources
 ---
 
 ## About searching {% data variables.product.prodname_marketplace %}

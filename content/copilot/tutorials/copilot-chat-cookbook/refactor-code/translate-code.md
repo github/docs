@@ -7,11 +7,10 @@ versions:
 category:
   - Refactoring code
   - Author and optimize with Copilot
+  - Improve quality and maintainability
 complexity:
   - Simple
 octicon: rocket
-topics:
-  - Copilot
 redirect_from:
   - /copilot/copilot-chat-cookbook/refactoring-code/translating-code-to-a-different-programming-language
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/translating-code-to-a-different-programming-language

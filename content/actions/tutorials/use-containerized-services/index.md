@@ -1,7 +1,7 @@
 ---
 title: Using containerized services
 shortTitle: Use containerized services
-intro: 'You can use containerized services in your {% data variables.product.prodname_actions %} workflows.'
+intro: You can use containerized services in your {% data variables.product.prodname_actions %} workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,4 +19,6 @@ children:
   - /use-docker-service-containers
   - /create-postgresql-service-containers
   - /create-redis-service-containers
+contentType: tutorials
 ---
+

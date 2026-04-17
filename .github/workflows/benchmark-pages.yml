@@ -1,0 +1,170 @@
+name: 'Weekly page benchmark'
+
+# **What it does**: Benchmarks all pages via the article API, flags errors and slow pages
+# **Why we have it**: Catch perf regressions and broken pages before users hit them
+# **Who does it impact**: Docs engineering
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 1' # Every Monday at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    env:
+      BENCHMARK_LABEL: benchmark-regression
+      ISSUE_REPO: github/docs-engineering
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: 'false'
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Build
+        run: npm run build
+
+      - name: Start server
+        env:
+          NODE_ENV: production
+          PORT: 4000
+        run: |
+          npm run start-for-ci &
+          sleep 5
+          curl --retry-connrefused --retry 6 -I http://localhost:4000/
+
+      - name: Run benchmark
+        run: |
+          npx tsx src/workflows/benchmark-pages.ts \
+            --versions "free-pro-team@latest,enterprise-cloud@latest,enterprise-server@latest" \
+            --modes article-body \
+            --slow 500 \
+            --json /tmp/benchmark-results.json | tee /tmp/benchmark-output.txt
+
+      - name: Check results and create issue if needed
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          echo "Reading benchmark results..."
+          ERRORS=$(jq '.errors | length' /tmp/benchmark-results.json 2>/dev/null || echo "0")
+          SLOW=$(jq '.slow | length' /tmp/benchmark-results.json 2>/dev/null || echo "0")
+          TOTAL=$(jq '.totalRequests' /tmp/benchmark-results.json 2>/dev/null || echo "0")
+          P50=$(jq '.p50' /tmp/benchmark-results.json 2>/dev/null || echo "0")
+          P99=$(jq '.p99' /tmp/benchmark-results.json 2>/dev/null || echo "0")
+          MAX=$(jq '.max' /tmp/benchmark-results.json 2>/dev/null || echo "0")
+          echo "Done reading results: $TOTAL pages, $ERRORS errors, $SLOW slow"
+
+          VERSIONS="free-pro-team@latest, enterprise-cloud@latest, enterprise-server@latest"
+          LANGS="en"
+
+          if [ "$ERRORS" = "0" ] && [ "$SLOW" = "0" ]; then
+            echo "✅ All clear — $TOTAL pages, p50=${P50}ms, p99=${P99}ms, max=${MAX}ms"
+
+            echo "Checking for existing open issue..."
+            existing=$(gh issue list \
+              --repo "$ISSUE_REPO" \
+              --label "$BENCHMARK_LABEL" \
+              --state open \
+              --json number \
+              --jq '.[0].number // empty' 2>/dev/null || true)
+            if [ -n "$existing" ]; then
+              echo "Closing issue #$existing..."
+              gh issue close "$existing" \
+                --repo "$ISSUE_REPO" \
+                --comment "All clear as of $RUN_URL — closing."
+              echo "Done closing issue #$existing"
+            else
+              echo "No existing issue to close"
+            fi
+            exit 0
+          fi
+
+          PROBLEM_COUNT=$((ERRORS + SLOW))
+          echo "Found $ERRORS errors and $SLOW slow pages ($PROBLEM_COUNT total problems)"
+
+          echo "Ensuring label exists..."
+          gh label create "$BENCHMARK_LABEL" \
+            --repo "$ISSUE_REPO" \
+            --description "Weekly page benchmark found slow or errored pages" \
+            --color "e16f24" 2>/dev/null || true
+          echo "Done ensuring label"
+
+          echo "Building issue body..."
+          BODY_FILE=/tmp/benchmark-issue-body.md
+          {
+            echo "## Weekly page benchmark found issues"
+            echo ""
+            echo "**Run:** $RUN_URL"
+            echo "**Languages:** $LANGS"
+            echo "**Versions:** $VERSIONS"
+            echo "**Total pages:** $TOTAL"
+            echo "**Stats:** p50=${P50}ms · p99=${P99}ms · max=${MAX}ms"
+            echo "**Errors:** $ERRORS"
+            echo "**Slow (≥500ms):** $SLOW"
+          } > "$BODY_FILE"
+
+          if [ "$ERRORS" -gt 0 ]; then
+            {
+              echo ""
+              echo "### Errors"
+              echo ""
+              echo "| Status | Mode | Path |"
+              echo "|--------|------|------|"
+              jq -r '.errors[] | "| \(.status) | \(.mode) | \(.path) |"' /tmp/benchmark-results.json
+            } >> "$BODY_FILE"
+          fi
+
+          if [ "$SLOW" -gt 0 ]; then
+            {
+              echo ""
+              echo "### Slow pages"
+              echo ""
+              echo "| Time | Mode | Path |"
+              echo "|------|------|------|"
+              jq -r '.slow[] | "| \(.timeMs)ms | \(.mode) | \(.path) |"' /tmp/benchmark-results.json
+            } >> "$BODY_FILE"
+          fi
+          echo "Done building issue body"
+
+          echo "Checking for existing open issue..."
+          existing=$(gh issue list \
+            --repo "$ISSUE_REPO" \
+            --label "$BENCHMARK_LABEL" \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty' 2>/dev/null || true)
+
+          if [ -n "$existing" ]; then
+            echo "Commenting on existing issue #$existing..."
+            gh issue comment "$existing" \
+              --repo "$ISSUE_REPO" \
+              --body-file "$BODY_FILE"
+            echo "Done commenting on issue #$existing"
+          else
+            echo "Creating new issue..."
+            gh issue create \
+              --repo "$ISSUE_REPO" \
+              --label "$BENCHMARK_LABEL" \
+              --title "[Benchmark] ${PROBLEM_COUNT} slow or errored pages detected" \
+              --body-file "$BODY_FILE"
+            echo "Done creating issue"
+          fi
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

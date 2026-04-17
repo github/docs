@@ -4,8 +4,6 @@ shortTitle: Compare AI models
 intro: 'Explore real-world examples of common developer tasks along with sample prompts, responses, and guidance to help you choose the right AI model for your workflow.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/ai-models/examples-for-ai-model-comparison
   - /copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks
@@ -126,9 +124,9 @@ print(active_users_sorted)
 * {% data variables.copilot.copilot_gpt_5_mini %} is optimized for cost and speed, making it ideal for quick edits, prototyping, and utility code.
 * Use this model when you want reliable answers for simple coding questions without waiting for unnecessary depth.
 
-## {% data variables.copilot.copilot_gpt_5 %}
+## {% data variables.copilot.copilot_gpt_52 %}
 
-{% data reusables.copilot.model-use-cases.gpt-5 %}
+{% data reusables.copilot.model-use-cases.gpt-52 %}
 
 ### Example scenario
 
@@ -172,7 +170,7 @@ class Cart:
         return Order("", None, 0)
 ```
 
-### Why {% data variables.copilot.copilot_gpt_5 %} is a good fit
+### Why {% data variables.copilot.copilot_gpt_52 %} is a good fit
 
 * It can interpret visual assets, such as UML diagrams, wireframes, or flowcharts, to generate code scaffolding or suggest architecture.
 * It can be useful for reviewing screenshots of UI layouts or form designs and generating.

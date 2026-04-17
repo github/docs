@@ -4,8 +4,6 @@ intro: 'You can adjust your personal settings for {% data variables.product.prod
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 children:
   - /personalizing-github-codespaces-for-your-account
   - /setting-your-default-editor-for-github-codespaces

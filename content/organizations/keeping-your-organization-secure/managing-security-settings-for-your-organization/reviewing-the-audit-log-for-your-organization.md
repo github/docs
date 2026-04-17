@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Review audit log
+category:
+  - Secure and monitor your organization
 ---
 
 ## Accessing the audit log

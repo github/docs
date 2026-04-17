@@ -13,6 +13,8 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/configuring-authentication-and-provisioning-for-your-enterprise
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/configuring-authentication-and-provisioning-for-your-enterprise
   - /early-access/admin/data-residency-for-github-enterprise-cloud/configuring-authentication-and-provisioning-for-your-enterprise
+category:
+  - Get started with GitHub Enterprise
 ---
 
 When you adopt {% data variables.enterprise.data_residency %}, you can choose where your company's code and data are stored.
@@ -47,8 +49,9 @@ To get started with {% data variables.enterprise.data_residency_short %}, you wi
 1. Select **Get started with managed users**.
 1. Under "Data hosting", use the dropdown menu to select your region for {% data variables.enterprise.data_residency_short %}.
 1. Complete the signup form. Pay close attention to the following fields:
-
    * **Subdomain**: This will appear in your enterprise's dedicated domain. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
+      > [!NOTE]
+      > Please select the subdomain carefully. You cannot change it later.
    * **Identity Provider**: {% data variables.product.github %} partners with certain identity providers to provide a "paved-path" experience. Check whether your identity provider is a partner and ensure you understand the requirements for other systems. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
    * **Admin work email**: This is where you will receive the invitation to sign in and configure the enterprise for the first time.
 
@@ -71,10 +74,9 @@ Using an **incognito or private browsing window**:
 
    > [!NOTE]
    > If 2FA isn't enabled, you will need to enter your enterprise's single sign-on (SSO) recovery code each time you sign in as the setup user. You can download these codes once SSO is enabled.
-
 {% data reusables.enterprise-accounts.emu-recommend-password-manager %}
 
-{% data reusables.enterprise-accounts.emu-password-reset-session %}
+{% data reusables.enterprise-accounts.about-setup-user %}
 
 ### Create a {% data variables.product.pat_generic %}
 

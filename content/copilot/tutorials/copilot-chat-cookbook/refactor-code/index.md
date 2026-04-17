@@ -7,8 +7,6 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /improve-code-readability
   - /fix-lint-errors

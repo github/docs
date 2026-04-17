@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 children:
   - /about-writing-code-for-a-github-app
   - /quickstart

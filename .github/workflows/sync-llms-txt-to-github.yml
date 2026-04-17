@@ -1,0 +1,174 @@
+name: Sync llms.txt to github/github
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/llms-txt-config.yml'
+      - 'src/workflows/generate-llms-txt.ts'
+  schedule:
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    name: Sync llms.txt
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout docs-internal
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Generate llms.txt
+        env:
+          DOCS_BOT_PAT_BASE: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          echo "Generating llms.txt from page catalog and popularity data..."
+          npm run generate-llms-txt --silent > /tmp/llms.txt
+          echo "Generated llms.txt ($(wc -l < /tmp/llms.txt) lines, $(wc -c < /tmp/llms.txt) bytes)"
+
+      - name: Fetch current llms.txt from github/github
+        id: fetch
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          echo "Fetching current public/llms.txt from github/github..."
+          if gh api repos/github/github/contents/public/llms.txt \
+              --jq '.content' 2>/dev/null | base64 -d > /tmp/current.txt; then
+            echo "Fetched current file ($(wc -l < /tmp/current.txt) lines)"
+          else
+            echo "No existing file found (first run)"
+            rm -f /tmp/current.txt
+          fi
+
+      - name: Diff generated vs current
+        id: diff
+        run: |
+          echo "Comparing generated llms.txt against current..."
+          if [ -f /tmp/current.txt ] && diff -q /tmp/llms.txt /tmp/current.txt > /dev/null 2>&1; then
+            echo "No changes detected, skipping push"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changes detected:"
+            diff --unified=0 /tmp/current.txt /tmp/llms.txt | head -30 || true
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Ensure sync branch exists in github/github
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          BRANCH="auto/sync-llms-txt"
+          REPO="github/github"
+
+          echo "Checking if branch '$BRANCH' exists..."
+          if BRANCH_SHA=$(gh api "repos/$REPO/git/ref/heads/$BRANCH" --jq '.object.sha' 2>/dev/null); then
+            echo "Branch exists at $BRANCH_SHA"
+          else
+            echo "Branch does not exist, creating from default branch..."
+            DEFAULT_BRANCH=$(gh api "repos/$REPO" --jq '.default_branch')
+            BASE_SHA=$(gh api "repos/$REPO/git/ref/heads/$DEFAULT_BRANCH" --jq '.object.sha')
+            gh api "repos/$REPO/git/refs" \
+              --method POST \
+              -f ref="refs/heads/$BRANCH" \
+              -f sha="$BASE_SHA"
+            echo "Created branch from $DEFAULT_BRANCH at $BASE_SHA"
+          fi
+
+      - name: Commit llms.txt to github/github
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          BRANCH="auto/sync-llms-txt"
+          REPO="github/github"
+          CONTENT=$(base64 -w 0 /tmp/llms.txt)
+
+          echo "Checking for existing file SHA on branch..."
+          if EXISTING_SHA=$(gh api "repos/$REPO/contents/public/llms.txt?ref=$BRANCH" \
+            --jq '.sha' 2>/dev/null); then
+            echo "Existing file SHA: $EXISTING_SHA"
+          else
+            EXISTING_SHA=""
+            echo "No existing file on branch (new file)"
+          fi
+
+          echo "Committing llms.txt to $REPO/$BRANCH..."
+          COMMIT_ARGS=(-f "message=Sync llms.txt from docs.github.com"
+            -f "content=$CONTENT"
+            -f "branch=$BRANCH")
+          if [ -n "$EXISTING_SHA" ]; then
+            COMMIT_ARGS+=(-f "sha=$EXISTING_SHA")
+          fi
+          gh api "repos/$REPO/contents/public/llms.txt" \
+            --method PUT \
+            "${COMMIT_ARGS[@]}" --jq '.commit.sha'
+          echo "Committed successfully"
+
+      - name: Create PR if needed
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          BRANCH="auto/sync-llms-txt"
+          REPO="github/github"
+
+          echo "Checking for existing PR from '$BRANCH'..."
+          if EXISTING_PR=$(gh pr list --repo "$REPO" --head "$BRANCH" \
+            --json number --jq '.[0].number' 2>/dev/null) && [ -n "$EXISTING_PR" ]; then
+            echo "PR #$EXISTING_PR already exists, updated with new commit"
+            exit 0
+          fi
+
+          RUN_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          DEFAULT_BRANCH=$(gh api "repos/$REPO" --jq '.default_branch')
+
+          PR_BODY="The [sync-llms-txt workflow]($RUN_URL) generated this PR.
+
+          Updates \`public/llms.txt\` served at \`github.com/llms.txt\`. The docs-internal script builds this file from the page catalog and popularity data.
+
+          No feature flags. Static file in \`public/\`, no code changes.
+
+          <!--
+          Labels for github/github PR template automation:
+          (\`environment:production-dotcom\`)
+          (\`risk:low\`)
+          (\`validate:other\`)
+          (\`mitigate:rollback\`)
+          (\`backend/rails/api-only\`)
+          pull_request_template_version=2
+          -->"
+
+          echo "Creating PR..."
+          gh pr create \
+            --repo "$REPO" \
+            --title "Sync llms.txt from docs.github.com" \
+            --body "$PR_BODY" \
+            --head "$BRANCH" \
+            --base "$DEFAULT_BRANCH" \
+            --label "docs"
+          echo "PR created successfully"
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

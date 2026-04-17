@@ -1,0 +1,68 @@
+---
+title: About enabling security features at scale
+shortTitle: Organization security
+intro: You can quickly secure your organization at scale with {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %}.
+versions:
+  feature: security-configurations
+redirect_from:
+  - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale
+  - /code-security/concepts/security-at-scale/about-security-configurations
+  - /admin/managing-code-security/securing-your-enterprise/about-security-configurations
+  - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories
+  - /code-security/concepts/security-at-scale/choosing-a-security-configuration-for-your-repositories
+contentType: concepts
+category:
+  - Secure at scale
+---
+
+## About securing your organization
+
+{% ifversion ghas-products %}
+
+{% data variables.product.github %} has many features that help you improve and maintain the quality of your code. Some features are included in all {% data variables.product.github %} plans. Additional features are available {% ifversion fpt or ghec %}to organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} that{% else %} if you {% endif %} purchase a {% data variables.product.prodname_GHAS %} product:
+
+{% data reusables.advanced-security.ghas-products-bullets+ghas %}
+
+{% else %}
+
+{% data variables.product.github %} offers many security features including {% data variables.product.prodname_GHAS %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more.
+
+{% endif %}
+
+You can easily enable and manage {% data variables.product.github %}'s security features throughout your organization with {% data variables.product.prodname_security_configurations %}, which control repository-level security features, and {% data variables.product.prodname_global_settings %}, which control security features at the organization level. We recommend applying {% data variables.product.prodname_security_configurations %} _and_ customizing your {% data variables.product.prodname_global_settings %} to create a system that best meets the security needs of your organization.
+
+For more information on purchasing {% data variables.product.prodname_GH_cs_or_sp %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security) and [AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/products/add-advanced-security){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+
+## About {% data variables.product.prodname_security_configurations %}
+
+{% data reusables.security-configurations.define-security-configurations %}
+
+{% ifversion security-configurations-ghes-only %}
+{% data reusables.security-configurations.custom-configuration-intro-ghes %}
+
+To learn how to create {% data variables.product.prodname_custom_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+{% endif %}
+
+## About {% data variables.product.prodname_global_settings %}
+
+While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization{% ifversion ghes < 3.16 %}, as well as grant a team permission to manage security alerts and settings across your organization{% endif %}.
+
+{% ifversion org-private-registry %}
+
+## About enabling secure access to private registries
+
+If your organization uses private registries, providing {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} secure access to these registries will improve code analysis and allow {% data variables.product.prodname_dependabot %} to update a wider range of dependencies. For information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+## About integrating production context
+
+If your organization uses {% data variables.product.prodname_microsoft_defender %}, JFrog Artifactory, or CI/CD to promote artifacts to production, you can integrate this data into {% data variables.product.github %}. This production context helps you prioritize {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} alerts. For more information, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code).
+
+{% endif %}
+
+## Next steps
+
+To get started with creating a {% data variables.product.prodname_security_configuration %} for your organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).

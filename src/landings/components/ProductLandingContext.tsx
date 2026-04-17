@@ -37,8 +37,6 @@ export type ProductLandingContextT = {
   beta_product: boolean
   product: Product
   introLinks: Record<string, string> | null
-  productVideo: string
-  productVideoTranscript: string
   heroImage?: string
   featuredLinks: Record<string, Array<FeaturedLink>>
   productUserExamples: Array<{ username: string; description: string }>
@@ -95,10 +93,6 @@ export const getProductLandingContextFromRequest = async (
   const page = req.context.page
   const hasGuidesPage = (page.children || []).includes('/guides')
 
-  const productVideo = page.product_video
-    ? await page.renderProp('product_video', req.context, { textOnly: true })
-    : ''
-
   const title = await page.renderProp('title', req.context, { textOnly: true })
   const shortTitle = (await page.renderProp('shortTitle', req.context, { textOnly: true })) || null
 
@@ -112,8 +106,6 @@ export const getProductLandingContextFromRequest = async (
     title,
     shortTitle,
     ...pick(page, ['introPlainText', 'beta_product', 'intro']),
-    productVideo,
-    productVideoTranscript: page.product_video_transcript || null,
     heroImage: page.heroImage || null,
     hasGuidesPage,
     product: {
@@ -139,13 +131,13 @@ export const getProductLandingContextFromRequest = async (
 
     featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
-        return key === 'startHere' || key === 'popular' || key === 'videos'
+        return key === 'startHere' || key === 'popular'
       })
       .map(([key, links]: any) => {
         return {
           key,
           label:
-            key === 'popular' || key === 'videos'
+            key === 'popular'
               ? req.context.page.featuredLinks[`${key}Heading`] || req.context.site.data.ui.toc[key]
               : req.context.site.data.ui.toc[key],
           viewAllHref:

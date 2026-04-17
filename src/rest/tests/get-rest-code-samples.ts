@@ -35,7 +35,6 @@ describe('getGHExample - GitHub CLI code generation', () => {
     }
 
     const codeSample: CodeSample = {
-      key: 'default',
       request: {
         contentType: 'application/json',
         description: 'Example',
@@ -134,7 +133,6 @@ describe('getGHExample - GitHub CLI code generation', () => {
     }
 
     const codeSample: CodeSample = {
-      key: 'default',
       request: {
         contentType: 'application/json',
         description: 'Example',
@@ -196,7 +194,6 @@ describe('getGHExample - GitHub CLI code generation', () => {
     }
 
     const codeSample: CodeSample = {
-      key: 'default',
       request: {
         contentType: 'application/json',
         description: 'Example',

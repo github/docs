@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { TRANSLATIONS_FIXTURE_ROOT } from '@/frame/lib/constants'
 import { getDOM, head } from '@/tests/helpers/e2etest'
@@ -12,7 +12,7 @@ if (!TRANSLATIONS_FIXTURE_ROOT) {
 
 describe('translations', () => {
   test('home page', async () => {
-    const $: cheerio.Root = await getDOM('/ja')
+    const $: CheerioAPI = await getDOM('/ja')
     const h1 = $('h1').text()
     // You gotta know your src/fixtures/fixtures/translations/ja-jp/data/ui.yml
     expect(h1).toBe('日本 GitHub Docs')
@@ -32,13 +32,13 @@ describe('translations', () => {
   })
 
   test('hello world', async () => {
-    const $: cheerio.Root = await getDOM('/ja/get-started/start-your-journey/hello-world')
+    const $: CheerioAPI = await getDOM('/ja/get-started/start-your-journey/hello-world')
     const h1 = $('h1').text()
     expect(h1).toBe('こんにちは World')
   })
 
   test('internal links get prefixed with /ja', async () => {
-    const $: cheerio.Root = await getDOM('/ja/get-started/start-your-journey/link-rewriting')
+    const $: CheerioAPI = await getDOM('/ja/get-started/start-your-journey/link-rewriting')
     const links = $('#article-contents a[href]')
     const jaLinks = links.filter((i: number, element: any) => {
       const href = $(element).attr('href')
@@ -53,7 +53,7 @@ describe('translations', () => {
   })
 
   test('internal links with AUTOTITLE resolves', async () => {
-    const $: cheerio.Root = await getDOM('/ja/get-started/foo/autotitling')
+    const $: CheerioAPI = await getDOM('/ja/get-started/foo/autotitling')
     const links = $('#article-contents a[href]')
     links.each((i: number, element: any) => {
       if ($(element).attr('href')?.includes('/ja/get-started/start-your-journey/hello-world')) {
@@ -67,7 +67,7 @@ describe('translations', () => {
   test('correction of linebreaks in translations', async () => {
     // free-pro-team
     {
-      const $: cheerio.Root = await getDOM('/ja/get-started/foo/table-with-ifversions')
+      const $: CheerioAPI = await getDOM('/ja/get-started/foo/table-with-ifversions')
 
       const paragraph = $('#article-contents p').text()
       expect(paragraph).toMatch('mention of HubGit in Liquid')
@@ -80,7 +80,7 @@ describe('translations', () => {
     }
     // enterprise-server
     {
-      const $: cheerio.Root = await getDOM(
+      const $: CheerioAPI = await getDOM(
         '/ja/enterprise-server@latest/get-started/foo/table-with-ifversions',
       )
 
@@ -96,7 +96,7 @@ describe('translations', () => {
   })
 
   test('automatic correction of bad AUTOTITLE in reusables', async () => {
-    const $: cheerio.Root = await getDOM('/ja/get-started/start-your-journey/hello-world')
+    const $: CheerioAPI = await getDOM('/ja/get-started/start-your-journey/hello-world')
     const links = $('#article-contents a[href]')
     const texts = links.map((i: number, element: any) => $(element).text()).get()
     // That Japanese page uses AUTOTITLE links. Both in the main `.md` file
@@ -126,7 +126,7 @@ describe('translations', () => {
     // which needs to become:
     //
     //   <a href="/ja/get-started/foo/bar">[Bar](バー)</a>
-    const $: cheerio.Root = await getDOM('/ja/get-started/start-your-journey/hello-world')
+    const $: CheerioAPI = await getDOM('/ja/get-started/start-your-journey/hello-world')
     const links = $('#article-contents a[href]')
     const texts = links
       .filter((i: number, element: any) => {

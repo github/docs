@@ -5,8 +5,6 @@ intro: 'Organization owners can set up a {% data variables.copilot.copilot_busin
 permissions: Organization owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise

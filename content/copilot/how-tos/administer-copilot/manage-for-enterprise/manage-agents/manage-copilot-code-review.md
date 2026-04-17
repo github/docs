@@ -5,13 +5,11 @@ allowTitleToDifferFromFilename: true
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: 'Manage {% data variables.copilot.copilot_code-review_short %}'
 redirect_from:
   - /copilot/how-tos/administer-copilot/manage-for-enterprise/manage-copilot-code-review
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -19,7 +17,7 @@ This policy controls the use of {% data variables.copilot.copilot_code-review_sh
 
 For an introduction to {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/concepts/code-review).
 
-For more information about {% data variables.copilot.copilot_for_prs %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-for-common-tasks/create-a-pr-summary).
+For more information about {% data variables.copilot.copilot_for_prs %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/create-a-pr-summary).
 
 ## Enabling {% data variables.copilot.copilot_code-review_short %} for your {% data variables.product.prodname_copilot_short %} subscribers
 
@@ -28,7 +26,6 @@ You can allow your members to use {% data variables.copilot.copilot_code-review_
 > [!NOTE]
 >
 > {% data reusables.copilot.code-review.preview-note %}
-> * To participate in the {% data variables.release-phases.public_preview %}, you must first enable **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} > Opt in to preview features** from the "{% data variables.product.prodname_copilot_short %}" page of your enterprise's AI Controls.
 
 {% data reusables.enterprise-accounts.policy-enablement-next-steps %}
 

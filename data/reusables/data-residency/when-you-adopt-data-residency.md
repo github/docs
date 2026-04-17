@@ -4,8 +4,9 @@ Data residency makes it easy to separate open source and enterprise work, and he
 
 The available regions are:
 
-* EU
+* EU (includes EFTA countries, Norway and Switzerland, as of May 1, 2026)
 * Australia
 * US
+* Japan
 
 In the future, {% data variables.product.github %} plans to offer {% data variables.enterprise.data_residency_short %} in more regions.

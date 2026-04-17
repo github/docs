@@ -1,0 +1,17 @@
+---
+title: Reference for security and code quality
+shortTitle: Reference
+intro: Find information to apply to your work with {% data variables.product.github %}'s security and code quality features.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+contentType: reference
+children:
+  - /security-at-scale
+  - /secret-security
+  - /code-scanning
+  - /supply-chain-security
+  - /code-quality
+  - /permissions
+---

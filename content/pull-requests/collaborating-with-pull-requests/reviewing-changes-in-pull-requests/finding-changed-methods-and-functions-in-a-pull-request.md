@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Methods & functions
+category:
+  - Review pull requests
 ---
 Anyone with read access to a repository can see a summary list of the functions and methods changes in certain files of a pull request.
 

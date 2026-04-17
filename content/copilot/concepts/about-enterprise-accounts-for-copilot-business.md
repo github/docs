@@ -3,10 +3,6 @@ title: About enterprise accounts for Copilot Business
 intro: 'Learn about the option to create an enterprise account to manage only {% data variables.copilot.copilot_business_short %} licenses without adopting {% data variables.product.prodname_enterprise %}.'
 versions:
   feature: copilot
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 shortTitle: Copilot-only enterprises
 redirect_from:
   - /admin/copilot-business-only
@@ -14,6 +10,8 @@ redirect_from:
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
 contentType: concepts
+category:
+  - Learn about Copilot
 ---
 
 ## How can my enterprise use {% data variables.product.prodname_copilot %} only?
@@ -42,4 +40,4 @@ When you create your enterprise account, you will choose whether your enterprise
 
 ## Getting started
 
-To get started, see [AUTOTITLE](/copilot/how-tos/set-up/set-up-a-dedicated-enterprise-for-copilot-business).
+To get started, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-a-dedicated-enterprise-for-copilot-business).

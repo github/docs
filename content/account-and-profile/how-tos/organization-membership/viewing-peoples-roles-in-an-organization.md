@@ -14,10 +14,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: View organization members
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 
 {% ifversion ghes or ghec %}

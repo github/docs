@@ -5,13 +5,16 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 shortTitle: Supported payment methods
 contentType: reference
+category:
+  - Set up payment
 ---
 
 ## Metered or usage-based billing options
+
+> [!NOTE]
+> Prepaid credit/debit cards are not accepted as a valid form of payment.
 
 The supported payment methods for metered billing:
 

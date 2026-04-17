@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Remove members
+category:
+  - Organize teams
 ---
 
 Removing a member from a team revokes their access to all repositories and related resources granted through the team. This includes:

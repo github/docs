@@ -4,6 +4,7 @@ import { LandingHero } from '@/landings/components/shared/LandingHero'
 import { ArticleGrid } from '@/landings/components/shared/LandingArticleGridWithFilter'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 import { LandingCarousel } from '@/landings/components/shared/LandingCarousel'
+import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 
 export const BespokeLanding = () => {
   const {
@@ -12,10 +13,14 @@ export const BespokeLanding = () => {
     heroImage,
     introLinks,
     tocItems,
-    recommended,
+    carousels,
     includedCategories,
     landingType,
   } = useLandingContext()
+  const { params, updateParams } = useMultiQueryParams({
+    useHistory: true,
+    excludeFromHistory: ['articles-filter'],
+  })
 
   return (
     <DefaultLayout>
@@ -24,11 +29,22 @@ export const BespokeLanding = () => {
         <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
 
         <div className="container-xl px-3 px-md-6 mt-6 mb-4">
-          <LandingCarousel recommended={recommended} />
+          {/* Render carousels */}
+          {carousels &&
+            Object.entries(carousels).map(([carouselKey, articles]) => (
+              <LandingCarousel
+                key={carouselKey}
+                carouselKey={carouselKey}
+                carouselArticles={articles}
+              />
+            ))}
+
           <ArticleGrid
             tocItems={tocItems}
             includedCategories={includedCategories}
             landingType={landingType}
+            params={params}
+            updateParams={updateParams}
           />
         </div>
       </div>

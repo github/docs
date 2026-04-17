@@ -14,7 +14,7 @@ interface DataDirectoryOptions {
 }
 
 interface DataDirectoryResult {
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export default function dataDirectory(

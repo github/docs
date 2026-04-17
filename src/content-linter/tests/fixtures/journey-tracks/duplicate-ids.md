@@ -5,21 +5,19 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Testing
 journeyTracks:
   - id: duplicate-id
     title: "First Track"
     guides:
-      - /article-one
+      - href: /article-one
   - id: unique-id
     title: "Unique Track"
     guides:
-      - /article-two
+      - href: /article-two
   - id: duplicate-id
     title: "Second Track with Same ID"
     guides:
-      - /subdir/article-three
+      - href: /subdir/article-three
 ---
 
 # Journey with Duplicate IDs

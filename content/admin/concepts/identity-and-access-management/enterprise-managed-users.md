@@ -20,12 +20,9 @@ redirect_from:
 versions:
   ghec: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 allowTitleToDifferFromFilename: true
+category:
+  - Provision and manage enterprise users
 ---
 
 ## What are Enterprise Managed Users in {% data variables.product.github %}?

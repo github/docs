@@ -25,7 +25,7 @@ export default async function findPage(
     isDev = process.env.NODE_ENV === 'development',
     contentRoot = CONTENT_ROOT,
   }: FindPageOptions = {},
-): Promise<any> {
+): Promise<void> {
   // Filter out things like `/will/redirect` or `/_next/data/...`
   if (!req.pagePath || !languagePrefixPathRegex.test(req.pagePath)) {
     return next()
@@ -36,7 +36,7 @@ export default async function findPage(
   }
 
   // Using any for page because it's dynamically assigned properties (like version) that aren't in the Page type
-  let page: any = req.context.pages[req.pagePath]
+  let page = req.context.pages[req.pagePath] as Page | undefined
   if (page && isDev && englishPrefixRegex.test(req.pagePath)) {
     // The .applicableVersions and .permalinks properties are computed
     // when the page is read in from disk. But when the initial tree
@@ -67,19 +67,20 @@ export default async function findPage(
       req.context?.currentVersion &&
       !page.applicableVersions.includes(req.context.currentVersion)
     ) {
-      return res
+      res
         .status(404)
         .send(
           `After re-reading the page, '${req.context?.currentVersion}' is no longer an applicable version. ` +
             'A restart is required.',
         )
+      return
     }
   }
 
   if (page && req.context) {
     req.context.page = page
     // Note: Page doesn't have a version property, this might be setting it dynamically
-    ;(req.context.page as any).version = req.context.currentVersion
+    ;(req.context.page as Page & { version: string }).version = req.context.currentVersion || ''
 
     // We can't depend on `page.hidden` because the dedicated search
     // results page is a hidden page but it needs to offer all possible
@@ -105,10 +106,9 @@ async function rereadByPath(
   const languageCode = match[1]
   const withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
   const withoutVersion = withoutLanguage.replace(`/${currentVersion}`, '')
-  // TODO: Support loading translations the same way.
-  // NOTE: No one is going to test translations like this in development
-  // but perhaps one day we can always and only do these kinds of lookups
-  // at runtime.
+  // Note: We don't support loading translations at runtime. All translations
+  // are loaded at build time. This function only handles English content reloading
+  // during development.
   const possible = path.join(contentRoot, withoutVersion)
   const filePath = existsSync(possible) ? path.join(possible, 'index.md') : `${possible}.md`
   const relativePath = path.relative(contentRoot, filePath)

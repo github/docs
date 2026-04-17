@@ -6,9 +6,6 @@ product: '{% data variables.copilot.copilot_enterprise_short %} or {% data varia
 versions:
   feature: copilot
 allowTitleToDifferFromFilename: true
-topics:
-  - Copilot
-  - Enterprise
 shortTitle: Manage enterprise policies
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise
@@ -16,7 +13,7 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-enterprise-policies
   - /copilot/how-tos/administer/manage-for-enterprise/manage-enterprise-policies
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -41,11 +38,9 @@ Enterprise owners can define a policy for the whole enterprise, or delegate the 
 
 {% data reusables.copilot.mcp-servers-policy-note %}
 
-## Opting in to previews or feedback
+## Opting in to feedback collection
 
-If your enterprise has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" from the "{% data variables.product.prodname_copilot_short %}" page of the "AI Controls" tab, two additional options are displayed:
-
-  {% data reusables.copilot.policies-for-dotcom %}
+If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" from the "{% data variables.product.prodname_copilot_short %}" page of the "AI Controls" tab, you can also opt in to user feedback collection to help {% data variables.product.github %} improve {% data variables.product.prodname_copilot_short %} features.
 
 ## Further reading
 

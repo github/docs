@@ -4,6 +4,8 @@ intro: 'Get started with setting up and managing your enterprise account with {%
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 ## About {% data variables.product.prodname_enterprise %}

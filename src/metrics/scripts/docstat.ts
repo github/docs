@@ -42,6 +42,7 @@ interface CliOptions {
   defaultToAll?: boolean
   showDocset?: boolean
   allVersions?: boolean
+  quiet?: boolean
 }
 
 interface JsonOutput {
@@ -103,9 +104,15 @@ program
     'Get data for free-pro-team@latest only (default: all versions if URL is versionless)',
   )
   .option('--verbose', 'Display Kusto queries being executed')
+  .option('-q, --quiet', 'Suppress all output except results (automatically enabled with --json)')
   .parse(process.argv)
 
 const options = program.opts<CliOptions>()
+
+// Auto-enable quiet mode when JSON output is requested
+if (options.json) {
+  options.quiet = true
+}
 
 // If specific options are not provided, default to all
 options.defaultToAll = !(
@@ -141,25 +148,33 @@ const usingFptOnly = !!options.fptOnly
 if (version === FREE_PRO_TEAM) {
   if (usingFptOnly) {
     // User explicitly wants only free-pro-team@latest
-    console.log(
-      '\nFetching data for free-pro-team@latest only. To get all versions, omit the --fptOnly flag.\n',
-    )
+    if (!options.quiet) {
+      console.log(
+        '\nFetching data for free-pro-team@latest only. To get all versions, omit the --fptOnly flag.\n',
+      )
+    }
   } else {
     // Default: all versions
     version = null
-    console.log(
-      '\nFetching data for all versions (no version specified in URL). To get only free-pro-team@latest, pass "--fptOnly".\n',
-    )
+    if (!options.quiet) {
+      console.log(
+        '\nFetching data for all versions (no version specified in URL). To get only free-pro-team@latest, pass "--fptOnly".\n',
+      )
+    }
   }
 } else {
   // Version is specified in the URL (e.g. enterprise-server@)
-  console.log(
-    `\nFetching data for version "${version}" as specified in the URL. To get data for all versions, remove the version segment from the URL.\n`,
-  )
-  if (usingFptOnly) {
+  if (!options.quiet) {
     console.log(
-      `You specified a version in the URL (${version}), but also passed --fptOnly. Only the version in the URL will be used.\n`,
+      `\nFetching data for version "${version}" as specified in the URL. To get data for all versions, remove the version segment from the URL.\n`,
     )
+  }
+  if (usingFptOnly) {
+    if (!options.quiet) {
+      console.log(
+        `You specified a version in the URL (${version}), but also passed --fptOnly. Only the version in the URL will be used.\n`,
+      )
+    }
   }
   // Always use the version from the URL
 }
@@ -194,21 +209,22 @@ const queryPaths = [cleanPath].concat(redirects)
 const dates: DateRange = getDates(options.range)
 
 async function main(): Promise<void> {
-  const spinner = ora('Connecting to Kusto...').start()
+  const spinner = options.quiet ? null : ora('Connecting to Kusto...').start()
 
   try {
     const client = getKustoClient()
 
     if (!client) {
-      spinner.fail('Failed to connect to Kusto')
+      if (spinner) spinner.fail('Failed to connect to Kusto')
+      else if (!options.quiet) console.error('Failed to connect to Kusto')
       process.exit(1)
     }
 
-    spinner.text = 'Connected! Querying Kusto...'
+    if (spinner) spinner.text = 'Connected! Querying Kusto...'
 
     // Only show docset stats if option is passed AND if the given path is not already a docset.
     options.showDocset = !(cleanPath === docsetPath) && options.compare
-    if (options.compare && cleanPath === docsetPath) {
+    if (options.compare && cleanPath === docsetPath && !options.quiet) {
       console.log(`\n\nSkipping comparison, since '${cleanPath}' is already a docset.\n`)
     }
 
@@ -272,7 +288,7 @@ async function main(): Promise<void> {
         : undefined,
     ])
 
-    spinner.succeed('Data retrieved successfully!\n')
+    if (spinner) spinner.succeed('Data retrieved successfully!\n')
 
     // Output JSON and exit
     if (options.json) {
@@ -399,17 +415,48 @@ async function main(): Promise<void> {
 
     console.log(green('-------------------------------------------'))
   } catch (error) {
-    spinner.fail('Error getting data')
-    console.error(red('Error details:'))
-    console.error(error)
+    if (spinner) spinner.fail('Error getting data')
+
+    if (options.json) {
+      // Output error in JSON format for consistent parsing
+      console.log(
+        JSON.stringify(
+          {
+            error: true,
+            message: 'Error getting data',
+            details: error instanceof Error ? error.message : String(error),
+          },
+          null,
+          2,
+        ),
+      )
+    } else {
+      console.error(red('Error details:'))
+      console.error(error)
+    }
   }
 }
 
 try {
   await main()
 } catch (error) {
-  console.error(red('Unexpected error:'))
-  console.error(error)
+  if (options.json) {
+    // Output error in JSON format for consistent parsing
+    console.log(
+      JSON.stringify(
+        {
+          error: true,
+          message: 'Unexpected error',
+          details: error instanceof Error ? error.message : String(error),
+        },
+        null,
+        2,
+      ),
+    )
+  } else {
+    console.error(red('Unexpected error:'))
+    console.error(error)
+  }
   process.exit(1)
 }
 

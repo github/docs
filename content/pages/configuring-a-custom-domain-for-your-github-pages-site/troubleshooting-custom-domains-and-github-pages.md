@@ -11,9 +11,9 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Troubleshoot a custom domain
+category:
+  - Troubleshoot a GitHub Pages site error
 ---
 
 ## CNAME errors

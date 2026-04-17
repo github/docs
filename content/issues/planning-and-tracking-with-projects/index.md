@@ -4,9 +4,6 @@ shortTitle: '{% data variables.product.prodname_projects_v2 %}'
 intro: 'Build adaptable projects to track your work on {% data variables.product.company_short %}.'
 versions:
   feature: projects-v2
-topics:
-  - Issues
-  - Projects
 children:
   - /learning-about-projects
   - /creating-projects

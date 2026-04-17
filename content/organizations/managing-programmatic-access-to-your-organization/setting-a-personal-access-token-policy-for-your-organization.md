@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Set a token policy
+category:
+  - Manage app and API access
 ---
 
 ## Restricting access by {% data variables.product.pat_generic_plural %}

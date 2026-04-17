@@ -16,12 +16,7 @@ export const frontmatterHiddenDocs = {
     if (fm.hasExperimentalAlternative) return
 
     // Hidden docs can be located in these content directories:
-    const allowedProductPaths = [
-      'content/early-access',
-      'content/site-policy',
-      'content/search',
-      'content/video-transcripts',
-    ]
+    const allowedProductPaths = ['content/early-access', 'content/site-policy', 'content/search']
 
     if (allowedProductPaths.some((allowedPath) => params.name.includes(allowedPath))) return
 

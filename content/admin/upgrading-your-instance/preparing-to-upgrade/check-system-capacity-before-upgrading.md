@@ -5,9 +5,8 @@ shortTitle: Check capacity before upgrade
 versions:
   ghes: '*'
 contentType: how-tos
-topics:
-  - Enterprise
-  - Upgrades
+category:
+  - Back up and upgrade your instance
 ---
 
 Upgrading to newer versions of {% data variables.product.prodname_ghe_server %} typically increases resource consumption. Each feature release adds new functionality, some enabled by default, others opt-in, which requires more processing power. Customer usage patterns also affect demand; for example, enterprises with tens of thousands of organizations may see higher resource usage.

@@ -88,7 +88,9 @@ export function ParameterTable({
                 <ParameterRow
                   rowParams={{
                     name: param.name,
-                    type: param.schema.type,
+                    type: Array.isArray(param.schema.type)
+                      ? param.schema.type.join(' or ')
+                      : param.schema.type,
                     description: param.description,
                     isRequired: param.required,
                     default: param.schema.default,
@@ -122,7 +124,9 @@ export function ParameterTable({
                 <ParameterRow
                   rowParams={{
                     name: param.name,
-                    type: param.schema.type,
+                    type: Array.isArray(param.schema.type)
+                      ? param.schema.type.join(' or ')
+                      : param.schema.type,
                     description: param.description,
                     isRequired: param.required,
                     default: param.schema.default,

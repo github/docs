@@ -4,8 +4,6 @@ shortTitle: Configure custom instructions
 intro: 'Learn how to give {% data variables.product.prodname_copilot %} persistent instructions and customize responses according to your needs.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /add-personal-instructions
   - /add-repository-instructions

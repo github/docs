@@ -14,8 +14,6 @@ redirect_from:
 product: 'Organizations with a {% data variables.copilot.copilot_business_short %} plan and organizations owned by an enterprise with a {% data variables.copilot.copilot_business_short %} plan'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Manage Copilot for a team
