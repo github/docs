@@ -4,6 +4,34 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>ArchivePullRequestInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>ArchivePullRequestInput</code></p>",
+          "<p>Input field <code>pullRequestId</code> of type <code>ID!</code> was added to input object type <code>ArchivePullRequestInput</code></p>",
+          "<p>Type <code>ArchivePullRequestPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>ArchivePullRequestPayload</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>ArchivePullRequestPayload</code></p>",
+          "<p>Type <code>UnarchivePullRequestInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UnarchivePullRequestInput</code></p>",
+          "<p>Input field <code>pullRequestId</code> of type <code>ID!</code> was added to input object type <code>UnarchivePullRequestInput</code></p>",
+          "<p>Type <code>UnarchivePullRequestPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UnarchivePullRequestPayload</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>UnarchivePullRequestPayload</code></p>",
+          "<p>Field <code>archivePullRequest</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: ArchivePullRequestInput!</code> added to field <code>Mutation.archivePullRequest</code></p>",
+          "<p>Field <code>unarchivePullRequest</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UnarchivePullRequestInput!</code> added to field <code>Mutation.unarchivePullRequest</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-04-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument 'classifications: [SecurityAdvisoryClassification!]<code>added to field</code>Repository.vulnerabilityAlerts'</p>"
         ]
       }

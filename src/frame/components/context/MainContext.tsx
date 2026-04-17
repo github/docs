@@ -125,6 +125,7 @@ export type MainContextT = {
     hidden: boolean
     noEarlyAccessBanner: boolean
     applicableVersions: string[]
+    docsTeamMetrics: string[] | null
   } | null
   relativePath?: string
   sidebarTree?: ProductTreeNode | null
@@ -227,6 +228,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       applicableVersions: req.context.page?.permalinks.map((obj: any) => obj.pageVersion) || [],
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
+      docsTeamMetrics: req.context.page.docsTeamMetrics || null,
     }) ||
     null
 

@@ -317,6 +317,7 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | `compactPaste` | `boolean` | `true` | Collapse large pastes into compact tokens. |
 | `custom_agents.default_local_only` | `boolean` | `false` | Only use local custom agents. |
 | `denied_urls` | `string[]` | `[]` | URLs or domains blocked (takes precedence over `allowed_urls`). |
+| `enabledFeatureFlags` | `object` | — | Enable or disable individual feature flags. Keys are flag names; values are `true` (enable) or `false` (explicitly disable). Takes precedence over the legacy `feature_flags.enabled` array format. See [Feature flag reference](#feature-flag-reference). |
 | `experimental` | `boolean` | `false` | Enable experimental features. |
 | `includeCoAuthoredBy` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. |
@@ -969,6 +970,26 @@ MCP servers are loaded from multiple sources, each with a different trust level.
 
 All MCP tool invocations require explicit permission. This applies even to read-only operations on external services.
 
+### Migrating from `.vscode/mcp.json`
+
+If your project uses `.vscode/mcp.json` (VS Code's MCP configuration format), migrate to `.mcp.json` for {% data variables.copilot.copilot_cli %}. The migration remaps the `servers` key to `mcpServers`.
+
+**POSIX shells (bash, zsh, fish, and others):**
+
+```shell
+jq '{mcpServers: .servers}' .vscode/mcp.json > .mcp.json
+```
+
+Requires [`jq`](https://jqlang.github.io/jq/).
+
+**PowerShell:**
+
+```powershell
+pwsh -NoProfile -Command "`$json = Get-Content '.vscode/mcp.json' -Raw | ConvertFrom-Json; `$content = ([pscustomobject]@{ mcpServers = `$json.servers } | ConvertTo-Json -Depth 100); [System.IO.File]::WriteAllText('.mcp.json', `$content, (New-Object System.Text.UTF8Encoding `$false))"
+```
+
+On Windows, replace `pwsh` with `powershell` if you are using Windows PowerShell instead of PowerShell Core.
+
 ## Skills reference
 
 Skills are Markdown files that extend what the CLI can do. Each skill lives in its own directory containing a `SKILL.md` file. When invoked (via `/SKILL-NAME` or automatically by the agent), the skill's content is injected into the conversation.
@@ -1239,7 +1260,23 @@ When content capture is enabled, the following attributes are populated.
 
 ## Feature flag reference
 
-Feature flags enable functionality that is not yet generally available. Enable flags via the `COPILOT_CLI_ENABLED_FEATURE_FLAGS` environment variable (comma-separated list) or by using the `/experimental` slash command.
+Feature flags enable functionality that is not yet generally available. You can enable or disable individual flags in three ways:
+
+* **Environment variable**: Set `COPILOT_CLI_ENABLED_FEATURE_FLAGS` to a comma-separated list of flag names (for example, `"SOME_FEATURE,SOME_OTHER_FEATURE"`).
+* **Slash command**: Use `/experimental on` in an interactive session to enable all experimental-tier flags.
+* **Configuration file**: Add an `enabledFeatureFlags` object to `~/.copilot/config.json`. Set a flag to `true` to enable it or `false` to explicitly disable a flag that would otherwise be enabled by your tier.
+
+```json
+{
+    "enabledFeatureFlags": {
+        "SOME_FEATURE": true,
+        "SOME_OTHER_FEATURE": false
+    }
+}
+```
+
+> [!NOTE]
+> The legacy `feature_flags.enabled` array format is still supported as a fallback, but `enabledFeatureFlags` takes precedence when both are present.
 
 | Flag | Tier | Description |
 |------|------|-------------|
