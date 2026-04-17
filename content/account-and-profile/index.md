@@ -11,7 +11,7 @@ changelog:
   versions:
     fpt: '*'
     ghec: '*'
-versions:
+versions: default
   fpt: '*'
   ghes: '*'
   ghec: '*'

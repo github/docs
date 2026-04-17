@@ -1,3 +1,4 @@
+
 # Variables
 
 Variables are short strings of reusable text.
