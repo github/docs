@@ -19,7 +19,7 @@
 * Remediation states of {% data variables.product.prodname_secret_scanning %} results
 * Repositories owned by user accounts
 * Repository activity feed
-* Repository properties
+* Repository properties and custom properties (see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties))
 * Repository stars
 * Repository watchers
 * Rulesets

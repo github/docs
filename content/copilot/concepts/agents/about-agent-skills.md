@@ -29,8 +29,8 @@ Support for organization-level and enterprise-level skills is coming soon.
 
 ## Next steps
 
-To create an agent skill, see:
+To create or add agent skills, see:
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-skills)
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)

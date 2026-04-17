@@ -345,6 +345,7 @@ export type Page = {
   industry?: string[]
   sidebarLink?: SidebarLink
   contentType?: string
+  docsTeamMetrics?: string[]
   children?: string[]
 }
 

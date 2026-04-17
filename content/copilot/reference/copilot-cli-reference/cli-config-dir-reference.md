@@ -89,7 +89,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 Store personal custom skill definitions here. Each skill lives in a subdirectory containing a `SKILL.md` file—for example, `~/.copilot/skills/my-skill/SKILL.md`. Personal skills are available in all your sessions. Project-level skills take precedence over personal skills if they share the same name.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
 ### `hooks/`
 

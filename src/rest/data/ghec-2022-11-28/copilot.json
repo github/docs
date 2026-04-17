@@ -2,6 +2,264 @@
   "copilot-coding-agent-management": [
     {
       "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent",
+      "title": "Set the coding agent policy for an enterprise",
+      "category": "copilot",
+      "subcategory": "copilot-coding-agent-management",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "policy_state",
+          "description": "<p>The policy state for Copilot coding agent in the enterprise. Can be one of <code>enabled_for_all_orgs</code>, <code>disabled_for_all_orgs</code>, <code>enabled_for_selected_orgs</code>, or <code>configured_by_org_admins</code>.</p>",
+          "isRequired": true,
+          "enum": [
+            "enabled_for_all_orgs",
+            "disabled_for_all_orgs",
+            "enabled_for_selected_orgs",
+            "configured_by_org_admins"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Sets the policy for Copilot coding agent usage across an enterprise.</p>\n<p>Enterprise owners can configure whether Copilot coding agent is enabled for all\norganizations, disabled for all organizations, configured by individual organization\nadmins, or enabled for selected organizations only.</p>\n<p>Only enterprise owners can set the coding agent policy for their enterprise.</p>\n<p>OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>admin:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Enable coding agent for all organizations",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "policy_state": "enabled_for_all_orgs"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+      "title": "Add organizations to the enterprise coding agent policy",
+      "category": "copilot",
+      "subcategory": "copilot-coding-agent-management",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "organizations",
+          "description": "<p>List of organization logins within the enterprise to enable Copilot coding agent for.</p>"
+        },
+        {
+          "type": "array of objects",
+          "name": "custom_properties",
+          "description": "<p>List of custom property filters to match organizations. Organizations matching any of the specified property name/value pairs will be included. This is a one-time operation, setting the property on an organization in the future will not automatically update its coding agent policy.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "property_name",
+              "description": "<p>The name of the custom property to filter by.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "array of strings",
+              "name": "values",
+              "description": "<p>The values of the custom property to match.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Enables Copilot coding agent for the specified organizations within the enterprise.</p>\n<p>The enterprise's coding agent policy must be set to <code>enabled_for_selected_orgs</code> before\nusing this endpoint. Organizations can be specified by login or matched via custom properties.</p>\n<p>Only organizations that have Copilot enabled and belong to the enterprise will be affected.</p>\n<p>Only enterprise owners can add organizations to the coding agent policy.</p>\n<p>OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>admin:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Add organizations that match a login or have a custom property",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "organizations": [
+                "my-org-1",
+                "my-org-2"
+              ],
+              "custom_properties": [
+                {
+                  "property_name": "department",
+                  "values": [
+                    "engineering",
+                    "security"
+                  ]
+                }
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+      "title": "Remove organizations from the enterprise coding agent policy",
+      "category": "copilot",
+      "subcategory": "copilot-coding-agent-management",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "organizations",
+          "description": "<p>List of organization logins within the enterprise to disable Copilot coding agent for.</p>"
+        },
+        {
+          "type": "array of objects",
+          "name": "custom_properties",
+          "description": "<p>List of custom property filters to match organizations. Organizations matching any of the specified property name/value pairs will be included. This is a one-time operation, setting the property on an organization in the future will not automatically update its coding agent policy.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "property_name",
+              "description": "<p>The name of the custom property to filter by.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "array of strings",
+              "name": "values",
+              "description": "<p>The values of the custom property to match.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Disables Copilot coding agent for the specified organizations within the enterprise.</p>\n<p>The enterprise's coding agent policy must be set to <code>enabled_for_selected_orgs</code> before\nusing this endpoint. Organizations can be specified by login or matched via custom properties.</p>\n<p>Only organizations that have Copilot enabled and belong to the enterprise will be affected.</p>\n<p>Only enterprise owners can remove organizations from the coding agent policy.</p>\n<p>OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>admin:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Remove organizations that match a login or have a custom property",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "organizations": [
+                "my-org-1",
+                "my-org-2"
+              ],
+              "custom_properties": [
+                {
+                  "property_name": "department",
+                  "values": [
+                    "engineering",
+                    "security"
+                  ]
+                }
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
       "title": "Get Copilot coding agent permissions for an organization",

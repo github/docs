@@ -35,7 +35,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 Skills are folders of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} can load to improve its performance on specialized tasks. By adding skills to your project, you can give {% data variables.product.prodname_copilot_short %} extra knowledge or tools for particular workflows, technologies, or domains.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
 ## Custom agents
 

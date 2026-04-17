@@ -51,9 +51,6 @@ The models available for {% data variables.product.prodname_copilot_short %} var
 * GPT-4o mini
 * GPT-4.1
 * GPT-5 mini
-* GPT-5.1
-* GPT-5.1-Codex
-* GPT-5.1-Codex-Max
 * GPT-5.2
 * GPT-5.4
 * Claude Haiku 4.5

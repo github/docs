@@ -1457,7 +1457,7 @@
   secretType: cloudflare_account_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1467,7 +1467,7 @@
   secretType: cloudflare_global_user_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1477,7 +1477,7 @@
   secretType: cloudflare_user_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

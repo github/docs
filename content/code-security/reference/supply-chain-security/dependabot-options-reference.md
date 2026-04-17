@@ -569,11 +569,11 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
-| pip| `pip`            | v24.2          |
-| pip-compile | `pip`            | 7.4.1            |
-| pipenv         | `pip`            | <= 2024.4.1    |
+| pip         | `pip`            | 24.2             |
+| pip-compile | `pip`            | 7.5.3            |
+| pipenv      | `pip`            | <= 2024.4.1      |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
-| poetry         | `pip`            | v2               |
+| poetry      | `pip`    | 2.2.1    |
 | {% ifversion dependabot-pre-commit-support %} |
 | pre-commit | `pre-commit` | Not applicable |
 | {% endif %} |

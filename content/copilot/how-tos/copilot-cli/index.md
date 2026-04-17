@@ -34,16 +34,18 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/about-remote-access
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/research
+  - /content/copilot/concepts/agents/copilot-cli/lsp-servers
   - /content/copilot/concepts/agents/copilot-cli/chronicle
   - /content/copilot/concepts/agents/copilot-cli/context-management
   - /set-up-copilot-cli/install-copilot-cli
   - /set-up-copilot-cli/configure-copilot-cli
+  - /set-up-copilot-cli/add-lsp-servers
   - /automate-copilot-cli/quickstart
   - /automate-copilot-cli/automate-with-actions
   - /automate-copilot-cli/run-cli-programmatically
   - /customize-copilot/add-custom-instructions
   - /customize-copilot/create-custom-agents-for-cli
-  - /customize-copilot/create-skills
+  - /customize-copilot/add-skills
   - /customize-copilot/plugins-creating
   - /customize-copilot/plugins-finding-installing
   - /customize-copilot/plugins-marketplace

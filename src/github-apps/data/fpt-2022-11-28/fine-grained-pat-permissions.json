@@ -127,33 +127,6 @@
         "access": "write"
       },
       {
-        "category": "dependabot",
-        "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
-        "subcategory": "repository-access",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/dependabot/repository-access",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "dependabot",
-        "slug": "updates-dependabots-repository-access-list-for-an-organization",
-        "subcategory": "repository-access",
-        "verb": "patch",
-        "requestPath": "/organizations/{org}/dependabot/repository-access",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "dependabot",
-        "slug": "set-the-default-repository-access-level-for-dependabot",
-        "subcategory": "repository-access",
-        "verb": "put",
-        "requestPath": "/organizations/{org}/dependabot/repository-access/default-level",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
         "category": "billing",
         "slug": "get-all-budgets-for-an-organization",
         "subcategory": "budgets",
@@ -737,6 +710,33 @@
         "requestPath": "/orgs/{org}/copilot/metrics",
         "additional-permissions": true,
         "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
+        "subcategory": "repository-access",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dependabot/repository-access",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "updates-dependabots-repository-access-list-for-an-organization",
+        "subcategory": "repository-access",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/dependabot/repository-access",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-the-default-repository-access-level-for-dependabot",
+        "subcategory": "repository-access",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/dependabot/repository-access/default-level",
+        "additional-permissions": false,
+        "access": "write"
       },
       {
         "category": "orgs",
@@ -5544,6 +5544,24 @@
         "subcategory": "sboms",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependency-graph",
+        "slug": "fetch-a-software-bill-of-materials-sbom-for-a-repository",
+        "subcategory": "sboms",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/fetch-report/{sbom_uuid}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependency-graph",
+        "slug": "request-generation-of-a-software-bill-of-materials-sbom-for-a-repository",
+        "subcategory": "sboms",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/generate-report",
         "additional-permissions": false,
         "access": "read"
       },

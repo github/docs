@@ -2595,28 +2595,28 @@
   ],
   "dependabot": [
     {
+      "slug": "list-dependabot-alerts-for-an-organization",
+      "subcategory": "alerts",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/dependabot/alerts"
+    },
+    {
       "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
       "subcategory": "repository-access",
       "verb": "get",
-      "requestPath": "/organizations/{org}/dependabot/repository-access"
+      "requestPath": "/orgs/{org}/dependabot/repository-access"
     },
     {
       "slug": "updates-dependabots-repository-access-list-for-an-organization",
       "subcategory": "repository-access",
       "verb": "patch",
-      "requestPath": "/organizations/{org}/dependabot/repository-access"
+      "requestPath": "/orgs/{org}/dependabot/repository-access"
     },
     {
       "slug": "set-the-default-repository-access-level-for-dependabot",
       "subcategory": "repository-access",
       "verb": "put",
-      "requestPath": "/organizations/{org}/dependabot/repository-access/default-level"
-    },
-    {
-      "slug": "list-dependabot-alerts-for-an-organization",
-      "subcategory": "alerts",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/dependabot/alerts"
+      "requestPath": "/orgs/{org}/dependabot/repository-access/default-level"
     },
     {
       "slug": "list-organization-secrets",
@@ -2769,6 +2769,18 @@
       "subcategory": "sboms",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom"
+    },
+    {
+      "slug": "fetch-a-software-bill-of-materials-sbom-for-a-repository",
+      "subcategory": "sboms",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/fetch-report/{sbom_uuid}"
+    },
+    {
+      "slug": "request-generation-of-a-software-bill-of-materials-sbom-for-a-repository",
+      "subcategory": "sboms",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/generate-report"
     },
     {
       "slug": "create-a-snapshot-of-dependencies-for-a-repository",
