@@ -45,6 +45,20 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 {% endrowheaders %}
 
+## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
+
+This table lists the AI models available in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}.
+
+{% rowheaders %}
+
+| Model | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.copilot.copilot_chat_short %} |
+| --- | --- | --- |
+| {% for model in tables.copilot.auto-model-selection %} |
+| {{ model.name }} | {% if model.cloud_agent == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.chat == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {% endfor %} |
+
+{% endrowheaders %}
+
 ## Model retirement history
 
 The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
@@ -90,6 +104,8 @@ The following table shows which AI models are available in each {% data variable
 >
 > * {% data variables.copilot.copilot_claude_sonnet_46 %}
 > * {% data variables.copilot.copilot_gpt_54_mini %}
+
+{% data reusables.copilot.opus-47-promo-period %}
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 

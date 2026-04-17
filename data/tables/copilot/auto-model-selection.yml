@@ -1,0 +1,57 @@
+# Please keep this list sorted in the following order:
+# 1. By provider, in this order:
+#    - OpenAI
+#    - Anthropic
+#    - Google
+#    - xAI
+#    - others
+# 2. Within each provider group, alphabetically by model name.
+#
+# This file defines which AI models are available for Copilot cloud agent
+# and Copilot Chat.
+# It is used to generate the model availability table.
+#
+# Column keys:
+# - name: The model name.
+# - cloud_agent: Availability for Copilot cloud agent.
+# - chat: Availability for Copilot Chat.
+
+# OpenAI
+- name: GPT-4.1
+  cloud_agent: false
+  chat: true
+
+- name: GPT-5.3-Codex
+  cloud_agent: false
+  chat: true
+
+- name: GPT-5.4
+  cloud_agent: false
+  chat: true
+
+- name: GPT-5.4 mini
+  cloud_agent: false
+  chat: true
+
+# Anthropic
+- name: Claude Haiku 4.5
+  cloud_agent: false
+  chat: true
+
+- name: Claude Sonnet 4.5
+  cloud_agent: true
+  chat: false
+
+- name: Claude Sonnet 4.6
+  cloud_agent: false
+  chat: true
+
+# xAI
+- name: Grok Code Fast 1
+  cloud_agent: false
+  chat: true
+
+# Fine-tuned OAI models
+- name: Raptor mini
+  cloud_agent: false
+  chat: true

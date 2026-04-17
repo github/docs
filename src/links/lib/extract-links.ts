@@ -288,13 +288,17 @@ export function getRelativePath(filePath: string): string {
 /**
  * Normalize a link path for comparison with pageMap
  *
+ * - Removes query strings
  * - Removes trailing slashes
  * - Removes anchor fragments
  * - Ensures leading slash
  */
 export function normalizeLinkPath(href: string): string {
+  // Remove query string
+  let normalized = href.split('?')[0]
+
   // Remove anchor
-  let normalized = href.split('#')[0]
+  normalized = normalized.split('#')[0]
 
   // Remove trailing slash
   if (normalized.endsWith('/') && normalized.length > 1) {

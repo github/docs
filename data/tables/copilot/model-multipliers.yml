@@ -25,6 +25,10 @@
   multiplier_paid: 30
   multiplier_free: Not applicable
 
+- name: Claude Opus 4.7
+  multiplier_paid: 7.5
+  multiplier_free: Not applicable
+
 - name: Claude Sonnet 4
   multiplier_paid: 1
   multiplier_free: Not applicable

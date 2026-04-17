@@ -558,7 +558,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
