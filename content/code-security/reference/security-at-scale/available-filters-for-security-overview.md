@@ -201,7 +201,7 @@ For more information about production context, see [AUTOTITLE](/code-security/se
 |`package`|Display {% data variables.product.prodname_dependabot_alerts %} detected in the specified package, for example: `package:semver`.|
 |`props`|Display {% data variables.product.prodname_dependabot_alerts %} for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`.|
 |{% ifversion fpt or ghec or ghes > 3.17 %}|
-|`relationship`|Display {% data variables.product.prodname_dependabot_alerts %} of the specified relationship, for example: `relationship:indirect`.|
+|`relationship`|Display {% data variables.product.prodname_dependabot_alerts %} detected in direct (`relationship:direct`) or indirect dependencies (`relationship:transitive`).|
 |{% endif %}|
 |`repo`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified repository, for example: `repo:octo-repository`.|
 |`resolution`|Display {% data variables.product.prodname_dependabot_alerts %} closed as "auto-dismissed" (`auto-dismissed`), "a fix has already been started" (`fix-started`), "fixed" (`fixed`), "this alert is inaccurate or incorrect" (`inaccurate`), "no bandwidth to fix this" (`no-bandwidth`), "vulnerable code is not actually used" (`not-used`), or "risk is tolerable to this project" (`tolerable-risk`).|
