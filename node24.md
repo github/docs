@@ -1,0 +1,18 @@
+FROM node:24-alpine@sha256:7d042bda1f5999f5bd14a23e9e62d9c320cceb68f93f167ce01ca3ecbd9cef71
+
+WORKDIR /openapi-check
+
+RUN chown node:node /openapi-check -R
+
+USER node
+
+COPY --chown=node:node package.json /openapi-check
+COPY --chown=node:node package-lock.json /openapi-check
+COPY --chown=node:node tsconfig.json /openapi-check
+ADD --chown=node:node src /openapi-check/src
+ADD --chown=node:node content /openapi-check/content
+ADD --chown=node:node data /openapi-check/data
+
+RUN npm ci -D
+
+ENTRYPOINT ["npx", "tsx", "/openapi-check/src/rest/scripts/openapi-check.ts"]
