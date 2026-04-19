@@ -37,6 +37,7 @@ If you receive a rate limit error when using {% data variables.product.prodname_
 * **Wait and try again.** Rate limits are temporary. Often, waiting a short period and trying again resolves the issue.
 * **Check your usage.** If you’re making frequent or automated requests (for example, rapid-fire completions or large-scale usage), consider adjusting your usage pattern.
 * **Change your model.** Select models may have stricter rate limits due to limited capacity.
+* **Switch to {% data variables.copilot.copilot_auto_model_selection %}.** If you hit a **weekly** rate limit, you can continue using {% data variables.product.prodname_copilot_short %} with {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} until exhausting your premium requests.
 * **Upgrade your plan.** If you are on an individual {% data variables.product.prodname_copilot_short %} plan, upgrading your plan will allow for additional usage. 
 * **Contact Support.** If you’re repeatedly rate limited and believe it’s impacting legitimate use, contact {% data variables.contact.contact_support_page %} for assistance.
 
