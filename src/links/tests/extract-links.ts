@@ -243,6 +243,22 @@ describe('normalizeLinkPath', () => {
       '/en/enterprise-server@3.10/admin/overview',
     )
   })
+
+  test('removes query string', () => {
+    expect(normalizeLinkPath('/actions/guides?tab=cli')).toBe('/actions/guides')
+  })
+
+  test('removes query string before anchor fragment', () => {
+    expect(normalizeLinkPath('/actions/guides?tab=cli#section')).toBe('/actions/guides')
+  })
+
+  test('removes query string with trailing slash', () => {
+    expect(normalizeLinkPath('/actions/guides/?tab=cli')).toBe('/actions/guides')
+  })
+
+  test('handles path with only a query string (no anchor)', () => {
+    expect(normalizeLinkPath('/repositories/overview?version=3')).toBe('/repositories/overview')
+  })
 })
 
 describe('checkInternalLink', () => {

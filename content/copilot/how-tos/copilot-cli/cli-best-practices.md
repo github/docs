@@ -94,12 +94,14 @@ Use `/model` to choose from available models based on your task complexity:
 
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
+| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/auto-model-selection#auto-model-selection-in-github-copilot-cli)|
 | **Claude Opus 4.5** (default) | Complex architecture, difficult debugging, nuanced refactoring | Most capable but uses more [premium requests](/copilot/concepts/billing/copilot-requests#model-multipliers) |
 | **Claude Sonnet 4.5** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
 | **GPT-5.2 Codex** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
 
 **Recommendations:**
 
+* **Auto** intelligently chooses models based on real time system health and model performance, reducing rate limiting and providing lower latency and errors.
 * **Opus 4.5** is ideal for tasks requiring deep reasoning, complex system design, subtle bug investigation, or extensive context understanding.
 * **Switch to Sonnet 4.5** for routine tasks where speed and cost efficiency matter—it handles the majority of everyday coding effectively.
 * **Use Codex** for high-volume code generation and as a second opinion for reviewing code produced by other models.

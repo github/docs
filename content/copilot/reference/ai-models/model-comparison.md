@@ -91,7 +91,7 @@ These models are designed for tasks that require step-by-step reasoning, complex
 | {% data variables.copilot.copilot_gpt_5_mini %}       | Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis. |
 | {% data variables.copilot.copilot_gpt_54 %}           | Great at complex reasoning, code analysis, and technical decision-making.                                                                                       |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure.                                                                     |
-| {% data variables.copilot.copilot_claude_opus_46 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus_45 %}.                                                               |
+| {% data variables.copilot.copilot_claude_opus_47 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus_46 %}.                                                               |
 | {% data variables.copilot.copilot_gemini_31_pro %}    | Advanced reasoning across long contexts and scientific or technical analysis.                                                                                   |
 | {% data variables.copilot.copilot_goldeneye %}        | Complex problem-solving challenges and sophisticated reasoning.                                                                                                 |
 

@@ -45,6 +45,14 @@
   business: false
   enterprise: true
 
+- name: Claude Opus 4.7
+  free: false
+  student: false
+  pro: false
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: Claude Sonnet 4
   free: false
   student: false
