@@ -17,11 +17,6 @@
   excels_at: Fast, accurate code completions and explanations
   further_reading: '[GPT-5 mini model card](https://cdn.openai.com/gpt-5-system-card.pdf)'
 
-- name: GPT-5.1
-  task_area: Deep reasoning and debugging
-  excels_at: Multi-step problem solving and architecture-level code analysis
-  further_reading: '[GPT-5.1 model card](https://cdn.openai.com/pdf/4173ec8d-1229-47db-96de-06d87147e07e/5_1_system_card.pdf)'
-
 - name: GPT-5.2
   task_area: Deep reasoning and debugging
   excels_at: Multi-step problem solving and architecture-level code analysis
@@ -64,6 +59,11 @@
   further_reading: '[Claude Opus 4.6 model card](https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf)'
 
 - name: Claude Opus 4.6 (fast mode) (preview)
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: 'Not available'
+
+- name: Claude Opus 4.7
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: 'Not available'

@@ -26,6 +26,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 {% data variables.copilot.copilot_code-review_short %} is supported in:
 
 * {% data variables.product.prodname_dotcom_the_website %}
+* {% data variables.product.prodname_cli %}
 * {% data variables.product.prodname_mobile %}
 * {% data variables.product.prodname_vscode_shortname %}
 * {% data variables.product.prodname_vs %}

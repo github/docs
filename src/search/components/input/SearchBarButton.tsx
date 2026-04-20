@@ -52,55 +52,56 @@ export function SearchBarButton({
 
   return (
     <>
-      {/* We don't want to show the input when overlay is open */}
-      {!isSearchOpen ? (
-        <>
-          {/* On mobile only the IconButton is shown */}
-          <IconButton
-            data-testid="mobile-search-button"
-            data-instance={instanceId}
-            ref={searchButtonRef}
-            className={styles.searchIconButton}
-            onClick={handleClick}
-            tabIndex={0}
-            aria-label={t('search.input.placeholder_no_icon')}
-            icon={SearchIcon}
-          />
-          {/* On large and up the SearchBarButton is shown */}
-          <button
-            data-testid="search"
-            data-instance={instanceId}
-            tabIndex={0}
-            aria-label={t('search.input.placeholder_no_icon')}
-            className={styles.searchInputButton}
-            onKeyDown={handleKeyDown}
-            onClick={handleClick}
-            ref={searchButtonRef}
+      {/* Keep buttons in DOM even when overlay is open so returnFocusRef
+          can restore focus to the trigger element on overlay close. */}
+      <div style={isSearchOpen ? { visibility: 'hidden', position: 'absolute' } : undefined}>
+        {/* On mobile only the IconButton is shown. The "small" instance is
+            the mobile one, so it gets the ref on the icon button. */}
+        <IconButton
+          data-testid="mobile-search-button"
+          data-instance={instanceId}
+          ref={instanceId === 'small' ? searchButtonRef : undefined}
+          className={styles.searchIconButton}
+          onClick={handleClick}
+          tabIndex={isSearchOpen ? -1 : 0}
+          aria-label={t('search.input.placeholder_no_icon')}
+          icon={SearchIcon}
+        />
+        {/* On large and up the SearchBarButton is shown. The "large" instance
+            is the desktop one, so it gets the ref on the desktop button. */}
+        <button
+          data-testid="search"
+          data-instance={instanceId}
+          tabIndex={isSearchOpen ? -1 : 0}
+          aria-label={t('search.input.placeholder_no_icon')}
+          className={styles.searchInputButton}
+          onKeyDown={handleKeyDown}
+          onClick={handleClick}
+          ref={instanceId === 'large' ? searchButtonRef : undefined}
+        >
+          {/* Styled to look like an input */}
+          <div
+            className={cx('d-flex align-items-center flex-grow-1', styles.searchInputContainer)}
+            aria-hidden
+            tabIndex={-1}
           >
-            {/* Styled to look like an input */}
-            <div
-              className={cx('d-flex align-items-center flex-grow-1', styles.searchInputContainer)}
-              aria-hidden
-              tabIndex={-1}
+            <span
+              className={cx(styles.queryText, !urlSearchInputQuery ? styles.placeholder : null)}
             >
-              <span
-                className={cx(styles.queryText, !urlSearchInputQuery ? styles.placeholder : null)}
-              >
-                {urlSearchInputQuery ? (
-                  urlSearchInputQuery
-                ) : (
-                  <>
-                    <span className={styles.placeholderText}>{placeHolderElements}</span>
-                  </>
-                )}
-              </span>
-            </div>
-            <span className={styles.searchIconContainer} aria-hidden tabIndex={-1}>
-              <SearchIcon />
+              {urlSearchInputQuery ? (
+                urlSearchInputQuery
+              ) : (
+                <>
+                  <span className={styles.placeholderText}>{placeHolderElements}</span>
+                </>
+              )}
             </span>
-          </button>
-        </>
-      ) : null}
+          </div>
+          <span className={styles.searchIconContainer} aria-hidden tabIndex={-1}>
+            <SearchIcon />
+          </span>
+        </button>
+      </div>
     </>
   )
 }

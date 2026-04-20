@@ -558,7 +558,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -1445,6 +1445,36 @@
 - provider: Clojars
   supportedSecret: Clojars Deploy Token
   secretType: clojars_deploy_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudflare
+  supportedSecret: Cloudflare Account API Token
+  secretType: cloudflare_account_api_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudflare
+  supportedSecret: Cloudflare Global User API Key
+  secretType: cloudflare_global_user_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudflare
+  supportedSecret: Cloudflare User API Token
+  secretType: cloudflare_user_api_token
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true

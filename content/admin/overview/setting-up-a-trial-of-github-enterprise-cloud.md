@@ -44,7 +44,6 @@ Your trial **won't** include access to {% data variables.product.prodname_ghe_se
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.copilot.copilot_enterprise %}
 * {% data variables.copilot.copilot_for_business %}
-  * Contact {% data variables.contact.github_support %} to enable {% data variables.copilot.copilot_for_business %} during your trial.
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}
@@ -55,7 +54,7 @@ If you invite an existing organization into your trial enterprise, **all of thes
 
 ## Do I need to provide a payment method?
 
-You do not need to provide a payment method to start a trial. If you want to use {% data variables.copilot.copilot_business_short %} during the trial, you can contact {% data variables.contact.github_support %} for approval. Once your request is approved, you will need to provide a credit card for additional validation. You **won't** be charged for using {% data variables.copilot.copilot_business_short %} during the trial.
+You do not need to provide a payment method to start a trial.
 
 ## During the trial
 

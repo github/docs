@@ -13,6 +13,9 @@ category:
 
 ## Metered or usage-based billing options
 
+> [!NOTE]
+> Prepaid credit/debit cards are not accepted as a valid form of payment.
+
 The supported payment methods for metered billing:
 
 * Invoice – Managed accounts only

@@ -6,15 +6,11 @@ intro: 'Find out how {% data variables.product.prodname_copilot_short %} can res
 versions:
   feature: copilot
 children:
-  - /research-plan-iterate
   - /create-a-pr
-  - /make-changes-to-an-existing-pr
-  - /provide-visual-inputs
   - /track-copilot-sessions
-  - /review-copilot-prs
   - /create-custom-agents
   - /test-custom-agents
-  - /create-skills
+  - /add-skills
   - /extend-cloud-agent-with-mcp
   - /integrate-cloud-agent-with-jira
   - /integrate-cloud-agent-with-slack

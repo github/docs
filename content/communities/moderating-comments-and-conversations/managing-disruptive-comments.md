@@ -1,6 +1,6 @@
 ---
 title: Managing disruptive comments
-intro: 'You can {% ifversion fpt or ghec %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
+intro: 'You can {% ifversion fpt or ghec %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, discussions, pull requests, and commits.'
 redirect_from:
   - /articles/editing-a-comment
   - /articles/deleting-a-comment
@@ -17,7 +17,7 @@ category:
 
 ## Hiding a comment
 
-{% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can hide comments on issues, pull requests, and commits.
+{% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can hide comments on issues, discussions, pull requests, and commits.
 
 If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
 
@@ -29,15 +29,10 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
    ![Screenshot of a pull request comment by octo-user. Below an icon of three dots, a dropdown menu is expanded, and "Hide" is outlined in orange.](/assets/images/help/repository/comment-menu-hide.png)
 
 1. Using the "Choose a reason" dropdown menu, choose a reason to hide the comment. Then select **Hide comment**.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of a comment showing a menu to select a reason to hide the comment: Spam, Abuse, Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
-   {% else %}
-   ![Screenshot of a comment showing a menu to select a reason to hide the comment: Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
-   {% endif %}
 
 ## Unhiding a comment
 
-{% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can unhide comments on issues, pull requests, and commits.
+{% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can unhide comments on issues, discussions, pull requests, and commits.
 
 1. Navigate to the comment you'd like to unhide.
 1. On the right side of the comment, click **{% octicon "fold" aria-hidden="true" aria-label="fold" %} Show comment**.
@@ -47,9 +42,9 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 
 ## Editing a comment
 
-Anyone with write access to a repository can edit comments on issues, pull requests, and commits.
+Anyone with write access to a repository can edit comments on issues, discussions, pull requests, and commits.
 
-It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines){% endif %}.
+It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or {% data variables.product.github %}'s [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines){% endif %}.
 
 Sometimes it may make sense to clearly indicate edits and their justification.
 
@@ -72,7 +67,7 @@ Comment authors and anyone with write access to a repository can also delete sen
 
 ## Deleting a comment
 
-Anyone with write access to a repository can delete comments on issues, pull requests, and commits. Organization owners, team maintainers, and the comment author can also delete a comment on a team page.
+Anyone with write access to a repository can delete comments on issues, discussions, pull requests, and commits. Organization owners, team maintainers, and the comment author can also delete a comment on a team page.
 
 If a comment contains some constructive content that adds to the conversation in the issue or pull request, you can edit the comment instead.
 

@@ -17,6 +17,7 @@ children:
   - /setup-types
   - /about-integration-with-code-scanning
   - /sarif-files
+  - /code-scanning-alert-tracking-using-issues
   - /merge-protection
   - /multi-repository-variant-analysis
   - /codeql

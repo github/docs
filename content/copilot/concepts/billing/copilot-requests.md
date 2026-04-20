@@ -101,6 +101,8 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 
 {% data reusables.copilot.model-multipliers %}
 
+**For {% data variables.product.prodname_ghe_cloud %}**, requests processed with data residency or FedRAMP enforcement include an additional 10% multiplier. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency#pricing-for-data-resident-copilot).
+
 ## Examples of premium request usage
 
 Premium request usage is based on the model’s multiplier and the feature you’re using. For example:

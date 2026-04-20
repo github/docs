@@ -19,7 +19,7 @@ redirect_from:
   - /copilot/concepts/agents/coding-agent/coding-agent-for-business-and-enterprise
   - /copilot/concepts/agents/coding-agent/managing-access
 contentType: concepts
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -48,7 +48,7 @@ Enterprise administrators and organization owners (for organization-owned reposi
 
 For information on disabling {% data variables.copilot.copilot_cloud_agent %} in some or all repositories owned by an organization, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/add-copilot-cloud-agent).
 
-For information on disabling {% data variables.copilot.copilot_cloud_agent %} in all repositories owned by an enterprise, see [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/manage-copilot-cloud-agent).
+For information on disabling {% data variables.copilot.copilot_cloud_agent %} in all repositories owned by an enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/block-copilot-cloud-agent).
 
 For information on disabling {% data variables.copilot.copilot_cloud_agent %} in repositories owned by your personal user account, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-copilot-cloud-agent).
 
