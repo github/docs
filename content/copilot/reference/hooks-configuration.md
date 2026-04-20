@@ -259,7 +259,7 @@ fi
 
 ### Agent stop hook
 
-Executed when the main agent finishes responding to a prompt and is about to stop. Use this hook to log session completion or to inject a follow-up instruction by blocking the stop. When you block, the `reason` you provide is enqueued as the next user prompt, so the agent continues with that input.
+Executed when the main agent finishes responding to a prompt and is about to stop. Use this hook to log the end of an agent turn or to inject a follow-up instruction by blocking the stop. To handle full session completion, use the session end hook. When you block, the `reason` you provide is enqueued as the next user prompt, so the agent continues with that input.
 
 **Example input JSON:**
 
