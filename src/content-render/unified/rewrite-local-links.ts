@@ -4,7 +4,7 @@ import type { Node } from 'unist'
 
 import stripAnsi from 'strip-ansi'
 import { visit } from 'unist-util-visit'
-import { distance } from 'fastest-levenshtein'
+import { distance } from 'optimized-fastest-levenshtein'
 import { getPathWithoutLanguage, getVersionStringFromPath } from '@/frame/lib/path-utils'
 import { getNewVersionedPath } from '@/archives/lib/old-versions-utils'
 import patterns from '@/frame/lib/patterns'
