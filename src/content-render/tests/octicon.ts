@@ -37,7 +37,7 @@ describe('octicon tag', () => {
     )
   })
 
-  test('throws an error with a non-existant octicon', async () => {
+  test('throws an error with a non-existent octicon', async () => {
     await expect(renderContent('{% octicon "pizza-patrol" %}')).rejects.toThrowError(
       'Octicon pizza-patrol does not exist',
     )
