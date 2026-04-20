@@ -17,7 +17,7 @@ When you create a pull request:
 2. Optionally, you may include a collapsed section summarizing the prompt or discussion with Copilot:
 
    ```markdown
-   <details><summary>Prompt summary - submitted by @GITHUB-USER-ID</summary>
+   <details><summary>Prompt summary - submitted by Edgarruiz856  @GITHUB-USER-ID</summary>
   
    > [Prompt summary text here]
   
