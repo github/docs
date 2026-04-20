@@ -257,6 +257,158 @@ if [ "$RESULT_TYPE" = "failure" ]; then
 fi
 ```
 
+### Agent stop hook
+
+Executed when the main agent finishes responding to a prompt and is about to stop. Use this hook to log session completion or to inject a follow-up instruction by blocking the stop. When you block, the `reason` you provide is enqueued as the next user prompt, so the agent continues with that input.
+
+**Example input JSON:**
+
+```json copy
+{
+  "timestamp": 1704614750000,
+  "cwd": "/path/to/project",
+  "sessionId": "01HW2X3Y4Z5...",
+  "transcriptPath": "/path/to/transcript.jsonl",
+  "stopReason": "end_turn"
+}
+```
+
+**Fields:**
+
+* `timestamp`: Unix timestamp in milliseconds
+* `cwd`: Current working directory
+* `sessionId`: The unique identifier of the current session
+* `transcriptPath`: Path to the JSONL transcript file for the session
+* `stopReason`: Why the agent is stopping (currently always `"end_turn"`)
+
+**Output JSON (optional):**
+
+```json copy
+{
+  "decision": "block",
+  "reason": "Run the test suite before stopping."
+}
+```
+
+**Output fields:**
+
+* `decision`: Set to `"block"` to keep the agent running by enqueueing `reason` as the next user prompt. Omit the field, or return `{}`, to allow the stop.
+* `reason`: The text to feed back into the agent as a new prompt when blocking. Required when `decision` is `"block"`.
+
+**Example script that asks the agent to summarize before stopping:**
+
+```shell copy
+#!/bin/bash
+INPUT=$(cat)
+
+# Avoid an infinite loop: only inject a follow-up if no summary marker exists yet
+TRANSCRIPT=$(echo "$INPUT" | jq -r '.transcriptPath')
+if [ -f "$TRANSCRIPT" ] && grep -q "## Session summary" "$TRANSCRIPT"; then
+  echo "{}"
+  exit 0
+fi
+
+echo '{"decision":"block","reason":"Before you stop, write a one-paragraph session summary under a `## Session summary` heading."}'
+```
+
+### Subagent stop hook
+
+Executed when a subagent finishes its turn, before its output is returned to the parent agent. Use this hook to log subagent activity or to keep the subagent running by injecting follow-up instructions.
+
+**Example input JSON:**
+
+```json copy
+{
+  "timestamp": 1704614760000,
+  "cwd": "/path/to/project",
+  "sessionId": "01HW2X3Y4Z5...",
+  "transcriptPath": "/path/to/subagent-transcript.jsonl",
+  "agentName": "researcher",
+  "agentDisplayName": "Research Agent",
+  "stopReason": "end_turn"
+}
+```
+
+**Fields:**
+
+* `timestamp`: Unix timestamp in milliseconds
+* `cwd`: Current working directory
+* `sessionId`: The unique identifier of the subagent session
+* `transcriptPath`: Path to the JSONL transcript file for the subagent
+* `agentName`: The internal name of the subagent
+* `agentDisplayName`: The human-readable display name of the subagent
+* `stopReason`: Why the subagent is stopping (currently always `"end_turn"`)
+
+**Output JSON (optional):**
+
+```json copy
+{
+  "decision": "block",
+  "reason": "Cite at least three sources before returning."
+}
+```
+
+**Output fields:**
+
+* `decision`: Set to `"block"` to keep the subagent running by injecting `reason` as the next message. Omit, or return `{}`, to let the subagent return its result to the parent.
+* `reason`: The text to feed back into the subagent. Required when `decision` is `"block"`.
+
+**Example script that logs every subagent completion:**
+
+```shell copy
+#!/bin/bash
+INPUT=$(cat)
+NAME=$(echo "$INPUT" | jq -r '.agentName')
+SESSION=$(echo "$INPUT" | jq -r '.sessionId')
+echo "$(date -Iseconds) subagent=$NAME session=$SESSION" >> ~/.copilot/subagent-activity.log
+echo "{}"
+```
+
+### Pre-compact hook
+
+Executed just before the conversation is compacted to free space in the context window. Compaction summarizes earlier messages and discards the originals, so this is a useful point to persist details that the summary may not preserve.
+
+**Example input JSON:**
+
+```json copy
+{
+  "timestamp": 1704614800000,
+  "cwd": "/path/to/project",
+  "sessionId": "01HW2X3Y4Z5...",
+  "transcriptPath": "/path/to/transcript.jsonl",
+  "trigger": "auto",
+  "customInstructions": ""
+}
+```
+
+**Fields:**
+
+* `timestamp`: Unix timestamp in milliseconds
+* `cwd`: Current working directory
+* `sessionId`: The unique identifier of the current session
+* `transcriptPath`: Path to the JSONL transcript file for the session
+* `trigger`: How compaction was started. Either `"auto"` (the context window approached its limit) or `"manual"` (the user requested compaction)
+* `customInstructions`: Any custom instructions the user provided to guide the compaction. Empty string when none were provided.
+
+**Output:** Ignored. Use this hook for side effects such as exporting the transcript or notifying an external system.
+
+**Example script that archives the transcript before each compaction:**
+
+```shell copy
+#!/bin/bash
+INPUT=$(cat)
+TRANSCRIPT=$(echo "$INPUT" | jq -r '.transcriptPath')
+SESSION=$(echo "$INPUT" | jq -r '.sessionId')
+TRIGGER=$(echo "$INPUT" | jq -r '.trigger')
+
+ARCHIVE_DIR="$HOME/.copilot/transcripts"
+mkdir -p "$ARCHIVE_DIR"
+
+if [ -f "$TRANSCRIPT" ]; then
+  cp "$TRANSCRIPT" "$ARCHIVE_DIR/${SESSION}-pre-compact-${TRIGGER}-$(date +%s).jsonl"
+fi
+```
+
 ### Error occurred hook
 
 Executed when an error occurs during agent execution.
