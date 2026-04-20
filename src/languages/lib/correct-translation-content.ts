@@ -884,6 +884,34 @@ export function correctTranslatedContentStrings(
     }
   }
 
+  // Unescape HTML entity-encoded tags (`&lt;tag&gt;` → `<tag>`) that Crowdin
+  // introduces when the English source uses inline raw HTML — e.g.
+  // `<code><a href="...">label</a></code>` inside table `<td>` cells.
+  // Without this fix, those tags render as literal `<code>` text on translated
+  // pages rather than as styled code elements.
+  // Only unescape tag names present as raw HTML in the English source to avoid
+  // incorrectly expanding intentional `&lt;` entity sequences.
+  if (englishContent && content.includes('&lt;')) {
+    const englishTagNames = new Set(
+      [...englishContent.matchAll(/<([a-z][a-z0-9]*)/gi)].map((m) => m[1].toLowerCase()),
+    )
+    if (englishTagNames.size > 0) {
+      content = content.replace(
+        /&lt;(\/?[a-z][a-z0-9]*)(\s[^<>]*?)?&gt;/gi,
+        (match, tag: string, attrs = '') => {
+          const baseName = tag.replace(/^\//, '').toLowerCase()
+          return englishTagNames.has(baseName) ? `<${tag}${attrs}>` : match
+        },
+      )
+    }
+  }
+
+  // Remove bare code-fence wrapping from bold heading lines. Translation pipelines
+  // sometimes wrap `**heading**` lines in bare (no-language) fenced code blocks,
+  // causing them to render as code instead of bold text. Strip the fences and
+  // restore the heading as plain Markdown.
+  content = content.replace(/^```\s*\n(\*\*[^\n]+\*\*)\s*\n```/gm, '$1')
+
   // Collapsed Markdown table rows — restore linebreaks between `|` cells.
   content = content.replaceAll(' | | ', ' |\n| ')
 

@@ -1355,6 +1355,80 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{{%raw %}', 'es')).toBe('{% raw %}')
       expect(fix('{{% raw %}', 'es')).toBe('{% raw %}')
     })
+
+    test('unescapes entity-encoded HTML tags when English source has matching raw HTML', () => {
+      const english =
+        '<td><code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code></td>'
+
+      expect(fix('&lt;code&gt;ubuntu-latest&lt;/code&gt;', 'ko', english)).toBe(
+        '<code>ubuntu-latest</code>',
+      )
+      expect(
+        fix('&lt;a href="https://example.com"&gt;ubuntu-latest&lt;/a&gt;', 'ko', english),
+      ).toBe('<a href="https://example.com">ubuntu-latest</a>')
+      expect(
+        fix(
+          '&lt;code&gt;&lt;a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md"&gt;ubuntu-latest&lt;/a&gt;&lt;/code&gt;',
+          'ko',
+          english,
+        ),
+      ).toBe(
+        '<code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>',
+      )
+    })
+
+    test('does not unescape entity-encoded tags absent from English source', () => {
+      const english = '<p>Simple paragraph without code elements</p>'
+      const input = '&lt;code&gt;text&lt;/code&gt;'
+      expect(fix(input, 'ko', english)).toBe(input)
+    })
+
+    test('does not unescape entity-encoded tags when no English content provided', () => {
+      const input = '&lt;code&gt;ubuntu-latest&lt;/code&gt;'
+      expect(fix(input, 'ko')).toBe(input)
+    })
+
+    test('removes bare code-fence wrapping from bold heading lines', () => {
+      const input = '```\n**다음은 작업을 다운로드하는 데 필요합니다.**\n```'
+      expect(fix(input, 'ko')).toBe('**다음은 작업을 다운로드하는 데 필요합니다.**')
+    })
+
+    test('removes bare code-fence wrapping from bold headings between real code blocks', () => {
+      const input = [
+        '```shell copy',
+        'github.com',
+        'api.github.com',
+        '```',
+        '',
+        '```',
+        '**다음은 작업을 다운로드하는 데 필요합니다.**',
+        '```',
+        '',
+        '```shell copy',
+        'codeload.github.com',
+        '```',
+      ].join('\n')
+
+      const expected = [
+        '```shell copy',
+        'github.com',
+        'api.github.com',
+        '```',
+        '',
+        '**다음은 작업을 다운로드하는 데 필요합니다.**',
+        '',
+        '```shell copy',
+        'codeload.github.com',
+        '```',
+      ].join('\n')
+
+      expect(fix(input, 'ko')).toBe(expected)
+    })
+
+    test('does not strip language-specified code fences with bold content', () => {
+      const input = '```shell\n**not a heading**\n```'
+      expect(fix(input, 'ko')).toBe(input)
+    })
   })
 
   // ─── EDGE CASES ────────────────────────────────────────────────────
