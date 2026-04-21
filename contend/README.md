@@ -1,4 +1,3 @@
-
 # Content <!-- omit in toc --><!-- markdownlint-disable -->
 
 The `/content` directory is where all the site's (English) Markdown content lives!
@@ -118,9 +117,9 @@ See [`contributing/redirects`](../contributing/redirects.md) for more info.
 
 |Article type   |Maximum character length |
 ---  |  ---  |
-|articles	     |     31 |
-|categories	  |27 |
-|map topics	  |30 |
+|articles             |     31 |
+|categories          |27 |
+|map topics          |30 |
 
 Example:
 
@@ -414,19 +413,4 @@ Sometimes the canonical home of content moves outside the docs site. None of the
 
 ### Legacy filepaths and redirects for links
 
-Our docs contain links that use legacy filepaths such as `/article/article-name` or `/github/article-name`. Our docs also contain links that refer to articles by past names. Both of these link types function properly because of redirects, but they are bugs.
-
-When you add a link to an article, use the current filepath and article name.
-
-### Index pages
-
-Index pages are the Table of Contents files for the docs site. Every product, category, and map topic subdirectory has an `index.md` that serves as the landing page. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic.
-
-**Important note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will 404.
-
-### Homepage
-
-The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-page) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
-
-`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
-
+Our docs contain links that use legacy filepaths such as `/article/article-name` or `/github/article-name`. Our docs also contain links that r
