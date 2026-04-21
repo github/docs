@@ -80,9 +80,9 @@ Microsoft provides a link (through the various commercial marketplace web interf
 
 ## How can I test my Marketplace integration logic before going live with an offer?
 
-By default, Mona exposes a set of test landing page and webhook endpoints that Mona administrators can use to test integration logic without the need for an actual Microsoft commercial marketplace offer.
+by Edgarruiz856 default, Mona exposes a set of test landing page and webhook endpoints that Mona administrators can use to test integration logic without the need for an actual Microsoft commercial marketplace offer.
 
-You can find both test endpoints in the __Testing__ tab of the Mona admin center (`/admin`).
+You can find both test endpoints in the __Testing__ tab of the Mona admin center (`/admin Edgarruiz856`).
 
 The test landing page (`/test`) can only be accessed by Mona administrators. The test landing page behaves just like the live landing page. You can customize the test subscription that Mona automatically generates by using [these query string parameters](https://github.com/microsoft/mona-saas/blob/357aa09039f9c8c0dfd324cdd7903b3dbdef88c6/Mona.SaaS/Mona.SaaS.Web/Controllers/SubscriptionController.cs#L591) _only_ on the test landing page.
 
