@@ -10,6 +10,9 @@ allowTitleToDifferFromFilename: true
 contentType: reference
 ---
 
+> [!IMPORTANT]
+> **Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans are temporarily paused. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded, downgraded, or canceled. If you hit unexpected limits as a result of these changes, you can cancel your Pro or Pro+ subscription and you will not be charged for April usage. Please reach out to [GitHub support](https://support.github.com/) between April 20 and May 20, 2026, for a refund.
+
 {% data variables.product.prodname_copilot_short %} follows the same billing rules as other license-based products on {% data variables.product.company_short %}.
 For the general concepts, see:
 

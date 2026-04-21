@@ -5,7 +5,7 @@ const autoModelSelectionSchema = {
   items: {
     type: 'object',
     additionalProperties: false,
-    required: ['name', 'cloud_agent', 'chat'],
+    required: ['name', 'cloud_agent', 'chat', 'cli'],
     properties: {
       name: {
         type: 'string',
@@ -15,6 +15,9 @@ const autoModelSelectionSchema = {
         type: 'boolean',
       },
       chat: {
+        type: 'boolean',
+      },
+      cli: {
         type: 'boolean',
       },
     },

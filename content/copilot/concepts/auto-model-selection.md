@@ -24,7 +24,7 @@ Experience less rate limiting and reduce the mental load of choosing a model by 
 * Models excluded by administrator policies. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 * Models with premium request multipliers greater than one. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#model-multipliers).
 * Models not available in your plan. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan).
- 
+
 > [!NOTE] Soon {% data variables.copilot.copilot_auto_model_selection %} will choose the best model for you based on your task.
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.copilot.copilot_chat_short %}
@@ -38,9 +38,9 @@ Experience less rate limiting and reduce the mental load of choosing a model by 
   * Eclipse
   * Xcode
 
-When you select **Auto** in {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} chooses from the supported models, subject to your policies and subscription type. Models may change over time. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-in-auto-model-selection).
+When you select **Auto** in {% data variables.copilot.copilot_chat_short %} in IDEs, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} chooses from the supported models, subject to your policies and subscription type. Models may change over time. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-in-auto-model-selection).
 
-> [!TIP] To see which model was used for each response, hover over the response in {% data variables.copilot.copilot_chat_short %}.
+> [!TIP] To see which model was used for each response, hover over the response in {% data variables.copilot.copilot_chat_short %} in IDEs.
 
  {% data reusables.copilot.change-the-ai-model %}
 
@@ -51,6 +51,14 @@ When you select **Auto** in {% data variables.copilot.copilot_chat_short %}, {% 
 ### Enabling access during {% data variables.release-phases.public_preview %}
 
 During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the organization or enterprise that provides your plan must have the **Editor preview features** policy enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom).
+
+## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.copilot.copilot_cli %}
+
+When you select **Auto** from the list of available models in {% data variables.copilot.copilot_cli %}, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} chooses from the supported models, subject to your policies and subscription type. Models may change over time. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-in-auto-model-selection).
+
+When using Auto, the model used for each response displays in the terminal.
+
+ {% data reusables.copilot.change-the-ai-model %}
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.copilot.copilot_cloud_agent %}
 

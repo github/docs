@@ -19,7 +19,6 @@ import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
 import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
 import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { SearchOverlayContainer } from '@/search/components/input/SearchOverlayContainer'
-import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
 
 import styles from './Header.module.scss'
@@ -45,7 +44,6 @@ export const Header = () => {
   const returnFocusRef = useRef(null)
   const searchButtonRefLarge = useRef<HTMLButtonElement>(null)
   const searchButtonRefSmall = useRef<HTMLButtonElement>(null)
-  const { initializeCTA } = useCTAPopoverContext()
   const { isSearchOpen, setIsSearchOpen } = useSearchOverlayContext()
 
   // The lg breakpoint (1012px) determines which search button is visible.
@@ -73,9 +71,6 @@ export const Header = () => {
       instanceId="small"
     />
   )
-
-  // Initialize the CTA(s)
-  initializeCTA()
 
   useEffect(() => {
     function onScroll() {

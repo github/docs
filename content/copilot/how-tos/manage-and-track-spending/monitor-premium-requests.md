@@ -37,6 +37,9 @@ For information about viewing premium request usage for an organization or enter
 
 ### Viewing usage in your IDE
 
+> [!IMPORTANT]
+> **Starting April 20, 2026**, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans have tighter usage limits: Session limits and weekly (7 day) limits. {% data variables.product.prodname_vscode_shortname %} and {% data variables.copilot.copilot_cli %} both display your available usage when you are approaching a limit. See [AUTOTITLE](/copilot/concepts/usage-limits).
+
 If you're using {% data variables.product.prodname_copilot_short %} in an editor, you can view your usage directly in the editor. For example, in {% data variables.product.prodname_vscode %}, you can view information about features included in your plan, your progress towards any limits on your plan, and the date your allowance resets.
 
 You can access usage information in the following IDEs.

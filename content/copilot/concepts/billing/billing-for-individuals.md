@@ -16,6 +16,9 @@ category:
   - Learn about Copilot
 ---
 
+> [!IMPORTANT]
+> {% data reusables.copilot.plans.individual-plans-paused %} If you hit unexpected limits as a result of these changes, you can cancel your Pro or Pro+ subscription and you will not be charged for April usage. Please reach out to [GitHub support](https://support.github.com/) between April 20 and May 20, 2026, for a refund.
+
 ## Pricing for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}
 
 {% data variables.product.github %} offers two paid plans for individuals: {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}.
