@@ -24,16 +24,16 @@
 - name: Claude Opus 4.5
   free: false
   student: false
-  pro: true
-  pro_plus: true
+  pro: false
+  pro_plus: false
   business: true
   enterprise: true
 
 - name: Claude Opus 4.6
   free: false
   student: false
-  pro: true
-  pro_plus: true
+  pro: false
+  pro_plus: false
   business: true
   enterprise: true
 
@@ -41,7 +41,7 @@
   free: false
   student: false
   pro: false
-  pro_plus: true
+  pro_plus: false
   business: false
   enterprise: true
 

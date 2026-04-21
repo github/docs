@@ -23,7 +23,9 @@ export async function runRule(
   }
 
   const testOptions: Partial<Options> = {
-    customRules: [module as any],
+    customRules: [
+      module as unknown as NonNullable<Extract<Options['customRules'], unknown[]>>[number],
+    ],
     config: { ...defaultConfig, ...testConfig },
   }
   if (strings) testOptions.strings = strings

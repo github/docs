@@ -17,7 +17,6 @@ import {
 } from '@/languages/components/LanguagesContext'
 import { useTheme } from '@/color-schemes/components/useTheme'
 import { SharedUIContextProvider } from '@/frame/components/context/SharedUIContext'
-import { CTAPopoverProvider } from '@/frame/components/context/CTAContext'
 import { ClientSideHashFocus } from '@/frame/components/ClientSideHashFocus'
 import type { ExtendedRequest } from '@/types'
 
@@ -146,10 +145,8 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
       >
         <LanguagesContext.Provider value={languagesContext}>
           <SharedUIContextProvider>
-            <CTAPopoverProvider>
-              <ClientSideHashFocus />
-              <Component {...pageProps} />
-            </CTAPopoverProvider>
+            <ClientSideHashFocus />
+            <Component {...pageProps} />
           </SharedUIContextProvider>
         </LanguagesContext.Provider>
       </ThemeProvider>

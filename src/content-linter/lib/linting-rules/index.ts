@@ -58,13 +58,10 @@ import { raiAppCardStructure } from '@/content-linter/lib/linting-rules/rai-app-
 import { frontmatterContentType } from '@/content-linter/lib/linting-rules/frontmatter-content-type'
 import { frontmatterDocsTeamMetrics } from '@/content-linter/lib/linting-rules/frontmatter-docs-team-metrics'
 
-// Using any type because @github/markdownlint-github doesn't provide TypeScript declarations
-// The elements in the array have a 'names' property that contains rule identifiers
-const noDefaultAltText = markdownlintGitHub.find((elem: any) =>
+const noDefaultAltText = markdownlintGitHub.find((elem: { names: string[] }) =>
   elem.names.includes('no-default-alt-text'),
 )
-// Using any type because @github/markdownlint-github doesn't provide TypeScript declarations
-const noGenericLinkText = markdownlintGitHub.find((elem: any) =>
+const noGenericLinkText = markdownlintGitHub.find((elem: { names: string[] }) =>
   elem.names.includes('no-generic-link-text'),
 )
 

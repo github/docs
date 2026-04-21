@@ -14,7 +14,7 @@ children:
   - /context
   - /tools
   - /auto-model-selection
-  - /rate-limits
+  - /usage-limits
   - /billing
   - /about-enterprise-accounts-for-copilot-business
   - /policies

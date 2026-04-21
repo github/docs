@@ -13,6 +13,9 @@ category:
   - Learn about Copilot
 ---
 
+> [!IMPORTANT]
+> {% data reusables.copilot.plans.individual-plans-paused %}
+
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.
 
 * **{% data variables.copilot.copilot_free %}** is available to individual developers who don't have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise. This free plan includes limited access to select {% data variables.product.prodname_copilot_short %} features, allowing you to try AI-powered coding assistance at no cost.
@@ -40,6 +43,9 @@ For more information, see [AUTOTITLE](/copilot/about-github-copilot/github-copil
 ## Ready to choose a plan?
 
 Start using {% data variables.product.prodname_copilot_short %} by signing up for the plan that best fits your needs.
+
+> [!IMPORTANT]
+> {% data reusables.copilot.plans.individual-plans-paused %}
 
 * **{% data variables.copilot.copilot_free_short %}** — Try {% data variables.product.prodname_copilot_short %} with limited features and requests. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
 

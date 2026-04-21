@@ -12,6 +12,9 @@ category:
   - Configure Copilot
 ---
 
+> [!IMPORTANT]
+> {% data reusables.copilot.plans.individual-plans-paused %}
+
 ## About {% data variables.copilot.copilot_student_short %} access
 
 Verified students on {% data variables.product.prodname_education %} get **free access to {% data variables.product.prodname_copilot_short %}'s premium features**. See [AUTOTITLE](/copilot/concepts/billing/individual-plans#github-copilot-student).
