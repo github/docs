@@ -14,6 +14,8 @@ import fs from 'fs'
 import path from 'path'
 import ora from 'ora'
 
+import { buildMarker } from '@/ghes-releases/scripts/notify-release-pms'
+
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 interface ApprovalStatus {
@@ -195,7 +197,7 @@ program
     // ── Step 2: Check each issue ──
     const isRc = yamlPath === rcPath
     const releaseType = isRc ? 'rc' : 'ga'
-    const marker = `<!-- ghes-release-note-review: ${release}-${releaseType} -->`
+    const marker = buildMarker(release, releaseType)
     const statuses: ApprovalStatus[] = []
 
     for (let i = 0; i < issueNumbers.length; i++) {

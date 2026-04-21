@@ -1,5 +1,16 @@
 # Docs changelog
 
+**15 April 2026**
+
+LSP servers greatly improve Copilot CLI's ability to work with your code. For example, when Copilot renames a symbol throughout a project it can do this more quickly and reliably if it has access to an LSP server for the language the code is written in.
+
+We've added documentation to explain LSP servers in greater detail and show how to install these for Copilot CLI:
+
+* [Using LSP servers with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/lsp-servers)
+* [Adding LSP servers for GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
+
+<hr>
+
 **13 April 2026**
 
 To coincide with the release of the ability to [steer your Copilot CLI sessions remotely](https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/) (from GitHub.com, or from GitHub Mobile), we have added these new articles:

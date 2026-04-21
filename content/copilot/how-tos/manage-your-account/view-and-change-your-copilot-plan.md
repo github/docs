@@ -25,6 +25,9 @@ category:
   - Configure Copilot
 ---
 
+> [!IMPORTANT]
+> **Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans are temporarily paused. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded, downgraded, or canceled.
+
 You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan.
 
 If you have access to {% data variables.product.prodname_copilot %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to modify your plan.
