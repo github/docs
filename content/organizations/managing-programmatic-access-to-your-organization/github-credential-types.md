@@ -120,7 +120,7 @@ On {% data variables.product.prodname_ghe_cloud %}, when single sign-on (SSO) is
 | Deploy key | {% octicon "x" aria-label="No" %} (repository-scoped) | Not applicable |
 | `GITHUB_TOKEN` ({% data variables.product.prodname_actions %}) | {% octicon "x" aria-label="No" %} (repository-scoped) | Not applicable |
 
-[^1]: On {% data variables.product.prodname_ghe_cloud %}, SSO authorization is granted automatically when the user authorizes the app during an active SAML or OIDC session. These authorizations are not visible to users or admins in the {% data variables.product.github %} UI, and are not returned by the [List SAML SSO authorizations for an organization](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization) REST API endpoint.
+[^1]: On {% data variables.product.prodname_ghe_cloud %}, SSO authorization is granted automatically when the user authorizes the app during an active SAML or OIDC session. These authorizations are not visible to users or admins in the {% data variables.product.github %} UI, and are not returned by the [AUTOTITLE](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization) REST API endpoint.
 
 On {% data variables.product.prodname_ghe_cloud %}, for information on how to authorize a credential for SSO, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on), [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token), and [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on).
 
@@ -136,7 +136,7 @@ On {% data variables.product.prodname_ghe_cloud %}, enterprise administrators an
 * **Organization owners** can manage SSO authorizations for organizations with organization-level SSO via the {% data variables.product.github %} UI. See [AUTOTITLE](/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization).
 * **Enterprise owners** can manage SSO authorizations for enterprises with enterprise-level SSO (including {% data variables.product.prodname_emus %}) via the {% data variables.product.github %} UI. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials).
 
-On {% data variables.product.prodname_ghe_cloud %}, you can also manage SSO authorizations via the REST API. See [AUTOTITLE](/rest/orgs/orgs?apiVersion=2022-11-28#list-saml-sso-authorizations-for-an-organization).
+On {% data variables.product.prodname_ghe_cloud %}, you can also manage SSO authorizations via the REST API.
 
 On {% data variables.product.prodname_ghe_cloud %}, during a security incident, enterprise owners can revoke SSO authorizations in bulk. See [Bulk actions for security incidents](#bulk-actions-for-security-incidents).
 
