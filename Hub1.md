@@ -2,7 +2,7 @@ hub(1)hub manualhub(1)
 make git easier with GitHub
 Synopsis
 hub [--noop] COMMAND [OPTIONS]
-hub alias [@Edgarruiz856-s] [SHELL]
+hub alias [@Edgarruiz856] [SHELL]
 hub help hub-COMMAND
 
 Description
