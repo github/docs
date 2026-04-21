@@ -26,6 +26,10 @@ export function correctTranslatedContentStrings(
     // Remove colon prefix on Liquid tags: `{%:` → `{%`
     content = content.replace(/\{%:/g, '{%')
 
+    // `{% siVersion X %}` — Spanish "si" (if) fused with "Version" = ifversion
+    content = content.replaceAll('{% siVersion ', '{% ifversion ')
+    content = content.replaceAll('{%- siVersion ', '{%- ifversion ')
+
     content = content.replaceAll('{% vulnerables variables.', '{% data variables.')
     content = content.replaceAll('{% datos variables', '{% data variables')
     content = content.replaceAll('{% de datos variables', '{% data variables')
@@ -235,9 +239,17 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'pt') {
+    // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
+    content = content.replaceAll('{%–', '{%-')
+
     content = content.replaceAll('{% dados variables', '{% data variables')
     content = content.replaceAll('{% de dados variables', '{% data variables')
     content = content.replaceAll('{% dados reusables', '{% data reusables')
+    // `{% dadosvariables` / `{% datavariables` — no space between "dados"/"data" and "variables"
+    content = content.replaceAll('{% dadosvariables', '{% data variables')
+    content = content.replaceAll('{%- dadosvariables', '{%- data variables')
+    content = content.replaceAll('{% datavariables', '{% data variables')
+    content = content.replaceAll('{%- datavariables', '{%- data variables')
     // Fully translated reusables path: `{% dados reutilizáveis.X.Y %}` → `{% data reusables.X.Y %}`
     content = content.replaceAll('{% dados reutilizáveis.', '{% data reusables.')
     // Translated path segment inside reusables path: `repositórios` → `repositories`
@@ -292,6 +304,9 @@ export function correctTranslatedContentStrings(
   if (context.code === 'zh') {
     content = content.replaceAll('{% 数据variables', '{% data variables')
     content = content.replaceAll('{% 数据 variables', '{% data variables')
+    // `{%数据variables` — no space between `{%` and 数据 (data)
+    content = content.replaceAll('{%数据variables', '{% data variables')
+    content = content.replaceAll('{%数据 variables', '{% data variables')
     // Order matters: the more specific `s.` variant must run first to
     // avoid the broader rule producing a double-s (`reusabless`).
     content = content.replaceAll('{% 数据可重用s.', '{% data reusables.')
@@ -467,6 +482,12 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% données variables', '{% data variables')
     content = content.replaceAll('{% données réutilisables.', '{% data reusables.')
     content = content.replaceAll('{% variables de données.', '{% data variables.')
+    // `{% de données variables.` — preposition "de" prepended to "données variables"
+    content = content.replaceAll('{% de données variables.', '{% data variables.')
+    content = content.replaceAll('{%- de données variables.', '{%- data variables.')
+    // `{% de data variables.` — partially-corrected form (données already fixed to data)
+    content = content.replaceAll('{% de data variables.', '{% data variables.')
+    content = content.replaceAll('{%- de data variables.', '{%- data variables.')
     content = content.replaceAll('{% autre %}', '{% else %}')
     content = content.replaceAll('{%- autre %}', '{%- else %}')
     content = content.replaceAll('{% brut %}', '{% raw %}')
@@ -571,6 +592,10 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 옥티콘 ', '{% octicon ')
     content = content.replaceAll('{%- 옥티콘 ', '{%- octicon ')
 
+    // `{% data Variables.` — capital V in "Variables" (Korean translator capitalised the word)
+    content = content.replaceAll('{% data Variables.', '{% data variables.')
+    content = content.replaceAll('{%- data Variables.', '{%- data variables.')
+
     // Korean translation of github-glossary.md
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')
     // `{% 데이터 재사용.` — Korean translation of "data reusables" path
@@ -662,8 +687,23 @@ export function correctTranslatedContentStrings(
     // `{% Endnotiz %}` — "end note" = endnote
     content = content.replaceAll('{% Endnotiz %}', '{% endnote %}')
     content = content.replaceAll('{%- Endnotiz %}', '{%- endnote %}')
+    // `{% data-variables.` — hyphen used instead of space between "data" and "variables"
+    content = content.replaceAll('{% data-variables.', '{% data variables.')
+    content = content.replaceAll('{%- data-variables.', '{%- data variables.')
+    // `{%- Datenworkflow variables.` — compound "Datenworkflow" (data workflow) = data
+    content = content.replaceAll('{%- Datenworkflow variables.', '{%- data variables.')
+    content = content.replaceAll('{% Datenworkflow variables.', '{% data variables.')
+    // `{% ifec ` — truncated/corrupted form of "ifversion"
+    content = content.replaceAll('{% ifec ', '{% ifversion ')
+    content = content.replaceAll('{%- ifec ', '{%- ifversion ')
+    // `{% andere %}` / `{%- andere %}` — German "andere" (other) = else
+    content = content.replaceAll('{% andere %}', '{% else %}')
+    content = content.replaceAll('{%- andere %}', '{%- else %}')
     // `{% Dateninstanz` — "data instance" = data
     content = content.replaceAll('{% Dateninstanz ', '{% data ')
+    // `{% Datenauflistung ` — "data listing" (compound) = data
+    content = content.replaceAll('{% Datenauflistung ', '{% data ')
+    content = content.replaceAll('{%- Datenauflistung ', '{%- data ')
     // `{% ifversion-Sicherheitskonfigurationen %}` — hyphenated compound
     content = content.replaceAll(
       '{% ifversion-Sicherheitskonfigurationen %}',
@@ -730,6 +770,20 @@ export function correctTranslatedContentStrings(
   // Typos in "data" keyword
   content = content.replaceAll('{% dada variables', '{% data variables')
   content = content.replaceAll('{% % data', '{% data')
+
+  // Leading dot in `{% data` paths: `{% data .variables.X %}` / `{% data .reusables.X %}`
+  // — translator inserted a stray dot. Affects ja, pt, zh.
+  content = content.replaceAll('{% data .variables.', '{% data variables.')
+  content = content.replaceAll('{%- data .variables.', '{%- data variables.')
+  content = content.replaceAll('{% data .reusables.', '{% data reusables.')
+  content = content.replaceAll('{%- data .reusables.', '{%- data reusables.')
+
+  // Singular "variable" / "reusable" in `{% data` paths:
+  // `{% data variable.product.X %}` → `{% data variables.product.X %}` (es, zh)
+  content = content.replaceAll('{% data variable.', '{% data variables.')
+  content = content.replaceAll('{%- data variable.', '{%- data variables.')
+  content = content.replaceAll('{% data reusable.', '{% data reusables.')
+  content = content.replaceAll('{%- data reusable.', '{%- data reusables.')
 
   // Double-quote corruption in href attributes
   content = content.replace(/href=""https:\/\//g, 'href="https://')

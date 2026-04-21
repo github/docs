@@ -129,7 +129,6 @@ The [Sentry MCP server](https://github.com/getsentry/sentry-mcp) gives {% data v
       // We can use the $SENTRY_HOST environment variable which is passed to
       // the server because of the `env` value below.
       "args": ["@sentry/mcp-server@latest", "--host=$SENTRY_HOST"],
-      "tools": ["get_issue_details", "get_issue_summary"],
       "env": {
         // We can specify an environment variable value as a string...
         "SENTRY_HOST": "https://contoso.sentry.io",

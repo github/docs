@@ -1,5 +1,14 @@
 # Docs changelog
 
+**21 April 2026**
+
+We recently published two new guides for organizations adopting Copilot cloud agent.
+
+* Pre-enablement: [Building guardrails for GitHub Copilot cloud agent](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/build-guardrails) helps you expand built-in protections to create a secure environment for agents to operate in.
+* Post-enablement: [Giving GitHub Copilot cloud agent access to resources in your organization](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/give-access-to-resources) helps you get more out of Copilot by giving it access to MCP servers and internal packages, while promoting secure, consistent practices.
+
+<hr>
+
 **15 April 2026**
 
 LSP servers greatly improve Copilot CLI's ability to work with your code. For example, when Copilot renames a symbol throughout a project it can do this more quickly and reliably if it has access to an LSP server for the language the code is written in.

@@ -50,7 +50,7 @@ Common settings include:
 
 | Key | Type | Description |
 |-----|------|-------------|
-| `model` | string | AI model to use (e.g., `"gpt-5.2"`, `"claude-sonnet-4.6"`) |
+| `model` | string | AI model to use (for example, `"gpt-5.2"`, `"claude-sonnet-4.6"`). Set to `Auto` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. |
 | `effortLevel` | string | Reasoning effort level for models that support it |
 | `theme` | string | Color theme: `"auto"`, `"dark"`, or `"light"` |
 | `mouse` | boolean | Enable mouse support in alt screen mode (default: `true`) |
@@ -61,9 +61,8 @@ Common settings include:
 | `stream` | boolean | Stream responses token by token (default: `true`) |
 | `includeCoAuthoredBy` | boolean | Add Co-authored-by to agent-created commits (default: `true`) |
 | `respectGitignore` | boolean | Exclude gitignored files from the `@` file picker (default: `true`) |
-| `trusted_folders` | string[] | Folders where read/execute permission has been granted |
-| `allowed_urls` | string[] | URLs or domains allowed without prompting |
-| `denied_urls` | string[] | URLs or domains that are always denied |
+| `allowedUrls` | string[] | URLs or domains allowed without prompting |
+| `deniedUrls` | string[] | URLs or domains that are always denied |
 | `logLevel` | string | Log verbosity: `"none"`, `"error"`, `"warning"`, `"info"`, `"debug"`, `"all"`, or `"default"` (default: `"default"`) |
 | `disableAllHooks` | boolean | Disable all hooks (default: `false`) |
 | `hooks` | object | Inline user-level hook definitions |

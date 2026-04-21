@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/customize-the-agent-environment
   - /copilot/how-tos/agents/coding-agent/customize-the-agent-environment
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -110,28 +110,7 @@ In its ephemeral development environment, {% data variables.product.prodname_cop
 
 You can use a Copilot setup steps file to deterministically install tools or dependencies before {% data variables.product.prodname_copilot_short %} starts work. To do this, add `steps` to the `copilot-setup-steps` job:
 
-```yaml
-# ...
-
-jobs:
-  copilot-setup-steps:
-    # ...
-
-    # You can define any steps you want, and they will run before the agent starts.
-    # If you do not check out your code, Copilot will do this for you.
-    steps:
-      - name: Checkout code
-        uses: {% data reusables.actions.action-checkout %}
-
-      - name: Set up Node.js
-        uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - name: Install JavaScript dependencies
-        run: npm ci
-```
+{% data reusables.copilot.cloud-agent.install-dependencies %}
 
 ## Upgrading to larger {% data variables.product.prodname_dotcom %}-hosted {% data variables.product.prodname_actions %} runners
 
@@ -158,14 +137,14 @@ By default, {% data variables.product.prodname_copilot_short %} works in a stand
 
 ## Using self-hosted {% data variables.product.prodname_actions %} runners
 
-You can run {% data variables.copilot.copilot_cloud_agent %} on self-hosted runners. You may want to do this to match how you run CI/CD workflows on {% data variables.product.prodname_actions %}, or to give {% data variables.product.prodname_copilot_short %} access to internal resources on your network. 
+You can run {% data variables.copilot.copilot_cloud_agent %} on self-hosted runners. You may want to do this to match how you run CI/CD workflows on {% data variables.product.prodname_actions %}, or to give {% data variables.product.prodname_copilot_short %} access to internal resources on your network.
 
 We recommend that you only use {% data variables.copilot.copilot_cloud_agent %} with ephemeral, single-use runners that are not reused for multiple jobs. Most customers set this up using ARC (Actions Runner Controller) or the {% data variables.product.prodname_actions %} Runner Scale Set Client. For more information, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#supported-autoscaling-solutions).
 
 > [!NOTE]
 > {% data variables.copilot.copilot_cloud_agent %} is only compatible with Ubuntu x64 and Windows 64-bit runners. Runners with macOS or other operating systems are not supported.
 
-1. Configure network security controls for your {% data variables.product.prodname_actions %} runners to ensure that {% data variables.copilot.copilot_cloud_agent %} does not have open access to your network or the public internet. 
+1. Configure network security controls for your {% data variables.product.prodname_actions %} runners to ensure that {% data variables.copilot.copilot_cloud_agent %} does not have open access to your network or the public internet.
 
     You must configure your firewall to allow connections to the [standard hosts required for {% data variables.product.prodname_actions %} self-hosted runners](/actions/reference/runners/self-hosted-runners#accessible-domains-by-function), plus the following hosts:
 
@@ -193,7 +172,7 @@ We recommend that you only use {% data variables.copilot.copilot_cloud_agent %} 
 
 ## Switching {% data variables.product.prodname_copilot_short %} to a Windows development environment
 
-By default, {% data variables.product.prodname_copilot_short %} uses an Ubuntu Linux-based development environment. 
+By default, {% data variables.product.prodname_copilot_short %} uses an Ubuntu Linux-based development environment.
 
 You may want to use a Windows development environment if you're building software for Windows or your repository uses a Windows-based toolchain so {% data variables.product.prodname_copilot_short %} can build your project, run tests and validate its work.
 

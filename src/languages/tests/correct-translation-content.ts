@@ -131,6 +131,11 @@ describe('correctTranslatedContentStrings', () => {
         '{% data reusables.profile.access_org %}',
       )
     })
+
+    test('fixes siVersion → ifversion', () => {
+      expect(fix('{% siVersion productos-ghas %}', 'es')).toBe('{% ifversion productos-ghas %}')
+      expect(fix('{%- siVersion productos-ghas %}', 'es')).toBe('{%- ifversion productos-ghas %}')
+    })
   })
 
   // ─── JAPANESE (ja) ──────────────────────────────────────────────────
@@ -318,6 +323,26 @@ describe('correctTranslatedContentStrings', () => {
       )
     })
 
+    test('fixes en-dash in trim modifier', () => {
+      // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
+      expect(fix('{%– ifversion projects-v1 %}', 'pt')).toBe('{%- ifversion projects-v1 %}')
+      expect(fix('{%– endif %}', 'pt')).toBe('{%- endif %}')
+    })
+
+    test('fixes datavariables / dadosvariables (no space)', () => {
+      // `{% datavariables` — no space between "data" and "variables" (post-translation)
+      expect(fix('{% datavariables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- datavariables.product.github %}', 'pt')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      // `{% dadosvariables` — Portuguese "dados" fused with "variables"
+      expect(fix('{% dadosvariables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
     test('fixes translated else variants', () => {
       expect(fix('{% senão %}', 'pt')).toBe('{% else %}')
       expect(fix('{%- senão %}', 'pt')).toBe('{%- else %}')
@@ -434,6 +459,13 @@ describe('correctTranslatedContentStrings', () => {
         '{% data variables.product.github %}',
       )
       expect(fix('{% 数据可重用s.foo %}', 'zh')).toBe('{% data reusables.foo %}')
+      // No space between `{%` and 数据
+      expect(fix('{%数据variables.product.github%}', 'zh')).toBe(
+        '{% data variables.product.github%}',
+      )
+      expect(fix('{%数据 variables.product.github%}', 'zh')).toBe(
+        '{% data variables.product.github%}',
+      )
     })
 
     test('fixes translated else and raw', () => {
@@ -687,6 +719,14 @@ describe('correctTranslatedContentStrings', () => {
         '{% data variables.product.github %}',
       )
       expect(fix('{% données reusables.foo %}', 'fr')).toBe('{% data reusables.foo %}')
+      // `{% de données variables.` — preposition "de" prepended
+      expect(fix('{% de données variables.product.github %}', 'fr')).toBe(
+        '{% data variables.product.github %}',
+      )
+      // `{% de data variables.` — partially-corrected form
+      expect(fix('{% de data variables.product.github %}', 'fr')).toBe(
+        '{% data variables.product.github %}',
+      )
     })
 
     test('fixes translated else', () => {
@@ -889,6 +929,15 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% 주석 끝 %}', 'ko')).toBe('{% endnote %}')
       expect(fix('{%- 주석 끝 %}', 'ko')).toBe('{%- endnote %}')
     })
+
+    test('fixes capitalized Variables → data variables', () => {
+      expect(fix('{% data Variables.product.github %}', 'ko')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- data Variables.product.github %}', 'ko')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
   })
 
   // ─── GERMAN (de) ──────────────────────────────────────────────────
@@ -1088,6 +1137,44 @@ describe('correctTranslatedContentStrings', () => {
         '{% ifversion enterprise-installed-apps %}',
       )
     })
+
+    test('fixes data-variables (hyphen instead of space)', () => {
+      expect(fix('{% data-variables.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- data-variables.product.github %}', 'de')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
+
+    test('fixes Datenworkflow variables → data variables', () => {
+      expect(fix('{%- Datenworkflow variables.product.prodname_actions %}', 'de')).toBe(
+        '{%- data variables.product.prodname_actions %}',
+      )
+      expect(fix('{% Datenworkflow variables.product.prodname_actions %}', 'de')).toBe(
+        '{% data variables.product.prodname_actions %}',
+      )
+    })
+
+    test('fixes ifec → ifversion', () => {
+      expect(fix('{% ifec ghec %}', 'de')).toBe('{% ifversion ghec %}')
+      expect(fix('{%- ifec ghec %}', 'de')).toBe('{%- ifversion ghec %}')
+    })
+
+    test('fixes andere → else', () => {
+      expect(fix('{% andere %}', 'de')).toBe('{% else %}')
+      expect(fix('{%- andere %}', 'de')).toBe('{%- else %}')
+    })
+
+    test('fixes Datenauflistung → data', () => {
+      // `{% Datenauflistung variables.X %}` — "data listing" compound = data
+      expect(fix('{% Datenauflistung variables.product.github %}', 'de')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- Datenauflistung variables.product.github %}', 'de')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
   })
 
   describe('Generic fixes (all languages)', () => {
@@ -1106,6 +1193,28 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- Data variables.product.github %}', 'es')).toBe(
         '{%- data variables.product.github %}',
       )
+    })
+
+    test('fixes leading dot in {% data paths', () => {
+      // `{% data .variables.X %}` — translator inserted a stray dot
+      expect(fix('{% data .variables.product.prodname_ghe_server %}', 'ja')).toBe(
+        '{% data variables.product.prodname_ghe_server %}',
+      )
+      expect(fix('{%- data .variables.product.github %}', 'pt')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      expect(fix('{% data .reusables.foo.bar %}', 'zh')).toBe('{% data reusables.foo.bar %}')
+    })
+
+    test('fixes singular variable / reusable in {% data paths', () => {
+      // `{% data variable.product.X %}` (singular) → `{% data variables.product.X %}`
+      expect(fix('{% data variable.product.prodname_container_registry %}', 'zh')).toBe(
+        '{% data variables.product.prodname_container_registry %}',
+      )
+      expect(fix('{%- data variable.product.github %}', 'es')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      expect(fix('{% data reusable.foo.bar %}', 'fr')).toBe('{% data reusables.foo.bar %}')
     })
 
     test('fixes capitalized platform tags across all languages', () => {
