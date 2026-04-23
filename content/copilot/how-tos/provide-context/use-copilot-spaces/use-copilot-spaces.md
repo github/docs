@@ -31,7 +31,7 @@ Once you've accessed space context from your IDE:
 To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need to:
 
 * Set up the remote {% data variables.product.github %} MCP server for your IDE. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server) and [Remote {% data variables.product.github %} MCP Server](https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md) in the {% data variables.product.github %} MCP server documentation.
-* Configure the set up of the remote {% data variables.product.github %} MCP server so that the {% data variables.copilot.copilot_spaces_short %} toolset is enabled.
+* Configure the remote {% data variables.product.github %} MCP server so that the {% data variables.copilot.copilot_spaces_short %} toolset is enabled.
 
   The {% data variables.copilot.copilot_spaces_short %} toolset is not included in the default configuration, so you must explicitly enable it using the `X-MCP-Toolsets` header. The following example configuration enables both the default tools and {% data variables.copilot.copilot_spaces_short %}:
 
