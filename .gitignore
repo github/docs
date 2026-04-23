@@ -106,3 +106,6 @@ tmp/
 
 # Localized content from translation repositories
 translations/
+
+# Shared local volume (bufo)
+.local

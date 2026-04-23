@@ -378,15 +378,23 @@ The `job` context contains information about the currently running job.
 | `job.services.<service_id>.network` | `string` | The ID of the service container network. The runner creates the network used by all containers in a job. |
 | `job.services.<service_id>.ports` | `object` | The exposed ports of the service container. |
 | `job.status` | `string` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
+| `job.workflow_ref` | `string` | The full ref of the workflow file that defines the current job. For example, `octo-org/octo-repo/.github/workflows/deploy.yml@refs/heads/main`. For jobs defined directly in a workflow file, this is the same as `github.workflow_ref`. For jobs defined in a [AUTOTITLE](/actions/using-workflows/reusing-workflows), this refers to the reusable workflow file. (not available on {% data variables.product.prodname_ghe_server %}) |
+| `job.workflow_sha` | `string` | The commit SHA of the workflow file that defines the current job. (not available on {% data variables.product.prodname_ghe_server %}) |
+| `job.workflow_repository` | `string` | The `owner/repo` of the repository containing the workflow file that defines the current job. For example, `octo-org/octo-repo`. (not available on {% data variables.product.prodname_ghe_server %}) |
+| `job.workflow_file_path` | `string` | The file path of the workflow file that defines the current job, relative to the repository root. For example, `.github/workflows/deploy.yml`. (not available on {% data variables.product.prodname_ghe_server %}) |
 
 ### Example contents of the `job` context
 
-This example `job` context uses a PostgreSQL service container with mapped ports. If there are no containers or service containers used in a job, the `job` context only contains the `status` and `check_run_id` properties.
+This example `job` context uses a PostgreSQL service container with mapped ports. If there are no containers or service containers used in a job, the `job` context only contains `status`. The `check_run_id` and workflow identity properties (`workflow_ref`, `workflow_sha`, `workflow_repository`, `workflow_file_path`) are not available on {% data variables.product.prodname_ghe_server %}.
 
 ```json
 {
   "status": "success",
-  {% ifversion fpt or ghec %}"check_run_id": 51725241954,{% endif %}
+  "check_run_id": 51725241954,
+  "workflow_ref": "octo-org/octo-repo/.github/workflows/deploy.yml@refs/heads/main",
+  "workflow_sha": "abc123def456789abc123def456789abc123def4",
+  "workflow_repository": "octo-org/octo-repo",
+  "workflow_file_path": ".github/workflows/deploy.yml",
   "container": {
     "network": "github_network_53269bd575974817b43f4733536b200c"
   },
@@ -425,6 +433,32 @@ jobs:
     steps:
       - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: echo "Run tests against Postgres"
+```
+
+### Example usage of `job` context workflow identity
+
+> [!NOTE]
+> The `job.workflow_*` context properties are not available on {% data variables.product.prodname_ghe_server %}.
+
+This example reusable workflow uses `job.workflow_repository` and `job.workflow_sha` to check out its own source code, rather than the caller's repository. This is useful when a reusable workflow needs to access files co-located with the workflow definition.
+
+```yaml copy
+# In a reusable workflow (e.g., octo-org/shared-workflows/.github/workflows/deploy.yml)
+name: Reusable deploy workflow
+on:
+  workflow_call:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+        with:
+          repository: {% raw %}${{ job.workflow_repository }}{% endraw %}
+          ref: {% raw %}${{ job.workflow_sha }}{% endraw %}
+
+      - run: echo "Deploying from {% raw %}${{ job.workflow_ref }}{% endraw %}"
+      - run: echo "Workflow file path is {% raw %}${{ job.workflow_file_path }}{% endraw %}"
 ```
 
 ## `jobs` context

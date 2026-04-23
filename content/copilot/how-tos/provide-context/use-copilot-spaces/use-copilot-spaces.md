@@ -12,14 +12,6 @@ category:
 
 For information on creating {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces).
 
-## Using {% data variables.copilot.copilot_spaces %} in {% data variables.product.github %}
-
-Once you've added context to your space, you can ask {% data variables.product.prodname_copilot_short %} questions in the space's chat interface in {% data variables.product.github %}. Your chat will be grounded in the context you've added. You can view all conversations you have had in the space's "Conversations" tab.
-
-You can also change the large language model (LLM) used for your space by selecting the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then clicking the AI model of your choice. For more information, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
-
-To star your favorite spaces so that you can easily find them later, you can click **{% octicon "star" aria-hidden="true" aria-label="star" %}** in the top right corner of the space. To view all spaces available to you, including starred spaces, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces?ref_product=copilot&ref_type=engagement&ref_style=text).
-
 ## Using {% data variables.copilot.copilot_spaces %} in your IDE
 
 You can also access the information and context from {% data variables.copilot.copilot_spaces_short %} directly in your IDE using the {% data variables.product.github %} MCP server. This allows you to leverage your curated context while coding without switching between your IDE and the web interface.

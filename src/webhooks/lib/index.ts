@@ -1,10 +1,13 @@
+import fs, { promises as fsPromises } from 'fs'
 import path from 'path'
+import { brotliDecompress } from 'zlib'
+import { promisify } from 'util'
+
+import QuickLRU from 'quick-lru'
 
 import { getOpenApiVersion } from '@/versions/lib/all-versions'
-import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 
 export const WEBHOOK_DATA_DIR = 'src/webhooks/data'
-export const WEBHOOK_SCHEMA_FILENAME = 'schema.json'
 
 interface WebhookBodyParameter {
   name?: string
@@ -27,8 +30,20 @@ interface WebhookActionData {
 type WebhookCategory = Record<string, WebhookActionData>
 type WebhookData = Record<string, WebhookCategory>
 
-// cache for webhook data per version
-const webhooksCache = new Map<string, Promise<WebhookData>>()
+// Two-tier cache: fpt and ghec are pinned in a plain Map (never evicted) because
+// they account for the vast majority of traffic. All other versions (ghes) go
+// into a bounded LRU cache to prevent unbounded memory growth.
+const PINNED_OPEN_API_VERSIONS = new Set(['fpt', 'ghec'])
+const pinnedCache = new Map<string, WebhookCategory>()
+const LRU_MAX_SIZE = Math.max(1, parseInt(process.env.WEBHOOK_SCHEMA_LRU_SIZE ?? '', 10) || 96)
+const lruCache = new QuickLRU<string, WebhookCategory>({ maxSize: LRU_MAX_SIZE })
+
+// In-flight deduplication: concurrent cache misses for the same key share one
+// file read instead of each triggering their own.
+const inflight = new Map<string, Promise<WebhookCategory>>()
+
+const brotliDecompressAsync = promisify(brotliDecompress)
+
 // cache for webhook data for when you first visit the webhooks page where we
 // show all webhooks for the current version but only 1 action type per webhook
 // and also no nested parameters
@@ -78,32 +93,69 @@ export async function getInitialPageWebhooks(version: string): Promise<InitialWe
   return initialWebhooks
 }
 
+// Allowlist pattern for webhook category names: only lowercase letters, digits,
+// and underscores. This prevents path traversal (e.g. "../secret") when the
+// category comes from user-supplied query parameters.
+const SAFE_CATEGORY_RE = /^[a-z0-9_]+$/
+
 // returns the webhook data for the given version and webhook category (e.g.
 // `check_run`) -- this includes all the data per webhook action type and all
-// nested parameters
+// nested parameters. Loads only the requested category file on demand.
 export async function getWebhook(
   version: string,
   webhookCategory: string,
 ): Promise<WebhookCategory | undefined> {
-  const webhooks = await getWebhooks(version)
-  return webhooks[webhookCategory]
-}
+  if (!SAFE_CATEGORY_RE.test(webhookCategory)) return undefined
 
-// returns all the webhook data for the given version
-export async function getWebhooks(version: string): Promise<WebhookData> {
   const openApiVersion = getOpenApiVersion(version)
-  if (!webhooksCache.has(openApiVersion)) {
-    // The `readCompressedJsonFileFallback()` function
-    // will check for both a .br and .json extension.
-    webhooksCache.set(
-      openApiVersion,
-      Promise.resolve(
-        readCompressedJsonFileFallback(
-          path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME),
-        ) as WebhookData,
-      ),
-    )
+  const cacheKey = `${openApiVersion}:${webhookCategory}`
+  const cache = PINNED_OPEN_API_VERSIONS.has(openApiVersion) ? pinnedCache : lruCache
+
+  if (!cache.has(cacheKey)) {
+    const basePath = path.join(WEBHOOK_DATA_DIR, openApiVersion, `${webhookCategory}.json`)
+    if (!inflight.has(cacheKey)) {
+      inflight.set(
+        cacheKey,
+        loadWebhookFile(basePath).finally(() => inflight.delete(cacheKey)),
+      )
+    }
+    cache.set(cacheKey, await inflight.get(cacheKey)!)
   }
 
-  return webhooksCache.get(openApiVersion) || Promise.resolve({})
+  return cache.get(cacheKey)
+}
+
+// returns all the webhook data for the given version by loading each category
+// file in parallel. Results are cached per-category so repeated calls are cheap.
+export async function getWebhooks(version: string): Promise<WebhookData> {
+  const categories = getWebhookCategories(version)
+  const entries = await Promise.all(
+    categories.map(async (category) => [category, await getWebhook(version, category)]),
+  )
+  return Object.fromEntries(entries)
+}
+
+// returns the list of webhook category names available for the given version
+// by reading the data directory. Mirrors getRestCategories() in src/rest/lib/index.ts.
+export function getWebhookCategories(version: string): string[] {
+  const openApiVersion = getOpenApiVersion(version)
+  return fs
+    .readdirSync(path.join(WEBHOOK_DATA_DIR, openApiVersion))
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => f.replace('.json', ''))
+    .sort()
+}
+
+// Read asynchronously to avoid blocking the event loop on a cache miss.
+// Try the brotli-compressed variant first (used in staging), then plain JSON.
+async function loadWebhookFile(basePath: string): Promise<WebhookCategory> {
+  try {
+    const compressed = await fsPromises.readFile(`${basePath}.br`)
+    const decompressed = await brotliDecompressAsync(compressed)
+    return JSON.parse(decompressed.toString()) as WebhookCategory
+  } catch {
+    // .br missing or unreadable — fall back to plain JSON
+    const raw = await fsPromises.readFile(basePath, 'utf-8')
+    return JSON.parse(raw) as WebhookCategory
+  }
 }

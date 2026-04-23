@@ -175,6 +175,7 @@ copilot_gpt_52_codex: 'GPT-5.2-Codex'
 copilot_gpt_53_codex: 'GPT-5.3-Codex'
 copilot_gpt_54: 'GPT-5.4'
 copilot_gpt_54_mini: 'GPT-5.4 mini'
+copilot_gpt_54_nano: 'GPT-5.4 nano'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'

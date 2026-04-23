@@ -24,7 +24,10 @@ copilot-cli:
     - content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md
     - content/copilot/reference/copilot-cli-reference/acp-server.md
     - content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md
-  exclusions: []
+  exclusions:
+    - All mentions of, or information directly relating to, feature flags
+    - enabledFeatureFlags configuration setting
+    - COPILOT_CLI_ENABLED_FEATURE_FLAGS environment variable
   content-mapping: |
     cli-plugin-reference.md covers only plugin-specific content.
     All other CLI topics (hooks, MCP, skills, agents, permissions, etc.) belong in cli-command-reference.md even when they mention plugins.

@@ -22,5 +22,6 @@ children:
   - /fedramp-models
   - /network-settings
   - /fallback-and-lts-models
+  - /preparing-for-new-features-and-models
 contentType: concepts
 ---
