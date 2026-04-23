@@ -18,7 +18,9 @@ contentType: concepts
 
 Agent skills are folders of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} can load when relevant to improve its performance in specialized tasks. The Agent Skills specification is an [open standard](https://github.com/agentskills/agentskills), used by a range of different AI systems.
 
-You can create your own skills to teach {% data variables.product.prodname_copilot_short %} to perform tasks in a specific, repeatable way—or use skills shared online, for example in the [`anthropics/skills`](https://github.com/anthropics/skills) repository or {% data variables.product.company_short %}'s community created [`github/awesome-copilot`](https://github.com/github/awesome-copilot) collection.
+You can create your own skills to teach {% data variables.product.prodname_copilot_short %} to perform tasks in a specific, repeatable way—or use skills shared online, for example in the [`anthropics/skills`](https://github.com/anthropics/skills) repository or {% data variables.product.company_short %}'s community-created [`github/awesome-copilot`](https://github.com/github/awesome-copilot) collection. 
+
+You can also use `gh skill` in {% data variables.product.prodname_cli %} to discover and install skills from {% data variables.product.github %} repositories. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills#managing-skills-with-github-cli).
 
 {% data variables.product.prodname_copilot_short %} supports:
 

@@ -19,7 +19,7 @@ jobs:
     if: github.event.label.name == 'fix-internally' && github.repository == 'github/docs'
     steps:
       - name: Check if this run was triggered by a member of the docs team
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         id: triggered-by-member
         with:
           github-token: ${{secrets.DOCS_BOT_PAT_BASE}}

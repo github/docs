@@ -4,7 +4,13 @@
 //   - Conditional on OTEL_EXPORTER_OTLP_TRACES_ENDPOINT being set
 //   - OTLP/HTTP (proto) exporter to OTel Collector mesh
 //   - W3C Trace Context + Baggage propagation
-//   - Node auto-instrumentation for HTTP, Express, etc.
+//   - Explicit instrumentation list (HTTP, Express, Undici/fetch) instead of
+//     `getNodeAutoInstrumentations()`. The "auto" helper enables ~30
+//     instrumentations including ones that patch Node core modules
+//     (`fs`, `net`, `dns`) on every server. Several of these are known to
+//     cause performance and listener-leak issues — OTel itself recommends
+//     disabling `instrumentation-fs` in production. We only have HTTP traffic
+//     and outbound fetch in this app, so we wire those up explicitly.
 //
 // References:
 //   - https://thehub.github.com/epd/engineering/dev-practicals/observability/distributed-tracing/
@@ -16,7 +22,9 @@ import {
   W3CTraceContextPropagator,
 } from '@opentelemetry/core'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto'
-import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node'
+import { ExpressInstrumentation } from '@opentelemetry/instrumentation-express'
+import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
+import { UndiciInstrumentation } from '@opentelemetry/instrumentation-undici'
 import { NodeSDK } from '@opentelemetry/sdk-node'
 
 // For tracing diagnostics, uncomment these lines:
@@ -27,7 +35,11 @@ if (process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT) {
   const sdk = new NodeSDK({
     serviceName: process.env.OTEL_SERVICE_NAME || 'docs-internal',
     traceExporter: new OTLPTraceExporter({}),
-    instrumentations: [getNodeAutoInstrumentations()],
+    instrumentations: [
+      new HttpInstrumentation(),
+      new ExpressInstrumentation(),
+      new UndiciInstrumentation(),
+    ],
     textMapPropagator: new CompositePropagator({
       propagators: [new W3CTraceContextPropagator(), new W3CBaggagePropagator()],
     }),

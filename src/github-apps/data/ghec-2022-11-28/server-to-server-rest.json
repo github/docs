@@ -3411,6 +3411,24 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
     },
     {
+      "slug": "add-issue-field-values-to-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
+    },
+    {
+      "slug": "set-issue-field-values-for-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
+    },
+    {
+      "slug": "delete-an-issue-field-value-from-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}"
+    },
+    {
       "slug": "list-labels-for-an-issue",
       "subcategory": "labels",
       "verb": "get",
@@ -3553,24 +3571,6 @@
       "subcategory": "labels",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels"
-    },
-    {
-      "slug": "add-issue-field-values-to-an-issue",
-      "subcategory": "issue-field-values",
-      "verb": "post",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values"
-    },
-    {
-      "slug": "set-issue-field-values-for-an-issue",
-      "subcategory": "issue-field-values",
-      "verb": "put",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values"
-    },
-    {
-      "slug": "delete-an-issue-field-value-from-an-issue",
-      "subcategory": "issue-field-values",
-      "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}"
     }
   ],
   "licenses": [
@@ -4923,6 +4923,18 @@
       "subcategory": "pulls",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}"
+    },
+    {
+      "slug": "archive-a-pull-request",
+      "subcategory": "pulls",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive"
+    },
+    {
+      "slug": "unarchive-a-pull-request",
+      "subcategory": "pulls",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive"
     },
     {
       "slug": "list-review-comments-on-a-pull-request",

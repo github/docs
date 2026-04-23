@@ -17,7 +17,9 @@ category:
 ---
 
 > [!IMPORTANT]
-> {% data reusables.copilot.plans.individual-plans-paused %} If you hit unexpected limits as a result of these changes, you can cancel your Pro or Pro+ subscription and receive a refund for the time remaining on your current subscription. Please reach out to [GitHub support](https://support.github.com/) between April 20 and May 20, 2026, for a refund.
+> {% data reusables.copilot.plans.individual-plans-paused %} If you hit unexpected limits or these changes just don’t work for you, you can cancel your Pro or Pro+ subscription and receive a refund for the time remaining on your current subscription before May 20.
+> 1. To cancel and receive a refund for the time remaining, go to your [Billing settings](https://github.com/settings/billing/licensing).
+> 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel and refund subscription**.
 
 ## Pricing for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}
 

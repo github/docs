@@ -9930,6 +9930,39 @@
       },
       {
         "category": "issues",
+        "slug": "add-issue-field-values-to-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "set-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-field-value-from-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "list-labels-for-an-issue",
         "subcategory": "labels",
         "verb": "get",
@@ -10221,39 +10254,6 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels",
         "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "add-issue-field-values-to-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "post",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "set-issue-field-values-for-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "put",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "delete-an-issue-field-value-from-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
-        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
@@ -10938,6 +10938,39 @@
       },
       {
         "category": "issues",
+        "slug": "add-issue-field-values-to-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "set-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-field-value-from-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "list-labels-for-an-issue",
         "subcategory": "labels",
         "verb": "get",
@@ -11268,6 +11301,28 @@
       },
       {
         "category": "pulls",
+        "slug": "archive-a-pull-request",
+        "subcategory": "pulls",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "unarchive-a-pull-request",
+        "subcategory": "pulls",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
         "slug": "list-review-comments-on-a-pull-request",
         "subcategory": "comments",
         "verb": "get",
@@ -11463,39 +11518,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "issues",
-        "slug": "add-issue-field-values-to-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "post",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "set-issue-field-values-for-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "put",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "delete-an-issue-field-value-from-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       }
     ]
   },

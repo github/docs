@@ -25,7 +25,6 @@ Agent skills are folders of instructions, scripts, and resources that {% data va
 
    SKILL-NAME is defined in the SKILL.md file and is typically the same as the name of the skill directory.
 
-
 ## Using agent skills
 
 {% data reusables.copilot.skills-using %}

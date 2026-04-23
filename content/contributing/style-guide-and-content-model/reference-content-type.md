@@ -1,6 +1,8 @@
 ---
 title: Reference content type
 intro: Reference content provides detailed information that people need while they are actively using a feature.
+redirect_from:
+  - /contributing/style-guide-and-content-model/referential-content-type
 versions:
   fpt: '*'
   ghec: '*'

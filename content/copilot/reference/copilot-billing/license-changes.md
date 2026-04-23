@@ -11,7 +11,9 @@ contentType: reference
 ---
 
 > [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans are temporarily paused. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded, downgraded, or canceled. If you hit unexpected limits as a result of these changes, you can cancel your Pro or Pro+ subscription and receive a refund for the time remaining on your current subscription. Please reach out to [GitHub support](https://support.github.com/) between April 20 and May 20, 2026, for a refund.
+> **Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans are temporarily paused. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded, downgraded, or canceled. If you hit unexpected limits or these changes just don’t work for you, you can cancel your Pro or Pro+ subscription and receive a refund for the time remaining on your current subscription before May 20.
+> 1. To cancel and receive a refund for the time remaining, go to your [Billing settings](https://github.com/settings/billing/licensing).
+> 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel and refund subscription**.
 
 {% data variables.product.prodname_copilot_short %} follows the same billing rules as other license-based products on {% data variables.product.company_short %}.
 For the general concepts, see:
