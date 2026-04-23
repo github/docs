@@ -133,7 +133,28 @@ jobs:
             --label "workflow-generated" \
             --head=$branch_name
           echo "Merge created PR..."
-          retry_command gh pr merge --merge --auto --delete-branch "$branch_name"
+          # Prefer enabling auto-merge so the PR waits for any required
+          # checks before merging. If auto-merge can't be enabled — usually
+          # because all required checks completed before this step ran and
+          # the PR is already immediately mergeable — fall back to a direct
+          # merge. GitHub returns one of these misleading errors in that
+          # case: "Branch does not have required protected branch rules",
+          # "Pull request is in unstable status", or "Pull request is not
+          # in a mergeable state".
+          auto_merge_err=$(mktemp)
+          trap 'rm -f "$auto_merge_err"' EXIT
+          if retry_command gh pr merge --merge --auto --delete-branch "$branch_name" 2>"$auto_merge_err"; then
+            :
+          else
+            cat "$auto_merge_err"
+            if grep -qE "does not have required protected branch rules|unstable status|Pull request is not in a mergeable state" "$auto_merge_err"; then
+              echo "Auto-merge unavailable; PR appears immediately mergeable. Falling back to direct merge."
+              retry_command gh pr merge --merge --delete-branch "$branch_name"
+            else
+              echo "Auto-merge failed with an unexpected error."
+              exit 1
+            fi
+          fi
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

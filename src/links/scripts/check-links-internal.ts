@@ -41,6 +41,7 @@ import { uploadArtifact } from '@/links/scripts/upload-artifact'
 import { createReportIssue, linkReports } from '@/workflows/issue-report'
 import github from '@/workflows/github'
 import excludedLinks from '@/links/lib/excluded-links'
+import { getFeaturesByVersion } from '@/versions/middleware/features'
 import type { Page, Permalink, Context } from '@/types'
 import * as coreLib from '@actions/core'
 
@@ -171,6 +172,17 @@ async function checkVersion(
 
   console.log(`  Checking ${relevantPages.length} pages for ${version}/${language}`)
 
+  // Build a base context once per version — feature flags and version info are the same for all pages
+  const baseContext: Context = {
+    currentVersion: version,
+    currentLanguage: language,
+    currentVersionObj: versionObj,
+    [versionObj.shortName]: true,
+    pages: pageMap,
+    redirects,
+    ...getFeaturesByVersion(version),
+  } as Context
+
   for (const page of relevantPages) {
     // Find the permalink for this version
     const permalink = page.permalinks?.find((p) => p.pageVersion === version)
@@ -178,18 +190,12 @@ async function checkVersion(
 
     totalPagesChecked++
 
-    // Create context for rendering
-    const context: Context = {
-      currentVersion: version,
-      currentLanguage: language,
-      currentVersionObj: versionObj,
-      page,
-      pages: pageMap,
-      redirects,
-    } as Context
+    // Mutate the page property in place — safe because the loop is sequential (each iteration
+    // awaits before the next begins), so there is no concurrent access to baseContext.
+    baseContext.page = page
 
     // Get links from rendered page
-    const links = await getLinksFromRenderedPage(page, permalink, context)
+    const links = await getLinksFromRenderedPage(page, permalink, baseContext)
     totalLinksChecked += links.length
 
     // Check each link
@@ -233,7 +239,7 @@ async function checkVersion(
 
     // Check anchors if enabled
     if (options.checkAnchors) {
-      const anchorFlaws = await checkAnchorsOnPage(page, permalink, context)
+      const anchorFlaws = await checkAnchorsOnPage(page, permalink, baseContext)
       brokenLinks.push(...anchorFlaws)
     }
 

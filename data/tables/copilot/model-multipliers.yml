@@ -25,6 +25,10 @@
   multiplier_paid: 30
   multiplier_free: Not applicable
 
+- name: Claude Opus 4.7
+  multiplier_paid: 7.5
+  multiplier_free: Not applicable
+
 - name: Claude Sonnet 4
   multiplier_paid: 1
   multiplier_free: Not applicable
@@ -61,10 +65,6 @@
   multiplier_paid: 0
   multiplier_free: 1
 
-- name: GPT-5.1
-  multiplier_paid: 1
-  multiplier_free: Not applicable
-
 - name: GPT-5.2
   multiplier_paid: 1.0
   multiplier_free: Not applicable
@@ -83,6 +83,10 @@
 
 - name: GPT-5.4 mini
   multiplier_paid: 0.33
+  multiplier_free: Not applicable
+
+- name: GPT-5.4 nano
+  multiplier_paid: 0.25
   multiplier_free: Not applicable
 
 - name: Grok Code Fast 1

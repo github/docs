@@ -12,6 +12,8 @@ category:
   - Learn about Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/concepts/agents/about-copilot-cli
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction

@@ -32,7 +32,11 @@ For specific ecosystems, you can configure {% data variables.product.prodname_de
 
 {% ifversion org-private-registry %}
 
-You can configure {% data variables.product.prodname_dependabot %}'s access to private registries at the org-level. For more information on how to configure that, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+You can configure {% data variables.product.prodname_dependabot %}'s access to private registries at the org-level.
+{% ifversion org-private-registry-oidc %}
+Organization-level registries support **Token**, **Username and password**, and **OIDC** authentication.
+{% endif %}
+For more information about configuration, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
 
 {% endif %}
 
@@ -125,6 +129,13 @@ If your private registry is configured with an IP allow list, you can find the I
 {% data variables.product.prodname_dependabot %} can use OpenID Connect (OIDC) to authenticate with private registries, eliminating the need to store long-lived credentials as repository secrets.
 
 With OIDC-based authentication, {% data variables.product.prodname_dependabot %} update jobs can dynamically obtain short-lived credentials from your cloud identity provider, just like {% data variables.product.prodname_actions %} workflows using OIDC federation.
+
+{% ifversion org-private-registry-oidc %}
+
+> [!TIP]
+> OIDC authentication is also available for **organization-level** private registries, which you can configure through the organization settings UI or the REST API. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#configuring-oidc-authentication-for-a-private-registry).
+
+{% endif %}
 
 {% data variables.product.prodname_dependabot %} supports OIDC authentication for any registry type that uses `username` and `password` authentication, when the registry is hosted on one of the following cloud providers:
 

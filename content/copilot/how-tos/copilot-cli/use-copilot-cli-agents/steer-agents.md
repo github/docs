@@ -7,12 +7,16 @@ versions:
   feature: copilot
 contentType: how-tos
 category:
-  - Build with Copilot CLI 
+  - Build with Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Steer the conversation while {% data variables.product.prodname_copilot_short %} is thinking
 
-You can interact with {% data variables.product.prodname_copilot_short %} while it's thinking. Send follow-up messages to steer the conversation in a different direction, or queue additional instructions for {% data variables.product.prodname_copilot_short %} to process after it finishes its current response.
+While {% data variables.product.prodname_copilot_short %} is working on a task, you can enter a new prompt at any time. Any input you send while {% data variables.product.prodname_copilot_short %} is thinking is treated as steering and is considered in the context of the current task.
+
+There is no separate instruction queue. To provide additional instructions, enter another prompt while {% data variables.product.prodname_copilot_short %} is running. {% data variables.product.prodname_copilot_short %} processes each message in order as part of the active task.
 
 Steering lets you:
 

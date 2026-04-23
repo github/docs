@@ -5,11 +5,13 @@ intro: "Extend {% data variables.product.prodname_copilot %} agent behavior with
 versions:
   feature: copilot
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/how-tos/copilot-cli/use-hooks
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 {% data reusables.copilot.cloud-agent.hooks-intro %}

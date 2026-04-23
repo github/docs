@@ -68,7 +68,7 @@ You can view data to assess the enablement status and enablement status trends o
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics," click **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Enablement trends**.
+1. In the sidebar, under "Insights," click **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Enablement**.
 1. Click on one of the tabs for "{% data variables.product.prodname_dependabot %}," "{% data variables.product.prodname_code_scanning_caps %}," or "{% data variables.product.prodname_secret_scanning_caps %}" to view enablement trends and the percentage of repositories in your organization with that feature enabled. This data is displayed as a graph and a detailed table.
 1. Optionally, use the options at the top of the "Enablement trends" view page to filter the group of repositories you want to see enablement trends for.
     * Use the date picker to set the time range that you want to view enablement trends for.
@@ -88,7 +88,7 @@ You can view data to assess the enablement status and enablement status trends o
 
 {% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
-1. To display the "Enablement trends" view, in the sidebar, click **Enablement trends**.
+1. To display the "Enablement trends" view, in the sidebar, under "Insights", click **Enablement**.
 1. Click on one of the tabs for "{% data variables.product.prodname_dependabot %}," "{% data variables.product.prodname_code_scanning_caps %}," or "{% data variables.product.prodname_secret_scanning_caps %}" to view enablement trends and the percentage of repositories across organizations in your enterprise with that feature enabled. This data is displayed as a graph and a detailed table.
 1. Optionally, use the options at the top of the "Enablement trends" view page to filter the group of repositories you want to see enablement trends for.
     * Use the date picker to set the time range that you want to view enablement trends for.

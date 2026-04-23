@@ -4586,6 +4586,16 @@
         },
         {
           "type": "string",
+          "name": "image_source",
+          "description": "<p>The source type of the runner image to use. Must match the source of the image specified by <code>image_id</code>. Can be one of <code>github</code>, <code>partner</code>, or <code>custom</code>.</p>",
+          "enum": [
+            "github",
+            "partner",
+            "custom"
+          ]
+        },
+        {
+          "type": "string",
           "name": "image_id",
           "description": "<p>The unique identifier of the runner image. To list available images, use <code>GET /actions/hosted-runners/images/github-owned</code>, <code>GET /actions/hosted-runners/images/partner</code>, or <code>GET /actions/hosted-runners/images/custom</code>.</p>"
         },
@@ -4593,6 +4603,11 @@
           "type": "string or null",
           "name": "image_version",
           "description": "<p>The version of the runner image to deploy. This is relevant only for runners using custom images.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "image_gen",
+          "description": "<p>Whether to enable image generation for this runner pool. When enabled, the runner pool is used to build and publish custom runner images.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates a GitHub-hosted runner for an organization.\nOAuth app tokens and personal access tokens (classic) need the <code>manage_runners:org</code> scope to use this endpoint.</p>",

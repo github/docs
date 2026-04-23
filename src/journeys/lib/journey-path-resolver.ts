@@ -4,6 +4,7 @@ import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import Permalink from '@/frame/lib/permalink'
 import getLinkData from './get-link-data'
+import type { Context, Page } from '@/types'
 
 export interface JourneyContext {
   trackId: string
@@ -44,7 +45,7 @@ type JourneyPage = {
   title?: string
   permalink?: string
   relativePath?: string
-  versions?: any
+  versions?: Record<string, string>
   journeyTracks?: Array<{
     id: string
     title: string
@@ -54,16 +55,6 @@ type JourneyPage = {
       alternativeNextStep?: string
     }>
   }>
-}
-
-type Pages = Record<string, any>
-type ContentContext = {
-  currentProduct?: string
-  currentLanguage?: string
-  currentVersion?: string
-  pages?: Pages
-  redirects?: any
-  [key: string]: any
 }
 
 // Cache for journey pages so we only filter all pages once
@@ -76,16 +67,16 @@ function needsRendering(str: string): boolean {
   return str.includes('{{') || str.includes('{%') || str.includes('[') || str.includes('<')
 }
 
-function getJourneyPages(pages: Pages): JourneyPage[] {
+function getJourneyPages(pages: Record<string, Page>): JourneyPage[] {
   if (!cachedJourneyPages) {
-    cachedJourneyPages = Object.values(pages).filter(
-      (page: any) => page.journeyTracks && page.journeyTracks.length > 0,
-    ) as JourneyPage[]
+    cachedJourneyPages = (Object.values(pages) as JourneyPage[]).filter(
+      (page) => page.journeyTracks && page.journeyTracks.length > 0,
+    )
   }
   return cachedJourneyPages
 }
 
-function getGuidePaths(pages: Pages): Set<string> {
+function getGuidePaths(pages: Record<string, Page>): Set<string> {
   if (!cachedGuidePaths) {
     cachedGuidePaths = new Set()
     const journeyPages = getJourneyPages(pages)
@@ -125,7 +116,7 @@ function normalizeGuidePath(path: string): string {
  */
 async function fetchGuideData(
   guidePath: string,
-  context: ContentContext,
+  context: Context,
 ): Promise<{ href: string; title: string } | null> {
   try {
     const resultData = await getLinkData(guidePath, context, {
@@ -155,8 +146,8 @@ async function fetchGuideData(
  */
 export async function resolveJourneyContext(
   articlePath: string,
-  pages: Pages,
-  context: ContentContext,
+  pages: Record<string, Page>,
+  context: Context,
   currentJourneyPage?: JourneyPage,
 ): Promise<JourneyContext | null> {
   const normalizedPath = normalizeGuidePath(articlePath)
@@ -242,6 +233,21 @@ export async function resolveJourneyContext(
           }
         }
 
+        // Build the list of guides available for the current version.
+        // fetchGuideData returns null for guides that don't exist in the current version,
+        // so this filters out unavailable guides for correct counts and navigation.
+        const availableGuides = (
+          await Promise.all(
+            track.guides.map(async (guide, i) => {
+              const guideData = await fetchGuideData(guide.href, context)
+              return guideData ? { rawIndex: i, ...guideData } : null
+            }),
+          )
+        ).filter((g): g is { rawIndex: number; href: string; title: string } => g !== null)
+
+        const filteredIndex = availableGuides.findIndex((g) => g.rawIndex === guideIndex)
+        const filteredCount = availableGuides.length
+
         result = {
           trackId: track.id,
           trackName: track.id,
@@ -249,31 +255,25 @@ export async function resolveJourneyContext(
           journeyTitle: journeyPage.title || '',
           journeyPath:
             journeyPage.permalink || Permalink.relativePathToSuffix(journeyPage.relativePath || ''),
-          currentGuideIndex: guideIndex,
-          numberOfGuides: track.guides.length,
+          currentGuideIndex: filteredIndex >= 0 ? filteredIndex : guideIndex,
+          numberOfGuides: filteredCount,
           alternativeNextStep: renderedAlternativeNextStep,
         }
 
-        // Set up previous guide
-        if (guideIndex > 0) {
-          const prevGuidePath = track.guides[guideIndex - 1].href
-          const guideData = await fetchGuideData(prevGuidePath, context)
-          if (guideData) {
-            result.prevGuide = guideData
-          }
+        // Set up previous guide using the version-filtered list
+        if (filteredIndex > 0) {
+          const prev = availableGuides[filteredIndex - 1]
+          result.prevGuide = { href: prev.href, title: prev.title }
         }
 
-        // Set up next guide
-        if (guideIndex < track.guides.length - 1) {
-          const nextGuidePath = track.guides[guideIndex + 1].href
-          const guideData = await fetchGuideData(nextGuidePath, context)
-          if (guideData) {
-            result.nextGuide = guideData
-          }
+        // Set up next guide using the version-filtered list
+        if (filteredIndex >= 0 && filteredIndex < filteredCount - 1) {
+          const next = availableGuides[filteredIndex + 1]
+          result.nextGuide = { href: next.href, title: next.title }
         }
 
-        // Only populate nextTrackFirstGuide when on the last guide of the track
-        if (guideIndex === track.guides.length - 1) {
+        // Only populate nextTrackFirstGuide when on the last guide of the filtered track
+        if (filteredIndex === filteredCount - 1) {
           foundTrackIndex = trackIndex
 
           if (
@@ -311,7 +311,7 @@ export async function resolveJourneyContext(
  */
 export async function resolveJourneyTracks(
   journeyTracks: JourneyPage['journeyTracks'],
-  context: ContentContext,
+  context: Context,
 ): Promise<JourneyTrack[]> {
   if (!journeyTracks || journeyTracks.length === 0) {
     return []
@@ -329,16 +329,18 @@ export async function resolveJourneyTracks(
           ? await renderContent(track.description, context, { textOnly: true })
           : track.description
 
-      const guides = await Promise.all(
-        track.guides.map(async (guide: { href: string; alternativeNextStep?: string }) => {
-          const linkData = await getLinkData(guide.href, context, { title: true })
-          const baseHref = linkData?.[0]?.href || guide.href
-          return {
-            href: baseHref,
-            title: linkData?.[0]?.title || 'Untitled Guide',
-          }
-        }),
-      )
+      const guides = (
+        await Promise.all(
+          track.guides.map(async (guide: { href: string; alternativeNextStep?: string }) => {
+            const linkData = await getLinkData(guide.href, context, { title: true })
+            if (!linkData?.[0]) return null
+            return {
+              href: linkData[0].href,
+              title: linkData[0].title || '',
+            }
+          }),
+        )
+      ).filter((g): g is { href: string; title: string } => g !== null)
 
       return {
         id: track.id,

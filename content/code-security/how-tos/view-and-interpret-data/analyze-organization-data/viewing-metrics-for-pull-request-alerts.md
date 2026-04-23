@@ -14,11 +14,11 @@ category:
   - Secure at scale
 ---
 
-## Viewing {% data variables.product.prodname_codeql %} pull request alerts metrics for an organization
+## Viewing {% data variables.product.prodname_codeql %} pull request metrics for an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_codeql %} pull request alerts**.
+1. In the sidebar, under "Insights", click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_codeql %} pull requests**.
 1. Optionally, use the date picker to set the time range. The date picker will show data based on the pull request alerts' creation dates.
 1. Optionally, apply filters in the search box at the top of the page.
 1. Alternatively, you can open the advanced filter dialog:
@@ -28,12 +28,12 @@ category:
     * Optionally, to remove a filter from your search, click **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter**. In the row of the filter you want to remove, click {% octicon "x" aria-label="Delete FILTER-NUMBER: FILTER-PROPERTIES" %}, then click **Apply**.{% ifversion security-overview-export-data %}
 1. You can use the **{% octicon "download" aria-hidden="true" aria-label="download" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
 
-## Viewing {% data variables.product.prodname_codeql %} pull request alerts metrics for your enterprise
+## Viewing {% data variables.product.prodname_codeql %} pull request metrics for your enterprise
 
-You can also view metrics for {% data variables.product.prodname_codeql %} alerts in pull requests across organizations in your enterprise.
+You can also view metrics for {% data variables.product.prodname_codeql %} pull request alerts across organizations in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
-1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_codeql %} pull request alerts**.
+1. In the sidebar, under "Insights", click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_codeql %} pull requests**.
 
 {% data reusables.security-overview.enterprise-filters-tip %}

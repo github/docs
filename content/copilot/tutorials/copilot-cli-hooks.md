@@ -10,6 +10,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Administer Copilot CLI # Copilot CLI bespoke page
 allowTitleToDifferFromFilename: true
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 This tutorial is for DevOps engineers, platform teams, and engineering leaders who support developers using {% data variables.copilot.copilot_cli_short %}.

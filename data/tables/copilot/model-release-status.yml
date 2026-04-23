@@ -32,13 +32,6 @@
   ask_mode: true
   edit_mode: true
 
-- name: 'GPT-5.1'
-  provider: 'OpenAI'
-  release_status: 'Closing down: 2026-04-15'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
 - name: 'GPT-5.2'
   provider: 'OpenAI'
   release_status: 'GA'
@@ -74,6 +67,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'GPT-5.4 nano'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # Anthropic models
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
@@ -99,6 +99,13 @@
 - name: 'Claude Opus 4.6 (fast mode) (preview)'
   provider: 'Anthropic'
   release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Claude Opus 4.7'
+  provider: 'Anthropic'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true

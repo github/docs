@@ -50,7 +50,6 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 {% endrowheaders %}
 
-
 > [!TIP]
 > For instructions on viewing how many premium requests you have used and advice on how to optimize usage, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests).
 
@@ -89,10 +88,10 @@ The available models vary depending on your {% data variables.product.prodname_c
 
 > [!NOTE]
 > * The models included with {% data variables.product.prodname_copilot_short %} plans are subject to change.
+> * Model multipliers and costs are subject to change.
 > * Discounted multipliers are available for using {% data variables.copilot.copilot_auto_model_selection %} in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 >   * {% data reusables.copilot.auto-model-multiplier-discount %} For example, Sonnet 4 would be billed at .9x rather than 1x when using {% data variables.copilot.copilot_auto_model_selection_short %}.
 >   * Discounted multipliers are not available for {% data variables.copilot.copilot_free_short %}.
-> * The multiplier for {% data variables.copilot.copilot_claude_sonnet_46 %} may be subject to change.
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 
@@ -102,10 +101,11 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 
 {% data reusables.copilot.model-multipliers %}
 
+**For {% data variables.product.prodname_ghe_cloud %}**, requests processed with data residency or FedRAMP enforcement include an additional 10% multiplier. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency#pricing-for-data-resident-copilot).
+
 ## Examples of premium request usage
 
 Premium request usage is based on the model’s multiplier and the feature you’re using. For example:
 
-* **Using {% data variables.copilot.copilot_claude_opus_45 %} in {% data variables.copilot.copilot_chat_short %}**: With a 3× multiplier, one interaction counts as 3 premium requests.
 * **Using {% data variables.copilot.copilot_gpt_5_mini %} on {% data variables.copilot.copilot_free_short %}**: Each interaction counts as 1 premium request.
 * **Using {% data variables.copilot.copilot_gpt_5_mini %} on a paid plan**: No premium requests are consumed.

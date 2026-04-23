@@ -1,5 +1,50 @@
 # Docs changelog
 
+**21 April 2026**
+
+We recently published two new guides for organizations adopting Copilot cloud agent.
+
+* Pre-enablement: [Building guardrails for GitHub Copilot cloud agent](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/build-guardrails) helps you expand built-in protections to create a secure environment for agents to operate in.
+* Post-enablement: [Giving GitHub Copilot cloud agent access to resources in your organization](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/give-access-to-resources) helps you get more out of Copilot by giving it access to MCP servers and internal packages, while promoting secure, consistent practices.
+
+<hr>
+
+**15 April 2026**
+
+LSP servers greatly improve Copilot CLI's ability to work with your code. For example, when Copilot renames a symbol throughout a project it can do this more quickly and reliably if it has access to an LSP server for the language the code is written in.
+
+We've added documentation to explain LSP servers in greater detail and show how to install these for Copilot CLI:
+
+* [Using LSP servers with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/lsp-servers)
+* [Adding LSP servers for GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
+
+<hr>
+
+**13 April 2026**
+
+To coincide with the release of the ability to [steer your Copilot CLI sessions remotely](https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/) (from GitHub.com, or from GitHub Mobile), we have added these new articles:
+
+* _Conceptual information:_ [About remote access to GitHub Copilot CLI sessions](https://docs.github.com/copilot/concepts/agents/copilot-cli/about-remote-access)
+* _How-to information:_ [Steering a GitHub Copilot CLI session from another device](https://docs.github.com/copilot/how-tos/copilot-cli/steer-remotely)
+
+<hr>
+
+**9 April 2026**
+
+We've added a conceptual article to the Copilot CLI documentation explaining the context window, compaction, and checkpoints.
+
+[Managing context in GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/context-management)
+
+We've also added documentation for the code security risk assessment (CSRA), a free self-serve tool that helps organization admins and security managers understand their organization's exposure to code vulnerabilities.
+
+New content includes:
+
+* [Code security risk assessment](https://docs.github.com/en/code-security/concepts/code-scanning/code-security-risk-assessment): What the CSRA is, who can run it, what it scans, and how it relates to the secret risk assessment.
+* [Running a code security risk assessment](https://docs.github.com/en/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-vulnerability-risk): How to generate and rerun a CSRA report.
+* [Interpreting code security risk assessment results](https://docs.github.com/en/code-security/tutorials/secure-your-organization/interpreting-code-security-risk-assessment-results): How to read the results dashboard, understand vulnerability and rule breakdowns, and enable Code Security directly from the assessment.
+
+<hr>
+
 **3 April 2026**
 
 We've published documentation for the GitHub Copilot SDK, now available in public preview. These docs were migrated from the `github/copilot-sdk` repo and cover getting started, setup, authentication, usage patterns, hooks, observability, integrations, and troubleshooting.
@@ -102,7 +147,7 @@ We've added an article about the new `/research` slash command in Copilot CLI:
 
 **27 February 2026**
 
-We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/copilot/reference/cli-command-reference#custom-agents-reference).
+We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference#custom-agents-reference).
 
 <hr>
 
@@ -114,7 +159,7 @@ We've added many new articles to coincide with the [general availability release
 * [New conceptual articles](https://docs.github.com/copilot/concepts/agents/copilot-cli) explaining plugins, autopilot mode, the `/fleet` slash command, and a comparison of CLI features.
 * New how-to articles on [setting up](https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli) and [customizing](https://docs.github.com/copilot/how-tos/copilot-cli/customize-copilot) the CLI.
 * An article on [administering Copilot CLI for your enterprise](https://docs.github.com/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise).
-* More reference information about [commands](https://docs.github.com/copilot/reference/cli-command-reference) and [plugins](https://docs.github.com/copilot/reference/cli-plugin-reference).
+* More reference information about [commands](https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference) and [plugins](https://docs.github.com/copilot/reference/copilot-cli-reference/cli-plugin-reference).
 
 <hr>
 
@@ -140,11 +185,11 @@ We've published a new tutorial on [using GitHub Copilot coding agent to improve 
 
 **20 January 2026**
 
-We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version. 
+We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version.
 
 Historically, keeping Copilot feature and IDE availability up to date has required manual coordination with the Docs team, which does not scale well with the increasing number of features. The goal of this document and its process is to enable product owners to directly maintain the Copilot feature and IDE availability information as part of their normal release workflow. The feature matrix provides a single, easy to update source of truth.
 
-The feature matrix is in public preview so that customers have time to gather and submit feedback to us. 
+The feature matrix is in public preview so that customers have time to gather and submit feedback to us.
 
 <hr>
 
@@ -221,7 +266,7 @@ You can also now add files to a Copilot Space directly from the code view on Git
 
 **25 November 2025**
 
-We've added details of files that are excluded from Copilot code reviews. 
+We've added details of files that are excluded from Copilot code reviews.
 
 See [About GitHub Copilot code review](https://docs.github.com/copilot/concepts/agents/code-review#excluded-files).
 
@@ -229,7 +274,7 @@ See [About GitHub Copilot code review](https://docs.github.com/copilot/concepts/
 
 **24 November 2025**
 
-We've added a new tutorial on burning down technical debt in a project: 
+We've added a new tutorial on burning down technical debt in a project:
 
 [Using GitHub Copilot to reduce technical debt](https://docs.github.com/copilot/tutorials/reduce-technical-debt)
 
@@ -396,17 +441,17 @@ We’ve updated the Spark documentation to support the launch for Copilot Enterp
 
 **29 September 2025**
 
-Claude Sonnet 4.5 has been released as a Public Preview. At the time of launch, it will be available on the following platforms: 
+Claude Sonnet 4.5 has been released as a Public Preview. At the time of launch, it will be available on the following platforms:
 
-- **Copilot Chat** 
+- **Copilot Chat**
   - Released for GitHub.com, VS Code, GitHub Mobile
   - With: Copilot Pro, Pro+, Business, and Enterprise
 - **Copilot Coding Agent**
-  - With: Copilot Pro, and Copilot Pro+ 
+  - With: Copilot Pro, and Copilot Pro+
 - **Copilot CLI**
   - With: Copilot Pro, Pro+, Business, and Enterprise
 
-The following articles have been updated: 
+The following articles have been updated:
 
 - [About GitHub Copilot coding agent](https://docs.github.com/copilot/concepts/agents/coding-agent/about-coding-agent)
 - [Supported AI models in GitHub Copilot](https://docs.github.com/copilot/reference/ai-models/supported-models)
@@ -441,9 +486,9 @@ See:
 
 **25 September 2025**
 
-We've updated the documentation for the GA release of [Copilot Spaces](https://github.com/copilot/spaces). Spaces allow you to organize and centralize content and resources in order to ground Copilot Chat's responses in that context and share knowledge across teams. You can now also access Copilot Spaces in your IDE via the GitHub MCP server. 
+We've updated the documentation for the GA release of [Copilot Spaces](https://github.com/copilot/spaces). Spaces allow you to organize and centralize content and resources in order to ground Copilot Chat's responses in that context and share knowledge across teams. You can now also access Copilot Spaces in your IDE via the GitHub MCP server.
 
-See the updated docs: 
+See the updated docs:
 * [About organizing and sharing context with GitHub Copilot Spaces](https://docs.github.com/copilot/concepts/context/spaces)
 * [Creating GitHub Copilot Spaces](https://docs.github.com/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces)
 * [Using GitHub Copilot Spaces](https://docs.github.com/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces)
@@ -452,15 +497,15 @@ See the updated docs:
 
 **24 September 2025**
 
-Until now, assigning Copilot coding agent to an issue was limited to the same repository as the issue. 
+Until now, assigning Copilot coding agent to an issue was limited to the same repository as the issue.
 
-You can now: 
+You can now:
 
-* Assign Copilot coding agent to work in a different repository, supporting workflows where issues and code files are managed separately. 
-* Provide additional instructions to tailor the agent's output to your requirements. 
-* Choose the base branch for the agent to use. 
- 
-These changes provide a more flexible, transparent, and user-friendly experience for managing automated coding tasks with Copilot coding agent. 
+* Assign Copilot coding agent to work in a different repository, supporting workflows where issues and code files are managed separately.
+* Provide additional instructions to tailor the agent's output to your requirements.
+* Choose the base branch for the agent to use.
+
+These changes provide a more flexible, transparent, and user-friendly experience for managing automated coding tasks with Copilot coding agent.
 
 See the updated docs: [Using GitHub Copilot to work on an issue](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue#assigning-an-issue-to-copilot).
 
@@ -487,9 +532,9 @@ See [About the GitHub MCP Registry](https://docs.github.com/copilot/concepts/con
 
 **17 September 2025**
 
-We've added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
+We've added documentation for expanded features for reusing workflow configurations in GitHub Actions.
 
-You can now use YAML anchors and aliases to reuse pieces of content in a workflow. See [YAML anchors and aliases](https://docs.github.com/actions/concepts/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases). 
+You can now use YAML anchors and aliases to reuse pieces of content in a workflow. See [YAML anchors and aliases](https://docs.github.com/actions/concepts/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases).
 
 To keep the content focused on users' job-to-be-done, we simplified the procedures for [creating workflow templates for your organization](https://docs.github.com/actions/how-tos/reuse-automations/create-workflow-templates). In addition, we updated reference documentation for workflow templates with details on permissions, repository visibility rules, rules for the metadata file, and examples. See [Workflow templates](https://docs.github.com/actions/reference/workflows-and-actions/reusing-workflow-configurations#workflow-templates).
 
@@ -497,7 +542,7 @@ To keep the content focused on users' job-to-be-done, we simplified the procedur
 
 **17 September 2025**
 
-You can now publish your Spark app as "read-only." 
+You can now publish your Spark app as "read-only."
 
 By default, data stored in Spark is shared across all users of the app. You can choose to publish your app as "read-only" if you want to showcase your app to others, but you don't want others to be able to edit or delete any stored data.
 
@@ -610,7 +655,7 @@ See [Working with push protection and the GitHub MCP server](https://docs.github
 
 **12 August 2025**
 
-OpenAI GPT-5 is now available in public preview for GitHub Copilot. GPT-5 is slowly rolling out to all paid Copilot plans and you will be able to access the model in GitHub Copilot Chat on github.com and Visual Studio Code (Agent, Ask, and Edit modes). 
+OpenAI GPT-5 is now available in public preview for GitHub Copilot. GPT-5 is slowly rolling out to all paid Copilot plans and you will be able to access the model in GitHub Copilot Chat on github.com and Visual Studio Code (Agent, Ask, and Edit modes).
 
 See [Supported AI models in Copilot](https://docs.github.com/copilot/reference/ai-models/supported-models).
 
@@ -632,7 +677,7 @@ We have added a tutorial for using Copilot to create Mermaid diagrams at [Creati
 
 **4 August 2025**
 
-To address common pain points that developers face when remediating a leaked secret, we created a new article, "[Remediating a leaked secret](https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret)". 
+To address common pain points that developers face when remediating a leaked secret, we created a new article, "[Remediating a leaked secret](https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret)".
 
 The new guide incorporates cross-platform GitHub tools, as well as opinionated guidance from GitHub's secret scanning team, to walk the developer through a thorough remediation process.
 

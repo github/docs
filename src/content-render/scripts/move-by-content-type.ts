@@ -146,7 +146,7 @@ program
         }
 
         // Validate contentType
-        if (!CONTENT_TYPES.includes(contentType as any)) {
+        if (!CONTENT_TYPES.includes(contentType)) {
           skipped.push({ file: relativePath, reason: `Invalid contentType: ${contentType}` })
           console.log(
             chalk.yellow(`⚠ Skipping ${relativePath}: Invalid contentType "${contentType}"`),

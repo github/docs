@@ -9,6 +9,8 @@ versions:
 contentType: how-tos
 category:
   - Build with Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Get {% data variables.product.prodname_copilot_short %} to work autonomously

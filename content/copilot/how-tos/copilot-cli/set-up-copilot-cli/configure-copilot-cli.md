@@ -1,5 +1,5 @@
 ---
-title: Configure GitHub Copilot CLI
+title: Configuring GitHub Copilot CLI
 shortTitle: Configure Copilot CLI
 intro: Configure trusted directories, tool access, and path and URL permissions for {% data variables.copilot.copilot_cli_short %}
 versions:
@@ -8,6 +8,8 @@ contentType: how-tos
 category:
   - Configure Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -64,7 +66,7 @@ In this section, you can learn how to:
 
 ### Allowing a tool for the first time
 
-The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—for example, {% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
+The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—{% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
 
 1. Prompt {% data variables.product.prodname_copilot_short %} to perform a task that requires a tool. For example:
 

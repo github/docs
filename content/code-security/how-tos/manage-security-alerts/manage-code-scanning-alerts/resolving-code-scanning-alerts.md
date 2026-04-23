@@ -80,6 +80,8 @@ Within 30 seconds, {% data variables.product.prodname_copilot_short %} will open
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
 
+{% data reusables.code-scanning.track-alert-in-issue %}
+
 You can use the free text search or the filters to display a subset of alerts and then in turn mark all matching alerts as closed.
 
 Alerts may be fixed in one branch but not in another. You can use the "branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.

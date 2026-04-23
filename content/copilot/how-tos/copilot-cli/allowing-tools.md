@@ -8,6 +8,8 @@ contentType: how-tos
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -45,7 +47,7 @@ copilot --excluded-tools='web_fetch, web_search'
 ```
 
 > [!NOTE]
-> For full details of the syntax for these and other command-line options mentioned in this article, see [AUTOTITLE](/copilot/reference/cli-command-reference#command-line-options).
+> For full details of the syntax for these and other command-line options mentioned in this article, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options).
 
 ## Allowing or denying permission for specific tools
 
@@ -70,7 +72,7 @@ Deny rules always take precedence over allow rules, even when `--allow-all` is s
 | `--available-tools='bash,edit,view,grep,glob' --allow-tool='shell(git:*)' --deny-tool='shell(git push)'` | Combine both layers of control for a restricted CLI session. {% data variables.product.prodname_copilot_short %} can explore the code, make edits, and commit changes, but can't reach the internet, run arbitrary subagents, or push to Git history. |
 
 
-For details of the supported tool kinds, see [AUTOTITLE](/copilot/reference/cli-command-reference#tool-permission-patterns).
+For details of the supported tool kinds, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#tool-permission-patterns).
 
 ## Permissive options
 

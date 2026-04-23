@@ -9,6 +9,8 @@ allowTitleToDifferFromFilename: true
 category:
   - Manage Copilot for a team # Copilot discovery page
   - Administer Copilot CLI # Copilot CLI bespoke landing page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Enabling or disabling {% data variables.copilot.copilot_cli_short %}

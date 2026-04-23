@@ -10,6 +10,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: how-tos
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction

@@ -26,6 +26,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 {% data variables.copilot.copilot_code-review_short %} is supported in:
 
 * {% data variables.product.prodname_dotcom_the_website %}
+* {% data variables.product.prodname_cli %}
 * {% data variables.product.prodname_mobile %}
 * {% data variables.product.prodname_vscode_shortname %}
 * {% data variables.product.prodname_vs %}
@@ -106,7 +107,7 @@ You do not need to have {% data variables.product.prodname_actions %} enabled in
 
 If your organization has disabled {% data variables.product.prodname_dotcom %}-hosted runners, the agentic capabilities will not be available. In this case, code reviews will fall back to a more limited review. Organizations in this situation can use self-hosted runners.
 
-For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-runners).
+For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
 
 ## Code review monthly quota
 

@@ -224,6 +224,10 @@ prodname_advanced_security: 'Advanced Security'
 prodname_secret_risk_assessment: 'secret risk assessment'
 prodname_secret_risk_assessment_caps: 'Secret risk assessment'
 
+## Code security risk assessment
+prodname_code_security_risk_assessment: 'code security risk assessment'
+prodname_code_security_risk_assessment_caps: 'Code security risk assessment'
+
 ## Azure DevOps
 prodname_ghas_azdo: 'GitHub Advanced Security for Azure DevOps'
 

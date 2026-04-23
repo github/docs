@@ -9,4 +9,6 @@ children:
   - /quickstart
   - /run-cli-programmatically
   - /automate-with-actions
+docsTeamMetrics:
+  - copilot-cli
 ---

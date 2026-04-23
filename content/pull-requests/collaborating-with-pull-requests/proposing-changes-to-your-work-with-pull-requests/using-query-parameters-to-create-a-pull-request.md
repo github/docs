@@ -27,3 +27,4 @@ Query parameter | Example
 `assignees` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1&assignees=octocat` creates a pull request and assigns it to @octocat.
 `projects` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1&title=Bug+fix&projects=octo-org/1` creates a pull request with the title "Bug fix" and adds it to the organization's project 1.
 `template` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1&template=issue_template.md` creates a pull request with a template in the pull request body. The `template` query parameter works with templates stored in a `PULL_REQUEST_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
+

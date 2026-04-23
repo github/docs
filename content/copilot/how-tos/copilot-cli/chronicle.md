@@ -9,6 +9,8 @@ contentType: how-tos
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 {% data variables.copilot.copilot_cli_short %} stores the data from your CLI sessions locally on your machine. This session data allows you to:
@@ -191,4 +193,4 @@ Have I worked on anything related to authentication in the last month?
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle)
-* [AUTOTITLE](/copilot/reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

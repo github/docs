@@ -59,9 +59,9 @@ Optionally, include a bulleted list of related articles the user can reference t
 
 <!-- markdownlint-enable search-replace -->
 
-## Referential article template
+## Reference article template
 
-Use the content model for full instructions and examples on how to write referential content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/referential-content-type).
+Use the content model for full instructions and examples on how to write reference content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/reference-content-type).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -77,8 +77,8 @@ versions:
 ---
 
 {% comment %}
-Follow the guidelines in https://docs.github.com/contributing/writing-for-github-docs/content-model#referential to write this article.-- >
-Great intros give readers a quick understanding of what's in the article, so they can tell whether it's relevant to them before moving ahead. For more tips, see https://docs.github.com/contributing/writing-for-github-docs/content-model
+Follow the guidelines in https://docs.github.com/contributing/writing-for-github-docs/content-model to write this article.-- >
+Great intros give readers a quick understanding of what's in the article, so they can tell whether it's relevant to them before moving ahead. For more tips, see https://docs.github.com/en/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#intro
 For product callout info, see https://github.com/github/docs/tree/main/content#product
 For product version instructions, see https://github.com/github/docs/tree/main/content#versioning
 Remove these comments from your article file when you're done writing

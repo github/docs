@@ -40,4 +40,4 @@ When you create your enterprise account, you will choose whether your enterprise
 
 ## Getting started
 
-To get started, see [AUTOTITLE](/copilot/how-tos/set-up/set-up-a-dedicated-enterprise-for-copilot-business).
+To get started, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-a-dedicated-enterprise-for-copilot-business).

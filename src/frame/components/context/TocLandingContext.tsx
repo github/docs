@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
-import type { SimpleTocItem } from '@/landings/types'
+import type { RawTocItem, SimpleTocItem } from '@/landings/types'
 import { mapRawTocItemToSimpleTocItem } from '@/landings/types'
 
 export type TocLandingContextT = {
@@ -26,17 +26,31 @@ export const useTocLandingContext = (): TocLandingContextT => {
   return context
 }
 
-export const getTocLandingContextFromRequest = (req: any): TocLandingContextT => {
+// Request type for context extraction — uses Record<string, unknown> for the page
+// because the Page type doesn't include all runtime-computed properties.
+interface ContextRequest {
+  context: {
+    page: Record<string, unknown> & { title: string; intro: string }
+    genericTocFlat?: unknown[]
+    genericTocNested?: unknown[]
+    renderedPage?: string
+    featuredLinks?: Record<string, unknown[]>
+    [key: string]: unknown
+  }
+  [key: string]: unknown
+}
+
+export const getTocLandingContextFromRequest = (req: ContextRequest): TocLandingContextT => {
   return {
     title: req.context.page.title,
-    productCallout: req.context.page.product || '',
-    permissions: req.context.page.permissions || '',
+    productCallout: (req.context.page.product as string) || '',
+    permissions: (req.context.page.permissions as string) || '',
     intro: req.context.page.intro,
-    tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map(
-      mapRawTocItemToSimpleTocItem,
-    ),
+    tocItems: (
+      (req.context.genericTocFlat || req.context.genericTocNested || []) as RawTocItem[]
+    ).map(mapRawTocItemToSimpleTocItem),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),
-    renderedPage: req.context.renderedPage,
+    renderedPage: (req.context.renderedPage as string) || '',
   }
 }

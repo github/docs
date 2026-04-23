@@ -20,12 +20,12 @@ Used for:
 
 * {% data variables.copilot.copilot_gpt_41 %}
 * {% data variables.copilot.copilot_gpt_5_mini %}
-* {% data variables.copilot.copilot_gpt_51 %}
 * {% data variables.copilot.copilot_gpt_52 %}
 * {% data variables.copilot.copilot_gpt_52_codex %}
 * {% data variables.copilot.copilot_gpt_53_codex %}
 * {% data variables.copilot.copilot_gpt_54 %}
 * {% data variables.copilot.copilot_gpt_54_mini %}
+* {% data variables.copilot.copilot_gpt_54_nano %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -46,6 +46,8 @@ These models are deployed on {% data variables.product.github %} managed Azure O
 
 ## Anthropic models
 
+{% data reusables.copilot.opus-47-promo-period %}
+
 Used for:
 
 * {% data variables.copilot.copilot_claude_haiku_45 %}
@@ -53,6 +55,7 @@ Used for:
 * {% data variables.copilot.copilot_claude_opus_45 %}
 * {% data variables.copilot.copilot_claude_opus_46 %}
 * {% data variables.copilot.copilot_claude_opus_46_fast %}
+* {% data variables.copilot.copilot_claude_opus_47 %}
 * {% data variables.copilot.copilot_claude_sonnet_40 %}
 * {% data variables.copilot.copilot_claude_sonnet_46 %}
 

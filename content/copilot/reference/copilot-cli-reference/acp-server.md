@@ -10,6 +10,8 @@ category:
 contentType: reference
 redirect_from:
   - /copilot/reference/acp-server
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 > [!NOTE]

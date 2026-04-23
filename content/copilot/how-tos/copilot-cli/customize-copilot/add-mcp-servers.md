@@ -9,6 +9,8 @@ contentType: how-tos
 category:
   - Configure Copilot CLI # Copilot CLI bespoke page
   - Author and optimize with Copilot # Copilot discovery page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). You can connect MCP servers to {% data variables.copilot.copilot_cli %} to give {% data variables.product.prodname_copilot_short %} access to external tools, data sources, and services. For an overview of MCP, see [AUTOTITLE](/copilot/concepts/about-mcp).

@@ -57,7 +57,7 @@ For more information, see [AUTOTITLE](/support/learning-about-github-support/abo
 
 {% ifversion fpt or ghec %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.github %} on [{% data variables.product.github %} Status](https://githubstatus.com/). For more information, see [About GitHub status](#about-github-status).
+Before contacting {% data variables.contact.github_support %}, check [{% data variables.product.github %} Status](https://githubstatus.com/) for any active incidents affecting {% data variables.product.github %} services. For more information, see [About GitHub status](#about-github-status).
 
 {% endif %}
 
@@ -91,7 +91,7 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.github %} services and view information about past incidents on {% data variables.product.github %}'s [Status page](https://githubstatus.com).
+You can check for any incidents currently affecting {% data variables.product.github %} services, including {% data variables.product.prodname_copilot %} model availability, and view information about past incidents on {% data variables.product.github %}'s [Status page](https://githubstatus.com).
 
 You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.github %}.
 

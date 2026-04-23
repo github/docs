@@ -167,7 +167,7 @@ You can limit the data to repositories owned by a single organization in your en
 
 ## Production context filters
 
-**Available in:** {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alert views
+**Available in:** {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} views
 
 {% data reusables.security.production-context-mdc-preview %}
 
@@ -181,10 +181,10 @@ For more information about production context, see [AUTOTITLE](/code-security/se
 
 {% endif %}
 
-## {% data variables.product.prodname_dependabot %} alert view filters
+## {% data variables.product.prodname_dependabot %} view filters
 
 **Available in:**
-* {% data variables.product.prodname_dependabot_alerts %} view{% ifversion dependabot-malware-alerts %}
+* {% data variables.product.prodname_dependabot %} view{% ifversion dependabot-malware-alerts %}
 * {% data variables.product.prodname_dependabot_malware_alerts %} view{% endif %}
 
 | Qualifier | Description |
@@ -223,9 +223,9 @@ Alternatively, you can use complex filters by clicking **{% octicon "filter" ari
 
 {% endif %}
 
-## {% data variables.product.prodname_code_scanning_caps %} alert view filters
+## {% data variables.product.prodname_code_scanning_caps %} view filters
 
-**Available in:** {% data variables.product.prodname_code_scanning %} alert view
+**Available in:** {% data variables.product.prodname_code_scanning %} view
 
 You can click any result to see full details of the relevant query and the line of code that triggered the alert.
 
@@ -238,9 +238,9 @@ You can click any result to see full details of the relevant query and the line 
 |`sort`|Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|
 |`tool`|Display {% data variables.product.prodname_code_scanning %} alerts detected by the specified tool, for example: `tool:CodeQL` for alerts created using the {% data variables.product.prodname_codeql %} application in {% data variables.product.prodname_dotcom %}.|
 
-## {% data variables.product.prodname_secret_scanning_caps %} alert view filters
+## {% data variables.product.prodname_secret_scanning_caps %} view filters
 
-**Available in:** {% data variables.product.prodname_secret_scanning %} alert view
+**Available in:** {% data variables.product.prodname_secret_scanning %} view
 
 | Qualifier | Description |
 | -------- | -------- |

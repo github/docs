@@ -24,16 +24,16 @@
 - name: Claude Opus 4.5
   free: false
   student: false
-  pro: true
-  pro_plus: true
+  pro: false
+  pro_plus: false
   business: true
   enterprise: true
 
 - name: Claude Opus 4.6
   free: false
   student: false
-  pro: true
-  pro_plus: true
+  pro: false
+  pro_plus: false
   business: true
   enterprise: true
 
@@ -41,8 +41,16 @@
   free: false
   student: false
   pro: false
-  pro_plus: true
+  pro_plus: false
   business: false
+  enterprise: true
+
+- name: Claude Opus 4.7
+  free: false
+  student: false
+  pro: false
+  pro_plus: true
+  business: true
   enterprise: true
 
 - name: Claude Sonnet 4
@@ -109,14 +117,6 @@
   business: true
   enterprise: true
 
-- name: GPT-5.1
-  free: false
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
 - name: GPT-5.2
   free: false
   student: true
@@ -150,6 +150,14 @@
   enterprise: true
 
 - name: GPT-5.4 mini
+  free: false
+  student: true
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.4 nano
   free: false
   student: true
   pro: true

@@ -50,6 +50,15 @@
   xcode: false
   jetbrains: false
 
+- name: Claude Opus 4.7
+  dotcom: true
+  cli: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Claude Sonnet 4
   dotcom: true
   cli: true
@@ -122,15 +131,6 @@
   xcode: true
   jetbrains: true
 
-- name: GPT-5.1
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: GPT-5.2
   dotcom: true
   cli: true
@@ -175,6 +175,15 @@
   eclipse: true
   xcode: true
   jetbrains: true
+
+- name: GPT-5.4 nano
+  dotcom: false
+  cli: false
+  vscode: false
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
 
 - name: Grok Code Fast 1
   dotcom: true

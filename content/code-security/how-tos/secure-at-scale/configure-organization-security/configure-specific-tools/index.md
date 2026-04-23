@@ -8,7 +8,8 @@ versions:
 contentType: how-tos
 children:
   - /assess-your-secret-risk
-  - /viewing-the-secret-risk-assessment-report-for-your-organization
+  - /assess-your-vulnerability-risk
+  - /viewing-your-security-risk-assessment-reports
   - /estimating-the-price-of-secret-protection
   - /protect-your-secrets
   - /configuring-default-setup-for-code-scanning-at-scale

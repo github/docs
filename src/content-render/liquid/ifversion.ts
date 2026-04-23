@@ -8,6 +8,7 @@ import {
   type Emitter,
   type Template,
   type TopLevelToken,
+  type Liquid,
 } from 'liquidjs'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import supportedOperators, {
@@ -24,6 +25,11 @@ interface VersionObj {
   hasNumberedReleases?: boolean
   currentRelease?: string
   internalLatestRelease?: string
+}
+
+interface IfversionEnvironments {
+  currentVersionObj?: VersionObj
+  markdownRequested?: boolean
 }
 
 const SyntaxHelp =
@@ -44,7 +50,7 @@ export default class Ifversion extends Tag {
   currentVersionObj: VersionObj | null = null
 
   // The following is verbatim from https://github.com/harttle/liquidjs/blob/v9.22.1/src/builtin/tags/if.ts
-  constructor(tagToken: TagToken, remainTokens: TopLevelToken[], liquid: any) {
+  constructor(tagToken: TagToken, remainTokens: TopLevelToken[], liquid: Liquid) {
     super(tagToken, remainTokens, liquid)
 
     this.tagToken = tagToken
@@ -60,7 +66,7 @@ export default class Ifversion extends Tag {
           templates: (p = []),
         }),
       )
-      .on('tag:elsif', (token: any) => {
+      .on('tag:elsif', (token: TagToken) => {
         this.branches.push({
           cond: token.args,
           templates: (p = []),
@@ -78,10 +84,10 @@ export default class Ifversion extends Tag {
 
   // The following is _mostly_ verbatim from https://github.com/harttle/liquidjs/blob/v9.22.1/src/builtin/tags/if.ts
   // The additions here are the handleNots(), handleOperators(), and handleVersionNames() calls.
-  *render(ctx: Context, emitter: Emitter): Generator<any, void, unknown> {
+  *render(ctx: Context, emitter: Emitter): Generator<unknown, void, unknown> {
     const r = this.liquid.renderer
 
-    this.currentVersionObj = (ctx.environments as any).currentVersionObj
+    this.currentVersionObj = (ctx.environments as IfversionEnvironments).currentVersionObj ?? null
 
     for (const branch of this.branches) {
       let resolvedBranchCond = branch.cond
@@ -96,7 +102,7 @@ export default class Ifversion extends Tag {
       // Resolve version names to boolean values for Markdown API context.
       // This will replace syntax like `fpt or ghec` with `true or false` based on current version.
       // Only apply this transformation in Markdown API context to avoid breaking existing functionality.
-      if ((ctx.environments as any).markdownRequested) {
+      if ((ctx.environments as IfversionEnvironments).markdownRequested) {
         resolvedBranchCond = this.handleVersionNames(resolvedBranchCond)
       }
 

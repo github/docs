@@ -113,7 +113,8 @@
                           "username_password",
                           "oidc_azure",
                           "oidc_aws",
-                          "oidc_jfrog"
+                          "oidc_jfrog",
+                          "oidc_cloudsmith"
                         ],
                         "type": "string"
                       },
@@ -181,6 +182,18 @@
                       },
                       "identity_mapping_name": {
                         "description": "The JFrog identity mapping name.",
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "description": "The Cloudsmith organization namespace.",
+                        "type": "string"
+                      },
+                      "service_slug": {
+                        "description": "The Cloudsmith service account slug.",
+                        "type": "string"
+                      },
+                      "api_host": {
+                        "description": "The Cloudsmith API host.",
                         "type": "string"
                       },
                       "created_at": {
@@ -399,7 +412,8 @@
                     "username_password",
                     "oidc_azure",
                     "oidc_aws",
-                    "oidc_jfrog"
+                    "oidc_jfrog",
+                    "oidc_cloudsmith"
                   ],
                   "type": "string"
                 },
@@ -467,6 +481,18 @@
                 },
                 "identity_mapping_name": {
                   "description": "The JFrog identity mapping name.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "The Cloudsmith organization namespace.",
+                  "type": "string"
+                },
+                "service_slug": {
+                  "description": "The Cloudsmith service account slug.",
+                  "type": "string"
+                },
+                "api_host": {
+                  "description": "The Cloudsmith API host.",
                   "type": "string"
                 },
                 "created_at": {
@@ -611,7 +637,8 @@
             "username_password",
             "oidc_azure",
             "oidc_aws",
-            "oidc_jfrog"
+            "oidc_jfrog",
+            "oidc_cloudsmith"
           ]
         },
         {
@@ -657,15 +684,30 @@
         {
           "type": "string",
           "name": "audience",
-          "description": "<p>The OIDC audience. Optional for <code>oidc_aws</code> and <code>oidc_jfrog</code> auth types.</p>"
+          "description": "<p>The OIDC audience. Optional for <code>oidc_aws</code>, <code>oidc_jfrog</code>, and required for <code>oidc_cloudsmith</code> auth types.</p>"
         },
         {
           "type": "string",
           "name": "identity_mapping_name",
           "description": "<p>The JFrog identity mapping name. Optional for <code>oidc_jfrog</code> auth type.</p>"
+        },
+        {
+          "type": "string",
+          "name": "namespace",
+          "description": "<p>The Cloudsmith organization namespace. Required when <code>auth_type</code> is <code>oidc_cloudsmith</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "service_slug",
+          "description": "<p>The Cloudsmith service account slug. Required when <code>auth_type</code> is <code>oidc_cloudsmith</code>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "api_host",
+          "description": "<p>The Cloudsmith API host. Optional for <code>oidc_cloudsmith</code> auth type. If omitted, <code>api.cloudsmith.io</code> is used by default.</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, or <code>oidc_jfrog</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"\nFor OIDC-based registries (<code>oidc_azure</code>, <code>oidc_aws</code>, <code>oidc_jfrog</code>, or <code>oidc_cloudsmith</code>), the <code>encrypted_value</code> and <code>key_id</code> fields should be omitted.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [],
       "statusCodes": [
         {
