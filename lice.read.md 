@@ -1,0 +1,62 @@
+jsoup: Java HTML parser, built for HTML editing, cleaning, scraping, and XSS safety
+jsoup is a Java library that simplifies working with real-world HTML and XML. It offers an easy-to-use API for URL fetching, data parsing, extraction, and manipulation using DOM API methods, CSS, and xpath selectors.
+
+jsoup implements the WHATWG HTML5 specification, and parses HTML to the same DOM as modern browsers.
+
+Scrape and parse HTML from a URL, file, or string.
+Find and extract data using DOM traversal or CSS selectors.
+Manipulate HTML elements, attributes, and text.
+Clean user-submitted content against a safelist to prevent XSS attacks.
+Output tidy HTML.
+jsoup is designed to deal with all varieties of HTML found in the wild; from pristine and validating, to invalid tag-soup; jsoup will create a sensible parse tree.
+
+Example
+Fetch the Wikipedia homepage, parse it to a DOM, and select the headlines from the In the news section into a list of Elements (online sample, full source):
+
+Document doc = Jsoup.connect("https://en.wikipedia.org/").get();
+log(doc.title());
+Elements newsHeadlines = doc.select("#mp-itn b a");
+for (Element headline : newsHeadlines) {
+    log("%s\n\t%s", 
+        headline.attr("title"), headline.absUrl("href"));
+}
+Open Source
+jsoup is an open source project distributed under the liberal MIT license. The source code is available on GitHub.
+
+Getting Started
+Download the jsoup jar (version 1.22.2).
+Read the cookbook introduction.
+Enjoy!
+<dependency>
+  <!-- jsoup HTML parser library @ https://jsoup.org/ -->
+  <groupId>org.jsoup</groupId>
+  <artifactId>jsoup</artifactId>
+  <version>1.22.2</version>
+</dependency>
+Development and Support
+If you have any questions on how to use jsoup or have ideas for future development, please get in touch via one of the discussion methods.
+
+If you find any issues, please file a bug after checking for duplicates.
+
+The colophon talks about the history of and tools used to build jsoup.
+
+Development of jsoup happens on GitHub. There you can see the latest changes and get the source to build an unreleased version.
+
+Status
+jsoup is in general release.
+
+jsoup was created and is maintained by Jonathan Hedley, its primary author.
+
+jsoup is an open-source project, and many contributors have helped improve it over the years. You can see their contributions and join the development on GitHub.
+
+Citing jsoup
+If you use jsoup in research or technical documentation, you can cite it as:
+
+Jonathan Hedley & jsoup contributors. jsoup: Java HTML Parser (2009–present). Available at: https://jsoup.org
+
+@misc{jsoup,
+  author = {Jonathan Hedley and jsoup contributors},
+  title = {jsoup: Java HTML Parser},
+  year = {2026},
+  url = {https://jsoup.org}
+}
