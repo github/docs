@@ -100,8 +100,8 @@ export default [
       // Disabled rules to review
       'no-console': 'off', // 800+
 
-      // Custom rules (disabled by default for now)
-      'custom-rules/use-custom-logger': 'off',
+      // Custom rules
+      'custom-rules/use-custom-logger': 'error',
 
       // Prevent direct res.redirect() usage — use res.safeRedirect() instead
       // to avoid open redirect vulnerabilities via protocol-relative URLs.
@@ -164,6 +164,36 @@ export default [
   // Disable custom logger rule for logger implementation itself
   {
     files: ['src/observability/logger/**/*.{ts,js}'],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
+  // Directories not yet migrated to structured logger (see github/docs-engineering#5639)
+  // Remove directories from this list as they are migrated
+  {
+    files: [
+      'src/ai-tools/**/*.{ts,js}',
+      'src/article-api/**/*.{ts,js}',
+      'src/audit-logs/**/*.{ts,js}',
+      'src/changelogs/**/*.{ts,js}',
+      'src/color-schemes/**/*.{ts,js}',
+      'src/content-render/**/*.{ts,js}',
+      'src/data-directory/**/*.{ts,js}',
+      'src/dev-toc/**/*.{ts,js}',
+      'src/events/**/*.{ts,js}',
+      'src/fixtures/**/*.{ts,js}',
+      'src/frame/**/*.{ts,js}',
+      'src/github-apps/**/*.{ts,js}',
+      'src/journeys/**/*.{ts,js}',
+      'src/languages/**/*.{ts,js}',
+      'src/links/**/*.{ts,js}',
+      'src/metrics/**/*.{ts,js}',
+      'src/observability/**/*.{ts,js}',
+      'src/rest/**/*.{ts,js}',
+      'src/search/**/*.{ts,js}',
+      'src/shielding/**/*.{ts,js}',
+    ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
     },

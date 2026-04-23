@@ -84,6 +84,8 @@ sections:
       To improve page load performance, user profile pages display a maximum of 24 organizations. When viewing your own profile, a "View all" link provides access to the full list in organization settings. When viewing another users profile, a count displays any additional organizations beyond the first 24.
   known_issues:
     - |
+      On instances configured for high availability, you will not be able to change GitHub Actions settings through the Management Console. Other settings are not affected. [Updated: 2026-04-22]
+    - |
       First time setups of GitHub Actions with OpenID Connect (OIDC) fail with an error on the `Update Servicing Resources` step. This problem does not affect instances where GitHub Actions is already enabled.
 
       As a workaround, you can enable Actions without OIDC, then enable OIDC **immediately** once the process completes. You should do this immediately because enabling OIDC will remove all access to existing Actions logs and artifacts.
@@ -120,4 +122,4 @@ sections:
     - |
       When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
     - |
-      In GHES instances that have multiple git storage nodes in a voting configurations (That includes GHES Clusters and Geo Replicate HA instances) where Actions is enabled can encounter problem a upon upgrading.  The 1st part actions that are shipped with the new version of GHES can not be correctly installed.  This can block upgrade and in some cases leave the old versions of these actions within the instatance.
+      On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.

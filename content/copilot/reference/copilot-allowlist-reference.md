@@ -24,18 +24,20 @@ If your company employs security measures like a firewall or proxy server, you s
 | `https://github.com/enterprises/YOUR-ENTERPRISE/*`          | Authentication for {% data variables.enterprise.prodname_managed_users %}, only required with {% data variables.product.prodname_emus %} |
 | `https://api.github.com/user`                               | User Management |
 | `https://api.github.com/copilot_internal/*`                 | User Management |
-| `https://copilot-telemetry.githubusercontent.com/telemetry` | Telemetry |
 | `https://collector.github.com/*`                            | Analytics telemetry |
-| `https://default.exp-tas.com`                               | Telemetry |
+| `https://copilot-telemetry.githubusercontent.com/telemetry` | {% data variables.product.prodname_copilot_short %} client telemetry |
+| `https://default.exp-tas.com`                               | {% data variables.product.prodname_copilot_short %} client experimentation |
 | `https://copilot-proxy.githubusercontent.com`               | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://origin-tracker.githubusercontent.com`              | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://*.githubcopilot.com/*`[^1]                         | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://*.individual.githubcopilot.com`[^2]                | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://*.business.githubcopilot.com`[^3]                  | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://*.enterprise.githubcopilot.com`[^4]                | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-| `https://*.SUBDOMAIN.ghe.com`                                      | For {% data variables.product.prodname_copilot_short %} users on {% data variables.enterprise.data_residency_site %} |
-| `https://SUBDOMAIN.ghe.com`                                        | For {% data variables.product.prodname_copilot_short %} users on {% data variables.enterprise.data_residency_site %} |
-| `https://copilot-reports-*.b01.azurefd.net`                        | {% data variables.product.prodname_copilot_short %} usage metrics report downloads |
+| `https://*.SUBDOMAIN.ghe.com`                               | For {% data variables.product.prodname_copilot_short %} users on {% data variables.enterprise.data_residency_site %} |
+| `https://SUBDOMAIN.ghe.com`                                 | For {% data variables.product.prodname_copilot_short %} users on {% data variables.enterprise.data_residency_site %} |
+| `https://copilot-reports.github.com`                        | {% data variables.product.prodname_copilot_short %} usage metrics report downloads |
+| `https://copilot-reports-*.b01.azurefd.net`[^5]             | {% data variables.product.prodname_copilot_short %} usage metrics report downloads (fallback) |
+| `https://usagereports*.blob.core.windows.net`[^6]           | {% data variables.product.prodname_copilot_short %} usage metrics report downloads (fallback) |
 
 Depending on the security policies and editors your organization uses, you may need to allowlist additional domains and URLs. For more information on specific editors, see [Further reading](#further-reading).
 
@@ -397,3 +399,5 @@ The allowlist allows access to the following hosts:
 [^2]: Allows access to authorized users via a {% data variables.copilot.copilot_individuals_short %} plan. Do not add this URL to your allowlist if you are using subscription-based network routing.
 [^3]: Allows access to authorized users via a {% data variables.copilot.copilot_business_short %} plan. Do not add this URL to your allowlist if you want to use subscription-based network routing to block users from using {% data variables.copilot.copilot_business_short %} on your network.
 [^4]: Allows access to authorized users via a {% data variables.copilot.copilot_enterprise_short %} plan. Do not add this URL to your allowlist if you want to use subscription-based network routing to block users from using {% data variables.copilot.copilot_enterprise_short %} on your network.
+[^5]: Required for fallback scenarios where {% data variables.product.prodname_copilot_short %} usage metrics report downloads bypass the custom domain and are served from an Azure Front Door CDN.
+[^6]: Required for fallback scenarios where {% data variables.product.prodname_copilot_short %} usage metrics report downloads bypass the Azure Front Door CDN and are served directly from Azure Blob Storage.

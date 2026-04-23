@@ -247,11 +247,3 @@ jobs:
         env:
           RANDOM_NUMBER: {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
 ```
-
-## Example composite actions on {% data variables.product.github %}
-
-You can find many examples of composite actions on {% data variables.product.github %}.
-
-* [microsoft/action-python](https://github.com/microsoft/action-python)
-* [microsoft/gpt-review](https://github.com/microsoft/gpt-review)
-* [tailscale/github-action](https://github.com/tailscale/github-action)

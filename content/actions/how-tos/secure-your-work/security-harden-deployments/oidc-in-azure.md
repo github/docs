@@ -32,6 +32,8 @@ This guide gives an overview of how to configure Azure to trust {% data variable
 
 {% data reusables.actions.oidc-on-ghecom %}
 
+For repositories created after June 18, 2026, and repository renames or transfers after that date, use an immutable default OIDC `sub` claim that includes owner and repository IDs (not available on {% data variables.product.prodname_ghe_server %}). Existing repositories keep the previous format unless they opt in. For more information, see [AUTOTITLE](/actions/reference/openid-connect-reference#immutable-subject-claims).
+
 {% ifversion ghes %}
 {% data reusables.actions.oidc-endpoints %}
   <!-- This note is indented to align with the above reusable. -->

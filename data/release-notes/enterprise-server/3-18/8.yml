@@ -72,6 +72,8 @@ sections:
       To improve page load performance, user profile pages display a maximum of 24 organizations. When viewing your own profile, a "View all" link provides access to the full list in organization settings. When viewing another user's profile, a count displays any additional organizations beyond the first 24.
   known_issues:
     - |
+      On instances configured for high availability, you will not be able to change GitHub Actions settings through the Management Console. Other settings are not affected. [Updated: 2026-04-22]
+    - |
       First time setups of GitHub Actions with OpenID Connect (OIDC) fail with an error on the `Update Servicing Resources` step. This problem does not affect instances where GitHub Actions is already enabled.
 
       As a workaround, you can enable Actions without OIDC, then enable OIDC **immediately** once the process completes. You should do this immediately because enabling OIDC will remove all access to existing Actions logs and artifacts.
