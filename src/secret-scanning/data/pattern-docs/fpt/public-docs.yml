@@ -2242,6 +2242,116 @@
   hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: true
   isduplicate: true
+- provider: GitLab
+  supportedSecret: GitLab CI/CD Job Token
+  secretType: gitlab_ci_build_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Deploy Token
+  secretType: gitlab_deploy_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Feature Flag Client Token
+  secretType: gitlab_feature_flag_client_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Feed Token
+  secretType: gitlab_feed_token_v2
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Incoming Mail Token
+  secretType: gitlab_incoming_email_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Agent for Kubernetes Token
+  secretType: gitlab_kubernetes_agent_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab OAuth Application Secret
+  secretType: gitlab_oauth_app_secret
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Pipeline Trigger Token
+  secretType: gitlab_pipeline_trigger_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Runner Authentication Token
+  secretType: gitlab_runner_auth_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Runner Registration Token
+  secretType: gitlab_runner_registration_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab SCIM Token
+  secretType: gitlab_scim_oauth_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: GoCardless
   supportedSecret: GoCardless Live Access Token
   secretType: gocardless_live_access_token
@@ -4353,6 +4463,16 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Slack
+  supportedSecret: Slack Workflow Trigger URL
+  secretType: slack_workflow_trigger_url
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false

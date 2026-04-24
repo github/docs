@@ -76,13 +76,11 @@ See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subs
 
 ### Organizations and enterprises
 
-**Organization owners** can set up {% data variables.copilot.copilot_business_short %} for their team by [contacting {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text). See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization).
+**Organization owners** can get {% data variables.copilot.copilot_business_short %} for their team through an enterprise account. If you don't already have an enterprise account, you can create one specifically for managing {% data variables.copilot.copilot_business_short %} licenses. See [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-for-copilot-business).
 
 If your organization is owned by an enterprise that has a {% data variables.product.prodname_copilot_short %} subscription, you can ask your enterprise owner to enable {% data variables.product.prodname_copilot_short %} for your organization. Go to [https://github.com/settings/copilot](https://github.com/settings/copilot) and request access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
-**Enterprise owners** can set up {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} for your enterprise by [contacting {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text). See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise).
-
-If you don't need other {% data variables.product.github %} features, you can create an enterprise account specifically for managing {% data variables.copilot.copilot_business_short %} licenses. This gives you enterprise-grade authentication without charges for {% data variables.product.prodname_enterprise %} licenses. See [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-for-copilot-business).
+**Enterprise owners** can set up {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} for their enterprise by [contacting {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text). 
 
 ## Next steps
 

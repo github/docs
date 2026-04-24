@@ -26,7 +26,7 @@ The OIDC token includes the following claims.
 | ----------- | -----| ---------------------- |
 | `aud`| Audience | By default, this is the URL of the repository owner, such as the organization that owns the repository. You can set a custom audience with a toolkit command: [`core.getIDToken(audience)`](https://www.npmjs.com/package/@actions/core/v/1.6.0) |
 | `iss`| Issuer | The issuer of the OIDC token: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %} |
-| `sub`| Subject | Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way. |
+| `sub`| Subject | Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way. For repositories using immutable subject claims, the `sub` format includes immutable owner and repository IDs (not available on {% data variables.product.prodname_ghe_server %}). |
 
 ### Additional standard JOSE header parameters and claims
 
@@ -163,6 +163,22 @@ You can configure a subject that includes metadata containing colons. In this ex
 
 {% endif %}
 
+## Immutable subject claims
+
+The OpenID Connect (OIDC) specification requires subject (`sub`) claims to be locally unique and never reassigned. Previously, the default `sub` format used only organization and repository names. If a namespace was recycled, a different owner could create the same subject value.
+
+To help prevent this scenario, repositories created after June 18, 2026 now use an immutable default subject format that includes both the owner ID and repository ID. This rollout does not include {% data variables.product.prodname_ghe_server %}.
+
+* Syntax: `repo:OWNER-ID/REPO-ID:ref:refs/heads/BRANCH`
+* Previous format example: `repo:octo-org/octo-repo:ref:refs/heads/main`
+* Immutable format example: `repo:octo-org-123456/octo-repo-456789:ref:refs/heads/main`
+
+The `-` separator is used between names and IDs because `-` cannot appear in {% data variables.product.github %} usernames or repository names.
+
+Repositories created before June 18, 2026 keep the previous format unless you opt in to immutable subject claims. You can opt in at the organization or repository level by using the OIDC settings UI or REST API.
+
+Repository renames and transfers after June 18, 2026 also move to the immutable subject format.
+
 ## Configuring the subject in your cloud provider
 
 To configure the subject in your cloud provider's trust relationship, you must add the subject string to its trust configuration. The following examples demonstrate how various cloud providers can accept the same `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` subject in different ways:
@@ -173,6 +189,15 @@ To configure the subject in your cloud provider's trust relationship, you must a
 | Azure| `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` |
 | Google Cloud Platform| `(assertion.sub=='repo:octo-org/octo-repo:ref:refs/heads/demo-branch')` |
 | HashiCorp Vault| `bound_subject="repo:octo-org/octo-repo:ref:refs/heads/demo-branch"` |
+
+For repositories created after June 18, 2026, or that have opted in to immutable subject claims, the `sub` claim includes `owner_id` and `repo_id` as shown in the immutable examples. Update your trust policies to match the format your repository uses. Immutable subject claims are not available on {% data variables.product.prodname_ghe_server %}.
+
+| Cloud provider | Immutable format example |
+| ------ | ----------- |
+| Amazon Web Services | `"token.actions.githubusercontent.com:sub": "repo:octo-org-123456/octo-repo-456789:ref:refs/heads/demo-branch"` |
+| Azure| `repo:octo-org-123456/octo-repo-456789:ref:refs/heads/demo-branch` |
+| Google Cloud Platform| `(assertion.sub=='repo:octo-org-123456/octo-repo#456789:ref:refs/heads/demo-branch')` |
+| HashiCorp Vault| `bound_subject="repo:octo-org-123456/octo-repo-456789:ref:refs/heads/demo-branch"` |
 
 For more information about configuring specific cloud providers, see the guides listed in [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-hardening-your-deployments).
 
@@ -315,6 +340,7 @@ Customizing the claims results in a new format for the entire `sub` claim, which
 > [!NOTE]
 > The `sub` claim uses the shortened form `repo` (for example, `repo:ORG-NAME/REPO-NAME`) instead of `repository` to reference the repository. {% ifversion fpt or ghec or ghes > 3.15 %}
 > Any `:` within the context value will be replaced with `%3A`. {% endif %}
+> For repositories using immutable subject claims (not available on {% data variables.product.prodname_ghe_server %}), `owner_id` and `repo_id` are always included in the `repo` segment of the `sub` claim, even when you customize claims with `include_claim_keys`. You can't remove these IDs from the immutable format.
 
 The following example templates demonstrate various ways to customize the subject claim. To configure these settings on {% data variables.product.prodname_dotcom %}, admins use the REST API to specify a list of claims that must be included in the subject (`sub`) claim.
 

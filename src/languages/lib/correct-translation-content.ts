@@ -64,7 +64,7 @@ export function correctTranslatedContentStrings(
   // unexpanded. Rejoin the marker with its content. This corruption
   // affects every translated language (~47k bullets and ~11k cells in
   // total), so it lives in the universal pre-fixes block.
-  content = content.replace(/^\* ?\n[ \t]+/gm, '* ')
+  content = content.replace(/^([ \t]*)\* ?\n[ \t]+/gm, '$1* ')
   content = content.replace(/^\|[ \t]*\n[ \t]+/gm, '| ')
 
   // --- Per-language fixes (es, ja, pt, zh, ru, fr, ko, de) ---

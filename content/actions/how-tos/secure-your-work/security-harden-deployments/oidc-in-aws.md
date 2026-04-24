@@ -70,6 +70,17 @@ Edit the trust policy, adding the `sub` field to the validation conditions. For 
 }
 ```
 
+For repositories created after June 18, 2026, or that have opted in to immutable subject claims, the `sub` claim includes immutable owner and repository IDs (not available on {% data variables.product.prodname_ghe_server %}). Make sure your trust policy matches the format your repository uses. For more information, see [AUTOTITLE](/actions/reference/openid-connect-reference#immutable-subject-claims).
+
+```json copy
+"Condition": {
+  "StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
+    "token.actions.githubusercontent.com:sub": "repo:octo-org-123456/octo-repo-456789:ref:refs/heads/octo-branch"
+  }
+}
+```
+
 If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`. For more information, see [AUTOTITLE](/actions/reference/openid-connect-reference#filtering-for-a-specific-environment).
 
 {% data reusables.actions.oidc-deployment-protection-rules %}

@@ -71,7 +71,7 @@ Most people see rate limiting for select models, due to limited capacity.
 
 Service-level request rate limits ensure high service quality for all {% data variables.product.prodname_copilot_short %}  users and should not affect typical or even deeply engaged {% data variables.product.prodname_copilot_short %} usage. We are aware of some use cases that are affected by it. {% data variables.product.github %} is iterating on {% data variables.product.prodname_copilot_short %}’s rate-limiting heuristics to ensure it doesn’t block legitimate use cases.
 
-In the case you are rate limited, the error message will contain the suggested time to retry for a successful request. Consider [alternative actions](/copilot/concepts/rate-limits#what-to-do-if-you-are-rate-limited) to continue using {% data variables.product.prodname_copilot_short %} while your limit is reset.
+If you are rate limited, the error message will contain the suggested retry time for a successful request. For more information about alternative actions you can take while your limit resets, see [AUTOTITLE](/copilot/concepts/usage-limits#what-to-do-if-you-hit-a-limit).
 
 In case you experience repeated rate limiting in {% data variables.product.prodname_copilot_short %} contact {% data variables.contact.contact_support_page %}.
 
