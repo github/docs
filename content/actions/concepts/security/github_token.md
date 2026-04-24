@@ -29,11 +29,6 @@ The token is also available in the `github.token` context. For more information,
 
 {% data reusables.actions.actions-do-not-trigger-workflows %}
 
-{% ifversion actions-github-token-pull-request-approval %}
-> [!NOTE]
-> If you need workflow runs from workflow-created pull requests to execute without requiring approval, use a {% data variables.product.prodname_github_app %} installation access token or a {% data variables.product.pat_generic %} instead of `GITHUB_TOKEN` when creating or updating the pull request.
-{% endif %}
-
 {% data reusables.actions.actions-do-not-trigger-pages-rebuilds %}
 
 ## Next steps
