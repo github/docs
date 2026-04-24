@@ -20,11 +20,16 @@ When an enterprise owner delegates control of a policy to organization owners by
 
 ## How availability is determined
 
-Feature, model, and privacy settings for users are set according to the **least restrictive** or the **most restrictive** policy defined by any of the organizations where they are granted a {% data variables.product.prodname_copilot_short %} license.
+Feature and privacy settings for users are set according to the **least restrictive** or the **most restrictive** policy defined by any of the organizations where they are granted a {% data variables.product.prodname_copilot_short %} license.
 
 * **Least restrictive:** if any of the organizations has **enabled** a feature, this feature is enabled for the user everywhere. This applies to all but the more sensitive {% data variables.product.prodname_copilot_short %} features.
 
 * **Most restrictive:** if any of the organizations has **disabled** a feature, this feature is disabled for the user in all their organizations. This applies only to the most sensitive {% data variables.product.prodname_copilot_short %} features, for example: access to {% data variables.product.prodname_copilot_short %} metrics using the API.
+
+Model policies combine enterprise and organization settings:
+
+* **Most restrictive at enterprise level:** if an enterprise policy disables a model, organizations in that enterprise cannot enable that model.
+* **Least restrictive at organization level:** for users with licenses from multiple organizations, if any organization enables a model that the enterprise allows, that model is available to the user in all their organizations.
 
 ## Availability for members with {% data variables.product.prodname_copilot_short %} from multiple organizations
 
@@ -48,7 +53,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 | {% data variables.copilot.copilot_desktop_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-in-github-desktop) |
 | {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-cli) |
 | Editor preview features | Least restrictive organization | [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) |
-| {% data variables.product.prodname_github_models %}, one policy per model | Least restrictive organization | [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale) |
+| {% data variables.product.prodname_github_models %}, one policy per model | Most restrictive enterprise, then least restrictive organization | [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale) |
 | MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp) |
 | {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-commit-message-generation) |
 
