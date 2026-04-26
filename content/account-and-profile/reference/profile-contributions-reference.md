@@ -12,16 +12,16 @@ category:
 
 ## Profile Contribution Matrix
 
-|  | **Own Repository** [ⓘ](## "You are a collaborator on the repository or are a member of the organization that owns the standalone repository.") | **Repository Fork** [ⓘ](## "Fork of an existing repository") | **→ Upstream** [ⓘ](## "The upstream parent repository of a fork.") | **Other Repository** [ⓘ](## "Standalone Repository, which you (a) aren't a collaborator on the repository and (b) aren't a member of the organization that owns the repository and (c) haven't forked the repository.") |
+|  | **Own Repository** [ⓘ](## "You are a collaborator on the repository or are a member of the organization that owns the standalone repository.") | **Repository Fork** [ⓘ](## "A fork is a new repository that shares code and visibility settings with the original 'upstream' repository.") | **→ Upstream** [ⓘ](## "The upstream parent repository of a fork") | **Other Repository** [ⓘ](## "A standalone repository where (a) you aren't a collaborator, (b) you aren't a member of the organization that owns it, and (c) you haven't forked it.") |
 |:---|:---:|:---:|:---:|:---:|
 | Repository Type | Standalone | Fork | Standalone | Standalone |
 | Create <br><br> | 🟩 <br>[ⓘ](## "Creating a new repository counts as a contribution.") | 🟩 <br>[ⓘ](## "Forking an existing repository counts as a contribution.") | – <br><br> | – <br><br> |
 | **Commit** [ⓘ](## "Commits will only appear on your contributions graph if the email address used to make the commits is associated with your account on GitHub.") | | | | |
-| To default branch [ⓘ](## "The commit was made on the repository's default branch (e.g. main or master).") | 🟩 | ⬜ | 🟩 | ⬜ 🟩 [ⓘ](## "Only counts, if you have opened a pull request or issue in the repository.") |
-| To gh-pages branch [ⓘ](## "The commit was made on the gh-pages branch (for repositories with project sites).") | 🟩 | ⬜ | 🟩 | ⬜ 🟩 [ⓘ](## "Only counts, if you have opened a pull request or issue in the repository.") |
-| To other branches [ⓘ](## "Commits on other branches except the default branch and gh-pages branch.") | ⬜ | ⬜ | ⬜ | ⬜ |
-| **Contribution Channels** | | | | |
-| Open PR [ⓘ](## "PR (Pull Request)") | 🟩 | ⬜ | 🟩 | 🟩 |
+| To default branch [ⓘ](## "The commit was made on the repository's default branch (e.g. main or master).") | 🟩 | ⬜ | 🟩 | ⬜ 🟩 [ⓘ](## "Only counts if you have opened a pull request or issue in the repository.") |
+| To gh-pages branch [ⓘ](## "The commit was made on the gh-pages branch (for repositories with project sites).") | 🟩 | ⬜ | 🟩 | ⬜ 🟩 [ⓘ](## "Only counts if you have opened a pull request or issue in the repository.") |
+| To other branches [ⓘ](## "Commits on other branches except the default branch and gh-pages branch") | ⬜ | ⬜ | ⬜ | ⬜ |
+| **Pull Request** | | | | |
+| Open PR | 🟩 | ⬜ | 🟩 | 🟩 |
 | Review PR | 🟩 | ⬜ | 🟩 | 🟩 |
 | **Collaboration Channels** | | | | |
 | Create new Issue | 🟩 | ⬜ | 🟩 | 🟩 |
