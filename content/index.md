@@ -196,4 +196,19 @@ externalProducts:
     name: GitHub Well-Architected
     href: 'https://wellarchitected.github.com/'
     external: true
+  he-ll-o:
+   id: he-ll-o
+   name: he-ll-o
+   href:  'https://itsme.github.com/docs'
+   external: true
+  proton:
+    id: proton
+    name: Protonon
+    href: 'https://protonjs.org/docs/latest'
+    external: true
+ neutron:
+    id: neutron
+    name: neutron
+    href: 'https://neutronjs.org/docs/latest'
+    external: true
 ---
