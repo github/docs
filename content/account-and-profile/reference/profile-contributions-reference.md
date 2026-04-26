@@ -16,16 +16,16 @@ category:
 |:---|:---:|:---:|:---:|
 | Create <br><br> | 🟩 <br>[ⓘ](## "Creating a new repository counts as a contribution.") | 🟩 <br>[ⓘ](## "Forking an existing repository counts as a contribution.") | – <br><br> |
 | **Commit** [ⓘ](## "Commits will only appear on your contributions graph if the email address used to make the commits is associated with your account on GitHub.") | | | |
-| To default branch [ⓘ](## "The commit was made on the repository's default branch (e.g. main or master).") | 🟩 <br>[ⓘ](## "Only counts as a contribution if at least one is true: you are a collaborator on the repository or a member of the organization that owns the repository; you have forked the repository; or you have opened a pull request or issue in the repository.") | ⬜ | 🟩 <br>[ⓘ](## "Only counts as a contribution, if you have opened a pull request / issue in the repository or forked the repository.") |
-| To gh-pages branch [ⓘ](## "The commit was made on the gh-pages branch (for repositories with project sites).") | 🟩 <br>[ⓘ](## "Only counts as a contribution if at least one is true: you are a collaborator on the repository or a member of the organization that owns the repository; you have forked the repository; or you have opened a pull request or issue in the repository.") | ⬜ | 🟩 <br>[ⓘ](## "Only counts as a contribution, if you have opened a pull request / issue in the repository or forked the repository.") |
+| To default branch [ⓘ](## "The commit was made on the repository's default branch (e.g. main or master).") | 🟩 <br>[ⓘ](## "Only counts as a contribution if at least one is true:&#10;(a) You are a collaborator on the repository or are a member of the organization that owns the repository.&#10;(b) You have forked the repository.&#10;(c) You have opened a pull request or issue in the repository.") | ⬜ | 🟩 <br>[ⓘ](## "Only counts as a contribution, if you have opened a pull request / issue in the repository or forked the repository.") |
+| To gh-pages branch [ⓘ](## "The commit was made on the gh-pages branch (for repositories with project sites).") | 🟩 <br>[ⓘ](## "Only counts as a contribution if at least one is true:&#10;(a) You are a collaborator on the repository or are a member of the organization that owns the repository.&#10;(b) You have forked the repository.&#10;(c) You have opened a pull request or issue in the repository.") | ⬜ | 🟩 <br>[ⓘ](## "Only counts as a contribution, if you have opened a pull request / issue in the repository or forked the repository.") |
 | To other branches [ⓘ](## "Commits on other branches except the default branch and gh-pages branch.") | ⬜ | ⬜ | ⬜ |
 | **Contribution Channels** | | | |
 | Open PR [ⓘ](## "PR (Pull Request)") | 🟩 | ⬜ | 🟩 |
 | Review PR | 🟩 | ⬜ | 🟩 |
 | **Collaboration Channels** | | | |
-| Open Issue | 🟩 | ⬜ | – |
-| Answer Issue | ⬜ | ⬜ | – |
-| Open Discussion | 🟩 | ⬜ | – |
+| Create new Issue | 🟩 | ⬜ | – |
+| Comment on Issue | ⬜ | ⬜ | – |
+| Start new Discussion | 🟩 | ⬜ | – |
 | Answer Discussion | 🟩 | ⬜ | – |
 
 ## What counts as a contribution
