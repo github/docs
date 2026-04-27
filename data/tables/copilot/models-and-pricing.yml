@@ -81,6 +81,14 @@
   cached_input: $0.02
   output: $1.25
 
+- model: GPT-5.5
+  provider: openai
+  release_status: GA
+  category: Powerful
+  input: $5.00
+  cached_input: $0.50
+  output: $30.00
+
 # Anthropic
 - model: Claude Haiku 4.5
   provider: anthropic
@@ -144,16 +152,6 @@
   cached_input: $0.50
   output: $25.00
   cache_write: $6.25
-
-- model: 'Claude Opus 4.6 (fast mode)[^4]'
-  provider: anthropic
-  release_status: Public preview
-  category: Powerful
-  input: $30.00
-  cached_input: $3.00
-  output: $150.00
-  cache_write: $37.50
-  notes: 6x standard Opus 4.6 rates
 
 # Google
 - model: 'Gemini 2.5 Pro[^5]'

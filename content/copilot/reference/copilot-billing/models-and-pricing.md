@@ -57,8 +57,6 @@ Anthropic models include a cache write cost in addition to cached input.
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.cache_write }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
-[^4]: {% data variables.copilot.copilot_claude_opus_46_fast %} is billed at 6x standard {% data variables.copilot.copilot_claude_opus_46 %} rates.
-
 ### Google
 
 | Model | Release status | Category | Input | Cached input | Output |
@@ -114,7 +112,7 @@ You can view your current {% data variables.product.prodname_actions %} usage fo
 
 <!-- expires 2026-06-01 -->
 
-Starting **June 1, 2026**, {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on annual billing plans will experience changes to model multipliers. The table below shows how the multipliers for each model will adjust.
+Starting **June 1, 2026**, {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** will experience changes to model multipliers. The table below shows how the multipliers for each model will adjust.
 
 <!-- end expires 2026-06-01 -->
 
