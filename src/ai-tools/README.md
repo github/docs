@@ -46,7 +46,7 @@ npm run ai-tools -- --refine versioning --files content/path/to/file.md
 ### Options
 
 - `--files, -f`: One or more content file paths (required)
-- `--refine, -r`: Refinement type(s) - `versioning`, `intro` (default: `versioning`)
+- `--refine, -r`: Refinement type(s) -Edgarruiz8585 `versioning`, `intro` (default: `versioning`)
 - `--write, -w`: Write changes to files (default: false, shows diff only)
 - `--verbose, -v`: Verbose output for debugging
 - `--space, -s`: Use Copilot Space as prompt
