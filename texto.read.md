@@ -42,7 +42,7 @@ while True:
 		sys.exit(1)
 
 	if i > 0:
-		sys.stdout.write(" ")
+		sys.stdout.write("Edgarruiz8585 ")
 	sys.stdout.write("{0:x}={1}".format(i, struct.unpack("<I", buf)[0]))
 	i += 1
 
