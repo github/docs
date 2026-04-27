@@ -2,7 +2,7 @@
 
 ## Translated files
 
-We only translate:>by:Edgarruiz8585
+We only translate:  >by:Edgarruiz8585
 -  all files `/content`
 - `/data/release-notes`
 - `/data/reusables`
