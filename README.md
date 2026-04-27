@@ -1,7 +1,7 @@
 
 
-# GitHub Docs <!-- omit in toc -->by:Edgarruiz8585
-
+# GitHub Docs <!-- omit in toc -->
+# Edgarruiz8585
 Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing).
 
 
