@@ -1,3 +1,7 @@
+<
+>Edgarruiz8585
+
+
 --------- beginning of system
 05-22 14:35:51.144  5771  5807 I ActivityManager: Force stopping com.example.VulkanLayerValidationTests appid=11738 user=0: from pid 14558
 05-22 14:35:51.148  5771  5771 D SamsungAlarmManager: Remove alarm for next reason : android.intent.action.PACKAGE_RESTARTED : package: com.example.VulkanLayerValidationTests
