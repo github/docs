@@ -1,0 +1,111 @@
+# Model multipliers for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} annual subscribers
+# Starting June 1, 2026, annual subscribers will see new multiplier rates compared to current rates
+#
+# Column keys:
+# - model: The model name.
+# - current_multiplier: The current multiplier rate.
+# - new_multiplier: The new multiplier rate effective June 1, 2026.
+
+- model: 'Claude Haiku 4.5'
+  current_multiplier: '0.33'
+  new_multiplier: '0.33'
+
+- model: 'Claude Opus 4.5'
+  current_multiplier: '3'
+  new_multiplier: '15'
+
+- model: 'Claude Opus 4.6'
+  current_multiplier: '3'
+  new_multiplier: '27'
+
+- model: 'Claude Opus 4.7'
+  current_multiplier: '7.5'
+  new_multiplier: '27'
+
+- model: 'Claude Sonnet 4'
+  current_multiplier: '1'
+  new_multiplier: '1'
+
+- model: 'Claude Sonnet 4.5'
+  current_multiplier: '1'
+  new_multiplier: '6'
+
+- model: 'Claude Sonnet 4.6'
+  current_multiplier: '1'
+  new_multiplier: '9'
+
+- model: 'Gemini 2.5 Pro'
+  current_multiplier: '1'
+  new_multiplier: '1'
+
+- model: 'Gemini 3 Flash'
+  current_multiplier: '0.33'
+  new_multiplier: '0.33'
+
+- model: 'Gemini 3 Pro'
+  current_multiplier: '1'
+  new_multiplier: '6'
+
+- model: 'Gemini 3.1 Pro'
+  current_multiplier: '1'
+  new_multiplier: '6'
+
+- model: 'GPT-4o'
+  current_multiplier: '0'
+  new_multiplier: '0.33'
+
+- model: 'GPT-4o mini'
+  current_multiplier: '0'
+  new_multiplier: '0.33'
+
+- model: 'GPT-4.1'
+  current_multiplier: '0'
+  new_multiplier: '1'
+
+- model: 'GPT-5.1'
+  current_multiplier: '1'
+  new_multiplier: '3'
+
+- model: 'GPT-5.1-Codex'
+  current_multiplier: '1'
+  new_multiplier: '3'
+
+- model: 'GPT-5.1-Codex-Mini'
+  current_multiplier: '0.33'
+  new_multiplier: '0.33'
+
+- model: 'GPT-5.1-Codex-Max'
+  current_multiplier: '1'
+  new_multiplier: '3'
+
+- model: 'GPT-5.2'
+  current_multiplier: '1'
+  new_multiplier: '3'
+
+- model: 'GPT-5.2-Codex'
+  current_multiplier: '1'
+  new_multiplier: '3'
+
+- model: 'GPT-5.3-Codex'
+  current_multiplier: '1'
+  new_multiplier: '6'
+
+- model: 'GPT-5.4'
+  current_multiplier: '1'
+  new_multiplier: '6'
+
+- model: 'GPT-5.4 mini'
+  current_multiplier: '0.33'
+  new_multiplier: '6'
+
+- model: 'GPT-5 mini'
+  current_multiplier: '0'
+  new_multiplier: '0.33'
+
+- model: 'Grok Code Fast 1'
+  current_multiplier: '0.25'
+  new_multiplier: '0.33'
+
+- model: 'Raptor mini'
+  current_multiplier: '0'
+  new_multiplier: '0.33'

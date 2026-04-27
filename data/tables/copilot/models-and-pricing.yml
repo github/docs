@@ -1,0 +1,212 @@
+# This file defines per-token pricing for AI models available in GitHub Copilot.
+# Prices are per 1 million tokens.
+#
+# Please keep this list sorted by provider, then alphabetically by model name.
+# Providers in this order: OpenAI, Anthropic, Google, xAI, Fine-tuned (GitHub).
+#
+# Column keys:
+# - model: The model name.
+# - provider: The model provider (openai, anthropic, google, xai, github).
+# - release_status: "GA" or "Public preview".
+# - category: The model category or task area.
+# - input: Input token price per 1M tokens.
+# - cached_input: Cached input token price per 1M tokens.
+# - output: Output token price per 1M tokens.
+# - cache_write: Cache write price per 1M tokens (Anthropic only).
+# - notes: Optional notes about the model.
+
+# OpenAI
+- model: 'GPT-4.1[^1]'
+  provider: openai
+  release_status: GA
+  category: Versatile
+  input: $2.00
+  cached_input: $0.50
+  output: $8.00
+
+- model: 'GPT-5 mini[^1]'
+  provider: openai
+  release_status: GA
+  category: Lightweight
+  input: $0.25
+  cached_input: $0.025
+  output: $2.00
+
+- model: GPT-5.2
+  provider: openai
+  release_status: GA
+  category: Versatile
+  input: $1.75
+  cached_input: $0.175
+  output: $14.00
+
+- model: GPT-5.2-Codex
+  provider: openai
+  release_status: GA
+  category: Powerful
+  input: $1.75
+  cached_input: $0.175
+  output: $14.00
+
+- model: GPT-5.3-Codex
+  provider: openai
+  release_status: GA
+  category: Powerful
+  input: $1.75
+  cached_input: $0.175
+  output: $14.00
+
+- model: 'GPT-5.4[^2]'
+  provider: openai
+  release_status: GA
+  category: Versatile
+  input: $2.50
+  cached_input: $0.25
+  output: $15.00
+  notes: "Prompts \u2264272K tokens"
+
+- model: GPT-5.4 mini
+  provider: openai
+  release_status: GA
+  category: Lightweight
+  input: $0.75
+  cached_input: $0.075
+  output: $4.50
+
+- model: GPT-5.4 nano
+  provider: openai
+  release_status: GA
+  category: Lightweight
+  input: $0.20
+  cached_input: $0.02
+  output: $1.25
+
+# Anthropic
+- model: Claude Haiku 4.5
+  provider: anthropic
+  release_status: GA
+  category: Versatile
+  input: $1.00
+  cached_input: $0.10
+  output: $5.00
+  cache_write: $1.25
+
+- model: Claude Sonnet 4
+  provider: anthropic
+  release_status: GA
+  category: Versatile
+  input: $3.00
+  cached_input: $0.30
+  output: $15.00
+  cache_write: $3.75
+
+- model: Claude Sonnet 4.5
+  provider: anthropic
+  release_status: GA
+  category: Versatile
+  input: $3.00
+  cached_input: $0.30
+  output: $15.00
+  cache_write: $3.75
+
+- model: Claude Sonnet 4.6
+  provider: anthropic
+  release_status: GA
+  category: Versatile
+  input: $3.00
+  cached_input: $0.30
+  output: $15.00
+  cache_write: $3.75
+
+- model: Claude Opus 4.5
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $5.00
+  cached_input: $0.50
+  output: $25.00
+  cache_write: $6.25
+
+- model: Claude Opus 4.6
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $5.00
+  cached_input: $0.50
+  output: $25.00
+  cache_write: $6.25
+
+- model: Claude Opus 4.7
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $5.00
+  cached_input: $0.50
+  output: $25.00
+  cache_write: $6.25
+
+- model: 'Claude Opus 4.6 (fast mode)[^4]'
+  provider: anthropic
+  release_status: Public preview
+  category: Powerful
+  input: $30.00
+  cached_input: $3.00
+  output: $150.00
+  cache_write: $37.50
+  notes: 6x standard Opus 4.6 rates
+
+# Google
+- model: 'Gemini 2.5 Pro[^5]'
+  provider: google
+  release_status: GA
+  category: Powerful
+  input: $1.25
+  cached_input: $0.125
+  output: $10.00
+  notes: "Prompts \u2264200K tokens"
+
+- model: 'Gemini 3 Flash[^6]'
+  provider: google
+  release_status: Public preview
+  category: Lightweight
+  input: $0.50
+  cached_input: $0.05
+  output: $3.00
+  notes: No long-context surcharge
+
+- model: 'Gemini 3.1 Pro[^5]'
+  provider: google
+  release_status: Public preview
+  category: Powerful
+  input: $2.00
+  cached_input: $0.20
+  output: $12.00
+  notes: "Prompts \u2264200K tokens"
+
+# xAI
+- model: Grok Code Fast 1
+  provider: xai
+  release_status: GA
+  category: Lightweight
+  input: $0.20
+  cached_input: $0.02
+  output: $1.50
+
+# Fine-tuned (GitHub)
+- model: 'Raptor mini[^7]'
+  provider: github
+  release_status: Public preview
+  category: Versatile
+  input: $0.25
+  cached_input: $0.025
+  output: $2.00
+  notes: Uses GPT-5 mini pricing
+
+- model: 'Goldeneye[^8]'
+  provider: github
+  release_status: Public preview
+  category: Powerful
+  input: $1.25
+  cached_input: $0.125
+  output: $10.00
+  notes: Uses GPT-5.1-Codex pricing

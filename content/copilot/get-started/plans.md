@@ -13,6 +13,12 @@ category:
   - Learn about Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 > [!IMPORTANT]
 > {% data reusables.copilot.plans.individual-plans-paused %}
 
@@ -24,7 +30,7 @@ category:
 
 * **{% data variables.copilot.copilot_pro %}** is designed for individuals who want more flexibility. This paid plan includes unlimited completions, access to premium models in {% data variables.copilot.copilot_chat_short %}, access to {% data variables.copilot.copilot_cloud_agent %}, and a monthly allowance of premium requests. Verified teachers, and maintainers of popular open source projects may be eligible for free access.
 
-* **{% data variables.copilot.copilot_pro_plus %}** offers the highest level of access for individual developers. In addition to everything in {% data variables.copilot.copilot_pro_short %}, this plan includes a larger allowance of premium requests, and full access to all available models in {% data variables.copilot.copilot_chat_short %}. Ideal for AI power users who want access to the most advanced capabilities.
+* **{% data variables.copilot.copilot_pro_plus %}** includes, in addition to everything in {% data variables.copilot.copilot_pro_short %}, a larger allowance of premium requests, and full access to all available models in {% data variables.copilot.copilot_chat_short %}. Ideal for AI power users who want access to the most advanced capabilities.
 
 * **{% data variables.copilot.copilot_for_business %}** is for organizations on {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, or enterprises on {% data variables.product.prodname_ghe_cloud %}. This plan includes {% data variables.copilot.copilot_cloud_agent %} and enables centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
 
