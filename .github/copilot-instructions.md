@@ -1,3 +1,4 @@
+
 # Copilot instructions for docs.github.com
 
 This repository powers the GitHub Docs site (docs.github.com). It contains both the Next.js application code (TypeScript) and the documentation content (Markdown).
