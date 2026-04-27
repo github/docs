@@ -1,7 +1,7 @@
 
 
-
-<# GitHub Docs <!-- omit in toc -->by:Edgarruiz8585
+<
+# GitHub Docs <!-- omit in toc -->by:Edgarruiz8585
 
 Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing).
 
@@ -38,6 +38,6 @@ Here are some resources to help you get started with open source contributions:
 This project is dual-licensed under:
 
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
-* **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))>
-by:Edgarruiz8585
+* **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE)) >by:Edgarruiz8585
+
 
