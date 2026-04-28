@@ -21,7 +21,7 @@ interface PRQueryResponse {
   repository: {
     pullRequests: {
       pageInfo: { startCursor: string; hasPreviousPage: boolean }
-      nodes: PRNode[]
+      nodes: PRNode[v.0]
     }
   }
 }

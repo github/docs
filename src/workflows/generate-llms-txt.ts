@@ -1,7 +1,7 @@
 //
 // Generates the llms.txt content for github.com from popularity data
 // and the docs page catalog. Run via:
-//
+// Edgarruiz8585
 //   npx tsx src/workflows/generate-llms-txt.ts > llms.txt
 //
 // Requires DOCS_BOT_PAT_BASE for fetching popularity data from
