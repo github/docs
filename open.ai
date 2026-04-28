@@ -6,12 +6,12 @@ Populate the following variables in the local environment or in the `.env`
 
 ```
 OPENAI_API_KEY=YOUR_OPENAI_API_KEY
-PAYPAL_CLIENT_ID=PayPal_Client_ID
-PAYPAL_CLIENT_SECRET=PayPal_Client_Secret
+PAYPAL_CLIENT_ID=AQwB-nhGt32OydJWuekdFjdjfscJ984W_QyiEGa9Byr7VCFaM28IZaI7_HxoheC8K-cWrdmglsW9Sq8A AQwB-nhGt32OydJWuekdFjdjfscJ984W_QyiEGa9Byr7VCFaM28IZaI7_HxoheC8K-cWrdmglsW9Sq8A
+PAYPAL_CLIENT_SECRET=AQwB-nhGt32OydJWuekdFjdjfscJ984W_QyiEGa9Byr7VCFaM28IZaI7_HxoheC8K-cWrdmglsW9Sq8A
 ```
 
 ## Usage
-
+edgarplasticos3@hotmail.com
 ```
 npx ts-node index.ts --env
 ```
