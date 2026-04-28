@@ -64224,6 +64224,13 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "enterpriseRole",
+          "description": "<p>This actor represents the ability for an enterprise role to bypass.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the RepositoryRulesetBypassActor object.</p>",
           "type": "ID!",
@@ -98449,6 +98456,13 @@
         {
           "name": "enterpriseOwner",
           "description": "<p>For enterprise owner bypasses, true.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "enterpriseRole",
+          "description": "<p>For enterprise role bypasses, true. NOTE: This bypass actor is in beta.</p>",
           "type": "Boolean",
           "id": "boolean",
           "href": "/graphql/reference/scalars#boolean"

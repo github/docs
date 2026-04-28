@@ -3,7 +3,7 @@ title: 'About {% data variables.product.prodname_copilot_short %} auto model sel
 allowTitleToDifferFromFilename: true
 shortTitle: 'Auto model selection'
 intro: 'Automatically select models for {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cloud_agent %}, and third-party agents.'
-product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_chat_short %} is available with all {% data variables.product.prodname_copilot %} plans. <br>{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_cloud_agent %} is available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} plans.'
+product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} is available with all {% data variables.product.prodname_copilot %} plans.'
 versions:
   feature: copilot
 contentType: concepts

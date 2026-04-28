@@ -16,6 +16,12 @@ category:
   - Learn about Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->
+
 > [!IMPORTANT]
 > {% data reusables.copilot.plans.individual-plans-paused %} If you hit unexpected limits or these changes just don’t work for you, you can cancel your Pro or Pro+ subscription and receive a refund for the time remaining on your current subscription before May 20.
 > 1. To cancel and receive a refund for the time remaining, go to your [Billing settings](https://github.com/settings/billing/licensing).

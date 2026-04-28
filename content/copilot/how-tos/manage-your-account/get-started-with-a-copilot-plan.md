@@ -22,6 +22,12 @@ category:
   - Configure Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->
+
 You can get started with your {% data variables.product.prodname_copilot_short %} plan by:
 
 * [Accessing {% data variables.copilot.copilot_free_short %}](#accessing-copilot-free)

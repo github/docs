@@ -15,6 +15,12 @@ category:
   - Understand product costs
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 Usage of {% data variables.product.prodname_copilot %} is measured through a combination of licenses and monthly usage tracking. For more information about how usage costs in {% data variables.product.prodname_copilot_short %} work, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-premium-requests).
 
 ## Licenses for {% data variables.product.prodname_copilot_short %}
