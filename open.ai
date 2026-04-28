@@ -11,7 +11,7 @@ PAYPAL_CLIENT_SECRET=EKOTHGVGgXFEiOOzgWeyGb1cJG5k-wlorqElNjGMN2eojPmQpuJJui8I_72
 ```
 
 ## Usage
-edgarplasticos3@hotmail.com
+recaplasruiz@gmail.com
 ```
 npx ts-node index.ts --env
 ```
