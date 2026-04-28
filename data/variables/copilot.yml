@@ -29,6 +29,14 @@ cfb_price_per_month: '$19 USD'
 # Price per month for Copilot Enterprise
 ce_price_per_month: '$39 USD'
 
+## AI credits per plan
+ai_credits_per_user_business: '1,900'
+ai_credits_per_user_enterprise: '3,900'
+ai_credits_per_user_business_promo: '3,000'
+ai_credits_per_user_enterprise_promo: '7,000'
+ai_credits_per_user_pro: '1000'
+ai_credits_per_user_pro_plus: '3900'
+
 ## Copilot partners: builders who can develop Copilot extensions
 copilot_partners: 'Copilot Partners'
 copilot_partner: 'Copilot Partner'
@@ -162,6 +170,7 @@ copilot_gemini_3_pro: 'Gemini 3 Pro'
 copilot_gemini_31_pro: 'Gemini 3.1 Pro'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
+copilot_gpt_4o_mini: 'GPT-4o mini'
 copilot_gpt_41: 'GPT-4.1'
 copilot_gpt_5: 'GPT-5'
 copilot_gpt_5_codex: 'GPT-5-Codex'

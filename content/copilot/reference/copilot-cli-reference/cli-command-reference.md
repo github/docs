@@ -141,7 +141,7 @@ COPILOT_GITHUB_TOKEN=github_pat_... copilot
 | `/plan [PROMPT]`                                    | Create an implementation plan before coding. |
 | `/plugin [marketplace\|install\|uninstall\|update\|list] [ARGS...]` | Manage plugins and plugin marketplaces. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins). |
 | `/pr [view\|create\|fix\|auto]`                     | Manage pull requests for the current branch. See [AUTOTITLE](/copilot/how-tos/copilot-cli/manage-pull-requests). |
-| `/remote`                                           | Enable remote access to this session from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/steer-remotely). |
+| `/remote [on\|off]`                                 | Show remote status (if no argument provided), enable remote steering (`on`), or end the remote connection (`off`). See [AUTOTITLE](/copilot/how-tos/copilot-cli/steer-remotely). |
 | `/rename [NAME]`                                    | Rename the current session (auto-generates a name if omitted; alias for `/session rename`). |
 | `/research TOPIC`                                   | Run a deep research investigation using {% data variables.product.github %} search and web sources. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/research). |
 | `/reset-allowed-tools`                              | Reset the list of allowed tools. |
@@ -397,7 +397,7 @@ Command hooks run shell scripts and are supported on all hook types.
 
 #### Prompt hooks
 
-Prompt hooks auto-submit text as if the user typed it. They are only supported on `sessionStart` and run before any initial prompt passed via `--prompt`. The text can be a natural language prompt or a slash command.
+Prompt hooks auto-submit text as if the user typed it. They are only supported on `sessionStart` and only fire for **new interactive sessions**. They do not fire on resume, and they do not fire in non-interactive prompt mode (`-p`). The text can be a natural language prompt or a slash command.
 
 ```json
 {
@@ -498,7 +498,7 @@ For `preToolUse` and `permissionRequest`, an HTTP hook failure is fail-open: the
 | `subagentStop` | A subagent completes. | Yes — can block and force continuation. |
 | `subagentStart` | A subagent is spawned (before it runs). Returns `additionalContext` prepended to the subagent's prompt. Supports `matcher` to filter by agent name. | No — cannot block creation. |
 | `preCompact` | Context compaction is about to begin (manual or automatic). Supports `matcher` to filter by trigger (`"manual"` or `"auto"`). | No — notification only. |
-| `permissionRequest` | Before showing a permission dialog to the user, after rule-based checks find no matching allow or deny rule. Supports `matcher` regex on `toolName`. | Yes — can allow or deny programmatically. |
+| `permissionRequest` | Fires before the permission service runs (rules engine, session approvals, auto-allow/auto-deny, and user prompting). If the merged hook output returns `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Supports `matcher` regex on `toolName`. | Yes — can allow or deny programmatically. |
 | `errorOccurred` | An error occurs during execution. | No |
 | `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports `matcher` regex on `notification_type`. | Optional — can inject `additionalContext` into the session. |
 
@@ -842,9 +842,11 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 
 ### `permissionRequest` decision control
 
-The `permissionRequest` hook fires when a tool-level permission dialog is about to be shown. It fires after rule-based permission checks find no matching allow or deny rule. Use it to approve or deny tool calls programmatically—especially useful in pipe mode (`-p`) and CI environments where no interactive prompt is available.
+The `permissionRequest` hook fires before the permission service runs—before rule checks, session approvals, auto-allow/auto-deny, and user prompting. If hooks return `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Returning nothing falls through to normal permission handling. Use it to approve or deny tool calls programmatically—especially useful in pipe mode (`-p`) and CI environments where no interactive prompt is available.
 
-**Matcher:** Optional regex tested against `toolName`. When set, the hook fires only for matching tool names.
+All configured `permissionRequest` hooks run for each request (except `read` and `hook` permission kinds, which short-circuit before hooks). Hook outputs are merged with later hook outputs overriding earlier ones.
+
+**Matcher:** Optional regex tested against `toolName`. Anchored as `^(?:pattern)$`; must match the full tool name. When set, the hook fires only for matching tool names.
 
 Output JSON to stdout to control the permission decision:
 
@@ -854,7 +856,7 @@ Output JSON to stdout to control the permission decision:
 | `message` | string | Reason fed back to the LLM when denying. |
 | `interrupt` | boolean | When `true` combined with `"deny"`, stops the agent entirely. |
 
-Return empty output or `{}` to fall through to the default behavior (show the user dialog, or deny in pipe mode). For command hooks, exit code `2` is treated as a deny; stdout JSON (if any) is merged with `{"behavior":"deny"}`, and stderr is ignored.
+Return empty output or `{}` to fall through to the normal permission flow. For command hooks, exit code `2` is treated as a deny; stdout JSON (if any) is merged with `{"behavior":"deny"}`, and stderr is ignored.
 
 ### `notification` hook
 
@@ -910,6 +912,7 @@ If `additionalContext` is returned, the text is injected into the session as a p
 | `grep` | Search file contents. |
 | `web_fetch` | Fetch web pages. |
 | `task` | Run subagent tasks. |
+| `ask_user` | Ask the user a clarifying question. |
 
 If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. Exit codes apply to command hooks only—for HTTP hooks, see the [HTTP hook failure semantics](#http-hook-failure-semantics). For `postToolUseFailure` command hooks, exiting with code `2` causes stderr to be returned as recovery guidance for the assistant. For `permissionRequest` command hooks, exit code `2` is treated as a deny; stdout JSON (if any) is merged with `{"behavior":"deny"}`, and stderr is ignored. Hook failures (non-zero exit codes or timeouts) are logged and skipped—they never block agent execution.
 
@@ -1091,7 +1094,6 @@ Skills are loaded from these locations in priority order (first found wins for d
 | Parent `.github/skills/` | Inherited | Monorepo parent directory support. |
 | `~/.copilot/skills/` | Personal | Personal skills for all projects. |
 | `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
-| `~/.claude/skills/` | Personal | Claude-compatible personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
 | (bundled with CLI) | Built-in | Skills shipped with the CLI. Lowest priority—overridable by any other source. |
@@ -1132,7 +1134,7 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 | Scope | Location |
 |-------|----------|
 | Project | `.github/agents/` or `.claude/agents/` |
-| User | `~/.copilot/agents/` or `~/.claude/agents/` |
+| User | `~/.copilot/agents/` |
 | Plugin | `<plugin>/agents/` |
 
 Project-level agents take precedence over user-level agents. Plugin agents have the lowest priority.

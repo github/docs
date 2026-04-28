@@ -15,6 +15,11 @@ contentType: concepts
 category: 
   - Learn about Copilot
 ---
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->
 
 > [!IMPORTANT]
 > {% data reusables.copilot.plans.individual-plans-paused %}

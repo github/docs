@@ -94,7 +94,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 ### `hooks/`
 
-Store user-level hook scripts here. These hooks apply to all your sessions. You can also define hooks inline in your user configuration file (`~/.copilot/config.json`) using the `hooks` key. Repository-level hooks (in `.github/hooks/`) are loaded alongside user-level hooks.
+Store user-level hook scripts here. These hooks apply to all your sessions. You can also define hooks inline in your user configuration file (`~/.copilot/settings.json`) using the `hooks` key. Repository-level hooks (in `.github/hooks/`) are loaded alongside user-level hooks.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/use-hooks).
 

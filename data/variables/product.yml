@@ -328,6 +328,12 @@ prodname_pru: 'premium request'
 prodname_prus: 'premium requests'
 prodname_prus_caps: 'Premium requests'
 
+# GitHub AI Credits (replacing premium requests for billing)
+prodname_ai_credits: 'GitHub AI Credits'
+prodname_ai_credits_short: 'AI credits'
+prodname_ai_credit_singular: 'AI credit'
+prodname_ai_credits_value: '$0.01 USD'
+
 # GitHub Spark
 prodname_spark: 'GitHub Spark'
 prodname_spark_short: 'Spark'

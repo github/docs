@@ -18,3 +18,8 @@ redirect_from:
 contentType: how-tos
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->

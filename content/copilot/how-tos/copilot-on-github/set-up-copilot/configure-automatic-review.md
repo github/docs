@@ -17,6 +17,12 @@ category:
   - Configure Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.code-review-actions-minutes-note %}
+
+<!-- end expires 2026-06-01 -->
+
 ## Introduction
 
 You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review#about-automatic-pull-request-reviews).
