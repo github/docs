@@ -27,6 +27,9 @@ contentType: concepts
 
 ## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
 
+> \[!NOTE]
+> GitHub Enterprise Server users should use self-hosted runners. GitHub-hosted runners are **not** supported.
+
 Runners are the machines that execute jobs in a {% data variables.product.prodname_actions %} workflow. For example, a runner can clone your repository locally, install testing software, and then run commands that evaluate your code.
 
 {% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners). {% data reusables.actions.single-cpu-runners %}
