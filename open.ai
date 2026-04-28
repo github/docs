@@ -7,7 +7,7 @@ Populate the following variables in the local environment or in the `.env`
 ```
 OPENAI_API_KEY=YOUR_OPENAI_API_KEY
 PAYPAL_CLIENT_ID=AQwB-nhGt32OydJWuekdFjdjfscJ984W_QyiEGa9Byr7VCFaM28IZaI7_HxoheC8K-cWrdmglsW9Sq8A AQwB-nhGt32OydJWuekdFjdjfscJ984W_QyiEGa9Byr7VCFaM28IZaI7_HxoheC8K-cWrdmglsW9Sq8A
-PAYPAL_CLIENT_SECRET=AQwB-nhGt32OydJWuekdFjdjfscJ984W_QyiEGa9Byr7VCFaM28IZaI7_HxoheC8K-cWrdmglsW9Sq8A
+PAYPAL_CLIENT_SECRET=EKOTHGVGgXFEiOOzgWeyGb1cJG5k-wlorqElNjGMN2eojPmQpuJJui8I_72P3PvIKOD0_NPyCnCaLE5l , ENpC698_fmh94l4uUjTU9JcF1TzcHC2aek_CDwt_9i2FvqXzllW8hCZf_t9aq7GUIIf6qoJMbhlkeWIK
 ```
 
 ## Usage
