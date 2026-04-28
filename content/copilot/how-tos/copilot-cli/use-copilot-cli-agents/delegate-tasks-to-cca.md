@@ -1,7 +1,7 @@
 ---
-title: Delegating tasks to {% data variables.copilot.copilot_cli %}
-shortTitle: Delegate tasks to Copilot
-intro: Use {% data variables.copilot.copilot_cli_short %}''s autopilot mode to hand off tasks and have {% data variables.product.prodname_copilot_short %} work autonomously on your behalf.
+title: Delegating tasks to {% data variables.product.prodname_copilot_short %}
+shortTitle: Delegate tasks to {% data variables.product.prodname_copilot_short %}
+intro: Use autopilot mode, or the `/delegate` slash command, to get {% data variables.product.prodname_copilot_short %} to work autonomously on your behalf.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
@@ -13,9 +13,13 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-## Get {% data variables.product.prodname_copilot_short %} to work autonomously
+{% data variables.copilot.copilot_cli_short %} offers two ways to have {% data variables.product.prodname_copilot_short %} work autonomously: **autopilot mode** and the **`/delegate` command**. Both let you hand off tasks, but they differ in where the work happens:
 
-You can tell {% data variables.product.prodname_copilot_short %} to use its best judgment to complete a task autonomously, rather than the CLI prompting you for input at each decision point within a task. You do this by using the CLI's autopilot mode.
+* **Autopilot mode** runs locally in your CLI session. You give autopilot full permissions and {% data variables.product.prodname_copilot_short %} then works on a task without stopping to prompt you for input. Your local machine does the work, and you can watch progress in real time. Use autopilot when you want hands-free local execution.
+
+* **`/delegate`** pushes the task to {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.github %}. The work runs remotely: {% data variables.product.prodname_copilot_short %} creates a branch, opens a draft pull request, and works in the background. Use `/delegate` when you want to hand off a task entirely and continue running even if you shut down your local machine.
+
+## Get autopilot to complete tasks autonomously on your local machine
 
 There are two ways to use autopilot mode:
 
@@ -26,9 +30,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autop
 
 ## Delegate tasks to {% data variables.copilot.copilot_cloud_agent %}
 
-The delegate command lets you push your current session to {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.github %}. This lets you hand off work while preserving all the context {% data variables.product.prodname_copilot_short %} needs to complete your task.
-
-You can delegate a task using the slash command, followed by a prompt:
+You can delegate a task to {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.github %} by using the `/delegate`slash command, followed by a prompt:
 
 ```shell
 /delegate complete the API integration tests and fix any failing edge cases

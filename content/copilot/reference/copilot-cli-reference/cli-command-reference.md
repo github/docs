@@ -19,6 +19,7 @@ docsTeamMetrics:
 | Command                | Purpose                                            |
 |------------------------|----------------------------------------------------|
 | `copilot`              | Launch the interactive user interface.             |
+| `copilot completion SHELL` | Print a shell script for the chosen shell that can be used to enable tab completion for {% data variables.copilot.copilot_cli_short %}. Supported shells: `bash`, `zsh`, `fish`. See [Using `copilot completion`](#using-copilot-completion). |
 | `copilot help [TOPIC]` | Display help information. Help topics include: `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, and `providers`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot login`        | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. Accepts `--host HOST` to specify the {% data variables.product.github %} host URL (default: `https://github.com`). |
@@ -33,9 +34,8 @@ docsTeamMetrics:
 | Option                  | Purpose                                                                                       |
 |-------------------------|-----------------------------------------------------------------------------------------------|
 | `--host HOST`         | {% data variables.product.github %} host URL (default: `https://github.com`). Use this to authenticate with a {% data variables.product.prodname_ghe_cloud %} instance that uses data residency (for example, `https://example.ghe.com`). |
-| `--config-dir PATH` | Set the configuration directory (default: `~/.copilot`).                                   |
 
-The default authentication mode is a web-based browser flow. After completion, an authentication token is stored securely in the system credential store. If a credential store is not found, the token is stored in a plain text config file under `~/.copilot/`.
+The default authentication mode is a web-based browser flow. After completion, an authentication token is stored securely in the system credential store. If a credential store is not found, the token is stored in a plain text config file under `~/.copilot/` (or the directory specified by `COPILOT_HOME` if set).
 
 Alternatively, {% data variables.copilot.copilot_cli_short %} will use an authentication token found in environment variables. The following are checked in order of precedence: `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, `GITHUB_TOKEN`. This method is most suitable for headless use such as automation.
 
@@ -52,6 +52,38 @@ copilot login --host https://example.ghe.com
 
 # Use a fine-grained PAT via environment variable
 COPILOT_GITHUB_TOKEN=github_pat_... copilot
+```
+
+### Using `copilot completion`
+
+The command `copilot completion SHELL` outputs a script for the specified shell (bash, zsh, or fish).
+
+By sourcing this script (or writing it to your shell's completion directory) you can enable tab completion in your terminal for `copilot` subcommands, command options, and known value choices for command options.
+
+#### Usage examples
+
+Bash (current session only):
+
+```bash copy
+source <(copilot completion bash)
+```
+
+Bash (persistent, Linux):
+
+```bash copy
+copilot completion bash | sudo tee /etc/bash_completion.d/copilot
+```
+
+Zsh — write the output to a directory on your $fpath. Restart the shell after running this command:
+
+```shell copy
+copilot completion zsh > "${fpath[1]}/_copilot"
+```
+
+Fish:
+
+```shell copy
+copilot completion fish > ~/.config/fish/completions/copilot.fish
 ```
 
 ## Global shortcuts in the interactive interface
@@ -182,7 +214,6 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--available-tools=TOOL ...`       | Only these tools will be available to the model. For multiple tools, use a quoted, comma-separated list. See [AUTOTITLE](/copilot/how-tos/copilot-cli/allowing-tools). |
 | `--banner`, `--no-banner`          | Show or hide the startup banner. |
 | `--bash-env`                       | Enable `BASH_ENV` support for bash shells. |
-| `--config-dir=PATH`         | Set the configuration directory (default: `~/.copilot`). |
 | `--connect[=SESSION-ID]`           | Connect directly to a remote session (optionally specify a session ID or task ID). Conflicts with `--resume` and `--continue`. |
 | `--continue`                       | Resume the most recent session in the current working directory, falling back to the globally most recent session. |
 | `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
@@ -332,7 +363,7 @@ copilot --allow-tool='MyMCP'
 For detailed information about configuration file settings—including the full list of user settings, repository settings, local settings, and how they cascade—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
 
 > [!NOTE]
-> User settings were previously stored in `~/.copilot/config.json`. Existing settings in that location are automatically migrated to `~/.copilot/settings.json` on startup.
+> User settings were previously stored in `~/.copilot/config.json`. Existing user-editable settings in that location are automatically migrated to `~/.copilot/settings.json` on startup.
 
 ## Project initialization for {% data variables.product.prodname_copilot_short %}
 
@@ -944,7 +975,6 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 | `--timeout <ms>` | Timeout in milliseconds. |
 | `--json` | Output added configuration as JSON. |
 | `--show-secrets` | Show full environment variable and header values. |
-| `--config-dir <path>` | Path to the configuration directory. |
 
 > [!CAUTION]
 > `--show-secrets` can print sensitive environment variable and header values to your terminal or logs. Only use this option in trusted environments, and avoid copying, pasting, or otherwise capturing the output in shared logs or history.
