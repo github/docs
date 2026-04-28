@@ -70,7 +70,9 @@ Anyone can work with a previously opened pull request to continue working on it,
    ```shell
    git fetch origin pull/ID/head:BRANCH_NAME
    ```
+   
    For pull request #123, creating a local branch named `test_branch`, this would become:
+   
    ```shell
    git fetch origin pull/123/head:test_branch
    ```
