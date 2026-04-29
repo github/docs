@@ -5,6 +5,8 @@ intro: 'Use the `/pr` slash command to view, create, and fix pull requests direc
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/manage-pull-requests
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page

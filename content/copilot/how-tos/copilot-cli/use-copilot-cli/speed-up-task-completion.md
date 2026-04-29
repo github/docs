@@ -7,6 +7,7 @@ versions:
 contentType: how-tos
 redirect_from:
   - /copilot/how-tos/copilot-cli/speeding-up-task-completion
+  - /copilot/how-tos/copilot-cli/speed-up-task-completion
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page
