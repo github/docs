@@ -6,6 +6,8 @@ intro: 'Enable remote access to a {% data variables.copilot.copilot_cli_short %}
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/steer-remotely
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page

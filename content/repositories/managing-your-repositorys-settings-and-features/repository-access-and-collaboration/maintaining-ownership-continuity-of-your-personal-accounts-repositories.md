@@ -30,4 +30,4 @@ The person you invite to be your successor must have a {% data variables.product
 1. Click **Add successor**.
 {% data reusables.user-settings.sudo-mode-popup %}
 
-The user you've invited will be listed as "Pending" until they agree to become your successor. For more information about what happens after a successor is appointed, see [About successors](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/about-successors).
+The user you've invited will be listed as "Pending" until they agree to become your successor. For more information about what happens after a successor is appointed, see [About successors](/repositories/creating-and-managing-repositories/access-to-repositories#about-successors).

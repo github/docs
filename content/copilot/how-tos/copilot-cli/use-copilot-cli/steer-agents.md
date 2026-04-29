@@ -6,6 +6,8 @@ product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/use-copilot-cli-agents/steer-agents
 category:
   - Build with Copilot CLI
 docsTeamMetrics:
@@ -26,4 +28,4 @@ Steering lets you:
 
 ## Next steps
 
-To learn how to use {% data variables.copilot.copilot_cli_short %} to get an AI-powered review of your code changes, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/agentic-code-review).
+To learn how to use {% data variables.copilot.copilot_cli_short %} to get an AI-powered review of your code changes, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review).

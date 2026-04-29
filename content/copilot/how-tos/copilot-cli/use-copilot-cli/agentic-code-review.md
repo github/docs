@@ -7,13 +7,15 @@ product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/use-copilot-cli-agents/agentic-code-review
 category:
   - Build with Copilot CLI
 docsTeamMetrics:
   - copilot-cli
 ---
 
-## About agentic code review 
+## About agentic code review
 
 You can use the `/review` slash command to have {% data variables.product.prodname_copilot_short %} analyze code changes without leaving the CLI. This lets you get quick feedback on your changes prior to committing.
 

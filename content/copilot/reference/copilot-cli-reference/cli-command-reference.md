@@ -19,6 +19,7 @@ docsTeamMetrics:
 | Command                | Purpose                                            |
 |------------------------|----------------------------------------------------|
 | `copilot`              | Launch the interactive user interface.             |
+| `copilot completion SHELL` | Print a shell script for the chosen shell that can be used to enable tab completion for {% data variables.copilot.copilot_cli_short %}. Supported shells: `bash`, `zsh`, `fish`. See [Using `copilot completion`](#using-copilot-completion). |
 | `copilot help [TOPIC]` | Display help information. Help topics include: `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, and `providers`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot login`        | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. Accepts `--host HOST` to specify the {% data variables.product.github %} host URL (default: `https://github.com`). |
@@ -33,9 +34,8 @@ docsTeamMetrics:
 | Option                  | Purpose                                                                                       |
 |-------------------------|-----------------------------------------------------------------------------------------------|
 | `--host HOST`         | {% data variables.product.github %} host URL (default: `https://github.com`). Use this to authenticate with a {% data variables.product.prodname_ghe_cloud %} instance that uses data residency (for example, `https://example.ghe.com`). |
-| `--config-dir PATH` | Set the configuration directory (default: `~/.copilot`).                                   |
 
-The default authentication mode is a web-based browser flow. After completion, an authentication token is stored securely in the system credential store. If a credential store is not found, the token is stored in a plain text config file under `~/.copilot/`.
+The default authentication mode is a web-based browser flow. After completion, an authentication token is stored securely in the system credential store. If a credential store is not found, the token is stored in a plain text config file under `~/.copilot/` (or the directory specified by `COPILOT_HOME` if set).
 
 Alternatively, {% data variables.copilot.copilot_cli_short %} will use an authentication token found in environment variables. The following are checked in order of precedence: `COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, `GITHUB_TOKEN`. This method is most suitable for headless use such as automation.
 
@@ -52,6 +52,38 @@ copilot login --host https://example.ghe.com
 
 # Use a fine-grained PAT via environment variable
 COPILOT_GITHUB_TOKEN=github_pat_... copilot
+```
+
+### Using `copilot completion`
+
+The command `copilot completion SHELL` outputs a script for the specified shell (bash, zsh, or fish).
+
+By sourcing this script (or writing it to your shell's completion directory) you can enable tab completion in your terminal for `copilot` subcommands, command options, and known value choices for command options.
+
+#### Usage examples
+
+Bash (current session only):
+
+```bash copy
+source <(copilot completion bash)
+```
+
+Bash (persistent, Linux):
+
+```bash copy
+copilot completion bash | sudo tee /etc/bash_completion.d/copilot
+```
+
+Zsh — write the output to a directory on your $fpath. Restart the shell after running this command:
+
+```shell copy
+copilot completion zsh > "${fpath[1]}/_copilot"
+```
+
+Fish:
+
+```shell copy
+copilot completion fish > ~/.config/fish/completions/copilot.fish
 ```
 
 ## Global shortcuts in the interactive interface
@@ -119,7 +151,7 @@ COPILOT_GITHUB_TOKEN=github_pat_... copilot
 | `/context`                                          | Show the context window token usage and visualization. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#checking-your-context-usage). |
 | `/copy`                                             | Copy the last response to the clipboard. |
 | `/cwd`, `/cd [PATH]`                                | Change the working directory or display the current directory. |
-| `/delegate [PROMPT]`                                | Delegate changes to a remote repository with an AI-generated pull request. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/delegate-tasks-to-cca). |
+| `/delegate [PROMPT]`                                | Delegate changes to a remote repository with an AI-generated pull request. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca). |
 | `/diff`                                             | Review the changes made in the current directory. |
 | `/downgrade <VERSION>`                              | Download and restart into a specific CLI version. Available for team accounts. |
 | `/env`                                              | Show loaded environment details (instructions, MCP servers, skills, agents, plugins, LSPs, extensions). |
@@ -128,7 +160,7 @@ COPILOT_GITHUB_TOKEN=github_pat_... copilot
 | `/feedback`, `/bug`                                 | Provide feedback about the CLI. |
 | `/fleet [PROMPT]`                                   | Enable parallel subagent execution of parts of a task. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet). |
 | `/help`                                             | Show the help for interactive commands. |
-| `/ide`                                              | Connect to an IDE workspace. See [AUTOTITLE](/copilot/how-tos/copilot-cli/connecting-vs-code#managing-the-connection-with-the-ide-slash-command). |
+| `/ide`                                              | Connect to an IDE workspace. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code#managing-the-connection-with-the-ide-slash-command). |
 | `/init`                 | Initialize {% data variables.product.prodname_copilot_short %} custom instructions and agentic features for this repository. See [Project initialization for {% data variables.product.prodname_copilot_short %}](#project-initialization-for-copilot). |
 | `/instructions`                                     | View and toggle custom instruction files. |
 | `/keep-alive [on\|busy\|NUMBERm\|NUMBERh]`          | Prevent the machine from going to sleep: while a CLI session is active, while the agent is busy, or for a defined length of time. {% data reusables.copilot.experimental %} |
@@ -140,14 +172,14 @@ COPILOT_GITHUB_TOKEN=github_pat_... copilot
 | `/model`, `/models [MODEL]`                         | Select the AI model you want to use. |
 | `/plan [PROMPT]`                                    | Create an implementation plan before coding. |
 | `/plugin [marketplace\|install\|uninstall\|update\|list] [ARGS...]` | Manage plugins and plugin marketplaces. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins). |
-| `/pr [view\|create\|fix\|auto]`                     | Manage pull requests for the current branch. See [AUTOTITLE](/copilot/how-tos/copilot-cli/manage-pull-requests). |
-| `/remote`                                           | Enable remote access to this session from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/steer-remotely). |
+| `/pr [view\|create\|fix\|auto]`                     | Manage pull requests for the current branch. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests). |
+| `/remote [on\|off]`                                 | Show the remote control status (if no argument provided), enable remote steering (`on`), or end the remote connection (`off`). See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/steer-remotely). |
 | `/rename [NAME]`                                    | Rename the current session (auto-generates a name if omitted; alias for `/session rename`). |
 | `/research TOPIC`                                   | Run a deep research investigation using {% data variables.product.github %} search and web sources. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/research). |
 | `/reset-allowed-tools`                              | Reset the list of allowed tools. |
 | `/restart`                                          | Restart the CLI, preserving the current session. |
-| `/resume [VALUE]`, `/continue`                      | Switch to a different session by choosing from a list. Optionally specify a session ID, ID prefix, or session name to resume a specific session. |
-| `/review [PROMPT]`                                  | Run the code review agent to analyze changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/agentic-code-review). |
+| `/resume [SESSION-ID]`, `/continue [SESSION-ID]`    | Switch to a different session by choosing from a list (optionally specify a session ID). |
+| `/review [PROMPT]`                                  | Run the code review agent to analyze changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review). |
 | `/session [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`, `/sessions [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`  | Show session information and manage sessions. Subcommands: `info`, `checkpoints`, `files`, `plan`, `rename`, `cleanup`, `prune`, `delete`, `delete-all`. |
 | `/share [file\|html\|gist] [session\|research] [PATH]`, `/export [file\|html\|gist] [session\|research] [PATH]` | Share the session to a Markdown file, interactive HTML file, or {% data variables.product.github %} gist. |
 | `/skills [list\|info\|add\|remove\|reload] [ARGS...]`   | Manage skills for enhanced capabilities. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills). |
@@ -182,7 +214,6 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--available-tools=TOOL ...`       | Only these tools will be available to the model. For multiple tools, use a quoted, comma-separated list. See [AUTOTITLE](/copilot/how-tos/copilot-cli/allowing-tools). |
 | `--banner`, `--no-banner`          | Show or hide the startup banner. |
 | `--bash-env`                       | Enable `BASH_ENV` support for bash shells. |
-| `--config-dir=PATH`         | Set the configuration directory (default: `~/.copilot`). |
 | `--connect[=SESSION-ID]`           | Connect directly to a remote session (optionally specify a session ID or task ID). Conflicts with `--resume` and `--continue`. |
 | `--continue`                       | Resume the most recent session in the current working directory, falling back to the globally most recent session. |
 | `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
@@ -217,7 +248,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--plan`                           | Start in plan mode. Shorthand for `--mode plan`. Cannot be combined with `--mode` or `--autopilot`. |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
 | `--plugin-dir=DIRECTORY`           | Load a plugin from a local directory (can be used multiple times). |
-| `--remote`                         | Enable remote access to this session from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/steer-remotely). |
+| `--remote`                         | Enable remote access to this session from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/steer-remotely). |
 | `--resume[=VALUE]`                 | Resume a previous interactive session by choosing from a list. Optionally specify a session ID, ID prefix, or session name. Name matching is exact and case-insensitive; falls back to the auto-generated summary when no explicit name matches. |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
 | `--screen-reader`                  | Enable screen reader optimizations. |
@@ -332,7 +363,7 @@ copilot --allow-tool='MyMCP'
 For detailed information about configuration file settings—including the full list of user settings, repository settings, local settings, and how they cascade—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
 
 > [!NOTE]
-> User settings were previously stored in `~/.copilot/config.json`. Existing settings in that location are automatically migrated to `~/.copilot/settings.json` on startup.
+> User settings were previously stored in `~/.copilot/config.json`. Existing user-editable settings in that location are automatically migrated to `~/.copilot/settings.json` on startup.
 
 ## Project initialization for {% data variables.product.prodname_copilot_short %}
 
@@ -358,560 +389,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instruct
 
 ## Hooks reference
 
-Hooks are external commands, HTTP webhooks, or (on `sessionStart` only) prompt strings that execute at specific lifecycle points during a session, enabling custom automation, security controls, and integrations. Hook configuration files are loaded automatically from `.github/hooks/*.json` in your repository.
-
-### Hook configuration format
-
-Hook configuration files use JSON format with version `1`. Each hook entry is a command hook, an HTTP hook, or (on `sessionStart` only) a prompt hook.
-
-#### Command hooks
-
-Command hooks run shell scripts and are supported on all hook types.
-
-```json
-{
-  "version": 1,
-  "hooks": {
-    "preToolUse": [
-      {
-        "type": "command",
-        "bash": "your-bash-command",
-        "powershell": "your-powershell-command",
-        "cwd": "optional/working/directory",
-        "env": { "VAR": "value" },
-        "timeoutSec": 30
-      }
-    ]
-  }
-}
-```
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `bash` | string | One of `bash`/`powershell` | Shell command for Unix. |
-| `cwd` | string | No | Working directory for the command (relative to repository root or absolute). |
-| `env` | object | No | Environment variables to set (supports variable expansion). |
-| `powershell` | string | One of `bash`/`powershell` | Shell command for Windows. |
-| `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
-| `type` | `"command"` | Yes | Must be `"command"`. |
-
-#### Prompt hooks
-
-Prompt hooks auto-submit text as if the user typed it. They are only supported on `sessionStart` and run before any initial prompt passed via `--prompt`. The text can be a natural language prompt or a slash command.
-
-```json
-{
-  "version": 1,
-  "hooks": {
-    "sessionStart": [
-      {
-        "type": "prompt",
-        "prompt": "Your prompt text or /slash-command"
-      }
-    ]
-  }
-}
-```
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `prompt` | string | Yes | Text to submit—can be a natural language message or a slash command. |
-| `type` | `"prompt"` | Yes | Must be `"prompt"`. |
-
-#### HTTP hooks
-
-HTTP hooks POST the event payload as JSON to a configured URL and parse the JSON response body. They are supported on all hook event types and are useful for webhook-style integrations—remote policy services, audit endpoints, and approval workflows—without requiring a local executable.
-
-```json
-{
-  "version": 1,
-  "hooks": {
-    "preToolUse": [
-      {
-        "type": "http",
-        "url": "https://policy.example.com/preToolUse"
-      }
-    ]
-  }
-}
-```
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `type` | `"http"` | Yes | Must be `"http"`. |
-| `url` | string | Yes | Endpoint URL. Must use `http:` or `https:`. No env var substitution in the URL itself. |
-| `headers` | object | No | Request headers. Values support `$VAR` / `${VAR}` substitution restricted to names listed in `allowedEnvVars`. |
-| `allowedEnvVars` | string[] | No | Allowlist for header value templating. Setting to a non-empty array requires HTTPS. |
-| `timeoutSec` | number | No | Per-request timeout in seconds. Default: `30`. `timeout` is accepted as an alias; `timeoutSec` takes precedence. |
-| `matcher` | string | No | Regex filter. Supported only on `preCompact`, `subagentStart`, `permissionRequest`, and `notification`. Anchored as `^(?:pattern)$`. |
-
-The response body uses the same JSON schema as command hook stdout for each event. Respond `204 No Content` or any 2xx with empty body when no action is needed.
-
-> [!WARNING]
-> HTTP hooks have no exit-code semantics. A non-2xx response is a hook failure, not a deny decision. To deny a tool call from an HTTP `preToolUse` hook, return `200 OK` with `{"permissionDecision":"deny","permissionDecisionReason":"..."}`. To deny from an HTTP `permissionRequest` hook, return `200 OK` with `{"behavior":"deny","message":"..."}`.
-
-A hook entry with both `bash` and `url` fields parses as whichever variant matches first; the unused field is silently dropped. Always set `type` explicitly and remove command-hook fields when using HTTP hooks.
-
-##### HTTP hook security
-
-HTTPS is required in the following cases:
-
-* When `allowedEnvVars` is a non-empty array, to prevent credentials from being sent over plaintext.
-* By default for `preToolUse` and `permissionRequest` hooks, to protect the permission decision channel.
-
-The CLI enforces a default-deny SSRF policy: any URL whose hostname resolves to a loopback, private, link-local, or cloud metadata address is rejected before connection. DNS is resolved up front and all returned addresses are validated (DNS rebinding defense).
-
-The following environment variables relax these defaults for development and testing only.
-
-| Variable | Effect | Intended use |
-|----------|--------|--------------|
-| `COPILOT_HOOK_ALLOW_LOCALHOST=1` | Permits `http://` to literal `localhost`, `127.*`, or `[::1]` (HTTPS rules), and any hostname resolving entirely to loopback (SSRF rule). | Local development only |
-| `COPILOT_HOOK_ALLOW_HTTP_AUTH_HOOKS=1` | Permits `http://` for `preToolUse` and `permissionRequest` hooks anywhere. | Testing only |
-
-Both variables must be set before launching `copilot`. Do not set them globally, in CI, or in shared environments.
-
-##### HTTP hook failure semantics
-
-| Condition | Behavior |
-|-----------|----------|
-| 2xx + valid JSON body | Body parsed per event output schema. |
-| 2xx + empty or non-JSON body | No action. |
-| Non-2xx response | Hook fails. Error logged. Agent continues. |
-| 3xx redirect | Hook fails ("returned redirect"). Agent continues. |
-| Timeout | Hook fails. Error logged. Agent continues. |
-| Network, DNS, or TLS error | Hook fails. Error logged. Agent continues. |
-| Configuration validation error at load | Entire configuration file rejected; no hooks from that file register. |
-
-For `preToolUse` and `permissionRequest`, an HTTP hook failure is fail-open: the agent falls through to the default permission flow.
-
-### Hook events
-
-| Event | Fires when | Output processed |
-|-------|------------|------------------|
-| `sessionStart` | A new or resumed session begins. | Optional — can return `additionalContext` to inject session-wide context prepended to every turn. |
-| `sessionEnd` | The session terminates. | No |
-| `userPromptSubmitted` | The user submits a prompt. | No |
-| `preToolUse` | Before each tool executes. | Yes — can allow, deny, or modify. |
-| `postToolUse` | After each tool completes successfully. | Yes — can replace the successful result (SDK programmatic hooks only). |
-| `postToolUseFailure` | After a tool completes with a failure. | Yes — can provide recovery guidance via `additionalContext` (exit code `2` for command hooks). |
-| `agentStop` | The main agent finishes a turn. | Yes — can block and force continuation. |
-| `subagentStop` | A subagent completes. | Yes — can block and force continuation. |
-| `subagentStart` | A subagent is spawned (before it runs). Returns `additionalContext` prepended to the subagent's prompt. Supports `matcher` to filter by agent name. | No — cannot block creation. |
-| `preCompact` | Context compaction is about to begin (manual or automatic). Supports `matcher` to filter by trigger (`"manual"` or `"auto"`). | No — notification only. |
-| `permissionRequest` | Before showing a permission dialog to the user, after rule-based checks find no matching allow or deny rule. Supports `matcher` regex on `toolName`. | Yes — can allow or deny programmatically. |
-| `errorOccurred` | An error occurs during execution. | No |
-| `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports `matcher` regex on `notification_type`. | Optional — can inject `additionalContext` into the session. |
-
-### Hook event input payloads
-
-Each hook event delivers a JSON payload to the hook handler. Two payload formats are supported, selected by the event name used in the hook configuration:
-
-* **camelCase format** — Configure the event name in camelCase (for example, `sessionStart`). Fields use camelCase.
-* **{% data variables.product.prodname_vscode_shortname %} compatible format** — Configure the event name in PascalCase (for example, `SessionStart`). Fields use snake_case to match the {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} extension format.
-
-#### `sessionStart` / `SessionStart`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;      // Unix timestamp in milliseconds
-    cwd: string;
-    source: "startup" | "resume" | "new";
-    initialPrompt?: string;
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "SessionStart";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    source: "startup" | "resume" | "new";
-    initial_prompt?: string;
-}
-```
-
-#### `sessionEnd` / `SessionEnd`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    reason: "complete" | "error" | "abort" | "timeout" | "user_exit";
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "SessionEnd";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    reason: "complete" | "error" | "abort" | "timeout" | "user_exit";
-}
-```
-
-#### `userPromptSubmitted` / `UserPromptSubmit`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    prompt: string;
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "UserPromptSubmit";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    prompt: string;
-}
-```
-
-#### `preToolUse` / `PreToolUse`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    toolName: string;
-    toolArgs: unknown;
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-When configured with the PascalCase event name `PreToolUse`, the payload uses snake_case field names to match the {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_copilot_short %} extension format:
-
-```typescript
-{
-    hook_event_name: "PreToolUse";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    tool_name: string;
-    tool_input: unknown;    // Tool arguments (parsed from JSON string when possible)
-}
-```
-
-#### `postToolUse` / `PostToolUse`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    toolName: string;
-    toolArgs: unknown;
-    toolResult: {
-        resultType: "success";
-        textResultForLlm: string;
-    }
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "PostToolUse";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    tool_name: string;
-    tool_input: unknown;
-    tool_result: {
-        result_type: "success" | "failure" | "denied" | "error";
-        text_result_for_llm: string;
-    }
-}
-```
-
-#### `postToolUseFailure` / `PostToolUseFailure`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    toolName: string;
-    toolArgs: unknown;
-    error: string;
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "PostToolUseFailure";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    tool_name: string;
-    tool_input: unknown;
-    error: string;
-}
-```
-
-#### `agentStop` / `Stop`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    transcriptPath: string;
-    stopReason: "end_turn";
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "Stop";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    transcript_path: string;
-    stop_reason: "end_turn";
-}
-```
-
-#### `subagentStart`
-
-**Input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    transcriptPath: string;
-    agentName: string;
-    agentDisplayName?: string;
-    agentDescription?: string;
-}
-```
-
-#### `subagentStop` / `SubagentStop`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    transcriptPath: string;
-    agentName: string;
-    agentDisplayName?: string;
-    stopReason: "end_turn";
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "SubagentStop";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    transcript_path: string;
-    agent_name: string;
-    agent_display_name?: string;
-    stop_reason: "end_turn";
-}
-```
-
-#### `errorOccurred` / `ErrorOccurred`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    error: {
-        message: string;
-        name: string;
-        stack?: string;
-    };
-    errorContext: "model_call" | "tool_execution" | "system" | "user_input";
-    recoverable: boolean;
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "ErrorOccurred";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    error: {
-        message: string;
-        name: string;
-        stack?: string;
-    };
-    error_context: "model_call" | "tool_execution" | "system" | "user_input";
-    recoverable: boolean;
-}
-```
-
-#### `preCompact` / `PreCompact`
-
-**camelCase input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    transcriptPath: string;
-    trigger: "manual" | "auto";
-    customInstructions: string;
-}
-```
-
-**{% data variables.product.prodname_vscode_shortname %} compatible input:**
-
-```typescript
-{
-    hook_event_name: "PreCompact";
-    session_id: string;
-    timestamp: string;      // ISO 8601 timestamp
-    cwd: string;
-    transcript_path: string;
-    trigger: "manual" | "auto";
-    custom_instructions: string;
-}
-```
-
-### `preToolUse` decision control
-
-The `preToolUse` hook can control tool execution by writing a JSON object to stdout (command hooks) or returning it in the response body (HTTP hooks).
-
-| Field | Values | Description |
-|-------|--------|-------------|
-| `permissionDecision` | `"allow"`, `"deny"`, `"ask"` | Whether the tool executes. Empty output uses default behavior. |
-| `permissionDecisionReason` | string | Reason shown to the agent. Recommended when decision is `"deny"` or `"ask"`. |
-| `modifiedArgs` | unknown | Replaces the entire tool input before execution. Only valid when `permissionDecision` is not `"deny"` or `"ask"`. |
-| `additionalContext` | string | Queued as context for the next model turn. Only valid when `permissionDecision` is not `"deny"` or `"ask"`. |
-
-> [!NOTE]
-> The {% data variables.product.prodname_vscode_shortname %} alias (`PreToolUse`) also accepts nested `hookSpecificOutput.{permissionDecision, permissionDecisionReason, updatedInput, additionalContext}`. `updatedInput` is normalized to `modifiedArgs`. Top-level fields are accepted as a fallback.
-
-### `agentStop` / `subagentStop` decision control
-
-| Field | Values | Description |
-|-------|--------|-------------|
-| `decision` | `"block"`, `"allow"` | `"block"` forces another agent turn using `reason` as the prompt. |
-| `reason` | string | Prompt for the next turn when `decision` is `"block"`. |
-
-### `permissionRequest` decision control
-
-The `permissionRequest` hook fires when a tool-level permission dialog is about to be shown. It fires after rule-based permission checks find no matching allow or deny rule. Use it to approve or deny tool calls programmatically—especially useful in pipe mode (`-p`) and CI environments where no interactive prompt is available.
-
-**Matcher:** Optional regex tested against `toolName`. When set, the hook fires only for matching tool names.
-
-Output JSON to stdout to control the permission decision:
-
-| Field | Values | Description |
-|-------|--------|-------------|
-| `behavior` | `"allow"`, `"deny"` | Whether to approve or deny the tool call. |
-| `message` | string | Reason fed back to the LLM when denying. |
-| `interrupt` | boolean | When `true` combined with `"deny"`, stops the agent entirely. |
-
-Return empty output or `{}` to fall through to the default behavior (show the user dialog, or deny in pipe mode). For command hooks, exit code `2` is treated as a deny; stdout JSON (if any) is merged with `{"behavior":"deny"}`, and stderr is ignored.
-
-### `notification` hook
-
-The `notification` hook fires asynchronously when the CLI emits a system notification. These hooks are fire-and-forget: they never block the session, and any errors are logged and skipped.
-
-**Input:**
-
-```typescript
-{
-    sessionId: string;
-    timestamp: number;
-    cwd: string;
-    hook_event_name: "Notification";
-    message: string;           // Human-readable notification text
-    title?: string;            // Short title (e.g., "Permission needed", "Shell completed")
-    notification_type: string; // One of the types listed below
-}
-```
-
-**Notification types:**
-
-| Type | When it fires |
-|------|---------------|
-| `shell_completed` | A background (async) shell command finishes |
-| `shell_detached_completed` | A detached shell session completes |
-| `agent_completed` | A background subagent finishes (completed or failed) |
-| `agent_idle` | A background agent finishes a turn and enters idle state (waiting for `write_agent`) |
-| `permission_prompt` | The agent requests permission to execute a tool |
-| `elicitation_dialog` | The agent requests additional information from the user |
-
-**Output:**
-
-```typescript
-{
-    additionalContext?: string; // Injected into the session as a user message
-}
-```
-
-If `additionalContext` is returned, the text is injected into the session as a prepended user message. This can trigger further agent processing if the session is idle. Return `{}` or empty output to take no action.
-
-**Matcher:** Optional regex on `notification_type`. The pattern is anchored as `^(?:pattern)$`. Omit `matcher` to receive all notification types.
-
-### Tool names for hook matching
-
-| Tool name | Description |
-|-----------|-------------|
-| `bash` | Execute shell commands (Unix). |
-| `powershell` | Execute shell commands (Windows). |
-| `view` | Read file contents. |
-| `edit` | Modify file contents. |
-| `create` | Create new files. |
-| `glob` | Find files by pattern. |
-| `grep` | Search file contents. |
-| `web_fetch` | Fetch web pages. |
-| `task` | Run subagent tasks. |
-
-If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. Exit codes apply to command hooks only—for HTTP hooks, see the [HTTP hook failure semantics](#http-hook-failure-semantics). For `postToolUseFailure` command hooks, exiting with code `2` causes stderr to be returned as recovery guidance for the assistant. For `permissionRequest` command hooks, exit code `2` is treated as a deny; stdout JSON (if any) is merged with `{"behavior":"deny"}`, and stderr is ignored. Hook failures (non-zero exit codes or timeouts) are logged and skipped—they never block agent execution.
+For detailed information about hooks—including hook configuration formats, hook events, input payloads, and decision control—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-hooks-reference).
 
 ## MCP server configuration
 
@@ -941,7 +419,6 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 | `--timeout <ms>` | Timeout in milliseconds. |
 | `--json` | Output added configuration as JSON. |
 | `--show-secrets` | Show full environment variable and header values. |
-| `--config-dir <path>` | Path to the configuration directory. |
 
 > [!CAUTION]
 > `--show-secrets` can print sensitive environment variable and header values to your terminal or logs. Only use this option in trusted environments, and avoid copying, pasting, or otherwise capturing the output in shared logs or history.
@@ -1091,7 +568,6 @@ Skills are loaded from these locations in priority order (first found wins for d
 | Parent `.github/skills/` | Inherited | Monorepo parent directory support. |
 | `~/.copilot/skills/` | Personal | Personal skills for all projects. |
 | `~/.agents/skills/` | Personal | Agent skills shared across all projects. |
-| `~/.claude/skills/` | Personal | Claude-compatible personal location. |
 | Plugin directories | Plugin | Skills from installed plugins. |
 | `COPILOT_SKILLS_DIRS` | Custom | Additional directories (comma-separated). |
 | (bundled with CLI) | Built-in | Skills shipped with the CLI. Lowest priority—overridable by any other source. |
@@ -1132,7 +608,7 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 | Scope | Location |
 |-------|----------|
 | Project | `.github/agents/` or `.claude/agents/` |
-| User | `~/.copilot/agents/` or `~/.claude/agents/` |
+| User | `~/.copilot/agents/` |
 | Plugin | `<plugin>/agents/` |
 
 Project-level agents take precedence over user-level agents. Plugin agents have the lowest priority.
@@ -1337,6 +813,7 @@ When content capture is enabled, the following attributes are populated.
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-hooks-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference)

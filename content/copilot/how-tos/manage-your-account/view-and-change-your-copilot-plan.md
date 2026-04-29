@@ -25,6 +25,12 @@ category:
   - Configure Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->
+
 > [!IMPORTANT]
 > **Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans are temporarily paused. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded, downgraded, or canceled.
 

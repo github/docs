@@ -67,7 +67,7 @@ By default, the CLI stores your OAuth token in your operating system's keychain 
 | Windows | Credential Manager |
 | Linux | libsecret (GNOME Keyring, KWallet) |
 
-If the system keychain is unavailable—for example, on a headless Linux server without `libsecret` installed—the CLI prompts you to store the token in a plaintext configuration file at `~/.copilot/settings.json`.
+If the system keychain is unavailable—for example, on a headless Linux server without `libsecret` installed—the CLI prompts you to store the token in a plaintext configuration file at `~/.copilot/config.json`.
 
 When you run a command, {% data variables.copilot.copilot_cli_short %} checks for credentials in the following order:
 
@@ -176,8 +176,8 @@ If you have {% data variables.product.prodname_cli %} installed and authenticate
 
 ## Switching between accounts
 
-{% data variables.copilot.copilot_cli_short %} supports multiple accounts. You can list available accounts and switch between them from within the CLI. 
-To list available accounts, run `/user list` from the {% data variables.copilot.copilot_cli_short %} prompt. 
+{% data variables.copilot.copilot_cli_short %} supports multiple accounts. You can list available accounts and switch between them from within the CLI.
+To list available accounts, run `/user list` from the {% data variables.copilot.copilot_cli_short %} prompt.
 To switch to a different account, type `/user switch` on the prompt.
 
 To add another account, run `copilot login` from a new terminal session, or run the login command from within the CLI and authorize with the other account.
@@ -190,7 +190,7 @@ To revoke the OAuth app authorization on {% data variables.product.github %} and
 
 1. Navigate to **Settings** > **Applications** > **Authorized OAuth Apps**.
 1. Navigate to your settings page:
-   1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture. 
+   1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
    1. Click **Settings**.
 1. In the left sidebar, click **Applications**.
 1. Under **Authorized OAuth Apps**, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} next to **GitHub CLI** to expand the menu and select **Revoke**.

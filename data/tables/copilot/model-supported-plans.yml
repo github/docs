@@ -135,7 +135,7 @@
 
 - name: GPT-5.3-Codex
   free: false
-  student: true
+  student: false
   pro: true
   pro_plus: true
   business: true

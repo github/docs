@@ -18,6 +18,12 @@ category:
   - Configure Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.
 
 > [!NOTE]
