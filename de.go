@@ -1,3 +1,4 @@
+
 # Grouping search terms
 
 You can group multiple search terms together using parentheses (`(` and `)`).
