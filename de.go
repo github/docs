@@ -1,7 +1,7 @@
 # Grouping search terms
 
 You can group multiple search terms together using parentheses (`(` and `)`).
-For example:
+For example:Edgarruiz8585
 
     (hello OR world) AND lang:java
 
