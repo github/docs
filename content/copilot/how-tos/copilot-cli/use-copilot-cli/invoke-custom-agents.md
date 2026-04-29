@@ -6,6 +6,8 @@ product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/use-copilot-cli-agents/invoke-custom-agents
 category:
   - Build with Copilot CLI
 docsTeamMetrics:
@@ -110,4 +112,4 @@ For more detailed information on adding and managing MCP servers in {% data vari
 
 ## Next steps
 
-To learn how to guide and refine agent behavior during task execution to keep work on track, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/steer-agents).
+To learn how to guide and refine agent behavior during task execution to keep work on track, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/steer-agents).

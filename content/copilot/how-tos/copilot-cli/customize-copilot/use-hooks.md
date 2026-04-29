@@ -30,3 +30,4 @@ docsTeamMetrics:
 * [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent)
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-hooks-reference)

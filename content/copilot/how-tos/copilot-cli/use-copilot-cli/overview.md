@@ -6,7 +6,6 @@ product: '{% data reusables.gated-features.copilot-cli %}'
 redirect_from:
   - /copilot/how-tos/use-copilot-cli
   - /copilot/how-tos/use-copilot-agents/use-copilot-cli
-  - /copilot/how-tos/copilot-cli/use-copilot-cli
 versions:
   feature: copilot
 contentType: how-tos
@@ -293,10 +292,10 @@ For additional information use one of the following commands in your terminal:
 
 You can work with agents in {% data variables.copilot.copilot_cli_short %} to support a full task lifecycle, from delegating work to reviewing results:
 
-* **Delegate tasks autonomously**: Run {% data variables.copilot.copilot_cli_short %} in autopilot mode to complete multi-step tasks without requiring approval at each step. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/delegate-tasks-to-cca).
-* **Invoke custom agents**: Invoke specialized agents tailored to specific tasks, such as code review, documentation, or security audits. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/invoke-custom-agents).
-* **Steer agents**: Guide and refine agent behavior during task execution to keep work on track. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/steer-agents).
-* **Request a code review**: Use {% data variables.copilot.copilot_cli_short %} to get an AI-powered review of your code changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/agentic-code-review).
+* **Delegate tasks autonomously**: Run {% data variables.copilot.copilot_cli_short %} in autopilot mode to complete multi-step tasks without requiring approval at each step. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca).
+* **Invoke custom agents**: Invoke specialized agents tailored to specific tasks, such as code review, documentation, or security audits. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/invoke-custom-agents).
+* **Steer agents**: Guide and refine agent behavior during task execution to keep work on track. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/steer-agents).
+* **Request a code review**: Use {% data variables.copilot.copilot_cli_short %} to get an AI-powered review of your code changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review).
 
 ## Further reading
 

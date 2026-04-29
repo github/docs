@@ -6,6 +6,8 @@ intro: 'Resume previous {% data variables.copilot.copilot_cli_short %} sessions,
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/chronicle
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page

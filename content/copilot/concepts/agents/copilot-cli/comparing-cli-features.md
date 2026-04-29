@@ -269,7 +269,10 @@ Avoid hooks when:
 
 ### Find out more about hooks
 
-See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-hooks).
+See:
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-hooks)
+* [AUTOTITLE](/copilot/reference/hooks-configuration)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-hooks-reference)
 
 ## Subagents
 

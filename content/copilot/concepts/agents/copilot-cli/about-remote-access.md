@@ -12,7 +12,7 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-This article explains the concepts around remote access to {% data variables.copilot.copilot_cli_short %} sessions. For instructions on how to enable remote access, see [AUTOTITLE](/copilot/how-tos/copilot-cli/steer-remotely).
+This article explains the concepts around remote access to {% data variables.copilot.copilot_cli_short %} sessions. For instructions on how to enable remote access, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/steer-remotely).
 
 ## Introduction
 
@@ -64,9 +64,9 @@ When connected to a session remotely from {% data variables.product.prodname_dot
 
 If the connection between your local machine and {% data variables.product.prodname_dotcom %} is temporarily lost—for example, due to a network interruption—you can continue using the session remotely as soon as the connection is restored.
 
-You can use the `/keep-alive` slash command to prevent your machine from going to sleep. See [Preventing your machine from going to sleep](/copilot/how-tos/copilot-cli/steer-remotely#preventing-your-machine-from-going-to-sleep).
+You can use the `/keep-alive` slash command to prevent your machine from going to sleep. See [Preventing your machine from going to sleep](/copilot/how-tos/copilot-cli/use-copilot-cli/steer-remotely#preventing-your-machine-from-going-to-sleep).
 
-If you closed a session that had remote access enabled, when you resume the session—either using `copilot --continue` or `copilot --resume=ID`—you must re-enable remote access. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/steer-remotely#resuming-a-session-with-remote-access).
+If you closed a session that had remote access enabled, when you resume the session—either using `copilot --continue` or `copilot --resume=ID`—you must re-enable remote access. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/steer-remotely#resuming-a-session-with-remote-access).
 
 ## Visibility of remote access sessions
 

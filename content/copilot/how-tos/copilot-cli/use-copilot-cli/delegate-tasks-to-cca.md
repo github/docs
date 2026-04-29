@@ -7,6 +7,8 @@ product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/use-copilot-cli-agents/delegate-tasks-to-cca
 category:
   - Build with Copilot CLI
 docsTeamMetrics:
@@ -48,4 +50,4 @@ Alternatively, prefix a prompt with `&` to delegate it:
 
 ## Next steps
 
-To learn how to invoke specialized agents tailored to specific tasks, such as code review, documentation, or security audits, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/invoke-custom-agents).
+To learn how to invoke specialized agents tailored to specific tasks, such as code review, documentation, or security audits, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/invoke-custom-agents).

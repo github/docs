@@ -6,6 +6,8 @@ intro: 'Connect {% data variables.copilot.copilot_cli_short %} to {% data variab
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/connecting-vs-code
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page

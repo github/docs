@@ -5,6 +5,8 @@ intro: 'Rewind your {% data variables.copilot.copilot_cli_short %} session to a 
 versions:
   feature: copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/how-tos/copilot-cli/roll-back-changes
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke page
