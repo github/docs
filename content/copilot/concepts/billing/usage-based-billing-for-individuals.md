@@ -75,7 +75,7 @@ You will have the option to:
 * Cancel your plan and receive a prorated refund.
 * Wait to be downgraded to {% data variables.copilot.copilot_free_short %} at renewal time.
 
-Note that, starting **June 1, 2026**, {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** will experience changes to model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing#model-multipliers-for-annual-copilot-pro-and-copilot-pro-subscribers).
+Note that, starting **June 1, 2026**, {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** will experience changes to model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/model-multipliers-for-annual-plans).
 
 ## Next steps
 

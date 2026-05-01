@@ -112,16 +112,6 @@ You can view your current {% data variables.product.prodname_actions %} usage fo
 
 <!-- expires 2026-06-01 -->
 
-Starting **June 1, 2026**, {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** will experience changes to model multipliers. The table below shows how the multipliers for each model will adjust.
+Starting June 1, 2026, {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers who choose to remain on **existing annual billing plans** and stay on the **request-based billing** model will experience changes to model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/model-multipliers-for-annual-plans).
 
 <!-- end expires 2026-06-01 -->
-
-Model multipliers and costs are subject to change.
-
-For information about your options as an annual subscriber, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals#if-youre-on-an-annual-plan).
-
-| Model | Current multiplier | New multiplier |
-| --- | ---: | ---: |
-| {% for entry in tables.copilot.annual-subscriber-model-multipliers %} |
-| {{ entry.model }} | {{ entry.current_multiplier }} | {{ entry.new_multiplier }} |
-| {% endfor %} |
