@@ -25,7 +25,7 @@ contentType: concepts
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview of {% data variables.product.prodname_dotcom %}-hosted runner
+## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
 
 Runners are the machines that execute jobs in a {% data variables.product.prodname_actions %} workflow. For example, a runner can clone your repository locally, install testing software, and then run commands that evaluate your code.
 
