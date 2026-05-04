@@ -19,7 +19,7 @@
   new_multiplier: '27'
 
 - model: 'Claude Opus 4.7'
-  current_multiplier: '7.5'
+  current_multiplier: '15'
   new_multiplier: '27'
 
 - model: 'Claude Sonnet 4'

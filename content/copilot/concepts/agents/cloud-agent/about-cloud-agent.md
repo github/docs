@@ -40,7 +40,7 @@ With {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product
 When you delegate tasks to {% data variables.copilot.copilot_cloud_agent %}, you can:
 
 * Use the agents panel or other agents entry points on {% data variables.product.prodname_dotcom_the_website %} to have {% data variables.product.prodname_copilot_short %} research, plan, and make code changes on a branch, then iterate before creating a pull request. You can also specify in your prompt that you want a pull request created right away. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/research-plan-iterate).
-* Ask {% data variables.product.prodname_copilot_short %} to open a new pull request from other entry points, including {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
+* Ask {% data variables.product.prodname_copilot_short %} to open a new pull request from other entry points, including {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 * Mention `@copilot` in a comment on an existing pull request to ask it to make changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/make-changes-to-an-existing-pr).
 {% ifversion security-campaigns-assign-to-cca %}* Assign security alerts to {% data variables.product.prodname_copilot_short %} from security campaigns. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).{% endif %}
 

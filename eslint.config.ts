@@ -234,7 +234,6 @@ export default [
       'src/article-api/transformers/audit-logs-transformer.ts',
       'src/article-api/transformers/rest-transformer.ts',
       'src/codeql-cli/scripts/convert-markdown-for-docs.ts',
-      'src/content-linter/lib/linting-rules/liquid-ifversion-versions.ts',
       'src/content-linter/scripts/lint-content.ts',
 
       'src/content-render/liquid/engine.ts',
@@ -260,7 +259,6 @@ export default [
       'src/graphql/tests/validate-schema.ts',
       'src/landings/components/CookBookFilter.tsx',
       'src/landings/components/ProductGuidesContext.tsx',
-      'src/landings/components/ProductLandingContext.tsx',
       'src/landings/components/SidebarProduct.tsx',
       'src/landings/pages/home.tsx',
       'src/landings/pages/product.tsx',
@@ -271,7 +269,6 @@ export default [
       'src/links/scripts/check-github-github-links.ts',
       'src/links/scripts/update-internal-links.ts',
       'src/rest/components/get-rest-code-samples.ts',
-      'src/rest/lib/index.ts',
       'src/rest/pages/category.tsx',
       'src/rest/pages/subcategory.tsx',
       'src/rest/scripts/utils/create-rest-examples.ts',
@@ -303,8 +300,6 @@ export default [
       'src/types/github__markdownlint-github.d.ts',
       'src/types/markdownlint-lib-rules.d.ts',
       'src/types/markdownlint-rule-helpers.d.ts',
-      'src/types/markdownlint-rule-search-replace.d.ts',
-      'src/types/primer__octicons.d.ts',
     ],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',

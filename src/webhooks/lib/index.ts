@@ -77,17 +77,22 @@ export async function getInitialPageWebhooks(version: string): Promise<InitialWe
       data: defaultAction ? webhook[defaultAction] : {},
     }
 
-    // remove all nested params for the initial webhooks page, we'll load
-    // them by request
+    // Remove all nested params for the initial webhooks page — we'll load
+    // them on demand via the /api/webhooks/v1 endpoint. Shallow-clone the
+    // data object and each body parameter first so we don't mutate the
+    // objects cached by getWebhooks(), which would cause the lazy-loaded
+    // fetch to return empty childParamsGroups.
     if (initialWebhook.data.bodyParameters) {
-      for (const bodyParam of initialWebhook.data.bodyParameters) {
-        if (bodyParam.childParamsGroups) {
-          bodyParam.childParamsGroups = []
-        }
+      initialWebhook.data = {
+        ...initialWebhook.data,
+        bodyParameters: initialWebhook.data.bodyParameters.map((bodyParam) => ({
+          ...bodyParam,
+          ...(bodyParam.childParamsGroups ? { childParamsGroups: [] } : {}),
+        })),
       }
     }
 
-    initialWebhooks.push({ ...initialWebhook })
+    initialWebhooks.push(initialWebhook)
   }
   initialWebhooksCache.set(version, initialWebhooks)
   return initialWebhooks

@@ -107,8 +107,12 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     // But for example, a `/authentication/connecting-to-github-with-ssh`
     // needs to become `/en/authentication/connecting-to-github-with-ssh`
     const possibleRedirectTo = `/en${req.path}`
+    // Pages are keyed without .md, so strip it before lookup
+    const lookupPath = possibleRedirectTo.endsWith('.md')
+      ? possibleRedirectTo.replace(/\.md$/, '')
+      : possibleRedirectTo
     if (!req.context.pages) throw new Error('req.context.pages not yet set')
-    if (possibleRedirectTo in req.context.pages || isDeprecatedVersion(req.path)) {
+    if (lookupPath in req.context.pages || isDeprecatedVersion(req.path)) {
       const language = getLanguage(req)
 
       // Note, it's important to use `req.url` here and not `req.path`
@@ -127,7 +131,10 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   // do not redirect if the redirected page can't be found
   if (
-    !(req.context.pages[removeQueryParams(redirect)] || isDeprecatedVersion(req.path)) &&
+    !(
+      req.context.pages[removeQueryParams(redirect).replace(/\.md$/, '')] ||
+      isDeprecatedVersion(req.path)
+    ) &&
     !redirect.includes('://')
   ) {
     // display error on the page in development, but not in production

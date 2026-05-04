@@ -38195,7 +38195,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -38205,7 +38205,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -38527,7 +38527,7 @@
                             "integer",
                             "null"
                           ],
-                          "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
+                          "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin`, `EnterpriseOwner` and `EnterpriseRole` are not applicable for personal repositories."
                         },
                         "actor_type": {
                           "type": "string",
@@ -38537,7 +38537,8 @@
                             "RepositoryRole",
                             "Team",
                             "DeployKey",
-                            "EnterpriseOwner"
+                            "EnterpriseOwner",
+                            "EnterpriseRole"
                           ],
                           "description": "The type of actor that can bypass a ruleset"
                         },
@@ -39703,7 +39704,7 @@
                                     "properties": {
                                       "alerts_threshold": {
                                         "type": "string",
-                                        "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                        "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                         "enum": [
                                           "none",
                                           "errors",
@@ -39713,7 +39714,7 @@
                                       },
                                       "security_alerts_threshold": {
                                         "type": "string",
-                                        "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                        "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                         "enum": [
                                           "none",
                                           "critical",
@@ -39878,7 +39879,7 @@
             {
               "type": "integer or null",
               "name": "actor_id",
-              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, and <code>Team</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. If <code>actor_type</code> is <code>EnterpriseOwner</code>, <code>actor_id</code> is ignored. <code>OrganizationAdmin</code> and <code>EnterpriseOwner</code> are not applicable for personal repositories.</p>"
+              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, and <code>Team</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. If <code>actor_type</code> is <code>EnterpriseOwner</code>, <code>actor_id</code> is ignored. <code>OrganizationAdmin</code>, <code>EnterpriseOwner</code> and <code>EnterpriseRole</code> are not applicable for personal repositories.</p>"
             },
             {
               "type": "string",
@@ -39891,7 +39892,8 @@
                 "RepositoryRole",
                 "Team",
                 "DeployKey",
-                "EnterpriseOwner"
+                "EnterpriseOwner",
+                "EnterpriseRole"
               ]
             },
             {
@@ -40990,7 +40992,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin`, `EnterpriseOwner` and `EnterpriseRole` are not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -41000,7 +41002,8 @@
                           "RepositoryRole",
                           "Team",
                           "DeployKey",
-                          "EnterpriseOwner"
+                          "EnterpriseOwner",
+                          "EnterpriseRole"
                         ],
                         "description": "The type of actor that can bypass a ruleset"
                       },
@@ -42166,7 +42169,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -42176,7 +42179,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -42455,7 +42458,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin`, `EnterpriseOwner` and `EnterpriseRole` are not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -42465,7 +42468,8 @@
                           "RepositoryRole",
                           "Team",
                           "DeployKey",
-                          "EnterpriseOwner"
+                          "EnterpriseOwner",
+                          "EnterpriseRole"
                         ],
                         "description": "The type of actor that can bypass a ruleset"
                       },
@@ -43631,7 +43635,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -43641,7 +43645,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -43811,7 +43815,7 @@
             {
               "type": "integer or null",
               "name": "actor_id",
-              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, and <code>Team</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. If <code>actor_type</code> is <code>EnterpriseOwner</code>, <code>actor_id</code> is ignored. <code>OrganizationAdmin</code> and <code>EnterpriseOwner</code> are not applicable for personal repositories.</p>"
+              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, and <code>Team</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. If <code>actor_type</code> is <code>EnterpriseOwner</code>, <code>actor_id</code> is ignored. <code>OrganizationAdmin</code>, <code>EnterpriseOwner</code> and <code>EnterpriseRole</code> are not applicable for personal repositories.</p>"
             },
             {
               "type": "string",
@@ -43824,7 +43828,8 @@
                 "RepositoryRole",
                 "Team",
                 "DeployKey",
-                "EnterpriseOwner"
+                "EnterpriseOwner",
+                "EnterpriseRole"
               ]
             },
             {
@@ -44924,7 +44929,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin`, `EnterpriseOwner` and `EnterpriseRole` are not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -44934,7 +44939,8 @@
                           "RepositoryRole",
                           "Team",
                           "DeployKey",
-                          "EnterpriseOwner"
+                          "EnterpriseOwner",
+                          "EnterpriseRole"
                         ],
                         "description": "The type of actor that can bypass a ruleset"
                       },
@@ -46100,7 +46106,7 @@
                                   "properties": {
                                     "alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "errors",
@@ -46110,7 +46116,7 @@
                                     },
                                     "security_alerts_threshold": {
                                       "type": "string",
-                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest//code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
+                                      "description": "The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see \"[About code scanning alerts](https://docs.github.com/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).\"",
                                       "enum": [
                                         "none",
                                         "critical",
@@ -46774,7 +46780,7 @@
                       },
                       "secret": {
                         "type": "string",
-                        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                        "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                       },
                       "insecure_ssl": {
                         "oneOf": [
@@ -47057,7 +47063,7 @@
                     },
                     "secret": {
                       "type": "string",
-                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                     },
                     "insecure_ssl": {
                       "oneOf": [
@@ -47296,7 +47302,7 @@
                     },
                     "secret": {
                       "type": "string",
-                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                     },
                     "insecure_ssl": {
                       "oneOf": [
@@ -47586,7 +47592,7 @@
                     },
                     "secret": {
                       "type": "string",
-                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                      "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                     },
                     "insecure_ssl": {
                       "oneOf": [
@@ -47851,7 +47857,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [
@@ -47988,7 +47994,7 @@
                 },
                 "secret": {
                   "type": "string",
-                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers)."
+                  "description": "If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest/webhooks/event-payloads/#delivery-headers)."
                 },
                 "insecure_ssl": {
                   "oneOf": [

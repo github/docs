@@ -6,4 +6,4 @@ Once you've created a {% data variables.copilot.copilot_custom_agent_short %}, y
 
 When {% data variables.product.prodname_copilot_short %} opens pull requests, it will note which {% data variables.copilot.copilot_custom_agent_short %} was used to complete the work in the pull request description.
 
-For more information on using {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
+For more information on using {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).

@@ -49,8 +49,6 @@ These models are deployed on {% data variables.product.github %} managed Azure O
 
 ## Anthropic models
 
-{% data reusables.copilot.opus-47-promo-period %}
-
 Used for:
 
 * {% data variables.copilot.copilot_claude_haiku_45 %}

@@ -41,6 +41,7 @@ children:
   - /maintaining-github-apps
   - /github-marketplace
   - /oauth-apps
+  - /github-authentication-discovery-endpoints
 redirect_from:
   - /developers
   - /developers/apps/getting-started-with-apps

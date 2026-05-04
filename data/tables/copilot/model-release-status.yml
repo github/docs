@@ -70,9 +70,9 @@
 - name: 'GPT-5.4 nano'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
+  agent_mode: false
+  ask_mode: false
+  edit_mode: false
 
 - name: 'GPT-5.5'
   provider: 'OpenAI'

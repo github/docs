@@ -20,7 +20,8 @@ category:
 <!-- end expires 2026-06-01 -->
 
 > [!IMPORTANT]
-> {% data reusables.copilot.plans.individual-plans-paused %}
+> * {% data reusables.copilot.plans.individual-plans-paused %}
+> * {% data reusables.copilot.plans.organization-plans-paused %}
 
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.
 
@@ -51,7 +52,8 @@ For more information, see [AUTOTITLE](/copilot/about-github-copilot/github-copil
 Start using {% data variables.product.prodname_copilot_short %} by signing up for the plan that best fits your needs.
 
 > [!IMPORTANT]
-> {% data reusables.copilot.plans.individual-plans-paused %}
+> * {% data reusables.copilot.plans.individual-plans-paused %}
+> * {% data reusables.copilot.plans.organization-plans-paused %}
 
 * **{% data variables.copilot.copilot_free_short %}** — Try {% data variables.product.prodname_copilot_short %} with limited features and requests. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
 

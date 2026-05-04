@@ -53,7 +53,7 @@ Offline mode is **only fully air-gapped** if your BYOK provider is local or othe
 | Token type                 | Prefix        | Supported | Notes                                                  |
 |----------------------------|---------------|-----------|--------------------------------------------------------|
 | OAuth token (device flow)  | `gho_`        | Yes       | Default method via `copilot login`                     |
-| Fine-grained PAT           | `github_pat_` | Yes       | Must include required permissions **Copilot Requests** |
+| Fine-grained PAT           | `github_pat_` | Yes       | Must be owned by your personal account (not an organization) with the **{% data variables.product.prodname_copilot_short %} Requests** account permission |
 | GitHub App user-to-server  | `ghu_`        | Yes       | Via environment variable                               |
 | Classic PAT                | `ghp_`        | No        | Not supported by {% data variables.copilot.copilot_cli_short %} |
 

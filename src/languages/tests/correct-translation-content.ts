@@ -33,6 +33,30 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% data reutilizables.foo.bar %}', 'es')).toBe('{% data reusables.foo.bar %}')
     })
 
+    test('fixes extra Spanish word inserted around "de datos" and "de variables"', () => {
+      // `{% WORD de datos variables.` — leading translator word
+      expect(fix('{% uso de datos variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+      // Unicode-aware: accented words must also match
+      expect(fix('{% análisis de datos variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%- uso de datos reusables.foo.bar %}', 'es')).toBe(
+        '{%- data reusables.foo.bar %}',
+      )
+
+      // `{% de datos WORD variables.` — adjective inserted after "de datos"
+      expect(fix('{% de datos específico variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+
+      // `{% WORD de variables.` — missing "datos" keyword
+      expect(fix('{% alerta de variables.product.github %}', 'es')).toBe(
+        '{% data variables.product.github %}',
+      )
+    })
+
     test('fixes translated comment keyword', () => {
       expect(fix('{% comentario %}', 'es')).toBe('{% comment %}')
       expect(fix('{%- comentario %}', 'es')).toBe('{%- comment %}')
@@ -502,6 +526,15 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes 数据变量 → data variables', () => {
       expect(fix('{% 数据变量.product.github %}', 'zh')).toBe('{% data variables.product.github %}')
     })
+
+    test('fixes 数据变量 with no leading space (`{%数据变量.`)', () => {
+      expect(fix('{%数据变量.enterprise.management_console%}', 'zh')).toBe(
+        '{% data variables.enterprise.management_console%}',
+      )
+      expect(fix('{%-数据变量.product.github %}', 'zh')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
   })
 
   // ─── RUSSIAN (ru) ──────────────────────────────────────────────────
@@ -513,6 +546,10 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes АВТОЗАГОЛОВОК (translated AUTOTITLE)', () => {
       expect(fix('[АВТОЗАГОЛОВОК](/path/to/article)', 'ru')).toBe('[AUTOTITLE](/path/to/article)')
+    })
+
+    test('fixes Liquid-embedded lowercase autotitle anchor (`[{% autoTITLE](`)', () => {
+      expect(fix('[{% autoTITLE](/path/to/article)', 'ru')).toBe('[AUTOTITLE](/path/to/article)')
     })
 
     test('fixes translated data tag variants', () => {
@@ -981,6 +1018,27 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% Tipp %}', 'de')).toBe('{% tip %}')
       expect(fix('{%- Tipp %}', 'de')).toBe('{%- tip %}')
       expect(fix('{%- Tipp -%}', 'de')).toBe('{%- tip -%}')
+    })
+
+    test('fixes capitalized Codespaces platform tag', () => {
+      expect(fix('{% Codespaces %}', 'de')).toBe('{% codespaces %}')
+      expect(fix('{%- Codespaces %}', 'de')).toBe('{%- codespaces %}')
+    })
+
+    test('fixes translated prompt/endprompt keywords', () => {
+      expect(fix('{% Aufforderung %}', 'de')).toBe('{% prompt %}')
+      expect(fix('{%- Aufforderung %}', 'de')).toBe('{%- prompt %}')
+      expect(fix('{% Endprompt %}', 'de')).toBe('{% endprompt %}')
+      expect(fix('{%- Endprompt %}', 'de')).toBe('{%- endprompt %}')
+    })
+
+    test('fixes `{%-DatenXxx variables` no-space compound German "Daten" tags', () => {
+      expect(fix('{%-Datenpaket variables.product.github %}', 'de')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      expect(fix('{%-Dateneinstellungen reusables.foo.bar %}', 'de')).toBe(
+        '{%- data reusables.foo.bar %}',
+      )
     })
 
     test('fixes für → for in for-loops', () => {

@@ -159,11 +159,11 @@
 
 - name: GPT-5.4 nano
   free: false
-  student: true
-  pro: true
+  student: false
+  pro: false
   pro_plus: true
-  business: true
-  enterprise: true
+  business: false
+  enterprise: false
 
 - name: GPT-5.5
   free: false

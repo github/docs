@@ -5698,6 +5698,10 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "use_immutable_subject": {
+                  "description": "Whether to opt in to the immutable OIDC subject claim format for the organization. When `true`, new OIDC tokens will use a stable, repository-ID-based `sub` claim instead of the name-based format.",
+                  "type": "boolean"
                 }
               },
               "required": [
@@ -5748,6 +5752,11 @@
           "type": "array of strings",
           "name": "include_claim_keys",
           "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "use_immutable_subject",
+          "description": "<p>Whether to opt in to the immutable OIDC subject claim format for the organization. When <code>true</code>, new OIDC tokens will use a stable, repository-ID-based <code>sub</code> claim instead of the name-based format.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates or updates the customization template for an OpenID Connect (OIDC) subject claim.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
@@ -5873,6 +5882,14 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "use_immutable_subject": {
+                  "description": "Whether the repository has opted in to the immutable OIDC subject claim format. When `true`, OIDC tokens will use a stable, repository-ID-based `sub` claim. If not set at the repository level, falls back to the organization-level setting.",
+                  "type": "boolean"
+                },
+                "sub_claim_prefix": {
+                  "description": "The current `sub` claim prefix for this repository.",
+                  "type": "string"
                 }
               },
               "required": [
@@ -5947,6 +5964,11 @@
           "type": "array of strings",
           "name": "include_claim_keys",
           "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "use_immutable_subject",
+          "description": "<p>Whether to opt in to the immutable OIDC subject claim format for this repository. When <code>true</code>, OIDC tokens will use a stable, repository-ID-based <code>sub</code> claim.</p>"
         }
       ],
       "descriptionHTML": "<p>Sets the customization template and <code>opt-in</code> or <code>opt-out</code> flag for an OpenID Connect (OIDC) subject claim for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",

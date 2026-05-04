@@ -6,7 +6,7 @@ intro: 'Find out how {% data variables.product.prodname_copilot_short %} can res
 versions:
   feature: copilot
 children:
-  - /create-a-pr
+  - /start-copilot-sessions
   - /track-copilot-sessions
   - /integrate-cloud-agent-with-jira
   - /integrate-cloud-agent-with-slack

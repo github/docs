@@ -20,7 +20,7 @@ contentType: concepts
 
 ## About {% ifversion fpt or ghec %}user alerts {% else %}{% data variables.secret-scanning.alerts %}{% endif %}
 
-{% data reusables.secret-scanning.secret-scanning-about-alerts %} {% data reusables.secret-scanning.repository-alert-location %}
+{% data reusables.secret-scanning.secret-scanning-about-alerts %} {% data reusables.secret-scanning.repository-alert-location %} If the same secret appears multiple times within a single file, only one alert is created.
 
 To help you triage alerts more effectively, {% data variables.product.company_short %} separates alerts into two lists:
 

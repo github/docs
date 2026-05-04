@@ -1822,7 +1822,7 @@
                       },
                       "organization_copilot_agent_settings": {
                         "type": "string",
-                        "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                        "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                         "enum": [
                           "read",
                           "write"
@@ -2766,7 +2766,7 @@
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -3516,7 +3516,7 @@
             {
               "type": "string",
               "name": "organization_copilot_agent_settings",
-              "description": "<p>The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.</p>",
+              "description": "<p>The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.</p>",
               "enum": [
                 "read",
                 "write"
@@ -4134,7 +4134,7 @@
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -5486,7 +5486,7 @@
             {
               "type": "string",
               "name": "organization_copilot_agent_settings",
-              "description": "<p>The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.</p>",
+              "description": "<p>The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.</p>",
               "enum": [
                 "read",
                 "write"
@@ -6242,7 +6242,7 @@
                             },
                             "organization_copilot_agent_settings": {
                               "type": "string",
-                              "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                              "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                               "enum": [
                                 "read",
                                 "write"
@@ -7576,7 +7576,7 @@
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -8530,7 +8530,7 @@
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -9482,7 +9482,7 @@
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -11432,7 +11432,7 @@
                           },
                           "organization_copilot_agent_settings": {
                             "type": "string",
-                            "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                            "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                             "enum": [
                               "read",
                               "write"
@@ -13502,7 +13502,7 @@
                             },
                             "organization_copilot_agent_settings": {
                               "type": "string",
-                              "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                              "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                               "enum": [
                                 "read",
                                 "write"
@@ -14428,7 +14428,7 @@
                             },
                             "organization_copilot_agent_settings": {
                               "type": "string",
-                              "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                              "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                               "enum": [
                                 "read",
                                 "write"

@@ -124,6 +124,8 @@ If your private registry is configured with an IP allow list, you can find the I
 
 {% endif %}
 
+{% ifversion dependabot-oidc-support %}
+
 ## Using OIDC for authentication
 
 {% data variables.product.prodname_dependabot %} can use OpenID Connect (OIDC) to authenticate with private registries, eliminating the need to store long-lived credentials as repository secrets.
@@ -190,6 +192,8 @@ registries:
 ```
 
 For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/security/openid-connect).
+
+{% endif %}
 
 ## Allowing external code execution
 
@@ -430,6 +434,8 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-oidc-support %}
+
 You can also use OIDC authentication to access JFrog Artifactory. {% data reusables.dependabot.dependabot-oidc-credentials %}
 
 {% raw %}
@@ -445,6 +451,8 @@ registries:
 ```
 
 {% endraw %}
+
+{% endif %}
 
 ### `npm-registry`
 
@@ -516,6 +524,8 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-oidc-support %}
+
 You can also use OIDC authentication to access Azure DevOps Artifacts. {% data reusables.dependabot.dependabot-oidc-credentials %}
 
 {% raw %}
@@ -532,6 +542,8 @@ registries:
 {% endraw %}
 
 The `AZURE_TENANT_ID` and `AZURE_CLIENT_ID` values can be obtained from the overview page of your Entra ID app registration.
+
+{% endif %}
 
 ### `pub-repository`
 
@@ -590,6 +602,8 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-oidc-support %}
+
 You can also use OIDC authentication to access Azure DevOps Artifacts. {% data reusables.dependabot.dependabot-oidc-credentials %}
 
 {% raw %}
@@ -605,6 +619,8 @@ registries:
 ```
 
 {% endraw %}
+
+{% endif %}
 
 ### `rubygems-server`
 
