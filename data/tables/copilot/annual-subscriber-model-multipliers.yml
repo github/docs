@@ -98,6 +98,10 @@
   current_multiplier: '0.33'
   new_multiplier: '6'
 
+- model: 'GPT-5.5'
+  current_multiplier: '7.5'
+  new_multiplier: 'TBD'
+
 - model: 'GPT-5 mini'
   current_multiplier: '0'
   new_multiplier: '0.33'

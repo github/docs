@@ -139,10 +139,12 @@ With OIDC-based authentication, {% data variables.product.prodname_dependabot %}
 
 {% endif %}
 
-{% data variables.product.prodname_dependabot %} supports OIDC authentication for any registry type that uses `username` and `password` authentication, when the registry is hosted on one of the following cloud providers:
+{% data variables.product.prodname_dependabot %} supports OIDC authentication for any registry type that uses `username` and `password` authentication, when the registry is hosted on one of the following providers:
 
 * AWS CodeArtifact
 * Azure DevOps Artifacts
+* Cloudsmith
+* Google Cloud Artifact Registry
 * JFrog Artifactory
 
 To configure OIDC authentication, you need to specify different values instead of `username` and `password` in your registry configuration.
@@ -175,6 +177,37 @@ registries:
     url: https://pkgs.dev.azure.com/MY-ORGANIZATION/MY-PROJECT/_packaging/MY-FEED/npm/registry/
     tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
     client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
+```
+
+### Cloudsmith
+
+Cloudsmith requires the values `namespace`, `service-slug`, and `audience`. The `api-host` field is optional and defaults to `api.cloudsmith.io`:
+
+```yaml
+registries:
+  my-cloudsmith-feed:
+    type: npm-registry
+    url: https://dl.cloudsmith.io/MY-NAMESPACE/MY-REPOSITORY/npm/
+    namespace: MY-NAMESPACE
+    service-slug: MY-SERVICE-SLUG
+    audience: https://github.com/GITHUB-ORG
+    api-host: api.cloudsmith.io  # if required by your feed
+```
+
+### Google Cloud Artifact Registry
+
+Google Cloud Artifact Registry requires the values `url` and
+`workload-identity-provider`. The values `service-account` and `audience` are
+optional:
+
+```yaml
+registries:
+  my-gcp-artifact-registry:
+    type: docker-registry
+    url: https://REGION-docker.pkg.dev
+    workload-identity-provider: projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL/providers/PROVIDER
+    service-account: SA-NAME@PROJECT-ID.iam.gserviceaccount.com  # if required by your provider
+    audience: MY-AUDIENCE  # if required by your provider
 ```
 
 ### JFrog Artifactory
