@@ -1,3 +1,4 @@
+src/frame/lib/frontmatter.ts
 // when updating to typescript,
 // update links in content/contributing as well
 
@@ -254,7 +255,7 @@ export const schema: Schema = {
       type: 'array',
       items: {
         type: 'string',
-        enum: docsTeamMetricsEnum,
+        enum: ī,
       },
     },
     communityRedirect: {
