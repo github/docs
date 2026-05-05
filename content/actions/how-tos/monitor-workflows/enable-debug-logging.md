@@ -36,14 +36,14 @@ Runner diagnostic logging provides additional log files that contain information
 * The runner process log, which includes information about coordinating and setting up runners to execute jobs.
 * The worker process log, which logs the execution of a job.
 
-1. To enable runner diagnostic logging, set the following secret or variable in the repository that contains the workflow: `ACTIONS_RUNNER_DEBUG` to `true`. If both the secret and variable are set, the value of the secret takes precedence over the variable.
+1. To enable runner diagnostic logging, set the following secret or variable in the repository (or at organizational-level) that contains the workflow: `ACTIONS_RUNNER_DEBUG` to `true`. If both the secret and variable are set, the value of the secret takes precedence over the variable.
 1. To download runner diagnostic logs, download the log archive of the workflow run. The runner diagnostic logs are contained in the `runner-diagnostic-logs` folder. For more information on downloading logs, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs).
 
 ## Enabling step debug logging
 
 Step debug logging increases the verbosity of a job's logs during and after a job's execution.
 
-1. To enable step debug logging, set the following secret or variable in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. If both the secret and variable are set, the value of the secret takes precedence over the variable.
+1. To enable step debug logging, set the following secret or variable in the repository (or at organizational-level) that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. If both the secret and variable are set, the value of the secret takes precedence over the variable.
 1. After setting the secret or variable, more debug events are shown in the step logs. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
 You can also use the `runner.debug` context to conditionally run steps only when debug logging is enabled. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#runner-context).
