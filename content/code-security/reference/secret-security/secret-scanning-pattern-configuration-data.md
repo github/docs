@@ -4,9 +4,10 @@ shortTitle: Secret pattern data
 intro: Understand the data displayed in the {% data variables.product.prodname_secret_scanning %} pattern configuration page to make informed decisions about push protection settings.
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: reference
-
 category:
   - Protect your secrets
 ---

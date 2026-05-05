@@ -51,13 +51,9 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 
 {% endif %}
 
-{% ifversion security-overview-org-codeql-pr-alerts %}
-
 ## Viewing metrics for {% data variables.product.prodname_codeql %} pull request alerts for an organization
 
 For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories where you have write access across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/pull-request-alert-metrics).
-
-{% endif %}
 
 ## Filtering {% data variables.product.prodname_code_scanning %} alerts
 

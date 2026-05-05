@@ -18,6 +18,8 @@
  *   CHECK_ANCHORS - Whether to check anchor links (default: true)
  */
 
+import fs from 'fs'
+
 import { program } from 'commander'
 import chalk from 'chalk'
 import { load } from 'cheerio'
@@ -31,6 +33,8 @@ import {
   checkInternalLink,
   checkAssetLink,
   isAssetLink,
+  extractLinksWithLiquid,
+  extractLinksFromMarkdown,
 } from '@/links/lib/extract-links'
 import {
   type BrokenLink,
@@ -62,34 +66,134 @@ interface CheckResult {
 }
 
 /**
- * Render a page and extract all internal links from the HTML
+ * Count how many lines the frontmatter block occupies in the raw source file.
+ * `page.markdown` has frontmatter stripped, so line numbers from markdown
+ * parsing are relative to the body. Adding this offset converts them to
+ * actual file line numbers.
+ *
+ * Results are cached by fullPath — the file is read once per page across
+ * both getLinksFromMarkdown() and checkAnchorsOnPage().
  */
-async function getLinksFromRenderedPage(
-  page: Page,
-  permalink: Permalink,
-  context: Context,
-): Promise<{ href: string; text: string }[]> {
-  const links: { href: string; text: string }[] = []
+const frontmatterLineOffsetCache = new Map<string, number>()
 
+function getFrontmatterLineOffset(fullPath: string): number {
+  const cached = frontmatterLineOffsetCache.get(fullPath)
+  if (cached !== undefined) return cached
+
+  let offset = 0
   try {
-    // Render the page content
-    const html = await renderContent(page.markdown, context)
-    const $ = load(html)
-
-    // Extract all anchor links
-    $('a[href]').each((_, el) => {
-      const href = $(el).attr('href')
-      const text = $(el).text()
-
-      if (href && href.startsWith('/')) {
-        links.push({ href, text })
+    const raw = fs.readFileSync(fullPath, 'utf8')
+    if (raw.startsWith('---')) {
+      const lines = raw.split('\n')
+      for (let i = 1; i < lines.length; i++) {
+        if (lines[i].trimEnd() === '---') {
+          // i is the 0-based index of the closing `---`; adding 1 gives the
+          // 1-based line number of that delimiter, which is the total number
+          // of frontmatter lines. Body content starts on the next line.
+          offset = i + 1
+          break
+        }
       }
-    })
-  } catch (error) {
-    console.warn(`Failed to render ${page.relativePath} (${permalink.href}):`, error)
+    }
+  } catch {
+    // ignore — fall back to no offset
   }
 
-  return links
+  frontmatterLineOffsetCache.set(fullPath, offset)
+  return offset
+}
+
+/**
+ * Extract all internal links from the markdown source with accurate line numbers.
+ *
+ * Links are discovered from the Liquid-rendered content (which expands {% data reusables.xxx %}
+ * and respects {% ifversion %} for the current version), so coverage matches the original
+ * HTML-based checker. Line numbers are resolved against the raw markdown source to avoid
+ * drift caused by Liquid post-processing (blank-line collapsing). Links that originate
+ * from a reusable file rather than the page itself fall back to line 0.
+ */
+async function getLinksFromMarkdown(
+  page: Page,
+  context: Context,
+): Promise<{ href: string; text: string | undefined; line: number }[]> {
+  const fmOffset = getFrontmatterLineOffset(page.fullPath)
+
+  // Build a map of raw-markdown line numbers per href, plus a parallel index
+  // map to consume them in encounter order without shifting (O(1) per lookup).
+  //
+  // When a raw href contains Liquid tags (e.g. `/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}/path`),
+  // the rendered href will differ from the raw string, so rawLinesByHref.get() would miss.
+  // To fix this, we lazily import renderLiquid once and use it to resolve those hrefs to
+  // their canonical (rendered) form before keying the map — matching what extractLinksWithLiquid produces.
+  const rawResult = extractLinksFromMarkdown(page.markdown)
+
+  const needsLiquidHrefResolution =
+    rawResult.internalLinks.some((l) => l.href.includes('{%') || l.href.includes('{{')) ||
+    rawResult.liquidPrefixedLinks.length > 0
+  type RenderLiquidFn = (template: string, context: unknown) => Promise<string>
+  let renderLiquidFn: RenderLiquidFn | null = null
+  if (needsLiquidHrefResolution) {
+    const mod = await import('@/content-render/liquid/index')
+    renderLiquidFn = mod.renderLiquid
+  }
+
+  const rawLinesByHref = new Map<string, number[]>()
+  for (const link of rawResult.internalLinks) {
+    let canonicalHref = link.href
+    if (renderLiquidFn && (canonicalHref.includes('{%') || canonicalHref.includes('{{'))) {
+      try {
+        // Render only the href string so we get the same canonical href that
+        // extractLinksWithLiquid will produce, without affecting line positions.
+        canonicalHref = (await renderLiquidFn(canonicalHref, context)).trim()
+      } catch {
+        // fall back to raw href if rendering fails
+      }
+    }
+    const existing = rawLinesByHref.get(canonicalHref)
+    if (existing) {
+      existing.push(link.line + fmOffset)
+    } else {
+      rawLinesByHref.set(canonicalHref, [link.line + fmOffset])
+    }
+  }
+
+  // Liquid-prefixed links (href starts with `{%`) are absent from internalLinks because
+  // INTERNAL_LINK_PATTERN requires a leading '/'. Render each href to its canonical form
+  // and, if the result is an internal path, add it to the map so lookups don't miss.
+  if (renderLiquidFn) {
+    for (const link of rawResult.liquidPrefixedLinks) {
+      try {
+        const rendered = (await renderLiquidFn(link.href, context)).trim().split('#')[0]
+        if (rendered.startsWith('/')) {
+          const existing = rawLinesByHref.get(rendered)
+          if (existing) {
+            existing.push(link.line + fmOffset)
+          } else {
+            rawLinesByHref.set(rendered, [link.line + fmOffset])
+          }
+        }
+      } catch {
+        // skip — can't resolve line number for this link
+      }
+    }
+  }
+  // Tracks how many line numbers have been consumed for each href.
+  const rawLinesIndex = new Map<string, number>()
+
+  // The Liquid-rendered set drives which links are actually checked (expands
+  // reusables, excludes version-gated links that don't apply here).
+  // extractLinksWithLiquid already catches Liquid render failures internally and
+  // falls back to raw extraction with a warning, so no outer try/catch is needed.
+  const renderedResult = await extractLinksWithLiquid(page.markdown, context)
+  const renderedLinks = renderedResult.internalLinks.map((l) => ({ href: l.href, text: l.text }))
+
+  return renderedLinks.map((link) => {
+    const lines = rawLinesByHref.get(link.href)
+    const idx = rawLinesIndex.get(link.href) ?? 0
+    const line = lines && idx < lines.length ? lines[idx] : 0
+    rawLinesIndex.set(link.href, idx + 1)
+    return { href: link.href, text: link.text, line }
+  })
 }
 
 /**
@@ -111,6 +215,17 @@ async function checkAnchorsOnPage(
   }
 
   try {
+    // Extract anchor links from markdown first to get accurate line numbers
+    const mdResult = extractLinksFromMarkdown(page.markdown)
+    const fmOffset = getFrontmatterLineOffset(page.fullPath)
+    const anchorLineMap = new Map<string, number>()
+    for (const link of mdResult.anchorLinks) {
+      // Store the first occurrence of each anchor href
+      if (!anchorLineMap.has(link.href)) {
+        anchorLineMap.set(link.href, link.line + fmOffset)
+      }
+    }
+
     const html = await renderContent(page.markdown, context)
     const $ = load(html)
 
@@ -126,10 +241,12 @@ async function checkAnchorsOnPage(
       const targetExists = $(`#${escapedId}`).length > 0 || $(`[name="${targetId}"]`).length > 0
 
       if (!targetExists) {
+        // Look up the line number from the markdown source
+        const line = anchorLineMap.get(href) ?? 0
         brokenAnchors.push({
           href,
           file: page.relativePath,
-          lines: [0], // Line number not available from rendered HTML
+          lines: [line],
           text: $(el).text(),
           isAutotitle: false,
         })
@@ -194,8 +311,8 @@ async function checkVersion(
     // awaits before the next begins), so there is no concurrent access to baseContext.
     baseContext.page = page
 
-    // Get links from rendered page
-    const links = await getLinksFromRenderedPage(page, permalink, baseContext)
+    // Get links from markdown source (preserves accurate line numbers)
+    const links = await getLinksFromMarkdown(page, baseContext)
     totalLinksChecked += links.length
 
     // Check each link
@@ -208,7 +325,7 @@ async function checkVersion(
           brokenLinks.push({
             href: link.href,
             file: page.relativePath,
-            lines: [0],
+            lines: [link.line],
             text: link.text,
           })
         }
@@ -222,14 +339,14 @@ async function checkVersion(
         brokenLinks.push({
           href: link.href,
           file: page.relativePath,
-          lines: [0],
+          lines: [link.line],
           text: link.text,
         })
       } else if (result.isRedirect) {
         redirectLinks.push({
           href: link.href,
           file: page.relativePath,
-          lines: [0],
+          lines: [link.line],
           text: link.text,
           isRedirect: true,
           redirectTarget: result.redirectTarget,

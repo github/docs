@@ -4,7 +4,9 @@ shortTitle: Detach security configuration
 intro: Go back to managing a repository's security settings on an individual basis.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/detaching-repositories-from-their-security-configurations
 contentType: how-tos

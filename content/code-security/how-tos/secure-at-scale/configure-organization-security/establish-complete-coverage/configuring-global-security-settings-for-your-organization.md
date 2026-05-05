@@ -4,7 +4,9 @@ shortTitle: Configure global settings
 intro: Customize {% data variables.product.prodname_AS %} features for your organization by defining global settings that ensure consistent security standards and safeguard all your repositories.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization
 contentType: how-tos

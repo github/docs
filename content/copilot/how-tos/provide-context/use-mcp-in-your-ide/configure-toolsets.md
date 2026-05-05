@@ -15,7 +15,7 @@ category:
 
 The {% data variables.product.github %} MCP server includes default toolsets (`repos`, `issues`, and `pull_requests`) that are enabled automatically. You can customize toolset configuration by:
 
-* **Enabling individual toolsets** such as `actions`, `code_security`, or `secret_protection`
+* **Enabling individual toolsets** such as `actions`, `code_security`, or `secret_protection`. For a step-by-step guide to scanning for secrets using the `secret_protection` toolset, see [AUTOTITLE](/code-security/how-tos/use-ghas-with-ai-coding-agents/scan-for-secrets-with-github-mcp-server).
 * **Using special keywords** like `all` to enable every available toolset, or [`default`](https://github.com/github/github-mcp-server?tab=readme-ov-file#default-toolset) to include the standard set alongside others (for example, `default,stargazers`)
 * **Accessing remote-only toolsets** such as `copilot` (for {% data variables.copilot.copilot_cloud_agent %}) and `github_support_docs_search`, which are only available on the remote MCP server
 * **Selecting specific tools** for granular control when you want to exclude specific tools or combine toolsets with individual tools

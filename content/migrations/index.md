@@ -16,6 +16,7 @@ children:
   - /importing-source-code
   - /using-github-enterprise-importer
   - /using-ghe-migrator
+  - /troubleshooting
 includedCategories:
   - Plan your migration
   - Import source code
