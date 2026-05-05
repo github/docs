@@ -1,4 +1,4 @@
-import StatsD from 'hot-shots'
+import StatsD, { TimerContext } from 'hot-shots'
 
 const {
   NODE_ENV,
@@ -33,3 +33,16 @@ const statsd = new StatsD({
 })
 
 export default statsd
+
+// hot-shots v14 changed asyncTimer/timer to inject a TimerContext as the
+// final argument of the wrapped function. This adapter lets callers keep
+// passing functions with their original signatures by appending an ignored
+// TimerContext parameter.
+export function adaptForTimer<P extends unknown[], R>(
+  fn: (...args: P) => Promise<R>,
+): (...args: [...P, TimerContext]) => Promise<R> {
+  return (...args) => {
+    const original = args.slice(0, -1) as P
+    return fn(...original)
+  }
+}

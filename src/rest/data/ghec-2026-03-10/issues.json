@@ -64416,18 +64416,27 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "post",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
       "title": "Add issue field values to an issue",
       "category": "issues",
       "subcategory": "issue-field-values",
       "parameters": [
         {
-          "name": "repository_id",
-          "description": "<p>The unique identifier of the repository.</p>",
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer"
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
         },
         {
@@ -64485,7 +64494,8 @@
               ]
             },
             "parameters": {
-              "repository_id": "REPOSITORY_ID",
+              "owner": "OWNER",
+              "repo": "REPO",
               "issue_number": "ISSUE_NUMBER"
             }
           },
@@ -64653,18 +64663,27 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "put",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
       "title": "Set issue field values for an issue",
       "category": "issues",
       "subcategory": "issue-field-values",
       "parameters": [
         {
-          "name": "repository_id",
-          "description": "<p>The unique identifier of the repository.</p>",
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer"
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
         },
         {
@@ -64722,7 +64741,8 @@
               ]
             },
             "parameters": {
-              "repository_id": "REPOSITORY_ID",
+              "owner": "OWNER",
+              "repo": "REPO",
               "issue_number": "ISSUE_NUMBER"
             }
           },
@@ -64890,18 +64910,27 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}",
       "title": "Delete an issue field value from an issue",
       "category": "issues",
       "subcategory": "issue-field-values",
       "parameters": [
         {
-          "name": "repository_id",
-          "description": "<p>The unique identifier of the repository.</p>",
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer"
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
         },
         {
@@ -64931,7 +64960,8 @@
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
             "parameters": {
-              "repository_id": "REPOSITORY_ID",
+              "owner": "OWNER",
+              "repo": "REPO",
               "issue_number": "ISSUE_NUMBER",
               "issue_field_id": "ISSUE_FIELD_ID"
             }

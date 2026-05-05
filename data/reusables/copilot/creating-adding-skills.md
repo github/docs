@@ -6,7 +6,7 @@ To create an agent skill, you write a `SKILL.md` file and, optionally, other res
 
     For **project skills**, specific to a single repository, create a `.github/skills`, `.claude/skills`, or `.agents/skills` directory in your repository.
 
-    For **personal skills**, shared across projects, create a `~/.copilot/skills`, `~/.claude/skills`, or `~/.agents/skills` directory in your local home directory.
+    For **personal skills**, shared across projects, create a `~/.copilot/skills` or `~/.agents/skills` directory in your local home directory.
 
 1. Within the `skills` directory, create a subdirectory for your new skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`).
 
@@ -89,6 +89,9 @@ To create a skill that runs a script:
 
 In addition to creating your own skills, you can also add skills that other people have created.
 
+> [!TIP]
+> You can also use `gh skill` in {% data variables.product.prodname_cli %} to search for, install, update, and publish agent skills. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills#managing-skills-with-github-cli).
+
 1. Download a skill directory (that is, a directory containing a SKILL.md file and, optionally, other files and subdirectories).
 
    For example, download a skill from the Awesome {% data variables.product.prodname_copilot %} repository: https://awesome-copilot.github.com/skills/.
@@ -98,4 +101,4 @@ In addition to creating your own skills, you can also add skills that other peop
 
    * For **project skills**, specific to a single repository: `.github/skills`, `.claude/skills`, or `.agents/skills` in your repository.
 
-   * For **personal skills**, shared across projects: `~/.copilot/skills`, `~/.claude/skills`, or `~/.agents/skills` in your local home directory.
+   * For **personal skills**, shared across projects: `~/.copilot/skills` or `~/.agents/skills` in your local home directory.

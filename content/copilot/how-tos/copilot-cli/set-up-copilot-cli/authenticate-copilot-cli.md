@@ -53,7 +53,7 @@ Offline mode is **only fully air-gapped** if your BYOK provider is local or othe
 | Token type                 | Prefix        | Supported | Notes                                                  |
 |----------------------------|---------------|-----------|--------------------------------------------------------|
 | OAuth token (device flow)  | `gho_`        | Yes       | Default method via `copilot login`                     |
-| Fine-grained PAT           | `github_pat_` | Yes       | Must include required permissions **Copilot Requests** |
+| Fine-grained PAT           | `github_pat_` | Yes       | Must be owned by your personal account (not an organization) with the **{% data variables.product.prodname_copilot_short %} Requests** account permission |
 | GitHub App user-to-server  | `ghu_`        | Yes       | Via environment variable                               |
 | Classic PAT                | `ghp_`        | No        | Not supported by {% data variables.copilot.copilot_cli_short %} |
 
@@ -176,8 +176,8 @@ If you have {% data variables.product.prodname_cli %} installed and authenticate
 
 ## Switching between accounts
 
-{% data variables.copilot.copilot_cli_short %} supports multiple accounts. You can list available accounts and switch between them from within the CLI. 
-To list available accounts, run `/user list` from the {% data variables.copilot.copilot_cli_short %} prompt. 
+{% data variables.copilot.copilot_cli_short %} supports multiple accounts. You can list available accounts and switch between them from within the CLI.
+To list available accounts, run `/user list` from the {% data variables.copilot.copilot_cli_short %} prompt.
 To switch to a different account, type `/user switch` on the prompt.
 
 To add another account, run `copilot login` from a new terminal session, or run the login command from within the CLI and authorize with the other account.
@@ -190,7 +190,7 @@ To revoke the OAuth app authorization on {% data variables.product.github %} and
 
 1. Navigate to **Settings** > **Applications** > **Authorized OAuth Apps**.
 1. Navigate to your settings page:
-   1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture. 
+   1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
    1. Click **Settings**.
 1. In the left sidebar, click **Applications**.
 1. Under **Authorized OAuth Apps**, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} next to **GitHub CLI** to expand the menu and select **Revoke**.

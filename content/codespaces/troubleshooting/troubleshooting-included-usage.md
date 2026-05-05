@@ -106,3 +106,4 @@ If the dev container for the current codespace was built from the default image,
 
   Alternatively, you can check which repositories have prebuilds by reviewing a usage report. See [Understanding your {% data variables.product.prodname_codespaces %} usage](#understanding-your-codespaces-usage) above.
 * Storage of containers built from the default dev container image for codespaces is free of charge and does not reduce your included storage. You can therefore avoid your storage allowance being consumed by your dev container by using the default image in your dev container configuration, rather than specifying a more specialized image. See [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration) and [Storage usage for your base dev container](#storage-usage-for-your-base-dev-container) above.
+

@@ -6,7 +6,7 @@ import { get } from 'lodash-es'
 import { buildMiniTocFromCollected, type CollectedHeading } from '@/frame/lib/get-mini-toc-items'
 import patterns from '@/frame/lib/patterns'
 import FailBot from '@/observability/lib/failbot'
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { transformerRegistry } from '@/article-api/transformers'
@@ -31,7 +31,9 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
     context.collectMiniToc = collectMiniToc
   }
 
-  const pageRenderTimed = statsd.asyncTimer(page.render, STATSD_KEY_RENDER, [`path:${path}`])
+  const pageRenderTimed = statsd.asyncTimer(adaptForTimer(page.render), STATSD_KEY_RENDER, [
+    `path:${path}`,
+  ])
 
   return (await pageRenderTimed(context)) as string
 }

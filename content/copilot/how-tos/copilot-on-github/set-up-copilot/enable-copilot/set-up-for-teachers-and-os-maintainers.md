@@ -17,6 +17,9 @@ category:
   - Configure Copilot
 ---
 
+> [!IMPORTANT]
+> {% data reusables.copilot.plans.individual-plans-paused %}
+
 ## About free {% data variables.copilot.copilot_pro %} access
 
 There are two ways to qualify for free access to {% data variables.copilot.copilot_pro_short %}:

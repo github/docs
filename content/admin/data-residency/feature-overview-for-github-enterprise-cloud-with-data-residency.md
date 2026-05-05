@@ -31,6 +31,7 @@ The following features are currently unavailable on {% data variables.enterprise
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} until GA. | |
 | Migrations REST API | Currently unavailable. | [AUTOTITLE](/rest/migrations) |
 | Streaming audit logs to Amazon S3 with OpenID Connect (OIDC) | Currently unavailable. | [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) |
+| Organization-level dependency insights | Currently unavailable. | [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization) |
 
 ## Permanently unavailable features
 

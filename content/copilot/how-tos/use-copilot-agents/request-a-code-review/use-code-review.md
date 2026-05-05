@@ -18,6 +18,12 @@ category:
   - Author and optimize with Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.code-review-actions-minutes-note %}
+
+<!-- end expires 2026-06-01 -->
+
 ## Introduction
 
 {% data variables.product.prodname_copilot %} can review your code and provide feedback. Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.

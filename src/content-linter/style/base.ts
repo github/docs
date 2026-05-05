@@ -9,7 +9,7 @@ type RuleConfig = {
   severity: 'error' | 'warning'
   'partial-markdown-files': boolean
   'yml-files': boolean
-  [key: string]: any
+  [key: string]: unknown
 }
 
 type BaseConfig = {

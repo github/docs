@@ -42,21 +42,16 @@
   excels_at: Codebase exploration and is especially effective when using grep-style tools
   further_reading: 'Not available'
 
+- name: GPT-5.5
+  task_area: Deep reasoning and debugging
+  excels_at: Multi-step problem solving and architecture-level code analysis
+  further_reading: 'Not available'
+
 # Anthropic
 - name: Claude Haiku 4.5
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Claude Haiku 4.5 model card](https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf)'
-
-- name: Claude Opus 4.5
-  task_area: Deep reasoning and debugging
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: '[Claude Opus 4.5 model card](https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf)'
-
-- name: Claude Opus 4.6
-  task_area: Deep reasoning and debugging
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: '[Claude Opus 4.6 model card](https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf)'
 
 - name: Claude Opus 4.6 (fast mode) (preview)
   task_area: Deep reasoning and debugging
@@ -66,7 +61,7 @@
 - name: Claude Opus 4.7
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: 'Not available'
+  further_reading: '[Claude Opus 4.7 model card](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf)'
 
 - name: Claude Sonnet 4.0
   task_area: Deep reasoning and debugging

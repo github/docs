@@ -21,6 +21,12 @@ category:
   - Manage Copilot for a team
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 ## Available plans
 
 {% data variables.product.company_short %} offers the following plans for organization accounts:

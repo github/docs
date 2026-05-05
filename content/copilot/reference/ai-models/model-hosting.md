@@ -16,6 +16,8 @@ contentType: reference
 
 ## OpenAI models
 
+{% data reusables.copilot.gpt-55-promo-period %}
+
 Used for:
 
 * {% data variables.copilot.copilot_gpt_41 %}
@@ -25,6 +27,8 @@ Used for:
 * {% data variables.copilot.copilot_gpt_53_codex %}
 * {% data variables.copilot.copilot_gpt_54 %}
 * {% data variables.copilot.copilot_gpt_54_mini %}
+* {% data variables.copilot.copilot_gpt_54_nano %}
+* {% data variables.copilot.copilot_gpt_55 %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -44,8 +48,6 @@ Used for:
 These models are deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
 
 ## Anthropic models
-
-{% data reusables.copilot.opus-47-promo-period %}
 
 Used for:
 

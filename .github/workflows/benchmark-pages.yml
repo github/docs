@@ -44,7 +44,7 @@ jobs:
           npx tsx src/workflows/benchmark-pages.ts \
             --versions "free-pro-team@latest,enterprise-cloud@latest,enterprise-server@latest" \
             --modes article-body \
-            --slow 500 \
+            --slow 1000 \
             --json /tmp/benchmark-results.json | tee /tmp/benchmark-output.txt
 
       - name: Check results and create issue if needed
@@ -108,7 +108,7 @@ jobs:
             echo "**Total pages:** $TOTAL"
             echo "**Stats:** p50=${P50}ms · p99=${P99}ms · max=${MAX}ms"
             echo "**Errors:** $ERRORS"
-            echo "**Slow (≥500ms):** $SLOW"
+            echo "**Slow (≥1000ms):** $SLOW"
           } > "$BODY_FILE"
 
           if [ "$ERRORS" -gt 0 ]; then

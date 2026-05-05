@@ -11,6 +11,15 @@ category:
   - Manage Copilot for a team
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
+> [!IMPORTANT]
+> **Starting April 20, 2026**, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans have tighter usage limits: Session limits and weekly (7 day) limits. For more information, see [AUTOTITLE](/copilot/concepts/usage-limits).
+
 ## Management methods
 
 The best way to control budgets for premium requests in an enterprise is to create cost centers and scope one or more budgets to each center.

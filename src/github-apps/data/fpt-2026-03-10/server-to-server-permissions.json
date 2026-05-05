@@ -1553,13 +1553,129 @@
       }
     ]
   },
+  "organization_copilot_spaces": {
+    "title": "Copilot Spaces",
+    "displayTitle": "Organization permissions for \"Copilot Spaces\"",
+    "permissions": [
+      {
+        "category": "copilot-spaces",
+        "slug": "list-organization-copilot-spaces",
+        "subcategory": "copilot-spaces",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "create-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "get-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "delete-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "list-resources-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "create-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "get-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "delete-a-resource-from-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "organization_copilot_agent_settings": {
     "title": "Copilot agent settings",
     "displayTitle": "Organization permissions for \"Copilot agent settings\"",
     "permissions": [
       {
         "category": "copilot",
-        "slug": "get-copilot-coding-agent-permissions-for-an-organization",
+        "slug": "get-copilot-cloud-agent-permissions-for-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
@@ -1570,7 +1686,7 @@
       },
       {
         "category": "copilot",
-        "slug": "set-copilot-coding-agent-permissions-for-an-organization",
+        "slug": "set-copilot-cloud-agent-permissions-for-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
@@ -1581,7 +1697,7 @@
       },
       {
         "category": "copilot",
-        "slug": "list-repositories-enabled-for-copilot-coding-agent-in-an-organization",
+        "slug": "list-repositories-enabled-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
@@ -1592,7 +1708,7 @@
       },
       {
         "category": "copilot",
-        "slug": "set-selected-repositories-for-copilot-coding-agent-in-an-organization",
+        "slug": "set-selected-repositories-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
@@ -1603,7 +1719,7 @@
       },
       {
         "category": "copilot",
-        "slug": "enable-a-repository-for-copilot-coding-agent-in-an-organization",
+        "slug": "enable-a-repository-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
@@ -1614,7 +1730,7 @@
       },
       {
         "category": "copilot",
-        "slug": "disable-a-repository-for-copilot-coding-agent-in-an-organization",
+        "slug": "disable-a-repository-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
@@ -1785,6 +1901,50 @@
     "title": "GitHub Copilot Business",
     "displayTitle": "Organization permissions for \"GitHub Copilot Business\"",
     "permissions": [
+      {
+        "category": "copilot-spaces",
+        "slug": "list-collaborators-for-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "add-a-collaborator-to-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-a-collaborator-role-for-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "remove-a-collaborator-from-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
       {
         "category": "copilot",
         "slug": "get-copilot-seat-information-and-settings-for-an-organization",
@@ -8460,6 +8620,39 @@
       },
       {
         "category": "issues",
+        "slug": "add-issue-field-values-to-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "set-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-field-value-from-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "list-labels-for-an-issue",
         "subcategory": "labels",
         "verb": "get",
@@ -8751,39 +8944,6 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels",
         "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "add-issue-field-values-to-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "post",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "set-issue-field-values-for-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "put",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "delete-an-issue-field-value-from-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
-        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
@@ -9468,6 +9628,39 @@
       },
       {
         "category": "issues",
+        "slug": "add-issue-field-values-to-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "set-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-field-value-from-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "list-labels-for-an-issue",
         "subcategory": "labels",
         "verb": "get",
@@ -9798,6 +9991,28 @@
       },
       {
         "category": "pulls",
+        "slug": "archive-a-pull-request",
+        "subcategory": "pulls",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
+        "slug": "unarchive-a-pull-request",
+        "subcategory": "pulls",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "pulls",
         "slug": "list-review-comments-on-a-pull-request",
         "subcategory": "comments",
         "verb": "get",
@@ -9993,39 +10208,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "issues",
-        "slug": "add-issue-field-values-to-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "post",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "set-issue-field-values-for-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "put",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "delete-an-issue-field-value-from-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       }
     ]
   },

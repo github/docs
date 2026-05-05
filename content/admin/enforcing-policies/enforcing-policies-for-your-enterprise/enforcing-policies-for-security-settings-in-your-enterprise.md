@@ -76,6 +76,8 @@ Before you require secure methods of two-factor authentication, we recommend not
 
 You can use a SSH certificate authority (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% ifversion ssh-user-ca %}{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, enterprise{% elsif ghes %}Enterprise{% endif %} members can also be allowed to use the certificate to access personally-owned repositories.{% endif %} {% data reusables.organizations.can-require-ssh-cert %} For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities).
 
+{% data variables.product.github %} uses OpenSSH-format SSH user certificates to authenticate Git operations over SSH by validating the certificate's signature and fields (including its validity period) against a trusted SSH certificate authority (CA) configured at the organization and/or enterprise level.
+
 {% data reusables.organizations.add-extension-to-cert %}
 
 ### Adding an SSH certificate authority
@@ -104,7 +106,9 @@ You can enable or disable access to user-owned repositories with an SSH certific
 
 ### Deleting an SSH certificate authority
 
-Deleting a CA cannot be undone. If you want to use the same CA in the future, you'll need to upload the CA again.
+Deleting an SSH certificate authority (CA) from your enterprise settings on {% data variables.product.github %} can't be undone. If you want to trust the same CA again in the future, you'll need to add the CA back to {% data variables.product.github %} by uploading the CA's public key again in your enterprise's SSH certificate authority settings.
+
+Deleting a CA immediately prevents {% data variables.product.github %} from accepting SSH certificates signed by that CA, including certificates that have not yet expired. For CA rotation guidance, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#certificate-revocation-and-ca-rotation).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
