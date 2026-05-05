@@ -78,8 +78,7 @@ The following table lists AI models that are retired or scheduled for retirement
 The following table shows which models are available in each client.
 
 > [!NOTE]
-> * {% data reusables.copilot.auto-model-selection %}
-> * {% data reusables.copilot.gpt-5-codex-vscode-support %}
+> {% data reusables.copilot.auto-model-selection %}
 
 {% rowheaders %}
 
@@ -90,6 +89,32 @@ The following table shows which models are available in each client.
 | {% endfor %} |
 
 {% endrowheaders %}
+
+## Minimum IDE versions for recent models
+
+Some {% data variables.product.prodname_copilot_short %} models require minimum versions of supported IDEs or {% data variables.product.prodname_copilot_short %} extensions or plugins. The table below lists the minimum versions known from changelog entries or provided release guidance. This information is tentative and subject to change as model support rolls out. For best results, keep your IDE and {% data variables.product.prodname_copilot_short %} extension or plugin updated to the latest available version.
+
+{% rowheaders %}
+
+| Model | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
+| --- | --- | --- | --- | --- | --- |
+| {% data variables.copilot.copilot_gemini_3_flash %} | No minimum listed | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_31_pro %} | No minimum listed | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gpt_52_codex %} | No minimum listed | `17.14.19` or `18.0.0` and later | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_53_codex %} | `v1.104.1` and later | `17.14.19` and later | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_54 %} | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_54_mini %} | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_55 %} | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+
+{% endrowheaders %}
+
+> [!NOTE]
+> 
+> * {% data variables.copilot.copilot_gpt_55 %} has the same minimum versions as {% data variables.copilot.copilot_gpt_54 %}.
+> * {% data variables.copilot.copilot_gemini_31_pro %} has the same minimum versions as {% data variables.copilot.copilot_gemini_3_flash %}.
+> * For {% data variables.copilot.copilot_gpt_53_codex %} in {% data variables.product.prodname_vscode %}, `v1.108` and later provide improved prompting and response quality.
+> * "No minimum listed" means the reviewed changelog or release guidance did not specify a minimum version, not that all older versions are supported.
+> * Even when a model appears in the model picker on older supported versions, prompting and model behavior may work best with the latest IDE and {% data variables.product.prodname_copilot_short %} extension or plugin versions.
 
 ## Supported AI models per {% data variables.product.prodname_copilot_short %} plan
 
