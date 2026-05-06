@@ -2,7 +2,9 @@
 title: Security configuration enforcement
 intro: Understand the complexities of enforcing {% data variables.product.prodname_security_configurations %}.
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: reference
 category:
   - Secure at scale

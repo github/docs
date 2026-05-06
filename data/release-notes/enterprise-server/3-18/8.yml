@@ -72,6 +72,8 @@ sections:
       To improve page load performance, user profile pages display a maximum of 24 organizations. When viewing your own profile, a "View all" link provides access to the full list in organization settings. When viewing another user's profile, a count displays any additional organizations beyond the first 24.
   known_issues:
     - |
+      After upgrading to 3.18.8 via hotpatch, the instance reboots and briefly enters maintenance mode. In some cases, the post-reboot configuration run fails, and the instance does not fully resume service. Site administrators who experience this should SSH into the instance and manually run `ghe-config-apply`. [Updated: 2026-04-30]
+    - |
       On instances configured for high availability, you will not be able to change GitHub Actions settings through the Management Console. Other settings are not affected. [Updated: 2026-04-22]
     - |
       First time setups of GitHub Actions with OpenID Connect (OIDC) fail with an error on the `Update Servicing Resources` step. This problem does not affect instances where GitHub Actions is already enabled.

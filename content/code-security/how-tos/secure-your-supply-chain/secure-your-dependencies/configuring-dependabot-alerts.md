@@ -73,26 +73,7 @@ An enterprise owner must first set up {% data variables.product.prodname_dependa
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization
 
-{% ifversion security-configurations %} You can enable {% data variables.product.prodname_dependabot_alerts %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
-
-{% else %}
-
-You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for some or all repositories owned by your organization. {% data reusables.security.note-securing-your-org %}
-
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for all existing repositories
-
-You can use security overview to find a set of repositories and enable or disable {% data variables.product.prodname_dependabot_alerts %} for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).
-
-You can also use the organization settings page for "{% data variables.product.UI_advanced_security %}" to enable or disable {% data variables.product.prodname_dependabot_alerts %} for all existing repositories in an organization.
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-1. Under "{% data variables.product.UI_advanced_security %}", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**.
-1. Optionally, to enable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories in your organization, in the dialog box, select "Enable by default for new repositories".
-1. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories in your organization.
-
-{% endif %}
+You can enable {% data variables.product.prodname_dependabot_alerts %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 
 {% ifversion ghec or ghes %}
 

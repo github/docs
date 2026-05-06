@@ -24,15 +24,7 @@ category:
 
 {% data variables.secret-scanning.user_alerts_caps %} can be enabled for any repository that is owned by an organization{% ifversion secret-scanning-user-owned-repos %}, and for repositories owned by user accounts when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}.
 
-{% ifversion security-configurations %}
-
 If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at a time using {% data variables.product.prodname_security_configurations %}. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
-
-{% else %}
-
-If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at a time. For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization#enabling-security-features-in-your-organization).
-
-{% endif %}
 
 {% ifversion security-configuration-enterprise-level %}
 

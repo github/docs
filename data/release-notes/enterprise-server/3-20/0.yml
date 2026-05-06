@@ -73,7 +73,7 @@ sections:
 
         # https://github.com/github/releases/issues/6437
         - |
-          Secret scanning supports validity checks that indicate whether detected secrets remain active, helping teams prioritize remediation. Once enabled for a given repository, GitHub will now automatically verify secrets for alerts with supported secret types. GHES admins can make the feature available for enablement across enterprise repositories from their Management Console settings.
+          Secret scanning supports validity checks that indicate whether detected secrets remain active, helping teams prioritize remediation. Once enabled for a given repository, GitHub will now automatically verify secrets for alerts with supported secret types. GHES admins can make the feature available for enablement across enterprise repositories from their Management Console settings. See [AUTOTITLE](/code-security/concepts/secret-security/about-validity-checks).
 
         # https://github.com/github/releases/issues/6253
         - |

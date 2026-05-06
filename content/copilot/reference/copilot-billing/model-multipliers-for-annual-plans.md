@@ -47,6 +47,8 @@ These new multipliers will **only apply** if you remain on an annual {% data var
 
 Model multipliers and costs are subject to change.
 
+{% data reusables.copilot.gpt-55-promo-period %}
+
 | Model | Current multiplier | New multiplier |
 | --- | ---: | ---: |
 | {% for entry in tables.copilot.annual-subscriber-model-multipliers %} |

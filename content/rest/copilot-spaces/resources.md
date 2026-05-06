@@ -1,6 +1,6 @@
 ---
-title: REST API endpoints for Copilot Spaces
-shortTitle: Copilot Spaces
+title: REST API endpoints for Copilot Spaces resources
+shortTitle: Resources
 intro: Use the REST API to interact with Copilot Spaces resources.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

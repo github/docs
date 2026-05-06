@@ -45,12 +45,8 @@ To enable delegated bypass, create the teams or roles that will manage bypass re
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% ifversion security-configurations %}
 1. In the "Security" section of the sidebar, select the **{% data variables.product.UI_advanced_security %}** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
-{% else %}
-{% data reusables.organizations.security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% endif %}
+
 1. Under "Push protection," to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}," select the dropdown menu, then click **Specific roles or teams**.
 1. Under "Bypass list," click **Add role or team**.
 1. In the dialog box, select the roles and teams that you want to add to the bypass list, then click **Add selected**.
