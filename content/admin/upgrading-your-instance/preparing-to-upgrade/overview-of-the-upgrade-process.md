@@ -119,3 +119,4 @@ The instructions for upgrading your {% data variables.product.prodname_ghe_serve
 * Delete any VM snapshots taken prior to upgrading. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot).
 * Disable maintenance mode, and update any pre-upgrade communications such as announcement banners. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 * Monitor all queued background jobs on your instance to ensure they complete successfully. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities).
+-of-the-upgrade-process.mdcontent/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process.md
