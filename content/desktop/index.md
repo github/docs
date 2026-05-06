@@ -22,10 +22,6 @@ carousels:
     - /desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop
     - /desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop
     - /desktop/managing-commits/options-for-managing-commits-in-github-desktop
-changelog:
-  label: desktop
-  versions:
-    feature: desktop
 layout: discovery-landing
 versions:
   feature: desktop

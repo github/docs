@@ -25625,6 +25625,12 @@
           "name": "enable_debug_logging",
           "description": "<p>Whether to enable debug logging for the re-run.</p>",
           "default": false
+        },
+        {
+          "type": "boolean",
+          "name": "enable_debugger",
+          "description": "<p>Whether to enable the debugger for the re-run of this job.</p>",
+          "default": false
         }
       ],
       "descriptionHTML": "<p>Re-run a job and its dependent jobs in a workflow run.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",

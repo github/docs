@@ -1693,4 +1693,144 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(elapsed).toBeLessThan(2000)
     })
   })
+
+  // ─── SCRAPE-6548: search-scrape failures ─────────────────────────────
+  // Tests for the per-file Liquid corrections added to stop the daily
+  // search-scrape failures reported in github/docs-engineering#6548.
+  describe('SCRAPE-6548 per-file fixes', () => {
+    function fixAt(content: string, code: string, relativePath: string) {
+      return correctTranslatedContentStrings(content, '', {
+        code,
+        relativePath,
+        skipOrphanStripping: true,
+      })
+    }
+
+    test('pt: {%datavariables (no spaces) → {% data variables', () => {
+      expect(fix('{%datavariables.product.github %}', 'pt')).toBe(
+        '{% data variables.product.github %}',
+      )
+      expect(fix('{%-datavariables.product.github %}', 'pt')).toBe(
+        '{%- data variables.product.github %}',
+      )
+    })
+
+    test('pt: stray space after {% data variables.product.', () => {
+      expect(fix('{% data variables.product. prodname_ghe_cloud %}', 'pt')).toBe(
+        '{% data variables.product.prodname_ghe_cloud %}',
+      )
+      expect(fix('{%- data variables.product. prodname_ghe_server %}', 'pt')).toBe(
+        '{%- data variables.product.prodname_ghe_server %}',
+      )
+    })
+
+    test('pt: leaves correct path alone', () => {
+      const ok = '{% data variables.product.prodname_ghe_cloud %}'
+      expect(fix(ok, 'pt')).toBe(ok)
+    })
+
+    test('fr: missing-% in {% ifversion ghes} / {% elsif ghec or ghes}', () => {
+      expect(fix('{% ifversion ghes}', 'fr')).toBe('{% ifversion ghes %}')
+      expect(fix('{% elsif ghec or ghes}', 'fr')).toBe('{% elsif ghec or ghes %}')
+    })
+
+    test('fr: {% des … variables.X %} → {% data variables.X %}', () => {
+      expect(fix('{% des instances de variables.product.prodname_ghe_server %}', 'fr')).toBe(
+        '{% data variables.product.prodname_ghe_server %}',
+      )
+    })
+
+    test('fr: leaves unrelated `des` prose alone', () => {
+      const ok = 'Les métriques des données sont utiles.'
+      expect(fix(ok, 'fr')).toBe(ok)
+    })
+
+    test('ko: username-changes intro orphan-endif fix', () => {
+      const broken =
+        '인스턴스에서 기본 제공 인증{% endif %}를 사용하는 경우 {% data variables.product.github %} 계정 {% ifversion ghes %}의 사용자 이름을 변경할 수 있습니다.'
+      const out = fixAt(broken, 'ko', 'account-and-profile/concepts/username-changes.md')
+      expect(out).not.toContain('{% endif %}를')
+      expect(out).toContain('{% endif %}')
+      expect(out).toContain('{% ifversion ghes %}')
+    })
+
+    test('zh: username-changes intro orphan-endif fix', () => {
+      const broken =
+        '如果实例使用内置身份验证{% endif %}，则可以更改 {% data variables.product.github %} 帐户 {% ifversion ghes %} 的用户名。'
+      const out = fixAt(broken, 'zh', 'account-and-profile/concepts/username-changes.md')
+      expect(out).not.toContain('{% endif %}，')
+      expect(out).toContain('{% endif %}')
+    })
+
+    test('zh: security-log-events markdown duplicate ifversion ghes', () => {
+      const broken = '> * {% ifversion ghes %} 本文包含最新版本'
+      expect(fix(broken, 'zh')).toBe('> * 本文包含最新版本')
+    })
+
+    test('de: permissions-of-custom-organization-roles intro append endif', () => {
+      const broken =
+        'Mit angepassten Organisationsrollen kannst du den Zugriff auf die Einstellungen deiner {% ifversion org-custom-role-with-repo-permissions %}Organisation und die Repositories{% else %}einer Organisation steuern.'
+      const out = fixAt(
+        broken,
+        'de',
+        'organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles.md',
+      )
+      expect(out).toContain('{% endif %} steuern.')
+    })
+
+    test('ru: permissions-of-custom-organization-roles intro append endif', () => {
+      const broken =
+        'Вы можете управлять доступом к параметрам и репозиториям организации {% ifversion org-custom-role-with-repo-permissions %}, а также к параметрам организации {% else %}организации с пользовательскими ролями организации.'
+      const out = fixAt(
+        broken,
+        'ru',
+        'organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles.md',
+      )
+      expect(out).toMatch(/\{% endif %\}$/)
+    })
+
+    test('ja: scim/index title rebalances tags', () => {
+      const broken =
+        'SCIM{% endif %} を使用したエンタープライズ マネージド ユーザー{% else %} 向けのプロビジョニング アカウント{% ifversion ghec %}'
+      const out = fix(broken, 'ja')
+      // After fix: balanced ifversion/else/endif and starts with ifversion
+      expect(out).toMatch(/^\{% ifversion ghec %\}/)
+      expect(out).toMatch(/\{% endif %\}$/)
+      expect(out.match(/\{% endif %\}/g) || []).toHaveLength(1)
+    })
+
+    test('es: deduplication reusable appends endif when scoped by dottedPath', () => {
+      const broken = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra cosa.'
+      const out = correctTranslatedContentStrings(broken, '', {
+        code: 'es',
+        dottedPath: 'reusables.dependency-graph.deduplication',
+        skipOrphanStripping: true,
+      })
+      expect(out).toContain(
+        'tienen prioridad sobre el envío automático de dependencias.{% endif %}\n',
+      )
+    })
+
+    test('es: deduplication reusable also fires when scoped by relativePath', () => {
+      const broken = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra cosa.'
+      const out = correctTranslatedContentStrings(broken, '', {
+        code: 'es',
+        relativePath: 'data/reusables/dependency-graph/deduplication.md',
+        skipOrphanStripping: true,
+      })
+      expect(out).toContain(
+        'tienen prioridad sobre el envío automático de dependencias.{% endif %}\n',
+      )
+    })
+
+    test('es: deduplication fix does NOT fire on unrelated paths', () => {
+      const text = 'tienen prioridad sobre el envío automático de dependencias.\n1. Otra.'
+      const out = correctTranslatedContentStrings(text, '', {
+        code: 'es',
+        relativePath: 'some/other/file.md',
+        skipOrphanStripping: true,
+      })
+      expect(out).toBe(text)
+    })
+  })
 })

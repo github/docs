@@ -5,7 +5,9 @@ allowTitleToDifferFromFilename: true
 intro: You can identify any repositories where the security configuration could not be attached, and follow guidance to remediate the problem.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/finding-repositories-with-attachment-failures
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/finding-repositories-with-attachment-failures

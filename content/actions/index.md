@@ -5,8 +5,6 @@ intro: 'Automate, customize, and execute your software development workflows rig
 introLinks:
   overview: /actions/get-started/understand-github-actions
   quickstart: /actions/get-started/quickstart
-changelog:
-  label: actions
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
   - /articles/customizing-your-project-with-github-actions

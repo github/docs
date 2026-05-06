@@ -22,8 +22,8 @@ Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plur
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**. {% ifversion tabbed-pat-settings-ui %}
-1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type. {% endif %}
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**. 
+1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type. 
 1. Under **{% data variables.product.pat_v2_caps_plural %}** or **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select your access policy.
 1. Click **Save**.
 
@@ -60,7 +60,7 @@ Organization owners can manage approval requirements for each {% data variables.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**. {% ifversion tabbed-pat-settings-ui %}
-1. Select the **Fine-grained tokens** tab. {% endif %}
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**. 
+1. Select the **Fine-grained tokens** tab. 
 1. Under **Require approval of {% data variables.product.pat_v2_plural %}**, select the option that meets your needs:
 1. Click **Save**.

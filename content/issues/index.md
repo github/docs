@@ -25,7 +25,6 @@ carousels:
     - /issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations
     - /issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai
 layout: discovery-landing
-beta_product: false
 versions:
   fpt: '*'
   ghes: '*'

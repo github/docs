@@ -24,6 +24,15 @@ const IMAGE_LINK_PATTERN = /!\[[^\]]*\]\(([^)]+)\)/g
 // Anchor link patterns (for same-page links)
 const ANCHOR_LINK_PATTERN = /\]\(#[^)]+\)/g
 
+// Reference-style link definitions: [id]: /path or [id]: /path "title"
+// Captures the URL from lines like: [ssh-agent-forwarding]: /authentication/...
+const LINK_DEFINITION_PATTERN = /^\[[^\]]+\]:\s+(\/[^\s"'(<>]*)/gm
+
+// Links whose href starts with a Liquid tag rather than a literal '/'
+// e.g. ]({%  ifversion fpt %}/enterprise-cloud@latest{% endif %}/path)
+// None of these Liquid tags contain ')' in practice, so [^)]+ is safe.
+const LIQUID_HREF_PATTERN = /\]\(({%[^)]+)\)/g
+
 export interface ExtractedLink {
   href: string
   line: number
@@ -39,6 +48,12 @@ export interface LinkExtractionResult {
   externalLinks: ExtractedLink[]
   anchorLinks: ExtractedLink[]
   imageLinks: ExtractedLink[]
+  /**
+   * Links whose href begins with a Liquid tag (e.g. `]({%  ifversion ... %}/path)`).
+   * The `href` field contains the raw unrendered Liquid string. Callers that need
+   * to validate these links must render the href to obtain its canonical path.
+   */
+  liquidPrefixedLinks: ExtractedLink[]
 }
 
 /**
@@ -83,6 +98,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   const externalLinks: ExtractedLink[] = []
   const anchorLinks: ExtractedLink[] = []
   const imageLinks: ExtractedLink[] = []
+  const liquidPrefixedLinks: ExtractedLink[] = []
 
   // Strip fenced code blocks to avoid checking example/placeholder URLs
   // Replaces non-newline characters with spaces to preserve line numbers and positions
@@ -189,11 +205,41 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   // Reset regex
   IMAGE_LINK_PATTERN.lastIndex = 0
 
+  // Extract reference-style link definitions ([id]: /path)
+  // These are distinct from inline links but point to the same targets that need validating.
+  while ((match = LINK_DEFINITION_PATTERN.exec(strippedContent)) !== null) {
+    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    const href = match[1].split('#')[0]
+    internalLinks.push({
+      href,
+      line,
+      column,
+      isAutotitle: false,
+    })
+  }
+
+  // Reset regex
+  LINK_DEFINITION_PATTERN.lastIndex = 0
+
+  // Extract links whose href starts with a Liquid tag
+  while ((match = LIQUID_HREF_PATTERN.exec(strippedContent)) !== null) {
+    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    liquidPrefixedLinks.push({
+      href: match[1],
+      line,
+      column,
+    })
+  }
+
+  // Reset regex
+  LIQUID_HREF_PATTERN.lastIndex = 0
+
   return {
     internalLinks,
     externalLinks,
     anchorLinks,
     imageLinks,
+    liquidPrefixedLinks,
   }
 }
 

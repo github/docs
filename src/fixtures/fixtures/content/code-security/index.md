@@ -2,7 +2,7 @@
 title: '{% data variables.product.product_name %} Code security documentation'
 shortTitle: '{% data variables.product.product_name %} Code security'
 intro: 'Code security'
-layout: product-landing
+layout: discovery-landing
 featuredLinks:
   startHere:
     - /code-security/getting-started/quickstart

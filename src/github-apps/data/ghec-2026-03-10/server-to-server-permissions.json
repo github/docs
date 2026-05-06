@@ -5654,6 +5654,28 @@
       },
       {
         "category": "actions",
+        "slug": "list-concurrency-groups-for-a-repository",
+        "subcategory": "concurrency-groups",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-a-concurrency-group-for-a-repository",
+        "subcategory": "concurrency-groups",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups/{concurrency_group_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "get-a-job-for-a-workflow-run",
         "subcategory": "workflow-jobs",
         "verb": "get",
@@ -5813,6 +5835,17 @@
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "list-concurrency-groups-for-a-workflow-run",
+        "subcategory": "concurrency-groups",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/concurrency_groups",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

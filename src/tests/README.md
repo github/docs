@@ -57,7 +57,6 @@ Some suites require environment variables or tests will fail with 404s or conten
 
 ```bash
 npm run test:article-api
-npm run test:changelogs
 npm run test:fixtures
 npm run test:landings
 npm run test:languages    # requires Elasticsearch running

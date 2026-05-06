@@ -26,14 +26,8 @@ import { ExpressInstrumentation } from '@opentelemetry/instrumentation-express'
 import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
 import { UndiciInstrumentation } from '@opentelemetry/instrumentation-undici'
 import { NodeSDK } from '@opentelemetry/sdk-node'
-import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api'
 
-// TEMPORARY: enable OTel diagnostic logging to investigate why traces aren't
-// arriving in the collector. See github/docs-engineering#6046. Revert once
-// the export pipeline is confirmed working.
 if (process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT) {
-  diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.INFO)
-
   const sdk = new NodeSDK({
     serviceName: process.env.OTEL_SERVICE_NAME || 'docs-internal',
     traceExporter: new OTLPTraceExporter({}),
