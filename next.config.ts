@@ -37,6 +37,11 @@ const config: NextConfig = {
   sassOptions: {
     quietDeps: true,
     silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-4-api'],
+    loadPaths: [
+      path.join(process.cwd(), 'node_modules'),
+      path.join(process.cwd(), 'node_modules/@primer/css/node_modules'),
+      process.cwd(),
+    ],
   },
   // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
   // See `src/observability/logger/README.md` for log levels
