@@ -11,8 +11,4 @@ category:
   - Automate CI/CD workflows
 ---
 
-## About concurrency groups in {% data variables.product.prodname_actions %}
-
-You can use the REST API to read the state of {% data variables.product.prodname_actions %} concurrency groups, which ensure that only a single job or workflow using the same group will run at a time while additional runs are pending or canceled depending on configuration. For more information, see [AUTOTITLE](/actions/using-jobs/using-concurrency).
-
 <!-- Content after this section is automatically generated -->
