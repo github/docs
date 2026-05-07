@@ -12,7 +12,13 @@ category:
 
 ## About installation access tokens
 
-In order to authenticate as an app installation, you must generate an installation access token. For more information about authenticating as an app installation, see [Authenticating as a GitHub App installation](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation).
+In order to authenticate as an app installation, you must generate an installation access token. Installation access tokens are short-lived tokens whose scope is inherited from their associated Github App. These permissions can be further pared down per use case. 
+
+When you use an installation access token, it acts on behalf of the associated Github App. In other words, it is not tied to a user (as is the case with [personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens)).  
+
+For more information regarding installation access tokens and about authenticating as an app installation, see [Authenticating as a GitHub App installation](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation).
+
+Installation access tokens are short-lived tokens whose scope is inherited from their associated Github App. These permissions can be further pared down per use case. 
 
 > [!NOTE]
 > Instead of generating an installation access token, you can use {% data variables.product.company_short %}'s Octokit SDKs to authenticate as an app. The SDK will take care of generating an installation access token for you and will regenerate the token once it expires. For more information about authenticating as an app installation, see [Authenticating as a GitHub App installation](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation).
