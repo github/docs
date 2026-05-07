@@ -447,6 +447,23 @@
       }
     ]
   },
+  "enterprise_credentials": {
+    "title": "Enterprise credentials",
+    "displayTitle": "Enterprise permissions for \"Enterprise credentials\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "revoke-all-credential-authorizations-for-an-enterprise",
+        "subcategory": "credential-authorizations",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_custom_properties_for_organizations": {
     "title": "Enterprise custom properties for organizations",
     "displayTitle": "Enterprise permissions for \"Enterprise custom properties for organizations\"",

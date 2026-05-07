@@ -14,6 +14,16 @@ on:
         type: string
         required: true
         default: 'en'
+      create_copilot_issue:
+        description: 'Create a Copilot-assigned issue with the top 5 redirects to fix'
+        type: boolean
+        required: false
+        default: false
+      create_report:
+        description: 'Create the combined broken links report issue in docs-content'
+        type: boolean
+        required: false
+        default: true
 
 permissions:
   contents: read
@@ -101,6 +111,60 @@ jobs:
           retention-days: 5
           if-no-files-found: ignore
 
+      - name: Create Copilot redirect issue
+        if: inputs.create_copilot_issue
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const fs = require('fs')
+            const reportFile = 'artifacts/link-report-${{ matrix.version }}-${{ matrix.language }}.json'
+
+            if (!fs.existsSync(reportFile)) {
+              core.info('No JSON report found — all links valid, skipping Copilot issue.')
+              return
+            }
+
+            const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'))
+            const redirectGroups = report.groups.filter(g => g.isWarning).slice(0, 5)
+
+            if (redirectGroups.length === 0) {
+              core.info('No redirect groups found, skipping Copilot issue.')
+              return
+            }
+
+            const tableRows = redirectGroups.map(g => {
+              const occ = g.occurrences[0]
+              const redirectTarget = occ?.redirectTarget ?? 'unknown'
+              const file = occ?.file ?? 'unknown'
+              const lines = (occ?.lines ?? []).join(', ')
+              return `| \`${g.target}\` | \`${redirectTarget}\` | \`${file}\` | ${lines} |`
+            }).join('\n')
+
+            const body = [
+              '@copilot Please fix the redirected internal links listed in the table below.',
+              'All changes should be made within the `github/docs-internal` repository.',
+              'For each entry, open the source file and replace the **Current Link** with the **Update To** path.',
+              'When all changes are made, open a pull request in `github/docs-internal` with the fixes.',
+              '',
+              '## Redirects to fix',
+              '',
+              '| Current Link | Update To | File | Line(s) |',
+              '|---|---|---|---|',
+              tableRows,
+            ].join('\n')
+
+            const issue = await github.rest.issues.create({
+              owner: 'github',
+              repo: 'docs-content',
+              title: '[Copilot Task] Fix top redirect links: ${{ matrix.version }}/${{ matrix.language }}',
+              body,
+              labels: ['broken link report'],
+              assignees: ['copilot'],
+            })
+
+            core.info(`Created Copilot redirect issue: ${issue.data.html_url}`)
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
@@ -159,7 +223,7 @@ jobs:
           fi
 
       - name: Create issue if broken links found
-        if: steps.combine.outputs.has_reports == 'true'
+        if: steps.combine.outputs.has_reports == 'true' && (github.event_name != 'workflow_dispatch' || inputs.create_report != false)
         uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}

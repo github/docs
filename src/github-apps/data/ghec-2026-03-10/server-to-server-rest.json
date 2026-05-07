@@ -2899,6 +2899,12 @@
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
     },
     {
+      "slug": "revoke-all-credential-authorizations-for-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all"
+    },
+    {
       "slug": "get-all-enterprise-roles-for-an-enterprise",
       "subcategory": "enterprise-roles",
       "verb": "get",

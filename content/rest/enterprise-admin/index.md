@@ -17,6 +17,7 @@ children:
   - /audit-log
   - /bypass-requests
   - /code-security-and-analysis
+  - /credential-authorizations
   - /custom-properties
   - /custom-properties-for-orgs
   - /enterprise-roles

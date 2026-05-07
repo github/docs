@@ -40,7 +40,7 @@ By design, the following features are permanently unavailable on {% data variabl
 | Feature | Details | More information |
 | :- | :- | :- |
 | Features unavailable with {% data variables.product.prodname_emus %} | Because {% data variables.product.prodname_emus %} is the only option for identity management on {% data variables.enterprise.data_residency_site %}, features that are unavailable with {% data variables.product.prodname_emus %} on {% data variables.product.prodname_dotcom_the_website %} are also unavailable on {% data variables.enterprise.data_residency_site %}. Notably, these include gists and public repositories. | [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts) |
-| {% data variables.product.prodname_importer %} (the "Import repository" button on {% data variables.product.prodname_dotcom_the_website %}) | Instead, the **{% data variables.product.prodname_importer_proper_name %}** is available to migrate data. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer). | [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer) |
+| {% data variables.product.prodname_importer %} (the "Import repository" button on {% data variables.product.prodname_dotcom_the_website %}) | This is distinct from **{% data variables.product.prodname_importer_proper_name %}**, which is one of the tools available to migrate data. See [AUTOTITLE](/admin/data-residency/getting-started-with-data-residency-for-github-enterprise-cloud#5-migrate-data). | [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer) |
 
 ## Features that work differently
 

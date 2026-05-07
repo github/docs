@@ -2721,6 +2721,102 @@
       }
     }
   ],
+  "credential-authorizations": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all",
+      "title": "Revoke all credential authorizations for an enterprise",
+      "category": "enterprise-admin",
+      "subcategory": "credential-authorizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "boolean",
+          "name": "revoke_credentials",
+          "description": "<p>Whether to also destroy the actual credentials (PATs and SSH keys) owned by\nenterprise members. This option is only available for Enterprise Managed User\n(EMU) enterprises. When set to <code>true</code>, all PATs (v1 and v2) and SSH keys owned\nby enterprise members will be destroyed in addition to the credential authorizations.</p>",
+          "default": false
+        }
+      ],
+      "descriptionHTML": "<p>Revokes all credential authorizations for all organizations within the enterprise.\nThis includes any guest, outside, or repository collaborators.</p>\n<p>For Enterprise Managed User (EMU) enterprises, you can optionally also destroy all\ncredentials (PATs v1, PATs v2, and SSH keys) owned by enterprise members by setting\nthe <code>revoke_credentials</code> parameter to <code>true</code>.</p>\n<p>This operation is performed asynchronously. A background job will be queued to process\nthe revocations.</p>\n<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\nIf you use a personal access token to call this endpoint, that token may also be\nrevoked or destroyed as part of this operation.</p>\n</div>\n<p>The authenticated user must be an enterprise owner or have the <code>write_enterprise_credentials</code> permission to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "revoke_credentials": false
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Accepted - The revocation request has been queued</p>",
+            "example": {
+              "message": "Credential authorization revocation has been queued"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the revocation has been queued"
+                },
+                "warning": {
+                  "type": "string",
+                  "description": "A warning message if the token used for this request may be revoked"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted - The revocation request has been queued</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation error - The <code>revoke_credentials</code> option is only available for EMU enterprises</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise credentials\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    }
+  ],
   "custom-properties": [
     {
       "serverUrl": "https://api.github.com",
