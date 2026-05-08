@@ -2,7 +2,7 @@
 title: Setting up GitHub Copilot for your enterprise
 shortTitle: Set up for enterprise
 intro: 'Enable {% data variables.product.prodname_copilot %} across your enterprise so developers can write code faster.'
-product: 'Enterprises with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan'
+product: '{% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}'
 permissions: Enterprise owners
 versions:
   feature: copilot
@@ -21,30 +21,34 @@ category:
 
 ## Enable {% data variables.product.prodname_copilot %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. Click the **{% octicon "check-circle" aria-hidden="true" aria-label="check-circle" %} Getting Started** tab.
-1. Under "Next steps", click **Verify your payment method**.
+To purchase {% data variables.product.prodname_copilot %} for your enterprise, [contact {% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=text).
 
-To confirm {% data variables.product.prodname_copilot_short %} is enabled, check your enterprise's **{% octicon "law" aria-hidden="true" aria-label="law" %} AI Controls** tab.
+A member of the Sales team will work with you to set up {% data variables.product.prodname_copilot_short %} for your enterprise.
 
 ## Set policies
 
-Control which {% data variables.product.prodname_copilot_short %} features are available in your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+You will use enterprise policies to manage two aspects of governance:
+
+* **Availability**: Which {% data variables.product.prodname_copilot_short %} features, models, and MCP servers are available in your enterprise?
+* **Controls**: What restrictions apply to these features? For example, will you exclude certain files or block suggestions matching public code?
+
+Generally, enterprise owners can either set each policy for the whole enterprise or "let organizations decide." With the latter option, users are subject to the policy of the organization where they receive their {% data variables.product.prodname_copilot_short %} license or to the default defined in your "Policies for enterprise-assigned users" setting.
+
+To manage policies, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
 ## Configure networking
 
-If your enterprise uses an HTTP proxy server or firewall, add the required URLs to the allowlist. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
+If your corporate network restricts users' traffic, add the required URLs to the allowlist for your firewall or proxy. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
 
-If your environment uses custom SSL certificates, install them on your users' machines. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-network-settings-for-github-copilot#installing-custom-certificates).
+If you route traffic via a proxy server, you may need to ask users to configure proxy settings in their environment. You may also need to install custom certificates on your users' machines. For more information, see [AUTOTITLE](/copilot/concepts/network-settings).
+
+If your enterprise is on {% data variables.enterprise.data_residency_site %}, users will also need to configure their environment to authenticate from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
 ## Assign licenses
 
 {% data reusables.copilot.enterprise-licensing %}
 
 For instructions, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
-
-> [!TIP] If your enterprise is on {% data variables.enterprise.data_residency_site %}, users need additional setup to authenticate from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
 ## Next steps
 

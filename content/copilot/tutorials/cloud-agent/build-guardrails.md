@@ -51,7 +51,7 @@ To adapt your rulesets for {% data variables.copilot.copilot_cloud_agent %}:
 
 Continue to store data and tokens that you _don't_ want {% data variables.product.prodname_copilot_short %} to access as **{% data variables.product.prodname_actions %} variables or secrets**. {% data variables.product.prodname_copilot_short %} won't be able to access these in its sessions or environment setup steps.
 
-If you need to provide data and secrets that {% data variables.copilot.copilot_cloud_agent %} _does_ need, you'll be able to do this in a specific `copilot` environment.
+If you need to provide data and secrets that {% data variables.copilot.copilot_cloud_agent %} _does_ need, you'll be able to do this by configuring Agents secrets and variables at the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 ### Configure runners
 

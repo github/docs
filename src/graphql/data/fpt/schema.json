@@ -64186,7 +64186,7 @@
       "name": "RepositoryRulesetBypassActor",
       "id": "repositoryrulesetbypassactor",
       "href": "/graphql/reference/objects#repositoryrulesetbypassactor",
-      "description": "<p>A team or app that has the ability to bypass a rules defined on a ruleset.</p>",
+      "description": "<p>A team, app or user that has the ability to bypass rules defined on a ruleset.</p>",
       "implements": [
         {
           "name": "Node",
@@ -81277,7 +81277,7 @@
         },
         {
           "name": "EVERYWHERE",
-          "description": "<p>Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.</p>"
+          "description": "<p>Members can fork a repository to their user account or an organization, either\ninside or outside of this enterprise. Internal repositories can only be forked\ninside of this enterprise.</p>"
         },
         {
           "name": "SAME_ORGANIZATION",
@@ -85706,6 +85706,10 @@
         {
           "name": "MODERATE",
           "description": "<p>Moderate.</p>"
+        },
+        {
+          "name": "UNKNOWN",
+          "description": "<p>Unknown.</p>"
         }
       ]
     },
@@ -98434,7 +98438,7 @@
       "inputFields": [
         {
           "name": "actorId",
-          "description": "<p>For Team and Integration bypasses, the Team or Integration ID.</p>",
+          "description": "<p>For Team, Integration and User bypasses, the Team, Integration, or User ID.</p>",
           "type": "ID",
           "id": "id",
           "href": "/graphql/reference/scalars#id"

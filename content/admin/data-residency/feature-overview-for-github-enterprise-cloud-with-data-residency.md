@@ -104,12 +104,8 @@ You can use {% data variables.product.prodname_github_connect %} to connect to {
 
 To enable {% data variables.product.prodname_github_connect %}, you must configure your {% data variables.product.prodname_ghe_server %} instance to connect to your {% data variables.enterprise.data_residency_site %} subdomain. See [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom).
 
-## Features in {% data variables.release-phases.public_preview %}
-
-Some features on {% data variables.enterprise.data_residency_site %} are currently in {% data variables.release-phases.public_preview %}.
-
 ### {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %} and are available in all {% data variables.enterprise.data_residency %} regions.
+{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} is available in all {% data variables.enterprise.data_residency %} regions.
 
 To use {% data variables.product.prodname_github_codespaces %} from {% data variables.product.prodname_vscode_shortname %} desktop with an enterprise on {% data variables.enterprise.data_residency_site %}, you must configure the `Github-enterprise: Uri` and `Github > Codespaces: Auth Provider` settings. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code#connecting-to-an-enterprise-on-ghecom).

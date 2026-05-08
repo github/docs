@@ -15,4 +15,5 @@ children:
   - /getting-started
   - /secret-scanning
   - /codeql-cli
+  - /reference
 ---

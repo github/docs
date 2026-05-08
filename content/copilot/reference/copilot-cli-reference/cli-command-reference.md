@@ -104,6 +104,7 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 | <kbd>Ctrl</kbd>+<kbd>V</kbd> | Paste from clipboard as an attachment. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `/`  | After you have started typing a prompt, this allows you to run a slash command—for example, if you want to change the model without having to retype your prompt. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `e`  | Edit the prompt in an external editor (`$EDITOR`). |
+| <kbd>Ctrl</kbd>+<kbd>X</kbd> then `b`  | Promote the running task or shell command to the background. |
 | <kbd>Ctrl</kbd>+<kbd>X</kbd> then `o`  | Open the most recent link from the timeline. |
 | <kbd>Ctrl</kbd>+<kbd>Z</kbd>        | Suspend the process to the background (Unix). |
 | <kbd>Shift</kbd>+<kbd>Enter</kbd> or <kbd>Option</kbd>+<kbd>Enter</kbd> (Mac) / <kbd>Alt</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Insert a newline in the input. |
@@ -113,10 +114,35 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 
 | Shortcut                     | Purpose                               |
 |------------------------------|---------------------------------------|
+| <kbd>Ctrl</kbd>+<kbd>F</kbd> | Open timeline search. |
 | <kbd>Ctrl</kbd>+<kbd>O</kbd> | While there is nothing in the prompt input, this expands recent items in {% data variables.product.prodname_copilot_short %}'s response timeline to show more details. |
 | <kbd>Ctrl</kbd>+<kbd>E</kbd> | While there is nothing in the prompt input, this expands all items in {% data variables.product.prodname_copilot_short %}'s response timeline. |
 | <kbd>Ctrl</kbd>+<kbd>T</kbd> | Expand/collapse display of reasoning in responses. |
 | <kbd>Page Up</kbd>/<kbd>Page Down</kbd> | Scroll the timeline up or down by one page. |
+
+## Session picker shortcuts
+
+When the session picker is open (opened via `/resume` or `--continue`):
+
+| Shortcut | Purpose |
+|----------|---------|
+| <kbd>↑</kbd>/<kbd>↓</kbd> | Move selection up or down. |
+| <kbd>Enter</kbd> | Open the selected session. |
+| `s` | Cycle the sort order: relevance → created → name → last used. |
+| <kbd>Tab</kbd> | Switch between the local and remote tabs. |
+| `d` | Delete the selected session. |
+| <kbd>Esc</kbd> | Close the picker. |
+
+Sessions sort by the following modes:
+
+| Mode | Description |
+|------|-------------|
+| `relevance` | Scores sessions by match to the current working directory (default). |
+| `last used` | Most recently modified sessions first. |
+| `created` | Most recently created sessions first. |
+| `name` | Alphabetical by session name; unnamed sessions sort to the end. |
+
+Sessions already open in another window float to the top in all non-relevance sort modes. When no working-directory context is available, the `relevance` mode is skipped.
 
 ## Navigation shortcuts in the interactive interface
 
@@ -147,6 +173,7 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 | `/changelog [summarize] [VERSION\|last N\|since VERSION]`, `/release-notes [summarize] [VERSION\|last N\|since VERSION]` | Display the CLI changelog. Optionally specify a version, a count of recent releases, or a starting version. Add the keyword `summarize` for an AI-generated summary. |
 | `/chronicle <standup\|tips\|improve\|reindex>`      | Session history tools and insights. {% data reusables.copilot.experimental %} |
 | `/clear [PROMPT]`, `/new [PROMPT]`, `/reset [PROMPT]` | Start a new conversation. |
+| `/clikit [COMPONENT]`                               | Preview CLI business components (for example, quota info). |
 | `/compact`                                          | Summarize the conversation history to reduce context window usage. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#compaction). |
 | `/context`                                          | Show the context window token usage and visualization. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#checking-your-context-usage). |
 | `/copy`                                             | Copy the last response to the clipboard. |
@@ -163,7 +190,7 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 | `/ide`                                              | Connect to an IDE workspace. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code#managing-the-connection-with-the-ide-slash-command). |
 | `/init`                 | Initialize {% data variables.product.prodname_copilot_short %} custom instructions and agentic features for this repository. See [Project initialization for {% data variables.product.prodname_copilot_short %}](#project-initialization-for-copilot). |
 | `/instructions`                                     | View and toggle custom instruction files. |
-| `/keep-alive [on\|busy\|NUMBERm\|NUMBERh]`          | Prevent the machine from going to sleep: while a CLI session is active, while the agent is busy, or for a defined length of time. |
+| `/keep-alive [on\|off\|busy\|DURATION]`, `/caffeinate [on\|off\|busy\|DURATION]` | Prevent the machine from going to sleep: while a CLI session is active, while the agent is busy, or for a defined length of time. Accepts durations like `30`, `30m`, `2h`, `1d` (bare numbers default to minutes). |
 | `/list-dirs`                                        | Display all of the directories for which file access has been allowed. |
 | `/login`                                            | Log in to {% data variables.product.prodname_copilot_short %}. |
 | `/logout`                                           | Log out of {% data variables.product.prodname_copilot_short %}. |
@@ -180,11 +207,12 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 | `/restart`                                          | Restart the CLI, preserving the current session. |
 | `/resume [SESSION-ID]`, `/continue [SESSION-ID]`    | Switch to a different session by choosing from a list (optionally specify a session ID). |
 | `/review [PROMPT]`                                  | Run the code review agent to analyze changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review). |
+| `/search [QUERY]`, `/find [QUERY]`                  | Search the conversation timeline. {% data reusables.copilot.experimental %} |
 | `/session [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`, `/sessions [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`  | Show session information and manage sessions. Subcommands: `info`, `checkpoints`, `files`, `plan`, `rename`, `cleanup`, `prune`, `delete`, `delete-all`. |
 | `/share [file\|html\|gist] [session\|research] [PATH]`, `/export [file\|html\|gist] [session\|research] [PATH]` | Share the session to a Markdown file, interactive HTML file, or {% data variables.product.github %} gist. |
 | `/skills [list\|info\|add\|remove\|reload] [ARGS...]`   | Manage skills for enhanced capabilities. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills). |
 | `/statusline`, `/footer`                            | Configure which items appear in the status line. |
-| `/tasks`                                            | View and manage background tasks (subagents and shell sessions). |
+| `/tasks`                                            | View and manage tasks (subagents and shell commands). |
 | `/terminal-setup`      | Configure the terminal for multiline input support (<kbd>Shift</kbd>+<kbd>Enter</kbd> and <kbd>Ctrl</kbd>+<kbd>Enter</kbd>). |
 | `/theme [default\|dim\|high-contrast\|colorblind]`   | View or set the color mode. |
 | `/undo`, `/rewind`                                  | Rewind the last turn and revert file changes. |
@@ -302,7 +330,6 @@ The `--available-tools` and `--excluded-tools` options support these values:
 | `ask_user` | Ask the user a question |
 | `glob` | Find files matching patterns |
 | `grep` (or `rg`) | Search for text in files |
-| `show_file` | Present code snippets inline in the timeline. {% data reusables.copilot.experimental %} |
 | `skill` | Invoke custom skills |
 | `web_fetch` | Fetch and parse web content |
 
@@ -354,6 +381,9 @@ copilot --allow-tool='MyMCP'
 | `COPILOT_SUBAGENT_MAX_DEPTH` | Maximum subagent nesting depth. Default: `6`. Range: `1`–`256`. |
 | `GH_HOST` | {% data variables.product.github %} hostname for both {% data variables.product.prodname_cli %} and {% data variables.copilot.copilot_cli_short %} (default: `github.com`). Set to your {% data variables.product.prodname_ghe_cloud %} with data residency hostname. Override with `COPILOT_GH_HOST` for {% data variables.copilot.copilot_cli_short %} only. |
 | `GH_TOKEN` | Authentication token. Takes precedence over `GITHUB_TOKEN`. |
+| `GITHUB_COPILOT_PROMPT_MODE_EXTENSIONS` | Set to `true` to load project extensions and allow extension management tools in prompt mode (`-p`). Disabled by default to prevent running repository-controlled extension code without interactive trust. |
+| `GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS` | Set to `true` to load repository hooks in prompt mode (`-p`). Disabled by default to prevent running repository-provided hook commands without interactive trust confirmation. |
+| `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` | Set to `true` to load workspace MCP sources in prompt mode (`-p`). Disabled by default to prevent starting repository-controlled MCP servers without interactive trust. |
 | `GITHUB_TOKEN` | Authentication token. |
 | `PLAIN_DIFF` | Set to `true` to disable rich diff rendering. |
 | `USE_BUILTIN_RIPGREP` | Set to `false` to use the system ripgrep instead of the bundled version. |
@@ -452,13 +482,39 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 | `tools` | Yes | Tools to enable. |
 | `headers` | No | HTTP headers. Supports variable expansion. |
 | `oauthClientId` | No | Static OAuth client ID (skips dynamic registration). |
-| `oauthPublicClient` | No | Whether the OAuth client is public. Default: `true`. |
-| `oidc` | No | Enable OIDC token injection. When `true`, injects a `GITHUB_COPILOT_OIDC_MCP_TOKEN` environment variable (local servers) or a `Bearer` `Authorization` header (remote servers). |
+| `oauthPublicClient` | No | Whether the OAuth client is public. Default: `true`. Set to `false` for confidential clients with a stored secret. |
+| `oauthGrantType` | No | OAuth grant type: `"authorization_code"` (default, browser-based flow) or `"client_credentials"` (fully headless, no browser or callback). |
+| `oidc` | No | Enable OIDC token injection. When `true`, the CLI injects OIDC tokens for any `GITHUB_COPILOT_OIDC_MCP_TOKEN` or `GITHUB_COPILOT_OIDC_MCP_TOKEN_<SUFFIX>` variable referenced in the server's `env` block (local servers), or sends the token as a `Bearer` `Authorization` header (remote servers). For local servers, prefer suffixed variants (for example, `${GITHUB_COPILOT_OIDC_MCP_TOKEN_MY_SVC}`) to assign a unique variable name per server. |
 | `timeout` | No | Tool call timeout in milliseconds. |
 
 ### OAuth re-authentication
 
 Remote MCP servers that use OAuth may show a `needs-auth` status when a token expires or when a different account is required. Use `/mcp auth <server-name>` to trigger a fresh OAuth flow. This opens a browser authentication prompt, allowing you to sign in or switch accounts. After completing the flow, the server reconnects automatically.
+
+### Headless OAuth (`client_credentials` grant)
+
+For CI or cron use cases where no browser is available, set `oauthGrantType: "client_credentials"`. This requires:
+
+* `oauthClientId`—the static client ID issued by the MCP provider.
+* `oauthPublicClient: false`—the client is confidential.
+* A `client_secret` stored in the system keychain (configured once via the `/mcp` UI or by writing to the OAuth credential store).
+
+When configured, the CLI skips the browser, callback server, PKCE, and dynamic client registration entirely. On every 401, it posts `grant_type=client_credentials` directly to the server's discovered token endpoint.
+
+```json
+{
+    "mcpServers": {
+        "headless-api": {
+            "type": "http",
+            "url": "https://api.example.com/mcp",
+            "tools": ["*"],
+            "oauthClientId": "YOUR-CLIENT-ID",
+            "oauthPublicClient": false,
+            "oauthGrantType": "client_credentials"
+        }
+    }
+}
+```
 
 ### Filter mapping
 
@@ -486,6 +542,12 @@ Use `--disable-builtin-mcps` to disable all built-in servers, or `--disable-mcp-
 ### MCP server naming
 
 Server names can contain any printable characters, including spaces, Unicode characters, and punctuation. Control characters (U+0000–U+001F, U+007F) and the closing brace (`}`) are not allowed. Server names are used as prefixes for tool names—for example, a server named `my-server` produces tool names like `my-server-fetch`, and a server named `My Server` produces `My Server-fetch`.
+
+### MCP tool name sanitization
+
+MCP server names and tool names are sanitized before being sent to the model. Characters that are invalid in tool names (anything other than `a-z`, `A-Z`, `0-9`, `-`, `_`) are replaced with `-`. Unicode characters are Punycode-encoded. The `@` symbol is also replaced with `-` to avoid conflicts with Punycode encoding.
+
+The combined name (`serverName-toolName`) is capped at 64 characters. When truncation would create a name collision, a numeric suffix is appended (for example, `my-server-tool2`, `my-server-tool3`) to ensure uniqueness.
 
 ### MCP server trust levels
 
@@ -585,7 +647,6 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 | Agent | Default model | Description |
 |-------|--------------|-------------|
 | `code-review` | claude-sonnet-4.5 | High signal-to-noise code review. Analyzes diffs for bugs, security issues, and logic errors. |
-| `configure-copilot` | varies | Built-in sub-agent for managing {% data variables.copilot.copilot_cli_short %} configuration through natural language—adding MCP servers, installing agents, and managing skills. {% data reusables.copilot.experimental %} |
 | `explore` | claude-haiku-4.5 | Fast codebase exploration. Searches files, reads code, and answers questions. Returns focused answers under 300 words. Safe to run in parallel. |
 | `general-purpose` | claude-sonnet-4.5 | Full-capability agent for complex multi-step tasks. Runs in a separate context window. |
 | `research` | claude-sonnet-4.6 | Deep research agent. Generates a report based on information in your codebase, in relevant repositories, and on the web. |
@@ -636,7 +697,17 @@ When the CLI prompts for permission to execute an operation, you can respond wit
 | `#` | Deny all similar requests for the rest of the session. |
 | `?` | Show detailed information about the request. |
 
-Session approvals reset when you run `/clear` or start a new session.
+When the full dialog is shown, you can also choose from these options:
+
+| Option | Scope | Persistence |
+|--------|-------|-------------|
+| Once | Single use | None |
+| This location | Until manually cleared | Saved to disk per location |
+| Always | Permanent | Config file |
+
+The **This location** option appears when the CLI can determine a location key (git root or current directory). It persists the approval to disk so the same permission is automatically granted the next time you work in that directory without prompting again.
+
+Use `/permissions reset` to clear in-memory approvals for the current session.
 
 ## OpenTelemetry monitoring
 
@@ -678,11 +749,12 @@ Wraps the entire agent invocation: all LLM calls and tool executions for one use
 |-----------|-------------|-----------|
 | `gen_ai.operation.name` | `invoke_agent` | Both |
 | `gen_ai.provider.name` | Provider (for example, `github`, `anthropic`) | Both |
-| `gen_ai.agent.id` | Session identifier | Both |
+| `gen_ai.agent.id` | Stable agent-definition identifier when known; top-level default uses `github.copilot.default` | Both |
 | `gen_ai.agent.name` | Agent name (when available) | Both |
 | `gen_ai.agent.description` | Agent description (when available) | Both |
-| `gen_ai.agent.version` | Runtime version | Both |
+| `gen_ai.agent.version` | Agent definition version when known; otherwise runtime version | Both |
 | `gen_ai.conversation.id` | Session identifier | Both |
+| `enduser.pseudo.id` | Pseudonymous Copilot user identifier from `analytics_tracking_id` when available | Both |
 | `gen_ai.request.model` | Requested model | Both |
 | `gen_ai.response.finish_reasons` | `["stop"]` or `["error"]` | Both |
 | `gen_ai.usage.input_tokens` | Total input tokens (all turns) | Both |
@@ -709,21 +781,22 @@ One span per LLM request. Span kind: `CLIENT`.
 | `gen_ai.operation.name` | `chat` |
 | `gen_ai.provider.name` | Provider name |
 | `gen_ai.request.model` | Requested model |
+| `gen_ai.request.stream` | Whether streaming mode was used (streaming only) |
 | `gen_ai.conversation.id` | Session identifier |
+| `gen_ai.response.finish_reasons` | Stop reasons |
 | `gen_ai.response.id` | Response ID |
 | `gen_ai.response.model` | Resolved model |
-| `gen_ai.response.finish_reasons` | Stop reasons |
+| `gen_ai.response.time_to_first_chunk` | Time to first streaming chunk, in seconds (streaming only) |
+| `gen_ai.usage.cache_creation.input_tokens` | Cached tokens created |
+| `gen_ai.usage.cache_read.input_tokens` | Cached tokens read |
 | `gen_ai.usage.input_tokens` | Input tokens this turn |
 | `gen_ai.usage.output_tokens` | Output tokens this turn |
-| `gen_ai.usage.cache_read.input_tokens` | Cached tokens read |
-| `gen_ai.usage.cache_creation.input_tokens` | Cached tokens created |
 | `github.copilot.cost` | Turn cost |
 | `github.copilot.aiu` | AI units consumed this turn |
 | `github.copilot.server_duration` | Server-side duration |
 | `github.copilot.initiator` | Request initiator |
 | `github.copilot.turn_id` | Turn identifier |
 | `github.copilot.interaction_id` | Interaction identifier |
-| `github.copilot.time_to_first_chunk` | Time to first streaming chunk, in seconds (streaming only) |
 | `server.address` | Server hostname |
 | `server.port` | Server port |
 | `error.type` | Error class name (on error) |

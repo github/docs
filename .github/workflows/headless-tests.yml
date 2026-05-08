@@ -33,6 +33,7 @@ jobs:
         node:
           - playwright-rendering
           - playwright-a11y
+          - playwright-secret-scanning
       fail-fast: false
     timeout-minutes: 60
     steps:
