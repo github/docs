@@ -99,7 +99,7 @@ The available models vary depending on your {% data variables.product.prodname_c
 > [!NOTE]
 > * The models included with {% data variables.product.prodname_copilot_short %} plans are subject to change.
 > * Model multipliers and costs are subject to change.
-> * Discounted multipliers are available for using {% data variables.copilot.copilot_auto_model_selection %} in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
+> * Discounted multipliers are available for using {% data variables.copilot.copilot_auto_model_selection %}. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 >   * {% data reusables.copilot.auto-model-multiplier-discount %} For example, Sonnet 4 would be billed at .9x rather than 1x when using {% data variables.copilot.copilot_auto_model_selection_short %}.
 >   * Discounted multipliers are not available for {% data variables.copilot.copilot_free_short %}.
 

@@ -198,7 +198,7 @@ copilot_raptor_mini: 'Raptor mini'
 copilot_goldeneye: 'Goldeneye'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
-cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'
+cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
 
 ## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'

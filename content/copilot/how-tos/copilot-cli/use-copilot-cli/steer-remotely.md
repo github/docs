@@ -2,7 +2,7 @@
 title: Steering a {% data variables.copilot.copilot_cli %} session from another device
 shortTitle: Steer a session remotely
 allowTitleToDifferFromFilename: true
-intro: 'Enable remote access to a {% data variables.copilot.copilot_cli_short %} session so you can monitor progress, respond to prompts, and continue working from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_mobile %}.'
+intro: 'Enable remote control for a {% data variables.copilot.copilot_cli_short %} session so you can monitor progress, respond to prompts, and continue working from {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_mobile %}.'
 versions:
   feature: copilot
 contentType: how-tos
@@ -15,11 +15,9 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-Remote access lets you connect to a running {% data variables.copilot.copilot_cli_short %} session from any browser or from {% data variables.product.prodname_mobile %}. You can view session output, respond to permission requests, and continue working in the session without being at the machine where the session is running.
+Remote control lets you connect to a running {% data variables.copilot.copilot_cli_short %} session from any browser or from {% data variables.product.prodname_mobile %}. You can view session output, respond to permission requests, and continue working in the session without being at the machine where the session is running.
 
-This article explains how to enable and use remote access. For more conceptual information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-remote-access).
-
-{% data reusables.cli.public-preview-remote-access %}
+This article explains how to enable and use remote control. For more conceptual information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-remote-control).
 
 ## Prerequisites
 
@@ -30,23 +28,25 @@ This article explains how to enable and use remote access. For more conceptual i
 
 * The working directory must contain a Git repository hosted on {% data variables.product.prodname_dotcom_the_website %}. If you are not in a {% data variables.product.prodname_dotcom %} repository, the CLI displays: "Remote session disabled: not in a {% data variables.product.github %} repository."
 
-## Enabling remote access for a session
+## Enabling remote control for a session
 
-You can enable remote access in three ways:
+You can enable remote control in three ways:
 
 * With a slash command during an interactive session.
 * With a command-line option when you start {% data variables.copilot.copilot_cli_short %}.
-* By configuring the CLI to enable remote access by default for all interactive sessions.
+* By configuring the CLI to enable remote control by default for all interactive sessions.
 
 ### Using the `/remote` slash command
 
-If you are already in an interactive session and want to enable remote access, enter:
+If you are already in an interactive session and want to enable remote control, enter:
 
 ```copilot copy
-/remote
+/remote on
 ```
 
 The CLI connects to {% data variables.product.prodname_dotcom_the_website %} and displays details for accessing the session remotely—see [Accessing a session from {% data variables.product.prodname_dotcom_the_website %}](#accessing-a-session-from-githubcom) and [Accessing a session from {% data variables.product.prodname_mobile %}](#accessing-a-session-from-github-mobile) later in this article.
+
+You can use the `/remote` slash command without an argument to check the current remote control status, or to redisplay the remote access details if remote control is currently enabled. If you want to end the remote connection for the current session, enter `/remote off`.
 
 ### Using the `--remote` command-line option
 
@@ -58,9 +58,9 @@ copilot --remote
 
 Details for accessing the session remotely are displayed when the interactive session starts and can be displayed again at any time by using the `/remote` slash command.
 
-### Configuring remote access to always be enabled
+### Configuring remote control to always be enabled
 
-If you always want your interactive CLI sessions to be remotely accessible, add the following to your {% data variables.product.prodname_copilot_short %} configuration file (typically located at `~/.copilot/settings.json`):
+If you always want your interactive CLI sessions to be remotely accessible, add the following to your {% data variables.product.prodname_copilot_short %} settings file (typically located at `~/.copilot/settings.json`):
 
 ```json copy
 {
@@ -75,30 +75,33 @@ copilot --no-remote
 ```
 
 > [!NOTE]
-> The command-line options `--remote` and `--no-remote` always take precedence over the `remoteSessions` setting in the configuration file.
+> The command-line options `--remote` and `--no-remote` always take precedence over the `remoteSessions` setting in the settings file.
 
 ## Accessing a session from {% data variables.product.prodname_dotcom_the_website %}
 
-When remote access is enabled, the CLI displays a link in the format:
+When you enable remote control, the CLI displays a link to the session on {% data variables.product.prodname_dotcom_the_website %}.
 
-```text
-https://github.com/OWNER/REPO/tasks/TASK_ID
-```
+Use the link to access the session in your default web browser. You must be signed in to {% data variables.product.prodname_dotcom %} with the same account that started the CLI session.
 
-Use this link to access the session in a web browser. You must be signed in to {% data variables.product.prodname_dotcom %} with the same account that started the CLI session.
+You can also access the session without the link:
 
-You can also access the session from your list of recent agent sessions on {% data variables.product.prodname_dotcom_the_website %}:
-
+1. Log on to {% data variables.product.prodname_dotcom_the_website %} on any computer.
 1. In the top-left corner of {% data variables.product.prodname_dotcom %}, click {% octicon "three-bars" aria-label="Open menu" %}.
 1. Click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
-1. Under "Recent agent sessions", click your {% data variables.copilot.copilot_cli_short %} session to open it.
+
+   Your CLI session is listed under "Recent agent sessions."
+
+1. Optionally, use the **Type** filter at the top right of the list to show only {% data variables.copilot.copilot_cli_short %} sessions.
+1. Click your {% data variables.copilot.copilot_cli_short %} session to open it.
+
+If you started the session from a local copy of a {% data variables.product.github %} repository, you can also access the session from the **Agents** tab of that repository on {% data variables.product.prodname_dotcom_the_website %}.
 
 > [!IMPORTANT]
-> Sessions are user-specific: you can only access your own {% data variables.copilot.copilot_cli_short %} sessions. Other {% data variables.product.github %} users cannot access your sessions.
+> Remotely accessible sessions are user-specific: you can only access your own {% data variables.copilot.copilot_cli_short %} sessions. Other {% data variables.product.github %} users cannot access your sessions.
 
 ## Accessing a session from {% data variables.product.prodname_mobile %}
 
-A {% data variables.copilot.copilot_cli_short %} session is available in {% data variables.product.prodname_mobile %} as soon as you enable remote access. To find your session in {% data variables.product.prodname_mobile %}:
+A {% data variables.copilot.copilot_cli_short %} session is available in {% data variables.product.prodname_mobile %} as soon as you enable remote control. To find your session in {% data variables.product.prodname_mobile %}:
 
 1. Tap the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** button in the bottom right corner of the screen.
 
@@ -129,23 +132,26 @@ In an interactive session, enter `/keep-alive OPTION`, where `OPTION` is one of:
 
 Without passing an `OPTION`, the `/keep-alive` command displays the current keep-alive status.
 
-## Resuming a session with remote access
+## Reviewing previous sessions
 
-When you shut down a session that has remote access enabled, the CLI displays a resume command that includes `--remote`:
+You can view old {% data variables.copilot.copilot_cli_short %} sessions on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}.
 
-```bash
-copilot --resume=SESSION_ID --remote
-```
+1. Go to your list of recent agent sessions on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}. See [Accessing a session from github.com](#accessing-a-session-from-githubcom) and [Accessing a session from GitHub Mobile](#accessing-a-session-from-github-mobile) earlier in this article.
+1. Click or tap the session you want to review.
 
-Use this command to restart the session with remote access enabled.
+On {% data variables.product.prodname_dotcom_the_website %}, a message tells you the `copilot --resume` command to use if you want to resume the session. Enter this command in your terminal on the machine where you ran that session.
 
-Similarly, adding `--remote` to a `copilot --continue` command resumes the most recent session with remote access enabled.
+## Resuming a session
 
-If you have `"remoteSessions": true` in your {% data variables.product.prodname_copilot_short %} configuration file, resumed sessions will have remote access enabled automatically and you do not need to use the `--remote` option.
+{% data reusables.cli.remote-access-reconnection %}
 
-## Preventing remote access
+## Preventing remote control
 
-Remote access is disabled by default, but may be enabled in your {% data variables.product.prodname_copilot_short %} configuration file. You can ensure a session is not remotely accessible by:
+Remote control is disabled by default, but may be enabled in your {% data variables.product.prodname_copilot_short %} settings file (typically `~/.copilot/settings.json`). You can ensure a session is not remotely controllable by:
 
-* **For a single session**: Start the CLI with `--no-remote` to prevent remote access for that session, regardless of your configuration file setting.
-* **Permanently**: Remove the `"remoteSessions": true` setting from your {% data variables.product.prodname_copilot_short %} configuration file (or set it to `false`).
+* **For a single session**: Start the CLI with `--no-remote` to prevent remote control for that session, regardless of your settings file value.
+* **Permanently**: Remove the `"remoteSessions": true` setting from `~/.copilot/settings.json` (or set it to `false`).
+
+## Further reading
+
+* [{% data variables.copilot.copilot_cli_short %} sessions in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/agents/copilot-cli) in the {% data variables.product.prodname_vscode_shortname %} documentation.

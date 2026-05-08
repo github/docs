@@ -27,7 +27,8 @@ children:
   - /content/copilot/concepts/agents/about-agent-skills
   - /content/copilot/concepts/agents/copilot-cli/about-cli-plugins
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
-  - /content/copilot/concepts/agents/copilot-cli/about-remote-access
+  - /content/copilot/concepts/agents/copilot-cli/about-custom-agents
+  - /content/copilot/concepts/agents/copilot-cli/about-remote-control
   - /content/copilot/concepts/agents/copilot-cli/autopilot
   - /content/copilot/concepts/agents/copilot-cli/cancel-and-roll-back
   - /content/copilot/concepts/agents/copilot-cli/chronicle
@@ -36,6 +37,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/lsp-servers
   - /content/copilot/concepts/agents/copilot-cli/research
+  - /content/copilot/concepts/agents/copilot-cli/rubber-duck
   - /content/copilot/reference/copilot-cli-reference/acp-server
   - /content/copilot/reference/copilot-cli-reference/cli-command-reference
   - /content/copilot/reference/copilot-cli-reference/cli-plugin-reference

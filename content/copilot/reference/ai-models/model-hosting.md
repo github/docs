@@ -57,7 +57,6 @@ Used for:
 * {% data variables.copilot.copilot_claude_opus_46 %}
 * {% data variables.copilot.copilot_claude_opus_46_fast %}
 * {% data variables.copilot.copilot_claude_opus_47 %}
-* {% data variables.copilot.copilot_claude_sonnet_40 %}
 * {% data variables.copilot.copilot_claude_sonnet_46 %}
 
 These models are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:

@@ -22,10 +22,6 @@
   current_multiplier: '15'
   new_multiplier: '27'
 
-- model: 'Claude Sonnet 4'
-  current_multiplier: '1'
-  new_multiplier: '1'
-
 - model: 'Claude Sonnet 4.5'
   current_multiplier: '1'
   new_multiplier: '6'

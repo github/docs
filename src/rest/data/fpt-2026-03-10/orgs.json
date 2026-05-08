@@ -5547,19 +5547,19 @@
             {
               "type": "string",
               "name": "name",
-              "description": "<p>The name of the artifact. Note that if multiple deployments have identical 'digest' parameter values,\nthe name parameter must also be identical across all entries.</p>",
+              "description": "<p>The name of the artifact.</p>",
               "isRequired": true
             },
             {
               "type": "string",
               "name": "digest",
-              "description": "<p>The hex encoded digest of the artifact. Note that if multiple deployments have identical 'digest' parameter values,\nthe name and version parameters must also be identical across all entries.</p>",
+              "description": "<p>The hex encoded digest of the artifact.</p>",
               "isRequired": true
             },
             {
               "type": "string",
               "name": "version",
-              "description": "<p>The artifact version. Note that if multiple deployments have identical 'digest' parameter values,\nthe version parameter must also be identical across all entries.</p>"
+              "description": "<p>The artifact version.</p>"
             },
             {
               "type": "string",
@@ -5601,7 +5601,7 @@
           "default": true
         }
       ],
-      "descriptionHTML": "<p>Set deployment records for a given cluster.\nIf proposed records in the 'deployments' field have identical 'cluster', 'logical_environment',\n'physical_environment', and 'deployment_name' values as existing records, the existing records will be updated.\nIf no existing records match, new records will be created.</p>",
+      "descriptionHTML": "<p>Set deployment records for a given cluster.\nIf proposed records in the 'deployments' field have identical 'cluster', 'logical_environment',\n'physical_environment', and 'deployment_name' values as existing records, the existing records will be updated.\nIf no existing records match, new records will be created.\nNote: Artifacts are uniquely identified by the combination of their repository and digest fields. If two entries in the deployments\narray resolve to the same repository and have identical digest fields but differing name and version fields, the endpoint will use\nthe artifact name and version from the record processed first, since a single artifact (identified by repository and digest) can\nonly have one name and version.</p>",
       "codeExamples": [
         {
           "request": {

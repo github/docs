@@ -104,7 +104,6 @@
     "sync-webhooks": "npx tsx src/rest/scripts/update-files.ts -o webhooks",
     "test": "vitest",
     "test:article-api": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations npm test -- --no-file-parallelism --maxWorkers=1 src/article-api/tests/",
-    "test:changelogs": "cross-env CHANGELOG_CACHE_FILE_PATH=src/fixtures/fixtures/changelog-feed.json npm test -- src/changelogs/tests/",
     "test:fixtures": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations npm test -- src/fixtures/tests/",
     "test:landings": "cross-env ROOT=src/fixtures/fixtures npm test -- src/landings/tests/",
     "test:languages": "cross-env ENABLED_LANGUAGES=all ELASTICSEARCH_URL=http://localhost:9200/ npm test -- src/languages/tests/",
@@ -140,7 +139,6 @@
       "data/reusables",
       "data/variables",
       "data/glossaries",
-      "data/product-examples",
       "rest-api-description",
       "semmle-code"
     ]
@@ -257,7 +255,6 @@
     "remark-rehype": "^11.1.2",
     "remark-remove-comments": "^1.1.1",
     "remark-stringify": "^11.0.0",
-    "rss-parser": "^3.13.0",
     "scroll-anchoring": "^0.1.0",
     "semver": "^7.7.4",
     "sharp": "0.33.5",
@@ -354,13 +351,15 @@
     "esbuild": "^0.25",
     "vite": "^7.3.2",
     "path-to-regexp": "^8.4.0",
-    "apache-arrow": "file:src/search/vendor/apache-arrow-stub"
+    "apache-arrow": "file:src/search/vendor/apache-arrow-stub",
+    "uuid": "^14.0.0",
+    "postcss": "^8.5.10"
   },
   "optionalDependencies": {
     "esm": "^3.2.25"
   },
   "engines": {
-    "node": "^24"
+    "node": "^24 || ^26"
   },
   "cacheDirectories": [
     "node_modules",

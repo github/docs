@@ -4946,6 +4946,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: VolcEngine
+  supportedSecret: VolcEngine Ark API Key
+  secretType: volcengine_ark_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime API Key
   secretType: wakatime_api_key

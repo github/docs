@@ -7,8 +7,6 @@ intro: >-
 introLinks:
   overview: /rest/about-the-rest-api/about-the-rest-api
   quickstart: /rest/quickstart
-changelog:
-  label: api, apis
 layout: discovery-landing
 includedCategories:
   - Learn about the REST API
@@ -51,6 +49,7 @@ children:
   - /guides
   - /actions
   - /activity
+  - /agent-tasks
   - /announcement-banners
   - /apps
   - /billing

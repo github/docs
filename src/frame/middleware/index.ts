@@ -40,7 +40,6 @@ import triggerError from '@/observability/middleware/trigger-error'
 import dataTables from '@/data-directory/middleware/data-tables'
 import secretScanning from '@/secret-scanning/middleware/secret-scanning'
 import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes'
-import whatsNewChangelog from './context/whats-new-changelog'
 import layout from './context/layout'
 import currentProductTree from './context/current-product-tree'
 import genericToc from './context/generic-toc'
@@ -49,7 +48,6 @@ import glossaries from './context/glossaries'
 import resolveCarousels from './resolve-carousels'
 import renderProductName from './context/render-product-name'
 import features from '@/versions/middleware/features'
-import productExamples from './context/product-examples'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
 import journeyTrack from '@/journeys/middleware/journey-track'
@@ -272,13 +270,11 @@ export default function index(app: Express) {
   app.use(asyncMiddleware(dataTables))
   app.use(asyncMiddleware(secretScanning))
   app.use(asyncMiddleware(ghesReleaseNotes))
-  app.use(asyncMiddleware(whatsNewChangelog))
   app.use(layout)
   app.use(features) // needs to come before product tree
   app.use(asyncMiddleware(currentProductTree))
   app.use(asyncMiddleware(genericToc))
   app.use(breadcrumbs)
-  app.use(asyncMiddleware(productExamples))
   app.use(asyncMiddleware(productGroups))
   app.use(asyncMiddleware(glossaries))
   app.use(asyncMiddleware(generalSearchMiddleware))

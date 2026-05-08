@@ -673,6 +673,18 @@
       "requestPath": "/repos/{owner}/{repo}/actions/caches/{cache_id}"
     },
     {
+      "slug": "list-concurrency-groups-for-a-repository",
+      "subcategory": "concurrency-groups",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups"
+    },
+    {
+      "slug": "get-a-concurrency-group-for-a-repository",
+      "subcategory": "concurrency-groups",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups/{concurrency_group_name}"
+    },
+    {
       "slug": "get-a-job-for-a-workflow-run",
       "subcategory": "workflow-jobs",
       "verb": "get",
@@ -929,6 +941,12 @@
       "subcategory": "workflow-runs",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel"
+    },
+    {
+      "slug": "list-concurrency-groups-for-a-workflow-run",
+      "subcategory": "concurrency-groups",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/concurrency_groups"
     },
     {
       "slug": "force-cancel-a-workflow-run",

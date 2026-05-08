@@ -63,11 +63,6 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 4.7 model card](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf)'
 
-- name: Claude Sonnet 4.0
-  task_area: Deep reasoning and debugging
-  excels_at: Performance and practicality, perfectly balanced for coding workflows
-  further_reading: '[Claude Sonnet 4.0 model card](https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf)'
-
 - name: Claude Sonnet 4.5
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning

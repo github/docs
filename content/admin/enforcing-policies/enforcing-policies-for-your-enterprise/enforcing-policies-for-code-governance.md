@@ -32,8 +32,6 @@ Rulesets allow you to flexibly target the organizations, repositories, and branc
 * Within those organizations, you can target all **repositories**, or target a dynamic list by custom property or deployment context.
 * Within the repositories, you can target certain **branches or tags**: all branches, the default branch, or a dynamic list using `fnmatch` syntax.
 
-When you create a ruleset that targets branches in a repository, repository administrators can no longer rename branches or change the default branch in the targeted repository. They can still create and delete branches if they have the appropriate permissions.
-
 ## How can I control the format of commits?
 
 In branch or tag rulesets, you can add a rule that restricts the format of commit metadata such as commit message or author email.

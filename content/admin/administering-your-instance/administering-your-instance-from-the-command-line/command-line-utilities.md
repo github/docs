@@ -1287,6 +1287,12 @@ GHE_LICENSE_FILE=/path/license ghe-license import
 # License synchronized.
 ```
 
+## Migrations
+
+### elm
+
+`elm` is the command-line tool for {% data variables.product.prodname_elm %}, a tool for live migrations to {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/migrations/elm/elm-cli-reference).
+
 ## Security
 
 ### ghe-find-insecure-git-operations
