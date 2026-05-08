@@ -131,3 +131,4 @@ The following file types are supported for uploads in issue comments, pull reque
 
 * Audio files (`.mp3`, `.wav`)
 {% endif %}
+@><@Edgarruiz8585>content/get-started/writing-on-github/working-with-advanced-formatting/attaching-files.md
