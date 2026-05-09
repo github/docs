@@ -51,8 +51,6 @@ If you use the REST API for {% data variables.product.prodname_secret_scanning %
 
 <!-- Generic is what we know internally as non-provider -->
 
-{% data reusables.secret-scanning.non-provider-patterns-beta %}
-
 Precision levels are estimated based on the pattern type's typical false positive rates.
 
 <!-- Team plan and GHEC version of table -->
@@ -111,7 +109,11 @@ Precision levels are estimated based on the pattern type's typical false positiv
 >[!NOTE] Push protection and validity checks are not supported for passwords.
 {% endif %}
 
+<<<<<<< HEAD
+### Default patterns
+=======
 ## Supported provider patterns
+>>>>>>> origin/main
 
 Use the table below to search, filter, and browse all supported patterns. You can filter by provider name, push protection support, validity checks, and more.
 

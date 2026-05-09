@@ -445,7 +445,6 @@ gh api \
 
     {% data variables.product.prodname_copilot_short %} will start a new session. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
 
-
 {% data reusables.copilot.cloud-agent.raycast-oauth-access-restrictions %}
 
 ## Asking {% data variables.product.prodname_copilot_short %} to start work from the agents tab or panel
@@ -634,7 +633,6 @@ To see all of the available options, run `gh agent-task create --help`.
 1. Press <kbd>Command</kbd>+<kbd>Enter</kbd> (macOS) or <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows) to start the task.
 
     {% data variables.product.prodname_copilot_short %} will start a new session. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
-
 
 {% data reusables.copilot.cloud-agent.raycast-oauth-access-restrictions %}
 

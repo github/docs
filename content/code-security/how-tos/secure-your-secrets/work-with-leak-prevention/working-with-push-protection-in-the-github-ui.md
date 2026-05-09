@@ -16,7 +16,7 @@ category:
 
 ## About push protection in the {% data variables.product.prodname_dotcom %} UI
 
-When you {% ifversion push-protection-delegated-bypass-file-upload-support %}upload, create, {% else %}create {% endif %}or edit files from the {% data variables.product.prodname_dotcom %} UI, push protection prevents you from accidentally committing secrets to a repository by blocking commits containing supported secrets.
+When you upload, create, or edit files from the {% data variables.product.prodname_dotcom %} UI, push protection prevents you from accidentally committing secrets to a repository by blocking commits containing supported secrets.
 
 {% data variables.product.prodname_dotcom %} will also block the commit if you attempt to upload files containing supported secrets.
 
@@ -55,8 +55,6 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges).
 
 ## Requesting bypass privileges
-
-{% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
 
 If your commit has been blocked by push protection, you can request permission to bypass the block. The request is sent to a designated group of reviewers, who will either approve or deny the request.
 

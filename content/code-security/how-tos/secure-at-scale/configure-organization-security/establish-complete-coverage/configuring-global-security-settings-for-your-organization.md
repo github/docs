@@ -144,7 +144,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 ### Adding a resource link for blocked commits
 
-To provide context for developers when {% data variables.product.prodname_secret_scanning %} blocks a commit, you can display a link with more information on why the commit was blocked. To include a link, select **Add a resource link in the CLI and the web UI when a commit is blocked**. In the text box, type the link to the desired resource, then click {% ifversion fpt or ghec or ghes > 3.15 %}**Save Link**{% else %}**Save**{% endif %}.
+To provide context for developers when {% data variables.product.prodname_secret_scanning %} blocks a commit, you can display a link with more information on why the commit was blocked. To include a link, select **Add a resource link in the CLI and the web UI when a commit is blocked**. In the text box, type the link to the desired resource, then click **Save Link**.
 
 ### Defining custom patterns
 
@@ -173,12 +173,5 @@ The security manager role grants members of your organization the ability to man
 
 To learn more about the security manager role, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 
-{% ifversion fpt or ghec or ghes > 3.15 %}
-
 To assign the security manager role, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles#assigning-an-organization-role).
 
-{% else %}
-
-To grant all members of a team the security manager role, in the "Search for teams" text box, type the name of the desired team. In the dropdown menu that appears, click the team, then click **I understand, grant security manager permissions**.
-
-{% endif %}

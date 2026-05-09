@@ -55,8 +55,6 @@ sections:
     - |
       The `ghe-cluster-hotpatch` command now supports the `--parallel` flag. This flag executes the rollover stage in parallel across all nodes in a cluster, saving a significant amount of time during upgrades of large clusters.
     - |
-      To support phased upgrades for future versions of GitHub Enterprise Server, site administrators can now use the `--phase` flag with the `ghe-upgrade` command.
-    - |
       To prevent collectd memory exhaustion and OOM kills caused by write queue growth, administrators can configure collectd write queue limits and memory caps via `ghe-config`. Previously, tuning these settings required manual edits to collectd.conf and systemd configuration files. Changes take effect after running a configuration apply.
   known_issues:
     - |
@@ -93,3 +91,6 @@ sections:
       When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
     - |
       On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
+  errata:
+    - |
+      These release notes previously included a note about phased upgrades. The note was added prematurely and has been removed. We will republish it when the feature is ready. [Updated: 2026-05-08]

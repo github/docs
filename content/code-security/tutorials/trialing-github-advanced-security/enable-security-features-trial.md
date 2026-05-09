@@ -7,7 +7,7 @@ permissions: '{% data reusables.permissions.security-configuration-enterprise-en
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.15'
+  ghes: '*'
 redirect_from:
   - /code-security/trialing-github-advanced-security/enable-security-features-trial
 contentType: tutorials

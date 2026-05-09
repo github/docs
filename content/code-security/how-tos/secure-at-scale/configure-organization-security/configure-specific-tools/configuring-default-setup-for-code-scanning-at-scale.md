@@ -30,7 +30,7 @@ A repository must meet all the following criteria to be eligible for default set
 
 ## Configuring default setup for all eligible repositories in an organization
 
- You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
+You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 
 ### Extending {% data variables.product.prodname_codeql %} coverage in default setup
 

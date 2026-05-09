@@ -545,9 +545,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
 | {% endif %} |
-| {% ifversion dependabot-dotnet-sdk %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
-| {% endif %} |
 | {% ifversion dependabot-helm-support %} |
 | Helm Charts            | `helm`            | v3               |
 | {% endif %} |

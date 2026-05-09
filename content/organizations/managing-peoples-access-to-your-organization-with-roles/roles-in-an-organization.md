@@ -74,8 +74,6 @@ Billing managers are users who can manage the billing settings for your organiza
 
 ### Security managers
 
-{% data reusables.organizations.security-manager-beta-note %}
-
 {% data reusables.organizations.about-security-managers %}
 
 If your organization has a security team, you can use the security manager role to give members of the team the least access they need to the organization. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).

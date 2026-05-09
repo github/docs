@@ -126,7 +126,8 @@ jobs:
             }
 
             const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'))
-            const redirectGroups = report.groups.filter(g => g.isWarning).slice(0, 5)
+            const allRedirectGroups = report.groups.filter(g => g.isWarning)
+            const redirectGroups = allRedirectGroups.slice(0, 5)
 
             if (redirectGroups.length === 0) {
               core.info('No redirect groups found, skipping Copilot issue.')
@@ -141,11 +142,17 @@ jobs:
               return `| \`${g.target}\` | \`${redirectTarget}\` | \`${file}\` | ${lines} |`
             }).join('\n')
 
+            const actionRunUrl = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+            const hasMore = allRedirectGroups.length > redirectGroups.length
+            const countLine = hasMore
+              ? `These are the first ${redirectGroups.length} of ${allRedirectGroups.length} redirects found. The full list is available in the [workflow run artifacts](${actionRunUrl}).`
+              : `These are the first ${redirectGroups.length} of ${allRedirectGroups.length} redirects found.`
+
             const body = [
-              '@copilot Please fix the redirected internal links listed in the table below.',
-              'All changes should be made within the `github/docs-internal` repository.',
-              'For each entry, open the source file and replace the **Current Link** with the **Update To** path.',
-              'When all changes are made, open a pull request in `github/docs-internal` with the fixes.',
+              'Copilot please fix the redirected internal links listed in the table below. All changes should be made within the `github/docs-internal` repository. For each entry, open the source file and replace the **Current Link** with the **Update To** path.',
+              'When all changes are made, open a pull request in `github/docs-internal` with the fixes. The pull request description should reference this issue to create a link between them. When the pull request is open, leave a comment on this issue with a link to it.',
+              '',
+              countLine,
               '',
               '## Redirects to fix',
               '',
@@ -166,7 +173,7 @@ jobs:
               agent_assignment: {
                 target_repo: 'github/docs-internal',
                 base_branch: 'main',
-                custom_instructions: 'For each entry in the table, open the source file in the github/docs-internal repository and replace the Current Link with the Update To path. When all changes are made, open a pull request in github/docs-internal with the fixes.',
+                custom_instructions: 'For each entry in the table, open the source file in the github/docs-internal repository and replace the Current Link with the Update To path. When all changes are made, open a pull request in github/docs-internal with the fixes. The pull request description should reference this issue to create a link between them. When the pull request is open, leave a comment on this issue with a link to it.',
               },
             })
 

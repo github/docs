@@ -6,7 +6,7 @@ intro: Introduction to the features of code and dependency scanning available wi
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.15'
+  ghes: '*'
 redirect_from:
   - /code-security/trialing-github-advanced-security/explore-trial-code-scanning
 contentType: tutorials

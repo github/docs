@@ -92,8 +92,8 @@ For more information on SSH keys, see [AUTOTITLE](/authentication/connecting-to-
 
 ### Deploy keys
 
-* **Repository admins** can delete keys via **Repository settings > Security > Deploy keys**. Also available via the Deploy keys REST API. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys).{% ifversion fpt or ghec or ghes > 3.15 %}
-* **Organization owners** can disable deploy keys entirely across the organization, which disables all existing deploy keys. See [AUTOTITLE](/organizations/managing-organization-settings/restricting-deploy-keys-in-your-organization).{% endif %}
+* **Repository admins** can delete keys via **Repository settings > Security > Deploy keys**. Also available via the Deploy keys REST API. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys).
+* **Organization owners** can disable deploy keys entirely across the organization, which disables all existing deploy keys. See [AUTOTITLE](/organizations/managing-organization-settings/restricting-deploy-keys-in-your-organization).
 * **Enterprise owners** can enforce a policy to disable deploy keys across all repositories. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
 
 For more information on deploy keys, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys).

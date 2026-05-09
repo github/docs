@@ -14,11 +14,9 @@ category:
   - Protect your secrets
 ---
 
-{% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
-
 Delegated bypass for push protection lets you define who can push commits containing secrets and adds an approval process for other contributors. See [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
 
-To enable delegated bypass, create the teams or roles that will manage bypass requests.{% ifversion push-protection-bypass-fine-grained-permissions %} Alternatively, use fine-grained permissions for more granular control. See [Using fine-grained permissions to control who can review and manage bypass requests](#using-fine-grained-permissions-to-control-who-can-review-and-manage-bypass-requests).{% endif %}
+To enable delegated bypass, create the teams or roles that will manage bypass requests. Alternatively, use fine-grained permissions for more granular control. See [Using fine-grained permissions to control who can review and manage bypass requests](#using-fine-grained-permissions-to-control-who-can-review-and-manage-bypass-requests).
 
 ## Enabling delegated bypass for a repository
 
@@ -30,7 +28,6 @@ To enable delegated bypass, create the teams or roles that will manage bypass re
 
 ## Enabling delegated bypass for an organization
 
-{% ifversion push-protection-delegated-bypass-configurations %}
 {% data reusables.secret-scanning.push-protection-grant-org-bypass %}
 
    > [!NOTE]
@@ -41,19 +38,6 @@ To enable delegated bypass, create the teams or roles that will manage bypass re
     {% data reusables.secret-scanning.push-protection-exemption-warning %}
 1. Click **Save configuration**.
 1. Apply the security configuration to repositories in your organization. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
-{% else %}
-
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-1. In the "Security" section of the sidebar, select the **{% data variables.product.UI_advanced_security %}** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
-
-1. Under "Push protection," to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}," select the dropdown menu, then click **Specific roles or teams**.
-1. Under "Bypass list," click **Add role or team**.
-1. In the dialog box, select the roles and teams that you want to add to the bypass list, then click **Add selected**.
-
-{% endif %}
-
-{% ifversion push-protection-bypass-fine-grained-permissions %}
 
 {% ifversion push-protection-delegated-bypass-configurations-enterprise %}
 
@@ -75,4 +59,3 @@ You can grant specific individuals or teams in your organization the ability to 
 1. When choosing which permissions to add to the custom role, select the "Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests" permission.
 1. Assign the custom role to individual members or teams in your organization. For more information on assigning custom roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles#assigning-an-organization-role).
 
-{% endif %}
