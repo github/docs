@@ -1,0 +1,1 @@
+https://github.com/fsnotify/fsnotify/blob/v1.9.0/LICENSE
