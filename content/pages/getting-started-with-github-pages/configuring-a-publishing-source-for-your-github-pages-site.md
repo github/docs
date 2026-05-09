@@ -23,7 +23,7 @@ category:
 {% data reusables.pages.private_pages_are_public_warning %}
 
 ## Publishing from a branch
-
+## Prerequisite : The Repository must be set to Public to view the Build and Deployment.
 1. Make sure the branch you want to use as your publishing source already exists in your repository.
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
