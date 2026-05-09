@@ -92,8 +92,7 @@ The easiest way to connect a repository to a container package is to publish the
 
 To connect a repository when publishing an image from the command line, and to ensure your `GITHUB_TOKEN` has appropriate permissions when using a GitHub Actions workflow, we recommend adding the label `org.opencontainers.image.source` to your `Dockerfile`. For more information, see “[Labelling container images](#labelling-container-images)” in this article and “[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions).”
 
-## Pulling container images
-## CI/CD tagging strategy for multi-environment deployments
+## CI/CD tagging strategy for container images
 
 A consistent tagging strategy helps trace container images back to their source commits, simplify environment promotion, and improve rollback reliability.
 
@@ -102,7 +101,7 @@ A consistent tagging strategy helps trace container images back to their source 
 Apply multiple tags to the same image digest during each build so deployments can reference images by stability level or exact provenance.
 
 | Tag pattern | Example | Purpose |
-|---|---|---|
+| --- | --- | --- |
 | Commit SHA (short) | `sha-a1b2c3d` | Immutable reference suitable for production rollbacks |
 | Branch name | `main`, `release-1.4` | Mutable tag that tracks the latest build for a branch |
 | Semantic version | `v1.4.2` | Human-readable release version |
@@ -112,10 +111,15 @@ Apply multiple tags to the same image digest during each build so deployments ca
 > Avoid relying solely on the `latest` tag in automated deployment pipelines. Because `latest` is mutable, it does not provide reliable traceability between deployments and source revisions.
 
 ### Applying multiple tags in a GitHub Actions workflow
+> [!NOTE]
+> Avoid relying solely on the `latest` tag in automated deployment pipelines. Because `latest` is mutable, it does not provide reliable traceability between deployments and source revisions.
+
+### Applying multiple tags in a GitHub Actions workflow
 
 Use the `docker/metadata-action` action to generate image tags automatically from Git context and pass them to `docker/build-push-action`.
-
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -126,35 +130,33 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Log in to the Container registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@902fa8ecf8ec1ac25377c6f6f4d8d0623f8b3f5f
         with:
-          images: ghcr.io/${{ github.repository }}
+          images: ghcr.io/{% raw %}${{ github.repository }}{% endraw %}
           tags: |
             type=sha,prefix=sha-,format=short
             type=ref,event=branch
             type=semver,pattern={{version}}
-            type=raw,value=staging,enable=${{ github.ref == 'refs/heads/main' }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@3b5e8027fcad23fda98b5c0ddc7d1f9d7d8d4f3b
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
+          labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
-
 All tags generated during the workflow reference the same image digest. This allows deployments to promote existing images between environments without rebuilding the container image.
 
 ### Verifying tag-to-digest traceability
