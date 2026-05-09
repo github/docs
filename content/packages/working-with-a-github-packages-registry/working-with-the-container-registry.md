@@ -114,8 +114,9 @@ Apply multiple tags to the same image digest during each build so deployments ca
 ### Applying multiple tags in a GitHub Actions workflow
 
 Use the `docker/metadata-action` action to generate image tags automatically from Git context and pass them to `docker/build-push-action`.
-
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -126,35 +127,33 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Log in to the Container registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@902fa8ecf8ec1ac25377c6f6f4d8d0623f8b3f5f
         with:
-          images: ghcr.io/${{ github.repository }}
+          images: ghcr.io/{% raw %}${{ github.repository }}{% endraw %}
           tags: |
             type=sha,prefix=sha-,format=short
             type=ref,event=branch
             type=semver,pattern={{version}}
-            type=raw,value=staging,enable=${{ github.ref == 'refs/heads/main' }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@3b5e8027fcad23fda98b5c0ddc7d1f9d7d8d4f3b
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
+          labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
-
 All tags generated during the workflow reference the same image digest. This allows deployments to promote existing images between environments without rebuilding the container image.
 
 ### Verifying tag-to-digest traceability
