@@ -66,3 +66,4 @@ jobs:
               console.error(`Failed to lock the pull request. Error: ${error}`)
               throw error
             }
+[![Auto Close Open Source Dependency Updates](https://github.com/github/docs/actions/workflows/auto-close-dependencies.yml/badge.svg)](https://github.com/github/docs/actions/workflows/auto-close-dependencies.yml)
