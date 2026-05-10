@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
   - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories
   - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 ## Priority of grouped security update settings

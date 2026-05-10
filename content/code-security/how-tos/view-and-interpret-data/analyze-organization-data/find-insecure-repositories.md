@@ -4,13 +4,17 @@ shortTitle: Find insecure repositories
 intro: Monitor and prioritize security alerts with security overview.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: how-tos
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings-on-a-repository
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings
   - /code-security/securing-your-organization/managing-the-security-of-your-organization
   - /code-security/how-tos/view-and-interpret-data/analyze-organization-data/interpreting-security-findings
+category:
+  - Secure at scale
 ---
 
 > [!NOTE]

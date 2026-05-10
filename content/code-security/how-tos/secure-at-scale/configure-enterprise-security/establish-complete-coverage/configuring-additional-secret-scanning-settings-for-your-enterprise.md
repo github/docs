@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About additional settings for {% data variables.product.prodname_secret_scanning %}

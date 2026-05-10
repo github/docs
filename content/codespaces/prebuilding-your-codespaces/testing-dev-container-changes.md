@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 permissions: People with write permissions to a repository can create or edit the dev container configuration for a branch.
 contentType: how-tos
+category:
+  - Speed up codespace creation with prebuilds
 ---
 
 Any changes you make to the dev container configuration for a prebuild-enabled branch will result in an update to the codespace configuration and the associated prebuild. It’s therefore important to test such changes in a codespace from a test branch before committing your changes to a branch of your repository that's actively used. This will ensure you’re not introducing breaking changes for your team.

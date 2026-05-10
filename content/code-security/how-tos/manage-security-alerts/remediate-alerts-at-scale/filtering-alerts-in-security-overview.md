@@ -13,6 +13,8 @@ shortTitle: Filter security alerts
 redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
   - /code-security/security-overview/filtering-alerts-in-security-overview
+category:
+  - Secure at scale
 ---
 
 Security overview can show alerts across many repositories in your organization or enterprise. Filtering helps you focus on specific alerts based on severity, alert type, repository characteristics, and other factors.
@@ -30,7 +32,7 @@ All security views have features to help you define filters. These provide an ea
 
 * **Interactive search text box.** When you click in the search box and press the keyboard "Space" key, a pop-up text box shows the filter options available in that view. You can use the mouse or keyboard arrow keys to select the options you want in the text box before pressing the keyboard "Return" key to add the filter. Supported for all views.
 * **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.
-* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** button, you can use dropdown lists to select the "Qualifier," "Operator," and "Values" for each filter. Supported on the "Overview" and metric views.
+* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** button, you can use dropdown lists to select the "Qualifier," "Operator," and "Values" for each filter. Supported on the "Overview" and "Insights" views.
 
 ## Accessing security overview for your organization
 
@@ -41,7 +43,7 @@ All security views have features to help you define filters. These provide an ea
 ## Accessing security overview for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. Click the **Security** tab. The "Overview" dashboard of security overview is displayed.
+1. Click the **{% data variables.product.prodname_security_and_quality_tab %}** tab. The "Overview" dashboard of security overview is displayed.
 
 ## Applying simple filters
 
@@ -52,7 +54,7 @@ All security views have features to help you define filters. These provide an ea
 
 ## Using the advanced filters dialog
 
-The advanced filters dialog is available in "Overview" and metric views and helps you build filters.
+The advanced filters dialog is available in "Overview" and "Insights" views and helps you build filters.
 
 1. In the desired view of security overview, click **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter**.
 1. In the "Advanced filters" dialog, use the dropdown lists to build your filter:

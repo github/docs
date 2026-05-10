@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 shortTitle: dependabot.yml file
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 The `dependabot.yml` file is an optional configuration file that gives you fine-grained control over how {% data variables.product.prodname_dependabot %} monitors and updates dependencies (mainly _version updates_ but also _security updates_) in your repository.
@@ -41,7 +43,7 @@ The `dependabot.yml` file controls how {% data variables.product.prodname_depend
 
 ## Where to store the `dependabot.yml` file
 
-You must store this file in the `.github` directory of your repository in the default branch (typically `main`). The path is:  `.github/dependabot.yml`.
+You must store this file in the `.github` directory of your repository in the default branch (typically `main`), at `.github/dependabot.yml` or `.github/dependabot.yaml`.
 
 ## How the `dependabot.yml` file works
 

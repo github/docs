@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About {% data variables.product.prodname_codeql %} workspaces

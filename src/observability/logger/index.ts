@@ -1,4 +1,5 @@
 import path from 'path'
+import chalk from 'chalk'
 import { getLoggerContext } from '@/observability/logger/lib/logger-context'
 import {
   getLogLevelNumber,
@@ -6,8 +7,61 @@ import {
   useProductionLogging,
 } from '@/observability/logger/lib/log-levels'
 import { toLogfmt } from '@/observability/logger/lib/to-logfmt'
+import { POD_IDENTITY } from '@/observability/logger/lib/pod-identity'
+
+const LEVEL_COLORS: Record<keyof typeof LOG_LEVELS, (s: string) => string> = {
+  error: chalk.red,
+  warn: chalk.yellow,
+  info: chalk.cyan,
+  debug: chalk.gray,
+}
+
+function formatTimestamp(): string {
+  const now = new Date()
+  const h = String(now.getHours()).padStart(2, '0')
+  const m = String(now.getMinutes()).padStart(2, '0')
+  const s = String(now.getSeconds()).padStart(2, '0')
+  const ms = String(now.getMilliseconds()).padStart(3, '0')
+  return `${h}:${m}:${s}.${ms}`
+}
+
+// Format non-error included context as compact key=value pairs
+function formatContext(ctx: Record<string, unknown>): string {
+  const parts: string[] = []
+  for (const [key, value] of Object.entries(ctx)) {
+    if (value instanceof Error) continue // errors handled separately
+    if (value === undefined || value === null || value === '') continue
+    let v: string
+    if (typeof value === 'object') {
+      try {
+        v = JSON.stringify(value)
+      } catch {
+        v = String(value)
+      }
+    } else {
+      v = String(value)
+    }
+    parts.push(`${chalk.dim(`${key}=`)}${v}`)
+  }
+  return parts.length > 0 ? `  ${parts.join(' ')}` : ''
+}
+
+// Safely resolve filePath to a relative path.
+// Handles file:// URLs (from import.meta.url) and plain string labels.
+function resolveFilePath(filePath: string): string {
+  try {
+    const parsed = new URL(filePath)
+    return path.relative(process.cwd(), parsed.pathname)
+  } catch {
+    return filePath
+  }
+}
 
 type IncludeContext = { [key: string]: unknown }
+
+// Read once at module startup so every log line carries the deployed version.
+// BUILD_SHA is baked into each Docker image via ARG/ENV in the Dockerfile.
+const BUILD_SHA = process.env.BUILD_SHA || undefined
 
 // Type definitions for logger methods with overloads
 interface LoggerMethod {
@@ -131,10 +185,12 @@ export function createLogger(filePath: string) {
     if (useProductionLogging()) {
       // Logfmt logging in production
       const logObject: IncludeContext = {
-        ...loggerContext,
+        ...POD_IDENTITY, // pod_name, pod_namespace, node_hostname (static; {} in local dev)
+        ...loggerContext, // requestUuid, path, method, headers, etc. (per-request)
         timestamp,
         level,
-        file: path.relative(process.cwd(), new URL(filePath).pathname),
+        ...(BUILD_SHA !== undefined ? { build_sha: BUILD_SHA } : {}),
+        file: resolveFilePath(filePath),
         message: finalMessage,
       }
 
@@ -144,6 +200,8 @@ export function createLogger(filePath: string) {
         if (typeof value === 'object' && value instanceof Error) {
           // Errors don't serialize well to JSON, so just log the message + stack trace
           includedContextWithFormattedError[key] = value.message
+          includedContextWithFormattedError[`${key}_code`] = (value as NodeJS.ErrnoException).code
+          includedContextWithFormattedError[`${key}_name`] = value.name
           includedContextWithFormattedError[`${key}_stack`] = value.stack
         } else {
           includedContextWithFormattedError[key] = value
@@ -155,17 +213,25 @@ export function createLogger(filePath: string) {
 
       console.log(toLogfmt(logObject))
     } else {
-      // If the log includes an error, log to console.error in local dev
+      // Human-readable dev/script logging
+      const relFile = resolveFilePath(filePath)
+      const ts = formatTimestamp()
+      const colorFn = LEVEL_COLORS[level]
+      const lvl = colorFn(level.toUpperCase().padEnd(5))
+      const fileTag = chalk.dim(`(${relFile})`)
+      const contextStr = formatContext(includeContext)
+
+      // If the log includes an error, print the Error object to console.error in local dev
       let wasErrorLog = false
       for (const [, value] of Object.entries(includeContext)) {
         if (typeof value === 'object' && value instanceof Error) {
           wasErrorLog = true
-          console.log(`[${level.toUpperCase()}] ${finalMessage}`)
+          console.log(`${chalk.dim(ts)} ${lvl} ${fileTag} ${finalMessage}${contextStr}`)
           console.error(value)
         }
       }
       if (!wasErrorLog) {
-        console.log(`[${level.toUpperCase()}] ${finalMessage}`)
+        console.log(`${chalk.dim(ts)} ${lvl} ${fileTag} ${finalMessage}${contextStr}`)
       }
     }
   }

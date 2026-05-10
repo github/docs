@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/resource-not-accessible
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/resource-not-accessible
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 >[!NOTE]

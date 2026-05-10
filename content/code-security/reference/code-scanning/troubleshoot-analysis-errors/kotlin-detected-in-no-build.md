@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/kotlin-detected-in-no-build
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/kotlin-detected-in-no-build
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this warning

@@ -22,9 +22,6 @@ For information on how to use labels to route jobs to specific types of self-hos
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
-> [!NOTE]
-> Actions Runner Controller does not support multiple labels, to find out more please read our [Actions Runner Controller documentation](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#using-arc-runners-in-a-workflow)
-
 ## Creating a custom label
 
 You can create custom labels for runners at the repository{% ifversion ghec or ghes %}, organization, and enterprise{% else %} and organization{% endif %} levels.

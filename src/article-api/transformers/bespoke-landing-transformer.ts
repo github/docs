@@ -50,8 +50,7 @@ export class BespokeLandingTransformer implements PageTransformer {
     // Process carousels (each carousel becomes a section)
     const carousels = bespokePage.carousels ?? bespokePage.rawCarousels
     if (carousels && typeof carousels === 'object') {
-      const { default: getLearningTrackLinkData } =
-        await import('@/learning-track/lib/get-link-data')
+      const { default: getPageLinkData } = await import('@/frame/lib/get-link-data')
 
       for (const [carouselKey, articles] of Object.entries(carousels)) {
         if (!Array.isArray(articles) || articles.length === 0) continue
@@ -66,7 +65,7 @@ export class BespokeLandingTransformer implements PageTransformer {
           }))
         } else {
           // Raw paths that need resolution
-          const linkData = await getLearningTrackLinkData(articles as string[], context, {
+          const linkData = await getPageLinkData(articles as string[], context, {
             title: true,
             intro: true,
           })
@@ -96,10 +95,7 @@ export class BespokeLandingTransformer implements PageTransformer {
     // Note: For bespoke-landing pages, the site shows ALL articles regardless of includedCategories
     // (includedCategories only filters for discovery-landing pages)
     if (bespokePage.children && bespokePage.children.length > 0) {
-      const tocItems = await getAllTocItems(page, context, {
-        recurse: true,
-        renderIntros: true,
-      })
+      const tocItems = await getAllTocItems(page, context)
 
       // Flatten to get all leaf articles (excludeParents: true means only get articles, not category pages)
       const allArticles = flattenTocItems(tocItems, { excludeParents: true })

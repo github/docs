@@ -8,6 +8,8 @@ shortTitle: Disaster recovery
 redirect_from:
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces
   - /codespaces/codespaces-reference/disaster-recovery-for-github-codespaces
+category:
+  - Create and manage codespaces
 ---
 
 We work hard to make sure that {% data variables.product.prodname_github_codespaces %} is always available to you. However, forces beyond our control sometimes impact the service in ways that can cause unplanned service disruptions.

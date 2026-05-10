@@ -57,8 +57,6 @@ sections:
       API consumers can update issues via the REST API (PATCH) using fine-grained permissions for closing and reopening issues, and for setting milestones. 
     - |
       API consumers can update issues via the GraphQL `updateIssue` mutation using fine-grained permissions for closing and reopening issues, and for setting milestones. 
-    - |
-      The "In-product messages" notification toggle no longer appears in user notification settings as GitHub Enterprise Server does not use in-product messages. 
   known_issues:
     - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.

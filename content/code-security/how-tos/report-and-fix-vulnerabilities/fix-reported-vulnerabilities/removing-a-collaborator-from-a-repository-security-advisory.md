@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 shortTitle: Remove collaborators
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}

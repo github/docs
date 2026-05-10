@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Get started and make API calls
 ---
 
 

@@ -5,4 +5,3 @@
 * Wikis{% endif %}
 * Secret gists
 
-{% data reusables.secret-scanning.beta-prs-discussions-wikis-scanned %}

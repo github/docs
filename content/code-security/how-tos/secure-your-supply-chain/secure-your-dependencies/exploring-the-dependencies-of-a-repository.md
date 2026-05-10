@@ -17,6 +17,8 @@ versions:
   ghec: '*'
 shortTitle: Explore dependencies
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Viewing the dependency graph

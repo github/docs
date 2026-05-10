@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Get started
 ---
 
 ## {% data variables.product.prodname_github_codespaces %} features

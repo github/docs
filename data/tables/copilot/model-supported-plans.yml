@@ -24,16 +24,16 @@
 - name: Claude Opus 4.5
   free: false
   student: false
-  pro: true
-  pro_plus: true
+  pro: false
+  pro_plus: false
   business: true
   enterprise: true
 
 - name: Claude Opus 4.6
   free: false
   student: false
-  pro: true
-  pro_plus: true
+  pro: false
+  pro_plus: false
   business: true
   enterprise: true
 
@@ -41,14 +41,14 @@
   free: false
   student: false
   pro: false
-  pro_plus: true
+  pro_plus: false
   business: false
   enterprise: true
 
-- name: Claude Sonnet 4
+- name: Claude Opus 4.7
   free: false
   student: false
-  pro: true
+  pro: false
   pro_plus: true
   business: true
   enterprise: true
@@ -85,14 +85,6 @@
   business: true
   enterprise: true
 
-- name: Gemini 3 Pro
-  free: false
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
 - name: Gemini 3.1 Pro
   free: false
   student: true
@@ -117,38 +109,6 @@
   business: true
   enterprise: true
 
-- name: GPT-5.1
-  free: false
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.1-Codex
-  free: false
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.1-Codex-Mini
-  free: false
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.1-Codex-Max
-  free: false
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
 - name: GPT-5.2
   free: false
   student: true
@@ -167,7 +127,7 @@
 
 - name: GPT-5.3-Codex
   free: false
-  student: true
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -183,8 +143,24 @@
 
 - name: GPT-5.4 mini
   free: false
-  student: false
+  student: true
   pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.4 nano
+  free: false
+  student: false
+  pro: false
+  pro_plus: true
+  business: false
+  enterprise: false
+
+- name: GPT-5.5
+  free: false
+  student: false
+  pro: false
   pro_plus: true
   business: true
   enterprise: true

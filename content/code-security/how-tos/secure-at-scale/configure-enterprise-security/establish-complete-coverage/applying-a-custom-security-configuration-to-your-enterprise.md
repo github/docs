@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/applying-a-custom-security-configuration-to-your-enterprise
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About applying a {% data variables.product.prodname_custom_security_configuration %}

@@ -6,9 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: get-started
-topics:
-  - Pull requests
-  - Fundamentals
 children:
   - /quickstart
   - /securing-your-organization

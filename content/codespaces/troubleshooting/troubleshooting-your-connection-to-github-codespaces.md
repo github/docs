@@ -8,6 +8,8 @@ shortTitle: Connection
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
 contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 ## 503 codespace service unavailable

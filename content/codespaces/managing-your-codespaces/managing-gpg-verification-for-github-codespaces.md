@@ -10,6 +10,8 @@ redirect_from:
   - /codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces
 shortTitle: GPG verification
 contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## About GPG verification in {% data variables.product.prodname_github_codespaces %}

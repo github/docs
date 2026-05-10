@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners
   - /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-dependabot-on-self-hosted-runners
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Prerequisites

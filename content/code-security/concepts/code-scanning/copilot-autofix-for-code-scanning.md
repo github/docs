@@ -7,13 +7,15 @@ product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data variables.copilot.copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts so you can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_code_scanning %} analysis.
 
 ## How {% data variables.copilot.copilot_autofix_short %} works
 
-{% data variables.copilot.copilot_autofix_short %} translates the description and location of an alert into code changes that may fix the alert. It interfaces with the large language model {% data variables.copilot.copilot_gpt_51 %} from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+{% data variables.copilot.copilot_autofix_short %} translates the description and location of an alert into code changes that may fix the alert. It interfaces with the large language model {% data variables.copilot.copilot_gpt_53_codex %} from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
 
 ## Enabling and managing {% data variables.copilot.copilot_autofix_short %}
 

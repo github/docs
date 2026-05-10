@@ -8,6 +8,8 @@ shortTitle: 4. Create internal documentation
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 >[!TIP]

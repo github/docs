@@ -80,7 +80,7 @@ The activity report provides visibility into usage of all generally available (G
 #### GitHub features
 
 * {% data variables.copilot.copilot_chat_short %}
-* {% data variables.copilot.copilot_coding_agent %}
+* {% data variables.copilot.copilot_cloud_agent %}
 * Copilot for Docs
 * {% data variables.copilot.copilot_for_prs %}
 * {% data variables.copilot.copilot_code-review_short %}

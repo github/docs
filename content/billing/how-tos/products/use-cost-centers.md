@@ -9,7 +9,7 @@ redirect_from:
   - /billing/using-the-new-billing-platform/charging-business-units
   - /billing/managing-your-billing/charging-business-units
   - /billing/tutorials/use-cost-centers
-product: '{% data variables.product.prodname_ghe_cloud %}'
+permissions: 'Enterprise owners and billing managers'
 shortTitle: Use cost centers
 contentType: how-tos
 category:

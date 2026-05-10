@@ -40,6 +40,12 @@ For general information about deployment protection rules, see [AUTOTITLE](/acti
 
 Once a workflow reaches a job that references an environment that has the custom deployment protection rule enabled, {% data variables.product.company_short %} sends a `POST` request to a URL you configure containing the `deployment_protection_rule` payload. You can write your deployment protection rule to automatically send REST API requests that approve or reject the deployment based on the `deployment_protection_rule` payload. Configure your REST API requests as follows.
 
+{% ifversion actions-environments-without-deployments %}
+
+Custom deployment protection rules are not compatible when a workflow job's environment is set to `deployment: false`. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments#interaction-with-protection-rules).
+
+{% endif %}
+
 1. Validate the incoming `POST` request. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks#validating-payloads-from-github).
 1. Use a JSON Web Token to authenticate as a {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app#about-authentication-as-a-github-app).
 1. Using the installation ID from the `deployment_protection_rule` webhook payload, generate an install token. For more information, see [AUTOTITLE](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app).

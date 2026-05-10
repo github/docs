@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace
 contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## About machine types

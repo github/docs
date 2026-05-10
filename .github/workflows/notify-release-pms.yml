@@ -1,0 +1,76 @@
+name: Notify release PMs
+
+# **What it does**: Posts review notification comments on release issues
+# in github/releases for generated GHES release notes.
+# **Why we have it**: So comments are always posted by docs-bot, without
+# needing to distribute a PAT to individual team members.
+# **Who does it impact**: Docs content (GHES release DRIs).
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'GHES release version (e.g., 3.21)'
+        type: string
+        required: true
+      pr:
+        description: 'docs-internal PR number containing the release notes'
+        type: string
+        required: true
+      release_type:
+        description: 'Release type (auto-detects from files if not specified)'
+        type: choice
+        options:
+          - auto
+          - rc
+          - ga
+        default: 'auto'
+      review_date:
+        description: 'Override review deadline (YYYY-MM-DD, optional)'
+        type: string
+        required: false
+      dry_run:
+        description: 'Preview comments in the workflow log without posting them'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    name: Notify release PMs
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Post notification comments
+        env:
+          DOCS_BOT_PAT_BASE: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          INPUT_RELEASE: ${{ inputs.release }}
+          INPUT_PR: ${{ inputs.pr }}
+          INPUT_RELEASE_TYPE: ${{ inputs.release_type }}
+          INPUT_REVIEW_DATE: ${{ inputs.review_date }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          args=(--release "$INPUT_RELEASE" --pr "$INPUT_PR")
+
+          if [[ "$INPUT_RELEASE_TYPE" == "rc" ]]; then
+            args+=(--rc)
+          elif [[ "$INPUT_RELEASE_TYPE" == "ga" ]]; then
+            args+=(--ga)
+          fi
+
+          if [[ -n "$INPUT_REVIEW_DATE" ]]; then
+            args+=(--review-date "$INPUT_REVIEW_DATE")
+          fi
+
+          if [[ "$INPUT_DRY_RUN" == "true" ]]; then
+            args+=(--dry-run)
+          fi
+
+          npm run notify-release-pms -- "${args[@]}"

@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: NuGet registry
+category:
+  - Work with a package registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

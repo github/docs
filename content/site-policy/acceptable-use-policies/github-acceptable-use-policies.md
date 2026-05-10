@@ -5,6 +5,8 @@ redirect_from:
   - /github/site-policy/github-acceptable-use-policies
 versions:
   fpt: '*'
+category:
+  - Follow acceptable use policies
 ---
 
 **Short version:** _We host a wide variety of collaborative projects from all over the world, and that collaboration only works when our users are able to work together in good faith. While using the Service, you must comply with our Acceptable Use Policies, which include some restrictions on content and conduct on GitHub related to user safety, intellectual property, privacy, authenticity, and other limitations. In short, be excellent to each other._
@@ -124,3 +126,4 @@ We will interpret our policies and resolve disputes in favor of protecting users
 **Enforcement.** GitHub retains full discretion to [take action](/site-policy/github-terms/github-community-guidelines#what-happens-if-someone-violates-githubs-policies) in response to a violation of these policies, including account suspension, account [termination](/site-policy/github-terms/github-terms-of-service#3-github-may-terminate), or [removal](/site-policy/github-terms/github-terms-of-service#2-github-may-remove-content) of content. Please also see our [Community Guidelines](/site-policy/github-terms/github-community-guidelines) for actions you can take if something or someone offends you.
 
 **Reinstatement and appeal.** If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
+

@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 shortTitle: View sponsors & sponsorships
 contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About sponsors and sponsorships

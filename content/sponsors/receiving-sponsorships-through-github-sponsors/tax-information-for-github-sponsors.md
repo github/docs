@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 shortTitle: Tax information
 contentType: concepts
+category:
+  - Understand sponsorships
 ---
 
 ## W-9/W-8 tax forms

@@ -11,6 +11,8 @@ contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/metrics-for-custom-patterns
   - /code-security/how-tos/view-and-interpret-data/metrics-for-custom-patterns
+category:
+  - Protect your secrets
 ---
 
 > [!NOTE] Metrics for custom patterns are in {% data variables.release-phases.public_preview %} and subject to change.

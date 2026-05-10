@@ -81,6 +81,6 @@ For more information, see [AUTOTITLE](/integrations/how-tos/teams).
 
 {% ifversion fpt or ghec %}
 
-You can also integrate the {% data variables.copilot.copilot_coding_agent %} with your Microsoft Teams app, enabling you to use AI-powered coding assistance directly within your team's communication platform. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-teams) for more information.
+You can also integrate the {% data variables.copilot.copilot_cloud_agent %} with your Microsoft Teams app, enabling you to use AI-powered coding assistance directly within your team's communication platform. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams) for more information.
 
 {% endif %}

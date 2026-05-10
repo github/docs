@@ -29,9 +29,9 @@
    * `src/**/*.py` - will recursively match all `.py` files in the `src` directory. For example, `src/foo.py`, `src/foo/bar.py`, and `src/foo/bar/baz.py`.
    * `**/subdir/**/*.py` - will recursively match all `.py` files in any `subdir` directory at any depth. For example, `subdir/foo.py`, `subdir/nested/bar.py`, `parent/subdir/baz.py`, and `deep/parent/subdir/nested/qux.py`, but _not_ `foo.py` at a path that does not contain a `subdir` directory.
 
-1. Optionally, to prevent the file from being used by either {% data variables.copilot.copilot_coding_agent %} or {% data variables.copilot.copilot_code-review_short %}, add the `excludeAgent` keyword to the frontmatter block. Use either `"code-review"` or `"coding-agent"`.
+1. Optionally, to prevent the file from being used by either {% data variables.copilot.copilot_cloud_agent %} or {% data variables.copilot.copilot_code-review_short %}, add the `excludeAgent` keyword to the frontmatter block. Use either `"code-review"` or `"cloud-agent"`.
 
-   For example, the following file will only be read by {% data variables.copilot.copilot_coding_agent %}.
+   For example, the following file will only be read by {% data variables.copilot.copilot_cloud_agent %}.
 
    ```markdown
    ---
@@ -40,6 +40,6 @@
    ---
    ```
 
-   If the `excludeAgent` keyword is not included in the front matterblock, both {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_coding_agent %} will use your instructions.
+   If the `excludeAgent` keyword is not included in the front matterblock, both {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} will use your instructions.
 
 1. Add your custom instructions in natural language, using Markdown format. Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.

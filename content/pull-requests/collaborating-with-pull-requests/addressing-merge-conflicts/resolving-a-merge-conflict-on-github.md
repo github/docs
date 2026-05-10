@@ -17,6 +17,12 @@ category:
 ---
 You can only resolve merge conflicts on {% data variables.product.github %} that are caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository. For all other types of merge conflicts, you must resolve the conflict locally on the command line. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
+{% ifversion copilot %}
+
+If you have access to {% data variables.copilot.copilot_cloud_agent %} and it is enabled for the repository, you can click **Fix with {% data variables.product.prodname_copilot_short %}** in the merge box to have {% data variables.product.prodname_copilot_short %} resolve the merge conflicts automatically. {% data variables.product.prodname_copilot_short %} will analyze the conflicting changes, resolve the conflicts, and verify that the build, tests, and linter still pass. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/make-changes-to-an-existing-pr#resolving-merge-conflicts).
+
+{% endif %}
+
 {% ifversion ghes %}
 If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on {% data variables.product.prodname_ghe_server %} and must resolve merge conflicts on the command line. For example, if the merge conflict editor is disabled, you cannot use it on a pull request between a fork and upstream repository.
 {% endif %}

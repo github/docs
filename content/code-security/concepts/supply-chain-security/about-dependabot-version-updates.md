@@ -20,6 +20,8 @@ versions:
   ghes: '*'
 shortTitle: Dependabot version updates
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}

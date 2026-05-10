@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Understand sponsorships
 ---
 ## About your Sponsors dashboard
 

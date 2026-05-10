@@ -10,6 +10,8 @@ shortTitle: Dependency best practices
 redirect_from:
   - /code-security/dependabot/maintain-dependencies/best-practices-for-maintaining-dependencies
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 ## Best practices for maintaining dependencies

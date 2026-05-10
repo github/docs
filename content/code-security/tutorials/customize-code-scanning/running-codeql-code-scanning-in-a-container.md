@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About {% data variables.product.prodname_code_scanning %} with a containerized build

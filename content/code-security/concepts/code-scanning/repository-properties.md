@@ -5,6 +5,8 @@ intro: You can use repository properties to adjust {% data variables.product.pro
 versions:
   feature: codeql-custom-properties
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 ## Prerequisites

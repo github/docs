@@ -13,15 +13,30 @@ const actionHashRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
 const checkoutRegexp = /^[actions/checkout]+@(v\d+(\.\d+)*|[0-9a-f]{40})$/
 const permissionsRegexp = /(read|write)/
 
+interface WorkflowTriggers {
+  schedule?: Array<{ cron: string }>
+  [key: string]: unknown
+}
+
 type WorkflowMeta = {
   filename: string
   fullpath: string
   data: {
     name: string
-    on: Record<string, any>
-    permissions: Record<string, any>
-    jobs: Record<string, any>
+    on: WorkflowTriggers
+    permissions: Record<string, string>
+    jobs: Record<string, WorkflowJob>
   }
+}
+
+interface WorkflowJob {
+  if?: string
+  steps: WorkflowStep[]
+}
+
+interface WorkflowStep {
+  uses?: string
+  [key: string]: unknown
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -53,28 +68,53 @@ const allUsedActions = chain(workflows)
 
 const scheduledWorkflows = workflows.filter(({ data }) => data.on.schedule)
 
-const alertWorkflows = workflows
-  // Only include jobs running on docs-internal
-  .filter(({ data }) =>
-    Object.values(data.jobs)
-      .map((job) => job.if)
-      .toString()
-      .includes('docs-internal'),
-  )
-  // Require slack alerts on workflows that aren't actively watched at time of run
-  .filter(({ data }) => data.on.schedule || data.on.push || data.on.issues || data.on.issue_comment)
-// Not including
-// - premerge workflows: pull_request, pull_request_target, pull_request_review, merge_group
-// - adhoc workflows: workflow_dispatch, workflow_run, workflow_call, repository_dispatch
+// Triggers where a workflow runs without a human actively watching and
+// therefore needs explicit failure reporting (Slack + issue). Attended
+// triggers (pull_request*, workflow_dispatch, workflow_call, merge_group)
+// are intentionally excluded: the person who triggered the run sees the
+// result directly.
+//
+// `issues` and `issue_comment` are only considered unattended for jobs
+// running in docs-internal itself. When a job is scoped to the public
+// github/docs fork via `if: github.repository == 'github/docs'`, those
+// triggers fire from external reporters/commenters, and the issue or
+// comment itself is the natural failure surface — piling on automated
+// alert-issues there is duplicative and noisy.
+const ALWAYS_UNATTENDED_TRIGGERS = ['schedule', 'workflow_run', 'repository_dispatch', 'push']
+const DOCS_INTERNAL_ONLY_UNATTENDED_TRIGGERS = ['issues', 'issue_comment']
+
+function jobIsPublicDocsScoped(job: WorkflowJob): boolean {
+  return typeof job.if === 'string' && /github\.repository\s*==\s*['"]github\/docs['"]/.test(job.if)
+}
+
+function jobRequiresFailureAlerts(workflow: WorkflowMeta, job: WorkflowJob): boolean {
+  const triggers = workflow.data.on || {}
+  if (ALWAYS_UNATTENDED_TRIGGERS.some((t) => (triggers as Record<string, unknown>)[t])) {
+    return true
+  }
+  if (
+    !jobIsPublicDocsScoped(job) &&
+    DOCS_INTERNAL_ONLY_UNATTENDED_TRIGGERS.some((t) => (triggers as Record<string, unknown>)[t])
+  ) {
+    return true
+  }
+  return false
+}
+
+// Workflows where at least one job requires failure alerts — used to drive
+// the parameterised tests below. Per-job filtering happens inside each test.
+const alertWorkflows = workflows.filter(({ data }) =>
+  Object.values(data.jobs).some((job) => job.steps),
+)
 // to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
 
 const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
-  data.on.schedule.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
+  data.on.schedule!.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
 )
 
 // Weekly workflows have a single day-of-week digit (e.g. "20 16 * * 1")
 const weeklyWorkflows = dailyWorkflows.filter(({ data }) =>
-  data.on.schedule.find(({ cron }: { cron: string }) => /^20 16 \* \* \d$/.test(cron)),
+  data.on.schedule!.find(({ cron }: { cron: string }) => /^20 16 \* \* \d$/.test(cron)),
 )
 
 describe('GitHub Actions workflows', () => {
@@ -87,7 +127,7 @@ describe('GitHub Actions workflows', () => {
   test.each(scheduledWorkflows)(
     'schedule workflow runs at 20 minutes past $filename',
     ({ data }) => {
-      for (const { cron } of data.on.schedule) {
+      for (const { cron } of data.on.schedule!) {
         expect(cron).toMatch(/^20/)
       }
     },
@@ -96,15 +136,15 @@ describe('GitHub Actions workflows', () => {
   test.each(dailyWorkflows)(
     'daily scheduled workflows run at 16:20 UTC / 8:20 PST $filename',
     ({ data }) => {
-      for (const { cron } of data.on.schedule) {
-        const hour = cron.match(/^20 ([^*\s]+)/)[1]
+      for (const { cron } of data.on.schedule!) {
+        const hour = cron.match(/^20 ([^*\s]+)/)![1]
         expect(hour).toEqual('16')
       }
     },
   )
 
   test.each(dailyWorkflows)('daily scheduled workflows only run Mon-Fri $filename', ({ data }) => {
-    for (const { cron } of data.on.schedule) {
+    for (const { cron } of data.on.schedule!) {
       const fields = cron.trim().split(/\s+/)
       const dayOfWeek = fields[4]
       // Day-of-week must be 1-5 (Mon-Fri) or a range within 1-5
@@ -113,7 +153,7 @@ describe('GitHub Actions workflows', () => {
   })
 
   test.each(weeklyWorkflows)('weekly scheduled workflows run on Monday $filename', ({ data }) => {
-    for (const { cron } of data.on.schedule) {
+    for (const { cron } of data.on.schedule!) {
       const fields = cron.trim().split(/\s+/)
       const dayOfWeek = fields[4]
       // Day-of-week must be 1 (Monday)
@@ -136,29 +176,25 @@ describe('GitHub Actions workflows', () => {
     }
   })
 
-  test.each(alertWorkflows)(
-    'scheduled workflows slack alert on fail $filename',
-    ({ filename, data }) => {
-      for (const [name, job] of Object.entries(data.jobs)) {
-        if (
-          !job.steps.find(
-            (step: Record<string, any>) => step.uses === './.github/actions/slack-alert',
-          )
-        ) {
-          throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
-        }
+  test.each(alertWorkflows)('unattended workflows slack alert on fail $filename', (workflow) => {
+    const { filename, data } = workflow
+    for (const [name, job] of Object.entries(data.jobs)) {
+      if (!jobRequiresFailureAlerts(workflow, job)) continue
+      if (!job.steps.find((step: WorkflowStep) => step.uses === './.github/actions/slack-alert')) {
+        throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
       }
-    },
-  )
+    }
+  })
 
   test.each(alertWorkflows)(
-    'scheduled workflows create failure issue on fail $filename',
-    ({ filename, data }) => {
+    'unattended workflows create failure issue on fail $filename',
+    (workflow) => {
+      const { filename, data } = workflow
       for (const [name, job] of Object.entries(data.jobs)) {
+        if (!jobRequiresFailureAlerts(workflow, job)) continue
         if (
           !job.steps.find(
-            (step: Record<string, any>) =>
-              step.uses === './.github/actions/create-workflow-failure-issue',
+            (step: WorkflowStep) => step.uses === './.github/actions/create-workflow-failure-issue',
           )
         ) {
           throw new Error(`Job ${filename} # ${name} missing create-workflow-failure-issue on fail`)
@@ -169,9 +205,11 @@ describe('GitHub Actions workflows', () => {
 
   test.each(alertWorkflows)(
     'performs a checkout before calling composite action $filename',
-    ({ filename, data }) => {
+    (workflow) => {
+      const { filename, data } = workflow
       for (const [name, job] of Object.entries(data.jobs)) {
-        if (!job.steps.find((step: Record<string, any>) => checkoutRegexp.test(step.uses))) {
+        if (!jobRequiresFailureAlerts(workflow, job)) continue
+        if (!job.steps.find((step: WorkflowStep) => checkoutRegexp.test(step.uses || ''))) {
           throw new Error(
             `Job ${filename} # ${name} missing a checkout before calling the composite action`,
           )

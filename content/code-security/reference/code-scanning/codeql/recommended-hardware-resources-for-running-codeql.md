@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 You can configure {% data variables.product.prodname_codeql %} on {% data variables.product.prodname_actions %} or on an external CI system. {% data variables.product.prodname_codeql %} is fully compatible with {% data variables.product.prodname_dotcom %}-hosted runners on {% data variables.product.prodname_actions %}.
 

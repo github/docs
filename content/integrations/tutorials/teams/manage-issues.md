@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
+category:
+  - Use integrations
 ---
 
 ## Managing issues in Teams

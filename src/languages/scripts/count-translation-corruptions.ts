@@ -2,10 +2,10 @@ import path from 'path'
 import fs from 'fs'
 
 import { program } from 'commander'
-import { TokenizationError } from 'liquidjs'
 import walk from 'walk-sync'
 
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
+import { engine } from '@/content-render/liquid/engine'
+import { allVersions } from '@/versions/lib/all-versions'
 import languages from '@/languages/lib/languages-server'
 import warmServer from '@/frame/lib/warm-server'
 import type { Site } from '@/types'
@@ -92,7 +92,7 @@ async function main(languageCodes: string[]) {
   const languageResults: LanguageResult[] = []
 
   for (const languageCode of langCodes) {
-    languageResults.push(run(languageCode, site, reusables))
+    languageResults.push(await run(languageCode, site, reusables))
   }
 
   const totalCount = languageResults.reduce((sum, r) => sum + r.total, 0)
@@ -134,22 +134,39 @@ function getReusables(): Reusables {
   return reusables
 }
 
-function run(languageCode: string, site: Site, englishReusables: Reusables): LanguageResult {
+// Build a minimal Liquid render context for validating translated content.
+// ifversion needs currentVersionObj; data tags call getDataByLanguage() internally.
+const defaultVersion = 'free-pro-team@latest'
+function buildRenderContext(languageCode: string) {
+  return {
+    currentLanguage: languageCode,
+    currentVersion: defaultVersion,
+    currentVersionObj: allVersions[defaultVersion],
+  }
+}
+
+async function run(
+  languageCode: string,
+  site: Site,
+  englishReusables: Reusables,
+): Promise<LanguageResult> {
   const language = languages[languageCode as keyof typeof languages]
 
   const corruptions: CorruptionEntry[] = []
   const wheres = new Map<string, number>()
   const illegalTags = new Map<string, number>()
+  const context = buildRenderContext(languageCode)
 
-  function countError(error: TokenizationError, where: string, file: string) {
-    const errorWithExtras = error as TokenizationError & {
-      originalError?: Error
-      token?: { content?: string }
-    }
-    const originalError = errorWithExtras.originalError
-    const errorString = originalError ? originalError.message : error.message
+  // Suppress console.warn during rendering — the {% data %} tag warns
+  // when it can't find translated data, which is expected noise.
+  const originalWarn = console.warn
+  console.warn = () => {}
+
+  function countError(error: Error, where: string, file: string) {
+    const errorString = error.message
 
     let illegalTag: string | undefined
+    const errorWithExtras = error as Error & { token?: { content?: string } }
     if (errorString.includes('illegal tag syntax') && errorWithExtras.token?.content) {
       illegalTag = errorWithExtras.token.content
       illegalTags.set(illegalTag, (illegalTags.get(illegalTag) || 0) + 1)
@@ -171,9 +188,9 @@ function run(languageCode: string, site: Site, englishReusables: Reusables): Lan
 
     for (const [where, string] of strings) {
       try {
-        getLiquidTokens(string)
+        await engine.parseAndRender(string, context)
       } catch (error) {
-        if (error instanceof TokenizationError) {
+        if (error instanceof Error) {
           countError(error, where, page.relativePath)
         } else {
           throw error
@@ -190,12 +207,12 @@ function run(languageCode: string, site: Site, englishReusables: Reusables): Lan
         code: languageCode,
         relativePath,
       })
-      getLiquidTokens(correctedContent)
+      await engine.parseAndRender(correctedContent, context)
     } catch (error) {
-      if (error instanceof TokenizationError) {
-        countError(error, 'reusable', relativePath)
-      } else if (error instanceof Error && error.message.startsWith('ENOENT')) {
+      if (error instanceof Error && error.message.startsWith('ENOENT')) {
         continue
+      } else if (error instanceof Error) {
+        countError(error, 'reusable', relativePath)
       } else {
         throw error
       }
@@ -206,6 +223,8 @@ function run(languageCode: string, site: Site, englishReusables: Reusables): Lan
     .sort((a, b) => b[1] - a[1])
     .slice(0, 10)
     .map(([tag, count]) => ({ tag, count }))
+
+  console.warn = originalWarn
 
   return {
     language: languageCode,

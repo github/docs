@@ -4,6 +4,8 @@ intro: A custom agent that cleans up messy code, removes duplication, and improv
 category:
   - Custom agents
   - Getting started
+  - Scale institutional knowledge
+  - Configure Copilot
 complexity:
   - Simple
 octicon: copilot
@@ -83,6 +85,6 @@ Focus on cleaning up existing code rather than adding new features. Work on both
     Refactor and clean up any messy or inconsistent code in the `src/utils` directory, then document the improvements you made.
    ```
 
-The agent task will appear on the page below the text box. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+The agent task will appear on the page below the text box. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
 
 {% data reusables.copilot.custom-agents-further-reading %}

@@ -10,7 +10,7 @@ import _ from 'lodash'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import { allVersions, getDocsVersion } from '@/versions/lib/all-versions'
-import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index'
+import { REST_DATA_DIR } from '../lib/index'
 import { nonAutomatedRestPaths } from '../lib/config'
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
 import walkFiles from '@/workflows/walk-files'
@@ -58,13 +58,17 @@ async function createOpenAPISchemasCheck(): Promise<CheckObject> {
     .filter((dir) => !dir.includes(deprecated[0]))
 
   for (const dir of restDirectory) {
-    const filename = path.join(REST_DATA_DIR, dir, REST_SCHEMA_FILENAME)
-    const fileSchema = JSON.parse(fs.readFileSync(filename, 'utf8'))
-    const categories = Object.keys(fileSchema).sort()
+    const dirPath = path.join(REST_DATA_DIR, dir)
+    const categoryFiles = fs
+      .readdirSync(dirPath)
+      .filter((f) => f.endsWith('.json') && f !== 'schema.json')
     const version = getDocsVersion(dir)
 
-    for (const category of categories) {
-      const subcategories = Object.keys(fileSchema[category]) as string[]
+    for (const categoryFile of categoryFiles) {
+      const category = categoryFile.replace('.json', '')
+      const categoryData = JSON.parse(fs.readFileSync(path.join(dirPath, categoryFile), 'utf8')) // categoryData is { [subcategory]: Operation[] }
+      const subcategories = Object.keys(categoryData) as string[]
+
       if (isApiVersioned(version)) {
         for (const apiVersion of getOnlyApiVersions(version)) {
           openAPICheck[apiVersion][category] = subcategories.sort()

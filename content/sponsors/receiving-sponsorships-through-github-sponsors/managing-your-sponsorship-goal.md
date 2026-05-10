@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 shortTitle: Manage sponsor goals
 contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About sponsorship goals

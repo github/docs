@@ -29,6 +29,9 @@ The requirements for listing an app on {% data variables.product.prodname_market
 
 All listings on {% data variables.product.prodname_marketplace %} should be for tools that provide value to the {% data variables.product.github %} community. When you submit your listing for publication, you must read and accept the terms of the [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement).
 
+> [!NOTE]
+> For organization-owned apps, only organization owners can create and submit listings in {% data variables.product.prodname_marketplace %}. The {% data variables.product.prodname_github_app %} manager role does not grant permission to list apps in {% data variables.product.prodname_marketplace %}.
+
 ### User experience requirements for all apps
 
 All listings should meet the following requirements, regardless of whether they are for a free or paid app.

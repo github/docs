@@ -42,6 +42,10 @@ Enterprise owners can choose to set policies for {% data variables.product.prodn
 
 If a policy is defined at the enterprise level, the policy applies to all users and control of the policy is disabled at the organization level.
 
+### Granular organization selection
+
+**For the {% data variables.copilot.copilot_cloud_agent %} policy**, enterprise owners can choose to enable the feature for specific organizations rather than applying a blanket enterprise-wide setting. When **Enabled for selected organizations** is selected by an enterprise owner or an AI manager, only the selected organizations can enable the feature. Organizations can be selected individually or by using organization custom properties.
+
 ### No policy
 
 If an enterprise owner selects **No policy**, the impact depends on whether a user has access to {% data variables.product.prodname_copilot_short %} through an organization or directly from the enterprise.

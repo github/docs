@@ -10,6 +10,8 @@ category:
 contentType: reference
 redirect_from:
   - /copilot/reference/cli-plugin-reference
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 {% data reusables.copilot.copilot-cli.cli-help-note %}
@@ -24,9 +26,6 @@ You can use the following commands in the terminal to manage plugins for {% data
 | `copilot plugin uninstall NAME`                | Remove a plugin |
 | `copilot plugin list`                          | List installed plugins |
 | `copilot plugin update NAME`                   | Update a plugin |
-| `copilot plugin update --all`                  | Update all installed plugins |
-| `copilot plugin disable NAME`                  | Temporarily disable a plugin without uninstalling it |
-| `copilot plugin enable NAME`                   | Re-enable a disabled plugin |
 | `copilot plugin marketplace add SPECIFICATION` | Register a marketplace |
 | `copilot plugin marketplace list`              | List registered marketplaces |
 | `copilot plugin marketplace browse NAME`       | Browse marketplace plugins |
@@ -141,15 +140,15 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Item                 | Path |
 |----------------------|------|
-| Installed plugins    | `~/.copilot/state/installed-plugins/MARKETPLACE/PLUGIN-NAME` (installed via a marketplace) and `~/.copilot/state/installed-plugins/PLUGIN-NAME` (installed directly) |
-| Marketplace cache    | `~/.copilot/state/marketplace-cache/` |
-| Plugin manifest      | `plugin.json`, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json` |
-| Marketplace manifest | `.github/plugin/marketplace.json` or `.claude-plugin/marketplace.json` |
+| Installed plugins    | `~/.copilot/installed-plugins/MARKETPLACE/PLUGIN-NAME` (installed via a marketplace) and `~/.copilot/installed-plugins/_direct/SOURCE-ID/` (installed directly) |
+| Marketplace cache    | Platform cache directory: `~/.cache/copilot/marketplaces/` (Linux), `~/Library/Caches/copilot/marketplaces/` (macOS). Overridable with `COPILOT_CACHE_HOME`. |
+| Plugin manifest      | `.plugin/plugin.json`, `plugin.json`, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json` (checked in this order) |
+| Marketplace manifest | `marketplace.json`, `.plugin/marketplace.json`, `.github/plugin/marketplace.json`, or `.claude-plugin/marketplace.json` (checked in this order) |
 | Agents               | `agents/` (default, overridable in manifest) |
 | Skills               | `skills/` (default, overridable in manifest) |
-| Hooks config         | `hooks.json` or `hooks/hooks.json` |
-| MCP config           | `.mcp.json`, `.vscode/mcp.json`, `.devcontainer/devcontainer.json`, `.github/mcp.json` |
-| LSP config           | `lsp.json` or `.github/lsp.json` |
+| Hooks configuration  | `hooks.json` or `hooks/hooks.json` |
+| MCP configuration    | `.mcp.json`, `.github/mcp.json` |
+| LSP configuration    | `lsp.json` or `.github/lsp.json` |
 
 ## Loading order and precedence
 
@@ -179,11 +178,10 @@ The following diagram illustrates the loading order and precedence rules.
   │  1. ~/.copilot/agents/           (user, .github convention)         │
   │  2. <project>/.github/agents/    (project)                          │
   │  3. <parents>/.github/agents/    (inherited, monorepo)              │
-  │  4. ~/.claude/agents/            (user, .claude convention)         │
-  │  5. <project>/.claude/agents/    (project)                          │
-  │  6. <parents>/.claude/agents/    (inherited, monorepo)              │
-  │  7. PLUGIN: agents/ dirs         (plugin, by install order)         │
-  │  8. Remote org/enterprise agents (remote, via API)                  │
+  │  4. <project>/.claude/agents/    (project)                          │
+  │  5. <parents>/.claude/agents/    (inherited, monorepo)              │
+  │  6. PLUGIN: agents/ dirs         (plugin, by install order)         │
+  │  7. Remote org/enterprise agents (remote, via API)                  │
   └──────────────────────┬──────────────────────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────────────────────┐
@@ -193,7 +191,7 @@ The following diagram illustrates the loading order and precedence rules.
   │  3. <project>/.claude/skills/        (project)                      │
   │  4. <parents>/.github/skills/ etc.   (inherited)                    │
   │  5. ~/.copilot/skills/               (personal-copilot)             │
-  │  6. ~/.claude/skills/                (personal-claude)              │
+  │  6. ~/.agents/skills/                (personal-agents)              │
   │  7. PLUGIN: skills/ dirs             (plugin)                       │
   │  8. COPILOT_SKILLS_DIRS env + config (custom)                       │
   │  --- then commands (.claude/commands/), skills override commands ---│
@@ -202,9 +200,8 @@ The following diagram illustrates the loading order and precedence rules.
   ┌──────────────────────▼──────────────────────────────────────────────┐
   │  MCP SERVERS - LAST LOADED IS USED (dedup by server name)           │
   │  1. ~/.copilot/mcp-config.json       (lowest priority)              │
-  │  2. .vscode/mcp.json                 (workspace)                    │
-  │  3. PLUGIN: MCP configs              (plugins)                      │
-  │  4. --additional-mcp-config flag     (highest priority)             │
+  │  2. PLUGIN: MCP configs              (plugins)                      │
+  │  3. --additional-mcp-config flag     (highest priority)             │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 

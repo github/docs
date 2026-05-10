@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/two-codeql-workflows
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/two-codeql-workflows
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}

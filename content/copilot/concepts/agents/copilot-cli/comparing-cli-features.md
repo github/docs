@@ -9,6 +9,8 @@ contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page
   - Learn about Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -267,7 +269,10 @@ Avoid hooks when:
 
 ### Find out more about hooks
 
-See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-hooks).
+See:
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-hooks)
+* [AUTOTITLE](/copilot/reference/hooks-configuration)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-hooks-reference)
 
 ## Subagents
 
@@ -315,7 +320,7 @@ Subagents help {% data variables.product.prodname_copilot_short %}:
 
 **Custom agents** provide {% data variables.product.prodname_copilot_short %} with specialist knowledge about a particular subject, and define a particular approach that {% data variables.product.prodname_copilot_short %} should use when working in that area. You can think of a custom agent as a "persona" that {% data variables.product.prodname_copilot_short %} can adopt when working on certain tasks.
 
-{% data variables.copilot.copilot_cli_short %} has several built-in custom agents. For example, the `explore`, `task`, `research`, `code-review`, and `general-purpose` agents. You can also define your own custom agents, to meet your specific needs.
+{% data variables.copilot.copilot_cli_short %} has several built-in custom agents. For example, the `explore`, `task`, `research`, `code-review`, `rubber-duck`, and `general-purpose` agents. You can also define your own custom agents, to meet your specific needs.
 
 You define a custom agent in a Markdown file with YAML frontmatter. The file contains:
 

@@ -13,6 +13,8 @@ updates:
     schedule:
       interval: weekly
       day: tuesday
+    cooldown:
+      default-days: 7
     ignore:
       # Because this is so dependent on the remote server we use
       - dependency-name: '@elastic/elasticsearch'
@@ -27,6 +29,8 @@ updates:
     schedule:
       interval: weekly
       day: tuesday
+    cooldown:
+      default-days: 7
     ignore:
       - dependency-name: '*'
         update-types:
@@ -39,6 +43,8 @@ updates:
     directory: '/'
     schedule:
       interval: daily
+    cooldown:
+      default-days: 7
     groups:
       baseImages:
         patterns:

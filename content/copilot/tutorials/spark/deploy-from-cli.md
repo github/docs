@@ -6,6 +6,9 @@ allowTitleToDifferFromFilename: true
 versions:
   feature: spark
 product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_enterprise_short %}'
+category:
+  - Rapid prototyping
+  - Author and optimize with Copilot
 contentType: tutorials
 ---
 

@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/bqrs-hash
   - /code-security/codeql-cli/codeql-cli-manual/bqrs-hash
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

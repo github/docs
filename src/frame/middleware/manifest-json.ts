@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from 'express'
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 
 import { defaultCacheControl } from './cache-control'
@@ -53,7 +53,7 @@ export default async function manifestJson(req: Request, res: Response, next: Ne
   }
   for (const icon of ICONS) {
     for (const sizes of path.basename(icon).match(/\d+x\d+/g) || []) {
-      const stats = fs.statSync(icon)
+      const stats = await fs.stat(icon)
       const split = icon.slice(1).split(path.sep)
       const hash = `${stats.size}`
       split.splice(2, 0, `cb-${hash}`)

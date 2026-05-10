@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 contentType: how-tos
 shortTitle: Edit Advisory Database
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% ifversion ghes %}

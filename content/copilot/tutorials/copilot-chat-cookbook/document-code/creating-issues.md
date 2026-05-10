@@ -10,6 +10,7 @@ octicon: copilot
 category:
   - Documenting code
   - Author and optimize with Copilot
+  - Scale institutional knowledge
 contentType: tutorials
 ---
 

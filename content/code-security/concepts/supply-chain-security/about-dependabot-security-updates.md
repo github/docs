@@ -14,6 +14,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->

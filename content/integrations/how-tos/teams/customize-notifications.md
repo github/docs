@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Use integrations
 ---
 
 You can customize your notifications by subscribing to activity that is relevant to your Microsoft Teams channel, and unsubscribing from activity that is less helpful to your project.

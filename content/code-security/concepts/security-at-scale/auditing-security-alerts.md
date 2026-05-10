@@ -9,6 +9,8 @@ shortTitle: Audit security alerts
 redirect_from:
   - /code-security/getting-started/auditing-security-alerts
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 ## About security tools for auditors

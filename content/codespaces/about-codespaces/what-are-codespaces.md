@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /codespaces/overview
 contentType: concepts
+category:
+  - Get started
 ---
 
 ## Introduction

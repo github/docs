@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Creation and deletion
 contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 ## Creating codespaces

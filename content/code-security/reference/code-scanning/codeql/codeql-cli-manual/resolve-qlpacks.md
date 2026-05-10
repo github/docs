@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/resolve-qlpacks
   - /code-security/codeql-cli/codeql-cli-manual/resolve-qlpacks
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

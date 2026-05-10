@@ -214,7 +214,14 @@ Now you can review the pull request and make any adjustments. Once you have veri
 
 ## Hands-on practice
 
-Try the [Integrate MCP with {% data variables.product.prodname_copilot %}](https://github.com/skills/integrate-mcp-with-copilot/) Skills exercise for practical experience integrating MCP with {% data variables.product.prodname_copilot %}.
+Practice integrating MCP with {% data variables.product.prodname_copilot %} in the [Integrate MCP with {% data variables.product.prodname_copilot %}](https://github.com/skills/integrate-mcp-with-copilot/) Skills exercise.
+
+In this exercise, you will learn how to:
+
+* Set up and connect the {% data variables.product.github %} MCP server to {% data variables.product.prodname_copilot %}.
+* Use natural language to interact with external services through MCP tools in agent mode.
+* Search for and analyze similar projects with MCP.
+* Triage, create, and manage {% data variables.product.github %} issues, then implement changes with {% data variables.product.prodname_copilot %}.
 
 ## Further reading
 

@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/preventing-changes-to-your-releases
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Enforcing immutable releases for your repository

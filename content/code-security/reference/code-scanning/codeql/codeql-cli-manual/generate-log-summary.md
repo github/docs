@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/generate-log-summary
   - /code-security/codeql-cli/codeql-cli-manual/generate-log-summary
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

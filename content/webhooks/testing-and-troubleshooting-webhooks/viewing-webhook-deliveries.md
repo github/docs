@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Test and troubleshoot
 ---
 
 ## About webhook deliveries

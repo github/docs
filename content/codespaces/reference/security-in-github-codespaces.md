@@ -9,6 +9,8 @@ redirect_from:
   - /codespaces/codespaces-reference/security-in-codespaces
   - /codespaces/codespaces-reference/security-in-github-codespaces
 contentType: reference
+category:
+  - Get started
 ---
 
 ## Overview of codespace security

@@ -10,6 +10,8 @@ versions:
   feature: security-campaigns
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/best-practices-for-participating-in-a-security-campaign
+category:
+  - Secure at scale
 ---
 
 ## What is a code security campaign?
@@ -43,7 +45,7 @@ You'll automatically receive email updates about security campaigns for any repo
 
 ### View campaign details
 
-When you open the **Security** tab for a repository with one or more campaign alerts, you can see the campaign name in the sidebar of the view. Click the campaign name to see the list of alerts included in the campaign and summary information on how the campaign is progressing.
+When you open the **{% data variables.product.prodname_security_and_quality_tab %}** tab for a repository with one or more campaign alerts, you can see the campaign name in the sidebar of the view. Click the campaign name to see the list of alerts included in the campaign and summary information on how the campaign is progressing.
 
 ### Campaign-generated {% data variables.product.prodname_github_issues %}
 
@@ -76,7 +78,7 @@ A security campaign will generally include a contact URL, which might link you t
 
 To find the contact URL:
 
-1. Open the **Security** tab for your repository.
+1. Open the **{% data variables.product.prodname_security_and_quality_tab %}** tab for your repository.
 1. On the left sidebar, click the name of the campaign you are participating in.
 1. On the campaign tracking page, to the right of the campaign manager's name, click **{% octicon "comment" aria-hidden="true" aria-label="comment" %}**.
 
@@ -98,9 +100,9 @@ You can leverage {% data variables.product.prodname_copilot_short %} to help res
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-If {% data variables.copilot.copilot_coding_agent %} is enabled in the repository, you can also assign alerts to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-coding-agent).
+If {% data variables.copilot.copilot_cloud_agent %} is enabled in the repository, you can also assign alerts to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).
 
-By assigning multiple alerts, {% data variables.copilot.copilot_coding_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
+By assigning multiple alerts, {% data variables.copilot.copilot_cloud_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
 
 {% endif %}
 

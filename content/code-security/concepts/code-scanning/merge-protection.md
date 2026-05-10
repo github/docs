@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 ## Rulesets for {% data variables.product.prodname_code_scanning %} merge protection

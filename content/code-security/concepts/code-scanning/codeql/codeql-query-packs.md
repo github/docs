@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}

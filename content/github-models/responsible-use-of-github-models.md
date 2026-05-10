@@ -5,6 +5,8 @@ intro: Learn how to use {% data variables.product.prodname_github_models %} resp
 versions:
   feature: github-models
 contentType: rai
+category:
+  - Build with AI models
 ---
 
 With {% data variables.product.prodname_github_models %}, you build your understanding of AI model capabilities by experimenting with model settings and sending prompts through a chat interface. Additionally, you can directly interact with models through an SDK. Refer to a model's "Getting Started" tab for more information about how to use the SDK. Refer to a model’s "README" tab for more information on the model. Remember when interacting with a model you are experimenting with AI, so content mistakes are possible.

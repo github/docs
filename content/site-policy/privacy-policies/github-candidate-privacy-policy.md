@@ -5,6 +5,8 @@ versions:
   fpt: '*'
 redirect_from:
   - /github/site-policy/github-candidate-privacy-policy
+category:
+  - Review privacy and security policies
 ---
 
 **GitHub Global Data Privacy Notice for Candidates**

@@ -52,7 +52,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
 1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
-   Your token must have the `workflow` scope.
+   Your token must have the `repo` and `workflow` scopes.
 
    After creating the token, copy it and save it in a safe location for later use.
 1. Create a CircleCI personal API token. For more information, see [Managing API Tokens](https://circleci.com/docs/managing-api-tokens/#creating-a-personal-api-token) in the CircleCI documentation.

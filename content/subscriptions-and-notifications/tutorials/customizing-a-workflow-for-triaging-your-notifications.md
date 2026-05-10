@@ -12,6 +12,8 @@ redirect_from:
   - /subscriptions-and-notifications/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications
 shortTitle: Triage your notifications
 contentType: tutorials
+category:
+  - Manage subscriptions and triage your inbox
 ---
 ## Starting your inbox triage
 

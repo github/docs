@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: tutorials
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction

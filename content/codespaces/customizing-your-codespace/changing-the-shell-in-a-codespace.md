@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 When you're working in a codespace, you can open a new terminal window with a shell of your choice, change your default shell for new terminal windows, or install a new shell. You can also use dotfiles to configure your shell.

@@ -11,6 +11,8 @@ versions:
 contentType: reference
 redirect_from:
   - /code-security/code-scanning/reference/code-ql-built-in-queries/about-built-in-queries
+category:
+  - Find CodeQL CLI commands
 ---
 
 ## About built-in queries for CodeQL analysis

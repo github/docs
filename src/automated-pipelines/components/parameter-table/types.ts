@@ -4,7 +4,7 @@ export interface Parameter {
   description: string
   required: boolean
   schema: {
-    type: string
+    type: string | string[]
     default?: string
     enum?: Array<string>
   }

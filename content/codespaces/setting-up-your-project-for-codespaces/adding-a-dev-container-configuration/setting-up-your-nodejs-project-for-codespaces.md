@@ -10,6 +10,8 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces
 contentType: tutorials
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction

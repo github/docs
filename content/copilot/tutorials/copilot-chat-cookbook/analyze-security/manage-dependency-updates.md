@@ -7,6 +7,7 @@ versions:
 category:
   - Security analysis
   - Author and optimize with Copilot
+  - Improve quality and maintainability
 complexity:
   - Simple
 octicon: code

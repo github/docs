@@ -8,6 +8,8 @@ shortTitle: Unlink Patreon
 redirect_from:
   - /sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account
 contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 > [!NOTE]

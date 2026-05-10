@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 shortTitle: Manage payment tiers
 contentType: how-tos
+category:
+  - Set up to receive sponsorships
 ---
 
 ## About sponsorship tiers

@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 shortTitle: Delete repository advisories
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}

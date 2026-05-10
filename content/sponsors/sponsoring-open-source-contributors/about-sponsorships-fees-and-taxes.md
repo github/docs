@@ -7,6 +7,8 @@ versions:
 shortTitle: About sponsorships
 allowTitleToDifferFromFilename: true
 contentType: concepts
+category:
+  - Understand sponsorships
 ---
 
 ## About sponsorships

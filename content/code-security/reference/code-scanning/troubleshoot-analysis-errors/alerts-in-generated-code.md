@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/alerts-in-generated-code
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/alerts-in-generated-code
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}

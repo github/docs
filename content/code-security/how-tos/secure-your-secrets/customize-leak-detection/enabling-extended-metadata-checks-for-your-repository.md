@@ -9,6 +9,8 @@ versions:
 contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-extended-metadata-checks-for-your-repository
+category:
+  - Protect your secrets
 ---
 
 {% data reusables.secret-scanning.metadata-checks-public-preview %}
@@ -17,9 +19,13 @@ redirect_from:
 
 This article shows how you can enable extended metadata checks for individual repositories through repository settings. Alternatively, you can enable them at scale using **security configurations** at the organization or enterprise level. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration) or [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/creating-a-custom-security-configuration-for-your-enterprise).
 
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
 ## Prerequisites
 
 Before enabling metadata checks, you need to ensure that validity checks are enabled for the repository. See [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository#enabling-validity-checks).
+
+{% endif %}
 
 ## Enabling extended metadata checks
 

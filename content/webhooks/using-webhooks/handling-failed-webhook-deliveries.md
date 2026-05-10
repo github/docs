@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 layout: inline
+category:
+  - Handle webhook deliveries
 ---
 
 ## About webhook delivery failures

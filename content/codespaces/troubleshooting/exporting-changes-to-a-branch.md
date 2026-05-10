@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Exporting changes
 contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 ## About exporting changes

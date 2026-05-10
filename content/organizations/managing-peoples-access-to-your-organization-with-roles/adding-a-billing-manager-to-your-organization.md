@@ -21,12 +21,7 @@ Members of your organization's Owners team can give _billing manager_ permission
 
 Billing managers can:
 
-* Upgrade or downgrade between {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_team %} plans
-* Add, update, or remove payment methods
-* View payment history
-* Download receipts
-* View, invite, and remove billing managers
-* Start, modify, or cancel sponsorships
+{% data reusables.billing.org-billing-manager-permissions %}
 
 In addition, all billing managers will receive billing receipts by email on the organization's billing date.
 

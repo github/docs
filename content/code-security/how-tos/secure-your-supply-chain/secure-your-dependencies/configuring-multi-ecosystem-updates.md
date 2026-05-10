@@ -10,6 +10,8 @@ shortTitle: Configure multi-ecosystem updates
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates
   - /code-security/tutorials/secure-your-dependencies/configuring-multi-ecosystem-updates
+category:
+  - Secure your dependencies
 ---
 
 Multi-ecosystem updates allow you to consolidate {% data variables.product.prodname_dependabot %} pull requests across different package ecosystems into a single PR per group. See [AUTOTITLE](/code-security/concepts/supply-chain-security/multi-ecosystem-updates).
@@ -67,7 +69,7 @@ Commit the changes to your `dependabot.yml` file.
 
 ## 4. Customize with additional keys (optional)
 
-You can add labels, reviewers, or other configuration options to your multi-ecosystem groups. See [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) and [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--).
+You can add assignees, labels, or other configuration options to your multi-ecosystem groups. See [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) and [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--).
 
 ```yaml copy
 multi-ecosystem-groups:

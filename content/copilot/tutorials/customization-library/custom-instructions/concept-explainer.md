@@ -7,6 +7,7 @@ category:
   - Custom instructions
   - Getting started
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book

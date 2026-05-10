@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 shortTitle: Edit profile details
 contentType: how-tos
+category:
+  - Set up to receive sponsorships
 ---
 
 ## About sponsor profiles

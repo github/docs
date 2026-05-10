@@ -11,6 +11,8 @@ contentType: tutorials
 redirect_from:
   - /code-security/code-quality/get-started/quickstart
   - /code-security/code-quality/get-started
+category:
+  - Improve code quality
 ---
 
 ## Introduction
@@ -26,7 +28,7 @@ In this tutorial, you’ll learn how to identify and fix a code quality finding 
 
 ## Review scan results for your default branch
 
-In your repository, go to the **Security** tab, click **{% data variables.code-quality.code_quality_ui_views %}** in the left sidebar, then click **{% data variables.code-quality.all_findings %}** to open the repository dashboard.
+In your repository, go to the **{% data variables.product.prodname_security_and_quality_tab %}** tab, click **{% data variables.code-quality.code_quality_ui_views %}** in the left sidebar, then click **{% data variables.code-quality.all_findings %}** to open the repository dashboard.
 
 Here you'll see:
 
@@ -67,7 +69,7 @@ Carefully review the draft pull request. If you're satisfied with the proposed c
 
 ## Observe the metrics change
 
-Return to the {% data variables.product.prodname_code_quality_short %} dashboard (**Security** tab, then **{% data variables.code-quality.code_quality_ui_views %}**, then **{% data variables.code-quality.all_findings %}**).
+Return to the {% data variables.product.prodname_code_quality_short %} dashboard (**{% data variables.product.prodname_security_and_quality_tab %}** tab, then **{% data variables.code-quality.code_quality_ui_views %}**, then **{% data variables.code-quality.all_findings %}**).
 
 Wait a few minutes for the next scan to complete — {% data variables.product.prodname_code_quality_short %} scans automatically re-run after every push to the default branch.
 

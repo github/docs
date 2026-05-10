@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 ## Restrictions when {% data variables.product.prodname_dependabot %} triggers events

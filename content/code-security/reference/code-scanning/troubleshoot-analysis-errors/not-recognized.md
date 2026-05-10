@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/not-recognized
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/not-recognized
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/unclear-what-triggered-a-workflow
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/unclear-what-triggered-a-workflow
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 The {% data variables.code-scanning.tool_status_page %} shows you how well {% data variables.product.prodname_code_scanning %} tools are working for a repository, when files in the repository were first scanned and most recently scanned, and when scans are scheduled. For integrated tools like {% data variables.product.prodname_codeql %}, you can also see more detailed information, including a percentage of files scanned and specific error messages. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).

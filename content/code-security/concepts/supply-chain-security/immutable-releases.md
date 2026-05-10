@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 **Immutable releases** are releases where the assets and associated Git tag cannot be changed after publication. The use of this type of release increases security by blocking supply chain attacks. Attackers cannot:
@@ -16,7 +18,7 @@ contentType: concepts
 
 When you enable immutable releases, the following protections are enforced:
 
-* **Git tags cannot be moved or deleted**: Once an immutable release is published, its associated Git tag is locked to a specific commit and cannot be changed or removed.
+* **Git tags cannot be moved**: Once an immutable release is published, its associated Git tag is locked to a specific commit, cannot be changed, and cannot be deleted while the release exists. If you delete the immutable release, you can delete the tag, but you cannot reuse the same tag name.
 * **Release assets cannot be modified or deleted**: All files attached to the release (such as binaries and archives) are protected from modification or deletion.
 
 Additionally, creating an immutable release automatically generates a **release attestation**, which is a cryptographically verifiable record of a release containing the release tag, commit SHA, and release assets. Consumers can use this attestation to make sure the releases and artifacts they are using exactly match the published {% data variables.product.github %} releases.

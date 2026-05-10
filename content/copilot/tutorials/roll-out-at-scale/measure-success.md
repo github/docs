@@ -11,6 +11,7 @@ category:
   - Measure success
   - Track Copilot usage
   - Manage Copilot for a team
+  - Roll Copilot out at scale
 contentType: tutorials
 ---
 

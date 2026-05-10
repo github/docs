@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 The "{% data variables.dependency-review.action_name %}" refers to the specific action that can report on differences in a pull request within the {% data variables.product.prodname_actions %} context. It can also add enforcement mechanisms to the {% data variables.product.prodname_actions %} workflow. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependency-review#about-the-dependency-review-action).

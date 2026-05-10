@@ -12,6 +12,8 @@ redirect_from:
   - /articles/getting-started-with-github-actions
   - /actions/about-github-actions/understanding-github-actions
   - /actions/get-started/understanding-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/actions-components
+  - /enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions
 versions:
   fpt: '*'
   ghes: '*'

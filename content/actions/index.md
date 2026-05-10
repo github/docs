@@ -5,8 +5,6 @@ intro: 'Automate, customize, and execute your software development workflows rig
 introLinks:
   overview: /actions/get-started/understand-github-actions
   quickstart: /actions/get-started/quickstart
-changelog:
-  label: actions
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
   - /articles/customizing-your-project-with-github-actions
@@ -21,7 +19,7 @@ carousels:
   recommended:
     - /actions/get-started/quickstart
     - /actions/get-started/understand-github-actions
-    - /actions/tutorials/use-actions-runner-controller
+    - /actions/how-tos/manage-runners/github-hosted-runners/use-github-hosted-runners
     - /actions/reference/workflows-and-actions/workflow-syntax
     - /actions/reference/workflows-and-actions/events-that-trigger-workflows
     - /actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations

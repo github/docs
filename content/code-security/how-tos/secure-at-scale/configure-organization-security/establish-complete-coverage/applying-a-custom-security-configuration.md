@@ -4,11 +4,15 @@ shortTitle: Apply custom configuration
 intro: You can apply your {% data variables.product.prodname_custom_security_configuration %} to repositories in your organization to meet the specific security needs of those repositories.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About applying a {% data variables.product.prodname_custom_security_configuration %}

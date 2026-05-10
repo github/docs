@@ -8,6 +8,8 @@ shortTitle: Create a codespace from a template
 redirect_from:
   - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
 contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 # About templates for {% data variables.product.prodname_github_codespaces %}

@@ -5,6 +5,8 @@ redirect_from:
   - /github/site-policy/github-trademark-policy
 versions:
   fpt: '*'
+category:
+  - Request content removal
 ---
 ## What is a GitHub Trademark Policy Violation?
 

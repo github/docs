@@ -8,6 +8,8 @@ shortTitle: 1. Align on strategy
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 > [!TIP]

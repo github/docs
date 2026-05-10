@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Authenticating to repositories
 contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 When you create a codespace for a repository, you can generally use `git pull` and `git push` to pull and push changes to that repository without any additional authentication. However, occasionally you may see authentication errors when trying to run these operations.

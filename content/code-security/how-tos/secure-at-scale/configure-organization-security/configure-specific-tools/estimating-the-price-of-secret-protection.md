@@ -9,6 +9,8 @@ permissions: '{% data reusables.permissions.push-protection-roi-calculator %}'
 contentType: how-tos
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/estimating-the-price-of-secret-protection
+category:
+  - Secure at scale
 ---
 
 ## What is the pricing calculator?

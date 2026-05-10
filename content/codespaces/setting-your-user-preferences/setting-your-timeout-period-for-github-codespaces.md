@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## About the idle timeout

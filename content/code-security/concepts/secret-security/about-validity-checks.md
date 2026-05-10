@@ -10,6 +10,9 @@ contentType: concepts
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>=3.20'
+category:
+  - Protect your secrets
 ---
 
 ## About validity checks

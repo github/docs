@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/editing-a-custom-security-configuration
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About editing a {% data variables.product.prodname_custom_security_configuration %}

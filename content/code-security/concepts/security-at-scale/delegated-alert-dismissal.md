@@ -4,6 +4,8 @@ intro: 'Increase your governance over security alerts with delegated alert dismi
 versions:
   feature: security-delegated-alert-dismissal
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 Delegated alert dismissal lets you restrict which users can directly dismiss an alert. When you enable the feature:

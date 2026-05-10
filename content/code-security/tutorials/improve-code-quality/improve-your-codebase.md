@@ -9,6 +9,8 @@ permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 contentType: tutorials
 redirect_from:
   - /code-security/code-quality/tutorials/improve-your-codebase
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}
@@ -24,7 +26,7 @@ This tutorial guides you through using {% data variables.product.prodname_code_q
 
 ## 1. Assess your repository's overall code health
 
-1. Navigate to the "Security" tab of your repository, then under "{% data variables.code-quality.code_quality_ui_views %}", click **{% data variables.code-quality.all_findings %}**.
+1. Navigate to the **{% data variables.product.prodname_security_and_quality_tab %}** tab of your repository, then under "{% data variables.code-quality.code_quality_ui_views %}", click **{% data variables.code-quality.all_findings %}**.
 1. The overview on the "{% data variables.code-quality.all_findings %}" dashboard gives you an immediate assessment of the state of your default branch today:
 
    * **Maintainability rating** reflects the presence and severity of findings for dead code, duplication, complexity, missing documentation, and failure to follow best practices.

@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## Managing the privacy setting for your sponsorship

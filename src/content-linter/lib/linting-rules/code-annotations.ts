@@ -5,7 +5,7 @@ import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-lin
 
 interface Frontmatter {
   layout?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export const codeAnnotations = {

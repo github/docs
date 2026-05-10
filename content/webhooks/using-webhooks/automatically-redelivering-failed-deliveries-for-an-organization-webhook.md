@@ -9,6 +9,8 @@ versions:
 layout: inline
 redirect_from:
   - /webhooks/using-webhooks/creating-a-script-to-automatically-redeliver-failed-deliveries-for-an-organization-webhook
+category:
+  - Handle webhook deliveries
 ---
 
 ## About automatically redelivering failed deliveries

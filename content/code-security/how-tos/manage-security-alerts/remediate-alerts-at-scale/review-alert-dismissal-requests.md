@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /code-security/security-overview/review-alert-dismissal-requests
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## Prerequisites

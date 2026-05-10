@@ -3,10 +3,10 @@ import type { Response } from 'express'
 import type { Failbot } from '@github/failbot'
 import { get } from 'lodash-es'
 
-import getMiniTocItems from '@/frame/lib/get-mini-toc-items'
+import { buildMiniTocFromCollected, type CollectedHeading } from '@/frame/lib/get-mini-toc-items'
 import patterns from '@/frame/lib/patterns'
 import FailBot from '@/observability/lib/failbot'
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { transformerRegistry } from '@/article-api/transformers'
@@ -24,7 +24,16 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   if (!page) throw new Error('page not set in context')
   const path = req.pagePath || req.path
 
-  const pageRenderTimed = statsd.asyncTimer(page.render, STATSD_KEY_RENDER, [`path:${path}`])
+  // Set up collection array for the collect-mini-toc rehype plugin only when
+  // the page actually needs a mini-TOC, avoiding unnecessary work.
+  if (page.showMiniToc) {
+    const collectMiniToc: CollectedHeading[] = []
+    context.collectMiniToc = collectMiniToc
+  }
+
+  const pageRenderTimed = statsd.asyncTimer(adaptForTimer(page.render), STATSD_KEY_RENDER, [
+    `path:${path}`,
+  ])
 
   return (await pageRenderTimed(context)) as string
 }
@@ -39,15 +48,14 @@ function buildMiniTocItems(req: ExtendedRequest) {
     return
   }
 
-  return getMiniTocItems(context.renderedPage || '', 0)
+  // Use headings collected during rendering via the collect-mini-toc rehype plugin.
+  const collected = context.collectMiniToc as CollectedHeading[] | undefined
+  if (collected) {
+    return buildMiniTocFromCollected(collected, 2)
+  }
 }
 
 export default async function renderPage(req: ExtendedRequest, res: Response) {
-  // Skip if App Router has already handled this request
-  if (res.locals?.handledByAppRouter) {
-    return
-  }
-
   const { context } = req
 
   // This is a contextualizing the request so that when this `req` is

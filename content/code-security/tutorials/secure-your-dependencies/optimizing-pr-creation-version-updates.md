@@ -11,6 +11,8 @@ contentType: tutorials
 shortTitle: Optimize PR creation
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates
+category:
+  - Secure your dependencies
 ---
 
 By default, {% data variables.product.prodname_dependabot %} opens a new pull request to update each dependency. When you enable security updates, new pull requests are opened when a vulnerable dependency is found. When you configure version updates for one or more ecosystems, new pull requests are opened when new versions of dependencies are available, with the frequency defined in the `dependabot.yml` file.
@@ -58,7 +60,7 @@ See also [schedule](/code-security/dependabot/working-with-dependabot/dependabot
 
 ### Setting up a cooldown period for dependency updates
 
-You can use  `cooldown` with a combination of options to control when {% data variables.product.prodname_dependabot %} creates pull requests for **version updates**.
+You can use  `cooldown` with a combination of options to control when {% data variables.product.prodname_dependabot %} creates pull requests for **version updates**, but not **security updates**.
 
 The example `dependabot.yml` file below shows a cooldown period being applied to the dependencies `requests`, `numpy`, and those prefixed with `pandas` or `django`, but not to the dependency called `pandas` (exact match), which is excluded via the **exclude** list.
 

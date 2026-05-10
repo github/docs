@@ -150,9 +150,6 @@ export const DefaultLayout = (props: Props) => {
             )
           })}
 
-        {/* For local site search indexing */}
-        {page.topics.length > 0 && <meta name="keywords" content={page.topics.join(',')} />}
-
         {/* For analytics events */}
         {router.locale && <meta name="path-language" content={router.locale} />}
         {currentVersion && <meta name="path-version" content={currentVersion} />}
@@ -165,6 +162,9 @@ export const DefaultLayout = (props: Props) => {
         )}
         {page.contentType && <meta name="page-content-type" content={page.contentType} />}
         {page.documentType && <meta name="page-document-type" content={page.documentType} />}
+        {page.docsTeamMetrics && page.docsTeamMetrics.length > 0 && (
+          <meta name="docs-team-metrics" content={page.docsTeamMetrics.join(',')} />
+        )}
         {status && <meta name="status" content={status.toString()} />}
 
         {/* OpenGraph data */}

@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 shortTitle: Dependabot alerts filters
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 {% data reusables.dependabot.dependabot-alerts-filters %}

@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Migrating global node IDs
+category:
+  - Understand API changes and limits
 ---
 
 ## Background

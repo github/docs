@@ -39,6 +39,7 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Wait for production to match build number
+        if: github.event_name != 'workflow_dispatch'
         run: |
           needs=$(git rev-parse HEAD)
           start_time=$(date +%s)

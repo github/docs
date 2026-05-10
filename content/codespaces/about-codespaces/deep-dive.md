@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /codespaces/getting-started/deep-dive
 contentType: get-started
+category:
+  - Get started
 ---
 
 {% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_github_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.

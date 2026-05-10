@@ -10,6 +10,8 @@ redirect_from:
   - /webhooks/webhooks/receiving-webhooks-with-the-github-cli
   - /webhooks/receiving-webhooks-with-the-github-cli
   - /webhooks/testing-and-troubleshooting-webhooks/receiving-webhooks-with-the-github-cli
+category:
+  - Test and troubleshoot
 ---
 ## About receiving webhooks with {% data variables.product.prodname_cli %}
 

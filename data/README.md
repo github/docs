@@ -32,10 +32,6 @@ Webhook payload JSON files are used in the [`webhook events docs`](../content/de
 
 `ui.yml` contains localized strings used in layouts.
 
-## Learning Tracks
-
-Learning tracks are a collection of articles that help you master a particular subject. See [learning-tracks/README.md](learning-tracks/README.md).
-
 ## Versioning
 
-Many YAML files in this directory's subdirectories, like [features](features), [glossaries](glossaries), [variables](variables), and [learning tracks](learning-tracks), as well as Markdown files within the [reusables](reusables) directory, can include YAML versioning or Liquid versioning within Markdown strings. See the README.md files in the subdirectories for details.
+Many YAML files in this directory's subdirectories, like [features](features), [glossaries](glossaries), and [variables](variables), as well as Markdown files within the [reusables](reusables) directory, can include YAML versioning or Liquid versioning within Markdown strings. See the README.md files in the subdirectories for details.

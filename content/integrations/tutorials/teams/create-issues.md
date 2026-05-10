@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
+category:
+  - Use integrations
 ---
 
 ## Creating issues with the {% data variables.product.github %} integration in Teams

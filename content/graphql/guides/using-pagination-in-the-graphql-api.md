@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Pagination
+category:
+  - Get started and make API calls
 ---
 
 ## About pagination

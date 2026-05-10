@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 ## Overview

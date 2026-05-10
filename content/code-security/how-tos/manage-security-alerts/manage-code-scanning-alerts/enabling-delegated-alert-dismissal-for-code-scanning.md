@@ -8,6 +8,8 @@ contentType: how-tos
 shortTitle: Enable delegated alert dismissal
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data reusables.security.delegated-alert-dismissal-capacity %}

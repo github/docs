@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/advanced-security-must-be-enabled
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/advanced-security-must-be-enabled
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

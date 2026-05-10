@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice
 contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 ## About paying for {% data variables.product.prodname_sponsors %} by invoice

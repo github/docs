@@ -1,7 +1,7 @@
 ---
 title: Prioritizing Dependabot and code scanning alerts using production context
 shortTitle: Prioritize alerts in production code
-intro: Focus remediation on real risk by targeting {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts in artifacts deployed to production, using metadata from external registries like JFrog Artifactory, your own CI/CD workflows, or from {% data variables.product.prodname_microsoft_defender %}.
+intro: Focus remediation on real risk by targeting {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts in artifacts deployed to production, using metadata from external systems and integrations like Dynatrace, JFrog Artifactory, {% data variables.product.prodname_microsoft_defender %}, or your own CI/CD workflows.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-production-context
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code
   - /code-security/tutorials/secure-your-organization/alerts-in-production-code
+category:
+  - Secure at scale
 ---
 
 Application Security (AppSec) managers are often overwhelmed by a high volume of alerts, many of which may not represent real risk because the affected code never makes it to production. By associating production context with your alerts, you can filter and prioritize vulnerabilities that impact artifacts actually approved for production environments. This enables your team to focus remediation efforts on the vulnerabilities that matter most, reducing noise and improving your security posture.
@@ -23,16 +25,16 @@ To provide production context, you should configure your system to:
 * Update **storage records** in the {% data variables.product.virtual_registry %} whenever an artifact is promoted to a production-approved package repository.
 * Update **deployment records** when an artifact is deployed to a production environment.
 
-{% data variables.product.github %} processes this metadata and uses it to power alert filters, such as `artifact-registry-url` and `artifact-registry` from storage records, and `has:deployment` and `runtime-risk` from deployment records.
+{% data variables.product.github %} processes this metadata and uses it to power alert filters, such as `artifact-registry-url` and `artifact-registry` from storage records, and `has:deployment` and `runtime-risk` from deployment records. Runtime risks from deployment records are also visible as properties on individual {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} alert pages.
 
 For more information on updating records, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/upload-linked-artifacts).
 
 ## 2. Use production context filters
 
-Production context filters are made available in alert views and security campaign views under the **Security** tab.
+Production context filters are made available in the **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
-* **{% data variables.product.prodname_dependabot_alerts %} view**: See [Viewing {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts).
-* **{% data variables.product.prodname_code_scanning_caps %} alerts view**: See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).
+* **{% data variables.product.prodname_dependabot %} view**: See [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts).
+* **{% data variables.product.prodname_code_scanning_caps %} view**: See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).
 * **Security campaign view**: See [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns).
 
 Once the alert list is displayed, use the `artifact-registry-url` or `artifact-registry` filters in organization views to focus on vulnerabilities affecting artifacts present in production.

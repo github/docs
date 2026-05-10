@@ -5,6 +5,8 @@ redirect_from:
   - /github/site-policy/github-statement-against-modern-slavery-and-child-labor
 versions:
   fpt: '*'
+category:
+  - Review company and general policies
 ---
 _2018 statement_
 

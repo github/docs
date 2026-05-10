@@ -9,6 +9,7 @@ versions:
 contentType: how-tos
 children:
   - /configuring-dependabot-alerts
+  - /configure-malware-alerts
   - /configuring-dependabot-security-updates
   - /configuring-dependabot-version-updates
   - /keeping-your-actions-up-to-date-with-dependabot
@@ -19,4 +20,3 @@ children:
   - /using-the-dependency-submission-api
   - /verifying-the-integrity-of-a-release
 ---
-

@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 {% data reusables.dependency-graph.used-by %} For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-the-dependency-graph#dependents-and-used-by-data).

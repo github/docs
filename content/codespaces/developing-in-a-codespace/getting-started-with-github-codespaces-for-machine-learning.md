@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning
 contentType: tutorials
+category:
+  - Write code in a codespace
 ---
 
 ## Introduction

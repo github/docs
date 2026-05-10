@@ -1,0 +1,244 @@
+name: Sync llms.txt
+
+# **What it does**: Generates docs.github.com/llms.txt and github.com/llms.txt
+#   from the page catalog and popularity data, then opens PRs to update both.
+# **Why we have it**: Agents discover docs through llms.txt; the page list keeps
+#   pace with what's actually popular without writers updating it by hand.
+# **Who does it impact**: Docs consumers via agents, and anyone landing on
+#   github.com/llms.txt or docs.github.com/llms.txt.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/sync-llms-txt.yml'
+      - 'data/llms-txt/**'
+      - 'src/workflows/generate-llms-txt.ts'
+  schedule:
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 9:20 PDT / 8:20 PST
+
+permissions:
+  contents: read
+
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    name: Sync llms.txt
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: sync-llms-txt
+    steps:
+      - name: Checkout docs-internal
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Generate llms.txt for docs.github.com
+        env:
+          DOCS_BOT_PAT_BASE: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          npm run generate-llms-txt --silent -- \
+            --config data/llms-txt/config-docs.yml \
+            --output /tmp/docs-llms.txt
+          echo "Generated docs llms.txt ($(wc -l < /tmp/docs-llms.txt) lines, $(wc -c < /tmp/docs-llms.txt) bytes)"
+
+      - name: Generate llms.txt for github.com
+        env:
+          DOCS_BOT_PAT_BASE: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          npm run generate-llms-txt --silent -- \
+            --config data/llms-txt/config-monolith.yml \
+            --output /tmp/monolith-llms.txt
+          echo "Generated monolith llms.txt ($(wc -l < /tmp/monolith-llms.txt) lines, $(wc -c < /tmp/monolith-llms.txt) bytes)"
+
+      # ---------- PR to docs-internal: update data/llms-txt/docs.md ----------
+
+      - name: Diff docs llms.txt against committed copy
+        id: diff_docs
+        run: |
+          if diff -q /tmp/docs-llms.txt data/llms-txt/docs.md > /dev/null 2>&1; then
+            echo "No docs changes, skipping"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Docs changes detected"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Ensure sync branch exists in docs-internal
+        if: steps.diff_docs.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          REPO="github/docs-internal"
+          if gh api "repos/$REPO/git/ref/heads/$BRANCH" --jq '.object.sha' > /dev/null 2>&1; then
+            echo "Branch $BRANCH exists, fetching"
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH"
+          else
+            echo "Branch $BRANCH does not exist, creating from main"
+            git checkout -b "$BRANCH"
+          fi
+
+      - name: Commit and push docs.md
+        if: steps.diff_docs.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          cp /tmp/docs-llms.txt data/llms-txt/docs.md
+          git config user.name "docs-bot"
+          git config user.email "77750099+docs-bot@users.noreply.github.com"
+          git add data/llms-txt/docs.md
+          git commit -m "Update data/llms-txt/docs.md from popularity data"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/github/docs-internal.git" "$BRANCH"
+
+      - name: Create or update docs-internal PR
+        if: steps.diff_docs.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          REPO="github/docs-internal"
+          if EXISTING_PR=$(gh pr list --repo "$REPO" --head "$BRANCH" \
+            --json number --jq '.[0].number' 2>/dev/null) && [ -n "$EXISTING_PR" ]; then
+            echo "Docs PR #$EXISTING_PR already exists, updated with new commit"
+            exit 0
+          fi
+
+          RUN_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          PR_BODY="The [sync-llms-txt workflow]($RUN_URL) generated this PR.
+
+          Updates \`data/llms-txt/docs.md\`, served at https://docs.github.com/llms.txt. Built from the page catalog and popularity data using \`data/llms-txt/config-default.yml\` + \`config-docs.yml\`."
+
+          gh pr create \
+            --repo "$REPO" \
+            --title "Update data/llms-txt/docs.md" \
+            --body "$PR_BODY" \
+            --head "$BRANCH" \
+            --base main \
+            --draft \
+            --label "llm-generated"
+
+      # ---------- PR to github/github: update public/llms.txt ----------
+
+      - name: Fetch current public/llms.txt from github/github
+        id: fetch_monolith
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          if gh api repos/github/github/contents/public/llms.txt \
+              --jq '.content' 2>/dev/null | base64 -d > /tmp/monolith-current.txt; then
+            echo "Fetched current ($(wc -l < /tmp/monolith-current.txt) lines)"
+          else
+            rm -f /tmp/monolith-current.txt
+          fi
+
+      - name: Diff monolith llms.txt
+        id: diff_monolith
+        run: |
+          if [ -f /tmp/monolith-current.txt ] && diff -q /tmp/monolith-llms.txt /tmp/monolith-current.txt > /dev/null 2>&1; then
+            echo "No monolith changes, skipping"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Monolith changes detected"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Ensure sync branch exists in github/github
+        if: steps.diff_monolith.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          REPO="github/github"
+          if gh api "repos/$REPO/git/ref/heads/$BRANCH" --jq '.object.sha' > /dev/null 2>&1; then
+            echo "Branch $BRANCH exists"
+          else
+            DEFAULT_BRANCH=$(gh api "repos/$REPO" --jq '.default_branch')
+            BASE_SHA=$(gh api "repos/$REPO/git/ref/heads/$DEFAULT_BRANCH" --jq '.object.sha')
+            gh api "repos/$REPO/git/refs" \
+              --method POST \
+              -f ref="refs/heads/$BRANCH" \
+              -f sha="$BASE_SHA"
+            echo "Created branch $BRANCH from $DEFAULT_BRANCH at $BASE_SHA"
+          fi
+
+      - name: Commit monolith llms.txt to github/github
+        if: steps.diff_monolith.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          REPO="github/github"
+          CONTENT=$(base64 -w 0 /tmp/monolith-llms.txt)
+
+          if EXISTING_SHA=$(gh api "repos/$REPO/contents/public/llms.txt?ref=$BRANCH" \
+            --jq '.sha' 2>/dev/null); then
+            echo "Existing file SHA: $EXISTING_SHA"
+          else
+            EXISTING_SHA=""
+          fi
+
+          COMMIT_ARGS=(-f "message=Sync llms.txt from docs.github.com"
+            -f "content=$CONTENT"
+            -f "branch=$BRANCH")
+          if [ -n "$EXISTING_SHA" ]; then
+            COMMIT_ARGS+=(-f "sha=$EXISTING_SHA")
+          fi
+          gh api "repos/$REPO/contents/public/llms.txt" \
+            --method PUT \
+            "${COMMIT_ARGS[@]}" --jq '.commit.sha'
+
+      - name: Create or update github/github PR
+        if: steps.diff_monolith.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          REPO="github/github"
+          if EXISTING_PR=$(gh pr list --repo "$REPO" --head "$BRANCH" \
+            --json number --jq '.[0].number' 2>/dev/null) && [ -n "$EXISTING_PR" ]; then
+            echo "Monolith PR #$EXISTING_PR already exists, updated with new commit"
+            exit 0
+          fi
+
+          RUN_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          DEFAULT_BRANCH=$(gh api "repos/$REPO" --jq '.default_branch')
+
+          PR_BODY="The [sync-llms-txt workflow]($RUN_URL) generated this PR.
+
+          Updates \`public/llms.txt\`, served at https://github.com/llms.txt. Built in docs-internal from the page catalog and popularity data using \`data/llms-txt/config-default.yml\` + \`config-monolith.yml\`.
+
+          No feature flags. Static file in \`public/\`, no code changes.
+
+          <!--
+          Labels for github/github PR template automation:
+          (\`environment:production-dotcom\`)
+          (\`risk:low\`)
+          (\`validate:other\`)
+          (\`mitigate:rollback\`)
+          (\`backend/rails/api-only\`)
+          pull_request_template_version=2
+          -->"
+
+          gh pr create \
+            --repo "$REPO" \
+            --title "Sync llms.txt from docs.github.com" \
+            --body "$PR_BODY" \
+            --head "$BRANCH" \
+            --base "$DEFAULT_BRANCH" \
+            --label "docs"
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

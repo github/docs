@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 ## About integration with code scanning

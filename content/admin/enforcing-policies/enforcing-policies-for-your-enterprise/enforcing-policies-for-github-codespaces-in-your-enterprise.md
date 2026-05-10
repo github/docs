@@ -12,8 +12,6 @@ category:
   - Secure and govern your enterprise
 ---
 
->[!NOTE] {% data variables.product.prodname_github_codespaces %} is not available for enterprises that use {% data variables.enterprise.data_residency %}.
-
 ## About enterprise policies for {% data variables.product.prodname_github_codespaces %}
 
 As an enterprise owner, you can set a policy to enable or disable {% data variables.product.prodname_github_codespaces %} across organizations in your enterprise. You can enable {% data variables.product.prodname_github_codespaces %} for all organizations, enable for specific organizations, or disable for all organizations.

@@ -24,7 +24,7 @@ category:
 
 This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the workflow templates will be presented to users when they are creating a new workflow.
 
-1. If it doesn't already exist, create a new repository named `.github` in your organization.
+1. If it doesn't already exist, create a new {% ifversion actions-nga %} {% else %}public {% endif %}repository named `.github` in your organization.
 1. Create a directory named `workflow-templates`.
 1. Create your new workflow file inside the `workflow-templates` directory.
 

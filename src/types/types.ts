@@ -57,12 +57,7 @@ export type PageFrontmatter = {
   featuredLinks?: FeaturedLinks
   changelog?: ChangeLog
   contentType?: string
-  topics?: string[]
-  includeGuides?: string[]
-  learningTracks?: string[]
   beta_product?: boolean
-  product_video?: boolean
-  product_video_transcript?: string
   interactive?: boolean
   communityRedirect?: {
     name: string
@@ -81,11 +76,6 @@ type FeaturedLinks = {
   guideCards?: string[]
   popular?: string[]
   popularHeading?: string
-  videos?: {
-    title: string
-    href: string
-  }[]
-  videoHeadings?: string
 }
 
 export type ChildGroup = {
@@ -157,6 +147,7 @@ export type Context = {
   getDottedData?: (dottedPath: string) => unknown
   initialRestVersioningReleaseDate?: string
   initialRestVersioningReleaseDateLong?: string
+  defaultRestApiVersion?: string
   nonEnterpriseDefaultVersion?: string
   enterpriseServerVersions?: string[]
   enterpriseServerReleases?: typeof enterpriseServerReleases
@@ -164,7 +155,6 @@ export type Context = {
   redirectNotFound?: string
   earlyAccessPageLinks?: string
   changelogUrl?: string
-  whatsNewChangelog?: ChangelogItem[]
   secretScanningData?: SecretScanningData[]
   ghesReleases?: GHESRelease[]
   ghesReleaseNotes?: GHESReleasePatch[]
@@ -182,49 +172,13 @@ export type Context = {
   breadcrumbs?: Breadcrumb[]
   glossaries?: Glossary[]
   currentProductName?: string
-  productCommunityExamples?: ProductExample[]
-  productUserExamples?: ProductExample[]
   productGroups?: ProductGroup[]
   featuredLinks?: FeaturedLinksExpanded
-  currentLearningTrack?: LearningTrack | null
   renderedPage?: string
   miniTocItems?: MiniTocItem[]
   markdownRequested?: boolean
   markdownViaUrl?: boolean
 }
-export type LearningTracks = {
-  [group: string]: {
-    [track: string]: {
-      title: string
-      description: string
-      versions?: FrontmatterVersions
-      guides: string[]
-    }
-  }
-}
-export type LearningTrack = {
-  trackName: string
-  trackProduct: string
-  trackTitle: string
-  numberOfGuides?: number
-  currentGuideIndex?: number
-  nextGuide?: {
-    href: string
-    title: string | undefined
-  }
-  prevGuide?: {
-    href: string
-    title: string | undefined
-  }
-}
-
-export type TrackGuide = {
-  href: string
-  page: Page
-  title: string
-  intro: string
-}
-
 export type FeaturedLinkExpanded = {
   href: string
   title: string
@@ -313,12 +267,6 @@ export type ReleaseNotes = {
   }
 }
 
-export type ChangelogItem = {
-  title: string
-  date: string
-  href: string
-}
-
 export type SecretScanningData = {
   provider: string
   supportedSecret: string
@@ -329,7 +277,6 @@ export type SecretScanningData = {
   hasPushProtection: boolean
   hasValidityCheck: boolean | string
   hasExtendedMetadata?: boolean
-  ismultipart?: boolean
   base64Supported: boolean
   isduplicate: boolean
 }
@@ -389,6 +336,7 @@ export type Page = {
   industry?: string[]
   sidebarLink?: SidebarLink
   contentType?: string
+  docsTeamMetrics?: string[]
   children?: string[]
 }
 
@@ -479,12 +427,6 @@ export type AllVersions = {
 // It's useful because otherwise you might get a TypeScript error that
 // is not possible to happen at runtime.
 export type URLSearchParamsTypes = string | string[][] | Record<string, string> | URLSearchParams
-
-export type ProductExample = {
-  repo?: string
-  user?: string
-  description: string
-}
 
 export type FeatureData = {
   [key: string]: Versions

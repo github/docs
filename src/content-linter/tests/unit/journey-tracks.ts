@@ -33,8 +33,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Testing
 journeyTracks:
   - id: track-1
     title: "Track with {% invalid liquid"

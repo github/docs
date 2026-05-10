@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code/warning-problem-with-controller-repository
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-codeql-for-vs-code/warning-problem-with-controller-repository
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this warning

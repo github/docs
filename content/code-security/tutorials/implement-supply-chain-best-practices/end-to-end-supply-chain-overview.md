@@ -10,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
 contentType: tutorials
+category:
+  - Secure your dependencies
 ---
 
 ## What is the end-to-end supply chain?

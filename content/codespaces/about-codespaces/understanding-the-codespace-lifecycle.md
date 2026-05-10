@@ -11,6 +11,8 @@ redirect_from:
   - /codespaces/about-codespaces/the-codespace-lifecycle
   - /codespaces/getting-started/understanding-the-codespace-lifecycle
 contentType: concepts
+category:
+  - Get started
 ---
 
 > [!NOTE]

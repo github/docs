@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /ai-tools
   - /github/site-policy/github-synthetic-media-and-ai-tools
+category:
+  - Follow acceptable use policies
 ---
 
 GitHub does not allow any projects that are designed for, encourage, promote, support, or suggest in any way the use of large language models or any other synthetic or manipulated media tools for the creation of:

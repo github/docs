@@ -6,7 +6,11 @@ permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: concepts
 versions:
-  feature: security-overview-org-codeql-pr-alerts
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+category:
+  - Secure at scale
 ---
 
 ## Overview

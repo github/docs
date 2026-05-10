@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: get-started
-topics:
-  - Codespaces
 ---
 
 ## Introduction

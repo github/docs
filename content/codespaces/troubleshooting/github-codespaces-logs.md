@@ -8,6 +8,8 @@ shortTitle: Codespaces logs
 redirect_from:
   - /codespaces/troubleshooting/codespaces-logs
 contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 Information on {% data variables.product.prodname_github_codespaces %} is output to various logs:

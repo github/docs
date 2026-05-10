@@ -19,13 +19,26 @@ The {% data variables.product.prodname_openai_codex %} coding agent and the {% d
 
 ## {% data variables.product.prodname_openai_codex %} coding agent
 
+The {% data variables.product.prodname_openai_codex %} coding agent is available to {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %}, and {% data variables.copilot.copilot_enterprise %} users.
+
 Before you can assign tasks to {% data variables.product.prodname_openai_codex %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories). 
 
 To learn more about using third-party agents on {% data variables.product.github %}, see [AUTOTITLE](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents).
 
+### Supported models
+
+When starting a task with the {% data variables.product.prodname_openai_codex %} coding agent, you can select the AI model used by the agent. The following models are available:
+
+* Auto
+{% data reusables.copilot.openai-codex-agent-models %}
+
+If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).
+
 ## {% data variables.product.prodname_vscode_shortname %} extension
 
- Use "Sign in with {% data variables.product.prodname_copilot_short %}" when launching the extension. {% data variables.product.prodname_copilot_short %} users can see this integration in the [Agent Sessions view](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions-view) in {% data variables.product.prodname_vscode_shortname %} Insiders along with progress on their running tasks. All usage is subject to {% data variables.product.github %} rate limits and billing. See [AUTOTITLE](/copilot/concepts/billing/copilot-requests#premium-features).
+> [!NOTE] The "Sign in with {% data variables.product.prodname_copilot_short %}" option in the {% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode_shortname %} extension is only available to {% data variables.copilot.copilot_pro_plus %} subscribers.
+
+Use "Sign in with {% data variables.product.prodname_copilot_short %}" when launching the extension. {% data variables.copilot.copilot_pro_plus_short %} users can see this integration in the [Agent Sessions view](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions-view) in {% data variables.product.prodname_vscode_shortname %} Insiders along with progress on their running tasks. All usage is subject to {% data variables.product.github %} rate limits and billing. See [AUTOTITLE](/copilot/concepts/billing/copilot-requests#premium-features).
 
 ### Model availability
 

@@ -9,6 +9,7 @@ versions:
 contentType: how-tos
 children:
   - viewing-and-updating-dependabot-alerts
+  - manage-malware-alerts
   - managing-automatically-dismissed-alerts
   - enable-delegated-alert-dismissal
 ---

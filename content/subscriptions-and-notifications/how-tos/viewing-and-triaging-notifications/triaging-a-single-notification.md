@@ -12,6 +12,8 @@ redirect_from:
   - /subscriptions-and-notifications/viewing-and-triaging-notifications/triaging-a-single-notification
 shortTitle: Triage a notification
 contentType: how-tos
+category:
+  - Manage subscriptions and triage your inbox
 ---
 ## Saving a single notification
 

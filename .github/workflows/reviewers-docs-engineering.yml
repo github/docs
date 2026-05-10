@@ -40,6 +40,7 @@ jobs:
       ${{ github.repository == 'github/docs-internal' &&
           !github.event.pull_request.draft &&
           !contains(github.event.pull_request.labels.*.name, 'reviewers-docs-engineering') &&
+          !contains(github.event.pull_request.labels.*.name, 'lockfile-churn-only') &&
           github.event.pull_request.head.ref != 'repo-sync' }}
     runs-on: ubuntu-latest
     env:
@@ -50,7 +51,45 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6.0.1
 
+      # Detect PRs that only changed package-lock.json (no engineering source files).
+      # These are usually cross-platform `npm install` churn from contributors
+      # editing content. We comment with reset instructions instead of pulling in
+      # docs-engineering for review.
+      - name: Detect lockfile-only churn
+        id: detect
+        run: |
+          changed=$(gh pr diff "$PR" --name-only)
+          echo "Changed files:"
+          echo "$changed"
+          lockfile=$(echo "$changed" | grep -c '^package-lock\.json$' || true)
+          other_eng=$(echo "$changed" | grep -cE '(\.tsx?$|\.scss$|^src/|^package\.json$|^\.github/|^config/|^\.devcontainer/|Dockerfile)' || true)
+          if [ "$lockfile" -gt 0 ] && [ "$other_eng" -eq 0 ]; then
+            echo "lockfile_only=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "lockfile_only=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Comment and label lockfile-only PRs
+        if: steps.detect.outputs.lockfile_only == 'true'
+        run: |
+          cat > /tmp/lockfile-churn-body.md <<'EOF'
+          _Posted by Copilot on behalf of docs-engineering._
+
+          This PR includes `package-lock.json` changes but no engineering files. Please reset the lockfile:
+
+          ```
+          git checkout origin/main -- package-lock.json
+          git commit -m "Reset package-lock.json"
+          git push
+          ```
+
+          If the lockfile change is intentional, remove the `lockfile-churn-only` label and request docs-engineering review.
+          EOF
+          gh pr comment "$PR" --body-file /tmp/lockfile-churn-body.md
+          gh pr edit "$PR" --add-label lockfile-churn-only
+
       - name: Add docs engineering as a reviewer
+        if: steps.detect.outputs.lockfile_only != 'true'
         uses: ./.github/actions/retry-command
         with:
           command: gh pr edit $PR --add-reviewer github/docs-engineering --add-label reviewers-docs-engineering

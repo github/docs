@@ -10,8 +10,8 @@ children:
     - /about-the-content-model
     - /contents-of-a-github-docs-article
     - /conceptual-content-type
-    - /referential-content-type
-    - /procedural-content-type
+    - /reference-content-type
+    - /how-to-content-type
     - /troubleshooting-content-type
     - /release-note-content-type
     - /quickstart-content-type

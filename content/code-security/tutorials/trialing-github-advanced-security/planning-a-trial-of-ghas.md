@@ -6,10 +6,12 @@ intro: Learn how to prepare for a successful trial of {% data variables.product.
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.15'
+  ghes: '*'
 redirect_from:
   - /code-security/trialing-github-advanced-security/planning-a-trial-of-ghas
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## Is a self-serve trial right for you?

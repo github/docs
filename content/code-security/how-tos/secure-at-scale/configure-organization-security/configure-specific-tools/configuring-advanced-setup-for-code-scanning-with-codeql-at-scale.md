@@ -13,6 +13,8 @@ versions:
   ghes: '*'
 allowTitleToDifferFromFilename: true
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## Using a script to enable advanced setup

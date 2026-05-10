@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Understand sponsorships
 ---
 
 ## About {% data variables.product.prodname_sponsors %}

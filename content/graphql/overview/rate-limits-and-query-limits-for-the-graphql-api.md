@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Understand API changes and limits
 ---
 
 ## Primary rate limit

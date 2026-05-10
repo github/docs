@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 By default, {% data variables.product.github %} sends notifications about new alerts by email to people with write, maintain, or admin permissions to a repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependabot-alerts#notifications-for-alerts).

@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Enable Patreon sponsorships
 contentType: how-tos
+category:
+  - Set up to receive sponsorships
 ---
 
 ## Prerequisites

@@ -18,6 +18,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
+category:
+  - Report and disclose vulnerabilities
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 

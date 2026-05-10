@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces
   - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
+category:
+  - Customize your codespace
 ---
 
 ## Overview

@@ -10,7 +10,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20260218-111945-g0ef8bb15f@sha256:03eb088f3581049afaf2984f917a3a9be7e5efc248049f4156cd83481579fb59 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20260501-222137-g8063ecb13@sha256:9c650d5e53cbf6c95951373d197ede7955329ef695f5fc6fb8a1c56a8e3b817f AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -155,9 +155,11 @@ ENV BUILD_SHA=$BUILD_SHA
 
 # V8 heap limit as a percentage of the container cgroup memory limit.
 # Uses --max-old-space-size-percentage (Node 24+) so the heap adapts
-# automatically when K8s memory limits change. 75% leaves ~25% headroom
+# automatically when K8s memory limits change. 80% leaves ~20% headroom
 # for off-heap memory (Buffers, V8 code cache, libuv) and OS overhead.
-ENV NODE_OPTIONS="--max-old-space-size-percentage=75"
+# Raised from 75% on advice from performance engineering to reduce GC
+# pressure during traffic spikes.
+ENV NODE_OPTIONS="--max-old-space-size-percentage=80"
 
 # Entrypoint to start the server
 CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 For more information about {% data variables.product.prodname_github_codespaces %} prebuilds, see [AUTOTITLE](/codespaces/prebuilding-your-codespaces).

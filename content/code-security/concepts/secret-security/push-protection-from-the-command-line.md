@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 Push protection prevents you from accidentally committing secrets to a repository by blocking pushes containing supported secrets.

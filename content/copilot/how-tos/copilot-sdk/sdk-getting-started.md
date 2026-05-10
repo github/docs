@@ -12,8 +12,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE]
->{% data variables.copilot.copilot_sdk_short %} is currently in {% data variables.release-phases.technical_preview %}. Functionality and availability are subject to change.
+{% data reusables.copilot.copilot-sdk.technical-preview-note %}
 
 {% data variables.copilot.copilot_sdk %} lets you build applications powered by {% data variables.product.prodname_copilot %} in your preferred programming language. In this guide, you'll install the SDK using `npm`, send your first message, and add streaming responses.
 

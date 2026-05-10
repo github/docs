@@ -12,6 +12,7 @@ versions:
 category:
   - Debugging code
   - Author and optimize with Copilot
+  - Improve quality and maintainability
 complexity:
   - Intermediate
 octicon: bug

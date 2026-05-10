@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About analyzing databases with the {% data variables.product.prodname_codeql_cli %}

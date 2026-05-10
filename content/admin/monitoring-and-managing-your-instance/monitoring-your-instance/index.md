@@ -19,6 +19,7 @@ children:
   - /collectd-metrics
   - /monitoring-using-snmp
   - /about-system-logs
+  - /about-support-bundles
   - /troubleshooting-resource-allocation-problems
   - /generating-a-health-check-for-your-enterprise
 

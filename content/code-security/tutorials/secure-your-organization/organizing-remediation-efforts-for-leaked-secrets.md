@@ -9,6 +9,8 @@ versions:
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/organizing-remediation-efforts-for-leaked-secrets
+category:
+  - Plan your security strategy
 ---
 
 ## Introduction
@@ -31,7 +33,7 @@ Before taking action, you need to understand the current state of your organizat
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the left sidebar, under "Alerts", click the  {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} symbol to the right of **{% data variables.product.prodname_secret_scanning_caps %}**.
+1. In the left sidebar, under "Findings", click the {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} symbol to the right of **{% data variables.product.prodname_secret_scanning_caps %}**.
 1. In the dropdown list, select `Default`. `Default` relates to supported patterns and specified custom patterns.
 1. Alternatively, you can select `Generic` to review unstructured secrets like passwords. However, generic patterns typically produce more false positives than default patterns, so consider reviewing these alerts after addressing higher-priority leaks.
 1. Review the total number of open alerts and repositories affected.
@@ -42,7 +44,7 @@ Before taking action, you need to understand the current state of your organizat
    * To filter by specific **service** credentials (AWS, Azure, {% data variables.product.github %}), use `provider:`.
    * To filter by specific **token types**, use `secret-type:`.
 
-1. Optionally, in the sidebar under "Metrics," click **{% data variables.product.prodname_secret_scanning_caps %}** to see:
+1. Optionally, in the sidebar under "Insights," click **{% data variables.product.prodname_secret_scanning_caps %}** to see:
    * Secret types that have been blocked or bypassed most frequently
    * Repositories with the most blocked pushes or bypasses
 
@@ -50,7 +52,7 @@ Before taking action, you need to understand the current state of your organizat
 
 You can set up a security campaign to organize and track your remediation work across repositories.
 
-1. Navigate to your organization and click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security**.
+1. Navigate to your organization and click **{% data variables.product.prodname_security_and_quality_tab %}**.
 1. On the left panel, select **{% octicon "goal" aria-hidden="true" aria-label="goal" %} Campaigns**.
 1. Click **Create campaign {% octicon "triangle-down" aria-hidden="true" %}**, then either:
    * Select a pre-defined Secrets campaign template.

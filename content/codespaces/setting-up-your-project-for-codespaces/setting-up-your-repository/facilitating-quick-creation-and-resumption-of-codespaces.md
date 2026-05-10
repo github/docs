@@ -10,6 +10,8 @@ redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge
 contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Overview

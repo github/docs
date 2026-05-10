@@ -22,6 +22,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: get-started
+category:
+  - Set up and customize delivery
 ---
 
 ## Notification delivery options

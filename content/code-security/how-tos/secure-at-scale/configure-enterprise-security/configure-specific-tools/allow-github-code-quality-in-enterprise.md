@@ -12,6 +12,8 @@ contentType: how-tos
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/code-quality/how-tos/allow-in-enterprise
+category:
+  - Secure at scale
 ---
 
 > [!NOTE]

@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 shortTitle: Open source contributors
 contentType: concepts
+category:
+  - Understand sponsorships
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

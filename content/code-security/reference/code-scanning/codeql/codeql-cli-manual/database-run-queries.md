@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-run-queries
   - /code-security/codeql-cli/codeql-cli-manual/database-run-queries
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## What are custom {% data variables.product.prodname_codeql %} queries?

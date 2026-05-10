@@ -9,6 +9,8 @@ redirect_from:
   - /codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container
   - /codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace
 contentType: how-tos
+category:
+  - Write code in a codespace
 ---
 
 ## About rebuilding the dev container

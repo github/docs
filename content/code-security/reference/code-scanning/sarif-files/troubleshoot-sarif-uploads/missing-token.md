@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/missing-token
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/missing-token
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

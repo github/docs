@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 children:
   - /security-log-events
 shortTitle: Account security

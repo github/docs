@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/generating-regular-expressions-for-custom-patterns-with-ai
   - /code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai
   - /code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning
+category:
+  - Protect your secrets
 ---
 
 ## Generating a regular expression for a repository with {% data variables.secret-scanning.copilot-secret-scanning %}

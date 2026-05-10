@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Learn about integrations
 ---
 
 By granting the {% data variables.product.github %} app access to your Microsoft Teams workspace, you are providing necessary authorizations to your {% data variables.product.github %} account and your Teams workspace. These permissions enable the app to perform its functions and provide you with a seamless experience when using {% data variables.product.github %} in Teams.
@@ -35,11 +37,11 @@ When you connect your {% data variables.product.github %} account to the {% data
 
 {% ifversion fpt or ghec %}
 
-## Additional permissions for {% data variables.copilot.copilot_coding_agent %}
+## Additional permissions for {% data variables.copilot.copilot_cloud_agent %}
 
 |Permission scope|Why we need it|
 |---|---|
-|Write access to content| To open pull requests authored by {% data variables.copilot.copilot_coding_agent %}.|
-|Read/write access to workflows| To initiate {% data variables.copilot.copilot_coding_agent %} sessions.|
+|Write access to content| To open pull requests authored by {% data variables.copilot.copilot_cloud_agent %}.|
+|Read/write access to workflows| To initiate {% data variables.copilot.copilot_cloud_agent %} sessions.|
 
 {% endif %}

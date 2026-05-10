@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/bqrs-decode
   - /code-security/codeql-cli/codeql-cli-manual/bqrs-decode
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

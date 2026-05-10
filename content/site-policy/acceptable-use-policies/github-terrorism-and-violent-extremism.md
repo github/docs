@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /tvec
   - /github/site-policy/github-terrorism-and-violent-extremism
+category:
+  - Follow acceptable use policies
 ---
 
 GitHub does not allow any content or conduct on GitHub that furthers terrorism or violent extremism (TVE). We will remove content and may ban accounts affiliated with TVE groups or individuals. You may not use GitHub for activities including but not limited to:

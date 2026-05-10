@@ -7,13 +7,15 @@ versions:
 contentType: reference
 redirect_from:
   - /code-security/code-quality/reference/metrics-and-ratings
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}
 
 This article provides definitions for the metrics and ratings used by {% data variables.product.prodname_code_quality_short %}.
 
-You can see the rule-based results for your repository on your **Security** tab, in the **{% data variables.code-quality.all_findings %}** tab under "{% data variables.code-quality.code_quality_ui_views %}".
+You can see the rule-based results for your repository on your **{% data variables.product.prodname_security_and_quality_tab %}** tab, in the **{% data variables.code-quality.all_findings %}** tab under "{% data variables.code-quality.code_quality_ui_views %}".
 
 ## Metric definitions
 

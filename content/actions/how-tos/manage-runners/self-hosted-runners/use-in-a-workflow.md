@@ -55,7 +55,7 @@ runs-on: [self-hosted, linux, ARM64]
 * `linux` - Only use a Linux-based runner.
 * `ARM64` - Only use a runner based on ARM64 hardware.
 
-To create individual self-hosted runners without the default labels, pass the `--no-default-labels` flag when you create the runner. Actions Runner Controller does not support multiple labels.
+To create individual self-hosted runners without the default labels, pass the `--no-default-labels` flag when you create the runner.
 
 ## Using custom labels to route jobs
 
