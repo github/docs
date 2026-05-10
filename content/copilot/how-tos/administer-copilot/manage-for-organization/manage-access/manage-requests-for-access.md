@@ -26,6 +26,6 @@ If your organization is owned by an enterprise, before you can approve a request
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org-list %}
 1. In the "Access" section of the sidebar, click **{% octicon "bell" aria-hidden="true" aria-label="bell" %} Requests from members**.
-1. To accept the request and grant the member access to {% data variables.copilot.copilot_for_business %}, click **Buy {% data variables.copilot.copilot_business_short %}**.
+1. To accept the request and grant the member access to {% data variables.copilot.copilot_for_business %}, approve the request.
 
 All requests for {% data variables.copilot.copilot_business_short %} are grouped together under "{% data variables.copilot.copilot_business_short %}."

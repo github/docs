@@ -1,0 +1,1 @@
+1. Optionally, you can use the dropdown menu to select the model that {% data variables.product.prodname_copilot_short %} will use. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model).

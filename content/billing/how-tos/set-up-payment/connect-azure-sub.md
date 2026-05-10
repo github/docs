@@ -8,6 +8,7 @@ redirect_from:
   - /billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise
   - /billing/managing-billing-for-your-github-account/connecting-an-azure-subscription
   - /billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription
+  - /video-transcripts/transcript-billing-github-consumption-through-an-azure-subscription
 versions:
   fpt: '*'
   ghec: '*'

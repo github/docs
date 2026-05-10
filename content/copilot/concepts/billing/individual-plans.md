@@ -15,6 +15,14 @@ contentType: concepts
 category: 
   - Learn about Copilot
 ---
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->
+
+> [!IMPORTANT]
+> {% data reusables.copilot.plans.individual-plans-paused %}
 
 {% data variables.product.company_short %} offers three {% data variables.product.prodname_copilot_short %} plans for individual developers, as well as a dedicated student offering, each designed to meet different needs based on your coding habits, interest in AI models, and desired level of flexibility.
 
@@ -69,7 +77,7 @@ The following table highlights the key differences between individual {% data va
 
 | Feature | {% data variables.copilot.copilot_free %} | {% data variables.copilot.copilot_student %} | {% data variables.copilot.copilot_pro %} | {% data variables.copilot.copilot_pro_plus %} |
 |--------|----------------------------------------------------|----------------------------------------------|--------------------------------------------------|----------------------------------------------------------|
-| Price | Free | [Free](/copilot/how-tos/manage-your-account/free-access-with-copilot-student) | {% data variables.copilot.cfi_price_per_month %} per month<br>([free](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer) for some users) | {% data variables.copilot.cpp_price_per_month %} per month |
+| Price | Free | [Free](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) | {% data variables.copilot.cfi_price_per_month %} per month<br>([free](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers) for some users) | {% data variables.copilot.cpp_price_per_month %} per month |
 | Real-time code suggestions with included models | Up to 2,000 per month | Unlimited | Unlimited | Unlimited |
 | Premium requests | 50 per month | 300 per month | 300 per month | 1,500 per month |
 | Purchase additional premium requests at {% data variables.copilot.additional_premium_requests %} per request | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

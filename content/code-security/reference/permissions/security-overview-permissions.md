@@ -29,7 +29,7 @@ If you are an **organization or team member**, you can view security overview fo
 
 | Organization or team member with | Overview dashboard view | Risk and alerts views | Coverage view |
 |--------------------|-------------|---------------------|---------|
-| `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories{% ifversion pre-security-configurations %}, and enable and disable security features{% endif %} |
+| `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories |
 | `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
 | `read` or `triage` access for one or more repositories | No access | No access | No access |
 | Security alert access for one or more repositories | View all security alert data for those repositories | View all security alert data for those repositories | No access |

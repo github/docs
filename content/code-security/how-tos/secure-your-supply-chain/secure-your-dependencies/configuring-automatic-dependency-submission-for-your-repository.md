@@ -19,6 +19,9 @@ Dependency graph must be enabled for the repository for you to enable automatic 
 
 You must also enable {% data variables.product.prodname_actions %} for the repository in order to use automatic dependency submission. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
 
+> [!NOTE]
+> For ecosystems that support {% data variables.product.prodname_dependabot %} graph jobs, you do not need to enable automatic dependency submission. {% data variables.product.prodname_dependabot %} graph jobs run automatically when the dependency graph is enabled for your repository, and they take precedence over automatic dependency submission. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph-data#dependabot-graph-jobs).
+
 ## Enabling automatic dependency submission
 
 Repository administrators can enable or disable automatic dependency submission for a repository by following the steps outlined in this procedure.
@@ -39,14 +42,24 @@ You can view details about the automatic workflows run by viewing the **Actions*
 
 > [!NOTE] After you enable automatic dependency submission, we'll automatically trigger a run of the action. Once enabled, it'll run each time a commit to the default branch updates a manifest.
 
-## Accessing private registries with self-hosted runners
+## Accessing private registries
 
-You can configure self-hosted runners to run automatic dependency submission jobs, instead of using the {% data variables.product.prodname_actions %} infrastructure. This is necessary to access private Maven registries. The self-hosted runners must be running on Linux or macOS. For .NET and Python auto-submission, they must have access to the public internet in order to download the latest component-detection release.
+### Using {% data variables.product.prodname_dependabot %} secrets
+
+For ecosystems that support {% data variables.product.prodname_dependabot %} graph jobs, you can configure access to private registries using {% data variables.product.prodname_dependabot %} secrets at the organization or repository level.
+
+When {% data variables.product.prodname_dependabot %} graph jobs encounter private packages that are not accessible through configured secrets, those packages are gracefully omitted from the dependency graph without causing a failure.
+
+For more information on configuring private registry access, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
+
+### Using self-hosted runners
+
+You can configure **self-hosted runners** to run automatic dependency submission jobs, instead of using the {% data variables.product.prodname_actions %} infrastructure. This is necessary to access private registries for ecosystems that do not support {% data variables.product.prodname_dependabot %} graph jobs, or when your registries are only reachable from within your network. The self-hosted runners must be running on Linux or macOS. For .NET and Python auto-submission, they must have access to the public internet in order to download the latest component-detection release.
 
 1. Provision one or more self-hosted runners, at the repository or organization level. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
 1. Assign a `dependency-submission` label to each runner you want automatic dependency submission to use. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner).
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Dependency graph", click the dropdown menu next to “Automatic dependency submission”, then select **Enabled for labeled runners**.
+1. Under "Dependency graph", click the dropdown menu next to "Automatic dependency submission", then select **Enabled for labeled runners**.
 
 Once enabled, automatic dependency submission jobs will run on the self-hosted runners, unless:
 * The self-hosted runners are unavailable.

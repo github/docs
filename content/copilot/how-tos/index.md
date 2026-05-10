@@ -5,6 +5,7 @@ intro: Learn how to use {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
 children:
+  - /copilot-on-github
   - /set-up
   - /get-code-suggestions
   - /chat-with-copilot
@@ -13,7 +14,7 @@ children:
   - /use-copilot-agents
   - /use-ai-models
   - /provide-context
-  - /configure-custom-instructions
+  - /configure-custom-instructions-in-your-ide
   - /configure-content-exclusion
   - /use-copilot-for-common-tasks
   - /configure-personal-settings

@@ -25,7 +25,6 @@ carousels:
     - /issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations
     - /issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai
 layout: discovery-landing
-beta_product: false
 versions:
   fpt: '*'
   ghes: '*'
@@ -35,9 +34,6 @@ children:
   - /planning-and-tracking-with-projects
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
-  - /guides
-product_video: 'https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y'
-product_video_transcript: /video-transcripts/transcript-using-projects-for-feature-planning
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/managing-your-work-with-issues
@@ -63,4 +59,6 @@ redirect_from:
   - /disabling-issues
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
+  - /issues/guides
+  - /video-transcripts/transcript-using-projects-for-feature-planning
 ---

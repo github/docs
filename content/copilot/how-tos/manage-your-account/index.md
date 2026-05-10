@@ -6,8 +6,6 @@ versions:
   feature: copilot
 children:
   - /get-started-with-a-copilot-plan
-  - /free-access-with-copilot-student
-  - /get-free-access-to-copilot-pro
   - /view-and-change-your-copilot-plan
   - /disable-copilot-free
   - /manage-policies
@@ -20,3 +18,8 @@ redirect_from:
 contentType: how-tos
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->

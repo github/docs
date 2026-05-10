@@ -187,7 +187,25 @@ function getDataByDir(
     if (allData && key) {
       const value = allData[key]
       if (value) {
-        return matter(value).content
+        let content = matter(value).content
+        if (dir !== englishRoot) {
+          let englishContent = content
+          try {
+            const englishData = getYamlContent(englishRoot, fullPath.join(path.sep), englishRoot)
+            if (englishData?.[key]) {
+              englishContent = matter(englishData[key]).content
+            }
+          } catch (error) {
+            if ((error as FileSystemError).code !== 'ENOENT') {
+              throw error
+            }
+          }
+          content = correctTranslatedContentStrings(content, englishContent, {
+            dottedPath,
+            code: langCode,
+          })
+        }
+        return content
       }
     } else {
       console.warn(`Unable to find variables Yaml file ${fullPath.join(path.sep)}`)
@@ -240,20 +258,11 @@ function getDataByDir(
     return get(allData, split.join('.'))
   }
 
-  if (first === 'product-examples' || first === 'glossaries' || first === 'release-notes') {
+  if (first === 'glossaries' || first === 'release-notes') {
     const basename = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${basename}.yml`)
     return getYamlContent(dir, fullPath.join(path.sep), englishRoot)
-  }
-
-  if (first === 'learning-tracks') {
-    const key = split.pop()!
-    const basename = split.pop()!
-    fullPath.push(...split)
-    fullPath.push(`${basename}.yml`)
-    const allData = getYamlContent(dir, fullPath.join(path.sep), englishRoot)
-    return key ? allData[key] : undefined
   }
 
   throw new Error(`Can't find the key '${dottedPath}' in the scope.`)

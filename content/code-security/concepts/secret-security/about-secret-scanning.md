@@ -19,7 +19,7 @@ category:
   - Protect your secrets
 ---
 
-When credentials like API keys and passwords are committed to repositories, they become targets for unauthorized access. {% data variables.product.prodname_secret_scanning_caps %} automatically detects these exposed secrets so you can secure them before they're exploited.
+When credentials like API keys and passwords are committed to repositories as hardcoded secrets, they become targets for unauthorized access. {% data variables.product.prodname_secret_scanning_caps %} automatically detects credential leaks so you can secure them before they're exploited.
 
 {% ifversion secret-risk-assessment %}
 
@@ -32,7 +32,7 @@ When credentials like API keys and passwords are committed to repositories, they
 
 ## How secret scanning protects your code
 
-{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches of your repository for API keys, passwords, tokens, and other known secret types. {% data variables.product.github %} also periodically rescans repositories when new secret types are added.
+{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches of your repository for hardcoded credentials, including API keys, passwords, tokens, and other known secret types. This helps you identify secret sprawl, the uncontrolled proliferation of credentials across repositories, before it becomes a security risk. {% data variables.product.github %} also periodically rescans repositories when new secret types are added.
 
 {% data variables.product.github %} also automatically scans:
 
@@ -40,7 +40,7 @@ When credentials like API keys and passwords are committed to repositories, they
 
 ### {% data variables.product.prodname_secret_scanning_caps %} alerts and remediation
 
-When {% data variables.product.prodname_secret_scanning %} finds a potential secret, {% data variables.product.github %} generates an alert on your repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab with details about the exposed credential.
+When {% data variables.product.prodname_secret_scanning %} detects a credential leak, {% data variables.product.github %} generates an alert on your repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab with details about the exposed credential.
 
 When you receive an alert, rotate the affected credential immediately to prevent unauthorized access. While you can also remove secrets from your Git history, this is time-intensive and often unnecessary if you've already revoked the credential.
 

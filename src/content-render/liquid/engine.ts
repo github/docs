@@ -1,44 +1,41 @@
 import { Liquid } from 'liquidjs'
 import GithubSlugger from 'github-slugger'
-// Copilot: When converting data.js to TypeScript, remove the 'as any' assertion for anyData below
 import Data from './data'
 import Octicon from './octicon'
-// Copilot: When converting ifversion.js to TypeScript, remove the 'as any' assertion for anyIfversion below
 import Ifversion from './ifversion'
-// Copilot: When converting tool.js to TypeScript, remove the 'as any' assertion for anyTool below
 import { Tool, tags as toolTags } from './tool'
 import { Spotlight, tags as spotlightTags } from './spotlight'
 import { Prompt } from './prompt'
 import IndentedDataReference from './indented-data-reference'
 
-// Type assertions for .js files without type definitions
-// Copilot: Remove these assertions when the corresponding .js files are converted to TypeScript
-const anyData = Data as any
-const anyIfversion = Ifversion as any
-const anyTool = Tool as any
-const anySpotlight = Spotlight as any
-const anyPrompt = Prompt as any
-const anyIndentedDataReference = IndentedDataReference as any
+type LiquidTagDef = Parameters<Liquid['registerTag']>[1]
+
+const dataTag = Data as unknown as LiquidTagDef
+const ifversionTag = Ifversion as unknown as LiquidTagDef
+const toolTag = Tool as unknown as LiquidTagDef
+const spotlightTag = Spotlight as unknown as LiquidTagDef
+const promptTag = Prompt as unknown as LiquidTagDef
+const indentedDataReferenceTag = IndentedDataReference as unknown as LiquidTagDef
 
 export const engine = new Liquid({
   extname: '.html',
   dynamicPartials: false,
 })
 
-engine.registerTag('indented_data_reference', anyIndentedDataReference)
-engine.registerTag('data', anyData)
+engine.registerTag('indented_data_reference', indentedDataReferenceTag)
+engine.registerTag('data', dataTag)
 engine.registerTag('octicon', Octicon)
-engine.registerTag('ifversion', anyIfversion)
+engine.registerTag('ifversion', ifversionTag)
 
 for (const tag of toolTags) {
-  engine.registerTag(tag, anyTool)
+  engine.registerTag(tag, toolTag)
 }
 
 for (const tag in spotlightTags) {
-  engine.registerTag(tag, anySpotlight)
+  engine.registerTag(tag, spotlightTag)
 }
 
-engine.registerTag('prompt', anyPrompt)
+engine.registerTag('prompt', promptTag)
 
 /**
  * Like the `size` filter, but specifically for

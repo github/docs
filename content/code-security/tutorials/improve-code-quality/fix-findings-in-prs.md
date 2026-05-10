@@ -1,7 +1,7 @@
 ---
 title: Fixing code quality findings before merging your pull request
 shortTitle: Fix findings in PRs
-intro: Catch quality issues before they reach your default branch and fix them with {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_coding_agent %}.
+intro: Catch quality issues before they reach your default branch and fix them with {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_cloud_agent %}.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -17,7 +17,7 @@ category:
 
 ## Introduction
 
-This tutorial shows you how to work with {% data variables.product.prodname_code_quality %} on pull requests to identify code quality issues that your changes may otherwise inadvertently introduce, and how to address and resolve code quality findings with {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_coding_agent %}.
+This tutorial shows you how to work with {% data variables.product.prodname_code_quality %} on pull requests to identify code quality issues that your changes may otherwise inadvertently introduce, and how to address and resolve code quality findings with {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_cloud_agent %}.
 
 ### Benefits of catching issues early
 
@@ -45,15 +45,15 @@ High severity findings indicate more serious code quality issues that are more l
 > [!NOTE]
 > A repository administrator may have set a code quality gate that **blocks** merging on your pull request, if the pull request contains {% data variables.product.prodname_code_quality_short %} findings of a particular severity level or above. See [AUTOTITLE](/code-security/code-quality/how-tos/unblock-your-pr).
 
-## 3. Leverage {% data variables.copilot.copilot_autofix_short %} or {% data variables.copilot.copilot_coding_agent %} to fix findings
+## 3. Leverage {% data variables.copilot.copilot_autofix_short %} or {% data variables.copilot.copilot_cloud_agent %} to fix findings
 
 ### {% data variables.copilot.copilot_autofix_short %}
 
 {% data reusables.code-quality.fix-findings-with-copilot-autofix %}
 
-### {% data variables.copilot.copilot_coding_agent %}
+### {% data variables.copilot.copilot_cloud_agent %}
 
-{% data reusables.code-quality.fix-findings-with-coding-agent %}
+{% data reusables.code-quality.fix-findings-with-cloud-agent %}
 
 ## 4. Dismiss irrelevant findings
 

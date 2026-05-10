@@ -4,7 +4,7 @@ Data residency makes it easy to separate open source and enterprise work, and he
 
 The available regions are:
 
-* EU
+* EU (includes Azure regions in EFTA countries, currently Norway and Switzerland)
 * Australia
 * US
 * Japan

@@ -132,8 +132,10 @@ function getCategory(relativePath: string): string {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ')
 
-  // Clarify this one category
-  return category.replace('Content Render', 'Content Tasks')
+  // Clarify some category names
+  return category
+    .replace('Content Render', 'Content Tasks')
+    .replace('Ghes Releases', 'GHES release notes')
 }
 
 function findScriptName(scripts: Record<string, string>, relativePath: string): string | null {

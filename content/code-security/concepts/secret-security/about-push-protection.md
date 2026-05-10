@@ -18,16 +18,16 @@ category:
 
 ## What is push protection?
 
-Push protection is a {% data variables.product.prodname_secret_scanning %} feature designed to prevent sensitive information, such as secrets or tokens, from ever being pushed to your repository. Unlike {% data variables.product.prodname_secret_scanning %}, which detects secrets after they have been committed, push protection proactively scans your code for secrets during the push process, then blocks the push if any are detected.
+Push protection is a {% data variables.product.prodname_secret_scanning %} feature designed to prevent hardcoded credentials, such as secrets or tokens, from ever being pushed to your repository. Rather than alerting you to credential leaks after the fact, push protection blocks pushes that contain secrets _before_ they reach your repository.
 
 ## How push protection works
 
 Push protection blocks secrets detected in:
 
 * Pushes from the command line
-* Commits made in the {% data variables.product.prodname_dotcom %} UI{% ifversion push-protection-delegated-bypass-file-upload-support %}
-* File uploads to a repository on {% data variables.product.github %}{% endif %}{% ifversion secret-scanning-push-protection-content-endpoints %}
-* Requests to the REST API{% endif %}
+* Commits made in the {% data variables.product.prodname_dotcom %} UI
+* File uploads to a repository on {% data variables.product.github %}
+* Requests to the REST API
 * Interactions with the {% data variables.product.github %} MCP server (public repositories only)
 
 When push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push.
@@ -74,9 +74,9 @@ If you want greater control over which contributors can bypass push protection a
 
 ## Benefits of push protection
 
-* **Preventative security:** Push protection acts as a frontline defense mechanism by scanning code for secrets at the time of the push. This preventative approach helps to catch potential issues before they are merged into a repository.
+* **Preventative security:** Push protection acts as a frontline defense mechanism by scanning code for hardcoded secrets at the time of the push. This preventative approach helps prevent credential leaks before they become ingrained in the repository's history, making it easier to address and remediate threats.
 * **Immediate feedback:** Developers receive instant feedback if a potential secret is detected during a push attempt. This immediate notification allows for quick remediation, reducing the likelihood of sensitive information being exposed.
-* **Reduced risk of data leaks:** By blocking commits that contain sensitive information, push protection significantly reduces the risk of accidental data leaks. This helps in safeguarding against unauthorized access to your infrastructure, services, and data.
+* **Reduced risk of credential leaks:** By blocking commits that contain hardcoded credentials, push protection significantly reduces the risk of accidental credential leaks and secret sprawl. This helps in safeguarding against potential breaches and maintaining the integrity of the codebase.
 * **Efficient secret management:** Instead of retrospectively dealing with exposed secrets, developers can address issues at the source. This makes secret management more efficient and less time-consuming.
 * **Bypass functionality for flexibility:** For cases where false positives occur or when certain patterns are necessary, you can bypass push protection for users, and designated users can use the delegated bypass feature to bypass push protection for repositories. {% ifversion push-protection-org-enterprise-exemptions %}Additionally, you can exempt trusted actors {% ifversion push-protection-repo-exemptions %}{% else %}at the organization and enterprise levels {% endif %}from push protection entirely. {% endif %}This provides flexibility without compromising overall security.
 * **Ability to detect custom patterns (for repositories in organizations):** Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push protection can effectively identify and block even non-standard secrets.
@@ -91,7 +91,6 @@ After you enable push protection for repositories, you can customize it by:
 
 ## Next steps
 
-{% ifversion security-configurations %}
 To enable push protection:
 * **For a repository**, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository).
 {% ifversion security-configurations-cloud -%}
@@ -100,9 +99,6 @@ To enable push protection:
 * **For an organization or enterprise**, you need to apply a {% data variables.product.prodname_security_configuration %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/creating-a-custom-security-configuration-for-your-enterprise).
 {% else -%}
 * **For an organization**, you need to apply a {% data variables.product.prodname_security_configuration %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration).
-{% endif %}
-{% else %}
-To get started with push protection, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository).
 {% endif %}
 
 For a list of secrets and service providers supported by push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).

@@ -11,7 +11,6 @@ import { ArticleList } from '@/landings/components/ArticleList'
 import { ArticleGridLayout } from '@/frame/components/article/ArticleGridLayout'
 import { PermissionsStatement } from '@/frame/components/ui/PermissionsStatement'
 import { Lead } from '@/frame/components/ui/Lead'
-import { LearningTrackNav } from '@/learning-track/components/article/LearningTrackNav'
 import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
 import { RestRedirect } from '@/rest/components/RestRedirect'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
@@ -27,7 +26,6 @@ export const TocLanding = () => {
     variant,
     featuredLinks,
     renderedPage,
-    currentLearningTrack,
     permissions,
   } = useTocLandingContext()
   const { t } = useTranslation('toc')
@@ -80,12 +78,6 @@ export const TocLanding = () => {
             <TableOfContents items={tocItems} variant={variant} />
           </div>
         </ArticleGridLayout>
-
-        {currentLearningTrack?.trackName ? (
-          <div className="mt-4">
-            <LearningTrackNav track={currentLearningTrack} />
-          </div>
-        ) : null}
       </div>
     </DefaultLayout>
   )

@@ -1,0 +1,6 @@
+# Reference: #20672
+# Configure Dependabot to use GitHub OIDC [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.20'

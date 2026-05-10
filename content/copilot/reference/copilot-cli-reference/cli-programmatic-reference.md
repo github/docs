@@ -8,6 +8,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: reference
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 In addition to running {% data variables.copilot.copilot_cli_short %} interactively, you can also pass a prompt directly to the CLI in a single command, without entering an interactive session. This allows you to use {% data variables.product.prodname_copilot_short %} programmatically in scripts, CI/CD pipelines, and automation workflows. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically).
@@ -117,12 +119,12 @@ copilot -p "Fix the race condition in the worker pool" \
 
 Alternatively, you can set the `COPILOT_MODEL` environment variable to specify a model for the duration of the shell session.
 
-To persist a model selection across shell sessions, you can set the `model` key in the CLI configuration file. This file is located at `~/.copilot/config.json` (or `$COPILOT_HOME/.copilot/config.json` if you have set the `COPILOT_HOME` environment variable). Some models also allow you to set a reasoning effort level, which controls how much time the model spends thinking before responding.
+To persist a model selection across shell sessions, you can set the `model` key in the CLI configuration file. This file is located at `~/.copilot/settings.json` (or `$COPILOT_HOME/settings.json` if you have set the `COPILOT_HOME` environment variable). Some models also allow you to set a reasoning effort level, which controls how much time the model spends thinking before responding.
 
 ```json copy
 {
   "model": "gpt-5.3-codex",
-  "reasoning_effort": "low"
+  "effortLevel": "low"
 }
 ```
 
@@ -136,7 +138,7 @@ When determining which model to use for a given prompt, the CLI checks for model
 * Where a custom agent is used: the model specified in the custom agent definition (if any).
 * The `--model` command line option.
 * The `COPILOT_MODEL` environment variable.
-* The `model` key in the configuration file (`~/.copilot/config.json` or `$COPILOT_HOME/.copilot/config.json`).
+* The `model` key in the configuration file (`~/.copilot/settings.json` or `$COPILOT_HOME/settings.json`).
 * The CLI's default model.
 
 ## Using custom agents

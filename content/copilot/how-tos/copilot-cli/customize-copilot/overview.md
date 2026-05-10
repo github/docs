@@ -11,6 +11,8 @@ category:
   - Configure Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/how-tos/copilot-cli/customize-copilot/quickstart-for-customizing
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 You can download and install {% data variables.copilot.copilot_cli_short %}, and start using it straight away, without any additional configuration. However, you'll find that you can improve {% data variables.product.prodname_copilot_short %}'s responses if you spend a little time providing it with guidelines and context, and giving it access to tools that are relevant to your project. This article introduces the various ways in which you can customize {% data variables.copilot.copilot_cli_short %}.
@@ -33,7 +35,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 Skills are folders of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} can load to improve its performance on specialized tasks. By adding skills to your project, you can give {% data variables.product.prodname_copilot_short %} extra knowledge or tools for particular workflows, technologies, or domains.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills).
 
 ## Custom agents
 

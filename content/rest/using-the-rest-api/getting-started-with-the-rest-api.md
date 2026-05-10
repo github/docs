@@ -256,7 +256,7 @@ The following example request uses the ["Get Octocat" endpoint](/rest/meta/meta#
 ```shell copy
 gh api --method GET /octocat \
 --header 'Accept: application/vnd.github+json' \
---header "X-GitHub-Api-Version: 2022-11-28"
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}"
 ```
 
 #### Example request using query parameters
@@ -275,7 +275,7 @@ The following example uses the ["Create an issue" endpoint](/rest/issues/issues#
 ```shell copy
 gh api --method POST /repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: 2022-11-28" \
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
 -f title='Created with the REST API' \
 -f body='This is a test issue created by the REST API' \
 ```
@@ -332,7 +332,7 @@ The following example request uses the ["Get Octocat" endpoint](/rest/meta/meta#
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: 2022-11-28"
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}"
 ```
 
 #### Example request using query parameters
@@ -343,7 +343,7 @@ The ["List public events" endpoint](/rest/activity/events#list-public-events) re
 curl --request GET \
 --url "{% data variables.product.rest_url %}/events?per_page=2&page=1" \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: 2022-11-28" \
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   https://api.github.com/events
 ```
 
@@ -359,7 +359,7 @@ curl \
 --request POST \
 --url "{% data variables.product.rest_url %}/repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues" \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: 2022-11-28" \
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --data '{
   "title": "Created with the REST API",

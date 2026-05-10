@@ -3,6 +3,21 @@ import type { Request, Response } from 'express'
 import { createLogger } from '@/observability/logger'
 import { initLoggerContext, updateLoggerContext } from '@/observability/logger/lib/logger-context'
 
+// Strip ANSI escape codes for easier assertion matching
+function stripAnsi(s: string): string {
+  // eslint-disable-next-line no-control-regex
+  return s.replace(/\[\d+m/g, '')
+}
+
+// Check that a dev-mode log line contains the expected level and message
+function expectDevLog(logs: string[], level: string, message: string): void {
+  const match = logs.find((log) => {
+    const clean = stripAnsi(log)
+    return clean.includes(level) && clean.includes(message)
+  })
+  expect(match, `Expected a log containing "${level}" and "${message}"`).toBeDefined()
+}
+
 // Integration tests that use real dependencies without mocks
 describe('logger integration tests', () => {
   let originalConsoleLog: typeof console.log
@@ -147,10 +162,11 @@ describe('logger integration tests', () => {
       logger.error('Error message')
 
       // With 'info' level, debug should be filtered out (debug=3, info=2, so debug > info)
-      expect(consoleLogs).not.toContain('[DEBUG] Debug message')
-      expect(consoleLogs).toContain('[INFO] Info message')
-      expect(consoleLogs).toContain('[WARN] Warn message')
-      expect(consoleLogs).toContain('[ERROR] Error message')
+      const allClean = consoleLogs.map(stripAnsi).join('\n')
+      expect(allClean).not.toContain('Debug message')
+      expectDevLog(consoleLogs, 'INFO', 'Info message')
+      expectDevLog(consoleLogs, 'WARN', 'Warn message')
+      expectDevLog(consoleLogs, 'ERROR', 'Error message')
     })
 
     it('should use real log level filtering with explicit LOG_LEVEL=error', () => {
@@ -171,10 +187,11 @@ describe('logger integration tests', () => {
       logger.error('Error message')
 
       // With 'error' level (0), only error should be logged
-      expect(consoleLogs).not.toContain('[DEBUG] Debug message')
-      expect(consoleLogs).not.toContain('[INFO] Info message')
-      expect(consoleLogs).not.toContain('[WARN] Warn message')
-      expect(consoleLogs).toContain('[ERROR] Error message')
+      const allClean = consoleLogs.map(stripAnsi).join('\n')
+      expect(allClean).not.toContain('Debug message')
+      expect(allClean).not.toContain('Info message')
+      expect(allClean).not.toContain('Warn message')
+      expectDevLog(consoleLogs, 'ERROR', 'Error message')
     })
 
     it('should use real production logging detection with LOG_LIKE_PRODUCTION=true', () => {
@@ -234,10 +251,10 @@ describe('logger integration tests', () => {
       logger.info('Development logging test')
 
       expect(consoleLogs).toHaveLength(1)
-      const logOutput = consoleLogs[0]
 
       // Should be in development format (not logfmt)
-      expect(logOutput).toBe('[INFO] Development logging test')
+      expectDevLog(consoleLogs, 'INFO', 'Development logging test')
+      const logOutput = stripAnsi(consoleLogs[0])
       expect(logOutput).not.toContain('level=info')
       expect(logOutput).not.toContain('timestamp=')
     })

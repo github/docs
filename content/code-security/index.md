@@ -6,12 +6,7 @@ redirect_from:
   - /code-security/guides
 introLinks:
   overview: '{% ifversion ghes %}/code-security/getting-started/github-security-features{% endif %}'
-  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk{% endif %}'
-changelog:
-  label: security-and-compliance
-  versions:
-    fpt: '*'
-    ghec: '*'
+  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}https://github.com/get_started?with=risk-assessment{% endif %}'
 layout: discovery-landing
 contentType: landing
 includedCategories:

@@ -857,6 +857,15 @@
                                     "TEAM",
                                     "ROLE"
                                   ]
+                                },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
                                 }
                               }
                             }
@@ -1249,7 +1258,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -4476,6 +4484,15 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             }
                           }
@@ -4736,7 +4753,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "has_discussions": false,
               "archived": false,
               "disabled": false,
@@ -7989,6 +8005,15 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             }
                           }
@@ -8299,6 +8324,16 @@
                         "TEAM",
                         "ROLE"
                       ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "mode",
+                      "description": "<p>The bypass mode for the reviewer</p>",
+                      "enum": [
+                        "ALWAYS",
+                        "EXEMPT"
+                      ],
+                      "default": "ALWAYS"
                     }
                   ]
                 }
@@ -8560,7 +8595,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -11787,6 +11821,15 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             }
                           }
@@ -14394,7 +14437,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -15164,6 +15206,15 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             }
                           }
@@ -15623,7 +15674,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -18850,6 +18900,15 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             }
                           }
@@ -19701,6 +19760,15 @@
                                     "TEAM",
                                     "ROLE"
                                   ]
+                                },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
                                 }
                               }
                             }
@@ -21029,7 +21097,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -24256,6 +24323,15 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             }
                           }
@@ -25251,6 +25327,15 @@
                                     "TEAM",
                                     "ROLE"
                                   ]
+                                },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
                                 }
                               }
                             }
@@ -31131,6 +31216,15 @@
                                     "TEAM",
                                     "ROLE"
                                   ]
+                                },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
                                 }
                               }
                             }
@@ -31387,7 +31481,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -34614,6 +34707,15 @@
                                   "TEAM",
                                   "ROLE"
                                 ]
+                              },
+                              "mode": {
+                                "type": "string",
+                                "description": "The bypass mode for the reviewer",
+                                "enum": [
+                                  "ALWAYS",
+                                  "EXEMPT"
+                                ],
+                                "default": "ALWAYS"
                               }
                             }
                           }

@@ -130,7 +130,7 @@ Push protection for users automatically protects you from accidentally committin
 
 For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}{% endif %}{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}{% endif %}, you can access additional security features when you purchase **{% data variables.product.prodname_GH_secret_protection %}**.
 
-{% data variables.product.prodname_GH_secret_protection %} includes features that help you detect and prevent secret leaks, such as {% data variables.product.prodname_secret_scanning %} and push protection.
+{% data variables.product.prodname_GH_secret_protection %} includes features that help you detect and prevent credential leaks and secret sprawl, such as {% data variables.product.prodname_secret_scanning %} for detecting hardcoded credentials and push protection for blocking them before they reach your repository.
 
 These features are available for all repository types. {% ifversion fpt or ghec %}Some of these features are available for public repositories free of charge, meaning that you don't need to purchase {% data variables.product.prodname_GH_secret_protection %} to enable the feature on a public repository.{% endif %}
 
@@ -148,7 +148,7 @@ For information about how you can try {% data variables.product.prodname_GH_secr
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-user-alerts).
+Automatically detect hardcoded credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.github %} finds in your code, in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of your repository, so you can respond to credential leaks quickly. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
@@ -162,7 +162,7 @@ Automatically detect tokens or credentials that have been checked into a reposit
 
 ### Push protection
 
-Push protection proactively scans your code, and any repository contributors' code, for secrets during the push process and blocks the push if any secrets are detected. If a contributor bypasses the block, {% data variables.product.github %} creates an alert. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
+Push protection proactively scans your code, and any repository contributors' code, for hardcoded secrets during the push process and blocks the push if any credential leaks are detected. If a contributor bypasses the block, an alert is generated. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
 {% data reusables.advanced-security.available-for-public-repos %}
 

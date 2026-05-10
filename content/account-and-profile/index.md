@@ -6,11 +6,6 @@ introLinks:
   quickstart: /account-and-profile/get-started/account
   overview: /account-and-profile/get-started/profile
 layout: discovery-landing
-changelog:
-  label: profiles, github-themes
-  versions:
-    fpt: '*'
-    ghec: '*'
 versions:
   fpt: '*'
   ghes: '*'

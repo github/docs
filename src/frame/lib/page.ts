@@ -8,17 +8,18 @@ import getEnglishHeadings from '@/languages/lib/get-english-headings'
 import { getAlertTitles } from '@/languages/lib/get-alert-titles'
 import Permalink from './permalink'
 import { renderContent } from '@/content-render/index'
-import processLearningTracks from '@/learning-track/lib/process-learning-tracks'
+
 import { productMap } from '@/products/lib/all-products'
 import slash from 'slash'
 import readFileContents from './read-file-contents'
-import getLinkData from '@/learning-track/lib/get-link-data'
+
 import getDocumentType from '@/events/lib/get-document-type'
 import { allTools } from '@/tools/lib/all-tools'
 import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 import { allPlatforms } from '@/tools/lib/all-platforms'
 import type { Context, FrontmatterVersions, FeaturedLinksExpanded } from '@/types'
+import type { Product } from '@/products/lib/all-products'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -28,10 +29,17 @@ const isProduction = process.env.NODE_ENV === 'production'
 // every single time, we turn it into a Set once.
 const productMapKeysAsSet = new Set(Object.keys(productMap))
 
+type FrontmatterError = {
+  reason: string
+  message?: string
+  filepath?: string
+  property?: string
+}
+
 type ReadFileContentsResult = {
-  data?: any
+  data?: Record<string, unknown>
   content?: string
-  errors?: any[]
+  errors?: FrontmatterError[]
 }
 
 type PageInitOptions = {
@@ -43,8 +51,9 @@ type PageInitOptions = {
 type PageReadResult = PageInitOptions & {
   fullPath: string
   markdown: string
-  frontmatterErrors?: any[]
-} & any
+  frontmatterErrors?: FrontmatterError[]
+  [key: string]: unknown
+}
 
 type RenderOptions = {
   preferShort?: boolean
@@ -58,16 +67,10 @@ type CommunityRedirect = {
   href: string
 }
 
-type GuideWithContentType = {
-  href: string
-  title: string
-  contentType?: string
-}
-
 export class FrontmatterErrorsError extends Error {
-  public frontmatterErrors: string[]
+  public frontmatterErrors: FrontmatterError[]
 
-  constructor(message: string, frontmatterErrors: string[]) {
+  constructor(message: string, frontmatterErrors: FrontmatterError[]) {
     super(message)
     this.frontmatterErrors = frontmatterErrors
   }
@@ -89,10 +92,6 @@ class Page {
   public showMiniToc?: boolean
   public hidden?: boolean
   public redirect_from?: string[]
-  public learningTracks?: any[]
-  public rawLearningTracks?: string[]
-  public includeGuides?: GuideWithContentType[]
-  public rawIncludeGuides?: string[]
   public introLinks?: Record<string, string>
   public rawIntroLinks?: Record<string, string>
   public carousels?: Record<string, string[]>
@@ -191,8 +190,8 @@ class Page {
         mtime,
         frontmatterErrors,
       } as PageReadResult
-    } catch (err: any) {
-      if (err.code === 'ENOENT') return false
+    } catch (err) {
+      if (err instanceof Error && (err as NodeJS.ErrnoException).code === 'ENOENT') return false
       console.error(err)
       return false
     }
@@ -221,8 +220,6 @@ class Page {
     this.rawShortTitle = this.shortTitle
     this.rawProduct = this.product
     this.rawPermissions = this.permissions
-    this.rawLearningTracks = this.learningTracks
-    this.rawIncludeGuides = this.includeGuides as any
     this.rawIntroLinks = this.introLinks
     this.rawCarousels = this.carousels
 
@@ -246,7 +243,7 @@ class Page {
 
       if (versionsParentProductIsNotAvailableIn.length) {
         throw new Error(
-          `\`versions\` frontmatter in ${this.fullPath} contains ${versionsParentProductIsNotAvailableIn}, which ${this.parentProduct.id} product is not available in!`,
+          `\`versions\` frontmatter in ${this.fullPath} contains ${versionsParentProductIsNotAvailableIn}, which ${this.parentProduct?.id} product is not available in!`,
         )
       }
     }
@@ -301,7 +298,7 @@ class Page {
     return id
   }
 
-  get parentProduct(): any {
+  get parentProduct(): Product | undefined {
     const id = this.parentProductId
     return id ? productMap[id] : undefined
   }
@@ -359,12 +356,6 @@ class Page {
       this.permissions = await renderContentWithFallback(this, 'rawPermissions', context)
     }
 
-    // Learning tracks may contain Liquid and need to have versioning processed.
-    if (this.rawLearningTracks) {
-      const { learningTracks } = await processLearningTracks(this.rawLearningTracks, context)
-      this.learningTracks = learningTracks
-    }
-
     // introLinks may contain Liquid and need to have versioning processed.
     if (this.rawIntroLinks) {
       const introLinks: Record<string, string> = {}
@@ -375,19 +366,6 @@ class Page {
       }
 
       this.introLinks = introLinks
-    }
-
-    if (this.rawIncludeGuides) {
-      this.includeGuides = (await getLinkData(
-        this.rawIncludeGuides,
-        context,
-      )) as GuideWithContentType[]
-      this.includeGuides?.map((guide: any) => {
-        const { page } = guide
-        guide.contentType = page.contentType
-        delete guide.page
-        return guide
-      })
     }
 
     // set a flag so layout knows whether to render a mac/windows/linux switcher element

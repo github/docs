@@ -52,7 +52,7 @@ Example row: | Agent mode | ✓ | ✓ | P | ✗ | ... |
 
 ## Features by VS Code version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the IDE.
 
 {%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
@@ -77,7 +77,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 ## Features by Visual Studio version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the IDE.
 
 {%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
@@ -102,7 +102,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 ## Features by JetBrains version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the {% data variables.copilot.copilot_extension %} for the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% data variables.copilot.copilot_extension %} for the IDE.
 
 {%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
@@ -127,7 +127,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 ## Features by Eclipse version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the {% data variables.copilot.copilot_extension %} for the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% data variables.copilot.copilot_extension %} for the IDE.
 
 {%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
@@ -152,7 +152,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 ## Features by Xcode version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the {% data variables.copilot.copilot_extension %} for the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% data variables.copilot.copilot_extension %} for the IDE.
 
 {%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}
@@ -177,7 +177,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 
 ## Features by NeoVim version
 
-The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent vesions of the {% data variables.copilot.copilot_extension %} for the IDE.
+The following table shows supported {% data variables.product.prodname_copilot_short %} features across recent versions of the {% data variables.copilot.copilot_extension %} for the IDE.
 
 {%- comment %} Use the predefined versionGroups from JSON data {%- endcomment %}
 {% for groupEntry in ideEntry.versionGroups %}

@@ -20,7 +20,6 @@ The overview dashboard of security overview displays security alert metrics for 
 
 **Alert severity filtering:** The dashboard only includes alerts with security severity levels: `Critical`, `High`, `Medium`, or `Low`. Non-security alerts (`Error`, `Warning`, or `Note`) are excluded. This may cause the dashboard count to differ from {% data variables.product.prodname_code_scanning %} alert totals. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
 
-{% ifversion security-overview-3-tab-dashboard %}
 <!--Content for FPT, GHEC, and GHES 3.16+ see next HTML comment for GHES <= 3.15-->
 
 ## Dashboard structure
@@ -38,15 +37,13 @@ The **Prevention** tab includes information on:
 * Vulnerabilities prevented and fixed in pull requests
 * {% data variables.product.prodname_codeql %} alerts in merged pull requests (not on the default branch)
 
-{% endif %}
-
 ## Detection metrics
 
-{% ifversion security-overview-3-tab-dashboard %}Track the current state of security alerts.{% else %}Track current state and trends of security alerts.{% endif %}
+Track the current state of security alerts.
 
 ### Open alerts over time
 
-{% ifversion security-overview-3-tab-dashboard %}Shows{% else %}Graph showing{% endif %} the number of open alerts over time.
+Shows the number of open alerts over time.
 
 **Included**
 * New alerts (shown on creation date)
@@ -88,8 +85,6 @@ Ratio of secrets bypassed to total secrets blocked by push protection.
 
 For more information, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
 
-{% ifversion security-overview-3-tab-dashboard %}
-
 ### Impact analysis table
 
 Shows repositories and vulnerabilities with the highest security risk.
@@ -105,36 +100,6 @@ Shows repositories and vulnerabilities with the highest security risk.
 **SAST vulnerabilities tab**
 * Top 10 Static Application Security Testing (SAST) vulnerabilities
 * {% data variables.product.prodname_dependabot_alerts %} only
-
-{% else %}
-
-### Alert trends graph
-
-Graph showing alert count changes over time. Toggle between open and closed alerts.
-
-**Open alerts**
-* New alerts (shown on creation date)
-* Existing alerts (shown at start of period)
-
-**Closed alerts**
-* Alerts closed during period (shown on close date)
-* Alerts closed before period (shown at start of period)
-
-**Default grouping:** Alert severity
-
-### Impact analysis table
-
-Shows repositories and advisories with the highest security risk.
-
-**Repositories tab**
-* Top 10 repositories by open alert count
-* Total alerts and severity breakdown
-
-**Advisories tab**
-* Top 10 CVE advisories by alert count
-* {% data variables.product.prodname_dependabot_alerts %} only
-
-{% endif %}
 
 ## Remediation metrics
 
@@ -180,8 +145,6 @@ Shows alert inflows and outflows over time.
 * **Purple bars:** Alerts closed
 * **Blue line:** Net activity (new minus closed)
 
-{% ifversion security-overview-3-tab-dashboard %}
-
 ## Prevention metrics
 
 Track vulnerabilities caught and fixed before reaching production.
@@ -218,16 +181,3 @@ Ratio of accepted to total {% data variables.copilot.copilot_autofix_short %} su
 
 {% endif %}
 
-{% else %}
-
-{% ifversion code-scanning-autofix %}
-
-## {% data variables.copilot.copilot_autofix_short %} suggestions
-
-Total {% data variables.copilot.copilot_autofix_short %} suggestions generated in open and closed pull requests during the time period.
-
-**{% data variables.copilot.copilot_autofix_short %}** provides targeted fix recommendations for {% data variables.product.prodname_code_scanning %} alerts (including {% data variables.product.prodname_codeql %} alerts). For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
-
-{% endif %}
-
-{% endif %}

@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/how-tos/copilot-cli/add-repository-instructions
   - /copilot/how-tos/copilot-cli/add-custom-instructions
 contentType: how-tos
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 {% data variables.product.prodname_copilot %} can provide responses that are tailored to your personal preferences, the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create custom instructions that automatically add this information for you. The additional information is not displayed, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.

@@ -1,0 +1,310 @@
+{
+  "checks_requested": {
+    "descriptionHtml": "<p>Status checks were requested for a merge group. This happens when a merge group is created or added to by the merge queue because a pull request was queued.</p>\n<p>When you receive this event, you should perform checks on the head SHA and report status back using check runs or commit statuses.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a merge group in a merge queue. For more information, see \"<a href=\"https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue\">Managing a merge queue</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Merge queues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "checks_requested"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "merge_group",
+        "description": "<p>A group of pull requests that the merge queue has grouped together to be merged.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "head_sha",
+            "description": "<p>The SHA of the merge group.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "head_ref",
+            "description": "<p>The full ref of the merge group.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "base_sha",
+            "description": "<p>The SHA of the merge group's parent commit.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "base_ref",
+            "description": "<p>The full ref of the branch the merge group will be merged into.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "head_commit",
+            "description": "<p>A commit.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "id",
+                "description": "<p>SHA for the commit</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "tree_id",
+                "description": "<p>SHA for the commit's tree</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "message",
+                "description": "<p>Message describing the purpose of the commit</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "timestamp",
+                "description": "<p>Timestamp of the commit</p>",
+                "isRequired": true
+              },
+              {
+                "type": "object or null",
+                "name": "author",
+                "description": "<p>Information about the Git author</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "<p>Name of the commit's author</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "email",
+                    "description": "<p>Git email address of the commit's author</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object or null",
+                "name": "committer",
+                "description": "<p>Information about the Git committer</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "<p>Name of the commit's committer</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "email",
+                    "description": "<p>Git email address of the commit's committer</p>",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "checks_requested",
+    "category": "merge_group"
+  },
+  "destroyed": {
+    "descriptionHtml": "<p>The merge queue groups pull requests together to be merged. This event indicates that one of those merge groups was destroyed. This happens when a pull request is removed from the queue: any group containing that pull request is also destroyed.</p>\n<p>When you receive this event, you may want to cancel any checks that are running on the head SHA to avoid wasting computing resources on a merge group that will not be used.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a merge group in a merge queue. For more information, see \"<a href=\"https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue\">Managing a merge queue</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Merge queues\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "destroyed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "reason",
+        "description": "<p>Explains why the merge group is being destroyed. The group could have been merged, removed from the queue (dequeued), or invalidated by an earlier queue entry being dequeued (invalidated).</p>",
+        "enum": [
+          "merged",
+          "invalidated",
+          "dequeued"
+        ]
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "merge_group",
+        "description": "<p>A group of pull requests that the merge queue has grouped together to be merged.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "head_sha",
+            "description": "<p>The SHA of the merge group.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "head_ref",
+            "description": "<p>The full ref of the merge group.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "base_sha",
+            "description": "<p>The SHA of the merge group's parent commit.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "base_ref",
+            "description": "<p>The full ref of the branch the merge group will be merged into.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "head_commit",
+            "description": "<p>A commit.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "id",
+                "description": "<p>SHA for the commit</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "tree_id",
+                "description": "<p>SHA for the commit's tree</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "message",
+                "description": "<p>Message describing the purpose of the commit</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "timestamp",
+                "description": "<p>Timestamp of the commit</p>",
+                "isRequired": true
+              },
+              {
+                "type": "object or null",
+                "name": "author",
+                "description": "<p>Information about the Git author</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "<p>Name of the commit's author</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "email",
+                    "description": "<p>Git email address of the commit's author</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object or null",
+                "name": "committer",
+                "description": "<p>Information about the Git committer</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "<p>Name of the commit's committer</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "email",
+                    "description": "<p>Git email address of the commit's committer</p>",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "destroyed",
+    "category": "merge_group"
+  }
+}

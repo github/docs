@@ -184,7 +184,7 @@ You can now start planning for an initial implementation of your application. It
 
 1. Keep your chat conversation open, as {% data variables.product.prodname_copilot_short %} will use this in the next series of steps.
 
-## Building your application with {% data variables.copilot.copilot_coding_agent %}
+## Building your application with {% data variables.copilot.copilot_cloud_agent %}
 
 When you think the plan contains enough detail:
 

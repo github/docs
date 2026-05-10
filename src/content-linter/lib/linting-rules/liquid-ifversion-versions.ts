@@ -21,6 +21,64 @@ import {
 import { oldestSupported } from '@/versions/lib/enterprise-server-releases'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
+// A liquidjs token, as exposed by getLiquidIfVersionTokens. liquidjs's TopLevelToken
+// type does not declare all of the runtime properties we rely on (begin/end, content,
+// contentRange, name), so we narrow it here.
+type LiquidConditionalToken = TopLevelToken & {
+  name: string
+  content: string
+  begin: number
+  end: number
+  contentRange: [number, number]
+}
+
+// Frontmatter `versions` declaration. May be a wildcard string ("*") or a record
+// keyed by short version names (fpt, ghec, ghes, feature, ...) with semver-range values.
+type VersionsObject = Record<string, string>
+type FileVersionsFm = string | VersionsObject | undefined
+
+type CondTagAction = {
+  type: 'none' | 'delete' | 'all' | 'change'
+  name?: string
+  cond?: string
+  line?: unknown
+  lineNumbers?: unknown
+  length?: unknown
+  column?: unknown
+  content?: unknown
+}
+
+// Internal representation of an ifversion/elsif/else/endif tag that flows through
+// the rule. fileVersionsFmAll, versionsObj, featureVersionsObj, versionsObjAll, and
+// versions are populated for ifversion/elsif tags and may be absent on else/endif.
+// `action` is always populated by decorateCondTagItems before setLiquidErrors and
+// updateConditionals run.
+type CondTagItem = {
+  name: string
+  cond: string
+  begin: number
+  end: number
+  contentrange: [number, number]
+  fileVersionsFm: FileVersionsFm
+  fileVersionsFmAll: VersionsObject
+  fileVersions: string[]
+  parent?: CondTagItem
+  versionsObj: VersionsObject
+  featureVersionsObj?: VersionsObject
+  versionsObjAll: VersionsObject
+  versions: string[]
+  action: CondTagAction
+  // Cached error range (used by addError); never set by this rule but accepted by addError.
+  contentRange?: [number, number] | number[] | string | null
+}
+
+type DefaultProps = {
+  fileVersionsFm: FileVersionsFm
+  fileVersions: string[]
+  filename: string
+  parent: CondTagItem | undefined
+}
+
 export const liquidIfversionVersions = {
   names: ['GHD022', 'liquid-ifversion-versions'],
   description:
@@ -33,14 +91,11 @@ export const liquidIfversionVersions = {
     const fm = getFrontmatter(params.lines)
     const content = fm ? getFrontmatterLines(params.lines).join('\n') : params.lines.join('\n')
 
-    const fileVersionsFm = params.name.startsWith('data')
+    const fileVersionsFm: FileVersionsFm = params.name.startsWith('data')
       ? { ghec: '*', ghes: '*', fpt: '*' }
       : fm
-        ? (fm.versions as string | Record<string, string> | undefined)
-        : (getFrontmatter(params.frontMatterLines)?.versions as
-            | string
-            | Record<string, string>
-            | undefined)
+        ? (fm.versions as FileVersionsFm)
+        : (getFrontmatter(params.frontMatterLines)?.versions as FileVersionsFm)
     if (!fileVersionsFm) return
     // This will only contain valid (non-deprecated) and future versions
     const fileVersions = getApplicableVersions(fileVersionsFm, '', {
@@ -48,16 +103,15 @@ export const liquidIfversionVersions = {
       includeNextVersion: true,
     })
 
-    const tokens = getLiquidIfVersionTokens(content)
+    const tokens = getLiquidIfVersionTokens(content) as LiquidConditionalToken[]
     // Array of arrays - each array entry is an array of items that
     // make up a full if/elsif/else/endif statement.
     // [ [ifversion, elsif, else, endif], [nested ifversion, elsif, else, endif] ]
-    // Using any[] because these are complex dynamic objects with properties added at runtime
-    const condStmtStack: any[] = []
+    const condStmtStack: CondTagItem[][] = []
 
     // Tokens are in the order they are read in file, so we need to iterate
     // through and group full if/elsif/else/endif statements together.
-    const defaultProps = {
+    const defaultProps: DefaultProps = {
       fileVersionsFm,
       fileVersions,
       filename: params.name,
@@ -74,27 +128,25 @@ export const liquidIfversionVersions = {
         const condTagItem = await initTagObject(token, defaultProps)
         condStmtStack.push([condTagItem])
       } else if (token.name === 'elsif') {
-        const condTagItems = condStmtStack.pop()
+        const condTagItems = condStmtStack.pop()!
         const condTagItem = await initTagObject(token, defaultProps)
         condTagItems.push(condTagItem)
         condStmtStack.push(condTagItems)
       } else if (token.name === 'else') {
-        const condTagItems = condStmtStack.pop()
+        const condTagItems = condStmtStack.pop()!
         const condTagItem = await initTagObject(token, defaultProps)
         // The versions of an else tag are the set of file versions that are
         // not supported by the previous ifversion or elsif tags.
         const siblingVersions = condTagItems
-          // Using any because condTagItems contains dynamic objects from initTagObject
-          .filter((item: any) => item.name === 'ifversion' || item.name === 'elsif')
-          .map((item: any) => item.versions)
+          .filter((item) => item.name === 'ifversion' || item.name === 'elsif')
+          .map((item) => item.versions)
           .flat()
-        // Using any because versions property is added dynamically to condTagItem
-        ;(condTagItem as any).versions = difference(fileVersions, siblingVersions)
+        condTagItem.versions = difference(fileVersions, siblingVersions)
         condTagItems.push(condTagItem)
         condStmtStack.push(condTagItems)
       } else if (token.name === 'endif') {
         defaultProps.parent = undefined
-        const condTagItems = condStmtStack.pop()
+        const condTagItems = condStmtStack.pop()!
         const condTagItem = await initTagObject(token, defaultProps)
         condTagItems.push(condTagItem)
         decorateCondTagItems(condTagItems)
@@ -104,18 +156,21 @@ export const liquidIfversionVersions = {
   },
 }
 
-// Using any[] because condTagItems contains dynamic objects with properties added at runtime
-function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines: string[]) {
+function setLiquidErrors(condTagItems: CondTagItem[], onError: RuleErrorCallback, lines: string[]) {
   for (let i = 0; i < condTagItems.length; i++) {
     const item = condTagItems[i]
     const tagNameNoCond = item.name === 'endif' || item.name === 'else'
     const itemErrorName = tagNameNoCond ? item.name : `${item.name} ${item.cond}`
 
-    if (item.action.type === 'delete') {
+    if (item.action?.type === 'delete') {
       // There is no next stack item, the endif tag is alway the
       // last in a conditional
       const nextStackItem = item.name === 'endif' ? condTagItems[i].end : condTagItems[i + 1].begin
-      const deleteItems = getContentDeleteData(condTagItems[i], nextStackItem, lines)
+      const deleteItems = getContentDeleteData(
+        condTagItems[i] as unknown as TopLevelToken,
+        nextStackItem,
+        lines,
+      )
       for (const deleteItem of deleteItems) {
         addError(
           onError,
@@ -133,7 +188,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
       }
     }
 
-    if (item.action.type === 'all') {
+    if (item.action?.type === 'all') {
       // position is just the tag
       const { lineNumber, column, length } = getPositionData(
         {
@@ -158,7 +213,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
       )
     }
 
-    if (item.action.type === 'change') {
+    if (item.action?.type === 'change') {
       // position is just the inside of tag
       const { lineNumber, column, length } = getPositionData(
         {
@@ -186,9 +241,8 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
   }
 }
 
-async function getApplicableVersionFromLiquidTag(conditionStr: string) {
-  // Using Record<string, any> because version object keys are dynamic (fpt, ghec, ghes, feature, etc.)
-  const newConditionObject: Record<string, any> = {}
+async function getApplicableVersionFromLiquidTag(conditionStr: string): Promise<VersionsObject> {
+  const newConditionObject: VersionsObject = {}
   const condition = conditionStr.replace('not ', '')
   const liquidTagVersions = condition.split(' or ').map((item) => item.trim())
   for (const ver of liquidTagVersions) {
@@ -211,7 +265,7 @@ async function getApplicableVersionFromLiquidTag(conditionStr: string) {
       // All actual uses have matching versions (e.g., "ghes and ghes > 3.19").
       // If this edge case appears in the future, additional logic would be needed here.
       if (!ands.every((and) => and.startsWith(firstAnd))) {
-        return []
+        return {}
       }
       const andValues = []
       let andVersion = ''
@@ -235,41 +289,56 @@ async function getApplicableVersionFromLiquidTag(conditionStr: string) {
       doNotThrow: true,
       includeNextVersion: true,
     })
-    return await convertVersionsToFrontmatter(difference(all, allApplicable))
+    return (await convertVersionsToFrontmatter(difference(all, allApplicable))) as VersionsObject
   }
   return newConditionObject
 }
 
-// Using any for token and props because they come from markdownlint library without full type definitions
-async function initTagObject(token: any, props: any) {
-  const condTagItem = {
+async function initTagObject(
+  token: LiquidConditionalToken,
+  props: DefaultProps,
+): Promise<CondTagItem> {
+  const fileVersionsFm = props.fileVersionsFm
+  // Normalize a wildcard string ('*') frontmatter `versions` value into the
+  // canonical all-versions object so downstream consumers (Object.keys, ghes /
+  // feature lookups) behave consistently. In practice no content file uses the
+  // string form today, but handling it keeps the rule type-safe and future-proof.
+  const fmObject: VersionsObject =
+    typeof fileVersionsFm === 'string'
+      ? { ghec: '*', ghes: '*', fpt: '*' }
+      : ((fileVersionsFm || {}) as VersionsObject)
+  const featureFromFm = fmObject.feature
+  const condTagItem: CondTagItem = {
     name: token.name,
     cond: token.content.replace(`${token.name} `, '').trim(),
     begin: token.begin,
     end: token.end,
     contentrange: token.contentRange,
-    fileVersionsFm: props.fileVersionsFm,
-    fileVersionsFmAll: props.fileVersionsFm?.feature
+    fileVersionsFm,
+    fileVersionsFmAll: featureFromFm
       ? {
-          ...props.fileVersionsFm.versions,
-          ...getFeatureVersionsObject(props.fileVersionsFm.feature),
+          ...((fmObject as unknown as { versions?: VersionsObject }).versions || {}),
+          ...getFeatureVersionsObject(featureFromFm),
         }
-      : props.fileVersionsFm,
+      : fmObject,
     fileVersions: props.fileVersions,
     parent: props.parent,
+    versionsObj: {},
+    featureVersionsObj: undefined,
+    versionsObjAll: {},
+    versions: [],
+    action: { type: 'none' },
   }
   if (token.name === 'ifversion' || token.name === 'elsif') {
-    // Using any because these properties (versionsObj, featureVersionsObj, versionsObjAll, versions)
-    // are added dynamically to condTagItem and not part of its initial type definition
-    ;(condTagItem as any).versionsObj = await getApplicableVersionFromLiquidTag(condTagItem.cond)
-    ;(condTagItem as any).featureVersionsObj = (condTagItem as any).versionsObj.feature
-      ? getFeatureVersionsObject((condTagItem as any).versionsObj.feature)
+    condTagItem.versionsObj = await getApplicableVersionFromLiquidTag(condTagItem.cond)
+    condTagItem.featureVersionsObj = condTagItem.versionsObj.feature
+      ? getFeatureVersionsObject(condTagItem.versionsObj.feature)
       : undefined
-    ;(condTagItem as any).versionsObjAll = {
-      ...(condTagItem as any).versionsObj,
-      ...(condTagItem as any).featureVersionsObj,
+    condTagItem.versionsObjAll = {
+      ...condTagItem.versionsObj,
+      ...condTagItem.featureVersionsObj,
     }
-    ;(condTagItem as any).versions = getApplicableVersions((condTagItem as any).versionsObj, '', {
+    condTagItem.versions = getApplicableVersions(condTagItem.versionsObj, '', {
       doNotThrow: true,
       includeNextVersion: true,
     })
@@ -286,8 +355,7 @@ async function initTagObject(token: any, props: any) {
   Then create flaws per stack item.
   newCond
   */
-// Using any[] because condTagItems contains dynamic objects with action property added at runtime
-function decorateCondTagItems(condTagItems: any[]) {
+function decorateCondTagItems(condTagItems: CondTagItem[]) {
   for (const item of condTagItems) {
     item.action = {
       type: 'none',
@@ -304,8 +372,7 @@ function decorateCondTagItems(condTagItems: any[]) {
   return
 }
 
-// Using any[] because condTagItems contains dynamic objects with various properties added at runtime
-function updateConditionals(condTagItems: any[]) {
+function updateConditionals(condTagItems: CondTagItem[]) {
   // iterate through the ifversion, elsif, and else
   // tags but NOT the endif tag. endif tags have
   // no versions associated with them and are handled
@@ -317,7 +384,14 @@ function updateConditionals(condTagItems: any[]) {
     // the liquid should always be removed regardless
     // of whether it's a feature version or a nested
     // condition.
-    if (isAllVersions(item.featureVersionsObj || item.versionObj)) {
+    // NOTE: Original code referenced `item.versionObj` (no `s`), which was always
+    // undefined; preserved as-is to avoid changing runtime behavior in this PR.
+    if (
+      isAllVersions(
+        item.featureVersionsObj ||
+          ((item as unknown as { versionObj?: VersionsObject }).versionObj as VersionsObject),
+      )
+    ) {
       processConditionals(item, condTagItems, i)
       break
     }
@@ -349,7 +423,9 @@ function updateConditionals(condTagItems: any[]) {
         continue
       }
     }
-    if (item.versionsObj?.feature || item.fileVersionsFm?.feature) break
+    const fileVersionsFmObject =
+      item.fileVersionsFm && typeof item.fileVersionsFm === 'object' ? item.fileVersionsFm : {}
+    if (item.versionsObj?.feature || fileVersionsFmObject.feature) break
 
     // When the parent of a nested condition is a feature
     // we don't want to assume that the feature versions
@@ -478,8 +554,11 @@ function updateConditionals(condTagItems: any[]) {
   }
 }
 
-// Using any for item and any[] for condTagItems because they contain dynamic objects with action property
-function processConditionals(item: any, condTagItems: any[], indexOfAllItem: number) {
+function processConditionals(
+  item: CondTagItem,
+  condTagItems: CondTagItem[],
+  indexOfAllItem: number,
+) {
   item.action.type = 'all'
   // if any tag in a statement is 'all', the
   // remaining tags are obsolete.

@@ -15,6 +15,12 @@ category:
   - Learn about Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.code-review-actions-minutes-note %}
+
+<!-- end expires 2026-06-01 -->
+
 ## Introduction
 
 {% data variables.copilot.copilot_code-review_short %} reviews code written in any language, and provides feedback. It reviews your code from multiple angles to identify issues and suggest fixes. You can apply suggested changes with a couple of clicks.
@@ -26,6 +32,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 {% data variables.copilot.copilot_code-review_short %} is supported in:
 
 * {% data variables.product.prodname_dotcom_the_website %}
+* {% data variables.product.prodname_cli %}
 * {% data variables.product.prodname_mobile %}
 * {% data variables.product.prodname_vscode_shortname %}
 * {% data variables.product.prodname_vs %}
@@ -89,7 +96,7 @@ For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 {% data variables.copilot.copilot_code-review_short %} utilizes agentic capabilities to extend its functionality.
 
 * **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes. Full project context gathering is generally available.
-* **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_coding_agent %} is in public preview and subject to change.
+* **The ability to pass suggestions to {% data variables.copilot.copilot_cloud_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_cloud_agent %} is in public preview and subject to change.
 
 These capabilities are enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
 
@@ -97,16 +104,18 @@ If {% data variables.product.prodname_actions %} is unavailable or if Actions wo
 
 ### Usage of {% data variables.product.prodname_actions %} runners for agentic capabilities in code review
 
-{% data variables.copilot.copilot_code-review_short %} uses free minutes for {% data variables.product.prodname_actions %} to run the agentic capabilities, including full project context gathering and any capabilities in {% data variables.release-phases.public_preview %}. By default, {% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_dotcom %}-hosted runners. You can also upgrade to larger {% data variables.product.prodname_dotcom %}-hosted runners for better performance.
+{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run the agentic capabilities, including full project context gathering and any capabilities in {% data variables.release-phases.public_preview %}. By default, {% data variables.copilot.copilot_code-review_short %} uses standard {% data variables.product.prodname_dotcom %}-hosted runners. You can also upgrade to larger {% data variables.product.prodname_dotcom %}-hosted runners for better performance, or use self-hosted runners.
 
 > [!NOTE]
-> Usage of larger {% data variables.product.prodname_dotcom %}-hosted runners is billed per-minute and may incur additional {% data variables.product.prodname_actions %} charges.
+> Usage of larger {% data variables.product.prodname_dotcom %}-hosted runners is billed at a higher per-minute rate. Self-hosted runners do not consume {% data variables.product.prodname_actions %} minutes.
 
 You do not need to have {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the agentic capabilities in code review.
 
 If your organization has disabled {% data variables.product.prodname_dotcom %}-hosted runners, the agentic capabilities will not be available. In this case, code reviews will fall back to a more limited review. Organizations in this situation can use self-hosted runners.
 
-For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-runners).
+For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
+
+You can view the {% data variables.product.prodname_actions %} minutes associated with {% data variables.copilot.copilot_code-review_short %} runs. For more information, see [{% data variables.product.prodname_actions %} minutes for code review](/copilot/reference/copilot-billing/models-and-pricing#github-actions-minutes-for-code-review).
 
 ## Code review monthly quota
 

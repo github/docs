@@ -102,7 +102,6 @@ Nearly every subject interacts with frame:
 - [`src/redirects`](../redirects/README.md) - URL redirect handling
 - [`src/content-render`](../content-render/README.md) - Markdown rendering
 - [`src/landings`](../landings/README.md) - Landing page layouts
-- [`src/learning-track`](../learning-track/README.md) - Learning track navigation
 
 ### Ownership
 - Team: Docs Engineering

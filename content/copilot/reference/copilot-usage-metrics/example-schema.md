@@ -115,6 +115,7 @@ The following are example schemas for the user-level and enterprise-level data r
     "pull_requests" : {
       "median_minutes_to_merge" : 2.5,
       "median_minutes_to_merge_copilot_authored" : 2.5,
+      "median_minutes_to_merge_copilot_reviewed" : 2.5,
       "total_applied_suggestions" : 1,
       "total_copilot_applied_suggestions" : 1,
       "total_copilot_suggestions" : 1,
@@ -122,6 +123,7 @@ The following are example schemas for the user-level and enterprise-level data r
       "total_created_by_copilot" : 1,
       "total_merged" : 2,
       "total_merged_created_by_copilot" : 1,
+      "total_merged_reviewed_by_copilot" : 1,
       "total_reviewed" : 1,
       "total_reviewed_by_copilot" : 1,
       "total_suggestions" : 1
@@ -199,6 +201,7 @@ The following are example schemas for the user-level and enterprise-level data r
       "total_created_by_copilot" : 0,
       "total_merged" : 0,
       "total_merged_created_by_copilot" : 0,
+      "total_merged_reviewed_by_copilot" : 0,
       "total_reviewed" : 1,
       "total_reviewed_by_copilot" : 0,
       "total_suggestions" : 1
