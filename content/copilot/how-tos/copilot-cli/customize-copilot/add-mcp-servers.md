@@ -80,6 +80,38 @@ The following example shows a configuration file with a local server and a remot
 
 For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
+### Adding per-repository MCP servers
+
+You can configure MCP servers for a specific project by adding a JSON file to the repository. This is useful when you want servers to be available only when working in that project, or when you want to share an MCP setup with collaborators by committing it to the repository.
+
+{% data variables.copilot.copilot_cli_short %} reads project-level configuration from two locations:
+
+| Path | Recommended use |
+|------|-----------------|
+| `.mcp.json` at the project root | Local or per-checkout configuration |
+| `.github/mcp.json` | Shared configuration that is committed to the repository |
+
+When you start {% data variables.copilot.copilot_cli_short %} inside a Git repository, the CLI walks from your current working directory up to the repository root, loading every `.mcp.json` it finds along the way. When server names conflict, definitions in files closer to your working directory take precedence. Project-level definitions also take precedence over those in `~/.copilot/mcp-config.json`. For more information on relative trust, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#mcp-server-trust-levels).
+
+The file format is the same as `~/.copilot/mcp-config.json`. For example:
+
+```json copy
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "local",
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
+```
+
+> [!NOTE]
+> * Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#trusted-directories).
+> * In prompt mode (`copilot -p`), project-level MCP servers are not loaded by default. To enable them, set the `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` environment variable to `true`. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#environment-variables).
+> * VS Code's `.vscode/mcp.json` is not read by {% data variables.copilot.copilot_cli_short %}. It uses a different top-level key (`servers` rather than `mcpServers`). To migrate an existing `.vscode/mcp.json` to a format the CLI accepts, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#migrating-from-vscodemcpjson).
+
 ## Managing MCP servers
 
 You can manage your configured MCP servers using the following `/mcp` commands in {% data variables.copilot.copilot_cli_short %}.
