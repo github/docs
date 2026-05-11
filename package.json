@@ -180,7 +180,7 @@
     "@opentelemetry/instrumentation-express": "^0.63.0",
     "@opentelemetry/instrumentation-http": "^0.215.0",
     "@opentelemetry/instrumentation-undici": "^0.25.0",
-    "@opentelemetry/sdk-node": "^0.215.0",
+    "@opentelemetry/sdk-node": "^0.217.0",
     "@primer/behaviors": "^1.10.2",
     "@primer/css": "^21.3.1",
     "@primer/live-region-element": "^0.7.2",
