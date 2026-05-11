@@ -16,7 +16,7 @@ The `dependabot.yml` file is an optional configuration file that gives you fine-
 
 Without a `dependabot.yml` file, {% data variables.product.prodname_dependabot %} can still create security updates for vulnerable dependencies if you've enabled {% data variables.product.prodname_dependabot_security_updates %} in your repository settings. However, you won't receive automated version updates or have control over update schedules and other configuration options.
 
-The `dependabot.yml` file uses YAML syntax. If you're new to YAML and want to learn more, see [Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
+The `dependabot.yml` file uses YAML syntax. If you're new to YAML and want to learn more, see [Learn YAML in five minutes](https://learnxinyminutes.com/yaml/).
 
 > [!NOTE]
 > {% data variables.product.prodname_dependabot_alerts %} are configured in the repository or organization "Settings" tab and not in the `dependabot.yml` file, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
