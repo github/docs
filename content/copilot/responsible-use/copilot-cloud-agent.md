@@ -15,7 +15,7 @@ category:
   - Responsible use
 ---
 
-## About {% data variables.copilot.copilot_cloud_agent_tmp %} on {% data variables.product.prodname_dotcom_the_website %}
+## About {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}
 
 {% data variables.copilot.copilot_cloud_agent %} is an autonomous and asynchronous software development agent integrated into {% data variables.product.github %}. The agent can pick up a task from an issue or from {% data variables.copilot.copilot_chat_short %}, research a repository, create an implementation plan, and make code changes on a branch. You can review the diff, iterate with the agent, and create a pull request when you're ready.
 
@@ -125,7 +125,7 @@ Copilot only has access to the repository where it is working, and cannot access
 
 Its permissions are limited, allowing it to push code and read other resources. Built-in protections mean that Copilot can only push to a single branch: the existing pull request branch when triggered via `@copilot`, or otherwise to a new `copilot/` branch. This means that Copilot cannot push directly to your default branch (for example, `main`).
 
-{% data variables.copilot.copilot_cloud_agent %} does not have access to Actions organization or repository secrets or variables during runtime. Only secrets and variables specifically added to the `copilot` environment are passed to the agent.
+{% data variables.copilot.copilot_cloud_agent %} does not have access to {% data variables.product.prodname_actions %} secrets or variables during runtime. Only Agents secrets and variables, configured at the organization or repository level, are passed to the agent. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 ### Ensuring traceability
 

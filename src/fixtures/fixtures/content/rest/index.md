@@ -9,9 +9,7 @@ introLinks:
 featuredLinks:
   popular:
     - /rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api
-changelog:
-  label: 'api, apis'
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
   ghes: '*'

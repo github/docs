@@ -4,7 +4,9 @@ shortTitle: Filter repositories
 intro: You can filter the repository table for your organization to better manage the security settings of specific repositories.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table
 contentType: how-tos

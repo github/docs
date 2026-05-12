@@ -64,6 +64,43 @@ interface CacheData {
   urls: Record<string, CacheEntry>
 }
 
+interface LinkOccurrence {
+  file: string
+  line: number
+  href: string
+}
+
+/**
+ * Normalize a URL for deduplication purposes:
+ * - Remove URL fragment (#anchor)
+ * - Remove trailing slash only for origin/root URLs
+ *
+ * For example, https://www.githubstatus.com and https://www.githubstatus.com/
+ * are treated as the same URL.
+ */
+function normalizeUrl(href: string): string {
+  // Remove fragment
+  const withoutFragment = href.split('#')[0]
+  // Remove trailing slash only for origin/root URLs
+  try {
+    const parsed = new URL(withoutFragment)
+    if (parsed.pathname === '/' && !parsed.search) {
+      return parsed.origin
+    }
+  } catch {
+    // Keep original if URL parsing fails.
+  }
+  return withoutFragment
+}
+
+function isDocsGithubUrl(url: string): boolean {
+  try {
+    return new URL(url).hostname === 'docs.github.com'
+  } catch {
+    return false
+  }
+}
+
 /**
  * Sleep for a given number of milliseconds
  */
@@ -150,11 +187,11 @@ async function fetchWithTimeout(
 /**
  * Extract all external links from content files
  */
-async function extractAllExternalLinks(): Promise<Map<string, { file: string; line: number }[]>> {
-  const links = new Map<string, { file: string; line: number }[]>()
+async function extractAllExternalLinks(): Promise<Map<string, LinkOccurrence[]>> {
+  const links = new Map<string, LinkOccurrence[]>()
 
   // Find all Markdown files
-  const files = await glob('content/**/*.md')
+  const files = await glob('content/**/*.md', { ignore: '**/README.md' })
   console.log(`Found ${files.length} Markdown files to scan`)
 
   const extractStart = Date.now()
@@ -175,13 +212,13 @@ async function extractAllExternalLinks(): Promise<Map<string, { file: string; li
       if (!link.href.startsWith('https://')) continue
       if (isExcludedLink(link.href)) continue
 
-      // Normalize URL (remove anchors for checking)
-      const url = link.href.split('#')[0]
+      // Normalize URL (remove anchors and trailing slashes for checking)
+      const url = normalizeUrl(link.href)
 
       if (!links.has(url)) {
         links.set(url, [])
       }
-      links.get(url)!.push({ file, line: link.line })
+      links.get(url)!.push({ file, line: link.line, href: link.href })
     }
 
     if ((i + 1) % 500 === 0) {
@@ -236,7 +273,19 @@ async function main() {
   // Extract all external links
   console.log('Extracting external links from content files...')
   const allLinks = await extractAllExternalLinks()
+
+  // Separate docs.github.com links — they're self-referential (this repo IS the docs site)
+  // and will be reported separately as candidates for conversion to internal links.
+  const selfReferentialLinks = new Map<string, LinkOccurrence[]>()
+  for (const [url, occurrences] of allLinks) {
+    if (isDocsGithubUrl(url)) {
+      selfReferentialLinks.set(url, occurrences)
+      allLinks.delete(url)
+    }
+  }
+
   console.log(`Found ${allLinks.size} unique external URLs`)
+  console.log(`Found ${selfReferentialLinks.size} self-referential docs.github.com URLs`)
   console.log('')
 
   if (options.dryRun) {
@@ -276,7 +325,7 @@ async function main() {
     if (!result.ok) {
       for (const occ of occurrences) {
         brokenLinks.push({
-          href: url,
+          href: occ.href,
           file: occ.file,
           lines: [occ.line],
           statusCode: result.statusCode,
@@ -318,7 +367,15 @@ async function main() {
     chalk.blue(`Checked ${checkedCount} URLs in ${duration}s (${cachedCount} from cache)`),
   )
 
-  if (brokenLinks.length === 0) {
+  // Build self-referential BrokenLink list for the report
+  const selfReferentialBrokenLinks: BrokenLink[] = []
+  for (const occurrences of selfReferentialLinks.values()) {
+    for (const occ of occurrences) {
+      selfReferentialBrokenLinks.push({ href: occ.href, file: occ.file, lines: [occ.line] })
+    }
+  }
+
+  if (brokenLinks.length === 0 && selfReferentialBrokenLinks.length === 0) {
     console.log(chalk.green('✅ All external links valid!'))
     process.exit(0)
   }
@@ -326,20 +383,30 @@ async function main() {
   // Generate report
   const report = generateExternalLinkReport(brokenLinks, {
     actionUrl: process.env.ACTION_RUN_URL,
+    selfReferentialLinks: selfReferentialBrokenLinks,
   })
 
-  console.log('')
-  console.log(chalk.red(`❌ ${report.uniqueTargets} domain(s) with broken links`))
-  console.log(chalk.red(`   ${report.totalOccurrences} total occurrence(s)`))
+  if (brokenLinks.length === 0) {
+    console.log(chalk.green('✅ All external links valid!'))
+    console.log(
+      chalk.blue(
+        `ℹ️  Found ${selfReferentialBrokenLinks.length} docs.github.com absolute link occurrence(s) to convert.`,
+      ),
+    )
+  } else {
+    console.log('')
+    console.log(chalk.red(`❌ ${report.uniqueTargets} domain(s) with broken links`))
+    console.log(chalk.red(`   ${report.totalOccurrences} total occurrence(s)`))
 
-  // Show summary by domain
-  console.log('')
-  console.log('Broken links by domain:')
-  for (const group of report.groups.slice(0, 10)) {
-    console.log(`  ${group.target}: ${group.occurrences.length} occurrence(s)`)
-  }
-  if (report.groups.length > 10) {
-    console.log(`  ... and ${report.groups.length - 10} more domains`)
+    // Show summary by domain
+    console.log('')
+    console.log('Broken links by domain:')
+    for (const group of report.groups.slice(0, 10)) {
+      console.log(`  ${group.target}: ${group.occurrences.length} occurrence(s)`)
+    }
+    if (report.groups.length > 10) {
+      console.log(`  ... and ${report.groups.length - 10} more domains`)
+    }
   }
 
   // Write artifact
@@ -351,7 +418,7 @@ async function main() {
   const createReport = process.env.CREATE_REPORT === 'true'
   const reportRepository = process.env.REPORT_REPOSITORY || 'github/docs-content'
 
-  if (createReport && process.env.GITHUB_TOKEN) {
+  if (brokenLinks.length > 0 && createReport && process.env.GITHUB_TOKEN) {
     console.log('')
     console.log('Creating issue report...')
 

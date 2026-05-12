@@ -51,7 +51,7 @@ To adapt your rulesets for {% data variables.copilot.copilot_cloud_agent %}:
 
 Continue to store data and tokens that you _don't_ want {% data variables.product.prodname_copilot_short %} to access as **{% data variables.product.prodname_actions %} variables or secrets**. {% data variables.product.prodname_copilot_short %} won't be able to access these in its sessions or environment setup steps.
 
-If you need to provide data and secrets that {% data variables.copilot.copilot_cloud_agent %} _does_ need, you'll be able to do this in a specific `copilot` environment.
+If you need to provide data and secrets that {% data variables.copilot.copilot_cloud_agent %} _does_ need, you'll be able to do this by configuring Agents secrets and variables at the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 ### Configure runners
 
@@ -72,7 +72,3 @@ Review the default permissions for the `GITHUB_TOKEN` in your enterprise. See [A
 This policy does **not** affect the token that {% data variables.product.prodname_copilot_short %} will receive for its sessions, but the `GITHUB_TOKEN` _is_ used in environment setup steps defined in `copilot-setup-steps.yml` workflow files.
 
 Bear in mind that developers will be able to set their own `permissions` in these workflow files, and you should encourage them to use the minimum required permissions in all workflows.
-
-## Next steps
-
-When you're ready to enable {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/manage-copilot-coding-agent).

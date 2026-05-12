@@ -207,18 +207,18 @@ async function main(files: string[], opts: Options) {
     } else if (opts.check) {
       console.log(chalk.green('No changes needed or necessary. 🌈'))
     }
-  } catch (err: any) {
+  } catch (err) {
     if (debug) {
       throw err
     }
-    console.error(chalk.red(err.toString()))
+    console.error(chalk.red(err instanceof Error ? err.toString() : String(err)))
     process.exit(1)
   }
 }
 
 function printObjectDifference(
-  objFrom: Record<string, any>,
-  objTo: Record<string, any>,
+  objFrom: Record<string, unknown>,
+  objTo: Record<string, unknown>,
   rawContent: string,
   parentKey = '',
 ) {
@@ -226,94 +226,109 @@ function printObjectDifference(
   // an array, and it's different, print that difference.
   for (const [key, value] of Object.entries(objFrom)) {
     const combinedKey = `${parentKey}.${key}`
-    if (Array.isArray(value) && !equalArray(value, objTo[key])) {
-      const printedKeys = new Set()
+    const otherValue = objTo[key]
+    if (Array.isArray(value) && Array.isArray(otherValue) && !equalArray(value, otherValue)) {
+      const printedKeys = new Set<string>()
       for (let i = 0; i < value.length; i++) {
         const entry = value[i]
+        const otherEntry = otherValue[i]
         // If it was an array of objects, we need to go deeper!
-        if (isObject(entry)) {
-          printObjectDifference(entry, objTo[key][i], rawContent, combinedKey)
+        if (isObject(entry) && isObject(otherEntry)) {
+          printObjectDifference(entry, otherEntry, rawContent, combinedKey)
         } else {
-          if (entry !== objTo[key][i]) {
+          if (entry !== otherEntry) {
             if (!printedKeys.has(combinedKey)) {
               console.log(`In frontmatter key: ${chalk.bold(combinedKey)}`)
               printedKeys.add(combinedKey)
             }
             console.log(chalk.red(`- ${entry}`))
-            console.log(chalk.green(`+ ${objTo[key][i]}`))
+            console.log(chalk.green(`+ ${otherEntry}`))
             const needle = new RegExp(`- ${entry}\\b`)
             const index = rawContent.split(/\n/g).findIndex((line) => needle.test(line))
             console.log('  ', chalk.dim(`line ${(index && index + 1) || 'unknown'}`))
           }
         }
       }
-    } else if (typeof value === 'object' && value !== null) {
-      printObjectDifference(value, objTo[key], rawContent, combinedKey)
+    } else if (isObject(value) && isObject(otherValue)) {
+      printObjectDifference(value, otherValue, rawContent, combinedKey)
     }
   }
 }
 
 // This assumes them to be the same shape with possibly different node values
-function equalObject(obj1: Record<string, any>, obj2: Record<string, any>) {
+function equalObject(obj1: Record<string, unknown>, obj2: Record<string, unknown>) {
   if (!equalSet(new Set(Object.keys(obj1)), new Set(Object.keys(obj2)))) {
     return false
   }
   for (const [key, value] of Object.entries(obj1)) {
+    const otherValue = obj2[key]
     if (Array.isArray(value)) {
+      if (!Array.isArray(otherValue)) return false
       // Can't easily compare two arrays because the entries might be objects.
-      if (value.length !== obj2[key].length) return false
+      if (value.length !== otherValue.length) return false
       let i = 0
       for (const each of value) {
-        if (isObject(each)) {
-          if (!equalObject(each, obj2[key][i])) {
+        const otherEach = otherValue[i]
+        if (isObject(each) && isObject(otherEach)) {
+          if (!equalObject(each, otherEach)) {
             return false
           }
         } else {
-          if (each !== obj2[key][i]) {
+          if (each !== otherEach) {
             return false
           }
         }
         i++
       }
     } else if (isObject(value)) {
-      if (!equalObject(value, obj2[key])) {
+      if (!isObject(otherValue) || !equalObject(value, otherValue)) {
         return false
       }
-    } else if (value !== obj2[key]) {
+    } else if (value !== otherValue) {
       return false
     }
   }
   return true
 }
 
-function isObject(thing: any) {
+function isObject(thing: unknown): thing is Record<string, unknown> {
   return typeof thing === 'object' && thing !== null && !Array.isArray(thing)
 }
 
-function equalSet(set1: Set<any>, set2: Set<any>) {
+function equalSet<T>(set1: Set<T>, set2: Set<T>) {
   return set1.size === set2.size && [...set1].every((x) => set2.has(x))
 }
 
-function equalArray(arr1: any[], arr2: any[]) {
+function equalArray(arr1: unknown[], arr2: unknown[]) {
   return arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])
 }
 
-function countByTree(
-  results: {
-    data: {
-      [key: string]: any
-    }
-    content: string
-    rawContent: string
-    newContent: string
-    replacements: any[]
-    warnings: any[]
-    newData: {
-      [key: string]: any
-    }
-    file: string
-  }[],
-) {
+type Replacement = {
+  asMarkdown: string
+  newAsMarkdown: string
+  line: number
+  column: number
+}
+
+type Warning = {
+  warning: string
+  asMarkdown: string
+  line: number
+  column: number
+}
+
+type UpdateResult = {
+  data: Record<string, unknown>
+  content: string
+  rawContent: string
+  newContent: string
+  replacements: Replacement[]
+  warnings: Warning[]
+  newData: Record<string, unknown>
+  file: string
+}
+
+function countByTree(results: UpdateResult[]) {
   const files: Record<string, number> = {}
   const changes: Record<string, number> = {}
   for (const { file, replacements } of results) {

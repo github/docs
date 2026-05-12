@@ -5,8 +5,6 @@ intro: "Learn best practices for moderating and setting up collaborative, safe, 
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community
-changelog:
-  label: wikis
 layout: discovery-landing
 introLinks:
   overview: /communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation

@@ -5,8 +5,6 @@ intro: '{% data variables.product.prodname_pages %} turns any {% data variables.
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/what-is-github-pages
-changelog:
-  label: pages
 layout: discovery-landing
 includedCategories:
   - Learn about GitHub Pages

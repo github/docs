@@ -59,15 +59,6 @@
   xcode: true
   jetbrains: true
 
-- name: Claude Sonnet 4
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: Claude Sonnet 4.5
   dotcom: true
   cli: true

@@ -2596,6 +2596,657 @@
       }
     }
   ],
+  "concurrency-groups": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups",
+      "title": "List concurrency groups for a repository",
+      "category": "actions",
+      "subcategory": "concurrency-groups",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "after",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists the active concurrency groups for a repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "total_count": 2,
+              "concurrency_groups": [
+                {
+                  "group_name": "deploy-prod",
+                  "group_url": "https://api.github.com/repos/octocat/Hello-World/actions/concurrency_groups/deploy-prod",
+                  "last_acquired_at": "2026-01-15T16:14:23Z"
+                },
+                {
+                  "group_name": "ci-build",
+                  "group_url": "https://api.github.com/repos/octocat/Hello-World/actions/concurrency_groups/ci-build",
+                  "last_acquired_at": "2026-01-15T16:13:55Z"
+                }
+              ]
+            },
+            "schema": {
+              "title": "Concurrency Group List",
+              "description": "A list of active concurrency groups for a repository.",
+              "type": "object",
+              "required": [
+                "total_count",
+                "concurrency_groups"
+              ],
+              "properties": {
+                "total_count": {
+                  "type": "integer"
+                },
+                "concurrency_groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "group_name",
+                      "group_url",
+                      "last_acquired_at"
+                    ],
+                    "properties": {
+                      "group_name": {
+                        "type": "string",
+                        "description": "The name of the concurrency group."
+                      },
+                      "group_url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "API URL for this concurrency group."
+                      },
+                      "last_acquired_at": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Actions\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups/{concurrency_group_name}",
+      "title": "Get a concurrency group for a repository",
+      "category": "actions",
+      "subcategory": "concurrency-groups",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "concurrency_group_name",
+          "description": "<p>The name of the concurrency group.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ahead_of_run",
+          "description": "<p>Filter to items ahead of this workflow run ID in the queue, plus the run itself.\nMatches workflow-level concurrency and reusable-workflow leases held on behalf of\nthe run. Mutually exclusive with <code>ahead_of_job</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        {
+          "name": "ahead_of_job",
+          "description": "<p>Filter to items ahead of this job ID in the queue, plus the job itself.\nMatches job-level concurrency and reusable-workflow leases on the job's\nancestor paths. Mutually exclusive with <code>ahead_of_run</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a specific concurrency group for a repository, including all instances in the group's queue.\nReturns 404 if the group is inactive or does not exist.</p>\n<p>Optionally, pass <code>ahead_of_run</code> or <code>ahead_of_job</code> to filter the results to only the items\nahead of the specified workflow run or job in the queue, plus the specified item itself\n(returned as the last element). This is useful for determining what is blocking a particular\nrun or job. Returns 422 if the specified run or job is not in this concurrency group.</p>\n<p>When using <code>ahead_of_run</code>, this matches workflow-level concurrency and any reusable-workflow\nleases held on behalf of that run. Job-level leases within the run are not considered to\nblock the run as a whole. Use <code>ahead_of_job</code> to match job-level concurrency and reusable-workflow\nleases on the job's ancestor paths.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "concurrency_group_name": "CONCURRENCY_GROUP_NAME"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "group_name": "deploy-prod",
+              "group_url": "https://api.github.com/repos/octocat/Hello-World/actions/concurrency_groups/deploy-prod",
+              "total_count": 3,
+              "group_members": [
+                {
+                  "run_id": 30433642,
+                  "run_name": "Deploy to production",
+                  "run_url": "https://api.github.com/repos/octocat/Hello-World/actions/runs/30433642",
+                  "run_html_url": "https://github.com/octocat/Hello-World/actions/runs/30433642",
+                  "status": "in_progress"
+                },
+                {
+                  "run_id": 30433643,
+                  "run_name": "Deploy to production",
+                  "run_url": "https://api.github.com/repos/octocat/Hello-World/actions/runs/30433643",
+                  "run_html_url": "https://github.com/octocat/Hello-World/actions/runs/30433643",
+                  "status": "pending"
+                },
+                {
+                  "run_id": 30433644,
+                  "run_name": "Deploy hotfix",
+                  "run_url": "https://api.github.com/repos/octocat/Hello-World/actions/runs/30433644",
+                  "run_html_url": "https://github.com/octocat/Hello-World/actions/runs/30433644",
+                  "job_id": 798245260,
+                  "job_name": "deploy",
+                  "job_url": "https://api.github.com/repos/octocat/Hello-World/actions/jobs/798245260",
+                  "job_html_url": "https://github.com/octocat/Hello-World/actions/runs/30433644/job/798245260",
+                  "status": "pending"
+                }
+              ]
+            },
+            "schema": {
+              "title": "Concurrency Group",
+              "description": "A concurrency group with the workflow runs and jobs that are either currently holding\nor waiting for the concurrency group lease.",
+              "type": "object",
+              "required": [
+                "group_name",
+                "group_url",
+                "total_count",
+                "group_members"
+              ],
+              "properties": {
+                "group_name": {
+                  "type": "string",
+                  "description": "The name of the concurrency group."
+                },
+                "group_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "API URL for this concurrency group."
+                },
+                "total_count": {
+                  "type": "integer"
+                },
+                "group_members": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "run_id",
+                      "run_name",
+                      "run_url",
+                      "run_html_url",
+                      "status"
+                    ],
+                    "properties": {
+                      "run_id": {
+                        "type": "integer",
+                        "description": "The ID of the workflow run."
+                      },
+                      "run_name": {
+                        "type": "string",
+                        "description": "The name of the workflow run."
+                      },
+                      "run_url": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "uri",
+                        "description": "API URL for the workflow run."
+                      },
+                      "run_html_url": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "uri",
+                        "description": "Web URL for the workflow run."
+                      },
+                      "job_id": {
+                        "type": "integer",
+                        "description": "The ID of the job, when the item represents a job-level or reusable-workflow-level lease."
+                      },
+                      "job_name": {
+                        "type": "string",
+                        "description": "The display name of the job, when the item represents a job-level or reusable-workflow-level lease."
+                      },
+                      "job_url": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "uri",
+                        "description": "API URL for the job."
+                      },
+                      "job_html_url": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "uri",
+                        "description": "Web URL for the job."
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "in_progress",
+                          "pending"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Actions\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/concurrency_groups",
+      "title": "List concurrency groups for a workflow run",
+      "category": "actions",
+      "subcategory": "concurrency-groups",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "run_id",
+          "description": "<p>The unique identifier of the workflow run.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "before",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "after",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists all concurrency groups associated with a workflow run or its jobs.</p>\n<p>The set of groups is derived from the run's configuration, so a group is\nincluded even when the run no longer has any items currently holding or\nwaiting in it. In that case the <code>group_members</code> array will be empty.\n<code>total_count</code> reflects the number of groups the run participates in by\nconfiguration, not the number with active items.</p>\n<p>This differs from <code>GET /repos/{owner}/{repo}/actions/concurrency_groups/{group_name}</code>,\nwhich returns 404 when a group has no active items. That endpoint reports\nthe live state of a group repo-wide, while this endpoint reports the\ngroups associated with a specific run by configuration.</p>\n<p>Results are sorted by group name and support cursor-based pagination via\n<code>before</code> and <code>after</code>. The <code>after</code> cursor paginates forward only and does\nnot emit a <code>rel=\"prev\"</code> Link; use <code>before</code> to page backward from a\nforward page's <code>next</code> cursor.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "run_id": "RUN_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "total_count": 2,
+              "concurrency_groups": [
+                {
+                  "group_name": "deploy-prod",
+                  "group_url": "https://api.github.com/repos/octocat/Hello-World/actions/concurrency_groups/deploy-prod",
+                  "group_members": [
+                    {
+                      "run_id": 30433642,
+                      "run_name": "Deploy to production",
+                      "run_url": "https://api.github.com/repos/octocat/Hello-World/actions/runs/30433642",
+                      "run_html_url": "https://github.com/octocat/Hello-World/actions/runs/30433642",
+                      "status": "in_progress",
+                      "position": 0,
+                      "position_url": "https://api.github.com/repos/octocat/Hello-World/actions/concurrency_groups/deploy-prod?ahead_of_run=30433642"
+                    }
+                  ]
+                },
+                {
+                  "group_name": "ci-build",
+                  "group_url": "https://api.github.com/repos/octocat/Hello-World/actions/concurrency_groups/ci-build",
+                  "group_members": [
+                    {
+                      "run_id": 30433642,
+                      "run_name": "Deploy to production",
+                      "run_url": "https://api.github.com/repos/octocat/Hello-World/actions/runs/30433642",
+                      "run_html_url": "https://github.com/octocat/Hello-World/actions/runs/30433642",
+                      "status": "pending",
+                      "position": 2,
+                      "position_url": "https://api.github.com/repos/octocat/Hello-World/actions/concurrency_groups/ci-build?ahead_of_job=798245260",
+                      "job_id": 798245260,
+                      "job_name": "build",
+                      "job_url": "https://api.github.com/repos/octocat/Hello-World/actions/jobs/798245260",
+                      "job_html_url": "https://github.com/octocat/Hello-World/actions/runs/30433642/job/798245260"
+                    }
+                  ]
+                }
+              ]
+            },
+            "schema": {
+              "title": "Concurrency Group Run List",
+              "description": "A list of concurrency groups associated with a workflow run.",
+              "type": "object",
+              "required": [
+                "total_count",
+                "concurrency_groups"
+              ],
+              "properties": {
+                "total_count": {
+                  "type": "integer",
+                  "description": "The total number of concurrency groups this workflow run participates in,\nderived from the run's configuration. This count is not filtered by\nwhether the run currently holds or is waiting in each group, so it can\ninclude groups whose `group_members` array is empty (for example, when\nthe run has already released its lease in that group)."
+                },
+                "concurrency_groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "group_name",
+                      "group_url",
+                      "group_members"
+                    ],
+                    "properties": {
+                      "group_name": {
+                        "type": "string",
+                        "description": "The name of the concurrency group."
+                      },
+                      "group_url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "API URL for this concurrency group. May return 404 if the group\nhas no active items at the time it is requested, since the\nget-by-name endpoint reports the live repo-wide state of a group\nwhile this endpoint lists groups associated with a run by\nconfiguration."
+                      },
+                      "group_members": {
+                        "type": "array",
+                        "description": "Items belonging to this workflow run that are either currently holding or\nwaiting for the concurrency group lease. May be empty if the run no\nlonger has any active or queued items in this group.",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "run_id",
+                            "run_name",
+                            "run_url",
+                            "run_html_url",
+                            "status",
+                            "position",
+                            "position_url"
+                          ],
+                          "properties": {
+                            "run_id": {
+                              "type": "integer",
+                              "description": "The ID of the workflow run."
+                            },
+                            "run_name": {
+                              "type": "string",
+                              "description": "The name of the workflow run."
+                            },
+                            "run_url": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "format": "uri",
+                              "description": "API URL for the workflow run."
+                            },
+                            "run_html_url": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "format": "uri",
+                              "description": "Web URL for the workflow run."
+                            },
+                            "position": {
+                              "type": "integer",
+                              "description": "Queue position. 0 means the item holds the concurrency lease (in_progress), 1 or higher means queued (pending)."
+                            },
+                            "position_url": {
+                              "type": "string",
+                              "format": "uri",
+                              "description": "API URL to get items ahead of this item in the concurrency group."
+                            },
+                            "job_id": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ],
+                              "description": "The ID of the job, when the item represents a job-level or reusable-workflow-level lease."
+                            },
+                            "job_name": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The display name of the job, when the item represents a job-level or reusable-workflow-level lease."
+                            },
+                            "job_url": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "format": "uri",
+                              "description": "API URL for the job."
+                            },
+                            "job_html_url": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "format": "uri",
+                              "description": "Web URL for the job."
+                            },
+                            "status": {
+                              "type": "string",
+                              "enum": [
+                                "in_progress",
+                                "pending"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Actions\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
   "hosted-runners": [
     {
       "serverUrl": "https://api.github.com",
@@ -35569,6 +36220,12 @@
           "type": "boolean",
           "name": "enable_debug_logging",
           "description": "<p>Whether to enable debug logging for the re-run.</p>",
+          "default": false
+        },
+        {
+          "type": "boolean",
+          "name": "enable_debugger",
+          "description": "<p>Whether to enable the debugger for the re-run of this job.</p>",
           "default": false
         }
       ],

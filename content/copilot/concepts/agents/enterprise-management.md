@@ -42,18 +42,37 @@ An agent session encompasses an entire interaction with {% data variables.copilo
 * Prompting the agent to create or edit a pull request
 * Assigning the agent to an issue
 
+Enterprise administrators can use AI Controls to view active and recent agent sessions, track audit log events, and search agentic activity in your enterprise using filters. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity) and [AUTOTITLE](/copilot/reference/agent-session-filters).
+
 For billing information on agent sessions, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-premium-requests#usage-by-copilot-cloud-agent).
+
+## Third-party agents
+
+Third-party agents, or partner agents, such as Claude and Codex work alongside {% data variables.copilot.copilot_cloud_agent %} to complete development tasks asynchronously on {% data variables.product.github %}. While they share the same security protections and mitigations as {% data variables.copilot.copilot_cloud_agent %}, their policies are managed separately. Disabling or restricting {% data variables.copilot.copilot_cloud_agent %} does not automatically disable third-party agents, and vice versa. Each agent type must be configured independently.
+
+Enterprise administrators and AI managers can control the availability of third-party agents from the Agents page in the AI Controls view. These policies govern third-party agent usage on {% data variables.product.prodname_dotcom_the_website %}.
+
+For more information about available third-party agents, see [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents).
+
+## Local agents
+
+Agents running in {% data variables.product.prodname_vscode %} are not managed through {% data variables.product.github %} at all. Instead, they are an IDE feature with their own configuration.
+
+For more information, see [Types of agents](https://code.visualstudio.com/docs/copilot/agents/overview#_types-of-agents) and [Enable or disable the use of agents](https://code.visualstudio.com/docs/enterprise/ai-settings#_enable-or-disable-the-use-of-agents) in the {% data variables.product.prodname_vscode %} documentation.
+
+## MCP servers
+
+Model Context Protocol (MCP) servers give agents access to external tools and data sources. Enterprise owners can control how MCP servers are discovered and used across the enterprise through a dedicated set of MCP policies in the AI Controls view.
+
+To help you meet security and compliance requirements, you can choose to:
+* Allow or block MCP server usage entirely
+* Control which external tools are available to agents using an MCP registry (catalogs of approved MCP servers that your developers can discover and use)
+
+Private MCP registries apply to {% data variables.copilot.copilot_cli_short %} and IDEs, but not to cloud agents that run on {% data variables.product.github %}. For {% data variables.copilot.copilot_cloud_agent %}, MCP servers can be configured at the repository level or in custom agent profiles defined at the enterprise level.
+
+For more information, see [AUTOTITLE](/copilot/concepts/mcp-management).
 
 ## Agent mode in the IDE
 
 Enterprise and organization owners can separately control whether their users have access to agent mode in IDE chat, independently from the "Chat in IDE" policy. This gives you finer-grained control over agentic capabilities in your developers' IDEs.
 
-To manage this policy, enable or disable **Copilot Agent Mode in IDE chat** in your AI Controls settings. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
-
-## Next steps
-
-To get started with {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
-
-## Further reading
-
-* [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents)

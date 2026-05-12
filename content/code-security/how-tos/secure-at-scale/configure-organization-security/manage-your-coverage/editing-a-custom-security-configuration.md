@@ -4,7 +4,9 @@ shortTitle: Edit custom configuration
 intro: Meet the security needs of your repositories by editing your {% data variables.product.prodname_custom_security_configuration %}.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/editing-a-custom-security-configuration
 contentType: how-tos

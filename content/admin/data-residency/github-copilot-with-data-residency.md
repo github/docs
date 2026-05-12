@@ -54,7 +54,6 @@ The models available for {% data variables.product.prodname_copilot_short %} var
 * GPT-5.2
 * GPT-5.4
 * Claude Haiku 4.5
-* Claude Sonnet 4
 * Claude Sonnet 4.5
 * Claude Opus 4.5
 * Claude Sonnet 4.6

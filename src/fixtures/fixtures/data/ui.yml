@@ -198,6 +198,32 @@ rest_reference:
   notes: Notes
   parameters: Parameters for "{{ RESTOperationTitle }}"
   response: Response
+secret_scanning:
+  search_placeholder: Search by provider or secret name...
+  search_aria_label: Search patterns
+  filter_aria_label: Filter secret scanning patterns
+  filter_push_protection: 'Push protection'
+  filter_validity_check: 'Validity check'
+  filter_partner_alert: 'Partner alert'
+  filter_metadata: Metadata check
+  filter_base64: Base64
+  filter_all: All
+  filter_yes: 'Yes'
+  filter_no: 'No'
+  showing_patterns: 'Showing {filtered} of {total} patterns'
+  column_provider: Provider
+  column_secret: Secret
+  column_partner: Partner
+  column_user_alert: User alert
+  column_push_protection: Push protection
+  column_validity_check: Validity check
+  column_metadata: Metadata check
+  column_base64: Base64
+  bool_yes: 'Yes'
+  bool_no: 'No'
+  token_versions: Token versions
+  table_title: Supported patterns
+  pagination_label: Secret scanning patterns pagination
   request_example: Request example
   request_examples: Request examples
   example_response: Example response

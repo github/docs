@@ -193,9 +193,7 @@ For more information about production context, see [AUTOTITLE](/code-security/se
 | `assignee` | Display alerts by assignee username or team, for example: `assignee:@octocat`, `assignee:@copilot`, or `assignee:@github/security-team`.|
 |{% endif %}|
 |`ecosystem`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified ecosystem, for example: `ecosystem:Maven`.|
-|{% ifversion fpt or ghec or ghes > 3.15 %}|
 |`epss_percentage`|Display {% data variables.product.prodname_dependabot_alerts %} whose EPSS score meets the defined criteria, for example: `epss_percentage:>=0.01`|
-|{% endif %}|
 |`has`|Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions).|
 |`is`|Display {% data variables.product.prodname_dependabot_alerts %} that are open (`open`) or closed (`closed`).|
 |`package`|Display {% data variables.product.prodname_dependabot_alerts %} detected in the specified package, for example: `package:semver`.|
@@ -245,9 +243,6 @@ You can click any result to see full details of the relevant query and the line 
 | Qualifier | Description |
 | -------- | -------- |
 |`bypassed`|Display {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).|
-|{% ifversion ghes < 3.16 %}|
-|`confidence`|Display {% data variables.secret-scanning.alerts %} of high (`high`) or other (`other`) confidence.|
-|{% endif %}|
 |`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`){% ifversion ghes < 3.17 %} or closed (`closed`){% else %}, closed (`closed`), publicly leaked (`publicly-leaked`), or multi-repository (`multi-repository`){% endif %}.|
 |`props`|Display alerts for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
 |`provider`|Display alerts for all secrets issued by a specified provider, for example: `adafruit`.  |

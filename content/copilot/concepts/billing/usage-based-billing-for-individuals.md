@@ -43,12 +43,23 @@ Code completions and {% data variables.copilot.next_edit_suggestions %} are **no
 
 ## How do {% data variables.product.prodname_ai_credits_short %} work?
 
-Each {% data variables.product.prodname_copilot_short %} individual plan subscription includes a monthly {% data variables.product.prodname_ai_credits_short %} allowance:
+Each {% data variables.product.prodname_copilot_short %} individual plan subscription includes a monthly {% data variables.product.prodname_ai_credits_short %} allowance.
 
-| Plan | Total {% data variables.product.prodname_ai_credits_short %} per month |
-| --- | --- |
-| {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.ai_credits_per_user_pro %} |
-| {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.ai_credits_per_user_pro_plus %} |
+**Base credits** are included with your plan subscription each month. These match with your subscription price and they never change.
+
+Each plan currently also includes a **flex allotment**. This in an additional monthly amount on top of your base credits. The flex allotment is a variable part of your included usage; it is designed to adapt as the economics of AI evolve, including model pricing, new models, and improvements in efficiency.
+
+Your base credits are used first. If you go beyond your base credits, the flex allotment is applied automatically at the same rates across your IDE, {% data variables.product.prodname_dotcom_the_website %}, and the {% data variables.copilot.copilot_cli_short %}. No additional setup is required. Your usage dashboard shows your available allowance and what you've used.
+
+If you use everything included in your plan, you can purchase more and keep working. See [What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}](#what-happens-if-i-exceed-my-included--data-variablesproductprodname_ai_credits_short-).
+
+| Plan | Price per month | Base credits | Flex allotment | Total monthly {% data variables.product.prodname_ai_credits_short %} |
+| --- | --- | --- | --- | --- |
+| {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.cfi_price_per_month %} | {% data variables.copilot.ai_credits_per_user_pro %} | {% data variables.copilot.ai_credits_per_user_pro_flex %} | {% data variables.copilot.ai_credits_per_user_pro_total %} |
+| {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.cpp_price_per_month %} | {% data variables.copilot.ai_credits_per_user_pro_plus %} | {% data variables.copilot.ai_credits_per_user_pro_plus_flex %} | {% data variables.copilot.ai_credits_per_user_pro_plus_total %} |
+| {% data variables.copilot.copilot_max_short %} | {% data variables.copilot.cm_price_per_month %} | {% data variables.copilot.ai_credits_per_user_max %} | {% data variables.copilot.ai_credits_per_user_max_flex %} | {% data variables.copilot.ai_credits_per_user_max_total %} |
+
+{% data variables.copilot.copilot_free_short %} will include 2000 code completions per month, an allowance of {% data variables.product.prodname_ai_credits_short %} and {% data variables.copilot.copilot_auto_model_selection_short %}.
 
 ## What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
 

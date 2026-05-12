@@ -1,6 +1,6 @@
 ---
 title: Configure MCP server access for your organization or enterprise
-intro: You can configure an MCP registry URL and access control policy to determine which MCP servers developers can discover and use in supported IDEs with {% data variables.product.prodname_copilot %}.
+intro: You can configure an MCP registry URL and access control policy to determine which MCP servers developers can discover and use in supported IDEs and {% data variables.copilot.copilot_cli_short %}.
 permissions: Enterprise owners and organization owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:

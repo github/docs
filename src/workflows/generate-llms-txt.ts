@@ -1,16 +1,15 @@
+// Generates an llms.txt file from popularity data and the docs page catalog.
 //
-// Generates the llms.txt content for github.com from popularity data
-// and the docs page catalog. Run via:
+// Usage:
+//   npm run generate-llms-txt -- --config data/llms-txt/config-docs.yml --output data/llms-txt/docs.md
+//   npm run generate-llms-txt -- --config data/llms-txt/config-monolith.yml --output /tmp/monolith.md
 //
-//   npx tsx src/workflows/generate-llms-txt.ts > llms.txt
+// Both targets layer overrides on top of data/llms-txt/config-default.yml.
+// Writers can edit categories, pinned pages, thresholds, and copy in the
+// configs without touching this script.
 //
 // Requires DOCS_BOT_PAT_BASE for fetching popularity data from
 // github/docs-internal-data.
-//
-// Configuration lives in data/llms-txt-config.yml — writers can edit
-// categories, pinned pages, thresholds, and text there without
-// touching this script.
-//
 
 import fs from 'fs'
 
@@ -22,55 +21,41 @@ import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { allVersions } from '@/versions/lib/all-versions'
 import type { Page, Context } from '@/types'
 
-// =====================================================================
-// Configuration — loaded from data/llms-txt-config.yml
-// =====================================================================
-
 interface LlmsTxtConfig {
-  top_n: number
+  title: string
+  description: string
+  how_to_use_heading: string
+  how_to_use: string
+  pinned_section_heading: string
+  pinned_pages: string[]
+  top_n_popular_pages: number
   small_category_threshold: number
   excluded_categories: string[]
   excluded_slugs: string[]
-  pinned_pages: string[]
-  pinned_section_heading: string
   more_pages_heading: string
   auto_update_comment: string
-  header: string
-  api_section: string
 }
 
-export function loadConfig(configPath = 'data/llms-txt-config.yml'): LlmsTxtConfig {
-  return yaml.load(fs.readFileSync(configPath, 'utf8')) as LlmsTxtConfig
-}
-
-const config = loadConfig()
+const DEFAULT_CONFIG_PATH = 'data/llms-txt/config-default.yml'
 
 export const ROLLUP_URL =
   'https://raw.githubusercontent.com/github/docs-internal-data/main/hydro/rollups/pageviews/en/free-pro-team/rollup.json'
-export const TOP_N = config.top_n
-export const SMALL_CATEGORY_THRESHOLD = config.small_category_threshold
-export const EXCLUDED_CATEGORIES = new Set(config.excluded_categories)
-export const EXCLUDED_SLUGS = new Set(config.excluded_slugs)
-export const PINNED_PAGES = config.pinned_pages
 
 const BASE_URL = 'https://docs.github.com'
 
-const HEADER = config.header.trimEnd()
-const API_SECTION = config.api_section.trimEnd()
-const PINNED_SECTION_HEADING = config.pinned_section_heading.trimEnd()
-const MORE_PAGES_HEADING = config.more_pages_heading.trimEnd()
-const AUTO_UPDATE_COMMENT = config.auto_update_comment.trimEnd()
-
-// =====================================================================
-// Types
-// =====================================================================
+export function loadConfig(overridePath?: string): LlmsTxtConfig {
+  const defaults = yaml.load(fs.readFileSync(DEFAULT_CONFIG_PATH, 'utf8')) as Partial<LlmsTxtConfig>
+  if (!overridePath || overridePath === DEFAULT_CONFIG_PATH) {
+    return defaults as LlmsTxtConfig
+  }
+  const overrides = yaml.load(
+    fs.readFileSync(overridePath, 'utf8'),
+  ) as Partial<LlmsTxtConfig> | null
+  return { ...(defaults as LlmsTxtConfig), ...(overrides || {}) }
+}
 
 export type Rollup = Record<string, number>
 export type PageMap = Record<string, Page>
-
-// =====================================================================
-// Data loading
-// =====================================================================
 
 export async function fetchRollup(): Promise<Rollup> {
   const token = process.env.DOCS_BOT_PAT_BASE
@@ -81,14 +66,11 @@ export async function fetchRollup(): Promise<Rollup> {
       Authorization: `token ${token}`,
     },
   })
-  if (!res.ok)
+  if (!res.ok) {
     throw new Error(`Failed to fetch rollup: ${res.status} ${res.statusText} (${ROLLUP_URL})`)
+  }
   return (await res.json()) as Rollup
 }
-
-// =====================================================================
-// Liquid rendering
-// =====================================================================
 
 const renderContext: Context = {
   currentLanguage: 'en',
@@ -103,12 +85,15 @@ export async function renderLiquid(template: string): Promise<string> {
   return html.replace(/^<p>|<\/p>$/g, '').trim()
 }
 
-// =====================================================================
-// Helpers
-// =====================================================================
-
 export function pageExists(pagePath: string, pages: PageMap): boolean {
   return `/en/${pagePath}` in pages
+}
+
+function normalize(s: string): string {
+  return s
+    .replace(/\s+/g, ' ')
+    .replace(/\s+([.,;:!?])/g, '$1')
+    .trim()
 }
 
 export async function getPageTitle(permalink: string, pages: PageMap): Promise<string> {
@@ -116,14 +101,14 @@ export async function getPageTitle(permalink: string, pages: PageMap): Promise<s
   const raw = page?.shortTitle || page?.title || ''
   if (!raw) return titleCase(permalink.split('/').pop() || '')
   const rendered = await renderLiquid(raw)
-  return rendered.replace(/ documentation$/i, '')
+  return normalize(rendered).replace(/ documentation$/i, '')
 }
 
 export async function getPageIntro(permalink: string, pages: PageMap): Promise<string | null> {
   const page = pages[permalink]
   const raw = page?.intro || ''
   if (!raw) return null
-  return renderLiquid(raw)
+  return normalize(await renderLiquid(raw))
 }
 
 export async function formatPageLine(pagePath: string, pages: PageMap): Promise<string> {
@@ -131,8 +116,8 @@ export async function formatPageLine(pagePath: string, pages: PageMap): Promise<
   const title =
     (await getPageTitle(permalink, pages)) || titleCase(pagePath.split('/').pop() || pagePath)
   const intro = await getPageIntro(permalink, pages)
-  if (intro) return `- [${title}](${BASE_URL}${permalink}): ${intro}`
-  return `- [${title}](${BASE_URL}${permalink})`
+  if (intro) return `* [${title}](${BASE_URL}${permalink}): ${intro}`
+  return `* [${title}](${BASE_URL}${permalink})`
 }
 
 export function titleCase(slug: string): string {
@@ -142,25 +127,27 @@ export function titleCase(slug: string): string {
     .join(' ')
 }
 
-// =====================================================================
-// Main generation
-// =====================================================================
+export async function generate(
+  pages: PageMap,
+  rollup: Rollup,
+  config: LlmsTxtConfig,
+): Promise<string> {
+  const excludedCategories = new Set(config.excluded_categories)
+  const excludedSlugs = new Set(config.excluded_slugs)
+  const pinnedSet = new Set(config.pinned_pages)
 
-export async function generate(pages: PageMap, rollup: Rollup): Promise<string> {
-  const pinnedSet = new Set(PINNED_PAGES)
   const topPages = Object.entries(rollup)
     .filter(
       ([path]) =>
         path &&
-        !EXCLUDED_SLUGS.has(path) &&
-        !EXCLUDED_CATEGORIES.has(path.split('/')[0]) &&
+        !excludedSlugs.has(path.split('/').pop() || '') &&
+        !excludedCategories.has(path.split('/')[0]) &&
         !pinnedSet.has(path) &&
         pageExists(path, pages),
     )
     .sort((a, b) => b[1] - a[1])
-    .slice(0, TOP_N)
+    .slice(0, config.top_n_popular_pages)
 
-  // Group by category, alphabetical within each
   const categoryMap = new Map<string, string[]>()
   for (const [pagePath] of topPages) {
     const category = pagePath.split('/')[0]
@@ -175,21 +162,23 @@ export async function generate(pages: PageMap, rollup: Rollup): Promise<string> 
     ),
   )
 
-  const sections: string[] = [HEADER, '', API_SECTION, '']
+  const sections: string[] = []
+  sections.push(`# ${config.title.trim()}`, '')
+  sections.push(`> ${config.description.trim()}`, '')
+  sections.push(`## ${config.how_to_use_heading.trim()}`, '')
+  sections.push(config.how_to_use.trim(), '')
 
-  // Pinned section
-  const existingPinned = PINNED_PAGES.filter((p) => pageExists(p, pages))
+  const existingPinned = config.pinned_pages.filter((p) => pageExists(p, pages))
   if (existingPinned.length > 0) {
-    sections.push(`## ${PINNED_SECTION_HEADING}`, '')
+    sections.push(`## ${config.pinned_section_heading.trim()}`, '')
     for (const p of existingPinned) sections.push(await formatPageLine(p, pages))
     sections.push('')
   }
 
-  // Large and small categories
   const largeCategories: [string, string[]][] = []
   const smallCategoryPages: string[] = []
   for (const [cat, catPages] of categories) {
-    if (catPages.length < SMALL_CATEGORY_THRESHOLD) smallCategoryPages.push(...catPages)
+    if (catPages.length < config.small_category_threshold) smallCategoryPages.push(...catPages)
     else largeCategories.push([cat, catPages])
   }
   smallCategoryPages.sort()
@@ -204,27 +193,38 @@ export async function generate(pages: PageMap, rollup: Rollup): Promise<string> 
   }
 
   if (smallCategoryPages.length > 0) {
-    sections.push(`## ${MORE_PAGES_HEADING}`, '')
+    sections.push(`## ${config.more_pages_heading.trim()}`, '')
     for (const p of smallCategoryPages) sections.push(await formatPageLine(p, pages))
     sections.push('')
   }
 
-  sections.push(AUTO_UPDATE_COMMENT)
-  return sections.join('\n')
+  sections.push(config.auto_update_comment.trim())
+  return `${sections.join('\n')}\n`
 }
 
-// =====================================================================
-// Entry point
-// =====================================================================
+function parseArgs(argv: string[]): { configPath?: string; outputPath?: string } {
+  const out: { configPath?: string; outputPath?: string } = {}
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i]
+    if (arg === '--config' || arg === '-c') out.configPath = argv[++i]
+    else if (arg === '--output' || arg === '-o') out.outputPath = argv[++i]
+  }
+  return out
+}
 
 async function main() {
+  const { configPath, outputPath } = parseArgs(process.argv.slice(2))
+  const config = loadConfig(configPath)
   const pages = await loadPageMap(undefined, ['en'])
   const rollup = await fetchRollup()
-  const content = await generate(pages, rollup)
-  process.stdout.write(content)
+  const content = await generate(pages, rollup, config)
+  if (outputPath) {
+    fs.writeFileSync(outputPath, content)
+  } else {
+    process.stdout.write(content)
+  }
 }
 
-// Only run when executed directly, not when imported for testing
 const isEntryPoint =
   import.meta.url === `file://${process.argv[1]}` ||
   process.argv[1]?.endsWith('generate-llms-txt.ts')

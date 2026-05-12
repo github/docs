@@ -2428,7 +2428,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the organization and repository configured as the source for custom agent definitions in an enterprise.</p>\n<p>Custom agents are enterprise-defined AI agents stored as markdown files in a special repository.\nAn enterprise admin configures one organization as the \"source\" and that org must have a repo named\n<code>.github-private</code> containing agent definitions in <code>/agents/*.md</code>.</p>\n<p>Enterprise owners with read access to AI Controls can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets the organization and repository configured as the source for custom agent definitions and Copilot CLI client settings in an enterprise.</p>\n<p>Custom agents are enterprise-defined AI agents stored as markdown files in a special repository.\nAn enterprise admin configures one organization as the \"source\" for custom agents and\nCopilot CLI client settings, and that org must have a repo named <code>.github-private</code> containing agent\ndefinitions in <code>/agents/*.md</code>, or enterprise-managed AI standards in <code>.github/copilot/settings.json</code>. <a href=\"https://docs.github.com/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards\">Learn more about configuring enterprise-managed AI standards for Copilot clients</a>.</p>\n<p>Enterprise owners with read access to AI Controls can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2569,7 +2569,7 @@
           "default": true
         }
       ],
-      "descriptionHTML": "<p>Sets an organization as the source for custom agent definitions in the enterprise.\nThe organization must have a <code>.github-private</code> repository containing agent definitions.</p>\n<p>By default, this endpoint also creates an enterprise-level ruleset to protect\nagent definition files (agents/<em>.md and .github/agents/</em>.md). You can opt out\nof ruleset creation by setting <code>create_ruleset</code> to <code>false</code>.</p>\n<p>Enterprise owners with write access to AI Controls can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Sets an organization as the source for custom agent definitions and Copilot CLI client settings in the enterprise.\nThe organization must have a <code>.github-private</code> repository containing agent definitions.</p>\n<p>By default, this endpoint also creates an enterprise-level ruleset to protect\nagent definition files (agents/<em>.md and .github/agents/</em>.md). You can opt out\nof ruleset creation by setting <code>create_ruleset</code> to <code>false</code>.</p>\n<p>Enterprise owners with write access to AI Controls can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2718,7 +2718,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes the custom agents source configuration for the enterprise.\nThis effectively disables custom agents for the enterprise by removing\nthe reference to the source organization's <code>.github-private</code> repository.</p>\n<p>Note: This does not delete the <code>.github-private</code> repository or any agent\ndefinition files. It only removes the association between the enterprise\nand the source repository.</p>\n<p>Enterprise owners with write access to AI Controls can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Removes the custom agents source configuration for the enterprise.\nThis effectively disables custom agents and Copilot CLI client settings\nfor the enterprise by removing the reference to the source organization's <code>.github-private</code> repository.</p>\n<p>Note: This does not delete the <code>.github-private</code> repository or any agent\ndefinition files. It only removes the association between the enterprise\nand the source repository.</p>\n<p>Enterprise owners with write access to AI Controls can use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:enterprise</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6556,6 +6556,14 @@
                               "updated_at": {
                                 "type": "string",
                                 "format": "date-time"
+                              },
+                              "notification_setting": {
+                                "type": "string",
+                                "description": "Whether team members will receive notifications when the team is mentioned.",
+                                "enum": [
+                                  "notifications_enabled",
+                                  "notifications_disabled"
+                                ]
                               }
                             },
                             "required": [
@@ -7689,6 +7697,14 @@
                               "updated_at": {
                                 "type": "string",
                                 "format": "date-time"
+                              },
+                              "notification_setting": {
+                                "type": "string",
+                                "description": "Whether team members will receive notifications when the team is mentioned.",
+                                "enum": [
+                                  "notifications_enabled",
+                                  "notifications_disabled"
+                                ]
                               }
                             },
                             "required": [
@@ -8588,6 +8604,14 @@
                               "updated_at": {
                                 "type": "string",
                                 "format": "date-time"
+                              },
+                              "notification_setting": {
+                                "type": "string",
+                                "description": "Whether team members will receive notifications when the team is mentioned.",
+                                "enum": [
+                                  "notifications_enabled",
+                                  "notifications_disabled"
+                                ]
                               }
                             },
                             "required": [
@@ -9677,6 +9701,14 @@
                         "updated_at": {
                           "type": "string",
                           "format": "date-time"
+                        },
+                        "notification_setting": {
+                          "type": "string",
+                          "description": "Whether team members will receive notifications when the team is mentioned.",
+                          "enum": [
+                            "notifications_enabled",
+                            "notifications_disabled"
+                          ]
                         }
                       },
                       "required": [

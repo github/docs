@@ -42,7 +42,6 @@ jobs:
           - audit-logs
           - automated-pipelines
           # - bookmarklets
-          - changelogs
           # - code-scanning
           # - codeql-cli
           - color-schemes

@@ -1,5 +1,14 @@
 # Docs changelog
 
+**7 May 2026**
+
+Enterprise administrators can now centrally manage plugin standards for Copilot CLI. We added two new articles:
+
+* A conceptual article explaining how enterprise plugin standards work: [About enterprise-managed plugin standards for Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards)
+* A how-to article for configuring available marketplaces and default-enabled plugins: [Configuring enterprise plugin standards for Copilot CLI](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards)
+
+<hr>
+
 **23 April 2026**
 
 We added documentation for the new `gh skill` command (public preview), which you can use to discover, install, update, and publish agent skills directly from GitHub CLI.

@@ -83,9 +83,7 @@ Windows runners require `powershell.exe` to be on the `PATH`.
 
 ## Building C#
 
-{% data variables.product.prodname_codeql %} supports build modes {% ifversion codeql-no-build-csharp %}`none`, {% endif %}`autobuild` or `manual` for C# code.
-
-{% ifversion codeql-no-build-csharp %}
+{% data variables.product.prodname_codeql %} supports build modes `none`, `autobuild` or `manual` for C# code.
 
 When you enable default setup for a repository that contains C# code, the build mode is set to `none` automatically.
 
@@ -113,7 +111,7 @@ You can ensure a more accurate analysis by taking the following steps:
 * Check whether multiple versions of .NET are referenced, for example, `net48`, `net5.0`, and `netstandard1.6`. {% data variables.product.prodname_codeql %} can use only one version and this may affect accuracy.
 * Avoid colliding class names, otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
 
-### Autobuild summary for C#{% endif %}
+### Autobuild summary for C#
 
 | Supported system type | System name |
 |----|----|
@@ -137,11 +135,7 @@ For .NET Framework application development, you will need Microsoft Build Tools 
 
 Windows runners require `powershell.exe` to be on the `PATH`.
 
-{% ifversion codeql-no-build-csharp %}
-
 If you plan to create {% data variables.product.prodname_codeql %} databases using `build-mode: none`, you also need to provide access to the public internet, or you must ensure that access to a private NuGet feed is available.
-
-{% endif %}
 
 #### Linux and macOS autodetection
 
@@ -156,11 +150,7 @@ For .NET Core application development on self-hosted runners, the .NET SDK is re
 
 For .NET Framework application development, you will require Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
 
-{% ifversion codeql-no-build-csharp %}
-
 If you plan to create {% data variables.product.prodname_codeql %} databases using `build-mode: none`, you also need to provide access to the public internet, or you must ensure that access to a private NuGet feed is available.
-
-{% endif %}
 
 ### C# compiler flags injected by {% data variables.product.prodname_codeql %} for manual builds
 

@@ -29,10 +29,6 @@
   multiplier_paid: 15
   multiplier_free: Not applicable
 
-- name: Claude Sonnet 4
-  multiplier_paid: 1
-  multiplier_free: Not applicable
-
 - name: Claude Sonnet 4.5
   multiplier_paid: 1
   multiplier_free: Not applicable

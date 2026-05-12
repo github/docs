@@ -25,16 +25,16 @@
 
 - name: GPT-5 mini
   cloud_agent: false
-  chat: false
+  chat: true
   cli: true
 
 - name: GPT-5.3-Codex
-  cloud_agent: false
+  cloud_agent: true
   chat: true
   cli: true
 
 - name: GPT-5.4
-  cloud_agent: false
+  cloud_agent: true
   chat: true
   cli: true
 
@@ -49,13 +49,8 @@
   chat: true
   cli: true
 
-- name: Claude Sonnet 4.5
-  cloud_agent: true
-  chat: false
-  cli: false
-
 - name: Claude Sonnet 4.6
-  cloud_agent: false
+  cloud_agent: true
   chat: true
   cli: true
 

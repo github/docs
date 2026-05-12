@@ -7,6 +7,7 @@ versions:
 children:
   - /assign-licenses
   - /establish-ai-managers
+  - /govern-for-adoption
   - /enable-developers
   - /drive-downstream-impact
   - /measure-success

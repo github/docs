@@ -258,7 +258,7 @@ function getDataByDir(
     return get(allData, split.join('.'))
   }
 
-  if (first === 'product-examples' || first === 'glossaries' || first === 'release-notes') {
+  if (first === 'glossaries' || first === 'release-notes') {
     const basename = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${basename}.yml`)

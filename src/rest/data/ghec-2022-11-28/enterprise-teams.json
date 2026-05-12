@@ -123,6 +123,14 @@
                   "updated_at": {
                     "type": "string",
                     "format": "date-time"
+                  },
+                  "notification_setting": {
+                    "type": "string",
+                    "description": "Whether team members will receive notifications when the team is mentioned.",
+                    "enum": [
+                      "notifications_enabled",
+                      "notifications_disabled"
+                    ]
                   }
                 },
                 "required": [
@@ -219,6 +227,15 @@
           "type": "string or null",
           "name": "group_id",
           "description": "<p>The ID of the IdP group to assign team membership with. You can get this value from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/scim#list-provisioned-scim-groups-for-an-enterprise\">REST API endpoints for SCIM</a>.</p>"
+        },
+        {
+          "type": "string",
+          "name": "notification_setting",
+          "description": "<p>The notification setting the team is set to. The options are:</p>\n<ul>\n<li><code>notifications_enabled</code> - team members receive notifications when the team is @mentioned.</li>\n<li><code>notifications_disabled</code> - no one receives notifications.</li>\n</ul>\n<p>Default: <code>notifications_enabled</code></p>",
+          "enum": [
+            "notifications_enabled",
+            "notifications_disabled"
+          ]
         }
       ],
       "descriptionHTML": "<p>To create an enterprise team, the authenticated user must be an owner of the enterprise.</p>",
@@ -309,6 +326,14 @@
                 "updated_at": {
                   "type": "string",
                   "format": "date-time"
+                },
+                "notification_setting": {
+                  "type": "string",
+                  "description": "Whether team members will receive notifications when the team is mentioned.",
+                  "enum": [
+                    "notifications_enabled",
+                    "notifications_disabled"
+                  ]
                 }
               },
               "required": [
@@ -456,6 +481,14 @@
                 "updated_at": {
                   "type": "string",
                   "format": "date-time"
+                },
+                "notification_setting": {
+                  "type": "string",
+                  "description": "Whether team members will receive notifications when the team is mentioned.",
+                  "enum": [
+                    "notifications_enabled",
+                    "notifications_disabled"
+                  ]
                 }
               },
               "required": [
@@ -559,6 +592,15 @@
           "type": "string or null",
           "name": "group_id",
           "description": "<p>The ID of the IdP group to assign team membership with. The new IdP group will replace the existing one, or replace existing direct members if the team isn't currently linked to an IdP group.</p>"
+        },
+        {
+          "type": "string",
+          "name": "notification_setting",
+          "description": "<p>The notification setting the team is set to. The options are:</p>\n<ul>\n<li><code>notifications_enabled</code> - team members receive notifications when the team is @mentioned.</li>\n<li><code>notifications_disabled</code> - no one receives notifications.</li>\n</ul>",
+          "enum": [
+            "notifications_enabled",
+            "notifications_disabled"
+          ]
         }
       ],
       "descriptionHTML": "<p>To edit a team, the authenticated user must be an enterprise owner.</p>",
@@ -650,6 +692,14 @@
                 "updated_at": {
                   "type": "string",
                   "format": "date-time"
+                },
+                "notification_setting": {
+                  "type": "string",
+                  "description": "Whether team members will receive notifications when the team is mentioned.",
+                  "enum": [
+                    "notifications_enabled",
+                    "notifications_disabled"
+                  ]
                 }
               },
               "required": [

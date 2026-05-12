@@ -3,8 +3,6 @@ title: Pull requests documentation
 intro: 'Learn how to use pull requests to suggest changes to a project, receive suggested changes to your own projects, and address issues in pull requests, such as merge conflicts.'
 introLinks:
   overview: /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-changelog:
-  label: pull-requests
 layout: discovery-landing
 carousels:
   recommended:

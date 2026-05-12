@@ -16,19 +16,12 @@ import {
 } from '@/frame/components/context/MainContext'
 
 import {
-  getProductLandingContextFromRequest,
-  ProductLandingContextT,
-  ProductLandingContext,
-} from '@/landings/components/ProductLandingContext'
-
-import {
   getArticleContextFromRequest,
   ArticleContextT,
   ArticleContext,
 } from '@/frame/components/context/ArticleContext'
 import { ArticlePage } from '@/frame/components/article/ArticlePage'
 
-import { ProductLanding } from '@/landings/components/ProductLanding'
 import { TocLanding } from '@/landings/components/TocLanding'
 import { CategoryLanding } from '@/landings/components/CategoryLanding'
 import {
@@ -58,7 +51,6 @@ function initiateArticleScripts() {
 
 type Props = {
   mainContext: MainContextT
-  productLandingContext?: ProductLandingContextT
   tocLandingContext?: TocLandingContextT
   articleContext?: ArticleContextT
   categoryLandingContext?: CategoryLandingContextT
@@ -68,7 +60,6 @@ type Props = {
 }
 const GlobalPage = ({
   mainContext,
-  productLandingContext,
   tocLandingContext,
   articleContext,
   categoryLandingContext,
@@ -105,12 +96,6 @@ const GlobalPage = ({
       <LandingContext.Provider value={journeyContext}>
         <JourneyLanding />
       </LandingContext.Provider>
-    )
-  } else if (productLandingContext) {
-    content = (
-      <ProductLandingContext.Provider value={productLandingContext}>
-        <ProductLanding />
-      </ProductLandingContext.Provider>
     )
   } else if (categoryLandingContext) {
     content = (
@@ -174,9 +159,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   } else if (currentLayoutName === 'discovery-landing') {
     props.discoveryContext = await getLandingContextFromRequest(req, 'discovery')
     additionalUINamespaces.push('product_landing', 'carousels')
-  } else if (currentLayoutName === 'product-landing') {
-    props.productLandingContext = await getProductLandingContextFromRequest(req)
-    additionalUINamespaces.push('product_landing')
   } else if (relativePath?.endsWith('index.md')) {
     if (currentLayoutName === 'category-landing') {
       props.categoryLandingContext = getCategoryLandingContextFromRequest(req)
