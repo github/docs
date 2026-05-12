@@ -93,3 +93,22 @@ and command line utility rmnetcli. Utility is hosted in codeaurora forum git.
 The driver uses rtnl_link_ops for communication.
 
 https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/dataservices/tree/rmnetctl
+
+.. SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+
+Cellular Modem Device Drivers
+=============================
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   qualcomm/rmnet
+
+.. only::  subproject and html
+
+   Indices
+   =======
+
+   * :ref:`genindex`
