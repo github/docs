@@ -3,20 +3,16 @@
 
 preview: 'preview'
 
-public_preview: >-
-  {% ifversion ghes < 3.16 %}beta{% else %}public preview{% endif %}
+public_preview: 'public preview'
 
 public_preview_dpa: >-
   public preview with [data protection](https://gh.io/dpa)
 
-public_preview_caps: >-
-  {% ifversion ghes < 3.16 %}Beta{% else %}Public preview{% endif %}
+public_preview_caps: 'Public preview'
 
-private_preview: >-
-  {% ifversion ghes < 3.16 %}private beta{% else %}private preview{% endif %}
+private_preview: 'private preview'
 
-private_preview_caps: >-
-  {% ifversion ghes < 3.16 %}Private beta{% else %}Private preview{% endif %}
+private_preview_caps: 'Private preview'
 
 technical_preview: >-
   technical preview
@@ -24,14 +20,10 @@ technical_preview: >-
 technical_preview_caps: >-
   Technical preview
 
-closing_down: >-
-  {% ifversion ghes < 3.16 %}deprecated{% else %}closing down{% endif %}
+closing_down: 'closing down'
 
-closing_down_caps: >-
-  {% ifversion ghes < 3.16 %}Deprecated{% else %}Closing down{% endif %}
+closing_down_caps: 'Closing down'
 
-retired: >-
-  {% ifversion ghes < 3.16 %}sunset{% else %}retired{% endif %}
+retired: 'retired'
 
-retired_caps: >-
-  {% ifversion ghes < 3.16 %}Sunset{% else %}Retired{% endif %}
+retired_caps: 'Retired'

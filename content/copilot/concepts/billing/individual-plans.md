@@ -15,6 +15,14 @@ contentType: concepts
 category: 
   - Learn about Copilot
 ---
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->
+
+> [!IMPORTANT]
+> {% data reusables.copilot.plans.individual-plans-paused %}
 
 {% data variables.product.company_short %} offers three {% data variables.product.prodname_copilot_short %} plans for individual developers, as well as a dedicated student offering, each designed to meet different needs based on your coding habits, interest in AI models, and desired level of flexibility.
 

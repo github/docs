@@ -27,6 +27,7 @@ children:
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
   - /setting-permissions-for-adding-outside-collaborators
   - /allowing-people-to-delete-issues-in-your-organization
+  - /allowing-repository-admins-to-rename-branches-with-organization-rulesets
   - /enabling-or-disabling-github-discussions-for-an-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
   - /managing-the-commit-signoff-policy-for-your-organization
@@ -40,6 +41,7 @@ children:
   - /managing-the-display-of-member-names-in-your-organization
   - /managing-updates-from-accounts-your-organization-sponsors
   - /managing-the-publication-of-github-pages-sites-for-your-organization
+  - /managing-commit-comments-for-your-organization
   - /archiving-an-organization
   - /deleting-an-organization-account
   - /converting-an-organization-into-a-user

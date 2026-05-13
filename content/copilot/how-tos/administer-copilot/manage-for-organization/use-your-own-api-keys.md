@@ -11,7 +11,7 @@ category:
   - Manage Copilot for a team
 ---
 
-{% data reusables.copilot.byok-intro %}
+{% data reusables.copilot.byok-intro %} {% data reusables.copilot.byok-no-subscription-required %}
 
 ## Why bring your own API keys?
 

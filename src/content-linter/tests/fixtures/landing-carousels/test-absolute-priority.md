@@ -1,6 +1,6 @@
 ---
 title: Test Absolute Path Priority
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
 carousels:

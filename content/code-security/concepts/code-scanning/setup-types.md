@@ -49,17 +49,13 @@ Additional configuration options that are shared between all {% data variables.p
 
 You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages on self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners.
 
-You can assign self-hosted runners for default setup by giving the runners {% ifversion code-scanning-default-setup-customize-labels %}the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners.{% else %}the `code-scanning` label.{% endif %}
-
-{% ifversion code-scanning-default-setup-customize-labels %}
+You can assign self-hosted runners for default setup by giving the runners the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners.
 
 Unless you have a specific use case, we recommend that you only assign runners with the default `code-scanning` label. However, you may want to use custom labels to:
 
 * Assign more powerful self-hosted runners to critical repositories for faster {% data variables.product.prodname_code_scanning %} analysis.
 * Run your {% data variables.product.prodname_code_scanning %} analyses on a particular platform (for example, macOS).
 * Have granular control over the workload for your {% data variables.product.prodname_dotcom %}-hosted runners and self-hosted runners.
-
-{% endif %}
 
 ## About advanced setup
 

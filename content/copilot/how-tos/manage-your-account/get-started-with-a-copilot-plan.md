@@ -22,6 +22,12 @@ category:
   - Configure Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->
+
 You can get started with your {% data variables.product.prodname_copilot_short %} plan by:
 
 * [Accessing {% data variables.copilot.copilot_free_short %}](#accessing-copilot-free)
@@ -81,6 +87,9 @@ If you’re already using {% data variables.copilot.copilot_free_short %} and re
   When you hit the usage limit, you’ll be prompted to upgrade via in-app purchase.
 
 ## Subscribing to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}
+
+> [!IMPORTANT]
+> {% data reusables.copilot.plans.individual-plans-paused %}. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded.
 
 You can subscribe to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} at any time to unlock advanced AI features, higher usage limits, and access to additional models.
 

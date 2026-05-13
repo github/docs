@@ -7,6 +7,7 @@ versions:
 children:
   - /set-up-copilot
   - /chat-with-copilot
+  - /customize-copilot
   - /copilot-for-github-tasks
   - /use-copilot-agents
 contentType: how-tos

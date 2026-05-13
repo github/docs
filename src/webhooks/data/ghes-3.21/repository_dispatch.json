@@ -1,0 +1,65 @@
+{
+  "default": {
+    "descriptionHtml": "",
+    "summaryHtml": "<p>This event occurs when a GitHub App sends a <code>POST</code> request to <code>/repos/{owner}/{repo}/dispatches</code>. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos/repos#create-a-repository-dispatch-event\">the REST API documentation for creating a repository dispatch event</a>. In the payload, the <code>action</code> will be the <code>event_type</code> that was specified in the <code>POST /repos/{owner}/{repo}/dispatches</code> request body.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Contents\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "<p>The <code>event_type</code> that was specified in the <code>POST /repos/{owner}/{repo}/dispatches</code> request body.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "branch",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "object or null",
+        "name": "client_payload",
+        "description": "<p>The <code>client_payload</code> that was specified in the <code>POST /repos/{owner}/{repo}/dispatches</code> request body.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "default",
+    "category": "repository_dispatch"
+  }
+}

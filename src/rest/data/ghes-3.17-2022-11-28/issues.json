@@ -9751,6 +9751,25 @@
           "description": "<p>Logins for Users to assign to this issue. <em>NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.</em></p>"
         },
         {
+          "type": "array of objects",
+          "name": "issue_field_values",
+          "description": "<p>An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Issue fields are only available for organization-owned repositories with the feature enabled. Field values are silently dropped otherwise.</p>",
+          "childParamsGroups": [
+            {
+              "type": "integer",
+              "name": "field_id",
+              "description": "<p>The ID of the issue field to set</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string or number",
+              "name": "value",
+              "description": "<p>The value to set for the field</p>",
+              "isRequired": true
+            }
+          ]
+        },
+        {
           "type": "string or null",
           "name": "type",
           "description": "<p>The name of the issue type to associate with this issue. <em>NOTE: Only users with push access can set the type for new issues. The type is silently dropped otherwise.</em></p>"

@@ -29,6 +29,8 @@ The **Checks** tab displays the status of any automated tests, builds, or other 
 
 The **Files changed** tab shows the differences between the proposed changes and the existing code, making it easy to see what will change when the pull request merges.
 
+The **Merge status** of a pull request can be viewed directly in the header from anywhere in the pull request page. Click to open the details so you can quickly identify blockers, missing approvals, and get your pull request ready to merge. 
+
 ## Draft pull requests
 
 When you create a pull request, you can choose to make it a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review them. This is useful when you want to share work-in-progress without formally requesting reviews.

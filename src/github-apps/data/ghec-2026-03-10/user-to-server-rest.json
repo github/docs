@@ -685,6 +685,18 @@
       "requestPath": "/repos/{owner}/{repo}/actions/caches/{cache_id}"
     },
     {
+      "slug": "list-concurrency-groups-for-a-repository",
+      "subcategory": "concurrency-groups",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups"
+    },
+    {
+      "slug": "get-a-concurrency-group-for-a-repository",
+      "subcategory": "concurrency-groups",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups/{concurrency_group_name}"
+    },
+    {
       "slug": "get-a-job-for-a-workflow-run",
       "subcategory": "workflow-jobs",
       "verb": "get",
@@ -941,6 +953,12 @@
       "subcategory": "workflow-runs",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel"
+    },
+    {
+      "slug": "list-concurrency-groups-for-a-workflow-run",
+      "subcategory": "concurrency-groups",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/concurrency_groups"
     },
     {
       "slug": "force-cancel-a-workflow-run",
@@ -1273,6 +1291,188 @@
       "subcategory": "watching",
       "verb": "get",
       "requestPath": "/users/{username}/subscriptions"
+    }
+  ],
+  "agents": [
+    {
+      "slug": "list-organization-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/secrets"
+    },
+    {
+      "slug": "get-an-organization-public-key",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/secrets/public-key"
+    },
+    {
+      "slug": "get-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "create-or-update-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "delete-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-selected-repositories-for-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories"
+    },
+    {
+      "slug": "set-selected-repositories-for-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories"
+    },
+    {
+      "slug": "add-selected-repository-to-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-selected-repository-from-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id}"
+    },
+    {
+      "slug": "list-organization-variables",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/variables"
+    },
+    {
+      "slug": "create-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/agents/variables"
+    },
+    {
+      "slug": "get-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/variables/{name}"
+    },
+    {
+      "slug": "update-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/agents/variables/{name}"
+    },
+    {
+      "slug": "delete-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/agents/variables/{name}"
+    },
+    {
+      "slug": "list-selected-repositories-for-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/variables/{name}/repositories"
+    },
+    {
+      "slug": "set-selected-repositories-for-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/variables/{name}/repositories"
+    },
+    {
+      "slug": "add-selected-repository-to-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/variables/{name}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/agents/variables/{name}/repositories/{repository_id}"
+    },
+    {
+      "slug": "list-repository-organization-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/organization-secrets"
+    },
+    {
+      "slug": "list-repository-organization-variables",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/organization-variables"
+    },
+    {
+      "slug": "list-repository-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets"
+    },
+    {
+      "slug": "get-a-repository-public-key",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets/public-key"
+    },
+    {
+      "slug": "get-a-repository-secret",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "create-or-update-a-repository-secret",
+      "subcategory": "secrets",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "delete-a-repository-secret",
+      "subcategory": "secrets",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-repository-variables",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables"
+    },
+    {
+      "slug": "create-a-repository-variable",
+      "subcategory": "variables",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables"
+    },
+    {
+      "slug": "get-a-repository-variable",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}"
+    },
+    {
+      "slug": "update-a-repository-variable",
+      "subcategory": "variables",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}"
+    },
+    {
+      "slug": "delete-a-repository-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}"
     }
   ],
   "announcement-banners": [
@@ -2503,37 +2703,37 @@
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
     },
     {
-      "slug": "get-copilot-coding-agent-permissions-for-an-organization",
+      "slug": "get-copilot-cloud-agent-permissions-for-an-organization",
       "subcategory": "copilot-coding-agent-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions"
     },
     {
-      "slug": "set-copilot-coding-agent-permissions-for-an-organization",
+      "slug": "set-copilot-cloud-agent-permissions-for-an-organization",
       "subcategory": "copilot-coding-agent-management",
       "verb": "put",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions"
     },
     {
-      "slug": "list-repositories-enabled-for-copilot-coding-agent-in-an-organization",
+      "slug": "list-repositories-enabled-for-copilot-cloud-agent-in-an-organization",
       "subcategory": "copilot-coding-agent-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories"
     },
     {
-      "slug": "set-selected-repositories-for-copilot-coding-agent-in-an-organization",
+      "slug": "set-selected-repositories-for-copilot-cloud-agent-in-an-organization",
       "subcategory": "copilot-coding-agent-management",
       "verb": "put",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories"
     },
     {
-      "slug": "enable-a-repository-for-copilot-coding-agent-in-an-organization",
+      "slug": "enable-a-repository-for-copilot-cloud-agent-in-an-organization",
       "subcategory": "copilot-coding-agent-management",
       "verb": "put",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}"
     },
     {
-      "slug": "disable-a-repository-for-copilot-coding-agent-in-an-organization",
+      "slug": "disable-a-repository-for-copilot-cloud-agent-in-an-organization",
       "subcategory": "copilot-coding-agent-management",
       "verb": "delete",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}"
@@ -2593,7 +2793,111 @@
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
     }
   ],
+  "copilot-spaces": [
+    {
+      "slug": "list-organization-copilot-spaces",
+      "subcategory": "copilot-spaces",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot-spaces"
+    },
+    {
+      "slug": "create-an-organization-copilot-space",
+      "subcategory": "copilot-spaces",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/copilot-spaces"
+    },
+    {
+      "slug": "get-an-organization-copilot-space",
+      "subcategory": "copilot-spaces",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}"
+    },
+    {
+      "slug": "set-an-organization-copilot-space",
+      "subcategory": "copilot-spaces",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}"
+    },
+    {
+      "slug": "delete-an-organization-copilot-space",
+      "subcategory": "copilot-spaces",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}"
+    },
+    {
+      "slug": "list-collaborators-for-an-organization-copilot-space",
+      "subcategory": "collaborators",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators"
+    },
+    {
+      "slug": "add-a-collaborator-to-an-organization-copilot-space",
+      "subcategory": "collaborators",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators"
+    },
+    {
+      "slug": "set-a-collaborator-role-for-an-organization-copilot-space",
+      "subcategory": "collaborators",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}"
+    },
+    {
+      "slug": "remove-a-collaborator-from-an-organization-copilot-space",
+      "subcategory": "collaborators",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}"
+    },
+    {
+      "slug": "list-resources-for-an-organization-copilot-space",
+      "subcategory": "resources",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources"
+    },
+    {
+      "slug": "create-a-resource-for-an-organization-copilot-space",
+      "subcategory": "resources",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources"
+    },
+    {
+      "slug": "get-a-resource-for-an-organization-copilot-space",
+      "subcategory": "resources",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}"
+    },
+    {
+      "slug": "set-a-resource-for-an-organization-copilot-space",
+      "subcategory": "resources",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}"
+    },
+    {
+      "slug": "delete-a-resource-from-an-organization-copilot-space",
+      "subcategory": "resources",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}"
+    }
+  ],
   "dependabot": [
+    {
+      "slug": "lists-the-repositories-dependabot-can-access-in-an-enterprise",
+      "subcategory": "repository-access",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access"
+    },
+    {
+      "slug": "updates-dependabots-repository-access-list-for-an-enterprise",
+      "subcategory": "repository-access",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access"
+    },
+    {
+      "slug": "set-the-default-repository-access-level-for-dependabot-in-an-enterprise",
+      "subcategory": "repository-access",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access/default-level"
+    },
     {
       "slug": "list-dependabot-alerts-for-an-organization",
       "subcategory": "alerts",
@@ -3023,6 +3327,12 @@
       "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
+    },
+    {
+      "slug": "revoke-all-credential-authorizations-for-an-enterprise",
+      "subcategory": "credential-authorizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/credential-authorizations/revoke-all"
     },
     {
       "slug": "get-all-enterprise-roles-for-an-enterprise",
@@ -3811,6 +4121,24 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
     },
     {
+      "slug": "add-issue-field-values-to-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
+    },
+    {
+      "slug": "set-issue-field-values-for-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
+    },
+    {
+      "slug": "delete-an-issue-field-value-from-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}"
+    },
+    {
       "slug": "list-labels-for-an-issue",
       "subcategory": "labels",
       "verb": "get",
@@ -3953,24 +4281,6 @@
       "subcategory": "labels",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels"
-    },
-    {
-      "slug": "add-issue-field-values-to-an-issue",
-      "subcategory": "issue-field-values",
-      "verb": "post",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values"
-    },
-    {
-      "slug": "set-issue-field-values-for-an-issue",
-      "subcategory": "issue-field-values",
-      "verb": "put",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values"
-    },
-    {
-      "slug": "delete-an-issue-field-value-from-an-issue",
-      "subcategory": "issue-field-values",
-      "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}"
     },
     {
       "slug": "list-user-account-issues-assigned-to-the-authenticated-user",
@@ -5367,6 +5677,18 @@
       "subcategory": "pulls",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}"
+    },
+    {
+      "slug": "archive-a-pull-request",
+      "subcategory": "pulls",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive"
+    },
+    {
+      "slug": "unarchive-a-pull-request",
+      "subcategory": "pulls",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive"
     },
     {
       "slug": "list-review-comments-on-a-pull-request",

@@ -178,11 +178,10 @@ The following diagram illustrates the loading order and precedence rules.
   │  1. ~/.copilot/agents/           (user, .github convention)         │
   │  2. <project>/.github/agents/    (project)                          │
   │  3. <parents>/.github/agents/    (inherited, monorepo)              │
-  │  4. ~/.claude/agents/            (user, .claude convention)         │
-  │  5. <project>/.claude/agents/    (project)                          │
-  │  6. <parents>/.claude/agents/    (inherited, monorepo)              │
-  │  7. PLUGIN: agents/ dirs         (plugin, by install order)         │
-  │  8. Remote org/enterprise agents (remote, via API)                  │
+  │  4. <project>/.claude/agents/    (project)                          │
+  │  5. <parents>/.claude/agents/    (inherited, monorepo)              │
+  │  6. PLUGIN: agents/ dirs         (plugin, by install order)         │
+  │  7. Remote org/enterprise agents (remote, via API)                  │
   └──────────────────────┬──────────────────────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────────────────────┐
@@ -193,9 +192,8 @@ The following diagram illustrates the loading order and precedence rules.
   │  4. <parents>/.github/skills/ etc.   (inherited)                    │
   │  5. ~/.copilot/skills/               (personal-copilot)             │
   │  6. ~/.agents/skills/                (personal-agents)              │
-  │  7. ~/.claude/skills/                (personal-claude)              │
-  │  8. PLUGIN: skills/ dirs             (plugin)                       │
-  │  9. COPILOT_SKILLS_DIRS env + config (custom)                       │
+  │  7. PLUGIN: skills/ dirs             (plugin)                       │
+  │  8. COPILOT_SKILLS_DIRS env + config (custom)                       │
   │  --- then commands (.claude/commands/), skills override commands ---│
   └──────────────────────┬──────────────────────────────────────────────┘
                          │

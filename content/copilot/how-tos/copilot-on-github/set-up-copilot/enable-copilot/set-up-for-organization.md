@@ -20,11 +20,11 @@ category:
   - Configure Copilot
 ---
 
-## Subscribe your organization to {% data variables.product.prodname_copilot %}
+## Enable {% data variables.product.prodname_copilot %} for your organization through an enterprise account
 
-Set up a {% data variables.copilot.copilot_business_short %} plan for your organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization).
+To enable {% data variables.copilot.copilot_business_short %} for your organization, your organization needs to be part of an enterprise account with a {% data variables.product.prodname_copilot_short %} subscription. If you don't already have an enterprise account, you can create one specifically for managing {% data variables.copilot.copilot_business_short %} licenses. See [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-for-copilot-business).
 
-If your organization belongs to an enterprise with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan, your enterprise owner can enable {% data variables.product.prodname_copilot_short %} for your organization instead. Request access from your enterprise owner at [https://github.com/settings/copilot](https://github.com/settings/copilot?ref_product=copilot&ref_type=engagement&ref_style=text), under "Get Copilot from an organization."
+If your organization already belongs to an enterprise with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan, your enterprise owner can enable {% data variables.product.prodname_copilot_short %} for your organization. Request access from your enterprise owner at [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot?ref_product=copilot&ref_type=engagement&ref_style=text), under "Get Copilot from an organization."
 
 ## Set policies
 

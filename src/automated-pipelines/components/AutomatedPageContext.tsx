@@ -11,6 +11,7 @@ export type AutomatedPageContextT = {
   miniTocItems: Array<MiniTocItem>
   product?: string
   permissions?: string
+  currentLayout?: string
 }
 
 export const AutomatedPageContext = createContext<AutomatedPageContextT | null>(null)
@@ -57,5 +58,6 @@ export const getAutomatedPageContextFromRequest = (
     miniTocItems,
     product: page.product ?? '',
     permissions: page.permissions ?? page.rawPermissions ?? '',
+    currentLayout: context.currentLayoutName ?? 'default',
   }
 }

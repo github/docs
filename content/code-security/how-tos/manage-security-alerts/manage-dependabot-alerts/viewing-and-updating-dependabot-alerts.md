@@ -38,6 +38,12 @@ By default, alerts are sorted by **Most important**, which helps you prioritize 
 
 {% data reusables.dependabot.where-to-view-dependabot-alerts %}
 
+{% ifversion dependabot-alerts-assignees %}
+
+When you assign an alert to an AI agent, the agent automatically creates a session and opens a draft pull request with a proposed fix. If the agent can't generate a fix, it remains as an assignee of the alert. You can click **View Session** on the alert timeline to review the agent's log and understand why no pull request was created. Only a user can remove the agent as an assignee.
+
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
@@ -58,7 +64,14 @@ By default, alerts are sorted by **Most important**, which helps you prioritize 
    ![Screenshot showing the "Tags" section in the alert details page.](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% ifversion dependabot-alerts-assignees %}
-1. On the right panel, select an assignee by using the **Assignees** dropdown list. You can assign the alert to a user or team to establish clear ownership, or assign it to {% data variables.product.prodname_copilot_short %} to automatically generate a fix. This clearly communicates who is responsible for triaging the alert and helps you avoid repetitive analysis. It also ensures that alerts are not missed.
+1. On the right panel, assign ownership for the alert:
+   * Click the {% octicon "gear" aria-label="Show options" %} dropdown menu next to "Assignees" to select a user, team, or AI agent from the list. You can also click **Assign to Agent** to assign directly to an agent.
+
+   When you assign an alert to an agent, a dialog appears where you can optionally:
+   * Add a custom prompt with additional context about the fix.
+   * Select a different repository.
+   * Select the AI model to use.
+   * Select a custom agent you have configured (recommended for specialized tasks).
 {% endif %}
 
 1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).

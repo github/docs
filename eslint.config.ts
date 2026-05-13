@@ -100,8 +100,8 @@ export default [
       // Disabled rules to review
       'no-console': 'off', // 800+
 
-      // Custom rules (disabled by default for now)
-      'custom-rules/use-custom-logger': 'off',
+      // Custom rules
+      'custom-rules/use-custom-logger': 'error',
 
       // Prevent direct res.redirect() usage — use res.safeRedirect() instead
       // to avoid open redirect vulnerabilities via protocol-relative URLs.
@@ -169,6 +169,34 @@ export default [
     },
   },
 
+  // Directories not yet migrated to structured logger (see github/docs-engineering#5639)
+  // Remove directories from this list as they are migrated
+  {
+    files: [
+      'src/ai-tools/**/*.{ts,js}',
+      'src/article-api/**/*.{ts,js}',
+      'src/audit-logs/**/*.{ts,js}',
+      'src/color-schemes/**/*.{ts,js}',
+      'src/data-directory/**/*.{ts,js}',
+      'src/dev-toc/**/*.{ts,js}',
+      'src/events/**/*.{ts,js}',
+      'src/fixtures/**/*.{ts,js}',
+      'src/frame/**/*.{ts,js}',
+      'src/github-apps/**/*.{ts,js}',
+      'src/journeys/**/*.{ts,js}',
+      'src/languages/**/*.{ts,js}',
+      'src/links/**/*.{ts,js}',
+      'src/metrics/**/*.{ts,js}',
+      'src/observability/**/*.{ts,js}',
+      'src/rest/**/*.{ts,js}',
+      'src/search/**/*.{ts,js}',
+      'src/shielding/**/*.{ts,js}',
+    ],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
   // Override for scripts, tests, workflows, content-linter, and React files (disable custom logger rule)
   {
     files: [
@@ -199,64 +227,37 @@ export default [
   // Legacy files with @typescript-eslint/no-explicit-any violations (see github/docs-engineering#5797)
   {
     files: [
-      'src/article-api/liquid-renderers/rest-tags.ts',
       'src/article-api/scripts/generate-api-docs.ts',
       'src/article-api/transformers/audit-logs-transformer.ts',
       'src/article-api/transformers/rest-transformer.ts',
       'src/codeql-cli/scripts/convert-markdown-for-docs.ts',
-      'src/content-linter/lib/init-test.ts',
-      'src/content-linter/lib/linting-rules/code-annotations.ts',
-      'src/content-linter/lib/linting-rules/index.ts',
-      'src/content-linter/lib/linting-rules/journey-tracks-liquid.ts',
-      'src/content-linter/lib/linting-rules/liquid-ifversion-versions.ts',
-      'src/content-linter/lib/linting-rules/liquid-versioning.ts',
-      'src/content-linter/lib/linting-rules/third-party-action-pinning.ts',
       'src/content-linter/scripts/lint-content.ts',
-      'src/content-linter/scripts/pretty-print-results.ts',
-      'src/content-linter/style/base.ts',
-      'src/content-linter/tests/integration/lint-cli.ts',
-      'src/content-linter/tests/lint-files.ts',
-      'src/content-linter/tests/lint-frontmatter-links.ts',
-      'src/content-linter/tests/unit/table-column-integrity-simple.ts',
-      'src/content-render/liquid/engine.ts',
+
       'src/content-render/liquid/index.ts',
       'src/content-render/scripts/liquid-tags.ts',
       'src/content-render/scripts/move-content.ts',
-      'src/content-render/tests/link-error-line-numbers.ts',
       'src/content-render/unified/annotate.ts',
       'src/content-render/unified/index.ts',
       'src/data-directory/lib/get-data.ts',
-      'src/early-access/scripts/migrate-early-access-product.ts',
-      'src/fixtures/tests/categories-and-subcategory.ts',
       'src/fixtures/tests/guides.ts',
-      'src/fixtures/tests/translations.ts',
       'src/frame/components/context/MainContext.tsx',
-      'src/frame/lib/create-tree.ts',
-      'src/frame/lib/frontmatter.ts',
       'src/frame/lib/page-data.ts',
-      'src/frame/lib/page.ts',
       'src/frame/tests/page.ts',
       'src/frame/tests/server.ts',
-      'src/github-apps/lib/index.ts',
       'src/graphql/lib/index.ts',
       'src/graphql/pages/reference.tsx',
       'src/graphql/scripts/utils/process-schemas.ts',
       'src/graphql/scripts/utils/schema-helpers.ts',
       'src/graphql/tests/validate-schema.ts',
       'src/landings/components/CookBookFilter.tsx',
-      'src/landings/components/ProductGuidesContext.tsx',
-      'src/landings/components/ProductLandingContext.tsx',
       'src/landings/components/SidebarProduct.tsx',
-      'src/landings/pages/home.tsx',
       'src/landings/pages/product.tsx',
       'src/languages/lib/correct-translation-content.ts',
       'src/languages/lib/render-with-fallback.ts',
       'src/languages/lib/translation-utils.ts',
       'src/links/lib/update-internal-links.ts',
       'src/links/scripts/check-github-github-links.ts',
-      'src/links/scripts/update-internal-links.ts',
       'src/rest/components/get-rest-code-samples.ts',
-      'src/rest/lib/index.ts',
       'src/rest/pages/category.tsx',
       'src/rest/pages/subcategory.tsx',
       'src/rest/scripts/utils/create-rest-examples.ts',
@@ -282,15 +283,11 @@ export default [
       'src/search/scripts/index/utils/indexing-elasticsearch-utils.ts',
       'src/search/scripts/scrape/lib/parse-page-sections-into-records.ts',
       'src/tests/helpers/check-url.ts',
-      'src/tests/helpers/e2etest.ts',
       'src/tests/scripts/copy-fixture-data.ts',
       'src/tests/vitest.setup.ts',
       'src/types/github__markdownlint-github.d.ts',
       'src/types/markdownlint-lib-rules.d.ts',
       'src/types/markdownlint-rule-helpers.d.ts',
-      'src/types/markdownlint-rule-search-replace.d.ts',
-      'src/types/primer__octicons.d.ts',
-      'src/workflows/projects.ts',
     ],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',

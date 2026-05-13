@@ -416,7 +416,7 @@ This multi-repository capability enables:
 
 ### Using images for UI work
 
-{% data variables.product.prodname_copilot_short %} can work with visual references. Simply **drag and drop** images directly into the CLI input, or reference image files:
+{% data variables.product.prodname_copilot_short %} can work with visual references. Simply **drag and drop** images directly into the CLI input, paste an image from the clipboard by using <kbd>Ctrl</kbd>+<kbd>V</kbd>, or reference image files in your prompt:
 
 ```copilot
 Implement this design: @mockup.png

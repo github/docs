@@ -20,7 +20,7 @@ redirect_from:
 introLinks:
   ado_key_differences: /migrations/ado/key-differences-between-azure-devops-and-github
 contentType: tutorials
-heroImage: /assets/images/banner-images/hero-3
+heroImage: /assets/images/banner-images/hero-2
 sidebarLink:
   text: Get started
   href: /migrations/ado

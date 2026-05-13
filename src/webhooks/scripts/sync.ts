@@ -3,7 +3,7 @@ import { existsSync } from 'fs'
 import path from 'path'
 import { mkdirp } from 'mkdirp'
 
-import { WEBHOOK_DATA_DIR, WEBHOOK_SCHEMA_FILENAME } from '../lib/index'
+import { WEBHOOK_DATA_DIR } from '../lib/index'
 import Webhook, { WebhookSchema } from '@/webhooks/scripts/webhook'
 
 interface WebhookFile {
@@ -52,9 +52,16 @@ export async function syncWebhookData(
         await mkdirp(targetDirectory)
       }
 
-      const targetPath = path.join(targetDirectory, WEBHOOK_SCHEMA_FILENAME)
-      await writeFile(targetPath, JSON.stringify(data, null, 2))
-      console.log(`✅ Wrote ${targetPath}`)
+      // Write one JSON file per webhook category (e.g. check_run.json) instead
+      // of a single monolithic schema.json. This allows the server to load only
+      // the requested webhook on demand rather than the entire version schema.
+      await Promise.all(
+        Object.entries(data).map(async ([category, categoryData]) => {
+          const targetPath = path.join(targetDirectory, `${category}.json`)
+          await writeFile(targetPath, JSON.stringify(categoryData, null, 2))
+          console.log(`✅ Wrote ${targetPath}`)
+        }),
+      )
     }),
   )
 }

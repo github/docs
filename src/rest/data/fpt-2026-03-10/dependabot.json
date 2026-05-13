@@ -7324,6 +7324,711 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access",
+      "title": "Lists the repositories Dependabot can access in an enterprise",
+      "category": "dependabot",
+      "subcategory": "repository-access",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "description": "<p>The page number of results to fetch.</p>",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 1
+          }
+        },
+        {
+          "name": "per_page",
+          "in": "query",
+          "description": "<p>Number of results per page.</p>",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 30
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists repositories that enterprise admins have allowed Dependabot to access when updating dependencies across organizations in the enterprise.</p>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "default_level": "public",
+              "accessible_repositories": [
+                {
+                  "id": 123456,
+                  "node_id": "MDEwOlJlcG9zaXRvcnkxMjM0NTY=",
+                  "name": "example-repo",
+                  "full_name": "octocat/example-repo",
+                  "owner": {
+                    "name": "octocat",
+                    "email": "octo@github.com",
+                    "login": "octocat",
+                    "id": 1,
+                    "node_id": "MDQ6VXNlcjE=",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4",
+                    "gravatar_id": 1,
+                    "url": "https://api.github.com/users/octocat",
+                    "html_url": "https://github.com/octocat/example-repo",
+                    "followers_url": "https://api.github.com/users/octocat/followers",
+                    "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                    "organizations_url": "https://api.github.com/users/octocat/orgs",
+                    "repos_url": "https://api.github.com/users/octocat/repos",
+                    "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/octocat/received_events",
+                    "type": "User",
+                    "site_admin": false,
+                    "starred_at": "\"2020-07-09T00:17:55Z\"",
+                    "user_view_type": "default"
+                  },
+                  "private": false,
+                  "html_url": "https://github.com/octocat/example-repo",
+                  "description": "This is an example repository.",
+                  "fork": false,
+                  "url": "https://api.github.com/repos/octocat/example-repo",
+                  "archive_url": "https://api.github.com/repos/octocat/example-repo/{archive_format}{/ref}",
+                  "assignees_url": "https://api.github.com/repos/octocat/example-repo/assignees{/user}",
+                  "blobs_url": "https://api.github.com/repos/octocat/example-repo/git/blobs{/sha}",
+                  "branches_url": "https://api.github.com/repos/octocat/example-repo/branches{/branch}",
+                  "collaborators_url": "https://api.github.com/repos/octocat/example-repo/collaborators{/collaborator}",
+                  "comments_url": "https://api.github.com/repos/octocat/example-repo/comments{/number}",
+                  "commits_url": "https://api.github.com/repos/octocat/example-repo/commits{/sha}",
+                  "compare_url": "https://api.github.com/repos/octocat/example-repo/compare/{base}...{head}",
+                  "contents_url": "https://api.github.com/repos/octocat/example-repo/contents/{+path}",
+                  "contributors_url": "https://api.github.com/repos/octocat/example-repo/contributors",
+                  "deployments_url": "https://api.github.com/repos/octocat/example-repo/deployments",
+                  "downloads_url": "https://api.github.com/repos/octocat/example-repo/downloads",
+                  "events_url": "https://api.github.com/repos/octocat/example-repo/events",
+                  "forks_url": "https://api.github.com/repos/octocat/example-repo/forks",
+                  "git_commits_url": "https://api.github.com/repos/octocat/example-repo/git/commits{/sha}",
+                  "git_refs_url": "https://api.github.com/repos/octocat/example-repo/git/refs{/sha}",
+                  "git_tags_url": "https://api.github.com/repos/octocat/example-repo/git/tags{/sha}",
+                  "issue_comment_url": "https://api.github.com/repos/octocat/example-repo/issues/comments{/number}",
+                  "issue_events_url": "https://api.github.com/repos/octocat/example-repo/issues/events{/number}",
+                  "issues_url": "https://api.github.com/repos/octocat/example-repo/issues{/number}",
+                  "keys_url": "https://api.github.com/repos/octocat/example-repo/keys{/key_id}",
+                  "labels_url": "https://api.github.com/repos/octocat/example-repo/labels{/name}",
+                  "languages_url": "https://api.github.com/repos/octocat/example-repo/languages",
+                  "merges_url": "https://api.github.com/repos/octocat/example-repo/merges",
+                  "milestones_url": "https://api.github.com/repos/octocat/example-repo/milestones{/number}",
+                  "notifications_url": "https://api.github.com/repos/octocat/example-repo/notifications{?since,all,participating}",
+                  "pulls_url": "https://api.github.com/repos/octocat/example-repo/pulls{/number}",
+                  "releases_url": "https://api.github.com/repos/octocat/example-repo/releases{/id}",
+                  "stargazers_url": "https://api.github.com/repos/octocat/example-repo/stargazers",
+                  "statuses_url": "https://api.github.com/repos/octocat/example-repo/statuses/{sha}",
+                  "subscribers_url": "https://api.github.com/repos/octocat/example-repo/subscribers",
+                  "subscription_url": "https://api.github.com/repos/octocat/example-repo/subscription",
+                  "tags_url": "https://api.github.com/repos/octocat/example-repo/tags",
+                  "teams_url": "https://api.github.com/repos/octocat/example-repo/teams",
+                  "trees_url": "https://api.github.com/repos/octocat/example-repo/git/trees{/sha}",
+                  "hooks_url": "https://api.github.com/repos/octocat/example-repo/hooks"
+                }
+              ]
+            },
+            "schema": {
+              "title": "Dependabot Repository Access Details",
+              "description": "Information about repositories that Dependabot is able to access in an organization",
+              "type": "object",
+              "properties": {
+                "default_level": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The default repository access level for Dependabot updates.",
+                  "enum": [
+                    "public",
+                    "internal",
+                    null
+                  ]
+                },
+                "accessible_repositories": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "title": "Simple Repository",
+                        "description": "A GitHub repository.",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "A unique identifier of the repository."
+                          },
+                          "node_id": {
+                            "type": "string",
+                            "description": "The GraphQL identifier of the repository."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The name of the repository."
+                          },
+                          "full_name": {
+                            "type": "string",
+                            "description": "The full, globally unique, name of the repository."
+                          },
+                          "owner": {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          },
+                          "private": {
+                            "type": "boolean",
+                            "description": "Whether the repository is private."
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The URL to view the repository on GitHub.com."
+                          },
+                          "description": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The repository description."
+                          },
+                          "fork": {
+                            "type": "boolean",
+                            "description": "Whether the repository is a fork."
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The URL to get more information about the repository from the GitHub API."
+                          },
+                          "archive_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to download the repository as an archive."
+                          },
+                          "assignees_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to list the available assignees for issues in the repository."
+                          },
+                          "blobs_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to create or retrieve a raw Git blob in the repository."
+                          },
+                          "branches_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about branches in the repository."
+                          },
+                          "collaborators_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about collaborators of the repository."
+                          },
+                          "comments_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about comments on the repository."
+                          },
+                          "commits_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about commits on the repository."
+                          },
+                          "compare_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to compare two commits or refs."
+                          },
+                          "contents_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get the contents of the repository."
+                          },
+                          "contributors_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "A template for the API URL to list the contributors to the repository."
+                          },
+                          "deployments_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the deployments of the repository."
+                          },
+                          "downloads_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the downloads on the repository."
+                          },
+                          "events_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the events of the repository."
+                          },
+                          "forks_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the forks of the repository."
+                          },
+                          "git_commits_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about Git commits of the repository."
+                          },
+                          "git_refs_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about Git refs of the repository."
+                          },
+                          "git_tags_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about Git tags of the repository."
+                          },
+                          "issue_comment_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about issue comments on the repository."
+                          },
+                          "issue_events_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about issue events on the repository."
+                          },
+                          "issues_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about issues on the repository."
+                          },
+                          "keys_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about deploy keys on the repository."
+                          },
+                          "labels_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about labels of the repository."
+                          },
+                          "languages_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to get information about the languages of the repository."
+                          },
+                          "merges_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to merge branches in the repository."
+                          },
+                          "milestones_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about milestones of the repository."
+                          },
+                          "notifications_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about notifications on the repository."
+                          },
+                          "pulls_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about pull requests on the repository."
+                          },
+                          "releases_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about releases on the repository."
+                          },
+                          "stargazers_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the stargazers on the repository."
+                          },
+                          "statuses_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about statuses of a commit."
+                          },
+                          "subscribers_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the subscribers on the repository."
+                          },
+                          "subscription_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to subscribe to notifications for this repository."
+                          },
+                          "tags_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to get information about tags on the repository."
+                          },
+                          "teams_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the teams on the repository."
+                          },
+                          "trees_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to create or retrieve a raw Git tree of the repository."
+                          },
+                          "hooks_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the hooks on the repository."
+                          }
+                        },
+                        "required": [
+                          "archive_url",
+                          "assignees_url",
+                          "blobs_url",
+                          "branches_url",
+                          "collaborators_url",
+                          "comments_url",
+                          "commits_url",
+                          "compare_url",
+                          "contents_url",
+                          "contributors_url",
+                          "deployments_url",
+                          "description",
+                          "downloads_url",
+                          "events_url",
+                          "fork",
+                          "forks_url",
+                          "full_name",
+                          "git_commits_url",
+                          "git_refs_url",
+                          "git_tags_url",
+                          "hooks_url",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "issue_comment_url",
+                          "issue_events_url",
+                          "issues_url",
+                          "keys_url",
+                          "labels_url",
+                          "languages_url",
+                          "merges_url",
+                          "milestones_url",
+                          "name",
+                          "notifications_url",
+                          "owner",
+                          "private",
+                          "pulls_url",
+                          "releases_url",
+                          "stargazers_url",
+                          "statuses_url",
+                          "subscribers_url",
+                          "subscription_url",
+                          "tags_url",
+                          "teams_url",
+                          "trees_url",
+                          "url"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Enterprise administration\" enterprise permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access",
+      "title": "Updates Dependabot's repository access list for an enterprise",
+      "category": "dependabot",
+      "subcategory": "repository-access",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of integers",
+          "name": "repository_ids_to_add",
+          "description": "<p>List of repository IDs to add.</p>"
+        },
+        {
+          "type": "array of integers",
+          "name": "repository_ids_to_remove",
+          "description": "<p>List of repository IDs to remove.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Updates repositories according to the list of repositories that enterprise admins have given Dependabot access to when they've updated dependencies across organizations in the enterprise.</p>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>\n<p><strong>Example request body:</strong></p>\n<pre><code class=\"hljs language-json\"><span class=\"hljs-punctuation\">{</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_add\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">123</span><span class=\"hljs-punctuation\">,</span> <span class=\"hljs-number\">456</span><span class=\"hljs-punctuation\">]</span><span class=\"hljs-punctuation\">,</span>\n  <span class=\"hljs-attr\">\"repository_ids_to_remove\"</span><span class=\"hljs-punctuation\">:</span> <span class=\"hljs-punctuation\">[</span><span class=\"hljs-number\">789</span><span class=\"hljs-punctuation\">]</span>\n<span class=\"hljs-punctuation\">}</span>\n</code></pre>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example with a 'succeeded' status.",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/dependabot/repository-access/default-level",
+      "title": "Set the default repository access level for Dependabot in an enterprise",
+      "category": "dependabot",
+      "subcategory": "repository-access",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "default_level",
+          "description": "<p>The default repository access level for Dependabot updates.</p>",
+          "isRequired": true,
+          "enum": [
+            "public",
+            "internal"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Sets the default level of repository access Dependabot will have while performing an update across organizations in the enterprise. Available values are:</p>\n<ul>\n<li>'public' - Dependabot will only have access to public repositories, unless access is explicitly granted to non-public repositories.</li>\n<li>'internal' - Dependabot will only have access to public and internal repositories, unless access is explicitly granted to private repositories.</li>\n</ul>\n<p>The authenticated user must be an enterprise owner to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example with a 'succeeded' status.",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "default_level": "public"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/orgs/{org}/dependabot/repository-access",
       "title": "Lists the repositories Dependabot can access in an organization",
       "category": "dependabot",

@@ -16,6 +16,8 @@ contentType: reference
 
 ## OpenAI models
 
+{% data reusables.copilot.gpt-55-promo-period %}
+
 Used for:
 
 * {% data variables.copilot.copilot_gpt_41 %}
@@ -25,6 +27,8 @@ Used for:
 * {% data variables.copilot.copilot_gpt_53_codex %}
 * {% data variables.copilot.copilot_gpt_54 %}
 * {% data variables.copilot.copilot_gpt_54_mini %}
+* {% data variables.copilot.copilot_gpt_54_nano %}
+* {% data variables.copilot.copilot_gpt_55 %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -45,8 +49,6 @@ These models are deployed on {% data variables.product.github %} managed Azure O
 
 ## Anthropic models
 
-{% data reusables.copilot.opus-47-promo-period %}
-
 Used for:
 
 * {% data variables.copilot.copilot_claude_haiku_45 %}
@@ -55,7 +57,6 @@ Used for:
 * {% data variables.copilot.copilot_claude_opus_46 %}
 * {% data variables.copilot.copilot_claude_opus_46_fast %}
 * {% data variables.copilot.copilot_claude_opus_47 %}
-* {% data variables.copilot.copilot_claude_sonnet_40 %}
 * {% data variables.copilot.copilot_claude_sonnet_46 %}
 
 These models are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:

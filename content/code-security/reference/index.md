@@ -14,4 +14,5 @@ children:
   - /supply-chain-security
   - /code-quality
   - /permissions
+  - /security-incident-response
 ---

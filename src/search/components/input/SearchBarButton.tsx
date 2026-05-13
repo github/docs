@@ -12,7 +12,7 @@ type Props = {
   isSearchOpen: boolean
   setIsSearchOpen: (value: boolean) => void
   params: QueryParams
-  searchButtonRef: React.RefObject<HTMLButtonElement>
+  searchButtonRef: React.RefObject<HTMLButtonElement | null>
   instanceId?: string
 }
 

@@ -9726,6 +9726,14 @@
                           "write"
                         ]
                       },
+                      "code_quality": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to view and manage code quality data.",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
                       "codespaces": {
                         "type": "string",
                         "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -9960,7 +9968,7 @@
                       },
                       "organization_copilot_agent_settings": {
                         "type": "string",
-                        "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                        "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                         "enum": [
                           "read",
                           "write"
@@ -10595,6 +10603,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -10829,7 +10845,7 @@
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -11849,6 +11865,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -12083,7 +12107,7 @@
                     },
                     "organization_copilot_agent_settings": {
                       "type": "string",
-                      "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                      "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                       "enum": [
                         "read",
                         "write"
@@ -20650,6 +20674,14 @@
                                   "write"
                                 ]
                               },
+                              "code_quality": {
+                                "type": "string",
+                                "description": "The level of permission to grant the access token to view and manage code quality data.",
+                                "enum": [
+                                  "read",
+                                  "write"
+                                ]
+                              },
                               "codespaces": {
                                 "type": "string",
                                 "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -20884,7 +20916,7 @@
                               },
                               "organization_copilot_agent_settings": {
                                 "type": "string",
-                                "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                                "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                                 "enum": [
                                   "read",
                                   "write"
@@ -21955,6 +21987,14 @@
                                 "write"
                               ]
                             },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
                             "codespaces": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -22189,7 +22229,7 @@
                             },
                             "organization_copilot_agent_settings": {
                               "type": "string",
-                              "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                              "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                               "enum": [
                                 "read",
                                 "write"
@@ -22851,6 +22891,14 @@
                                 "write"
                               ]
                             },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
                             "codespaces": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -23085,7 +23133,7 @@
                             },
                             "organization_copilot_agent_settings": {
                               "type": "string",
-                              "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                              "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                               "enum": [
                                 "read",
                                 "write"

@@ -13,6 +13,12 @@ category:
   - Author and optimize with Copilot
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.code-review-actions-minutes-note %}
+
+<!-- end expires 2026-06-01 -->
+
 ## About {% data variables.product.prodname_actions %} usage for code review tools
 
 {% data reusables.copilot.code-review.code-review-actions-usage %} Organizations in this situation can use self-hosted runners.
@@ -52,7 +58,7 @@ To configure self-hosted runners for {% data variables.copilot.copilot_code-revi
 By default, {% data variables.copilot.copilot_code-review_short %} runs on a standard {% data variables.product.prodname_actions %} runner. Larger runners provide better performance (CPU and memory), more disk space, and advanced features like Azure private networking. See [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners).
 
 > [!NOTE]
-> Usage of larger {% data variables.product.prodname_dotcom %}-hosted runners is billed per-minute and may incur additional {% data variables.product.prodname_actions %} charges.
+> Usage of larger {% data variables.product.prodname_dotcom %}-hosted runners is billed at a higher per-minute rate. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions).
 
 1. Set up larger runners for your organization. See [AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners).
 1. If you are using larger runners with Azure private networking, configure your Azure private network to allow outbound access to the following hosts:

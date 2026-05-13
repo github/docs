@@ -4775,7 +4775,8 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository IDs to detach from configurations. Up to 250 IDs can be provided.</p>"
+          "description": "<p>An array of repository IDs to detach from configurations. Up to 250 IDs can be provided.</p>",
+          "isRequired": true
         }
       ],
       "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
