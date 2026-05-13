@@ -69,9 +69,3 @@ If you have created a ruleset targeting {% data variables.copilot.agent_profiles
 
 1. In the "Bypass list" section, select the {% octicon "plus" aria-hidden="true" aria-label="plus" %} **Add bypass** dropdown menu, then click your AI management team.
 1. At the bottom of the page, click **Save changes**.
-
-## Next steps
-
-Now that you have established AI managers for your enterprise, help them customize and manage your enterprise's AI experience by sharing the following resources:
-* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/test-custom-agents)

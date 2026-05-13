@@ -27,10 +27,6 @@ import { HttpInstrumentation } from '@opentelemetry/instrumentation-http'
 import { UndiciInstrumentation } from '@opentelemetry/instrumentation-undici'
 import { NodeSDK } from '@opentelemetry/sdk-node'
 
-// For tracing diagnostics, uncomment these lines:
-// import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api'
-// diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG)
-
 if (process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT) {
   const sdk = new NodeSDK({
     serviceName: process.env.OTEL_SERVICE_NAME || 'docs-internal',

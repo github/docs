@@ -36,7 +36,7 @@ To open the [agents tab](https://github.com/copilot/agents?ref_product=copilot&r
 
 Each session displays its status. Click on a session to open the session log and overview, where you can monitor the agent's progress, token usage, session count, and session length.
 
-You can start new agent sessions from the tab. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
+You can start new agent sessions from the tab. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 
 ## Tracking agent sessions from the {% data variables.product.prodname_cli %}
 
@@ -66,7 +66,7 @@ To see all of the available options, run `gh agent-task list --help` or `gh agen
 > [!NOTE]
 > If you are unable to see some tasks in Raycast, the organization that owns the repository may have enabled {% data variables.product.prodname_oauth_app %} access restrictions. To learn how to request approval for the "{% data variables.product.prodname_copilot %} for Raycast" {% data variables.product.prodname_oauth_app %}, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps).
 
-You can also start new agent sessions from Raycast. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr#asking-copilot-to-create-a-pull-request-from-raycast).
+You can also start new agent sessions from Raycast. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#asking-copilot-to-create-a-pull-request-from-raycast).
 
 ## Tracking sessions from {% data variables.product.prodname_vscode %}
 
@@ -78,7 +78,7 @@ For each session listed, you can see its status at a glance, or click on it to n
 
 To view the session logs, click on the pull request in the list, then click **View Session**.
 
-You can also start new agent sessions from {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio-code).
+You can also start new agent sessions from {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio-code).
 
 To directly open agent sessions in {% data variables.product.prodname_vscode_shortname %}, click the **Open in {% data variables.product.prodname_vscode_shortname %}** option on the agents tab.
 

@@ -64186,7 +64186,7 @@
       "name": "RepositoryRulesetBypassActor",
       "id": "repositoryrulesetbypassactor",
       "href": "/graphql/reference/objects#repositoryrulesetbypassactor",
-      "description": "<p>A team or app that has the ability to bypass a rules defined on a ruleset.</p>",
+      "description": "<p>A team, app or user that has the ability to bypass rules defined on a ruleset.</p>",
       "implements": [
         {
           "name": "Node",
@@ -64219,6 +64219,13 @@
         {
           "name": "enterpriseOwner",
           "description": "<p>This actor represents the ability for an enterprise owner to bypass.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "enterpriseRole",
+          "description": "<p>This actor represents the ability for an enterprise role to bypass.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/scalars#boolean"
@@ -81270,7 +81277,7 @@
         },
         {
           "name": "EVERYWHERE",
-          "description": "<p>Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.</p>"
+          "description": "<p>Members can fork a repository to their user account or an organization, either\ninside or outside of this enterprise. Internal repositories can only be forked\ninside of this enterprise.</p>"
         },
         {
           "name": "SAME_ORGANIZATION",
@@ -85699,6 +85706,10 @@
         {
           "name": "MODERATE",
           "description": "<p>Moderate.</p>"
+        },
+        {
+          "name": "UNKNOWN",
+          "description": "<p>Unknown.</p>"
         }
       ]
     },
@@ -98427,7 +98438,7 @@
       "inputFields": [
         {
           "name": "actorId",
-          "description": "<p>For Team and Integration bypasses, the Team or Integration ID.</p>",
+          "description": "<p>For Team, Integration and User bypasses, the Team, Integration, or User ID.</p>",
           "type": "ID",
           "id": "id",
           "href": "/graphql/reference/scalars#id"
@@ -98449,6 +98460,13 @@
         {
           "name": "enterpriseOwner",
           "description": "<p>For enterprise owner bypasses, true.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "enterpriseRole",
+          "description": "<p>For enterprise role bypasses, true. NOTE: This bypass actor is in beta.</p>",
           "type": "Boolean",
           "id": "boolean",
           "href": "/graphql/reference/scalars#boolean"

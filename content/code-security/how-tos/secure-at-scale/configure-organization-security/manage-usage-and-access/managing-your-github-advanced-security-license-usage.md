@@ -6,7 +6,9 @@ allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.ghas-billing %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage
 contentType: how-tos

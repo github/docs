@@ -124,6 +124,8 @@ If your private registry is configured with an IP allow list, you can find the I
 
 {% endif %}
 
+{% ifversion dependabot-oidc-support %}
+
 ## Using OIDC for authentication
 
 {% data variables.product.prodname_dependabot %} can use OpenID Connect (OIDC) to authenticate with private registries, eliminating the need to store long-lived credentials as repository secrets.
@@ -137,10 +139,12 @@ With OIDC-based authentication, {% data variables.product.prodname_dependabot %}
 
 {% endif %}
 
-{% data variables.product.prodname_dependabot %} supports OIDC authentication for any registry type that uses `username` and `password` authentication, when the registry is hosted on one of the following cloud providers:
+{% data variables.product.prodname_dependabot %} supports OIDC authentication for any registry type that uses `username` and `password` authentication, when the registry is hosted on one of the following providers:
 
 * AWS CodeArtifact
 * Azure DevOps Artifacts
+* Cloudsmith
+* Google Cloud Artifact Registry
 * JFrog Artifactory
 
 To configure OIDC authentication, you need to specify different values instead of `username` and `password` in your registry configuration.
@@ -175,6 +179,37 @@ registries:
     client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
 ```
 
+### Cloudsmith
+
+Cloudsmith requires the values `namespace`, `service-slug`, and `audience`. The `api-host` field is optional and defaults to `api.cloudsmith.io`:
+
+```yaml
+registries:
+  my-cloudsmith-feed:
+    type: npm-registry
+    url: https://dl.cloudsmith.io/MY-NAMESPACE/MY-REPOSITORY/npm/
+    namespace: MY-NAMESPACE
+    service-slug: MY-SERVICE-SLUG
+    audience: https://github.com/GITHUB-ORG
+    api-host: api.cloudsmith.io  # if required by your feed
+```
+
+### Google Cloud Artifact Registry
+
+Google Cloud Artifact Registry requires the values `url` and
+`workload-identity-provider`. The values `service-account` and `audience` are
+optional:
+
+```yaml
+registries:
+  my-gcp-artifact-registry:
+    type: docker-registry
+    url: https://REGION-docker.pkg.dev
+    workload-identity-provider: projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL/providers/PROVIDER
+    service-account: SA-NAME@PROJECT-ID.iam.gserviceaccount.com  # if required by your provider
+    audience: MY-AUDIENCE  # if required by your provider
+```
+
 ### JFrog Artifactory
 
 JFrog Artifactory requires the values `url` and `jfrog-oidc-provider-name`.  The values `audience` and `identity-mapping-name` are optional:
@@ -190,6 +225,8 @@ registries:
 ```
 
 For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/security/openid-connect).
+
+{% endif %}
 
 ## Allowing external code execution
 
@@ -430,6 +467,8 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-oidc-support %}
+
 You can also use OIDC authentication to access JFrog Artifactory. {% data reusables.dependabot.dependabot-oidc-credentials %}
 
 {% raw %}
@@ -445,6 +484,8 @@ registries:
 ```
 
 {% endraw %}
+
+{% endif %}
 
 ### `npm-registry`
 
@@ -516,6 +557,8 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-oidc-support %}
+
 You can also use OIDC authentication to access Azure DevOps Artifacts. {% data reusables.dependabot.dependabot-oidc-credentials %}
 
 {% raw %}
@@ -532,6 +575,8 @@ registries:
 {% endraw %}
 
 The `AZURE_TENANT_ID` and `AZURE_CLIENT_ID` values can be obtained from the overview page of your Entra ID app registration.
+
+{% endif %}
 
 ### `pub-repository`
 
@@ -590,6 +635,8 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-oidc-support %}
+
 You can also use OIDC authentication to access Azure DevOps Artifacts. {% data reusables.dependabot.dependabot-oidc-credentials %}
 
 {% raw %}
@@ -605,6 +652,8 @@ registries:
 ```
 
 {% endraw %}
+
+{% endif %}
 
 ### `rubygems-server`
 

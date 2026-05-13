@@ -102,7 +102,7 @@ The token was revoked, has expired, or was created without the required permissi
 
 ### Fix
 
-Review the token's status and permissions on {% data variables.product.prodname_dotcom %}. The token must have the **Copilot Requests** permission. Generate a new token with the required permissions if necessary.  
+Review the token's status and permissions on {% data variables.product.prodname_dotcom %}. The token must be a {% data variables.product.pat_v2 %} owned by your **personal account** (not an organization) with the **{% data variables.product.prodname_copilot_short %} Requests** permission. Generate a new token with the required permissions if necessary.  
 
 ## {% data variables.product.pat_classic_caps %} rejected
 

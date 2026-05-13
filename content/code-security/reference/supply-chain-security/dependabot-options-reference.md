@@ -534,7 +534,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-bun-support %} |
 | Bun | `bun`         | >=v1.2.5              |
 | {% endif %} |
-| Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
+| Bundler | `bundler` | v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | v2         |
 | {% ifversion dependabot-conda-support %} |
@@ -545,9 +545,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
 | {% endif %} |
-| {% ifversion dependabot-dotnet-sdk %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
-| {% endif %} |
 | {% ifversion dependabot-helm-support %} |
 | Helm Charts            | `helm`            | v3               |
 | {% endif %} |
@@ -565,14 +563,14 @@ Package manager | YAML value      | Supported versions |
 | Nix flakes | `nix`            | Not applicable   |
 | {% endif %} |
 | npm            | `npm`            |  v7, v8, v9, v10   |
-| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} |
+| NuGet          | `nuget`          | <=6.12.0 |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
 | pip         | `pip`            | 24.2             |
 | pip-compile | `pip`            | 7.5.3            |
 | pipenv      | `pip`            | <= 2024.4.1      |
-| pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
+| pnpm   | `npm`            | v7, v8, v9, v10   |
 | poetry      | `pip`    | v2    |
 | {% ifversion dependabot-pre-commit-support %} |
 | pre-commit | `pre-commit` | Not applicable |
@@ -700,8 +698,6 @@ Each package manager **must** define a schedule interval.
 > The supported values `quarterly`, `semiannually`, and `yearly` are only available on {% data variables.product.prodname_ghe_server %} from version 3.19.
 
 By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  {% ifversion dependabot-schedule-updates %}If you use a `cron` interval, you can define the update time with a `cronjob` expression.{% endif %}
-
-
 
 ### `day`
 
@@ -894,8 +890,6 @@ New version `2.0.0`
 > [!NOTE]
 > If the package manager you use does not yet support configuring the `versioning-strategy` parameter, or does not support a value you need, the strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in <https://github.com/dependabot/dependabot-core/>.
 
-{% ifversion dependabot-updates-supported-versioning-tags %}
-
 ### Versioning tags
 
 <!-- markdownlint-disable outdated-release-phase-terminology -->
@@ -922,8 +916,6 @@ New version `2.0.0`
 * **`stable`:** The most reliable, production-ready version.
 
 <!-- markdownlint-enable outdated-release-phase-terminology -->
-
-{% endif %}
 
 ## Top-level `registries` key
 
@@ -980,6 +972,8 @@ updates:
 
 The parameters used to provide authentication details for access to a private registry vary according to the registry `type`.
 
+{% ifversion dependabot-oidc-support %}
+
 | Registry `type` | Required authentication parameters |
 |--|--|
 | `cargo-registry` | `token` |
@@ -996,12 +990,36 @@ The parameters used to provide authentication details for access to a private re
 | `rubygems-server` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
 | `terraform-registry` | `token` |
 
+{% else %}
+
+| Registry `type` | Required authentication parameters |
+|--|--|
+| `cargo-registry` | `token` |
+| `composer-repository` | `username` and `password` |
+| `docker-registry` | `username` and `password` |
+| `git` | `username` and `password` |
+| `hex-organization` | `organization` and `key` |
+| `hex-repository` | `repo` and `auth-key` optionally with the corresponding `public-key-fingerprint` |
+| `maven-repository` | `username` and `password` |
+| `npm-registry` | `username` and `password`<br>or `token` |
+| `nuget-feed` | `username` and `password`<br>or `token` |
+| `pub-registry` | `token` |
+| `python-index` | `username` and `password`<br>or `token` |
+| `rubygems-server` | `username` and `password`<br>or `token` |
+| `terraform-registry` | `token` |
+
+{% endif %}
+
 All sensitive data used for authentication should be stored securely and referenced from that secure location, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
 
 > [!TIP]
 > {% data reusables.dependabot.password-definition %}
 
+{% ifversion dependabot-oidc-support %}
+
 For more information about  OIDC support for {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/actions/concepts/security/openid-connect#oidc-support-for-dependabot) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication).
+
+{% endif %}
 
 ### `url` and `replaces-base`
 

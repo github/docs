@@ -10,7 +10,8 @@ To use {% data variables.product.prodname_copilot_short %}, you’ll need a pers
 * Upgrade to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} to unlock more features, models, and request limits.
 
    >[!IMPORTANT]
-   > {% data reusables.copilot.plans.individual-plans-paused %}
+  > * {% data reusables.copilot.plans.individual-plans-paused %}
+  > * {% data reusables.copilot.plans.organization-plans-paused %}
 
 For more information about the different plans for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 

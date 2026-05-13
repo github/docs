@@ -16,14 +16,12 @@
       {
         "type": "number",
         "name": "parent_issue_id",
-        "description": "<p>The ID of the parent issue.</p>",
-        "isRequired": true
+        "description": "<p>The ID of the parent issue.</p>"
       },
       {
         "type": "object",
         "name": "parent_issue",
         "description": "<p>Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.</p>",
-        "isRequired": true,
         "childParamsGroups": [
           {
             "type": "integer",
@@ -2519,7 +2517,6 @@
         "type": "object",
         "name": "parent_issue_repo",
         "description": "<p>A repository on GitHub.</p>",
-        "isRequired": true,
         "childParamsGroups": [
           {
             "type": "integer",
@@ -5853,12 +5850,14 @@
         "type": "object",
         "name": "repository",
         "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       },
       {
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       }
     ],
@@ -5887,14 +5886,12 @@
       {
         "type": "number",
         "name": "parent_issue_id",
-        "description": "<p>The ID of the parent issue.</p>",
-        "isRequired": true
+        "description": "<p>The ID of the parent issue.</p>"
       },
       {
         "type": "object",
         "name": "parent_issue",
         "description": "<p>Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.</p>",
-        "isRequired": true,
         "childParamsGroups": [
           {
             "type": "integer",
@@ -8390,7 +8387,6 @@
         "type": "object",
         "name": "parent_issue_repo",
         "description": "<p>A repository on GitHub.</p>",
-        "isRequired": true,
         "childParamsGroups": [
           {
             "type": "integer",
@@ -11724,12 +11720,14 @@
         "type": "object",
         "name": "repository",
         "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       },
       {
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       }
     ],
@@ -11758,14 +11756,12 @@
       {
         "type": "number",
         "name": "sub_issue_id",
-        "description": "<p>The ID of the sub-issue.</p>",
-        "isRequired": true
+        "description": "<p>The ID of the sub-issue.</p>"
       },
       {
         "type": "object",
         "name": "sub_issue",
         "description": "<p>Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.</p>",
-        "isRequired": true,
         "childParamsGroups": [
           {
             "type": "integer",
@@ -14261,7 +14257,6 @@
         "type": "object",
         "name": "sub_issue_repo",
         "description": "<p>A repository on GitHub.</p>",
-        "isRequired": true,
         "childParamsGroups": [
           {
             "type": "integer",
@@ -17595,12 +17590,14 @@
         "type": "object",
         "name": "repository",
         "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       },
       {
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       }
     ],
@@ -17629,14 +17626,12 @@
       {
         "type": "number",
         "name": "sub_issue_id",
-        "description": "<p>The ID of the sub-issue.</p>",
-        "isRequired": true
+        "description": "<p>The ID of the sub-issue.</p>"
       },
       {
         "type": "object",
         "name": "sub_issue",
         "description": "<p>Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.</p>",
-        "isRequired": true,
         "childParamsGroups": [
           {
             "type": "integer",
@@ -20132,7 +20127,6 @@
         "type": "object",
         "name": "sub_issue_repo",
         "description": "<p>A repository on GitHub.</p>",
-        "isRequired": true,
         "childParamsGroups": [
           {
             "type": "integer",
@@ -23466,12 +23460,14 @@
         "type": "object",
         "name": "repository",
         "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       },
       {
         "type": "object",
         "name": "sender",
         "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
         "childParamsGroups": []
       }
     ],

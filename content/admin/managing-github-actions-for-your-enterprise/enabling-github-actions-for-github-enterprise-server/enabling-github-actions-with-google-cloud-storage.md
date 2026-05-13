@@ -27,6 +27,9 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.actions.enterprise-common-prereqs %}
 {% data reusables.actions.enterprise-oidc-prereqs %}
 
+> [!WARNING]
+> The GCS bucket used for {% data variables.product.prodname_actions %} blob storage must use Google-managed encryption keys. Customer-Managed Encryption Keys (CMEK) are not currently supported and will cause {% data variables.product.prodname_actions %} database migrations to fail with a hash mismatch error. This restriction applies only to the {% data variables.product.prodname_actions %} blob storage bucket; CMEK may still be used on VM disks and other GCP resources.
+
 ## Enabling {% data variables.product.prodname_actions %} with Google Cloud Storage using OIDC (recommended)
 
 To configure {% data variables.product.prodname_ghe_server %} to use OIDC with Google Cloud Storage, you must first create a Google Cloud service account, then create a Google Cloud identity pool and identity provider, and finally configure {% data variables.product.prodname_ghe_server %} to use the provider and service account to access your Google Cloud Storage bucket.

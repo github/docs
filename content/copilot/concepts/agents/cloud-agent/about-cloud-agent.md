@@ -20,10 +20,9 @@ contentType: concepts
 category:
   - Learn about Copilot
 ---
-<!-- expires 2026-04-21 -->
-<!-- When this expires, search all references to {% data variables.copilot.copilot_cloud_agent_tmp %} in docs-internal and replace with {% data variables.copilot.copilot_cloud_agent %} -->
-## Overview of {% data variables.copilot.copilot_cloud_agent_tmp %}
-<!-- end expires 2026-04-21 -->
+
+## Overview of {% data variables.copilot.copilot_cloud_agent %}
+
 With {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_copilot %} can work independently in the background to complete tasks, just like a human developer.
 
 {% data variables.copilot.copilot_cloud_agent %} can:
@@ -40,7 +39,7 @@ With {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product
 When you delegate tasks to {% data variables.copilot.copilot_cloud_agent %}, you can:
 
 * Use the agents panel or other agents entry points on {% data variables.product.prodname_dotcom_the_website %} to have {% data variables.product.prodname_copilot_short %} research, plan, and make code changes on a branch, then iterate before creating a pull request. You can also specify in your prompt that you want a pull request created right away. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/research-plan-iterate).
-* Ask {% data variables.product.prodname_copilot_short %} to open a new pull request from other entry points, including {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
+* Ask {% data variables.product.prodname_copilot_short %} to open a new pull request from other entry points, including {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 * Mention `@copilot` in a comment on an existing pull request to ask it to make changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/make-changes-to-an-existing-pr).
 {% ifversion security-campaigns-assign-to-cca %}* Assign security alerts to {% data variables.product.prodname_copilot_short %} from security campaigns. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-cloud-agent).{% endif %}
 
@@ -137,7 +136,7 @@ You can customize {% data variables.copilot.copilot_cloud_agent %} in a number o
 * **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
 * **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
 * **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
-* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-hooks).
+* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. For more information, see [AUTOTITLE](/copilot/concepts/agents/hooks).
 * **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
 ## Limitations of {% data variables.copilot.copilot_cloud_agent %}

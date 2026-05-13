@@ -6,13 +6,14 @@ intro: 'Find out how {% data variables.product.prodname_copilot_short %} can res
 versions:
   feature: copilot
 children:
-  - /create-a-pr
+  - /start-copilot-sessions
   - /track-copilot-sessions
   - /integrate-cloud-agent-with-jira
   - /integrate-cloud-agent-with-slack
   - /integrate-cloud-agent-with-teams
   - /integrate-cloud-agent-with-linear
   - /integrate-cloud-agent-with-azure-boards
+  - /use-cloud-agent-via-the-api
   - /changing-the-ai-model
   - /configuring-agent-settings
   - /create-custom-agents-in-your-ide

@@ -16,6 +16,8 @@ copilot_free: 'GitHub Copilot Free'
 copilot_free_short: 'Copilot Free'
 copilot_student: 'GitHub Copilot Student'
 copilot_student_short: 'Copilot Student'
+copilot_max: 'GitHub Copilot Max'
+copilot_max_short: 'Copilot Max'
 
 ## Copilot billing
 # Price per additional premium request
@@ -24,10 +26,27 @@ additional_premium_requests: '$0.04 USD' # Note that these are also used to bill
 cfi_price_per_month: '$10 USD'
 # Price per month for Copilot Pro Plus
 cpp_price_per_month: '$39 USD'
+# Price per month for Copilot Max
+cm_price_per_month: '$100 USD'
 # Price per month for Copilot Business
 cfb_price_per_month: '$19 USD'
 # Price per month for Copilot Enterprise
 ce_price_per_month: '$39 USD'
+
+## AI credits per plan
+ai_credits_per_user_business: '1,900'
+ai_credits_per_user_enterprise: '3,900'
+ai_credits_per_user_business_promo: '3,000'
+ai_credits_per_user_enterprise_promo: '7,000'
+ai_credits_per_user_pro: '1,000'
+ai_credits_per_user_pro_plus: '3,900'
+ai_credits_per_user_max: '10,000'
+ai_credits_per_user_pro_flex: '500'
+ai_credits_per_user_pro_plus_flex: '3,100'
+ai_credits_per_user_max_flex: '10,000'
+ai_credits_per_user_pro_total: '1,500'
+ai_credits_per_user_pro_plus_total: '7,000'
+ai_credits_per_user_max_total: '20,000'
 
 ## Copilot partners: builders who can develop Copilot extensions
 copilot_partners: 'Copilot Partners'
@@ -162,6 +181,7 @@ copilot_gemini_3_pro: 'Gemini 3 Pro'
 copilot_gemini_31_pro: 'Gemini 3.1 Pro'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
+copilot_gpt_4o_mini: 'GPT-4o mini'
 copilot_gpt_41: 'GPT-4.1'
 copilot_gpt_5: 'GPT-5'
 copilot_gpt_5_codex: 'GPT-5-Codex'
@@ -189,7 +209,7 @@ copilot_raptor_mini: 'Raptor mini'
 copilot_goldeneye: 'Goldeneye'
 
 ## Current model used by Copilot cloud agent and Copilot CLI
-cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'
+cca_current_model: '{% data variables.copilot.copilot_claude_opus_46 %}'
 
 ## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'

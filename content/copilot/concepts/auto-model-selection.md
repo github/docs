@@ -3,7 +3,7 @@ title: 'About {% data variables.product.prodname_copilot_short %} auto model sel
 allowTitleToDifferFromFilename: true
 shortTitle: 'Auto model selection'
 intro: 'Automatically select models for {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cloud_agent %}, and third-party agents.'
-product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_chat_short %} is available with all {% data variables.product.prodname_copilot %} plans. <br>{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_cloud_agent %} is available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} plans.'
+product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} is available with all {% data variables.product.prodname_copilot %} plans.'
 versions:
   feature: copilot
 contentType: concepts
@@ -27,6 +27,10 @@ Experience less rate limiting and reduce the mental load of choosing a model by 
 
 > [!NOTE] Soon {% data variables.copilot.copilot_auto_model_selection %} will choose the best model for you based on your task.
 
+### Multiplier discounts
+
+{% data reusables.copilot.auto-model-multiplier-discount %} See [AUTOTITLE](/copilot/concepts/billing/copilot-requests#model-multipliers).
+
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.copilot.copilot_chat_short %}
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} is generally available in the following IDEs: 
@@ -43,10 +47,6 @@ When you select **Auto** in {% data variables.copilot.copilot_chat_short %} in I
 > [!TIP] To see which model was used for each response, hover over the response in {% data variables.copilot.copilot_chat_short %} in IDEs.
 
  {% data reusables.copilot.change-the-ai-model %}
-
-### Multiplier discounts
-
-{% data reusables.copilot.auto-model-multiplier-discount %} See [AUTOTITLE](/copilot/concepts/billing/copilot-requests#model-multipliers).
 
 ### Enabling access during {% data variables.release-phases.public_preview %}
 

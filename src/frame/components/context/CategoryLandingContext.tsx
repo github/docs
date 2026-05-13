@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
-import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
-import type { RawTocItem, TocItem } from '@/landings/types'
+import { getFeaturedLinksFromReq } from '@/landings/lib/featured-links'
+import type { RawTocItem, TocItem, FeaturedLink } from '@/landings/types'
 import { mapRawTocItemToTocItem } from '@/landings/types'
 import type { SpotlightItem } from '@/types'
 

@@ -1,1 +1,1 @@
-If you are on a paid {% data variables.product.prodname_copilot_short %} plan and use {% data variables.copilot.copilot_auto_model_selection_short %}, models qualify for a 10% multiplier discount.
+If you are on a paid {% data variables.product.prodname_copilot_short %} plan and use {% data variables.copilot.copilot_auto_model_selection_short %} in {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, or {% data variables.copilot.copilot_cloud_agent %}, models qualify for a 10% multiplier discount.

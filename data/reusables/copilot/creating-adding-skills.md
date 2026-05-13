@@ -6,7 +6,7 @@ To create an agent skill, you write a `SKILL.md` file and, optionally, other res
 
     For **project skills**, specific to a single repository, create a `.github/skills`, `.claude/skills`, or `.agents/skills` directory in your repository.
 
-    For **personal skills**, shared across projects, create a `~/.copilot/skills`, `~/.claude/skills`, or `~/.agents/skills` directory in your local home directory.
+    For **personal skills**, shared across projects, create a `~/.copilot/skills` or `~/.agents/skills` directory in your local home directory.
 
 1. Within the `skills` directory, create a subdirectory for your new skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`).
 
@@ -101,4 +101,4 @@ In addition to creating your own skills, you can also add skills that other peop
 
    * For **project skills**, specific to a single repository: `.github/skills`, `.claude/skills`, or `.agents/skills` in your repository.
 
-   * For **personal skills**, shared across projects: `~/.copilot/skills`, `~/.claude/skills`, or `~/.agents/skills` in your local home directory.
+   * For **personal skills**, shared across projects: `~/.copilot/skills` or `~/.agents/skills` in your local home directory.

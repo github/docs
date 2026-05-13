@@ -76,6 +76,9 @@ See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subs
 
 ### Organizations and enterprises
 
+>[!IMPORTANT]
+> {% data reusables.copilot.plans.organization-plans-paused %}
+
 **Organization owners** can get {% data variables.copilot.copilot_business_short %} for their team through an enterprise account. If you don't already have an enterprise account, you can create one specifically for managing {% data variables.copilot.copilot_business_short %} licenses. See [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-for-copilot-business).
 
 If your organization is owned by an enterprise that has a {% data variables.product.prodname_copilot_short %} subscription, you can ask your enterprise owner to enable {% data variables.product.prodname_copilot_short %} for your organization. Go to [https://github.com/settings/copilot](https://github.com/settings/copilot) and request access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
