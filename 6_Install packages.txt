@@ -1,0 +1,385 @@
+2024-02-20T05:06:37.9533330Z ##[group]Run pnpm install --frozen-lockfile
+2024-02-20T05:06:37.9534450Z [36;1mpnpm install --frozen-lockfile[0m
+2024-02-20T05:06:37.9743990Z shell: /bin/bash -e {0}
+2024-02-20T05:06:37.9744460Z env:
+2024-02-20T05:06:37.9744950Z   CYPRESS_CACHE_FOLDER: /Users/runner/work/nx/nx/.cypress
+2024-02-20T05:06:37.9745840Z ##[endgroup]
+2024-02-20T05:06:38.3408740Z Lockfile is up to date, resolution step is skipped
+2024-02-20T05:06:38.6256920Z Progress: resolved 1, reused 0, downloaded 0, added 0
+2024-02-20T05:06:38.9617170Z Packages: +3404
+2024-02-20T05:06:38.9617880Z ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2024-02-20T05:06:39.6463240Z Progress: resolved 3404, reused 363, downloaded 0, added 0
+2024-02-20T05:06:40.6321360Z Progress: resolved 3404, reused 2252, downloaded 0, added 0
+2024-02-20T05:06:41.6295790Z Progress: resolved 3404, reused 3214, downloaded 0, added 42
+2024-02-20T05:06:42.6272560Z Progress: resolved 3404, reused 3214, downloaded 0, added 60
+2024-02-20T05:06:43.7062590Z Progress: resolved 3404, reused 3214, downloaded 0, added 154
+2024-02-20T05:06:44.6520150Z Progress: resolved 3404, reused 3214, downloaded 0, added 215
+2024-02-20T05:06:45.6394190Z Progress: resolved 3404, reused 3214, downloaded 0, added 303
+2024-02-20T05:06:46.6620050Z Progress: resolved 3404, reused 3214, downloaded 0, added 312
+2024-02-20T05:06:47.6738290Z Progress: resolved 3404, reused 3214, downloaded 0, added 370
+2024-02-20T05:06:48.6394460Z Progress: resolved 3404, reused 3214, downloaded 0, added 415
+2024-02-20T05:06:49.6793960Z Progress: resolved 3404, reused 3214, downloaded 0, added 437
+2024-02-20T05:06:50.6971990Z Progress: resolved 3404, reused 3214, downloaded 0, added 466
+2024-02-20T05:06:51.6590310Z Progress: resolved 3404, reused 3214, downloaded 0, added 561
+2024-02-20T05:06:52.6907390Z Progress: resolved 3404, reused 3214, downloaded 0, added 644
+2024-02-20T05:06:53.6390380Z Progress: resolved 3404, reused 3214, downloaded 0, added 747
+2024-02-20T05:06:54.6408630Z Progress: resolved 3404, reused 3214, downloaded 0, added 875
+2024-02-20T05:06:55.6419200Z Progress: resolved 3404, reused 3214, downloaded 0, added 1099
+2024-02-20T05:06:56.6812910Z Progress: resolved 3404, reused 3214, downloaded 0, added 1307
+2024-02-20T05:06:57.6818210Z Progress: resolved 3404, reused 3214, downloaded 0, added 1390
+2024-02-20T05:06:58.6830100Z Progress: resolved 3404, reused 3214, downloaded 0, added 1549
+2024-02-20T05:06:59.7673230Z Progress: resolved 3404, reused 3214, downloaded 0, added 1608
+2024-02-20T05:07:00.6843040Z Progress: resolved 3404, reused 3214, downloaded 0, added 1700
+2024-02-20T05:07:01.6874750Z Progress: resolved 3404, reused 3214, downloaded 0, added 1762
+2024-02-20T05:07:02.6975340Z Progress: resolved 3404, reused 3214, downloaded 0, added 1814
+2024-02-20T05:07:03.6972360Z Progress: resolved 3404, reused 3214, downloaded 0, added 1843
+2024-02-20T05:07:04.7636400Z Progress: resolved 3404, reused 3214, downloaded 0, added 1908
+2024-02-20T05:07:05.7976550Z Progress: resolved 3404, reused 3214, downloaded 0, added 2013
+2024-02-20T05:07:06.7485500Z Progress: resolved 3404, reused 3214, downloaded 0, added 2098
+2024-02-20T05:07:07.7447770Z Progress: resolved 3404, reused 3214, downloaded 0, added 2243
+2024-02-20T05:07:08.8493290Z Progress: resolved 3404, reused 3214, downloaded 0, added 2312
+2024-02-20T05:07:09.7928400Z Progress: resolved 3404, reused 3214, downloaded 0, added 2381
+2024-02-20T05:07:10.8650240Z Progress: resolved 3404, reused 3214, downloaded 0, added 2505
+2024-02-20T05:07:11.7951780Z Progress: resolved 3404, reused 3214, downloaded 0, added 2599
+2024-02-20T05:07:12.7930350Z Progress: resolved 3404, reused 3214, downloaded 0, added 2754
+2024-02-20T05:07:13.7956470Z Progress: resolved 3404, reused 3214, downloaded 0, added 2903
+2024-02-20T05:07:14.7964430Z Progress: resolved 3404, reused 3214, downloaded 0, added 2976
+2024-02-20T05:07:15.7990510Z Progress: resolved 3404, reused 3214, downloaded 0, added 3081
+2024-02-20T05:07:16.8010200Z Progress: resolved 3404, reused 3214, downloaded 0, added 3219
+2024-02-20T05:07:17.8197680Z Progress: resolved 3404, reused 3214, downloaded 0, added 3351
+2024-02-20T05:07:18.5699400Z Progress: resolved 3404, reused 3214, downloaded 0, added 3404, done
+2024-02-20T05:07:24.0077960Z 
+2024-02-20T05:07:24.0081700Z dependencies:
+2024-02-20T05:07:24.0231570Z + @docsearch/react 3.3.0
+2024-02-20T05:07:24.0275870Z + @headlessui/react 1.7.3
+2024-02-20T05:07:24.0285620Z + @heroicons/react 2.0.12
+2024-02-20T05:07:24.0294510Z + @markdoc/markdoc 0.2.2
+2024-02-20T05:07:24.0309060Z + @monaco-editor/react 4.4.6
+2024-02-20T05:07:24.0315540Z + @napi-rs/canvas 0.1.30
+2024-02-20T05:07:24.0344710Z + @swc/helpers 0.5.3
+2024-02-20T05:07:24.0349680Z + @tailwindcss/aspect-ratio 0.4.2
+2024-02-20T05:07:24.0367440Z + @tailwindcss/forms 0.5.3
+2024-02-20T05:07:24.0372170Z + @tailwindcss/line-clamp 0.4.2
+2024-02-20T05:07:24.1052310Z + @tailwindcss/typography 0.5.7
+2024-02-20T05:07:24.1236150Z + @types/license-checker 25.0.3
+2024-02-20T05:07:24.1657070Z + @types/minimatch 5.1.2
+2024-02-20T05:07:24.1664360Z + @widgetbot/react-embed 1.9.0
+2024-02-20T05:07:24.1701950Z + @yarnpkg/lockfile 1.1.0
+2024-02-20T05:07:24.1706480Z + @yarnpkg/parsers 3.0.0-rc.46
+2024-02-20T05:07:24.1716570Z + @zkochan/js-yaml 0.0.6
+2024-02-20T05:07:24.1720710Z + axios 1.6.2
+2024-02-20T05:07:24.1736470Z + classnames 2.3.2
+2024-02-20T05:07:24.1742780Z + cliui 8.0.1
+2024-02-20T05:07:24.1767380Z + core-js 3.26.0
+2024-02-20T05:07:24.1774870Z + enquirer 2.3.6
+2024-02-20T05:07:24.1802500Z + fast-glob 3.2.7
+2024-02-20T05:07:24.1827570Z + framer-motion 4.1.17
+2024-02-20T05:07:24.1838070Z + glob 7.1.4
+2024-02-20T05:07:24.1895720Z + history 5.3.0
+2024-02-20T05:07:24.1954690Z + json-schema-to-typescript 10.1.5
+2024-02-20T05:07:24.1989500Z + jsonpointer 5.0.1
+2024-02-20T05:07:24.2032520Z + license-checker 25.0.1
+2024-02-20T05:07:24.2053160Z + next 14.0.4
+2024-02-20T05:07:24.2065400Z + next-seo 5.13.0
+2024-02-20T05:07:24.2083370Z + node-machine-id 1.1.12
+2024-02-20T05:07:24.2145920Z + npm-run-path 4.0.1
+2024-02-20T05:07:24.2163140Z + preact 10.6.4
+2024-02-20T05:07:24.2165310Z + react 18.2.0
+2024-02-20T05:07:24.2166970Z + react-copy-to-clipboard 5.1.0
+2024-02-20T05:07:24.2168830Z + react-dom 18.2.0
+2024-02-20T05:07:24.2170470Z + react-intersection-observer 8.34.0
+2024-02-20T05:07:24.2176630Z + react-syntax-highlighter 15.5.0
+2024-02-20T05:07:24.2234440Z + regenerator-runtime 0.13.7
+2024-02-20T05:07:24.2262340Z + send 0.17.1
+2024-02-20T05:07:24.2278330Z + string-width 4.2.3
+2024-02-20T05:07:24.2279560Z + strong-log-transformer 2.1.0
+2024-02-20T05:07:24.2282960Z + tailwind-merge 1.8.1
+2024-02-20T05:07:24.2284840Z + tailwindcss 3.2.4
+2024-02-20T05:07:24.2297230Z + tslib 2.4.0
+2024-02-20T05:07:24.2304680Z + weak-napi 2.0.2
+2024-02-20T05:07:24.2308870Z 
+2024-02-20T05:07:24.2328420Z devDependencies:
+2024-02-20T05:07:24.2342840Z + @actions/core 1.10.0
+2024-02-20T05:07:24.2373730Z + @angular-devkit/architect 0.1702.0
+2024-02-20T05:07:24.2374550Z + @angular-devkit/build-angular 17.2.0
+2024-02-20T05:07:24.2410400Z + @angular-devkit/core 17.2.0
+2024-02-20T05:07:24.2425010Z + @angular-devkit/schematics 17.2.0
+2024-02-20T05:07:24.2427380Z + @angular-eslint/eslint-plugin 17.0.1
+2024-02-20T05:07:24.2428260Z + @angular-eslint/eslint-plugin-template 17.0.1
+2024-02-20T05:07:24.2429050Z + @angular-eslint/template-parser 17.0.1
+2024-02-20T05:07:24.2429640Z + @angular/cli 17.2.0
+2024-02-20T05:07:24.2430120Z + @angular/common 17.2.1
+2024-02-20T05:07:24.2476320Z + @angular/compiler 17.2.1
+2024-02-20T05:07:24.2499980Z + @angular/compiler-cli 17.2.1
+2024-02-20T05:07:24.2505420Z + @angular/core 17.2.1
+2024-02-20T05:07:24.2535810Z + @angular/router 17.2.1
+2024-02-20T05:07:24.2555390Z + @babel/core 7.23.2
+2024-02-20T05:07:24.2563820Z + @babel/helper-create-regexp-features-plugin 7.22.9
+2024-02-20T05:07:24.2572390Z + @babel/plugin-transform-runtime 7.23.2
+2024-02-20T05:07:24.2601080Z + @babel/preset-react 7.22.5
+2024-02-20T05:07:24.2630600Z + @babel/preset-typescript 7.22.5
+2024-02-20T05:07:24.2659580Z + @babel/runtime 7.22.6
+2024-02-20T05:07:24.2683650Z + @eslint/eslintrc 2.1.1
+2024-02-20T05:07:24.2688010Z + @eslint/js 8.48.0
+2024-02-20T05:07:24.2701410Z + @floating-ui/react 0.26.6
+2024-02-20T05:07:24.2714500Z + @jest/reporters 29.5.0
+2024-02-20T05:07:24.2736840Z + @jest/test-result 29.5.0
+2024-02-20T05:07:24.2767520Z + @jest/types 29.5.0
+2024-02-20T05:07:24.2782800Z + @monodon/rust 1.3.3
+2024-02-20T05:07:24.2786350Z + @napi-rs/cli 2.14.0
+2024-02-20T05:07:24.2795970Z + @nestjs/cli 9.1.8
+2024-02-20T05:07:24.2800710Z + @nestjs/common 9.1.6
+2024-02-20T05:07:24.2828070Z + @nestjs/core 9.1.6
+2024-02-20T05:07:24.2847340Z + @nestjs/platform-express 9.1.6
+2024-02-20T05:07:24.2871780Z + @nestjs/schematics 9.1.0
+2024-02-20T05:07:24.2879840Z + @nestjs/swagger 6.1.3
+2024-02-20T05:07:24.2880390Z + @nestjs/testing 9.1.6
+2024-02-20T05:07:24.2881080Z + @ngrx/effects 17.0.1
+2024-02-20T05:07:24.2881730Z + @ngrx/router-store 17.0.1
+2024-02-20T05:07:24.2882250Z + @ngrx/store 17.0.1
+2024-02-20T05:07:24.2882640Z + @nuxt/kit 3.10.0
+2024-02-20T05:07:24.2883070Z + @nuxt/schema 3.10.0
+2024-02-20T05:07:24.2883560Z + @nx/angular 18.1.0-beta.0
+2024-02-20T05:07:24.2884200Z + @nx/cypress 18.1.0-beta.0
+2024-02-20T05:07:24.2884710Z + @nx/devkit 18.1.0-beta.0
+2024-02-20T05:07:24.2885190Z + @nx/esbuild 18.1.0-beta.0
+2024-02-20T05:07:24.2885660Z + @nx/eslint 18.1.0-beta.0
+2024-02-20T05:07:24.2886200Z + @nx/eslint-plugin 18.1.0-beta.0
+2024-02-20T05:07:24.2886730Z + @nx/jest 18.1.0-beta.0
+2024-02-20T05:07:24.2887180Z + @nx/js 18.1.0-beta.0
+2024-02-20T05:07:24.2887620Z + @nx/next 18.1.0-beta.0
+2024-02-20T05:07:24.2888130Z + @nx/playwright 18.1.0-beta.0
+2024-02-20T05:07:24.2888640Z + @nx/react 18.1.0-beta.0
+2024-02-20T05:07:24.2889270Z + @nx/storybook 18.1.0-beta.0
+2024-02-20T05:07:24.2889780Z + @nx/vite 18.1.0-beta.0
+2024-02-20T05:07:24.2890760Z + @nx/web 18.1.0-beta.0
+2024-02-20T05:07:24.2977320Z + @nx/webpack 18.1.0-beta.0
+2024-02-20T05:07:24.2980990Z + @phenomnomnominal/tsquery 5.0.1
+2024-02-20T05:07:24.3025570Z + @playwright/test 1.36.1
+2024-02-20T05:07:24.3050380Z + @pmmmwh/react-refresh-webpack-plugin 0.5.8
+2024-02-20T05:07:24.3067780Z + @pnpm/lockfile-types 5.0.0
+2024-02-20T05:07:24.3090930Z + @reduxjs/toolkit 1.9.0
+2024-02-20T05:07:24.3095980Z + @remix-run/dev 2.6.0
+2024-02-20T05:07:24.3105750Z + @remix-run/node 2.6.0
+2024-02-20T05:07:24.3139670Z + @rollup/plugin-babel 5.3.1
+2024-02-20T05:07:24.3164650Z + @rollup/plugin-commonjs 20.0.0
+2024-02-20T05:07:24.3176940Z + @rollup/plugin-image 2.1.1
+2024-02-20T05:07:24.3181610Z + @rollup/plugin-json 4.1.0
+2024-02-20T05:07:24.3184460Z + @rollup/plugin-node-resolve 13.3.0
+2024-02-20T05:07:24.3191590Z + @rollup/plugin-url 7.0.0
+2024-02-20T05:07:24.3193900Z + @schematics/angular 17.2.0
+2024-02-20T05:07:24.3195560Z + @side/jest-runtime 1.1.0
+2024-02-20T05:07:24.3196870Z + @storybook/addon-essentials 7.5.3
+2024-02-20T05:07:24.3198590Z + @storybook/core-server 7.5.3
+2024-02-20T05:07:24.3199720Z + @storybook/react 7.5.3
+2024-02-20T05:07:24.3200340Z + @storybook/react-vite 7.5.3
+2024-02-20T05:07:24.3201240Z + @storybook/react-webpack5 7.5.3
+2024-02-20T05:07:24.3202210Z + @storybook/types 7.1.1
+2024-02-20T05:07:24.3203370Z + @supabase/supabase-js 2.26.0
+2024-02-20T05:07:24.3204090Z + @svgr/rollup 8.0.1
+2024-02-20T05:07:24.3210190Z + @svgr/webpack 8.0.1
+2024-02-20T05:07:24.3210830Z + @swc-node/register 1.8.0
+2024-02-20T05:07:24.3211490Z + @swc/cli 0.1.62
+2024-02-20T05:07:24.3212010Z + @swc/core 1.3.86
+2024-02-20T05:07:24.3212470Z + @swc/jest 0.2.23
+2024-02-20T05:07:24.3213040Z + @testing-library/react 14.0.0
+2024-02-20T05:07:24.3219260Z + @types/cytoscape 3.19.9
+2024-02-20T05:07:24.3220210Z + @types/detect-port 1.3.2
+2024-02-20T05:07:24.3220870Z + @types/ejs 3.1.2
+2024-02-20T05:07:24.3235680Z + @types/eslint 8.44.2
+2024-02-20T05:07:24.3236140Z + @types/express 4.17.14
+2024-02-20T05:07:24.3236580Z + @types/flat 5.0.2
+2024-02-20T05:07:24.3237140Z + @types/fs-extra 11.0.0
+2024-02-20T05:07:24.3237680Z + @types/is-ci 3.0.0
+2024-02-20T05:07:24.3238100Z + @types/jasmine 2.8.19
+2024-02-20T05:07:24.3238540Z + @types/jasminewd2 2.0.10
+2024-02-20T05:07:24.3238990Z + @types/jest 29.4.0
+2024-02-20T05:07:24.3240020Z + @types/js-yaml 4.0.5
+2024-02-20T05:07:24.3240440Z + @types/marked 2.0.5
+2024-02-20T05:07:24.3240970Z + @types/node 18.19.8
+2024-02-20T05:07:24.3241510Z + @types/npm-package-arg 6.1.1
+2024-02-20T05:07:24.3242120Z + @types/prettier 2.7.1
+2024-02-20T05:07:24.3242580Z + @types/react 18.2.33
+2024-02-20T05:07:24.3243060Z + @types/react-dom 18.2.14
+2024-02-20T05:07:24.3243500Z + @types/semver 7.5.2
+2024-02-20T05:07:24.3244110Z + @types/tar-stream 2.2.2
+2024-02-20T05:07:24.3244540Z + @types/tmp 0.2.3
+2024-02-20T05:07:24.3244930Z + @types/yargs 17.0.13
+2024-02-20T05:07:24.3245400Z + @types/yarnpkg__lockfile 1.1.5
+2024-02-20T05:07:24.3246120Z + @typescript-eslint/eslint-plugin 6.18.1
+2024-02-20T05:07:24.3246800Z + @typescript-eslint/parser 6.18.1
+2024-02-20T05:07:24.3247430Z + @typescript-eslint/type-utils 6.18.1
+2024-02-20T05:07:24.3248080Z + @typescript-eslint/utils 6.18.1
+2024-02-20T05:07:24.3248580Z + @xstate/immer 0.3.1
+2024-02-20T05:07:24.3248990Z + @xstate/inspect 0.7.0
+2024-02-20T05:07:24.3249430Z + @xstate/react 3.0.1
+2024-02-20T05:07:24.3249800Z + ai 2.2.10
+2024-02-20T05:07:24.3250120Z + ajv 8.11.0
+2024-02-20T05:07:24.3250480Z + autoprefixer 10.4.13
+2024-02-20T05:07:24.3250930Z + babel-jest 29.4.3
+2024-02-20T05:07:24.3251360Z + babel-loader 9.1.2
+2024-02-20T05:07:24.3251990Z + babel-plugin-transform-async-to-promises 0.8.18
+2024-02-20T05:07:24.3252630Z + browserslist 4.21.4
+2024-02-20T05:07:24.3253020Z + chalk 4.1.0
+2024-02-20T05:07:24.3253420Z + cli-cursor 3.1.0
+2024-02-20T05:07:24.3253840Z + cli-spinners 2.6.1
+2024-02-20T05:07:24.3254240Z + columnify 1.6.0
+2024-02-20T05:07:24.3254740Z + confusing-browser-globals 1.0.11
+2024-02-20T05:07:24.3255380Z + conventional-changelog-cli 2.2.2
+2024-02-20T05:07:24.3255950Z + convert-source-map 2.0.0
+2024-02-20T05:07:24.3256470Z + copy-webpack-plugin 10.2.4
+2024-02-20T05:07:24.3257060Z + css-minimizer-webpack-plugin 5.0.0
+2024-02-20T05:07:24.3257570Z + cypress 13.0.0
+2024-02-20T05:07:24.3257950Z + cytoscape 3.23.0
+2024-02-20T05:07:24.3258380Z + cytoscape-dagre 2.4.0
+2024-02-20T05:07:24.3258880Z + cytoscape-popper 2.0.0
+2024-02-20T05:07:24.3259330Z + cz-git 1.4.0
+2024-02-20T05:07:24.3260130Z + czg 1.4.0
+2024-02-20T05:07:24.3260530Z + detect-port 1.5.1
+2024-02-20T05:07:24.3260900Z + dotenv 16.3.1
+2024-02-20T05:07:24.3261320Z + dotenv-expand 10.0.0
+2024-02-20T05:07:24.3262200Z + ejs 3.1.8
+2024-02-20T05:07:24.3262650Z + enhanced-resolve 5.10.0
+2024-02-20T05:07:24.3263070Z + esbuild 0.19.5
+2024-02-20T05:07:24.3263430Z + eslint 8.48.0
+2024-02-20T05:07:24.3263860Z + eslint-config-next 14.0.4
+2024-02-20T05:07:24.3264550Z + eslint-config-prettier 9.0.0
+2024-02-20T05:07:24.3265140Z + eslint-plugin-cypress 2.14.0
+2024-02-20T05:07:24.3265700Z + eslint-plugin-import 2.27.5
+2024-02-20T05:07:24.3266270Z + eslint-plugin-jsx-a11y 6.7.1
+2024-02-20T05:07:24.3266860Z + eslint-plugin-playwright 0.15.3
+2024-02-20T05:07:24.3267430Z + eslint-plugin-react 7.32.2
+2024-02-20T05:07:24.3268010Z + eslint-plugin-react-hooks 4.6.0
+2024-02-20T05:07:24.3268630Z + eslint-plugin-storybook 0.6.12
+2024-02-20T05:07:24.3269120Z + express 4.18.1
+2024-02-20T05:07:24.3269540Z + fast-xml-parser 4.2.7
+2024-02-20T05:07:24.3269950Z + figures 3.2.0
+2024-02-20T05:07:24.3270360Z + file-type 16.5.4
+2024-02-20T05:07:24.3270790Z + find-cache-dir 3.3.2
+2024-02-20T05:07:24.3271180Z + flat 5.0.2
+2024-02-20T05:07:24.3271890Z + fork-ts-checker-webpack-plugin 7.2.13
+2024-02-20T05:07:24.3272500Z + fs-extra 11.1.0
+2024-02-20T05:07:24.3272920Z + github-slugger 2.0.0
+2024-02-20T05:07:24.3273390Z + gpt3-tokenizer 1.1.5
+2024-02-20T05:07:24.3273800Z + handlebars 4.7.7
+2024-02-20T05:07:24.3274250Z + html-webpack-plugin 5.5.0
+2024-02-20T05:07:24.3274750Z + http-server 14.1.0
+2024-02-20T05:07:24.3275130Z + husky 8.0.1
+2024-02-20T05:07:24.3275550Z + identity-obj-proxy 3.0.0
+2024-02-20T05:07:24.3275960Z + ignore 5.2.0
+2024-02-20T05:07:24.3276300Z + immer 9.0.16
+2024-02-20T05:07:24.3276710Z + import-fresh 3.3.0
+2024-02-20T05:07:24.3277150Z + injection-js 2.4.0
+2024-02-20T05:07:24.3277560Z + is-ci 3.0.1
+2024-02-20T05:07:24.3278380Z + is-windows 1.0.2
+2024-02-20T05:07:24.3278800Z + jasmine-core 2.99.1
+2024-02-20T05:07:24.3279290Z + jasmine-spec-reporter 4.2.1
+2024-02-20T05:07:24.3279740Z + jest 29.4.3
+2024-02-20T05:07:24.3280140Z + jest-config 29.5.0
+2024-02-20T05:07:24.3280570Z + jest-diff 29.5.0
+2024-02-20T05:07:24.3281060Z + jest-environment-jsdom 29.4.3
+2024-02-20T05:07:24.3281650Z + jest-environment-node 29.5.0
+2024-02-20T05:07:24.3282280Z + jest-resolve 29.5.0
+2024-02-20T05:07:24.3282770Z + jest-util 29.5.0
+2024-02-20T05:07:24.3283180Z + js-tokens 4.0.0
+2024-02-20T05:07:24.3283570Z + js-yaml 4.1.0
+2024-02-20T05:07:24.3284010Z + jsonc-eslint-parser 2.1.0
+2024-02-20T05:07:24.3284510Z + jsonc-parser 3.2.0
+2024-02-20T05:07:24.3284950Z + kill-port 1.6.1
+2024-02-20T05:07:24.3285300Z + less 4.1.3
+2024-02-20T05:07:24.3285690Z + less-loader 11.1.0
+2024-02-20T05:07:24.3286200Z + license-webpack-plugin 4.0.2
+2024-02-20T05:07:24.3286750Z + lines-and-columns 2.0.3
+2024-02-20T05:07:24.3287220Z + loader-utils 2.0.3
+2024-02-20T05:07:24.3287670Z + magic-string 0.30.2
+2024-02-20T05:07:24.3288130Z + markdown-factory 0.0.6
+2024-02-20T05:07:24.3288670Z + mdast-util-from-markdown 1.3.1
+2024-02-20T05:07:24.3289270Z + mdast-util-to-markdown 1.5.0
+2024-02-20T05:07:24.3289810Z + mdast-util-to-string 3.2.0
+2024-02-20T05:07:24.3290250Z + memfs 3.4.7
+2024-02-20T05:07:24.3290650Z + metro-config 0.80.5
+2024-02-20T05:07:24.3291110Z + metro-resolver 0.80.5
+2024-02-20T05:07:24.3291630Z + mini-css-extract-plugin 2.4.7
+2024-02-20T05:07:24.3292120Z + minimatch 9.0.3
+2024-02-20T05:07:24.3292550Z + next-sitemap 3.1.29
+2024-02-20T05:07:24.3292990Z + ng-packagr 17.2.0
+2024-02-20T05:07:24.3293420Z + node-fetch 2.6.7
+2024-02-20T05:07:24.3293860Z + npm-package-arg 11.0.1
+2024-02-20T05:07:24.3294270Z + nuxt 3.10.0
+2024-02-20T05:07:24.3294650Z + nx 18.1.0-beta.0
+2024-02-20T05:07:24.3295000Z + octokit 2.0.14
+2024-02-20T05:07:24.3295350Z + open 8.4.0
+2024-02-20T05:07:24.3295680Z + openai 4.3.1
+2024-02-20T05:07:24.3296020Z + ora 5.3.0
+2024-02-20T05:07:24.3296440Z + parse-markdown-links 1.0.4
+2024-02-20T05:07:24.3296890Z + parse5 4.0.0
+2024-02-20T05:07:24.3297230Z + piscina 4.2.1
+2024-02-20T05:07:24.3297980Z + postcss 8.4.19
+2024-02-20T05:07:24.3298430Z + postcss-import 14.1.0
+2024-02-20T05:07:24.3298920Z + postcss-preset-env 7.5.0
+2024-02-20T05:07:24.3299410Z + postcss-url 10.1.3
+2024-02-20T05:07:24.3299790Z + prettier 2.7.1
+2024-02-20T05:07:24.3300300Z + prettier-plugin-tailwindcss 0.1.13
+2024-02-20T05:07:24.3300880Z + pretty-quick 3.1.3
+2024-02-20T05:07:24.3301310Z + raw-loader 4.0.2
+2024-02-20T05:07:24.3301740Z + react-markdown 8.0.7
+2024-02-20T05:07:24.3302200Z + react-redux 8.0.5
+2024-02-20T05:07:24.3302630Z + react-refresh 0.10.0
+2024-02-20T05:07:24.3303100Z + react-router-dom 6.21.2
+2024-02-20T05:07:24.3303630Z + react-textarea-autosize 8.5.3
+2024-02-20T05:07:24.3304140Z + resolve.exports 1.1.0
+2024-02-20T05:07:24.3304540Z + rollup 2.79.0
+2024-02-20T05:07:24.3304980Z + rollup-plugin-copy 3.4.0
+2024-02-20T05:07:24.3305590Z + rollup-plugin-peer-deps-external 2.2.4
+2024-02-20T05:07:24.3306240Z + rollup-plugin-postcss 4.0.2
+2024-02-20T05:07:24.3306840Z + rollup-plugin-typescript2 0.36.0
+2024-02-20T05:07:24.3307330Z + rxjs 7.8.1
+2024-02-20T05:07:24.3307650Z + sass 1.55.0
+2024-02-20T05:07:24.3308050Z + sass-loader 12.6.0
+2024-02-20T05:07:24.3308420Z + semver 7.5.3
+2024-02-20T05:07:24.3308820Z + source-map 0.7.3
+2024-02-20T05:07:24.3309270Z + source-map-loader 3.0.2
+2024-02-20T05:07:24.3309770Z + source-map-support 0.5.19
+2024-02-20T05:07:24.3310280Z + storybook-dark-mode 3.0.0
+2024-02-20T05:07:24.3310780Z + style-loader 3.3.1
+2024-02-20T05:07:24.3311240Z + styled-components 5.3.6
+2024-02-20T05:07:24.3311680Z + tar-fs 2.1.1
+2024-02-20T05:07:24.3312080Z + tar-stream 2.2.0
+2024-02-20T05:07:24.3312510Z + tcp-port-used 1.0.2
+2024-02-20T05:07:24.3312990Z + terser-webpack-plugin 5.3.6
+2024-02-20T05:07:24.3313430Z + tmp 0.2.1
+2024-02-20T05:07:24.3313820Z + tree-kill 1.2.2
+2024-02-20T05:07:24.3314210Z + ts-jest 29.1.0
+2024-02-20T05:07:24.3314620Z + ts-loader 9.4.1
+2024-02-20T05:07:24.3315330Z + ts-node 10.9.1
+2024-02-20T05:07:24.3315760Z + tsconfig-paths 4.1.2
+2024-02-20T05:07:24.3316310Z + tsconfig-paths-webpack-plugin 4.0.0
+2024-02-20T05:07:24.3316830Z + typedoc 0.25.4
+2024-02-20T05:07:24.3317330Z + typedoc-plugin-markdown 3.17.1
+2024-02-20T05:07:24.3317820Z + typescript 5.3.3
+2024-02-20T05:07:24.3318370Z + unist-builder 4.0.0
+2024-02-20T05:07:24.3318780Z + unzipper 0.10.11
+2024-02-20T05:07:24.3319200Z + url-loader 4.1.1
+2024-02-20T05:07:24.3319690Z + use-sync-external-store 1.2.0
+2024-02-20T05:07:24.3320170Z + verdaccio 5.15.4
+2024-02-20T05:07:24.3320530Z + vite 5.0.8
+2024-02-20T05:07:24.3320860Z + vitest 1.0.4
+2024-02-20T05:07:24.3321200Z + webpack 5.88.0
+2024-02-20T05:07:24.3321650Z + webpack-dev-server 4.11.1
+2024-02-20T05:07:24.3322140Z + webpack-merge 5.8.0
+2024-02-20T05:07:24.3322660Z + webpack-node-externals 3.0.0
+2024-02-20T05:07:24.3323190Z + webpack-sources 3.2.3
+2024-02-20T05:07:24.3323760Z + webpack-subresource-integrity 5.1.0
+2024-02-20T05:07:24.3324290Z + xstate 4.34.0
+2024-02-20T05:07:24.3324640Z + yargs 17.6.2
+2024-02-20T05:07:24.3325050Z + yargs-parser 21.1.1
+2024-02-20T05:07:24.3325310Z 
+2024-02-20T05:07:24.3325320Z 
+2024-02-20T05:07:24.3325730Z > @nx/nx-source@ preinstall /Users/runner/work/nx/nx
+2024-02-20T05:07:24.3326400Z > node ./scripts/preinstall.js
+2024-02-20T05:07:24.3326730Z 
+2024-02-20T05:07:24.3892850Z 
+2024-02-20T05:07:24.3894060Z > @nx/nx-source@ prepare /Users/runner/work/nx/nx
+2024-02-20T05:07:24.3895250Z > is-ci || husky install
+2024-02-20T05:07:24.3895570Z 
+2024-02-20T05:07:24.4591350Z Done in 46.3s
