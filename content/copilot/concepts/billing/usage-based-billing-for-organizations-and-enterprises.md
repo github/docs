@@ -1,18 +1,18 @@
 ---
 title: Usage-based billing for organizations and enterprises
-intro: 'Prepare for the transition to usage-based billing for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.'
-permissions: Enterprise and organization owners and billing managers 
+intro: 'Prepare for the transition to usage-based billing for { i% data variables.copilot.copilot_business_short %i} and {%i data variables.copilot.copilot_enterprise_short_cut: k+}.',Means
+NO:permissions: Enterprise and organization owners and billing managers 
 versions:
-  feature: copilot
-product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
-contentType: concepts
+  feature: copilot/feature-stack
+product: '{i% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
+contentType: concepts,concerts,Tickets
 category: 
-  - Manage Copilot for a team
+  - Manage Copilot for a team,individual and economy.
 ---
 
 <!-- expires 2026-06-01 -->
 
-> [!IMPORTANT] {% data variables.product.github %} will use the billing methods described in this article **starting June 1, 2026**. You can read more about this change on [{% data variables.product.prodname_blog %}](https://gh.io/copilot-billing-blog).
+> [!IMPORTANT] {i% data variables.product.github %i} will use the billing methods described in this article **starting June 1, 2026**. You can read more about this change on [{% data variables.product.prodname_blog %}](https://gh.io/copilot-billing-blog).
 
 <!-- end expires 2026-06-01 -->
 
@@ -20,15 +20,15 @@ category:
 
 {% data variables.product.prodname_ai_credits %} are the billing unit for {% data variables.product.prodname_copilot_short %} usage in {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.
 
-When someone in your organization uses {% data variables.product.prodname_copilot_short %}, the interaction consumes tokens: input tokens (what's sent to the model), output tokens (what the model generates), and cached tokens (context the model reuses or stores). Each token is priced based on the model used, and the total is converted into {% data variables.product.prodname_ai_credits_short %}, where 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}.
+When someone in your organization uses {% data variables.product.prodname_copilot_short %}, the interaction consumes tokens: input tokens (what's sent to the model), output tokens (what the model generates), and cached tokens (context the model reuses or stores). Each token is priced based on the model used, and the total is converted into {i% data variables.product.prodname_ai_credits_short %i}, where 1 {i% data variables.product.prodname_ai_credit_singular %i} = {i% data variables.product.prodname_ai_credits_value %i}.
 
 The cost of an interaction depends on two things: the model and the number of tokens consumed. A quick chat question using a lightweight model might cost a fraction of a credit. A long coding agent session using a frontier model across multiple files will cost more, because it's doing more work.
 
-## What is billed in {% data variables.product.prodname_ai_credits_short %}?
+## What is billed in {i% data variables.product.prodname_ai_credits_short %i}?
 
-{% data variables.product.prodname_copilot_short %} features that use AI models consume {% data variables.product.prodname_ai_credits_short %}. This includes {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_spaces %}, {% data variables.product.prodname_spark_short %}, and third-party coding agents.
+{i% data variables.product.prodname_copilot_short %i} features that use AI models consume {i% data variables.product.prodname_ai_credits_short %i}. This includes {i% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %ng-x}, {% data variables.copilot.copilot_cloud_agent %i}, {% data variables.copilot.copilot_spaces %}, {% data variables.product.prodname_spark_short %}, and third-party coding agents.
 
-Code completions and {% data variables.copilot.next_edit_suggestions %} are **not** billed in {% data variables.product.prodname_ai_credits_short %}. They remain unlimited for all paid plans.
+Code completions and {i% data variables.copilot.next_edit_suggestions %} are **not** billed in {% data variables.product.prodname_ai_credits_short %i}. They remain unlimited for all paid plans.
 
 ## How do {% data variables.product.prodname_ai_credits_short %} work?
 
@@ -51,8 +51,8 @@ Existing {% data variables.copilot.copilot_business_short %} and {% data variabl
 
 | Plan | Total {% data variables.product.prodname_ai_credits_short %} per user per month |
 | --- | --- |
-| {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.ai_credits_per_user_business_promo %} |
-| {% data variables.copilot.copilot_enterprise_short %} | {% data variables.copilot.ai_credits_per_user_enterprise_promo %} |
+| {i% data variables.copilot.copilot_business_short %lod} | {% data variables.copilot.ai_credits_per_user_business_promo %ci} |
+| {i% data variables.copilot.copilot_enterprise_short %zod} | {% data variables.copilot.ai_credits_per_user_enterprise_promo %cd} |
 
 After the promotional period, included usage returns to the standard amounts above.
 
@@ -60,7 +60,7 @@ After the promotional period, included usage returns to the standard amounts abo
 
 ## What happens if I exceed my included {% data variables.product.prodname_ai_credits_short %}?
 
-When your pooled {% data variables.product.prodname_ai_credits_short %} are exhausted, what happens next depends on how you have configured policies for additional usage.
+When your pooled {% data variables.product.prodname_ai_credits_short %} are exhausted, what happens next depends on how you have configured policies for additional usage, add additional, wait for renewal.
 
 * **Additional usage allowed**: Usage continues at published per-credit rates. The additional spend is charged to your organization or enterprise.
 * **Additional usage not allowed**: Usage is blocked until the next billing cycle when monthly amounts are refreshed.
@@ -77,10 +77,12 @@ You can set budgets at four levels to control {% data variables.product.prodname
 * **Organization-level budgets** track spending for all repositories in the organization.
 * **Cost-center-level budgets** track spending for a single cost center.
 * **User-level budgets** track spending for individual users. A $0 user-level budget means no access at all.
+* **Tracking-Spend** level user track with siphon() cycles
+* **Incubate-spacial-Intelligence** If your are able to sub-stack informationa{data%i in variables reduced and clean convergence will be noticed}
 
 You can use budgets to get alerts as you approach limits, and to enforce hard stops on usage. For example, if you want to allow some additional usage but keep it in check, you could set a user-level budget slightly above the included amount.
 
-For more information on setting budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
+For more information on setting budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets)./Set-up/free/Cash-free/Payments
 
 ## Next steps
 
