@@ -94,6 +94,18 @@ To confirm that a user's SCIM identity is created, we recommend testing this pro
 
 If re-provisioning SCIM for users doesn't help, please contact {% data variables.product.prodname_dotcom %} Support.
 
+## Error: "A verified email address is required to invite members via email address"
+
+This error can occur during SCIM provisioning when the {% data variables.product.prodname_dotcom %} user account that authorized the SCIM integration does not have a verified email address.
+
+For organizations using supported SCIM IdPs, these types of integrations use an OAuth app. When you first configure the integration from the IdP admin portal, a {% data variables.product.prodname_dotcom %} user authorizes the OAuth app, and {% data variables.product.prodname_dotcom %} then performs all subsequent SCIM operations (including inviting new members) on behalf of that user. If that user's email address is no longer verified, SCIM provisioning calls for new users will fail with this error, while existing members remain unaffected.
+
+### Resolving the error
+
+1. Identify the {% data variables.product.prodname_dotcom %} user account that last authorized the SCIM integration. You can review `org.invite_member` events in your organization audit log to find the user account on whose behalf SCIM operations are performed.
+1. Log into that {% data variables.product.prodname_dotcom %} user account and verify the email address associated with the account. Only one {% data variables.product.prodname_dotcom %} account can verify a particular email address at a time. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+1. After you verify the email, retry the SCIM provisioning operation from your identity provider.
+
 ## Conflicting SAML identity error
 
 {% data reusables.saml.conflicting-identity %}

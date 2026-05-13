@@ -109,11 +109,7 @@ Precision levels are estimated based on the pattern type's typical false positiv
 >[!NOTE] Push protection and validity checks are not supported for passwords.
 {% endif %}
 
-<<<<<<< HEAD
-### Default patterns
-=======
 ## Supported provider patterns
->>>>>>> origin/main
 
 Use the table below to search, filter, and browse all supported patterns. You can filter by provider name, push protection support, validity checks, and more.
 

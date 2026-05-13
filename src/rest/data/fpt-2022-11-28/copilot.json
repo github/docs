@@ -4855,6 +4855,14 @@
                               "updated_at": {
                                 "type": "string",
                                 "format": "date-time"
+                              },
+                              "notification_setting": {
+                                "type": "string",
+                                "description": "Whether team members will receive notifications when the team is mentioned.",
+                                "enum": [
+                                  "notifications_enabled",
+                                  "notifications_disabled"
+                                ]
                               }
                             },
                             "required": [
@@ -5944,6 +5952,14 @@
                         "updated_at": {
                           "type": "string",
                           "format": "date-time"
+                        },
+                        "notification_setting": {
+                          "type": "string",
+                          "description": "Whether team members will receive notifications when the team is mentioned.",
+                          "enum": [
+                            "notifications_enabled",
+                            "notifications_disabled"
+                          ]
                         }
                       },
                       "required": [

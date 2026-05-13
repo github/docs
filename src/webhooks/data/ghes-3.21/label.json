@@ -1,0 +1,362 @@
+{
+  "created": {
+    "descriptionHtml": "<p>A label was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to labels. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/issues/using-labels-and-milestones-to-track-work/managing-labels\">Managing labels</a>.\" For information about the APIs to manage labels, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#label\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/issues/labels\">Labels</a>\" in the REST API documentation.</p>\n<p>If you want to receive an event when a label is added to or removed from an issue, pull request, or discussion, use the <code>labeled</code> or <code>unlabeled</code> action type for the <code>issues</code>, <code>pull_request</code>, or <code>discussion</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "label",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "color",
+            "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "default",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The name of the label.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the label</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "label"
+  },
+  "deleted": {
+    "descriptionHtml": "<p>A label was deleted.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to labels. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/issues/using-labels-and-milestones-to-track-work/managing-labels\">Managing labels</a>.\" For information about the APIs to manage labels, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#label\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/issues/labels\">Labels</a>\" in the REST API documentation.</p>\n<p>If you want to receive an event when a label is added to or removed from an issue, pull request, or discussion, use the <code>labeled</code> or <code>unlabeled</code> action type for the <code>issues</code>, <code>pull_request</code>, or <code>discussion</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "deleted"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "label",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "color",
+            "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "default",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The name of the label.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the label</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "deleted",
+    "category": "label"
+  },
+  "edited": {
+    "descriptionHtml": "<p>A label's name, description, or color was changed.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to labels. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/issues/using-labels-and-milestones-to-track-work/managing-labels\">Managing labels</a>.\" For information about the APIs to manage labels, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#label\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/issues/labels\">Labels</a>\" in the REST API documentation.</p>\n<p>If you want to receive an event when a label is added to or removed from an issue, pull request, or discussion, use the <code>labeled</code> or <code>unlabeled</code> action type for the <code>issues</code>, <code>pull_request</code>, or <code>discussion</code> events instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "edited"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "<p>The changes to the label if the action was <code>edited</code>.</p>",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "color",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "from",
+                "description": "<p>The previous version of the color if the action was <code>edited</code>.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "description",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "from",
+                "description": "<p>The previous version of the description if the action was <code>edited</code>.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "name",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "from",
+                "description": "<p>The previous version of the name if the action was <code>edited</code>.</p>",
+                "isRequired": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "label",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "color",
+            "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "default",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>The name of the label.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the label</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "edited",
+    "category": "label"
+  }
+}

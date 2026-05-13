@@ -15,7 +15,7 @@ on:
         required: true
         default: 'en'
       create_copilot_issue:
-        description: 'Create a Copilot-assigned issue with the top 5 redirects to fix'
+        description: 'Create a Copilot-assigned issue with the top 10 redirects to fix'
         type: boolean
         required: false
         default: false
@@ -127,7 +127,7 @@ jobs:
 
             const report = JSON.parse(fs.readFileSync(reportFile, 'utf8'))
             const allRedirectGroups = report.groups.filter(g => g.isWarning)
-            const redirectGroups = allRedirectGroups.slice(0, 5)
+            const redirectGroups = allRedirectGroups.slice(0, 10)
 
             if (redirectGroups.length === 0) {
               core.info('No redirect groups found, skipping Copilot issue.')
@@ -142,24 +142,30 @@ jobs:
               return `| \`${g.target}\` | \`${redirectTarget}\` | \`${file}\` | ${lines} |`
             }).join('\n')
 
-            const actionRunUrl = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
-            const hasMore = allRedirectGroups.length > redirectGroups.length
-            const countLine = hasMore
-              ? `These are the first ${redirectGroups.length} of ${allRedirectGroups.length} redirects found. The full list is available in the [workflow run artifacts](${actionRunUrl}).`
-              : `These are the first ${redirectGroups.length} of ${allRedirectGroups.length} redirects found.`
+            const artifactsUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`
 
-            const body = [
+            const bodyLines = [
               'Copilot please fix the redirected internal links listed in the table below. All changes should be made within the `github/docs-internal` repository. For each entry, open the source file and replace the **Current Link** with the **Update To** path.',
               'When all changes are made, open a pull request in `github/docs-internal` with the fixes. The pull request description should reference this issue to create a link between them. When the pull request is open, leave a comment on this issue with a link to it.',
               '',
-              countLine,
+              `These are the first ${redirectGroups.length} of ${allRedirectGroups.length} redirects found.`,
               '',
               '## Redirects to fix',
               '',
               '| Current Link | Update To | File | Line(s) |',
               '|---|---|---|---|',
               tableRows,
-            ].join('\n')
+            ]
+
+            const MAX_ISSUE_BODY_LENGTH = 65536
+            const artifactNote = `\n\n> [!NOTE]\n> The report was truncated because it exceeded the issue body length limit. [View the complete redirect report in the workflow artifacts](${artifactsUrl}).`
+
+            let body = bodyLines.join('\n')
+            if (body.length > MAX_ISSUE_BODY_LENGTH) {
+              const truncatedLength = MAX_ISSUE_BODY_LENGTH - artifactNote.length
+              const lastNewline = body.lastIndexOf('\n', truncatedLength)
+              body = body.slice(0, lastNewline > 0 ? lastNewline : truncatedLength) + artifactNote
+            }
 
             // Use the REST API with agent_assignment to properly trigger Copilot cloud agent.
             // See: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions#using-the-rest-api
@@ -173,7 +179,7 @@ jobs:
               agent_assignment: {
                 target_repo: 'github/docs-internal',
                 base_branch: 'main',
-                custom_instructions: 'For each entry in the table, open the source file in the github/docs-internal repository and replace the Current Link with the Update To path. When all changes are made, open a pull request in github/docs-internal with the fixes. The pull request description should reference this issue to create a link between them. When the pull request is open, leave a comment on this issue with a link to it.',
+                custom_instructions: 'For each entry in the table, open the source file in the github/docs-internal repository and replace the Current Link with the Update To path. When all changes are made, open a pull request in github/docs-internal with the fixes. When the pull request is open, leave a comment on this issue with a link to it.',
               },
             })
 

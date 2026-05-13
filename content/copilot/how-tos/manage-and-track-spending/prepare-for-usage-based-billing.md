@@ -14,30 +14,28 @@ category:
 
 <!-- expires 2026-06-01 -->
 
-On June 1, 2026, {% data variables.product.prodname_copilot_short %} is moving to usage-based billing with {% data variables.product.prodname_ai_credits %}. **Starting in early May**, use the tools below to understand how this change affects your organization and prepare before the transition takes effect.
+On June 1, 2026, {% data variables.product.prodname_copilot_short %} is moving to usage-based billing with {% data variables.product.prodname_ai_credits %}. Use the tool below to understand how this change affects your organization and prepare before the transition takes effect.
 
 <!-- end expires 2026-06-01 -->
 
-## Preview your bill (coming in early May)
-
-From the announcement banner on your enterprise home page, billing overview page, or premium request analytics page, click **Preview my bill** to see how your current usage translates to {% data variables.product.prodname_ai_credits %}.
-
-The modal shows a side-by-side comparison of your actual spend under the current billing model and your estimated spend under usage-based billing, based on your April 2026 billing period. A difference indicator shows whether your estimated spend is higher, lower, or roughly equal.
-
-Amounts shown are gross totals before discounts, promotional included usage, and contractual adjustments.
-
 ## Download the usage report
 
-From the billing preview modal, click **Download CSV** to request a detailed usage report. You can also request the report from the premium request analytics page or via the API. The report is generated asynchronously and delivered via email to the requesting admin.
+From the announcement banner on your enterprise home page, billing overview page, or premium request analytics page, click **Preview your usage** to see your options. From the dialog, click **{% octicon "download" aria-hidden="true" %}** to request a detailed usage report. You can also request the report from the premium request analytics page or via the API. The report is generated asynchronously and delivered via email to the requesting admin.
 
 The report includes one row per user, per model, per day. Alongside the existing columns for your current billing data, two additional columns show the estimated equivalent under usage-based billing:
 
 * `aic_quantity`: The number of {% data variables.product.prodname_ai_credits_short %} consumed
 * `aic_gross_amount`: The estimated cost in USD under usage-based billing
 
-## Explore the billing preview tool
+## See projected spend
 
-For a more detailed breakdown, you can upload your CSV to the billing preview tool (coming early May). The tool gives you an interactive view of your estimated costs broken down by model, user, and SKU.
+For a detailed breakdown, you can upload your CSV to the [billing preview tool](https://copilot-billing-preview.github.com/). The tool gives you a view of your estimated costs, including:
+
+* A side-by-side comparison of your current billing (PRUs) and projected AI Credits (AICs), including total costs with additional usage.
+* A detailed breakdown of licenses, consumed units, included discounts, and additional usage for each billing model.
+
+> [!NOTE]
+> The billing preview tool provides estimated projections for illustrative purposes only. Actual usage may differ. Charges are calculated from actual usage emissions processed by the billing platform, separate from the preview data pipeline.
 
 Your data stays in your browser; nothing is uploaded to a server.
 

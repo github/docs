@@ -67,6 +67,17 @@ export function correctTranslatedContentStrings(
   content = content.replace(/^([ \t]*)\* ?\n[ \t]+/gm, '$1* ')
   content = content.replace(/^\|[ \t]*\n[ \t]+/gm, '| ')
 
+  // The same translator wrapping habit also strands heading markers
+  // (`#`/`##`/...), blockquote markers (`>`), and the opening `**` of a
+  // bold span on their own line, with the actual content pushed to the
+  // next line as deeply indented text. This breaks heading/blockquote/
+  // bold rendering and leaves Liquid tags and `[AUTOTITLE]` links
+  // unexpanded. Rejoin them. Fence- and frontmatter-aware so we don't
+  // disturb fenced markdown examples or YAML frontmatter.
+  // ~3k headings, ~1.6k blockquotes, ~3.5k bold-after-marker cases
+  // measured across all eight translated languages.
+  content = joinDanglingMarkers(content)
+
   // --- Per-language fixes (es, ja, pt, zh, ru, fr, ko, de) ---
 
   if (context.code === 'es') {
@@ -809,6 +820,17 @@ export function correctTranslatedContentStrings(
     // `{% заголовки строк %}` — "row headers" = rowheaders (opener; `{% endrowheaders %}` stays in English)
     content = content.replaceAll('{% заголовки строк %}', '{% rowheaders %}')
     content = content.replaceAll('{%- заголовки строк %}', '{%- rowheaders %}')
+    // `{% windowsTerminal %}` — "Windows Terminal" platform tag with capital T
+    // (the correct tag name is lowercase `{% windowsterminal %}`)
+    content = content.replaceAll('{% windowsTerminal %}', '{% windowsterminal %}')
+    content = content.replaceAll('{%- windowsTerminal %}', '{%- windowsterminal %}')
+    // `{%- командная палитра ifversion %}` — "command palette ifversion" with word order swapped
+    // Russian "командная палитра" (command palette) was placed before "ifversion" and the
+    // feature-flag arg was dropped. Recover as `{%- ifversion command-palette %}`.
+    content = content.replace(
+      /\{%(-?)\s*командная\s+палитра\s+ifversion\s*(-?)%\}/g,
+      '{%$1 ifversion command-palette $2%}',
+    )
     // `{% конец %}` after `{% raw %}` means `{% endraw %}`, not `{% endif %}`.
     // Handle this BEFORE the generic `{% конец %}` → `{% endif %}` fallback.
     // We use a split-based approach instead of `[^]*?` regex to avoid
@@ -1016,6 +1038,17 @@ export function correctTranslatedContentStrings(
       '{% ifversion ghes %}Владелец предприятия может{%else %}{% data variables.product.company_short %} перенести образы Docker, ранее хранящиеся в реестре Docker на {% data variables.product.github %} на {% data variables.product.prodname_container_registry %}.',
       '{% ifversion ghes %}Владелец предприятия может{% else %}{% data variables.product.company_short %} может{% endif %} перенести образы Docker, ранее хранящиеся в реестре Docker на {% data variables.product.github %} на {% data variables.product.prodname_container_registry %}.',
     )
+
+    // [SCRAPE-6572] Per-file fix:
+    // repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md
+    // (intro): translator swapped `{% endif %}` and `{% ifversion fpt or ghec %}`,
+    // leaving an orphan `endif` at the start of the intro and the `ifversion`
+    // unclosed. This broke the `/ru/repositories` landing page scrape since
+    // this page is one of its children. Restore correct ordering.
+    content = content.replaceAll(
+      'Вы можете увидеть, кто внес{% endif %} коммиты в репозиторий{% ifversion fpt or ghec %} и его зависимости.',
+      'Вы можете увидеть, кто внес коммиты в репозиторий{% ifversion fpt or ghec %} и его зависимости{% endif %}.',
+    )
   }
 
   if (context.code === 'fr') {
@@ -1030,6 +1063,11 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-?\s*référentiel\s*-?%\}/g, '')
     content = content.replace(/\{%-?\s*paramètres\s*-?%\}/g, '')
     content = content.replace(/\{%-?\s*product\s*-?%\}/g, '')
+    // `{% données.variables.X %}` — translator used `.` instead of space after "données"
+    content = content.replace(
+      /\{%(-?)\s*données\.(variables|reusables)\.([A-Za-z0-9._-]+)(\s*-?%\})/g,
+      '{%$1 data $2.$3$4',
+    )
     content = content.replaceAll('{% données variables', '{% data variables')
     content = content.replaceAll('{% données réutilisables.', '{% data reusables.')
     content = content.replaceAll('{% variables de données.', '{% data variables.')
@@ -1174,6 +1212,17 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'ko') {
+    // `{% datda variables.` — typo of "data" (d-a-t-d-a instead of d-a-t-a)
+    content = content.replaceAll('{% datda variables', '{% data variables')
+    content = content.replaceAll('{%- datda variables', '{%- data variables')
+    // `{% data를 [Korean] variables.X %}` — Korean object-marker "를" (object case particle)
+    // was accidentally appended to "data", and Korean words follow before the path.
+    // e.g. `{% data를 탐색하고 수락하기 variables.copilot.next_edit_suggestions %}`
+    // Strip the Korean text and restore the correct `{% data variables.X %}` tag.
+    content = content.replace(
+      /\{%(-?)\s*data를\s+[가-힣\s]+variables\.([A-Za-z0-9._-]+)\s*(-?)%\}/g,
+      '{%$1 data variables.$2 $3%}',
+    )
     content = content.replaceAll('[AUTOTITLE"을 참조하세요]', '[AUTOTITLE]')
     content = content.replaceAll('{% 데이터 variables', '{% data variables')
     content = content.replaceAll('{% 데이터 reusables.', '{% data reusables.')
@@ -1293,6 +1342,18 @@ export function correctTranslatedContentStrings(
       '인스턴스에서 기본 제공 인증{% endif %}를 사용하는 경우 {% data variables.product.github %} 계정 {% ifversion ghes %}의 사용자 이름을 변경할 수 있습니다.',
       '{% data variables.product.github %} 계정의 사용자 이름을 변경할 수 있습니다.{% ifversion ghes %} 인스턴스에서 기본 제공 인증을 사용하는 경우.{% endif %}',
     )
+
+    // [SCRAPE-6572] Per-file fix:
+    // code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot.md
+    // (intro): translator dropped the closing `{% endif %}` and replaced it
+    // with a duplicate `{% data variables.product.prodname_dependabot %}`
+    // reference. This left `{% ifversion dependabot-on-actions-self-hosted %}`
+    // unclosed and broke the `/ko/code-security` landing page scrape since
+    // this page is one of its children. Restore the `{% endif %}`.
+    content = content.replaceAll(
+      '자체 호스팅된 실행기에서 실행 중인 {% data variables.product.prodname_dependabot %}에 대한 액세스를 구성할 수도 있습니다.{% data variables.product.prodname_dependabot %}',
+      '자체 호스팅된 실행기에서 실행 중인 {% data variables.product.prodname_dependabot %}에 대한 액세스를 구성할 수도 있습니다.{% endif %}',
+    )
   }
 
   if (context.code === 'de') {
@@ -1300,6 +1361,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% daten variables', '{% data variables')
     content = content.replaceAll('{% Daten reusables', '{% data reusables')
     content = content.replaceAll('{%- Daten reusables', '{%- data reusables')
+    // `{% Datenseite variables.` — "Datenseite" (data page) compound used instead of "data"
+    content = content.replaceAll('{% Datenseite variables', '{% data variables')
+    content = content.replaceAll('{%- Datenseite variables', '{%- data variables')
     // `wiederverwendbare` is German for "reusables" — fix translated reusables paths
     content = content.replaceAll('{% data wiederverwendbare.', '{% data reusables.')
     content = content.replaceAll('{% Daten wiederverwendbare.', '{% data reusables.')
@@ -1988,4 +2052,114 @@ export function correctTranslatedContentStrings(
   }
 
   return content
+}
+
+/**
+ * Rejoin marker lines that the translation pipeline split from their content.
+ *
+ * Translators sometimes leave a heading marker (`#`/`##`/...), blockquote
+ * marker (`>`), or the opening `**` of a bold span (immediately following a
+ * list/heading/blockquote/table marker) on its own line, with the rest of
+ * the content pushed to the next line as deeply indented text. This breaks
+ * rendering (empty headings, broken blockquotes, unrendered bold, unexpanded
+ * Liquid and `[AUTOTITLE]` links).
+ *
+ * Conservative thresholds:
+ * - Marker line has 0–3 leading spaces (CommonMark heading/blockquote rule).
+ * - Continuation line has 6+ leading spaces (avoids 4-space indented code).
+ * - Marker line contains *only* the marker (and optional trailing whitespace).
+ * - Skip fenced code blocks (``` and ~~~) and YAML frontmatter (`---`...`---`).
+ */
+function joinDanglingMarkers(content: string): string {
+  const lines = content.split('\n')
+  const out: string[] = []
+  let inFence = false
+  let fenceChar = ''
+  let fenceLen = 0
+  let inFrontmatter = lines[0] === '---'
+
+  // Marker-only line patterns (run only against non-fenced, non-frontmatter lines).
+  const headingOnly = /^([ \t]{0,3})(#{1,6})[ \t]*$/
+  const blockquoteOnly = /^([ \t]{0,3}>)[ \t]*$/
+  // Bold-open after a list/heading/blockquote/table marker (no other content).
+  const markerThenBoldOnly =
+    /^([ \t]{0,3}(?:[*+-]|\d+\.)[ \t]+|[ \t]{0,3}>[ \t]+|[ \t]{0,3}#{1,6}[ \t]+|\|[ \t]*)\*\*[ \t]*$/
+  // Continuation: 6+ leading spaces and at least one non-whitespace character.
+  const deepIndented = /^[ \t]{6,}(\S.*)$/
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+
+    // YAML frontmatter close: `---` or `...` after the opening `---`.
+    if (inFrontmatter && i > 0 && (line === '---' || line === '...')) {
+      inFrontmatter = false
+      out.push(line)
+      continue
+    }
+
+    // While inside frontmatter, pass lines through verbatim. Crucially,
+    // do NOT run fence detection here — a frontmatter line starting with
+    // ``` or ~~~ (e.g. inside a multiline scalar) would otherwise toggle
+    // `inFence` and cause the rest of the document after frontmatter
+    // closes to be (mis-)treated as inside a fence.
+    if (inFrontmatter) {
+      out.push(line)
+      continue
+    }
+
+    // CommonMark fenced code block: 0–3 leading spaces, then 3+ ` or ~.
+    const fenceMatch = line.match(/^[ \t]{0,3}(`{3,}|~{3,})/)
+    if (fenceMatch) {
+      const marker = fenceMatch[1]
+      if (!inFence) {
+        inFence = true
+        fenceChar = marker[0]
+        fenceLen = marker.length
+      } else if (marker[0] === fenceChar && marker.length >= fenceLen) {
+        inFence = false
+        fenceChar = ''
+        fenceLen = 0
+      }
+      out.push(line)
+      continue
+    }
+
+    if (inFence) {
+      out.push(line)
+      continue
+    }
+
+    const next = i + 1 < lines.length ? lines[i + 1] : undefined
+    const nextDeep = next !== undefined ? next.match(deepIndented) : null
+    if (!nextDeep) {
+      out.push(line)
+      continue
+    }
+    const nextContent = nextDeep[1]
+
+    const heading = line.match(headingOnly)
+    if (heading) {
+      out.push(`${heading[1]}${heading[2]} ${nextContent}`)
+      i++
+      continue
+    }
+
+    const bq = line.match(blockquoteOnly)
+    if (bq) {
+      out.push(`${bq[1]} ${nextContent}`)
+      i++
+      continue
+    }
+
+    const boldOpen = line.match(markerThenBoldOnly)
+    if (boldOpen) {
+      out.push(`${boldOpen[1]}**${nextContent}`)
+      i++
+      continue
+    }
+
+    out.push(line)
+  }
+
+  return out.join('\n')
 }

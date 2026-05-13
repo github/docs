@@ -1,5 +1,5 @@
-# gh-aw-metadata: {"schema_version":"v3","frontmatter_hash":"bf570d28675692d1a0aefd54ddfb176192bd6ce29b2802af8c6bb4f231b6f3a5","compiler_version":"v0.71.5","strict":true,"agent_id":"copilot"}
-# gh-aw-manifest: {"version":1,"secrets":["COPILOT_GITHUB_TOKEN","DOCS_ALERTS_SLACK_CHANNEL_ID","DOCS_BOT_PAT_BASE","GH_AW_CI_TRIGGER_TOKEN","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN","SLACK_DOCS_BOT_TOKEN"],"actions":[{"repo":"actions/checkout","sha":"de0fac2e4500dabe0009e67214ff5f5447ce83dd","version":"v6.0.2"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"3a2844b7e9c422d3c10d287c895573f7108da1b3","version":"v9"},{"repo":"actions/github-script","sha":"ed597411d8f924073f98dfc5c65a23a2325f34cd","version":"v8"},{"repo":"actions/setup-node","sha":"48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e","version":"v6.4.0"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"b8068426813005612b960b5ab0b8bd2c27142323","version":"v0.71.5"}],"containers":[{"image":"ghcr.io/github/gh-aw-firewall/agent:0.25.40","digest":"sha256:14ff567e8d9d4c2fbc5e55c973488381c71d7e0fdbe72d30ee7b8a738fd86504","pinned_image":"ghcr.io/github/gh-aw-firewall/agent:0.25.40@sha256:14ff567e8d9d4c2fbc5e55c973488381c71d7e0fdbe72d30ee7b8a738fd86504"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.40","digest":"sha256:2883ca3e5ae9f330cafdd9345bfd4ae17fc8da36c96d4c9a1f76e922b4c45280","pinned_image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.40@sha256:2883ca3e5ae9f330cafdd9345bfd4ae17fc8da36c96d4c9a1f76e922b4c45280"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.25.40","digest":"sha256:b084f4a2c771f584ee68084ced52fa6b3245197a1889645d817462d307d3ac51","pinned_image":"ghcr.io/github/gh-aw-firewall/squid:0.25.40@sha256:b084f4a2c771f584ee68084ced52fa6b3245197a1889645d817462d307d3ac51"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.3.6","digest":"sha256:2bb8eef86006a4c5963c55616a9c51c32f27bfdecb023b8aa6f91f6718d9171c","pinned_image":"ghcr.io/github/gh-aw-mcpg:v0.3.6@sha256:2bb8eef86006a4c5963c55616a9c51c32f27bfdecb023b8aa6f91f6718d9171c"},{"image":"ghcr.io/github/github-mcp-server:v1.0.3","digest":"sha256:2ac27ef03461ef2b877031b838a7d1fd7f12b12d4ace7796d8cad91446d55959","pinned_image":"ghcr.io/github/github-mcp-server:v1.0.3@sha256:2ac27ef03461ef2b877031b838a7d1fd7f12b12d4ace7796d8cad91446d55959"},{"image":"node:lts-alpine","digest":"sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f","pinned_image":"node:lts-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f"}]}
+# gh-aw-metadata: {"schema_version":"v3","frontmatter_hash":"4b8294be3ba0a67322051c568ba62304109dc193e28bdedc78c76e69c916b211","compiler_version":"v0.71.5","strict":true,"agent_id":"copilot"}
+# gh-aw-manifest: {"version":1,"secrets":["COPILOT_GITHUB_TOKEN","DOCS_ALERTS_SLACK_CHANNEL_ID","DOCS_BOT_PAT_BASE","GH_AW_CI_TRIGGER_TOKEN","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN","SLACK_DOCS_BOT_TOKEN"],"actions":[{"repo":"actions/checkout","sha":"de0fac2e4500dabe0009e67214ff5f5447ce83dd","version":"v6.0.2"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"3a2844b7e9c422d3c10d287c895573f7108da1b3","version":"v9"},{"repo":"actions/setup-node","sha":"48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e","version":"v6.4.0"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"b8068426813005612b960b5ab0b8bd2c27142323","version":"v0.71.5"}],"containers":[{"image":"ghcr.io/github/gh-aw-firewall/agent:0.25.40","digest":"sha256:14ff567e8d9d4c2fbc5e55c973488381c71d7e0fdbe72d30ee7b8a738fd86504","pinned_image":"ghcr.io/github/gh-aw-firewall/agent:0.25.40@sha256:14ff567e8d9d4c2fbc5e55c973488381c71d7e0fdbe72d30ee7b8a738fd86504"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.40","digest":"sha256:2883ca3e5ae9f330cafdd9345bfd4ae17fc8da36c96d4c9a1f76e922b4c45280","pinned_image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.40@sha256:2883ca3e5ae9f330cafdd9345bfd4ae17fc8da36c96d4c9a1f76e922b4c45280"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.25.40","digest":"sha256:b084f4a2c771f584ee68084ced52fa6b3245197a1889645d817462d307d3ac51","pinned_image":"ghcr.io/github/gh-aw-firewall/squid:0.25.40@sha256:b084f4a2c771f584ee68084ced52fa6b3245197a1889645d817462d307d3ac51"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.3.6","digest":"sha256:2bb8eef86006a4c5963c55616a9c51c32f27bfdecb023b8aa6f91f6718d9171c","pinned_image":"ghcr.io/github/gh-aw-mcpg:v0.3.6@sha256:2bb8eef86006a4c5963c55616a9c51c32f27bfdecb023b8aa6f91f6718d9171c"},{"image":"ghcr.io/github/github-mcp-server:v1.0.3","digest":"sha256:2ac27ef03461ef2b877031b838a7d1fd7f12b12d4ace7796d8cad91446d55959","pinned_image":"ghcr.io/github/github-mcp-server:v1.0.3@sha256:2ac27ef03461ef2b877031b838a7d1fd7f12b12d4ace7796d8cad91446d55959"},{"image":"node:lts-alpine","digest":"sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f","pinned_image":"node:lts-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f"}]}
 #    ___                   _   _
 #   / _ \                 | | (_)
 #  | |_| | __ _  ___ _ __ | |_ _  ___
@@ -38,7 +38,6 @@
 #   - actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
 #   - actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
 #   - actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-#   - actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
 #   - actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
 #   - actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
 #   - github/gh-aw-actions/setup@b8068426813005612b960b5ab0b8bd2c27142323 # v0.71.5
@@ -59,100 +58,63 @@ name: 'Changelog Entry Drafter'
   # pull-requests: read
   # steps: # Steps injected into pre-activation job
   # - env:
-  # DOCS_BOT_PAT: ${{ secrets.DOCS_BOT_PAT_BASE }}
+  # DRY_RUN_INPUT: ${{ github.event.inputs.dry_run }}
+  # EVENT_NAME: ${{ github.event_name }}
+  # GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+  # PR_JSON_PAYLOAD: ${{ toJson(github.event.pull_request) }}
+  # PR_NUMBER_INPUT: ${{ github.event.inputs.pr_number }}
   # id: gather_context
-  # uses: actions/github-script@v8
-  # with:
-  # script: |
-  # // Default octokit uses github.token for in-repo (docs-internal) calls
-  # const octokit = github;
-  # // Cross-repo octokit uses DOCS_BOT_PAT for docs-content and GraphQL calls
-  # const crossRepoOctokit = github.getOctokit(process.env.DOCS_BOT_PAT);
+  # run: |
+  # set -e
   #
-  # // 1. Resolve the PR
-  # let pr;
-  # if (context.eventName === 'workflow_dispatch') {
-  # const prNumber = parseInt(process.env.INPUT_PR_NUMBER || '${{ github.event.inputs.pr_number }}', 10);
-  # const { data } = await octokit.rest.pulls.get({
-  # owner: context.repo.owner,
-  # repo: context.repo.repo,
-  # pull_number: prNumber,
-  # });
-  # pr = data;
-  # if (!pr.merged) {
-  # core.setOutput('should_run', 'false');
-  # core.info(`PR #${prNumber} has not been merged. Skipping.`);
-  # return;
-  # }
-  # } else {
-  # pr = context.payload.pull_request;
-  # if (!pr.merged || pr.base.ref !== 'main') {
-  # core.setOutput('should_run', 'false');
-  # return;
-  # }
-  # }
+  # skip() { echo "should_run=false" >> "$GITHUB_OUTPUT"; echo "ℹ️  $1"; exit 0; }
   #
-  # // 2. Check if PR author is in the team (via github-to-slack.json)
-  # let mapping = {};
-  # try {
-  # const { data } = await crossRepoOctokit.rest.repos.getContent({
-  # owner: 'github',
-  # repo: 'docs-content',
-  # path: '.github/github-to-slack.json',
-  # });
-  # const content = Buffer.from(data.content, 'base64').toString('utf-8');
-  # mapping = JSON.parse(content);
-  # } catch (err) {
-  # core.setFailed(`Could not fetch github-to-slack.json: ${err.message}`);
-  # return;
-  # }
+  # # ── 1. Resolve the PR ──────────────────────────────────────────────
+  # if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+  # PR_NUM="$PR_NUMBER_INPUT"
+  # PR_JSON=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM")
+  # MERGED=$(echo "$PR_JSON" | jq -r '.merged')
+  # if [[ "$MERGED" != "true" ]]; then
+  # skip "PR #$PR_NUM has not been merged. Skipping."
+  # fi
+  # else
+  # PR_JSON="$PR_JSON_PAYLOAD"
+  # MERGED=$(echo "$PR_JSON" | jq -r '.merged')
+  # BASE_REF=$(echo "$PR_JSON" | jq -r '.base.ref')
+  # if [[ "$MERGED" != "true" || "$BASE_REF" != "main" ]]; then
+  # skip "PR not merged to main. Skipping."
+  # fi
+  # PR_NUM=$(echo "$PR_JSON" | jq -r '.number')
+  # fi
   #
-  # const teamMembers = Object.keys(mapping).filter(k => !k.startsWith('_'));
-  # if (!teamMembers.includes(pr.user.login)) {
-  # core.setOutput('should_run', 'false');
-  # core.info(`PR author @${pr.user.login} is not in the team mapping. Skipping.`);
-  # return;
-  # }
+  # PR_AUTHOR=$(echo "$PR_JSON" | jq -r '.user.login')
+  # PR_TITLE=$(echo "$PR_JSON" | jq -r '.title')
+  # PR_BODY=$(echo "$PR_JSON" | jq -r '.body // ""')
+  # PR_URL=$(echo "$PR_JSON" | jq -r '.html_url')
   #
-  # // 3. Extract linked docs-content issue from PR body
-  # const body = pr.body || '';
-  # const patterns = [
-  # /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+github\/docs-content#(\d+)/gi,
-  # /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+https:\/\/github\.com\/github\/docs-content\/issues\/(\d+)/gi,
-  # ];
+  # # ── 2. Check if PR author is in the team ──────────────────────────
+  # CONTENT=$(gh api repos/github/docs-content/contents/.github/github-to-slack.json \
+  # --jq '.content') || { echo "::error::Could not fetch github-to-slack.json"; exit 1; }
+  # MAPPING=$(echo "$CONTENT" | base64 -d)
   #
-  # let issueNumber = null;
-  # for (const pattern of patterns) {
-  # const match = pattern.exec(body);
-  # if (match) {
-  # issueNumber = parseInt(match[1], 10);
-  # break;
-  # }
-  # }
+  # if ! echo "$MAPPING" | jq -e --arg user "$PR_AUTHOR" 'has($user)' > /dev/null 2>&1; then
+  # skip "PR author @$PR_AUTHOR is not in the team mapping. Skipping."
+  # fi
   #
-  # if (!issueNumber) {
-  # core.setOutput('should_run', 'false');
-  # core.info('No linked docs-content issue found. Skipping.');
-  # return;
-  # }
+  # # ── 3. Extract linked docs-content issue from PR body ─────────────
+  # ISSUE_NUM=$(echo "$PR_BODY" | grep -oiE '(close[sd]?|fix(e[sd])?|resolve[sd]?):?\s+github/docs-content#[0-9]+' | grep -oE '[0-9]+$' | head -1)
+  # if [[ -z "$ISSUE_NUM" ]]; then
+  # ISSUE_NUM=$(echo "$PR_BODY" | grep -oiE '(close[sd]?|fix(e[sd])?|resolve[sd]?):?\s+https://github\.com/github/docs-content/issues/[0-9]+' | grep -oE '[0-9]+$' | head -1)
+  # fi
+  # if [[ -z "$ISSUE_NUM" ]]; then
+  # skip "No linked docs-content issue found. Skipping."
+  # fi
   #
-  # // 4. Fetch the docs-content issue and check for parent
-  # let issue;
-  # try {
-  # const { data } = await crossRepoOctokit.rest.issues.get({
-  # owner: 'github',
-  # repo: 'docs-content',
-  # issue_number: issueNumber,
-  # });
-  # issue = data;
-  # } catch (err) {
-  # core.setOutput('should_run', 'false');
-  # core.info(`Could not fetch docs-content issue #${issueNumber}. Skipping.`);
-  # return;
-  # }
+  # # ── 4. Fetch the docs-content issue and check for parent ──────────
+  # ISSUE_JSON=$(gh api "repos/github/docs-content/issues/$ISSUE_NUM") || skip "Could not fetch docs-content issue #$ISSUE_NUM. Skipping."
+  # NODE_ID=$(echo "$ISSUE_JSON" | jq -r '.node_id')
   #
-  # // Query for parent issue via GraphQL
-  # const query = `
+  # PARENT_JSON=$(gh api graphql -f query='
   # query($nodeId: ID!) {
   # node(id: $nodeId) {
   # ... on Issue {
@@ -171,125 +133,96 @@ name: 'Changelog Entry Drafter'
   # }
   # }
   # }
-  # }
-  # `;
+  # }' -f nodeId="$NODE_ID" --jq '.data.node.parent') || skip "GraphQL parent query failed. Skipping."
   #
-  # let parentResult;
-  # try {
-  # parentResult = await crossRepoOctokit.graphql(query, { nodeId: issue.node_id });
-  # } catch (err) {
-  # core.setOutput('should_run', 'false');
-  # core.info(`GraphQL parent query failed. Skipping.`);
-  # return;
-  # }
+  # if [[ "$PARENT_JSON" == "null" || -z "$PARENT_JSON" ]]; then
+  # skip "docs-content issue has no parent issue. Skipping."
+  # fi
   #
-  # const parent = parentResult.node?.parent;
-  # if (!parent) {
-  # core.setOutput('should_run', 'false');
-  # core.info('docs-content issue has no parent issue. Skipping.');
-  # return;
-  # }
+  # # ── 5. Check for existing open changelog PRs ──────────────────────
+  # EXISTING=$(gh api "search/issues?q=is:pr+is:open+label:changelog-agent+repo:github/docs-content" \
+  # --jq '.total_count')
+  # if [[ "$EXISTING" -gt 0 ]]; then
+  # skip "Open changelog PR already exists. Skipping."
+  # fi
   #
-  # // 5. Check for existing open changelog PRs (label is set by safe-outputs config, not agent-controlled)
-  # const { data: openPRs } = await crossRepoOctokit.rest.pulls.list({
-  # owner: 'github',
-  # repo: 'docs-content',
-  # state: 'open',
-  # per_page: 5,
-  # });
-  # const changelogPRs = openPRs.filter(p => p.labels.some(l => l.name === 'changelog-agent'));
+  # # ── 6. Gather reviewers and changed files ─────────────────────────
+  # APPROVED_REVIEWERS=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM/reviews" \
+  # --jq "[.[] | select(.state == \"APPROVED\" and .user.type != \"Bot\" and .user.login != \"$PR_AUTHOR\") | .user.login] | unique | join(\",\")")
   #
-  # if (changelogPRs.length > 0) {
-  # core.setOutput('should_run', 'false');
-  # core.info(`Open changelog PR already exists: ${changelogPRs[0].html_url}`);
-  # return;
-  # }
+  # CHANGED_FILES=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM/files?per_page=100" \
+  # --jq '[.[].filename] | join(",")')
   #
-  # // 6. Gather reviewers and changed files
-  # const { data: reviews } = await octokit.rest.pulls.listReviews({
-  # owner: context.repo.owner,
-  # repo: context.repo.repo,
-  # pull_number: pr.number,
-  # });
+  # # ── 7. Read existing changelog examples (first 3 entries) ─────────
+  # CHANGELOG_EXAMPLES=""
+  # CHANGELOG_RAW=$(gh api repos/github/docs-content/contents/docs-content-docs/docs-content-workflows/changelog-internal.md \
+  # --jq '.content' | base64 -d 2>/dev/null) || true
+  # if [[ -n "$CHANGELOG_RAW" ]]; then
+  # CHANGELOG_EXAMPLES=$(echo "$CHANGELOG_RAW" | awk '
+  # /^\*\*[0-9]/ { count++; if (count > 3) exit; capturing=1 }
+  # capturing { print }
+  # ')
+  # fi
   #
-  # const approvedReviewers = [...new Set(
-  # reviews
-  # .filter(r => r.state === 'APPROVED' && r.user.type !== 'Bot' && r.user.login !== pr.user.login)
-  # .map(r => r.user.login)
-  # )];
+  # # ── 8. Build context JSON for the agent ───────────────────────────
+  # DRY_RUN="false"
+  # if [[ "$EVENT_NAME" == "workflow_dispatch" && "$DRY_RUN_INPUT" == "true" ]]; then
+  # DRY_RUN="true"
+  # fi
   #
-  # const { data: files } = await octokit.rest.pulls.listFiles({
-  # owner: context.repo.owner,
-  # repo: context.repo.repo,
-  # pull_number: pr.number,
-  # per_page: 100,
-  # });
-  #
-  # const changedFiles = files.map(f => f.filename);
-  #
-  # // 7. Read existing changelog examples
-  # let changelogExamples = '';
-  # try {
-  # const { data: changelogData } = await crossRepoOctokit.rest.repos.getContent({
-  # owner: 'github',
-  # repo: 'docs-content',
-  # path: 'docs-content-docs/docs-content-workflows/changelog-internal.md',
-  # });
-  # const changelog = Buffer.from(changelogData.content, 'base64').toString('utf-8');
-  # const lines = changelog.split('\n');
-  # let count = 0;
-  # let examples = [];
-  # let capturing = false;
-  # for (const line of lines) {
-  # if (/^\*\*\d/.test(line)) {
-  # count++;
-  # if (count > 3) break;
-  # capturing = true;
-  # }
-  # if (capturing) examples.push(line);
-  # }
-  # changelogExamples = examples.join('\n');
-  # } catch (err) {
-  # core.warning(`Could not read changelog examples: ${err.message}`);
-  # }
-  #
-  # // 8. Build context JSON for the agent
-  # const context_data = {
+  # mkdir -p /tmp/gh-aw/agent
+  # jq -n \
+  # --arg pr_number "$PR_NUM" \
+  # --arg pr_title "$PR_TITLE" \
+  # --arg pr_body "$PR_BODY" \
+  # --arg pr_author "$PR_AUTHOR" \
+  # --arg pr_url "$PR_URL" \
+  # --arg changed_files "$CHANGED_FILES" \
+  # --arg approved_reviewers "$APPROVED_REVIEWERS" \
+  # --arg issue_num "$ISSUE_NUM" \
+  # --arg issue_title "$(echo "$ISSUE_JSON" | jq -r '.title')" \
+  # --arg issue_body "$(echo "$ISSUE_JSON" | jq -r '.body // ""')" \
+  # --arg parent_number "$(echo "$PARENT_JSON" | jq -r '.number')" \
+  # --arg parent_title "$(echo "$PARENT_JSON" | jq -r '.title')" \
+  # --arg parent_body "$(echo "$PARENT_JSON" | jq -r '.body // ""')" \
+  # --arg parent_url "$(echo "$PARENT_JSON" | jq -r '.url')" \
+  # --arg parent_author "$(echo "$PARENT_JSON" | jq -r '.author.login // ""')" \
+  # --arg parent_assignees "$(echo "$PARENT_JSON" | jq -r '[.assignees.nodes[].login] | join(",")')" \
+  # --arg parent_repo "$(echo "$PARENT_JSON" | jq -r '.repository.nameWithOwner')" \
+  # --arg changelog_examples "$CHANGELOG_EXAMPLES" \
+  # --arg dry_run "$DRY_RUN" \
+  # '{
   # pr: {
-  # number: pr.number,
-  # title: pr.title,
-  # body: pr.body || '',
-  # author: pr.user.login,
-  # url: pr.html_url,
-  # changed_files: changedFiles,
-  # approved_reviewers: approvedReviewers,
+  # number: ($pr_number | tonumber),
+  # title: $pr_title,
+  # body: $pr_body,
+  # author: $pr_author,
+  # url: $pr_url,
+  # changed_files: ($changed_files | split(",")),
+  # approved_reviewers: (if $approved_reviewers == "" then [] else ($approved_reviewers | split(",")) end)
   # },
   # docs_content_issue: {
-  # number: issueNumber,
-  # title: issue.title,
-  # body: issue.body || '',
+  # number: ($issue_num | tonumber),
+  # title: $issue_title,
+  # body: $issue_body
   # },
   # parent_issue: {
-  # number: parent.number,
-  # title: parent.title,
-  # body: parent.body || '',
-  # url: parent.url,
-  # author: parent.author?.login || '',
-  # assignees: (parent.assignees?.nodes || []).map(a => a.login),
-  # repo: parent.repository.nameWithOwner,
+  # number: ($parent_number | tonumber),
+  # title: $parent_title,
+  # body: $parent_body,
+  # url: $parent_url,
+  # author: $parent_author,
+  # assignees: (if $parent_assignees == "" then [] else ($parent_assignees | split(",")) end),
+  # repo: $parent_repo
   # },
-  # changelog_examples: changelogExamples,
-  # dry_run: context.eventName === 'workflow_dispatch' && '${{ github.event.inputs.dry_run }}' === 'true',
-  # };
+  # changelog_examples: $changelog_examples,
+  # dry_run: ($dry_run == "true")
+  # }' > /tmp/gh-aw/agent/context.json
   #
-  # // Write context to the agent data directory
-  # const fs = require('fs');
-  # fs.mkdirSync('/tmp/gh-aw/agent', { recursive: true });
-  # fs.writeFileSync('/tmp/gh-aw/agent/context.json', JSON.stringify(context_data, null, 2));
-  #
-  # core.setOutput('should_run', 'true');
-  # core.setOutput('pr_number', pr.number.toString());
-  # core.setOutput('dry_run', context_data.dry_run ? 'true' : 'false');
+  # # ── Outputs ───────────────────────────────────────────────────────
+  # echo "should_run=true" >> "$GITHUB_OUTPUT"
+  # echo "pr_number=$PR_NUM" >> "$GITHUB_OUTPUT"
+  # echo "dry_run=$DRY_RUN" >> "$GITHUB_OUTPUT"
   workflow_dispatch:
     inputs:
       aw_context:
@@ -437,23 +370,23 @@ jobs:
         run: |
           bash "${RUNNER_TEMP}/gh-aw/actions/create_prompt_first.sh"
           {
-          cat << 'GH_AW_PROMPT_8972824f8e369065_EOF'
+          cat << 'GH_AW_PROMPT_06f178e4fc2a8ddc_EOF'
           <system>
-          GH_AW_PROMPT_8972824f8e369065_EOF
+          GH_AW_PROMPT_06f178e4fc2a8ddc_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/xpia.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/temp_folder_prompt.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/markdown.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_prompt.md"
-          cat << 'GH_AW_PROMPT_8972824f8e369065_EOF'
+          cat << 'GH_AW_PROMPT_06f178e4fc2a8ddc_EOF'
           <safe-output-tools>
           Tools: add_comment(max:2), create_pull_request, missing_tool, missing_data, noop, failure_alert, slack_notify
-          GH_AW_PROMPT_8972824f8e369065_EOF
+          GH_AW_PROMPT_06f178e4fc2a8ddc_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_create_pull_request.md"
-          cat << 'GH_AW_PROMPT_8972824f8e369065_EOF'
+          cat << 'GH_AW_PROMPT_06f178e4fc2a8ddc_EOF'
           </safe-output-tools>
-          GH_AW_PROMPT_8972824f8e369065_EOF
+          GH_AW_PROMPT_06f178e4fc2a8ddc_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/mcp_cli_tools_prompt.md"
-          cat << 'GH_AW_PROMPT_8972824f8e369065_EOF'
+          cat << 'GH_AW_PROMPT_06f178e4fc2a8ddc_EOF'
           <github-context>
           The following GitHub context information is available for this workflow:
           {{#if __GH_AW_GITHUB_ACTOR__ }}
@@ -482,12 +415,12 @@ jobs:
           {{/if}}
           </github-context>
 
-          GH_AW_PROMPT_8972824f8e369065_EOF
+          GH_AW_PROMPT_06f178e4fc2a8ddc_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/github_mcp_tools_with_safeoutputs_prompt.md"
-          cat << 'GH_AW_PROMPT_8972824f8e369065_EOF'
+          cat << 'GH_AW_PROMPT_06f178e4fc2a8ddc_EOF'
           </system>
           {{#runtime-import .github/workflows/changelog-agent.md}}
-          GH_AW_PROMPT_8972824f8e369065_EOF
+          GH_AW_PROMPT_06f178e4fc2a8ddc_EOF
           } > "$GH_AW_PROMPT"
       - name: Interpolate variables and render templates
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
@@ -678,9 +611,9 @@ jobs:
           mkdir -p "${RUNNER_TEMP}/gh-aw/safeoutputs"
           mkdir -p /tmp/gh-aw/safeoutputs
           mkdir -p /tmp/gh-aw/mcp-logs/safeoutputs
-          cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << 'GH_AW_SAFE_OUTPUTS_CONFIG_5e6c9023bc91173c_EOF'
+          cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << 'GH_AW_SAFE_OUTPUTS_CONFIG_aa78b79de095121e_EOF'
           {"add_comment":{"max":2,"target-repo":"github/docs-internal"},"create_pull_request":{"draft":true,"labels":["ready-for-doc-review","skip FR board","llm-generated"],"max":1,"max_patch_files":100,"max_patch_size":1024,"preserve_branch_name":true,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"protected_files_policy":"fallback-to-issue","target-repo":"github/docs-content","title_prefix":"Changelog draft for docs-internal PR #"},"create_report_incomplete_issue":{},"failure-alert":{"description":"Send Slack alert on workflow failure","inputs":{"error_message":{"default":null,"description":"Error details","required":false,"type":"string"}},"output":"Failure alert sent"},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{},"slack-notify":{"description":"Send a Slack DM to the PR author with the changelog PR link","inputs":{"changelog_pr_url":{"default":null,"description":"URL of the created changelog PR","required":true,"type":"string"},"github_username":{"default":null,"description":"GitHub username of the PR author","required":true,"type":"string"},"parent_title":{"default":null,"description":"Title of the parent initiative issue","required":true,"type":"string"},"reviewers":{"default":null,"description":"Comma-separated list of reviewer usernames","required":false,"type":"string"},"source_pr_url":{"default":null,"description":"URL of the source docs-internal PR","required":true,"type":"string"},"stakeholders":{"default":null,"description":"Comma-separated list of stakeholder usernames","required":false,"type":"string"}},"output":"Slack notification sent"}}
-          GH_AW_SAFE_OUTPUTS_CONFIG_5e6c9023bc91173c_EOF
+          GH_AW_SAFE_OUTPUTS_CONFIG_aa78b79de095121e_EOF
       - name: Generate Safe Outputs Tools
         env:
           GH_AW_TOOLS_META_JSON: |
@@ -966,7 +899,7 @@ jobs:
 
           mkdir -p /home/runner/.copilot
           GH_AW_NODE=$(which node 2>/dev/null || command -v node 2>/dev/null || echo node)
-          cat << GH_AW_MCP_CONFIG_1a928478abac6575_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
+          cat << GH_AW_MCP_CONFIG_9ea61b9146e732e1_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
           {
             "mcpServers": {
               "github": {
@@ -1007,7 +940,7 @@ jobs:
               "payloadDir": "${MCP_GATEWAY_PAYLOAD_DIR}"
             }
           }
-          GH_AW_MCP_CONFIG_1a928478abac6575_EOF
+          GH_AW_MCP_CONFIG_9ea61b9146e732e1_EOF
       - name: Mount MCP servers as CLIs
         id: mount-mcp-clis
         continue-on-error: true
@@ -1663,237 +1596,171 @@ jobs:
             const { main } = require('${{ runner.temp }}/gh-aw/actions/check_membership.cjs');
             await main();
       - id: gather_context
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
-        env:
-          DOCS_BOT_PAT: ${{ secrets.DOCS_BOT_PAT_BASE }}
-        with:
-          script: |
-            // Default octokit uses github.token for in-repo (docs-internal) calls
-            const octokit = github;
-            // Cross-repo octokit uses DOCS_BOT_PAT for docs-content and GraphQL calls
-            const crossRepoOctokit = github.getOctokit(process.env.DOCS_BOT_PAT);
+        run: |
+          set -e
 
-            // 1. Resolve the PR
-            let pr;
-            if (context.eventName === 'workflow_dispatch') {
-              const prNumber = parseInt(process.env.INPUT_PR_NUMBER || '${{ github.event.inputs.pr_number }}', 10);
-              const { data } = await octokit.rest.pulls.get({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number: prNumber,
-              });
-              pr = data;
-              if (!pr.merged) {
-                core.setOutput('should_run', 'false');
-                core.info(`PR #${prNumber} has not been merged. Skipping.`);
-                return;
-              }
-            } else {
-              pr = context.payload.pull_request;
-              if (!pr.merged || pr.base.ref !== 'main') {
-                core.setOutput('should_run', 'false');
-                return;
-              }
-            }
+          skip() { echo "should_run=false" >> "$GITHUB_OUTPUT"; echo "ℹ️  $1"; exit 0; }
 
-            // 2. Check if PR author is in the team (via github-to-slack.json)
-            let mapping = {};
-            try {
-              const { data } = await crossRepoOctokit.rest.repos.getContent({
-                owner: 'github',
-                repo: 'docs-content',
-                path: '.github/github-to-slack.json',
-              });
-              const content = Buffer.from(data.content, 'base64').toString('utf-8');
-              mapping = JSON.parse(content);
-            } catch (err) {
-              core.setFailed(`Could not fetch github-to-slack.json: ${err.message}`);
-              return;
-            }
+          # ── 1. Resolve the PR ──────────────────────────────────────────────
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            PR_NUM="$PR_NUMBER_INPUT"
+            PR_JSON=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM")
+            MERGED=$(echo "$PR_JSON" | jq -r '.merged')
+            if [[ "$MERGED" != "true" ]]; then
+              skip "PR #$PR_NUM has not been merged. Skipping."
+            fi
+          else
+            PR_JSON="$PR_JSON_PAYLOAD"
+            MERGED=$(echo "$PR_JSON" | jq -r '.merged')
+            BASE_REF=$(echo "$PR_JSON" | jq -r '.base.ref')
+            if [[ "$MERGED" != "true" || "$BASE_REF" != "main" ]]; then
+              skip "PR not merged to main. Skipping."
+            fi
+            PR_NUM=$(echo "$PR_JSON" | jq -r '.number')
+          fi
 
-            const teamMembers = Object.keys(mapping).filter(k => !k.startsWith('_'));
-            if (!teamMembers.includes(pr.user.login)) {
-              core.setOutput('should_run', 'false');
-              core.info(`PR author @${pr.user.login} is not in the team mapping. Skipping.`);
-              return;
-            }
+          PR_AUTHOR=$(echo "$PR_JSON" | jq -r '.user.login')
+          PR_TITLE=$(echo "$PR_JSON" | jq -r '.title')
+          PR_BODY=$(echo "$PR_JSON" | jq -r '.body // ""')
+          PR_URL=$(echo "$PR_JSON" | jq -r '.html_url')
 
-            // 3. Extract linked docs-content issue from PR body
-            const body = pr.body || '';
-            const patterns = [
-              /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+github\/docs-content#(\d+)/gi,
-              /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+https:\/\/github\.com\/github\/docs-content\/issues\/(\d+)/gi,
-            ];
+          # ── 2. Check if PR author is in the team ──────────────────────────
+          CONTENT=$(gh api repos/github/docs-content/contents/.github/github-to-slack.json \
+            --jq '.content') || { echo "::error::Could not fetch github-to-slack.json"; exit 1; }
+          MAPPING=$(echo "$CONTENT" | base64 -d)
 
-            let issueNumber = null;
-            for (const pattern of patterns) {
-              const match = pattern.exec(body);
-              if (match) {
-                issueNumber = parseInt(match[1], 10);
-                break;
-              }
-            }
+          if ! echo "$MAPPING" | jq -e --arg user "$PR_AUTHOR" 'has($user)' > /dev/null 2>&1; then
+            skip "PR author @$PR_AUTHOR is not in the team mapping. Skipping."
+          fi
 
-            if (!issueNumber) {
-              core.setOutput('should_run', 'false');
-              core.info('No linked docs-content issue found. Skipping.');
-              return;
-            }
+          # ── 3. Extract linked docs-content issue from PR body ─────────────
+          ISSUE_NUM=$(echo "$PR_BODY" | grep -oiE '(close[sd]?|fix(e[sd])?|resolve[sd]?):?\s+github/docs-content#[0-9]+' | grep -oE '[0-9]+$' | head -1)
+          if [[ -z "$ISSUE_NUM" ]]; then
+            ISSUE_NUM=$(echo "$PR_BODY" | grep -oiE '(close[sd]?|fix(e[sd])?|resolve[sd]?):?\s+https://github\.com/github/docs-content/issues/[0-9]+' | grep -oE '[0-9]+$' | head -1)
+          fi
+          if [[ -z "$ISSUE_NUM" ]]; then
+            skip "No linked docs-content issue found. Skipping."
+          fi
 
-            // 4. Fetch the docs-content issue and check for parent
-            let issue;
-            try {
-              const { data } = await crossRepoOctokit.rest.issues.get({
-                owner: 'github',
-                repo: 'docs-content',
-                issue_number: issueNumber,
-              });
-              issue = data;
-            } catch (err) {
-              core.setOutput('should_run', 'false');
-              core.info(`Could not fetch docs-content issue #${issueNumber}. Skipping.`);
-              return;
-            }
+          # ── 4. Fetch the docs-content issue and check for parent ──────────
+          ISSUE_JSON=$(gh api "repos/github/docs-content/issues/$ISSUE_NUM") || skip "Could not fetch docs-content issue #$ISSUE_NUM. Skipping."
+          NODE_ID=$(echo "$ISSUE_JSON" | jq -r '.node_id')
 
-            // Query for parent issue via GraphQL
-            const query = `
-              query($nodeId: ID!) {
-                node(id: $nodeId) {
-                  ... on Issue {
-                    parent {
-                      number
-                      title
-                      body
-                      url
-                      author { login }
-                      assignees(first: 10) {
-                        nodes { login }
-                      }
-                      repository {
-                        nameWithOwner
-                      }
+          PARENT_JSON=$(gh api graphql -f query='
+            query($nodeId: ID!) {
+              node(id: $nodeId) {
+                ... on Issue {
+                  parent {
+                    number
+                    title
+                    body
+                    url
+                    author { login }
+                    assignees(first: 10) {
+                      nodes { login }
+                    }
+                    repository {
+                      nameWithOwner
                     }
                   }
                 }
               }
-            `;
+            }' -f nodeId="$NODE_ID" --jq '.data.node.parent') || skip "GraphQL parent query failed. Skipping."
 
-            let parentResult;
-            try {
-              parentResult = await crossRepoOctokit.graphql(query, { nodeId: issue.node_id });
-            } catch (err) {
-              core.setOutput('should_run', 'false');
-              core.info(`GraphQL parent query failed. Skipping.`);
-              return;
-            }
+          if [[ "$PARENT_JSON" == "null" || -z "$PARENT_JSON" ]]; then
+            skip "docs-content issue has no parent issue. Skipping."
+          fi
 
-            const parent = parentResult.node?.parent;
-            if (!parent) {
-              core.setOutput('should_run', 'false');
-              core.info('docs-content issue has no parent issue. Skipping.');
-              return;
-            }
+          # ── 5. Check for existing open changelog PRs ──────────────────────
+          EXISTING=$(gh api "search/issues?q=is:pr+is:open+label:changelog-agent+repo:github/docs-content" \
+            --jq '.total_count')
+          if [[ "$EXISTING" -gt 0 ]]; then
+            skip "Open changelog PR already exists. Skipping."
+          fi
 
-            // 5. Check for existing open changelog PRs (label is set by safe-outputs config, not agent-controlled)
-            const { data: openPRs } = await crossRepoOctokit.rest.pulls.list({
-              owner: 'github',
-              repo: 'docs-content',
-              state: 'open',
-              per_page: 5,
-            });
-            const changelogPRs = openPRs.filter(p => p.labels.some(l => l.name === 'changelog-agent'));
+          # ── 6. Gather reviewers and changed files ─────────────────────────
+          APPROVED_REVIEWERS=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM/reviews" \
+            --jq "[.[] | select(.state == \"APPROVED\" and .user.type != \"Bot\" and .user.login != \"$PR_AUTHOR\") | .user.login] | unique | join(\",\")")
 
-            if (changelogPRs.length > 0) {
-              core.setOutput('should_run', 'false');
-              core.info(`Open changelog PR already exists: ${changelogPRs[0].html_url}`);
-              return;
-            }
+          CHANGED_FILES=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM/files?per_page=100" \
+            --jq '[.[].filename] | join(",")')
 
-            // 6. Gather reviewers and changed files
-            const { data: reviews } = await octokit.rest.pulls.listReviews({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr.number,
-            });
+          # ── 7. Read existing changelog examples (first 3 entries) ─────────
+          CHANGELOG_EXAMPLES=""
+          CHANGELOG_RAW=$(gh api repos/github/docs-content/contents/docs-content-docs/docs-content-workflows/changelog-internal.md \
+            --jq '.content' | base64 -d 2>/dev/null) || true
+          if [[ -n "$CHANGELOG_RAW" ]]; then
+            CHANGELOG_EXAMPLES=$(echo "$CHANGELOG_RAW" | awk '
+              /^\*\*[0-9]/ { count++; if (count > 3) exit; capturing=1 }
+              capturing { print }
+            ')
+          fi
 
-            const approvedReviewers = [...new Set(
-              reviews
-                .filter(r => r.state === 'APPROVED' && r.user.type !== 'Bot' && r.user.login !== pr.user.login)
-                .map(r => r.user.login)
-            )];
+          # ── 8. Build context JSON for the agent ───────────────────────────
+          DRY_RUN="false"
+          if [[ "$EVENT_NAME" == "workflow_dispatch" && "$DRY_RUN_INPUT" == "true" ]]; then
+            DRY_RUN="true"
+          fi
 
-            const { data: files } = await octokit.rest.pulls.listFiles({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr.number,
-              per_page: 100,
-            });
-
-            const changedFiles = files.map(f => f.filename);
-
-            // 7. Read existing changelog examples
-            let changelogExamples = '';
-            try {
-              const { data: changelogData } = await crossRepoOctokit.rest.repos.getContent({
-                owner: 'github',
-                repo: 'docs-content',
-                path: 'docs-content-docs/docs-content-workflows/changelog-internal.md',
-              });
-              const changelog = Buffer.from(changelogData.content, 'base64').toString('utf-8');
-              const lines = changelog.split('\n');
-              let count = 0;
-              let examples = [];
-              let capturing = false;
-              for (const line of lines) {
-                if (/^\*\*\d/.test(line)) {
-                  count++;
-                  if (count > 3) break;
-                  capturing = true;
-                }
-                if (capturing) examples.push(line);
-              }
-              changelogExamples = examples.join('\n');
-            } catch (err) {
-              core.warning(`Could not read changelog examples: ${err.message}`);
-            }
-
-            // 8. Build context JSON for the agent
-            const context_data = {
+          mkdir -p /tmp/gh-aw/agent
+          jq -n \
+            --arg pr_number "$PR_NUM" \
+            --arg pr_title "$PR_TITLE" \
+            --arg pr_body "$PR_BODY" \
+            --arg pr_author "$PR_AUTHOR" \
+            --arg pr_url "$PR_URL" \
+            --arg changed_files "$CHANGED_FILES" \
+            --arg approved_reviewers "$APPROVED_REVIEWERS" \
+            --arg issue_num "$ISSUE_NUM" \
+            --arg issue_title "$(echo "$ISSUE_JSON" | jq -r '.title')" \
+            --arg issue_body "$(echo "$ISSUE_JSON" | jq -r '.body // ""')" \
+            --arg parent_number "$(echo "$PARENT_JSON" | jq -r '.number')" \
+            --arg parent_title "$(echo "$PARENT_JSON" | jq -r '.title')" \
+            --arg parent_body "$(echo "$PARENT_JSON" | jq -r '.body // ""')" \
+            --arg parent_url "$(echo "$PARENT_JSON" | jq -r '.url')" \
+            --arg parent_author "$(echo "$PARENT_JSON" | jq -r '.author.login // ""')" \
+            --arg parent_assignees "$(echo "$PARENT_JSON" | jq -r '[.assignees.nodes[].login] | join(",")')" \
+            --arg parent_repo "$(echo "$PARENT_JSON" | jq -r '.repository.nameWithOwner')" \
+            --arg changelog_examples "$CHANGELOG_EXAMPLES" \
+            --arg dry_run "$DRY_RUN" \
+            '{
               pr: {
-                number: pr.number,
-                title: pr.title,
-                body: pr.body || '',
-                author: pr.user.login,
-                url: pr.html_url,
-                changed_files: changedFiles,
-                approved_reviewers: approvedReviewers,
+                number: ($pr_number | tonumber),
+                title: $pr_title,
+                body: $pr_body,
+                author: $pr_author,
+                url: $pr_url,
+                changed_files: ($changed_files | split(",")),
+                approved_reviewers: (if $approved_reviewers == "" then [] else ($approved_reviewers | split(",")) end)
               },
               docs_content_issue: {
-                number: issueNumber,
-                title: issue.title,
-                body: issue.body || '',
+                number: ($issue_num | tonumber),
+                title: $issue_title,
+                body: $issue_body
               },
               parent_issue: {
-                number: parent.number,
-                title: parent.title,
-                body: parent.body || '',
-                url: parent.url,
-                author: parent.author?.login || '',
-                assignees: (parent.assignees?.nodes || []).map(a => a.login),
-                repo: parent.repository.nameWithOwner,
+                number: ($parent_number | tonumber),
+                title: $parent_title,
+                body: $parent_body,
+                url: $parent_url,
+                author: $parent_author,
+                assignees: (if $parent_assignees == "" then [] else ($parent_assignees | split(",")) end),
+                repo: $parent_repo
               },
-              changelog_examples: changelogExamples,
-              dry_run: context.eventName === 'workflow_dispatch' && '${{ github.event.inputs.dry_run }}' === 'true',
-            };
+              changelog_examples: $changelog_examples,
+              dry_run: ($dry_run == "true")
+            }' > /tmp/gh-aw/agent/context.json
 
-            // Write context to the agent data directory
-            const fs = require('fs');
-            fs.mkdirSync('/tmp/gh-aw/agent', { recursive: true });
-            fs.writeFileSync('/tmp/gh-aw/agent/context.json', JSON.stringify(context_data, null, 2));
-
-            core.setOutput('should_run', 'true');
-            core.setOutput('pr_number', pr.number.toString());
-            core.setOutput('dry_run', context_data.dry_run ? 'true' : 'false');
+          # ── Outputs ───────────────────────────────────────────────────────
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+          echo "pr_number=$PR_NUM" >> "$GITHUB_OUTPUT"
+          echo "dry_run=$DRY_RUN" >> "$GITHUB_OUTPUT"
+        env:
+          DRY_RUN_INPUT: ${{ github.event.inputs.dry_run }}
+          EVENT_NAME: ${{ github.event_name }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          PR_JSON_PAYLOAD: ${{ toJson(github.event.pull_request) }}
+          PR_NUMBER_INPUT: ${{ github.event.inputs.pr_number }}
 
   safe_outputs:
     needs:

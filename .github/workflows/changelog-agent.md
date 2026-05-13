@@ -27,237 +27,171 @@ on:
     issues: read
   steps:
     - id: gather_context
-      uses: actions/github-script@v8
       env:
-        DOCS_BOT_PAT: ${{ secrets.DOCS_BOT_PAT_BASE }}
-      with:
-        script: |
-          // Default octokit uses github.token for in-repo (docs-internal) calls
-          const octokit = github;
-          // Cross-repo octokit uses DOCS_BOT_PAT for docs-content and GraphQL calls
-          const crossRepoOctokit = github.getOctokit(process.env.DOCS_BOT_PAT);
+        GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        EVENT_NAME: ${{ github.event_name }}
+        PR_NUMBER_INPUT: ${{ github.event.inputs.pr_number }}
+        DRY_RUN_INPUT: ${{ github.event.inputs.dry_run }}
+        PR_JSON_PAYLOAD: ${{ toJson(github.event.pull_request) }}
+      run: |
+        set -e
 
-          // 1. Resolve the PR
-          let pr;
-          if (context.eventName === 'workflow_dispatch') {
-            const prNumber = parseInt(process.env.INPUT_PR_NUMBER || '${{ github.event.inputs.pr_number }}', 10);
-            const { data } = await octokit.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: prNumber,
-            });
-            pr = data;
-            if (!pr.merged) {
-              core.setOutput('should_run', 'false');
-              core.info(`PR #${prNumber} has not been merged. Skipping.`);
-              return;
-            }
-          } else {
-            pr = context.payload.pull_request;
-            if (!pr.merged || pr.base.ref !== 'main') {
-              core.setOutput('should_run', 'false');
-              return;
-            }
-          }
+        skip() { echo "should_run=false" >> "$GITHUB_OUTPUT"; echo "ℹ️  $1"; exit 0; }
 
-          // 2. Check if PR author is in the team (via github-to-slack.json)
-          let mapping = {};
-          try {
-            const { data } = await crossRepoOctokit.rest.repos.getContent({
-              owner: 'github',
-              repo: 'docs-content',
-              path: '.github/github-to-slack.json',
-            });
-            const content = Buffer.from(data.content, 'base64').toString('utf-8');
-            mapping = JSON.parse(content);
-          } catch (err) {
-            core.setFailed(`Could not fetch github-to-slack.json: ${err.message}`);
-            return;
-          }
+        # ── 1. Resolve the PR ──────────────────────────────────────────────
+        if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+          PR_NUM="$PR_NUMBER_INPUT"
+          PR_JSON=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM")
+          MERGED=$(echo "$PR_JSON" | jq -r '.merged')
+          if [[ "$MERGED" != "true" ]]; then
+            skip "PR #$PR_NUM has not been merged. Skipping."
+          fi
+        else
+          PR_JSON="$PR_JSON_PAYLOAD"
+          MERGED=$(echo "$PR_JSON" | jq -r '.merged')
+          BASE_REF=$(echo "$PR_JSON" | jq -r '.base.ref')
+          if [[ "$MERGED" != "true" || "$BASE_REF" != "main" ]]; then
+            skip "PR not merged to main. Skipping."
+          fi
+          PR_NUM=$(echo "$PR_JSON" | jq -r '.number')
+        fi
 
-          const teamMembers = Object.keys(mapping).filter(k => !k.startsWith('_'));
-          if (!teamMembers.includes(pr.user.login)) {
-            core.setOutput('should_run', 'false');
-            core.info(`PR author @${pr.user.login} is not in the team mapping. Skipping.`);
-            return;
-          }
+        PR_AUTHOR=$(echo "$PR_JSON" | jq -r '.user.login')
+        PR_TITLE=$(echo "$PR_JSON" | jq -r '.title')
+        PR_BODY=$(echo "$PR_JSON" | jq -r '.body // ""')
+        PR_URL=$(echo "$PR_JSON" | jq -r '.html_url')
 
-          // 3. Extract linked docs-content issue from PR body
-          const body = pr.body || '';
-          const patterns = [
-            /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+github\/docs-content#(\d+)/gi,
-            /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+https:\/\/github\.com\/github\/docs-content\/issues\/(\d+)/gi,
-          ];
+        # ── 2. Check if PR author is in the team ──────────────────────────
+        CONTENT=$(gh api repos/github/docs-content/contents/.github/github-to-slack.json \
+          --jq '.content') || { echo "::error::Could not fetch github-to-slack.json"; exit 1; }
+        MAPPING=$(echo "$CONTENT" | base64 -d)
 
-          let issueNumber = null;
-          for (const pattern of patterns) {
-            const match = pattern.exec(body);
-            if (match) {
-              issueNumber = parseInt(match[1], 10);
-              break;
-            }
-          }
+        if ! echo "$MAPPING" | jq -e --arg user "$PR_AUTHOR" 'has($user)' > /dev/null 2>&1; then
+          skip "PR author @$PR_AUTHOR is not in the team mapping. Skipping."
+        fi
 
-          if (!issueNumber) {
-            core.setOutput('should_run', 'false');
-            core.info('No linked docs-content issue found. Skipping.');
-            return;
-          }
+        # ── 3. Extract linked docs-content issue from PR body ─────────────
+        ISSUE_NUM=$(echo "$PR_BODY" | grep -oiE '(close[sd]?|fix(e[sd])?|resolve[sd]?):?\s+github/docs-content#[0-9]+' | grep -oE '[0-9]+$' | head -1)
+        if [[ -z "$ISSUE_NUM" ]]; then
+          ISSUE_NUM=$(echo "$PR_BODY" | grep -oiE '(close[sd]?|fix(e[sd])?|resolve[sd]?):?\s+https://github\.com/github/docs-content/issues/[0-9]+' | grep -oE '[0-9]+$' | head -1)
+        fi
+        if [[ -z "$ISSUE_NUM" ]]; then
+          skip "No linked docs-content issue found. Skipping."
+        fi
 
-          // 4. Fetch the docs-content issue and check for parent
-          let issue;
-          try {
-            const { data } = await crossRepoOctokit.rest.issues.get({
-              owner: 'github',
-              repo: 'docs-content',
-              issue_number: issueNumber,
-            });
-            issue = data;
-          } catch (err) {
-            core.setOutput('should_run', 'false');
-            core.info(`Could not fetch docs-content issue #${issueNumber}. Skipping.`);
-            return;
-          }
+        # ── 4. Fetch the docs-content issue and check for parent ──────────
+        ISSUE_JSON=$(gh api "repos/github/docs-content/issues/$ISSUE_NUM") || skip "Could not fetch docs-content issue #$ISSUE_NUM. Skipping."
+        NODE_ID=$(echo "$ISSUE_JSON" | jq -r '.node_id')
 
-          // Query for parent issue via GraphQL
-          const query = `
-            query($nodeId: ID!) {
-              node(id: $nodeId) {
-                ... on Issue {
-                  parent {
-                    number
-                    title
-                    body
-                    url
-                    author { login }
-                    assignees(first: 10) {
-                      nodes { login }
-                    }
-                    repository {
-                      nameWithOwner
-                    }
+        PARENT_JSON=$(gh api graphql -f query='
+          query($nodeId: ID!) {
+            node(id: $nodeId) {
+              ... on Issue {
+                parent {
+                  number
+                  title
+                  body
+                  url
+                  author { login }
+                  assignees(first: 10) {
+                    nodes { login }
+                  }
+                  repository {
+                    nameWithOwner
                   }
                 }
               }
             }
-          `;
+          }' -f nodeId="$NODE_ID" --jq '.data.node.parent') || skip "GraphQL parent query failed. Skipping."
 
-          let parentResult;
-          try {
-            parentResult = await crossRepoOctokit.graphql(query, { nodeId: issue.node_id });
-          } catch (err) {
-            core.setOutput('should_run', 'false');
-            core.info(`GraphQL parent query failed. Skipping.`);
-            return;
-          }
+        if [[ "$PARENT_JSON" == "null" || -z "$PARENT_JSON" ]]; then
+          skip "docs-content issue has no parent issue. Skipping."
+        fi
 
-          const parent = parentResult.node?.parent;
-          if (!parent) {
-            core.setOutput('should_run', 'false');
-            core.info('docs-content issue has no parent issue. Skipping.');
-            return;
-          }
+        # ── 5. Check for existing open changelog PRs ──────────────────────
+        EXISTING=$(gh api "search/issues?q=is:pr+is:open+label:changelog-agent+repo:github/docs-content" \
+          --jq '.total_count')
+        if [[ "$EXISTING" -gt 0 ]]; then
+          skip "Open changelog PR already exists. Skipping."
+        fi
 
-          // 5. Check for existing open changelog PRs (label is set by safe-outputs config, not agent-controlled)
-          const { data: openPRs } = await crossRepoOctokit.rest.pulls.list({
-            owner: 'github',
-            repo: 'docs-content',
-            state: 'open',
-            per_page: 5,
-          });
-          const changelogPRs = openPRs.filter(p => p.labels.some(l => l.name === 'changelog-agent'));
+        # ── 6. Gather reviewers and changed files ─────────────────────────
+        APPROVED_REVIEWERS=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM/reviews" \
+          --jq "[.[] | select(.state == \"APPROVED\" and .user.type != \"Bot\" and .user.login != \"$PR_AUTHOR\") | .user.login] | unique | join(\",\")")
 
-          if (changelogPRs.length > 0) {
-            core.setOutput('should_run', 'false');
-            core.info(`Open changelog PR already exists: ${changelogPRs[0].html_url}`);
-            return;
-          }
+        CHANGED_FILES=$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUM/files?per_page=100" \
+          --jq '[.[].filename] | join(",")')
 
-          // 6. Gather reviewers and changed files
-          const { data: reviews } = await octokit.rest.pulls.listReviews({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            pull_number: pr.number,
-          });
+        # ── 7. Read existing changelog examples (first 3 entries) ─────────
+        CHANGELOG_EXAMPLES=""
+        CHANGELOG_RAW=$(gh api repos/github/docs-content/contents/docs-content-docs/docs-content-workflows/changelog-internal.md \
+          --jq '.content' | base64 -d 2>/dev/null) || true
+        if [[ -n "$CHANGELOG_RAW" ]]; then
+          CHANGELOG_EXAMPLES=$(echo "$CHANGELOG_RAW" | awk '
+            /^\*\*[0-9]/ { count++; if (count > 3) exit; capturing=1 }
+            capturing { print }
+          ')
+        fi
 
-          const approvedReviewers = [...new Set(
-            reviews
-              .filter(r => r.state === 'APPROVED' && r.user.type !== 'Bot' && r.user.login !== pr.user.login)
-              .map(r => r.user.login)
-          )];
+        # ── 8. Build context JSON for the agent ───────────────────────────
+        DRY_RUN="false"
+        if [[ "$EVENT_NAME" == "workflow_dispatch" && "$DRY_RUN_INPUT" == "true" ]]; then
+          DRY_RUN="true"
+        fi
 
-          const { data: files } = await octokit.rest.pulls.listFiles({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            pull_number: pr.number,
-            per_page: 100,
-          });
-
-          const changedFiles = files.map(f => f.filename);
-
-          // 7. Read existing changelog examples
-          let changelogExamples = '';
-          try {
-            const { data: changelogData } = await crossRepoOctokit.rest.repos.getContent({
-              owner: 'github',
-              repo: 'docs-content',
-              path: 'docs-content-docs/docs-content-workflows/changelog-internal.md',
-            });
-            const changelog = Buffer.from(changelogData.content, 'base64').toString('utf-8');
-            const lines = changelog.split('\n');
-            let count = 0;
-            let examples = [];
-            let capturing = false;
-            for (const line of lines) {
-              if (/^\*\*\d/.test(line)) {
-                count++;
-                if (count > 3) break;
-                capturing = true;
-              }
-              if (capturing) examples.push(line);
-            }
-            changelogExamples = examples.join('\n');
-          } catch (err) {
-            core.warning(`Could not read changelog examples: ${err.message}`);
-          }
-
-          // 8. Build context JSON for the agent
-          const context_data = {
+        mkdir -p /tmp/gh-aw/agent
+        jq -n \
+          --arg pr_number "$PR_NUM" \
+          --arg pr_title "$PR_TITLE" \
+          --arg pr_body "$PR_BODY" \
+          --arg pr_author "$PR_AUTHOR" \
+          --arg pr_url "$PR_URL" \
+          --arg changed_files "$CHANGED_FILES" \
+          --arg approved_reviewers "$APPROVED_REVIEWERS" \
+          --arg issue_num "$ISSUE_NUM" \
+          --arg issue_title "$(echo "$ISSUE_JSON" | jq -r '.title')" \
+          --arg issue_body "$(echo "$ISSUE_JSON" | jq -r '.body // ""')" \
+          --arg parent_number "$(echo "$PARENT_JSON" | jq -r '.number')" \
+          --arg parent_title "$(echo "$PARENT_JSON" | jq -r '.title')" \
+          --arg parent_body "$(echo "$PARENT_JSON" | jq -r '.body // ""')" \
+          --arg parent_url "$(echo "$PARENT_JSON" | jq -r '.url')" \
+          --arg parent_author "$(echo "$PARENT_JSON" | jq -r '.author.login // ""')" \
+          --arg parent_assignees "$(echo "$PARENT_JSON" | jq -r '[.assignees.nodes[].login] | join(",")')" \
+          --arg parent_repo "$(echo "$PARENT_JSON" | jq -r '.repository.nameWithOwner')" \
+          --arg changelog_examples "$CHANGELOG_EXAMPLES" \
+          --arg dry_run "$DRY_RUN" \
+          '{
             pr: {
-              number: pr.number,
-              title: pr.title,
-              body: pr.body || '',
-              author: pr.user.login,
-              url: pr.html_url,
-              changed_files: changedFiles,
-              approved_reviewers: approvedReviewers,
+              number: ($pr_number | tonumber),
+              title: $pr_title,
+              body: $pr_body,
+              author: $pr_author,
+              url: $pr_url,
+              changed_files: ($changed_files | split(",")),
+              approved_reviewers: (if $approved_reviewers == "" then [] else ($approved_reviewers | split(",")) end)
             },
             docs_content_issue: {
-              number: issueNumber,
-              title: issue.title,
-              body: issue.body || '',
+              number: ($issue_num | tonumber),
+              title: $issue_title,
+              body: $issue_body
             },
             parent_issue: {
-              number: parent.number,
-              title: parent.title,
-              body: parent.body || '',
-              url: parent.url,
-              author: parent.author?.login || '',
-              assignees: (parent.assignees?.nodes || []).map(a => a.login),
-              repo: parent.repository.nameWithOwner,
+              number: ($parent_number | tonumber),
+              title: $parent_title,
+              body: $parent_body,
+              url: $parent_url,
+              author: $parent_author,
+              assignees: (if $parent_assignees == "" then [] else ($parent_assignees | split(",")) end),
+              repo: $parent_repo
             },
-            changelog_examples: changelogExamples,
-            dry_run: context.eventName === 'workflow_dispatch' && '${{ github.event.inputs.dry_run }}' === 'true',
-          };
+            changelog_examples: $changelog_examples,
+            dry_run: ($dry_run == "true")
+          }' > /tmp/gh-aw/agent/context.json
 
-          // Write context to the agent data directory
-          const fs = require('fs');
-          fs.mkdirSync('/tmp/gh-aw/agent', { recursive: true });
-          fs.writeFileSync('/tmp/gh-aw/agent/context.json', JSON.stringify(context_data, null, 2));
-
-          core.setOutput('should_run', 'true');
-          core.setOutput('pr_number', pr.number.toString());
-          core.setOutput('dry_run', context_data.dry_run ? 'true' : 'false');
+        # ── Outputs ───────────────────────────────────────────────────────
+        echo "should_run=true" >> "$GITHUB_OUTPUT"
+        echo "pr_number=$PR_NUM" >> "$GITHUB_OUTPUT"
+        echo "dry_run=$DRY_RUN" >> "$GITHUB_OUTPUT"
 
 if: |
   github.repository == 'github/docs-internal' &&

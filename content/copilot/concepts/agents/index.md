@@ -10,6 +10,7 @@ children:
   - /copilot-cli
   - /code-review
   - /copilot-memory
+  - /hooks
   - /about-third-party-agents
   - /openai-codex
   - /anthropic-claude

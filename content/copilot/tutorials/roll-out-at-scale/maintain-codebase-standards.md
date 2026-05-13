@@ -84,7 +84,3 @@ To prepare for these scenarios, you should plan for how you will address problem
 ## 7. Check code quality
 
 If you're confident in your governance model but still concerned that {% data variables.product.prodname_copilot_short %} will reduce the quality of your codebase over time, you can measure this over the course of a rollout. If enabled, {% data variables.product.prodname_code_quality %} provides metrics on the code health of your repositories. See [AUTOTITLE](/code-security/concepts/about-code-quality).
-
-## Next steps
-
-Understand how your enterprise can use the audit log to monitor changes to configuration settings and license assignment. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/review-activity/review-audit-logs).

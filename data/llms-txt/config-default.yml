@@ -10,7 +10,7 @@ how_to_use: |
 
   * [Versions API](https://docs.github.com/api/pagelist/versions): Lists all available documentation versions.
   * [Languages API](https://docs.github.com/api/pagelist/languages): Lists all available languages.
-  * [Page List API](https://docs.github.com/api/pagelist/en/free-pro-team@latest): Returns every docs page path for a given language and version
+  * [Page List API](https://docs.github.com/api/pagelist/en/free-pro-team@latest): Returns every docs page path for a given language and version.
   * [Article API](https://docs.github.com/api/article): Returns the full rendered content and context of any docs page as JSON. Example: `curl "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/about-github-and-git"`
   * [Article Body API](https://docs.github.com/api/article/body): Returns the full rendered content of any docs page as markdown. Example: `curl "https://docs.github.com/api/article/body?pathname=/en/get-started/start-your-journey/about-github-and-git"`
   * [Search API](https://docs.github.com/api/search/v1): Search across all docs content. Example: `curl "https://docs.github.com/api/search/v1?query=actions&language=en&version=free-pro-team@latest"`

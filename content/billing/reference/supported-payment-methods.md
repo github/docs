@@ -9,6 +9,8 @@ shortTitle: Supported payment methods
 contentType: reference
 category:
   - Set up payment
+redirect_from:
+  - /billing/reference/payment-methods
 ---
 
 ## Metered or usage-based billing options

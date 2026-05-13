@@ -16,6 +16,8 @@ copilot_free: 'GitHub Copilot Free'
 copilot_free_short: 'Copilot Free'
 copilot_student: 'GitHub Copilot Student'
 copilot_student_short: 'Copilot Student'
+copilot_max: 'GitHub Copilot Max'
+copilot_max_short: 'Copilot Max'
 
 ## Copilot billing
 # Price per additional premium request
@@ -24,6 +26,8 @@ additional_premium_requests: '$0.04 USD' # Note that these are also used to bill
 cfi_price_per_month: '$10 USD'
 # Price per month for Copilot Pro Plus
 cpp_price_per_month: '$39 USD'
+# Price per month for Copilot Max
+cm_price_per_month: '$100 USD'
 # Price per month for Copilot Business
 cfb_price_per_month: '$19 USD'
 # Price per month for Copilot Enterprise
@@ -34,8 +38,15 @@ ai_credits_per_user_business: '1,900'
 ai_credits_per_user_enterprise: '3,900'
 ai_credits_per_user_business_promo: '3,000'
 ai_credits_per_user_enterprise_promo: '7,000'
-ai_credits_per_user_pro: '1000'
-ai_credits_per_user_pro_plus: '3900'
+ai_credits_per_user_pro: '1,000'
+ai_credits_per_user_pro_plus: '3,900'
+ai_credits_per_user_max: '10,000'
+ai_credits_per_user_pro_flex: '500'
+ai_credits_per_user_pro_plus_flex: '3,100'
+ai_credits_per_user_max_flex: '10,000'
+ai_credits_per_user_pro_total: '1,500'
+ai_credits_per_user_pro_plus_total: '7,000'
+ai_credits_per_user_max_total: '20,000'
 
 ## Copilot partners: builders who can develop Copilot extensions
 copilot_partners: 'Copilot Partners'

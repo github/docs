@@ -36,6 +36,7 @@ The `~/.copilot` directory contains the following top-level items.
 | `permissions-config.json` | File | Saved tool and directory permissions per project |
 | `plugin-data/` | Directory | Persistent data for installed plugins |
 | `session-state/` | Directory | Session history and workspace data |
+| `command-history-state/` | Directory | Command history data |
 | `session-store.db` | File | SQLite database for cross-session data |
 | `settings.json` | File | Your personal configuration settings |
 | `skills/` | Directory | Personal custom skill definitions |
@@ -121,6 +122,10 @@ Stores your saved tool and directory permission decisions, organized by project 
 
 Contains session history data, organized by session ID in subdirectories. Each session directory stores an event log (`events.jsonl`) and workspace artifacts (plans, checkpoints, tracked files). This data enables session resume (`--resume` or `--continue`).
 
+### `command-history-state/`
+
+Contains command history data used for reverse search (<kbd>Ctrl</kbd>+<kbd>R</kbd>) and history navigation in the interactive interface. This directory is managed automatically and should not be edited.
+
 ### `session-store.db`
 
 A SQLite database used by the CLI for cross-session data such as checkpoint indexing and search. This file is automatically managed and should not be edited.
@@ -179,6 +184,7 @@ To override the default `~/.copilot` location, set the `COPILOT_HOME` environmen
 | `permissions-config.json` | With caution | Resets all saved permissions. The CLI will prompt you again for tool and directory approvals. |
 | `plugin-data/` | Yes | Plugin persistent data is re-created as needed. |
 | `session-state/` | With caution | Deleting removes session history. You will no longer be able to resume past sessions. |
+| `command-history-state/` | With caution | Deleting removes command history. You will no longer be able to search previous commands with <kbd>Ctrl</kbd>+<kbd>R</kbd>. |
 | `session-store.db` | With caution | Deleting removes cross-session data. The file is re-created automatically. |
 | `settings.json` | With caution | Resets all user preferences to defaults. You will need to reconfigure your settings. |
 
@@ -230,7 +236,7 @@ These settings apply across all your sessions and repositories. You can edit thi
 | `mergeStrategy` | `"rebase"` \| `"merge"` | — | Conflict resolution strategy for `/pr fix conflicts`. When set to `"rebase"`, conflicts are resolved by rebasing onto the base branch. When set to `"merge"`, the base branch is merged into the feature branch. If not configured, a picker dialog is shown. |
 | `model` | `string` | varies | AI model to use. Set to `"auto"` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. Managed by the `/model` slash command. |
 | `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. Can also be set with `--mouse` or `--no-mouse`. |
-| `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
+| `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell on startup. On Windows, the CLI prefers PowerShell 7+ (`pwsh`) and falls back to Windows PowerShell (`powershell.exe`) when `pwsh` is unavailable. Windows only. |
 | `renderMarkdown` | `boolean` | `true` | Render Markdown in terminal output. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
 | `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
@@ -269,4 +275,4 @@ The local configuration file uses the same schema as the repository configuratio
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)
-* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-hooks-reference)
+* [AUTOTITLE](/copilot/reference/hooks-reference)
