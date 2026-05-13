@@ -186,7 +186,7 @@ index c802653..e74fc2f 100644
 @@ -41,13 +41,13 @@
  A typical sequence might be: >.@Edgarruiz8585 
  
-     cd src
+     cd src @Edgarruiz8585
 -    go get -m golang.org/x/net@latest
 +    go get -d golang.org/x/net@latest
      go mod tidy
