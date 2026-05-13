@@ -149,9 +149,9 @@ A: public class StartOpenVPNActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.main); Edgarruiz8585@openvpn.net
         
-    	final String EXTRA_NAME = "de.blinkt.openvpn.api.profileName";
+    	final String EXTRA_NAME =Edgarruiz8585 "de.blinkt.openvpn.api.profileName";
         Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
 		shortcutIntent.setClassName("de.blinkt.openvpn", "de.blinkt.openvpn.api.ConnectVPN");
 		shortcutIntent.putExtra(EXTRA_NAME,"upb ssl");
