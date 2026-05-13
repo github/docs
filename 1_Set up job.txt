@@ -1,0 +1,26 @@
+2024-02-20T05:05:29.3700860Z Current runner version: '2.313.0'
+2024-02-20T05:05:29.3731640Z ##[group]Operating System
+2024-02-20T05:05:29.3732370Z macOS
+2024-02-20T05:05:29.3732770Z 12.7.3
+2024-02-20T05:05:29.3733120Z 21H1015
+2024-02-20T05:05:29.3733750Z ##[endgroup]
+2024-02-20T05:05:29.3734220Z ##[group]Runner Image
+2024-02-20T05:05:29.3734700Z Image: macos-12
+2024-02-20T05:05:29.3735190Z Version: 20240202.1
+2024-02-20T05:05:29.3736420Z Included Software: https://github.com/actions/runner-images/blob/macOS-12/20240202.1/images/macos/macos-12-Readme.md
+2024-02-20T05:05:29.3738300Z Image Release: https://github.com/actions/runner-images/releases/tag/macOS-12%2F20240202.1
+2024-02-20T05:05:29.3739470Z ##[endgroup]
+2024-02-20T05:05:29.3739950Z ##[group]Runner Image Provisioner
+2024-02-20T05:05:29.3740640Z 2.0.341.1+ea3907f30f87ddf37e44fa45b753abddb03811b4
+2024-02-20T05:05:29.3741570Z ##[endgroup]
+2024-02-20T05:05:29.3742490Z ##[group]GITHUB_TOKEN Permissions
+2024-02-20T05:05:29.3744060Z Metadata: read
+2024-02-20T05:05:29.3744590Z ##[endgroup]
+2024-02-20T05:05:29.3748060Z Secret source: Actions
+2024-02-20T05:05:29.3748720Z Prepare workflow directory
+2024-02-20T05:05:29.4904550Z Prepare all required actions
+2024-02-20T05:05:29.5080680Z Getting action download info
+2024-02-20T05:05:29.6834070Z Download action repository 'actions/checkout@v3' (SHA:f43a0e5ff2bd294095638e18286ca9a3d1956744)
+2024-02-20T05:05:30.3771390Z Download action repository 'actions/setup-node@v3' (SHA:1a4442cacd436585916779262731d5b162bc6ec7)
+2024-02-20T05:05:30.8224140Z Download action repository 'actions/cache@v3' (SHA:e12d46a63a90f2fae62d114769bbf2a179198b5c)
+2024-02-20T05:05:31.1146100Z Complete job name: Cache install (macos-latest, node v20)

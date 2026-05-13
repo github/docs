@@ -1,0 +1,31 @@
+2024-02-20T05:05:53.2495170Z ##[group]Run actions/setup-node@v3
+2024-02-20T05:05:53.2495760Z with:
+2024-02-20T05:05:53.2496240Z   node-version: 20
+2024-02-20T05:05:53.2496620Z   cache: pnpm
+2024-02-20T05:05:53.2497000Z   always-auth: false
+2024-02-20T05:05:53.2497520Z   check-latest: false
+2024-02-20T05:05:53.2498170Z   token: ***
+2024-02-20T05:05:53.2498510Z env:
+2024-02-20T05:05:53.2499280Z   CYPRESS_CACHE_FOLDER: /Users/runner/work/nx/nx/.cypress
+2024-02-20T05:05:53.2499950Z ##[endgroup]
+2024-02-20T05:05:53.5968340Z Found in cache @ /Users/runner/hostedtoolcache/node/20.11.0/x64
+2024-02-20T05:05:53.5972000Z ##[group]Environment details
+2024-02-20T05:05:54.7178690Z node: v20.11.0
+2024-02-20T05:05:54.7193890Z npm: 10.2.4
+2024-02-20T05:05:54.7216360Z yarn: 1.22.19
+2024-02-20T05:05:54.7217410Z ##[endgroup]
+2024-02-20T05:05:54.7218910Z [command]/usr/local/bin/pnpm store path --silent
+2024-02-20T05:05:54.9454340Z /Users/runner/Library/pnpm/store/v3
+2024-02-20T05:05:56.1553930Z Received 16777216 of 335801633 (5.0%), 16.0 MBs/sec
+2024-02-20T05:05:57.2526330Z Received 50331648 of 335801633 (15.0%), 22.9 MBs/sec
+2024-02-20T05:05:58.2522970Z Received 100663296 of 335801633 (30.0%), 31.0 MBs/sec
+2024-02-20T05:05:59.2523260Z Received 134217728 of 335801633 (40.0%), 31.2 MBs/sec
+2024-02-20T05:06:00.3567600Z Received 184549376 of 335801633 (55.0%), 33.8 MBs/sec
+2024-02-20T05:06:01.4798910Z Received 222298112 of 335801633 (66.2%), 33.7 MBs/sec
+2024-02-20T05:06:02.4512360Z Received 276824064 of 335801633 (82.4%), 36.2 MBs/sec
+2024-02-20T05:06:03.4813430Z Received 310635809 of 335801633 (92.5%), 35.7 MBs/sec
+2024-02-20T05:06:04.5018240Z Received 335801633 of 335801633 (100.0%), 34.4 MBs/sec
+2024-02-20T05:06:06.5072070Z Cache Size: ~320 MB (335801633 B)
+2024-02-20T05:06:06.5439350Z [command]/usr/local/bin/gtar -xf /Users/runner/work/_temp/1bd84577-3191-455c-bea8-0aaf02781937/cache.tzst -P -C /Users/runner/work/nx/nx --delay-directory-restore --use-compress-program unzstd
+2024-02-20T05:06:37.6329360Z Cache restored successfully
+2024-02-20T05:06:37.6427820Z Cache restored from key: node-cache-macOS-pnpm-b3945bd367d24ac75dc1ad87625a974730453febd6ac3bd2e33d2b858c5101f6

@@ -1,0 +1,14 @@
+2024-02-20T05:07:24.6436270Z ##[group]Run actions/cache@v3
+2024-02-20T05:07:24.6436860Z with:
+2024-02-20T05:07:24.6437200Z   lookup-only: true
+2024-02-20T05:07:24.6437800Z   path: /Users/runner/Library/Caches/Homebrew
+2024-02-20T05:07:24.6439040Z   key: brew-20
+2024-02-20T05:07:24.6439430Z   restore-keys: brew-
+
+2024-02-20T05:07:24.6439990Z   enableCrossOsArchive: false
+2024-02-20T05:07:24.6440480Z   fail-on-cache-miss: false
+2024-02-20T05:07:24.6440940Z env:
+2024-02-20T05:07:24.6441520Z   CYPRESS_CACHE_FOLDER: /Users/runner/work/nx/nx/.cypress
+2024-02-20T05:07:24.6442180Z ##[endgroup]
+2024-02-20T05:07:24.8665900Z Lookup only - skipping download
+2024-02-20T05:07:24.8938730Z Cache found and can be restored from key: brew-20
