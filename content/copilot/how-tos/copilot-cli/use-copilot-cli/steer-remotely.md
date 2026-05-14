@@ -155,3 +155,4 @@ Remote control is disabled by default, but may be enabled in your {% data variab
 ## Further reading
 
 * [{% data variables.copilot.copilot_cli_short %} sessions in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/agents/copilot-cli) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+* [Enable {% data variables.copilot.copilot_cli_short %} remote control](https://github.com/microsoft/copilot-intellij-feedback/wiki/Enable-Copilot-CLI-Remote-Control) for JetBrains IDEs, in the `microsoft/copilot-intellij-feedback` repository.

@@ -24,13 +24,14 @@ When an attachment failure happens:
 * Only some of the settings in the security configuration are applied to affected repositories.
 * Any changes you later make to the security configuration will not be inherited by the affected repositories.
 
-On the security configuration settings page, under "Apply configurations", you will see a banner advising how many repositories in your organization have an attachment failure, and an overview of the reason(s) for the failure.
+On the security configuration settings page, in the **Repositories** tab under "Apply configurations", you will see a banner advising how many repositories in your organization have an attachment failure, and an overview of the reason(s) for the failure.
 
 Click the link in the banner display, or alternatively, filter the list of repositories by `config-status:failed`, to see the list of affected repositories and to source additional guidance on how to remediate the attachment failure for a specific repository.
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
+1. Click the **Repositories** tab.
 1. In the "Apply configurations" section, filter by `config-status:failed`.
 1. From the results list, for the repository you're interested in, click **{% octicon "alert" aria-hidden="true" aria-label="alert" %} Failed REASON**.
 1. In the dialog box, review the information and follow the remediation guidance.

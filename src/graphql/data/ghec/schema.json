@@ -1027,6 +1027,7 @@
       "id": "addassigneestoassignable",
       "href": "/graphql/reference/mutations#addassigneestoassignable",
       "description": "<p>Adds assignees to an assignable object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1057,6 +1058,7 @@
       "id": "addblockedby",
       "href": "/graphql/reference/mutations#addblockedby",
       "description": "<p>Adds a 'blocked by' relationship to an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1258,6 +1260,7 @@
       "id": "addlabelstolabelable",
       "href": "/graphql/reference/mutations#addlabelstolabelable",
       "description": "<p>Adds labels to a labelable object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1560,6 +1563,7 @@
       "id": "addreaction",
       "href": "/graphql/reference/mutations#addreaction",
       "description": "<p>Adds a reaction to a subject.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2015,6 +2019,7 @@
       "id": "clearlabelsfromlabelable",
       "href": "/graphql/reference/mutations#clearlabelsfromlabelable",
       "description": "<p>Clears all labels from a labelable object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2174,6 +2179,7 @@
       "id": "closeissue",
       "href": "/graphql/reference/mutations#closeissue",
       "description": "<p>Close an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2721,6 +2727,7 @@
       "id": "createissue",
       "href": "/graphql/reference/mutations#createissue",
       "description": "<p>Creates a new issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2751,6 +2758,7 @@
       "id": "createissuefield",
       "href": "/graphql/reference/mutations#createissuefield",
       "description": "<p>Creates a new issue field.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2781,6 +2789,7 @@
       "id": "createissuefieldvalue",
       "href": "/graphql/reference/mutations#createissuefieldvalue",
       "description": "<p>Creates a new issue field value for an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2818,6 +2827,7 @@
       "id": "createissuetype",
       "href": "/graphql/reference/mutations#createissuetype",
       "description": "<p>Creates a new issue type.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2848,6 +2858,7 @@
       "id": "createlabel",
       "href": "/graphql/reference/mutations#createlabel",
       "description": "<p>Creates a new label.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2878,6 +2889,7 @@
       "id": "createlinkedbranch",
       "href": "/graphql/reference/mutations#createlinkedbranch",
       "description": "<p>Create a branch linked to an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3595,6 +3607,7 @@
       "id": "deleteissue",
       "href": "/graphql/reference/mutations#deleteissue",
       "description": "<p>Deletes an Issue object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3625,6 +3638,7 @@
       "id": "deleteissuecomment",
       "href": "/graphql/reference/mutations#deleteissuecomment",
       "description": "<p>Deletes an IssueComment object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3648,6 +3662,7 @@
       "id": "deleteissuefield",
       "href": "/graphql/reference/mutations#deleteissuefield",
       "description": "<p>Deletes an issue field.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3678,6 +3693,7 @@
       "id": "deleteissuefieldvalue",
       "href": "/graphql/reference/mutations#deleteissuefieldvalue",
       "description": "<p>Deletes an issue field value from an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3715,6 +3731,7 @@
       "id": "deleteissuetype",
       "href": "/graphql/reference/mutations#deleteissuetype",
       "description": "<p>Delete an issue type.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3745,6 +3762,7 @@
       "id": "deletelabel",
       "href": "/graphql/reference/mutations#deletelabel",
       "description": "<p>Deletes a label.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3768,6 +3786,7 @@
       "id": "deletelinkedbranch",
       "href": "/graphql/reference/mutations#deletelinkedbranch",
       "description": "<p>Unlink a branch from an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4810,6 +4829,7 @@
       "id": "locklockable",
       "href": "/graphql/reference/mutations#locklockable",
       "description": "<p>Lock a lockable object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5165,6 +5185,7 @@
       "id": "pinissue",
       "href": "/graphql/reference/mutations#pinissue",
       "description": "<p>Pin an issue to a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5195,6 +5216,7 @@
       "id": "pinissuecomment",
       "href": "/graphql/reference/mutations#pinissuecomment",
       "description": "<p>Pins an Issue Comment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5375,6 +5397,7 @@
       "id": "removeassigneesfromassignable",
       "href": "/graphql/reference/mutations#removeassigneesfromassignable",
       "description": "<p>Removes assignees from an assignable object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5405,6 +5428,7 @@
       "id": "removeblockedby",
       "href": "/graphql/reference/mutations#removeblockedby",
       "description": "<p>Removes a 'blocked by' relationship from an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5641,6 +5665,7 @@
       "id": "removelabelsfromlabelable",
       "href": "/graphql/reference/mutations#removelabelsfromlabelable",
       "description": "<p>Removes labels from a Labelable object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5701,6 +5726,7 @@
       "id": "removereaction",
       "href": "/graphql/reference/mutations#removereaction",
       "description": "<p>Removes a reaction from a subject.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5872,6 +5898,7 @@
       "id": "reopenissue",
       "href": "/graphql/reference/mutations#reopenissue",
       "description": "<p>Reopen a issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5902,6 +5929,7 @@
       "id": "reopenpullrequest",
       "href": "/graphql/reference/mutations#reopenpullrequest",
       "description": "<p>Reopen a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5962,6 +5990,7 @@
       "id": "replaceactorsforassignable",
       "href": "/graphql/reference/mutations#replaceactorsforassignable",
       "description": "<p>Replaces all actors for assignable object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6327,6 +6356,7 @@
       "id": "setissuefieldvalue",
       "href": "/graphql/reference/mutations#setissuefieldvalue",
       "description": "<p>Sets the value of an IssueFieldValue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6604,6 +6634,7 @@
       "id": "transferissue",
       "href": "/graphql/reference/mutations#transferissue",
       "description": "<p>Transfer an issue to a different repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6883,6 +6914,7 @@
       "id": "unlocklockable",
       "href": "/graphql/reference/mutations#unlocklockable",
       "description": "<p>Unlock a lockable object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6980,6 +7012,7 @@
       "id": "unmarkissueasduplicate",
       "href": "/graphql/reference/mutations#unmarkissueasduplicate",
       "description": "<p>Unmark an issue as a duplicate of another issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7070,6 +7103,7 @@
       "id": "unpinissue",
       "href": "/graphql/reference/mutations#unpinissue",
       "description": "<p>Unpin a pinned issue from a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7107,6 +7141,7 @@
       "id": "unpinissuecomment",
       "href": "/graphql/reference/mutations#unpinissuecomment",
       "description": "<p>Unpins an Issue Comment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7532,6 +7567,7 @@
       "id": "updateenterprisememberscandeleteissuessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscandeleteissuessetting",
       "description": "<p>Sets the members can delete issues setting for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8112,6 +8148,7 @@
       "id": "updateissue",
       "href": "/graphql/reference/mutations#updateissue",
       "description": "<p>Updates an Issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8149,6 +8186,7 @@
       "id": "updateissuecomment",
       "href": "/graphql/reference/mutations#updateissuecomment",
       "description": "<p>Updates an IssueComment object.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8179,6 +8217,7 @@
       "id": "updateissuefield",
       "href": "/graphql/reference/mutations#updateissuefield",
       "description": "<p>Updates an issue field.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8209,6 +8248,7 @@
       "id": "updateissuefieldvalue",
       "href": "/graphql/reference/mutations#updateissuefieldvalue",
       "description": "<p>Updates an existing issue field value for an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8246,6 +8286,7 @@
       "id": "updateissueissuetype",
       "href": "/graphql/reference/mutations#updateissueissuetype",
       "description": "<p>Updates the issue type on an issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8276,6 +8317,7 @@
       "id": "updateissuetype",
       "href": "/graphql/reference/mutations#updateissuetype",
       "description": "<p>Update an issue type.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8306,6 +8348,7 @@
       "id": "updatelabel",
       "href": "/graphql/reference/mutations#updatelabel",
       "description": "<p>Updates an existing label.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9511,6 +9554,7 @@
       "id": "addedtoprojectevent",
       "href": "/graphql/reference/objects#addedtoprojectevent",
       "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -9674,6 +9718,7 @@
       "id": "app",
       "href": "/graphql/reference/objects#app",
       "description": "<p>A GitHub App.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10652,6 +10697,7 @@
       "id": "blockedbyaddedevent",
       "href": "/graphql/reference/objects#blockedbyaddedevent",
       "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10695,6 +10741,7 @@
       "id": "blockedbyremovedevent",
       "href": "/graphql/reference/objects#blockedbyremovedevent",
       "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10738,6 +10785,7 @@
       "id": "blockingaddedevent",
       "href": "/graphql/reference/objects#blockingaddedevent",
       "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10781,6 +10829,7 @@
       "id": "blockingremovedevent",
       "href": "/graphql/reference/objects#blockingremovedevent",
       "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10824,6 +10873,7 @@
       "id": "bot",
       "href": "/graphql/reference/objects#bot",
       "description": "<p>A special type of user which takes actions on behalf of GitHub Apps.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -14811,6 +14861,7 @@
       "id": "connectedevent",
       "href": "/graphql/reference/objects#connectedevent",
       "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -15803,6 +15854,7 @@
       "id": "convertedfromdraftevent",
       "href": "/graphql/reference/objects#convertedfromdraftevent",
       "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -16735,6 +16787,7 @@
       "id": "demilestonedevent",
       "href": "/graphql/reference/objects#demilestonedevent",
       "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -18246,6 +18299,7 @@
       "id": "disconnectedevent",
       "href": "/graphql/reference/objects#disconnectedevent",
       "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -26345,6 +26399,7 @@
       "id": "issue",
       "href": "/graphql/reference/objects#issue",
       "description": "<p>An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Assignable",
@@ -27986,6 +28041,7 @@
       "id": "issuecomment",
       "href": "/graphql/reference/objects#issuecomment",
       "description": "<p>Represents a comment on an Issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Comment",
@@ -28452,6 +28508,7 @@
       "id": "issuecommentpinnedevent",
       "href": "/graphql/reference/objects#issuecommentpinnedevent",
       "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -28495,6 +28552,7 @@
       "id": "issuecommentunpinnedevent",
       "href": "/graphql/reference/objects#issuecommentunpinnedevent",
       "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -28574,6 +28632,7 @@
       "id": "issuecontributionsbyrepository",
       "href": "/graphql/reference/objects#issuecontributionsbyrepository",
       "description": "<p>This aggregates issues opened by a user within one repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "contributions",
@@ -28643,6 +28702,7 @@
       "id": "issuedependenciessummary",
       "href": "/graphql/reference/objects#issuedependenciessummary",
       "description": "<p>Summary of the state of an issue's dependencies.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "blockedBy",
@@ -28701,6 +28761,7 @@
       "id": "issuefieldaddedevent",
       "href": "/graphql/reference/objects#issuefieldaddedevent",
       "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -28758,6 +28819,7 @@
       "id": "issuefieldchangedevent",
       "href": "/graphql/reference/objects#issuefieldchangedevent",
       "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -28829,6 +28891,7 @@
       "id": "issuefielddate",
       "href": "/graphql/reference/objects#issuefielddate",
       "description": "<p>Represents a date issue field.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "IssueFieldCommon",
@@ -28891,6 +28954,7 @@
       "id": "issuefielddatevalue",
       "href": "/graphql/reference/objects#issuefielddatevalue",
       "description": "<p>The value of a date field in an Issue item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "IssueFieldValueCommon",
@@ -28932,6 +28996,7 @@
       "id": "issuefieldnumber",
       "href": "/graphql/reference/objects#issuefieldnumber",
       "description": "<p>Represents a number issue field.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "IssueFieldCommon",
@@ -28994,6 +29059,7 @@
       "id": "issuefieldnumbervalue",
       "href": "/graphql/reference/objects#issuefieldnumbervalue",
       "description": "<p>The value of a number field in an Issue item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "IssueFieldValueCommon",
@@ -29035,6 +29101,7 @@
       "id": "issuefieldremovedevent",
       "href": "/graphql/reference/objects#issuefieldremovedevent",
       "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -29078,6 +29145,7 @@
       "id": "issuefieldsingleselect",
       "href": "/graphql/reference/objects#issuefieldsingleselect",
       "description": "<p>Represents a single select issue field.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "IssueFieldCommon",
@@ -29147,6 +29215,7 @@
       "id": "issuefieldsingleselectoption",
       "href": "/graphql/reference/objects#issuefieldsingleselectoption",
       "description": "<p>Represents an option in a single-select issue field.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -29197,6 +29266,7 @@
       "id": "issuefieldsingleselectvalue",
       "href": "/graphql/reference/objects#issuefieldsingleselectvalue",
       "description": "<p>The value of a single select field in an Issue item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "IssueFieldValueCommon",
@@ -29266,6 +29336,7 @@
       "id": "issuefieldtext",
       "href": "/graphql/reference/objects#issuefieldtext",
       "description": "<p>Represents a text issue field.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "IssueFieldCommon",
@@ -29328,6 +29399,7 @@
       "id": "issuefieldtextvalue",
       "href": "/graphql/reference/objects#issuefieldtextvalue",
       "description": "<p>The value of a text field in an Issue item.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "IssueFieldValueCommon",
@@ -29485,6 +29557,7 @@
       "id": "issuetemplate",
       "href": "/graphql/reference/objects#issuetemplate",
       "description": "<p>A repository issue template.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "about",
@@ -29771,6 +29844,7 @@
       "id": "issuetype",
       "href": "/graphql/reference/objects#issuetype",
       "description": "<p>Represents the type of Issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -29927,6 +30001,7 @@
       "id": "issuetypeaddedevent",
       "href": "/graphql/reference/objects#issuetypeaddedevent",
       "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -29970,6 +30045,7 @@
       "id": "issuetypechangedevent",
       "href": "/graphql/reference/objects#issuetypechangedevent",
       "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -30078,6 +30154,7 @@
       "id": "issuetyperemovedevent",
       "href": "/graphql/reference/objects#issuetyperemovedevent",
       "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -30171,6 +30248,7 @@
       "id": "label",
       "href": "/graphql/reference/objects#label",
       "description": "<p>A label for categorizing Issues, Pull Requests, Milestones, or Discussions with a given Repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -30485,6 +30563,7 @@
       "id": "labeledevent",
       "href": "/graphql/reference/objects#labeledevent",
       "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -30792,6 +30871,7 @@
       "id": "linkedbranch",
       "href": "/graphql/reference/objects#linkedbranch",
       "description": "<p>A branch linked to an issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -32960,6 +33040,7 @@
       "id": "milestone",
       "href": "/graphql/reference/objects#milestone",
       "description": "<p>Represents a Milestone object on a given repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Closable",
@@ -33354,6 +33435,7 @@
       "id": "milestonedevent",
       "href": "/graphql/reference/objects#milestonedevent",
       "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -33404,6 +33486,7 @@
       "id": "movedcolumnsinprojectevent",
       "href": "/graphql/reference/objects#movedcolumnsinprojectevent",
       "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -44312,6 +44395,7 @@
       "id": "pinnedissue",
       "href": "/graphql/reference/objects#pinnedissue",
       "description": "<p>A Pinned Issue is a issue pinned to a repository's index page.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -44369,6 +44453,7 @@
       "id": "pinnedissuecomment",
       "href": "/graphql/reference/objects#pinnedissuecomment",
       "description": "<p>A comment pinned to an Issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -45039,6 +45124,7 @@
       "id": "project",
       "href": "/graphql/reference/objects#project",
       "description": "<p>Projects manage issues, pull requests and notes within a project owner.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Closable",
@@ -45328,6 +45414,7 @@
       "id": "projectcard",
       "href": "/graphql/reference/objects#projectcard",
       "description": "<p>A card in a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -45518,6 +45605,7 @@
       "id": "projectcolumn",
       "href": "/graphql/reference/objects#projectcolumn",
       "description": "<p>A column inside a project.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -45786,6 +45874,7 @@
       "id": "projectprogress",
       "href": "/graphql/reference/objects#projectprogress",
       "description": "<p>Project progress stats.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "doneCount",
@@ -53797,6 +53886,7 @@
       "id": "reaction",
       "href": "/graphql/reference/objects#reaction",
       "description": "<p>An emoji reaction to a particular piece of content.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -53919,6 +54009,7 @@
       "id": "reactiongroup",
       "href": "/graphql/reference/objects#reactiongroup",
       "description": "<p>A group of emoji reactions to a particular piece of content.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "content",
@@ -54643,6 +54734,7 @@
       "id": "release",
       "href": "/graphql/reference/objects#release",
       "description": "<p>A release contains the content for a release.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -54996,6 +55088,7 @@
       "id": "releaseasset",
       "href": "/graphql/reference/objects#releaseasset",
       "description": "<p>A release asset contains the content for a release asset.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -55282,6 +55375,7 @@
       "id": "removedfromprojectevent",
       "href": "/graphql/reference/objects#removedfromprojectevent",
       "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -63170,6 +63264,7 @@
       "id": "repositorycontactlink",
       "href": "/graphql/reference/objects#repositorycontactlink",
       "description": "<p>A repository contact link.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "about",
@@ -71666,6 +71761,7 @@
       "id": "transferredevent",
       "href": "/graphql/reference/objects#transferredevent",
       "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -72028,6 +72124,7 @@
       "id": "unlabeledevent",
       "href": "/graphql/reference/objects#unlabeledevent",
       "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -72178,6 +72275,7 @@
       "id": "unpinnedevent",
       "href": "/graphql/reference/objects#unpinnedevent",
       "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -76855,6 +76953,7 @@
       "id": "assignable",
       "href": "/graphql/reference/interfaces#assignable",
       "description": "<p>An object that can have users assigned to it.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "assignedActors",
@@ -77132,6 +77231,7 @@
       "id": "closable",
       "href": "/graphql/reference/interfaces#closable",
       "description": "<p>An object that can be closed.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "closed",
@@ -77168,6 +77268,7 @@
       "id": "comment",
       "href": "/graphql/reference/interfaces#comment",
       "description": "<p>Represents a comment.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "author",
@@ -77542,6 +77643,7 @@
       "id": "issuefieldcommon",
       "href": "/graphql/reference/interfaces#issuefieldcommon",
       "description": "<p>Common fields across different issue field types.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "createdAt",
@@ -77585,6 +77687,7 @@
       "id": "issuefieldvaluecommon",
       "href": "/graphql/reference/interfaces#issuefieldvaluecommon",
       "description": "<p>Common fields across different issue field value types.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "field",
@@ -77600,6 +77703,7 @@
       "id": "labelable",
       "href": "/graphql/reference/interfaces#labelable",
       "description": "<p>An object that can have labels assigned to it.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "labels",
@@ -77669,6 +77773,7 @@
       "id": "lockable",
       "href": "/graphql/reference/interfaces#lockable",
       "description": "<p>An object that can be locked.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "activeLockReason",
@@ -78058,6 +78163,7 @@
       "id": "pinnable",
       "href": "/graphql/reference/interfaces#pinnable",
       "description": "<p>Entities that can be pinned.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isPinned",
@@ -78298,6 +78404,7 @@
       "id": "projectowner",
       "href": "/graphql/reference/interfaces#projectowner",
       "description": "<p>Represents an owner of a Project.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -78731,6 +78838,7 @@
       "id": "reactable",
       "href": "/graphql/reference/interfaces#reactable",
       "description": "<p>Represents a subject that can be reacted on.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "databaseId",
@@ -80440,6 +80548,7 @@
       "id": "updatablecomment",
       "href": "/graphql/reference/interfaces#updatablecomment",
       "description": "<p>Comments that can be updated.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "viewerCannotUpdateReasons",
@@ -80710,6 +80819,7 @@
       "id": "commentauthorassociation",
       "href": "/graphql/reference/enums#commentauthorassociation",
       "description": "<p>A comment author association with repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COLLABORATOR",
@@ -80750,6 +80860,7 @@
       "id": "commentcannotupdatereason",
       "href": "/graphql/reference/enums#commentcannotupdatereason",
       "description": "<p>The possible errors that will prevent a user from updating a comment.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ARCHIVED",
@@ -81914,6 +82025,7 @@
       "id": "issueclosedstatereason",
       "href": "/graphql/reference/enums#issueclosedstatereason",
       "description": "<p>The possible state reasons of a closed issue.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMPLETED",
@@ -81934,6 +82046,7 @@
       "id": "issuecommentorderfield",
       "href": "/graphql/reference/enums#issuecommentorderfield",
       "description": "<p>Properties by which issue comment connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "UPDATED_AT",
@@ -81946,6 +82059,7 @@
       "id": "issuedependencyorderfield",
       "href": "/graphql/reference/enums#issuedependencyorderfield",
       "description": "<p>Properties by which issue dependencies can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -81962,6 +82076,7 @@
       "id": "issuefielddatatype",
       "href": "/graphql/reference/enums#issuefielddatatype",
       "description": "<p>The type of an issue field.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DATE",
@@ -81986,6 +82101,7 @@
       "id": "issuefieldorderfield",
       "href": "/graphql/reference/enums#issuefieldorderfield",
       "description": "<p>Properties by which issue field connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -82002,6 +82118,7 @@
       "id": "issuefieldsingleselectoptioncolor",
       "href": "/graphql/reference/enums#issuefieldsingleselectoptioncolor",
       "description": "<p>The display color of a single-select field option.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BLUE",
@@ -82042,6 +82159,7 @@
       "id": "issuefieldvisibility",
       "href": "/graphql/reference/enums#issuefieldvisibility",
       "description": "<p>The visibility of an issue field.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -82058,6 +82176,7 @@
       "id": "issueorderfield",
       "href": "/graphql/reference/enums#issueorderfield",
       "description": "<p>Properties by which issue connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMMENTS",
@@ -82078,6 +82197,7 @@
       "id": "issuesearchtype",
       "href": "/graphql/reference/enums#issuesearchtype",
       "description": "<p>Type of issue search performed.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "HYBRID",
@@ -82098,6 +82218,7 @@
       "id": "issuestate",
       "href": "/graphql/reference/enums#issuestate",
       "description": "<p>The possible states of an issue.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -82114,6 +82235,7 @@
       "id": "issuestatereason",
       "href": "/graphql/reference/enums#issuestatereason",
       "description": "<p>The possible state reasons of an issue.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMPLETED",
@@ -82350,6 +82472,7 @@
       "id": "issuetypecolor",
       "href": "/graphql/reference/enums#issuetypecolor",
       "description": "<p>The possible color for an issue type.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BLUE",
@@ -82390,6 +82513,7 @@
       "id": "issuetypeorderfield",
       "href": "/graphql/reference/enums#issuetypeorderfield",
       "description": "<p>Properties by which issue type connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -82406,6 +82530,7 @@
       "id": "labelorderfield",
       "href": "/graphql/reference/enums#labelorderfield",
       "description": "<p>Properties by which label connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -82474,6 +82599,7 @@
       "id": "lockreason",
       "href": "/graphql/reference/enums#lockreason",
       "description": "<p>The possible reasons that an issue or pull request was locked.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "OFF_TOPIC",
@@ -82746,6 +82872,7 @@
       "id": "milestoneorderfield",
       "href": "/graphql/reference/enums#milestoneorderfield",
       "description": "<p>Properties by which milestone connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -82770,6 +82897,7 @@
       "id": "milestonestate",
       "href": "/graphql/reference/enums#milestonestate",
       "description": "<p>The possible states of a milestone.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -83518,6 +83646,7 @@
       "id": "projectcardarchivedstate",
       "href": "/graphql/reference/enums#projectcardarchivedstate",
       "description": "<p>The possible archived states of a project card.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ARCHIVED",
@@ -83534,6 +83663,7 @@
       "id": "projectcardstate",
       "href": "/graphql/reference/enums#projectcardstate",
       "description": "<p>Various content states of a ProjectCard.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CONTENT_ONLY",
@@ -83554,6 +83684,7 @@
       "id": "projectcolumnpurpose",
       "href": "/graphql/reference/enums#projectcolumnpurpose",
       "description": "<p>The semantic purpose of the column - todo, in progress, or done.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DONE",
@@ -83574,6 +83705,7 @@
       "id": "projectorderfield",
       "href": "/graphql/reference/enums#projectorderfield",
       "description": "<p>Properties by which project connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -83594,6 +83726,7 @@
       "id": "projectstate",
       "href": "/graphql/reference/enums#projectstate",
       "description": "<p>State of the project; either<code>open</code>or 'closed'.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -83610,6 +83743,7 @@
       "id": "projecttemplate",
       "href": "/graphql/reference/enums#projecttemplate",
       "description": "<p>GitHub-provided templates for Projects.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AUTOMATED_KANBAN_V2",
@@ -84582,6 +84716,7 @@
       "id": "reactioncontent",
       "href": "/graphql/reference/enums#reactioncontent",
       "description": "<p>Emojis that can be attached to Issues, Pull Requests and Comments.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CONFUSED",
@@ -84622,6 +84757,7 @@
       "id": "reactionorderfield",
       "href": "/graphql/reference/enums#reactionorderfield",
       "description": "<p>A list of fields that reactions can be ordered by.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -84650,6 +84786,7 @@
       "id": "releaseorderfield",
       "href": "/graphql/reference/enums#releaseorderfield",
       "description": "<p>Properties by which release connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -85314,6 +85451,7 @@
       "id": "repositorysuggestedactorfilter",
       "href": "/graphql/reference/enums#repositorysuggestedactorfilter",
       "description": "<p>The possible filters for suggested actors in a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CAN_BE_ASSIGNED",
@@ -87346,6 +87484,7 @@
       "id": "trackedissuestates",
       "href": "/graphql/reference/enums#trackedissuestates",
       "description": "<p>The possible states of a tracked issue.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -87496,6 +87635,7 @@
       "id": "assignee",
       "href": "/graphql/reference/unions#assignee",
       "description": "<p>Types that can be assigned to issues.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Bot",
@@ -87765,6 +87905,7 @@
       "id": "issuefieldvalue",
       "href": "/graphql/reference/unions#issuefieldvalue",
       "description": "<p>Issue field values.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "IssueFieldDateValue",
@@ -87793,6 +87934,7 @@
       "id": "issuefields",
       "href": "/graphql/reference/unions#issuefields",
       "description": "<p>Possible issue fields.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "IssueFieldDate",
@@ -87821,6 +87963,7 @@
       "id": "issueorpullrequest",
       "href": "/graphql/reference/unions#issueorpullrequest",
       "description": "<p>Used for return value of Repository.issueOrPullRequest.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Issue",
@@ -87839,6 +87982,7 @@
       "id": "issuetimelineitem",
       "href": "/graphql/reference/unions#issuetimelineitem",
       "description": "<p>An item in an issue timeline.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "AssignedEvent",
@@ -87942,6 +88086,7 @@
       "id": "issuetimelineitems",
       "href": "/graphql/reference/unions#issuetimelineitems",
       "description": "<p>An item in an issue timeline.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "AddedToProjectEvent",
@@ -88205,6 +88350,7 @@
       "id": "milestoneitem",
       "href": "/graphql/reference/unions#milestoneitem",
       "description": "<p>Types that can be inside a Milestone.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Issue",
@@ -88613,6 +88759,7 @@
       "id": "projectcarditem",
       "href": "/graphql/reference/unions#projectcarditem",
       "description": "<p>Types that can be inside Project Cards.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Issue",
@@ -89385,6 +89532,7 @@
       "id": "reactor",
       "href": "/graphql/reference/unions#reactor",
       "description": "<p>Types that can be assigned to reactions.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Bot",
@@ -90725,6 +90873,7 @@
       "id": "agentassignmentinput",
       "href": "/graphql/reference/input-objects#agentassignmentinput",
       "description": "<p>Represents configuration for assigning Copilot to an issue (public variant).</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "baseRef",
@@ -95785,6 +95934,7 @@
       "id": "issuecommentorder",
       "href": "/graphql/reference/input-objects#issuecommentorder",
       "description": "<p>Ways in which lists of issue comments can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95807,6 +95957,7 @@
       "id": "issuedependencyorder",
       "href": "/graphql/reference/input-objects#issuedependencyorder",
       "description": "<p>Ordering options issue dependencies.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95829,6 +95980,7 @@
       "id": "issuefieldcreateorupdateinput",
       "href": "/graphql/reference/input-objects#issuefieldcreateorupdateinput",
       "description": "<p>Represents an issue field value that must be set on an issue during issue creation.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "dateValue",
@@ -95879,6 +96031,7 @@
       "id": "issuefieldorder",
       "href": "/graphql/reference/input-objects#issuefieldorder",
       "description": "<p>Ordering options for issue field connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95901,6 +96054,7 @@
       "id": "issuefieldsingleselectoptioninput",
       "href": "/graphql/reference/input-objects#issuefieldsingleselectoptioninput",
       "description": "<p>A single selection option for an issue field.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "color",
@@ -95937,6 +96091,7 @@
       "id": "issuefilters",
       "href": "/graphql/reference/input-objects#issuefilters",
       "description": "<p>Ways in which to filter lists of issues.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "assignee",
@@ -96015,6 +96170,7 @@
       "id": "issueorder",
       "href": "/graphql/reference/input-objects#issueorder",
       "description": "<p>Ways in which lists of issues can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -96037,6 +96193,7 @@
       "id": "issuetypeorder",
       "href": "/graphql/reference/input-objects#issuetypeorder",
       "description": "<p>Ordering options for issue types connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -96059,6 +96216,7 @@
       "id": "labelorder",
       "href": "/graphql/reference/input-objects#labelorder",
       "description": "<p>Ways in which lists of labels can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -96543,6 +96701,7 @@
       "id": "milestoneorder",
       "href": "/graphql/reference/input-objects#milestoneorder",
       "description": "<p>Ordering options for milestone connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -96917,6 +97076,7 @@
       "id": "projectcardimport",
       "href": "/graphql/reference/input-objects#projectcardimport",
       "description": "<p>An issue or PR and its owning repository to be used in a project card.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "number",
@@ -96939,6 +97099,7 @@
       "id": "projectcolumnimport",
       "href": "/graphql/reference/input-objects#projectcolumnimport",
       "description": "<p>A project column and a list of its issues and PRs.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "columnName",
@@ -96968,6 +97129,7 @@
       "id": "projectorder",
       "href": "/graphql/reference/input-objects#projectorder",
       "description": "<p>Ways in which lists of projects can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -97481,6 +97643,7 @@
       "id": "reactionorder",
       "href": "/graphql/reference/input-objects#reactionorder",
       "description": "<p>Ways in which lists of reactions can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -97666,6 +97829,7 @@
       "id": "releaseorder",
       "href": "/graphql/reference/input-objects#releaseorder",
       "description": "<p>Ways in which lists of releases can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
