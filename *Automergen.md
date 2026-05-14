@@ -1,3 +1,6 @@
+
+
+/*
 ---
 title: Automatically merging a pull request
 intro: You can increase development velocity by enabling auto-merge for a pull request so that the pull request will merge automatically when all merge requirements are met.
