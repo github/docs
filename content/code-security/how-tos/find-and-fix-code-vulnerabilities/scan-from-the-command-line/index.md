@@ -14,6 +14,7 @@ children:
   - /testing-query-help-files
   - /download-databases
   - /check-out-source-code
+  - /incremental-analysis
   - /specifying-command-options-in-a-codeql-configuration-file
   - /creating-database-bundle-for-troubleshooting
 redirect_from:
