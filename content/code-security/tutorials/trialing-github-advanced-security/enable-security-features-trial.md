@@ -28,7 +28,6 @@ When you planned your trial, you identified the features that you want to test a
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.advanced-security-tab %}
 1. Click **New configuration** to create a new configuration.
-1. To configure groups of security features for your repositories, click **Custom configuration**.
 1. Give the configuration a meaningful name and description.
 1. You will see that most features are already enabled. Review the features that are **Not set** and enable any that you want to trial, for example: "Automatic dependency submission."
 1. In the "Policy" area, set the "Use as default for newly created repositories" option as needed to define whether or not to apply the configuration to new repositories created in the enterprise.
@@ -64,7 +63,7 @@ You may find it helpful to apply an enterprise security configuration to all rep
 1. Click the **Settings** tab to display the organization settings.
 1. In the sidebar, click **{% data variables.product.UI_advanced_security %}** and then **Configurations** to display the security configurations page.
 1. Optionally, select the **Apply to** dropdown menu and click either **All repositories**, to apply any configuration to all repositories in the organization, or **All repositories without configurations**, to configure just the repositories in the organization without an existing security configuration.
-1. Optionally, in the "Apply configurations" section use the "Search repositories" field or **Filter** button to filter repositories. Then select one or more repositories and use the **Apply configuration** button to choose a configuration to apply to those repositories.
+1. Optionally, click the **Repositories** tab, then in the "Apply configurations" section, use the "Search repositories" field or **Filter** button to filter repositories. Then select one or more repositories and use the **Apply configuration** button to choose a configuration to apply to those repositories.
 
 For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
 

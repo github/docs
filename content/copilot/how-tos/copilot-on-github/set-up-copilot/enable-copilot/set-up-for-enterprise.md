@@ -49,7 +49,3 @@ If your enterprise is on {% data variables.enterprise.data_residency_site %}, us
 {% data reusables.copilot.enterprise-licensing %}
 
 For instructions, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
-
-## Next steps
-
-{% data reusables.copilot.setup-next-steps %}

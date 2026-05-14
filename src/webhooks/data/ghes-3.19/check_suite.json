@@ -1152,6 +1152,15 @@
                   },
                   {
                     "type": "string",
+                    "name": "code_quality",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
                     "name": "content_references",
                     "description": "",
                     "enum": [
@@ -2078,6 +2087,15 @@
                   {
                     "type": "string",
                     "name": "checks",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "code_quality",
                     "description": "",
                     "enum": [
                       "read",

@@ -26,10 +26,11 @@ You’ll configure repository-scoped hooks that:
 
 ## Prerequisites
 
-* Familiarity with shell scripting (Bash or PowerShell)
-* Basic understanding of JSON configuration files
-* Access to a repository where {% data variables.copilot.copilot_cli_short %} is used
-* `jq` installed (for the Bash examples)
+* Familiarity with shell scripting (Bash or PowerShell).
+* Basic understanding of JSON configuration files.
+* Access to a repository where {% data variables.copilot.copilot_cli_short %} is used.
+* For the Bash examples: `jq` must be installed.
+* For the PowerShell examples: PowerShell 7.0 or later must be installed.
 
 ## 1. Define an organizational policy
 
@@ -79,7 +80,7 @@ Clear expectations make policy enforcement easier to adopt and maintain.
 Throughout this tutorial, you’ll use **repository-scoped hooks** stored in the repository under `.github/hooks/`. These hooks apply whenever {% data variables.copilot.copilot_cli_short %} runs from within this repository.
 
 > [!NOTE]
-> {% data variables.product.prodname_copilot_short %} agents load hook configuration files from `.github/hooks/*.json` in the repository. Hooks run synchronously and can block execution.
+> {% data variables.product.prodname_copilot_short %} agents load hook configurations from `.github/hooks/*.json` files in the repository. Hooks run synchronously and can block execution.
 
 ### Create the directory structure
 
@@ -112,6 +113,9 @@ This tutorial uses the following structure:
         ├── pre-tool-policy.sh
         └── pre-tool-policy.ps1
 ```
+
+> [!NOTE]
+> This tutorial seeks to create portable hook configurations and scripts that can be used on Windows, Linux, and macOS. The `scripts` directory will therefore contain both Bash and PowerShell scripts, and the hook configuration files will include `bash` and `powershell` entries. The CLI will use the appropriate entry based on your operating system.
 
 ### Create a hook configuration file
 

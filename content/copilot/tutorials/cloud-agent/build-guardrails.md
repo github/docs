@@ -72,7 +72,3 @@ Review the default permissions for the `GITHUB_TOKEN` in your enterprise. See [A
 This policy does **not** affect the token that {% data variables.product.prodname_copilot_short %} will receive for its sessions, but the `GITHUB_TOKEN` _is_ used in environment setup steps defined in `copilot-setup-steps.yml` workflow files.
 
 Bear in mind that developers will be able to set their own `permissions` in these workflow files, and you should encourage them to use the minimum required permissions in all workflows.
-
-## Next steps
-
-When you're ready to enable {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/manage-copilot-coding-agent).

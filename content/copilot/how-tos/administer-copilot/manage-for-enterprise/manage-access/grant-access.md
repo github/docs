@@ -62,11 +62,4 @@ If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} p
        * If your enterprise has a {% data variables.copilot.copilot_business_short %} plan, click **Enabled**.
        * If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, click either **Copilot: Enterprise** or **Copilot: Business** to assign a specific Copilot plan to the organization.
 
-### Next steps
-
 After you've enabled {% data variables.product.prodname_copilot_short %} for an organization in your enterprise, owners of the organization can grant access to some or all members of the organization. See [AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization).
-
-## Further reading
-
-* [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
-* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)

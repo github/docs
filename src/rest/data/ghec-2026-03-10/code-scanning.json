@@ -5589,7 +5589,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets the status and description of an autofix for a code scanning alert.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "descriptionHTML": "<p>Gets the status and description of an autofix for a code scanning alert on the repository's default branch.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5922,7 +5922,7 @@
           "description": "<p>Commit message to be used.</p>"
         }
       ],
-      "descriptionHTML": "<p>Commits an autofix for a code scanning alert.</p>\n<p>If an autofix is committed as a result of this request, then this endpoint will return a 201 Created response.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
+      "descriptionHTML": "<p>Commits an autofix for a code scanning alert from the repository's default branch.</p>\n<p>If an autofix is committed as a result of this request, then this endpoint will return a 201 Created response.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
           "request": {

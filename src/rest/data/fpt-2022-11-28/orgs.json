@@ -1694,6 +1694,14 @@
                               "write"
                             ]
                           },
+                          "code_quality": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to view and manage code quality data.",
+                            "enum": [
+                              "read",
+                              "write"
+                            ]
+                          },
                           "codespaces": {
                             "type": "string",
                             "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -21090,7 +21098,7 @@
                             "integer",
                             "null"
                           ],
-                          "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
+                          "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
                         },
                         "actor_type": {
                           "type": "string",
@@ -21099,7 +21107,8 @@
                             "OrganizationAdmin",
                             "RepositoryRole",
                             "Team",
-                            "DeployKey"
+                            "DeployKey",
+                            "User"
                           ],
                           "description": "The type of actor that can bypass a ruleset."
                         },
@@ -22431,7 +22440,7 @@
             {
               "type": "integer or null",
               "name": "actor_id",
-              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, and <code>Team</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. <code>OrganizationAdmin</code> is not applicable for personal repositories.</p>"
+              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, <code>Team</code>, and <code>User</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. <code>OrganizationAdmin</code> is not applicable for personal repositories.</p>"
             },
             {
               "type": "string",
@@ -22443,7 +22452,8 @@
                 "OrganizationAdmin",
                 "RepositoryRole",
                 "Team",
-                "DeployKey"
+                "DeployKey",
+                "User"
               ]
             },
             {
@@ -23643,7 +23653,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -23652,7 +23662,8 @@
                           "OrganizationAdmin",
                           "RepositoryRole",
                           "Team",
-                          "DeployKey"
+                          "DeployKey",
+                          "User"
                         ],
                         "description": "The type of actor that can bypass a ruleset."
                       },
@@ -25097,7 +25108,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -25106,7 +25117,8 @@
                           "OrganizationAdmin",
                           "RepositoryRole",
                           "Team",
-                          "DeployKey"
+                          "DeployKey",
+                          "User"
                         ],
                         "description": "The type of actor that can bypass a ruleset."
                       },
@@ -26443,7 +26455,7 @@
             {
               "type": "integer or null",
               "name": "actor_id",
-              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, and <code>Team</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. <code>OrganizationAdmin</code> is not applicable for personal repositories.</p>"
+              "description": "<p>The ID of the actor that can bypass a ruleset. Required for <code>Integration</code>, <code>RepositoryRole</code>, <code>Team</code>, and <code>User</code> actor types. If <code>actor_type</code> is <code>OrganizationAdmin</code>, <code>actor_id</code> is ignored. If <code>actor_type</code> is <code>DeployKey</code>, this should be null. <code>OrganizationAdmin</code> is not applicable for personal repositories.</p>"
             },
             {
               "type": "string",
@@ -26455,7 +26467,8 @@
                 "OrganizationAdmin",
                 "RepositoryRole",
                 "Team",
-                "DeployKey"
+                "DeployKey",
+                "User"
               ]
             },
             {
@@ -27656,7 +27669,7 @@
                           "integer",
                           "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, `Team`, and `User` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
                       },
                       "actor_type": {
                         "type": "string",
@@ -27665,7 +27678,8 @@
                           "OrganizationAdmin",
                           "RepositoryRole",
                           "Team",
-                          "DeployKey"
+                          "DeployKey",
+                          "User"
                         ],
                         "description": "The type of actor that can bypass a ruleset."
                       },

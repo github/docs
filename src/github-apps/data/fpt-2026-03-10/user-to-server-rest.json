@@ -1281,6 +1281,188 @@
       "requestPath": "/users/{username}/subscriptions"
     }
   ],
+  "agents": [
+    {
+      "slug": "list-organization-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/secrets"
+    },
+    {
+      "slug": "get-an-organization-public-key",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/secrets/public-key"
+    },
+    {
+      "slug": "get-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "create-or-update-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "delete-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-selected-repositories-for-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories"
+    },
+    {
+      "slug": "set-selected-repositories-for-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories"
+    },
+    {
+      "slug": "add-selected-repository-to-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-selected-repository-from-an-organization-secret",
+      "subcategory": "secrets",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id}"
+    },
+    {
+      "slug": "list-organization-variables",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/variables"
+    },
+    {
+      "slug": "create-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/agents/variables"
+    },
+    {
+      "slug": "get-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/variables/{name}"
+    },
+    {
+      "slug": "update-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/agents/variables/{name}"
+    },
+    {
+      "slug": "delete-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/agents/variables/{name}"
+    },
+    {
+      "slug": "list-selected-repositories-for-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/agents/variables/{name}/repositories"
+    },
+    {
+      "slug": "set-selected-repositories-for-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/variables/{name}/repositories"
+    },
+    {
+      "slug": "add-selected-repository-to-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/agents/variables/{name}/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/agents/variables/{name}/repositories/{repository_id}"
+    },
+    {
+      "slug": "list-repository-organization-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/organization-secrets"
+    },
+    {
+      "slug": "list-repository-organization-variables",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/organization-variables"
+    },
+    {
+      "slug": "list-repository-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets"
+    },
+    {
+      "slug": "get-a-repository-public-key",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets/public-key"
+    },
+    {
+      "slug": "get-a-repository-secret",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "create-or-update-a-repository-secret",
+      "subcategory": "secrets",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "delete-a-repository-secret",
+      "subcategory": "secrets",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-repository-variables",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables"
+    },
+    {
+      "slug": "create-a-repository-variable",
+      "subcategory": "variables",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables"
+    },
+    {
+      "slug": "get-a-repository-variable",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}"
+    },
+    {
+      "slug": "update-a-repository-variable",
+      "subcategory": "variables",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}"
+    },
+    {
+      "slug": "delete-a-repository-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}"
+    }
+  ],
   "apps": [
     {
       "slug": "get-an-app",

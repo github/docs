@@ -34,6 +34,7 @@ export interface JourneyTrack {
   id: string
   title: string
   description?: string
+  timeCommitment?: string
   guides: Array<{
     href: string
     title: string
@@ -50,6 +51,7 @@ type JourneyPage = {
     id: string
     title: string
     description?: string
+    timeCommitment?: string
     guides: Array<{
       href: string
       alternativeNextStep?: string
@@ -329,6 +331,11 @@ export async function resolveJourneyTracks(
           ? await renderContent(track.description, context, { textOnly: true })
           : track.description
 
+      const renderedTimeCommitment =
+        track.timeCommitment && needsRendering(track.timeCommitment)
+          ? await renderContent(track.timeCommitment, context, { textOnly: true })
+          : track.timeCommitment
+
       const guides = (
         await Promise.all(
           track.guides.map(async (guide: { href: string; alternativeNextStep?: string }) => {
@@ -346,6 +353,7 @@ export async function resolveJourneyTracks(
         id: track.id,
         title: renderedTitle,
         description: renderedDescription,
+        timeCommitment: renderedTimeCommitment,
         guides,
       }
     }),

@@ -9,9 +9,9 @@ category:
   - Follow the style guide and content model
 ---
 
-## Conceptual article template
+## Concepts article template
 
-Use the content model for full instructions and examples on how to write conceptual content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/conceptual-content-type).
+Use the content model for full instructions and examples on how to write conceptual content. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/concepts-content-type).
 
 <!-- markdownlint-disable search-replace -->
 
@@ -27,7 +27,7 @@ versions:
 ---
 
 {% comment %}
-- Follow the guidelines in https://docs.github.com/contributing/writing-for-github-docs/content-model#conceptual to write this article.
+- Follow the guidelines in https://docs.github.com/contributing/writing-for-github-docs/content-model to write this article.
 - Great intros give readers a quick understanding of what's in the article, so they can tell whether it's relevant to them before moving ahead. For more tips, see https://docs.github.com/contributing/writing-for-github-docs/content-model
 - For product callout info, see https://github.com/github/docs/tree/main/content#product
 - For product version instructions, see https://github.com/github/docs/tree/main/content#versioning

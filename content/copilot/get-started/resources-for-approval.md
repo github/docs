@@ -68,7 +68,3 @@ Even if you're only using {% data variables.product.github %} to grant access to
 ## Further questions
 
 If teams have questions that aren't addressed by these resources, contact your account manager or {% data variables.contact.contact_enterprise_sales %}.
-
-## Next steps
-
-Once teams have signed off on {% data variables.product.prodname_copilot_short %}, you can choose a plan for your enterprise. See [AUTOTITLE](/copilot/get-started/choose-enterprise-plan).

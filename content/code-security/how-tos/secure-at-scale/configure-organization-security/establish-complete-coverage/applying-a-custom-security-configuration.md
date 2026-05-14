@@ -24,6 +24,7 @@ After you create a {% data variables.product.prodname_custom_security_configurat
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
+1. Click the **Repositories** tab.
 1. Optionally, in the "Apply configurations" section, filter for specific repositories you would like to apply your {% data variables.product.prodname_custom_security_configuration %} to. To learn how to filter the repository table, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table).
 {% data reusables.security-configurations.select-repos %}
 1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **YOUR-CONFIGURATION-NAME**.

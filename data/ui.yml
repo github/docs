@@ -1,5 +1,6 @@
 meta:
   default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
+
 header:
   github_docs: GitHub Docs
   contact: Contact
@@ -18,12 +19,15 @@ header:
   menu: Menu
   open_menu_label: Open menu
   go_home: Home
+
 picker:
   language_picker_label: Language
   product_picker_default_text: All products
   version_picker_default_text: Choose a version
+
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
+
 search:
   input:
     placeholder: Search or ask {{icon}} Copilot
@@ -70,10 +74,12 @@ search:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
+
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
   label: Search GitHub Docs
+
 search_results:
   search_results_for: Search results for
   matches_displayed: Matches displayed
@@ -81,16 +87,19 @@ search_results:
   search_validation_error: Validation error with search query
   filter: Filter
   clear_filter: Clear
+
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
   description: Help for wherever you are on your GitHub journey.
+
 toc:
   getting_started: Getting started
   popular: Popular
   startHere: Start here
   whats_new: What's new
   all_changelogs: All changelog posts
+
 pages:
   article_version: 'Article version'
   miniToc: In this article
@@ -106,10 +115,12 @@ pages:
   more_markdown_options: More Markdown options
   opens_in_new_tab: (opens in new tab)
   copied: Copied!
+
 support:
   still_need_help: Still need help?
   contact_support: Contact support
   ask_community: Ask the GitHub community
+
 survey:
   able_to_find: Did you find what you needed?
   yes: Yes
@@ -125,11 +136,13 @@ survey:
   not_support: If you need a reply, please contact <a href="https://support.github.com/">support</a>.
   privacy_policy: Privacy policy
   server_error: Unable to process comment at the moment. Please try again.
+
 contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
   button: Make a contribution
   to_guidelines: Learn how to contribute
+
 parameter_table:
   body: Body parameters
   webhook-body: Webhook request body parameters
@@ -145,11 +158,13 @@ parameter_table:
   see_preview_notices: See preview notices
   type: Type
   single_enum_description: Value
+
 audit_logs:
   action: Action
   description: Description
   fields: Fields
   reference: Reference
+
 graphql:
   reference:
     implements: <code>{{ GraphQLItemTitle }}</code> Implements
@@ -172,6 +187,7 @@ graphql:
     preview_schema_members: 'Previewed schema members'
     announced: Announced
     updates: Updates
+
 rest:
   banner:
     api_versioned: The REST API is now versioned.
@@ -192,38 +208,13 @@ rest:
       uat: UAT
       iat: IAT
   screen_reader_text_checkmark_icon: Multiple permissions are required, or a different permission may be used. For more information about the permissions, see the documentation for this endpoint.
+
 rest_reference:
   in: In
   description: Description
   notes: Notes
   parameters: Parameters for "{{ RESTOperationTitle }}"
   response: Response
-secret_scanning:
-  search_placeholder: Search by provider or secret name...
-  search_aria_label: Search patterns
-  filter_aria_label: Filter secret scanning patterns
-  filter_push_protection: 'Push protection'
-  filter_validity_check: 'Validity check'
-  filter_partner_alert: 'Partner alert'
-  filter_metadata: Metadata check
-  filter_base64: Base64
-  filter_all: All
-  filter_yes: 'Yes'
-  filter_no: 'No'
-  showing_patterns: 'Showing {filtered} of {total} patterns'
-  column_provider: Provider
-  column_secret: Secret
-  column_partner: Partner
-  column_user_alert: User alert
-  column_push_protection: Push protection
-  column_validity_check: Validity check
-  column_metadata: Metadata check
-  column_base64: Base64
-  bool_yes: 'Yes'
-  bool_no: 'No'
-  token_versions: Token versions
-  table_title: Supported patterns
-  pagination_label: Secret scanning patterns pagination
   request_example: Request example
   request_examples: Request examples
   example_response: Example response
@@ -266,6 +257,34 @@ secret_scanning:
   no_fine_grained_access: This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
   basic_auth_heading: Basic authentication for "{{ RESTOperationTitle }}"
   basic_auth: You must use <a href="/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication">Basic Authentication</a> to use this endpoint. Use the application's <code>client_id</code> as the username and the <code>client_secret</code> as the password.
+
+secret_scanning:
+  search_placeholder: Search by provider or secret name...
+  search_aria_label: Search patterns
+  filter_aria_label: Filter secret scanning patterns
+  filter_push_protection: 'Push protection'
+  filter_validity_check: 'Validity check'
+  filter_partner_alert: 'Partner alert'
+  filter_metadata: Metadata check
+  filter_base64: Base64
+  filter_all: All
+  filter_yes: 'Yes'
+  filter_no: 'No'
+  showing_patterns: 'Showing {filtered} of {total} patterns'
+  column_provider: Provider
+  column_secret: Secret
+  column_partner: Partner
+  column_user_alert: User alert
+  column_push_protection: Push protection
+  column_validity_check: Validity check
+  column_metadata: Metadata check
+  column_base64: Base64
+  bool_yes: 'Yes'
+  bool_no: 'No'
+  token_versions: Token versions
+  table_title: Supported patterns
+  pagination_label: Secret scanning patterns pagination
+
 webhooks:
   action_type_switch_error: There was an error switching webhook action types.
   action_type: Action type
@@ -279,6 +298,7 @@ webhooks:
     business: Enterprises
     marketplace: GitHub Marketplace
     sponsors_listing: Sponsored accounts
+
 footer:
   support_heading: Help and support
   legal_heading: Legal
@@ -290,9 +310,11 @@ footer:
   expert_services: Expert services
   blog: Blog
   machine: Some of this content may be machine- or AI-translated.
+
 journey_landing:
   articles: '{{ number }} Articles'
   articles_heading: Articles
+
 product_landing:
   article_grid:
     heading: Articles
@@ -332,15 +354,19 @@ product_landing:
   view: View all
   all_docs: 'All {{ title }} docs'
   all_content: 'View all {{ title }} content'
+
 journey_track_nav:
   prev_article: Previous
   next_article: Next
   more_articles: More articles →
   current_progress: 'Article {i} of {n}'
+
 scroll_button:
   scroll_to_top: Scroll to top
+
 popovers:
   role_description: hovercard link
+
 alerts:
   NOTE: Note
   IMPORTANT: Important

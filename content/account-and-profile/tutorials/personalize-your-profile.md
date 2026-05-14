@@ -124,7 +124,7 @@ You can set a status to display information about your current availability.
 
 ## Next steps
 
-* To learn more about GitHub profiles, see [AUTOTITLE](/account-and-profile/concepts/about-your-profile).
+* To learn more about GitHub profiles, see [AUTOTITLE](/account-and-profile/concepts/personal-profile).
 
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference).
 
