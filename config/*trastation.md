@@ -1,3 +1,6 @@
+
+
+*
 # Translation of New Developers/Introduction to the Wikimedia Technical Ecosystem to English (English)
 # Exported from MediaWiki
 #
