@@ -47,6 +47,7 @@ contentType: how-tos
 > [!NOTE]
 > * Creation of an environment in a private repository is available to organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %}.
 > * Some features for environments have no or limited availability for private repositories. If you are unable to access a feature described in the instructions below, please see the documentation linked in the related step for availability information.
+> * Environment names are used in the actions workflow `yml` file: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idenvironment
 
 {% endif %}
 
