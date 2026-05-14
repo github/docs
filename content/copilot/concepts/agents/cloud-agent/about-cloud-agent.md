@@ -20,10 +20,9 @@ contentType: concepts
 category:
   - Learn about Copilot
 ---
-<!-- expires 2026-04-21 -->
-<!-- When this expires, search all references to {% data variables.copilot.copilot_cloud_agent_tmp %} in docs-internal and replace with {% data variables.copilot.copilot_cloud_agent %} -->
-## Overview of {% data variables.copilot.copilot_cloud_agent_tmp %}
-<!-- end expires 2026-04-21 -->
+
+## Overview of {% data variables.copilot.copilot_cloud_agent %}
+
 With {% data variables.copilot.copilot_cloud_agent %}, {% data variables.product.prodname_copilot %} can work independently in the background to complete tasks, just like a human developer.
 
 {% data variables.copilot.copilot_cloud_agent %} can:
@@ -137,7 +136,7 @@ You can customize {% data variables.copilot.copilot_cloud_agent %} in a number o
 * **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
 * **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
 * **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
-* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-hooks).
+* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. For more information, see [AUTOTITLE](/copilot/concepts/agents/hooks).
 * **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
 ## Limitations of {% data variables.copilot.copilot_cloud_agent %}

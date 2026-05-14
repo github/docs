@@ -22,8 +22,15 @@ vi.mock('@/journeys/lib/get-link-data', () => ({
 
 const mockGetLinkData = vi.mocked(getLinkData)
 
+const mockRenderContent = vi.fn(async (content: string, _context?: unknown, _options?: unknown) => {
+  void _context
+  void _options
+  return content
+})
+
 vi.mock('@/content-render/index', () => ({
-  renderContent: async (content: string) => content,
+  renderContent: (content: string, context?: unknown, options?: unknown) =>
+    mockRenderContent(content, context, options),
 }))
 
 vi.mock('@/languages/lib/render-with-fallback', () => ({
@@ -204,6 +211,7 @@ describe('journey-path-resolver', () => {
         id: 'getting_started',
         title: 'Getting started with {% data variables.product.company_short %}',
         description: 'Learn the {% data variables.product.company_short %} basics',
+        timeCommitment: '{% data variables.product.company_short %} 2-4 hours',
         guides: [
           { href: '/enterprise-onboarding/setup' },
           { href: '/enterprise-onboarding/config' },
@@ -213,6 +221,7 @@ describe('journey-path-resolver', () => {
         id: 'advanced',
         title: 'Advanced configuration',
         description: 'Advanced topics for experts',
+        timeCommitment: '4-6 hours',
         guides: [{ href: '/enterprise-onboarding/advanced-setup' }],
       },
     ]
@@ -235,6 +244,27 @@ describe('journey-path-resolver', () => {
       expect(result[0].description).toBe(
         'Learn the {% data variables.product.company_short %} basics',
       )
+    })
+
+    test('propagates timeCommitment and renders Liquid with textOnly like title/description', async () => {
+      mockRenderContent.mockClear()
+      const result = await resolveJourneyTracks(mockJourneyTracks, mockContext)
+
+      // Liquid value passes through the (passthrough) renderer; plain string is unchanged
+      expect(result[0].timeCommitment).toBe('{% data variables.product.company_short %} 2-4 hours')
+      expect(result[1].timeCommitment).toBe('4-6 hours')
+
+      // The Liquid-bearing timeCommitment should be rendered with { textOnly: true },
+      // matching how title/description are rendered.
+      const timeCommitmentCall = mockRenderContent.mock.calls.find(
+        ([content]) => content === '{% data variables.product.company_short %} 2-4 hours',
+      )
+      expect(timeCommitmentCall).toBeDefined()
+      expect(timeCommitmentCall?.[2]).toEqual({ textOnly: true })
+
+      // Plain (non-Liquid) timeCommitment should not be sent through renderContent
+      const plainCall = mockRenderContent.mock.calls.find(([content]) => content === '4-6 hours')
+      expect(plainCall).toBeUndefined()
     })
 
     test('resolves guide links with proper versioning', async () => {
@@ -275,6 +305,7 @@ describe('journey-path-resolver', () => {
       const result = await resolveJourneyTracks(trackWithoutDescription, mockContext)
 
       expect(result[0].description).toBeUndefined()
+      expect(result[0].timeCommitment).toBeUndefined()
     })
   })
 

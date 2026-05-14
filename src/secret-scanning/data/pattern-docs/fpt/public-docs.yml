@@ -2042,6 +2042,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: Elastic
+  supportedSecret: Elastic Stack API Key
+  secretType: elastic_stack_api_key, </br>elastic_stack_environment
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: true
+  isduplicate: true
 - provider: Facebook
   supportedSecret: Facebook Access Token
   secretType: facebook_access_token
@@ -4442,7 +4452,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: true
+  hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true

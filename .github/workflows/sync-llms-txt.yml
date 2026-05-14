@@ -80,7 +80,8 @@ jobs:
           REPO="github/docs-internal"
           if gh api "repos/$REPO/git/ref/heads/$BRANCH" --jq '.object.sha' > /dev/null 2>&1; then
             echo "Branch $BRANCH exists, fetching"
-            git fetch origin "$BRANCH"
+            git -c url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf="https://github.com/" \
+              fetch origin "$BRANCH"
             git checkout "$BRANCH"
           else
             echo "Branch $BRANCH does not exist, creating from main"

@@ -220,6 +220,12 @@ export const schema: Schema = {
             translatable: true,
             description: 'Optional description for the journey track',
           },
+          timeCommitment: {
+            type: 'string',
+            translatable: true,
+            description:
+              'Optional time commitment displayed as metadata for the track (e.g. "2-4 hours")',
+          },
           guides: {
             type: 'array',
             items: {

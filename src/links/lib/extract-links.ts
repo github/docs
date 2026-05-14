@@ -57,13 +57,34 @@ export interface LinkExtractionResult {
 }
 
 /**
- * Get line and column number for a match in content
+ * Build an array of character offsets at which each line starts.
+ * offsets[0] is always 0. Called once per extractLinksFromMarkdown invocation
+ * so that getLineAndColumn can use binary search instead of repeated splits.
  */
-function getLineAndColumn(content: string, matchIndex: number): { line: number; column: number } {
-  const lines = content.substring(0, matchIndex).split('\n')
-  const line = lines.length
-  const column = lines[lines.length - 1].length + 1
-  return { line, column }
+function buildLineOffsets(content: string): number[] {
+  const offsets = [0]
+  for (let i = 0; i < content.length; i++) {
+    if (content[i] === '\n') offsets.push(i + 1)
+  }
+  return offsets
+}
+
+/**
+ * Get line and column number for a match using a precomputed line-offset index.
+ * Binary search gives O(log L) per call instead of O(matchIndex).
+ */
+function getLineAndColumn(
+  lineOffsets: number[],
+  matchIndex: number,
+): { line: number; column: number } {
+  let lo = 0
+  let hi = lineOffsets.length - 1
+  while (lo < hi) {
+    const mid = (lo + hi + 1) >> 1
+    if (lineOffsets[mid] <= matchIndex) lo = mid
+    else hi = mid - 1
+  }
+  return { line: lo + 1, column: matchIndex - lineOffsets[lo] + 1 }
 }
 
 /**
@@ -109,10 +130,13 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
     },
   )
 
+  // Precompute line-start offsets once so every getLineAndColumn call is O(log L).
+  const lineOffsets = buildLineOffsets(strippedContent)
+
   // Extract AUTOTITLE links first (they're a special case of internal links)
   let match
   while ((match = AUTOTITLE_LINK_PATTERN.exec(strippedContent)) !== null) {
-    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const href = match[1].split('#')[0] // Remove anchor if present
     if (href.startsWith('/')) {
       internalLinks.push({
@@ -136,7 +160,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
       continue
     }
 
-    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    const { line, column } = getLineAndColumn(lineOffsets, match.index)
     // Extract href from ](/path) format
     const href = fullMatch.substring(2, fullMatch.length - 1).split('#')[0]
     const text = extractLinkText(strippedContent, match.index)
@@ -155,7 +179,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
 
   // Extract external links
   while ((match = EXTERNAL_LINK_PATTERN.exec(strippedContent)) !== null) {
-    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const href = match[1]
     const text = extractLinkText(strippedContent, match.index)
 
@@ -172,7 +196,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
 
   // Extract anchor links
   while ((match = ANCHOR_LINK_PATTERN.exec(strippedContent)) !== null) {
-    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const href = match[0].substring(2, match[0].length - 1)
 
     anchorLinks.push({
@@ -188,7 +212,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
 
   // Extract image links
   while ((match = IMAGE_LINK_PATTERN.exec(strippedContent)) !== null) {
-    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const href = match[1]
 
     // Only include internal images (starting with /)
@@ -208,7 +232,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   // Extract reference-style link definitions ([id]: /path)
   // These are distinct from inline links but point to the same targets that need validating.
   while ((match = LINK_DEFINITION_PATTERN.exec(strippedContent)) !== null) {
-    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    const { line, column } = getLineAndColumn(lineOffsets, match.index)
     const href = match[1].split('#')[0]
     internalLinks.push({
       href,
@@ -223,7 +247,7 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
 
   // Extract links whose href starts with a Liquid tag
   while ((match = LIQUID_HREF_PATTERN.exec(strippedContent)) !== null) {
-    const { line, column } = getLineAndColumn(strippedContent, match.index)
+    const { line, column } = getLineAndColumn(lineOffsets, match.index)
     liquidPrefixedLinks.push({
       href: match[1],
       line,
@@ -274,6 +298,18 @@ export function createLiquidContext(
   } as Context
 }
 
+// Cached reference to renderLiquid — avoids repeated dynamic-import overhead on every call.
+// A dynamic import is still used (not a top-level import) to prevent circular dependency issues.
+type RenderLiquidModule = (template: string, context: unknown) => Promise<string>
+let _renderLiquid: RenderLiquidModule | null = null
+async function getCachedRenderLiquid(): Promise<RenderLiquidModule> {
+  if (!_renderLiquid) {
+    const mod = await import('@/content-render/liquid/index')
+    _renderLiquid = mod.renderLiquid
+  }
+  return _renderLiquid
+}
+
 /**
  * Render Liquid templates in content and extract links
  *
@@ -285,8 +321,8 @@ export async function extractLinksWithLiquid(
   context: Context,
 ): Promise<LinkExtractionResult> {
   try {
-    // Dynamic import to avoid circular dependency issues
-    const { renderLiquid } = await import('@/content-render/liquid/index')
+    // Dynamic import to avoid circular dependency issues (cached after first load)
+    const renderLiquid = await getCachedRenderLiquid()
     // Render Liquid to expand conditionals
     const rendered = await renderLiquid(content, context)
     return extractLinksFromMarkdown(rendered)
@@ -295,6 +331,24 @@ export async function extractLinksWithLiquid(
     // This can happen with malformed templates
     console.warn('Liquid rendering failed, falling back to raw extraction:', error)
     return extractLinksFromMarkdown(content)
+  }
+}
+
+/**
+ * Render Liquid templates in content, returning both the rendered markdown string and
+ * extracted links. Use this when both are needed to avoid rendering the same content twice.
+ */
+export async function renderAndExtractLinks(
+  content: string,
+  context: Context,
+): Promise<{ renderedMarkdown: string; result: LinkExtractionResult }> {
+  try {
+    const renderLiquid = await getCachedRenderLiquid()
+    const renderedMarkdown = await renderLiquid(content, context)
+    return { renderedMarkdown, result: extractLinksFromMarkdown(renderedMarkdown) }
+  } catch (error) {
+    console.warn('Liquid rendering failed, falling back to raw extraction:', error)
+    return { renderedMarkdown: content, result: extractLinksFromMarkdown(content) }
   }
 }
 

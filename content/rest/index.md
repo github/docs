@@ -50,6 +50,7 @@ children:
   - /actions
   - /activity
   - /agent-tasks
+  - /agents
   - /announcement-banners
   - /apps
   - /billing

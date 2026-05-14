@@ -4,12 +4,6 @@ rules:
   dangerous-triggers:
     disable: true
 
-  # gh-aw compiler-generated lock files are not authored by us. Any real
-  # vulnerability fix belongs upstream in the gh-aw compiler.
-  template-injection:
-    ignore:
-      - changelog-agent.lock.yml
-
   # moda-ci uses reusable workflows (uses:) which don't support job-level
   # permissions. id-token:write and attestations:write are needed by docker-image
   # for attestation but can't be scoped to that job alone.

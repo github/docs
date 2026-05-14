@@ -1596,6 +1596,14 @@
                           "write"
                         ]
                       },
+                      "code_quality": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to view and manage code quality data.",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
                       "codespaces": {
                         "type": "string",
                         "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -2548,6 +2556,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -3279,6 +3295,15 @@
             },
             {
               "type": "string",
+              "name": "code_quality",
+              "description": "<p>The level of permission to grant the access token to view and manage code quality data.</p>",
+              "enum": [
+                "read",
+                "write"
+              ]
+            },
+            {
+              "type": "string",
               "name": "codespaces",
               "description": "<p>The level of permission to grant the access token to create, edit, delete, and list Codespaces.</p>",
               "enum": [
@@ -3928,6 +3953,14 @@
                     "checks": {
                       "type": "string",
                       "description": "The level of permission to grant the access token for checks on code.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
                       "enum": [
                         "read",
                         "write"
@@ -5266,6 +5299,15 @@
             },
             {
               "type": "string",
+              "name": "code_quality",
+              "description": "<p>The level of permission to grant the access token to view and manage code quality data.</p>",
+              "enum": [
+                "read",
+                "write"
+              ]
+            },
+            {
+              "type": "string",
               "name": "codespaces",
               "description": "<p>The level of permission to grant the access token to create, edit, delete, and list Codespaces.</p>",
               "enum": [
@@ -6053,6 +6095,14 @@
                             "checks": {
                               "type": "string",
                               "description": "The level of permission to grant the access token for checks on code.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
                               "enum": [
                                 "read",
                                 "write"
@@ -7400,6 +7450,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -8362,6 +8420,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -9317,6 +9383,14 @@
                     "checks": {
                       "type": "string",
                       "description": "The level of permission to grant the access token for checks on code.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
                       "enum": [
                         "read",
                         "write"
@@ -11275,6 +11349,14 @@
                           "checks": {
                             "type": "string",
                             "description": "The level of permission to grant the access token for checks on code.",
+                            "enum": [
+                              "read",
+                              "write"
+                            ]
+                          },
+                          "code_quality": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to view and manage code quality data.",
                             "enum": [
                               "read",
                               "write"
@@ -13358,6 +13440,14 @@
                                 "write"
                               ]
                             },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
                             "codespaces": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -14287,6 +14377,14 @@
                             "checks": {
                               "type": "string",
                               "description": "The level of permission to grant the access token for checks on code.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
                               "enum": [
                                 "read",
                                 "write"

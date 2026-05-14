@@ -24,7 +24,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 {% endif %}
 
-To add a collaborator, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
+To add a collaborator, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository).
 
 {% ifversion fpt or ghec %}
 
@@ -44,6 +44,6 @@ An appointed successor can manage your public repositories after presenting a de
 
 To request access to manage repositories as a successor, please contact us through the {% data variables.contact.contact_support_portal %}.
 
-For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories).
+For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/maintaining-ownership-continuity-of-your-personal-accounts-repositories).
 
 {% endif %}

@@ -2,6 +2,9 @@ import { renderLiquid } from './liquid/index'
 import { renderMarkdown, renderUnified } from './unified/index'
 import { engine } from './liquid/engine'
 import type { Context } from '@/types'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 interface RenderOptions {
   cache?: boolean | ((template: string, context: Context) => string)
@@ -53,7 +56,7 @@ export async function renderContent(
     return html
   } catch (error) {
     if (options.filename) {
-      console.error(`renderContent failed on file: ${options.filename}`)
+      logger.error('renderContent failed on file', { filename: options.filename })
     }
     throw error
   }
