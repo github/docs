@@ -109,6 +109,9 @@ You may be able to view the email addresses for members of your enterprise on ei
 
 * If you verify a domain for your enterprise, you can view members' email addresses for the verified domain. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
 
+  > [!NOTE]
+  > Email addresses for verified domains are not returned in a guaranteed order. If a member has email addresses for multiple verified domains, old or stale email addresses may remain after an IdP change. The list of verified domain email addresses cannot reliably identify the member's canonical or current corporate email address.
+
 * If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.product.github %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
 
 If you use {% data variables.product.prodname_emus %}, verify a domain, or configure SAML SSO for your enterprise, you may be able to view the email addresses in one or more of the following ways.
@@ -118,6 +121,8 @@ If you use {% data variables.product.prodname_emus %}, verify a domain, or confi
 
    * `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference))
    * `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise))
+
+     The `GitHub com verified domain emails` value is unordered. Emails may be returned in a non-deterministic order, and you cannot request priority, sorting, or filtering for the user's current email address.
 
    For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
 {% data reusables.saml.use-api-to-get-externalidentity %}

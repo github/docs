@@ -74,3 +74,4 @@ Use trends in usage, feature adoption, and language activity to guide enablement
 ## Next steps
 
 * To access metrics programmatically, including enterprise, organization, and user-level records, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
+* To construct team-level metrics from the per-user usage metrics report, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).

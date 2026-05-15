@@ -22,18 +22,18 @@ copilot-cli:
   target-articles:
     - content/copilot/reference/copilot-cli-reference/cli-command-reference.md
     - content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md
-    - content/copilot/reference/copilot-cli-reference/cli-hooks-reference.md
     - content/copilot/reference/copilot-cli-reference/acp-server.md
     - content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md
+    - content/copilot/reference/hooks-reference.md
   exclusions:
     - All mentions of, or information directly relating to, feature flags
     - enabledFeatureFlags configuration setting
     - COPILOT_CLI_ENABLED_FEATURE_FLAGS environment variable
   content-mapping: |
-    cli-plugin-reference.md covers only plugin-specific content.
-    All information relating to files in the ~/.copilot configuration directory, and settings in those files, should go in cli-config-dir-reference.md.
-    All reference details relating to hooks should go in cli-hooks-reference.md.
-    All other CLI topics (MCP, skills, agents, permissions, etc.) belong in cli-command-reference.md even when they mention plugins.
+    content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md covers only plugin-specific content.
+    All information relating to files in the ~/.copilot configuration directory, and settings in those files, should go in content/copilot/reference/copilot-cli-reference/cli-config-dir-reference.md.
+    All reference details relating to hooks should go in content/copilot/reference/hooks-reference.md.
+    All other CLI topics (MCP, skills, agents, permissions, etc.) belong in content/copilot/reference/copilot-cli-reference/cli-command-reference.md even when they mention plugins.
 
 # TODO
 # mcp-server:

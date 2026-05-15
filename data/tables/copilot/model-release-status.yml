@@ -20,7 +20,7 @@
 # OpenAI models
 - name: 'GPT-4.1'
   provider: 'OpenAI'
-  release_status: 'GA'
+  release_status: 'Closing down 2026-06-01'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -34,14 +34,14 @@
 
 - name: 'GPT-5.2'
   provider: 'OpenAI'
-  release_status: 'GA'
+  release_status: 'Closing down 2026-06-01'
   agent_mode: true
   ask_mode: true
   edit_mode: true
 
 - name: 'GPT-5.2-Codex'
   provider: 'OpenAI'
-  release_status: 'GA'
+  release_status: 'Closing down 2026-06-01'
   agent_mode: true
   ask_mode: true
   edit_mode: true

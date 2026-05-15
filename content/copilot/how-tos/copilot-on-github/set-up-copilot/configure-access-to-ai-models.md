@@ -34,7 +34,9 @@ If you have a {% data variables.copilot.copilot_free_short %}, {% data variables
 
 As an enterprise or organization owner, you can enable or disable access to AI models for members with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} seat. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
-> [!NOTE] Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set for an organization or enterprise. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
+> [!NOTE]
+> * Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set for an organization or enterprise. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
+> * {% data reusables.copilot.byok-no-subscription-required %}
 
 {% ifversion copilot-byok %}
 

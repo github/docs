@@ -38,6 +38,9 @@ import { toHast } from 'mdast-util-to-hast'
 import type { Root } from 'mdast'
 import { header } from './code-header'
 import findPage from '@/frame/lib/find-page'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 interface LanguageConfig {
   comment: 'number' | 'slash' | 'xml' | 'percent' | 'hyphen'
@@ -280,10 +283,10 @@ function processAutotitleInMdast(mdast: Root, context: any): void {
               child.value = page.rawTitle || 'AUTOTITLE'
             } catch (error) {
               // Keep AUTOTITLE if we can't get the title
-              console.warn(
-                `Could not resolve AUTOTITLE for ${node.url}:`,
-                error instanceof Error ? error.message : String(error),
-              )
+              logger.warn('Could not resolve AUTOTITLE', {
+                url: node.url,
+                error: error instanceof Error ? error.message : String(error),
+              })
             }
           }
         }

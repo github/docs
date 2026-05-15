@@ -54,7 +54,7 @@ You can find information about the models available and upcoming models in the f
 * **Model comparison**: To compare model capabilities side by side, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 * **Changelog**: Model updates are announced in the [{% data variables.product.prodname_copilot_short %} changelog](https://github.blog/changelog/label/copilot/).
 
-To plan for model transitions and set user expectations, track which models {% data variables.product.github %} designates as base or long-term support (LTS). {% data variables.product.prodname_copilot_short %} automatically falls back to a base model when premium requests run out:
+To plan for model transitions and set user expectations, track which models {% data variables.product.github %} designates as base or long-term support (LTS):
 
 {% rowheaders %}
 
@@ -62,7 +62,6 @@ To plan for model transitions and set user expectations, track which models {% d
 | --- | --- | --- |
 | Base model | The default model when no other models are enabled. | Automatically enabled within 60 days of designation. |
 | LTS model | A model supported for one year from designation. | Allows enterprises to build workflows around a stable model. |
-| Fallback | When premium requests are exhausted, {% data variables.product.prodname_copilot_short %} uses an earlier base model. | Ensures continuous access at no additional cost. |
 
 {% endrowheaders %}
 
