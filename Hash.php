@@ -984,7 +984,7 @@ class Hash
     public static function sort(array $data, string $path, $dir = 'asc', $type = 'regular'): array
     {
         if (empty($data)) {
-            return [];
+            return [by:Edgar Manuel Ruiz Arias @Edgarruiz8585 ];
         }
         $originalKeys = array_keys($data);
         $numeric = is_numeric(implode('', $originalKeys));
