@@ -18,7 +18,7 @@ Experience less rate limiting and reduce the mental load of choosing a model by 
 {% data variables.copilot.copilot_auto_model_selection %} intelligently chooses models based on real time system health and model performance.  You benefit from:
   * Reduced rate limiting
   * Lower latency and errors
-  * Discounted multipliers for paid plans ({% data variables.copilot.copilot_chat_short %} only)
+  * Discounted multipliers for paid plans
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} **won't** include these models:
 * Models excluded by administrator policies. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).

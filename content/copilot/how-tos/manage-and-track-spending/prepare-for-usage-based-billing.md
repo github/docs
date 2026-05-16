@@ -20,7 +20,7 @@ On June 1, 2026, {% data variables.product.prodname_copilot_short %} is moving t
 
 ## Download the usage report
 
-From the announcement banner on your enterprise home page, billing overview page, or premium request analytics page, click **Preview your usage** to see your options. From the dialog, click **{% octicon "download" aria-hidden="true" %}** to request a detailed usage report. You can also request the report from the premium request analytics page or via the API. The report is generated asynchronously and delivered via email to the requesting admin.
+From the announcement banner on your enterprise home page, billing overview page, or premium request analytics page, click **Preview your usage** to see your options. From the dialog, click **{% octicon "download" aria-hidden="true" %} Download CSV** to request a detailed usage report. You can also request the report from the premium request analytics page or via the API. The report is generated asynchronously and delivered via email to the requesting admin.
 
 The report includes one row per user, per model, per day. Alongside the existing columns for your current billing data, two additional columns show the estimated equivalent under usage-based billing:
 

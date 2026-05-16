@@ -11,6 +11,10 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'Grok Code Fast 1'
+  retirement_date: '2026-05-15'
+  suggested_alternative: 'GPT-5 mini'
+
 - name: 'Claude Sonnet 4'
   retirement_date: '2026-05-01'
   suggested_alternative: 'Claude Sonnet 4.6'

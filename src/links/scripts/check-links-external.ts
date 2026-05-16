@@ -9,7 +9,7 @@
  *   npm run check-links-external -- --max 100
  *
  * Environment variables:
- *   GITHUB_TOKEN - For creating issue reports
+ *   GITHUB_TOKEN - For creating issue reports and GitHub API repo checks
  *   ACTION_RUN_URL - Link to the action run
  *   CREATE_REPORT - Whether to create an issue report (default: false)
  *   REPORT_REPOSITORY - Repository to create report issues in
@@ -187,6 +187,134 @@ async function fetchWithTimeout(
 }
 
 /**
+ * Return the owner/repo if the URL is exactly github.com/<owner>/<repo>, else null.
+ */
+function isGithubRepoRootUrl(url: string): { owner: string; repo: string } | null {
+  try {
+    const parsed = new URL(url)
+    if (parsed.hostname !== 'github.com') return null
+    const segments = parsed.pathname.split('/').filter(Boolean)
+    if (segments.length === 2) return { owner: segments[0], repo: segments[1] }
+  } catch {
+    // ignore malformed URLs
+  }
+  return null
+}
+
+/**
+ * Check a github.com/<owner>/<repo> URL via the REST API instead of hitting
+ * the main website. Verifies the repo exists and that html_url in the response
+ * matches the original link (catches renames/redirects).
+ */
+async function checkGithubRepoUrl(
+  url: string,
+  owner: string,
+  repo: string,
+  cache: CacheData,
+): Promise<{
+  ok: boolean
+  statusCode?: number
+  error?: string
+  cached: boolean
+  fallbackAllowed?: boolean
+}> {
+  // Check cache first
+  const cached = cache.urls[url]
+  if (cached) {
+    const age = Date.now() - cached.timestamp
+    if (age < CACHE_MAX_AGE_MS) {
+      return {
+        ok: cached.ok,
+        statusCode: cached.statusCode,
+        error: cached.error,
+        cached: true,
+      }
+    }
+  }
+
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}`
+  const headers: Record<string, string> = {
+    'User-Agent': 'GitHub-Docs-Link-Checker/1.0',
+    Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+  }
+  if (process.env.GITHUB_TOKEN) {
+    headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`
+  }
+
+  const controller = new AbortController()
+  const timeoutHandle = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      signal: controller.signal,
+      headers,
+    })
+    clearTimeout(timeoutHandle)
+
+    let result: {
+      ok: boolean
+      statusCode?: number
+      error?: string
+      cached: boolean
+      fallbackAllowed?: boolean
+    }
+
+    if (response.ok) {
+      const data = (await response.json()) as { html_url?: string; private?: boolean }
+
+      if (data.private) {
+        result = {
+          ok: false,
+          statusCode: response.status,
+          error: 'Repository is private',
+          cached: false,
+          fallbackAllowed: true,
+        }
+      } else {
+        result = {
+          ok: true,
+          statusCode: response.status,
+          cached: false,
+          fallbackAllowed: false,
+        }
+      }
+    } else {
+      result = {
+        ok: false,
+        statusCode: response.status,
+        error: `HTTP ${response.status}`,
+        cached: false,
+        fallbackAllowed: [401, 403, 404, 429].includes(response.status) || response.status >= 500,
+      }
+    }
+
+    // Only cache successful results. A failed API check may mean the URL is
+    // not actually a repo (e.g. github.com/settings/tokens), so we leave the
+    // cache empty for failures and let the checkUrl fallback handle caching.
+    if (result.ok) {
+      cache.urls[url] = {
+        timestamp: Date.now(),
+        ok: result.ok,
+        statusCode: result.statusCode,
+        error: result.error,
+      }
+    }
+
+    return result
+  } catch {
+    clearTimeout(timeoutHandle)
+    return {
+      ok: false,
+      error: 'Request timed out or failed',
+      cached: false,
+      fallbackAllowed: true,
+    }
+  }
+}
+
+/**
  * Extract all external links from content files
  */
 async function extractAllExternalLinks(): Promise<Map<string, LinkOccurrence[]>> {
@@ -345,6 +473,7 @@ async function main() {
       }
     }
   }
+
   const queuedUrlCount = Array.from(urlsByDomain.values()).reduce(
     (count, domainUrls) => count + domainUrls.length,
     0,
@@ -359,7 +488,26 @@ async function main() {
   async function checkDomainUrls(domainUrls: string[]): Promise<void> {
     for (const url of domainUrls) {
       const occurrences = allLinks.get(url)!
-      const result = await checkUrl(url, db.data)
+      const repoInfo = isGithubRepoRootUrl(url)
+      let result: {
+        ok: boolean
+        statusCode?: number
+        error?: string
+        cached: boolean
+        fallbackAllowed?: boolean
+      }
+
+      if (repoInfo && process.env.GITHUB_TOKEN) {
+        result = await checkGithubRepoUrl(url, repoInfo.owner, repoInfo.repo, db.data)
+        // Fall back to direct HTTP checks only when the API result is not
+        // definitive (e.g. API/network failures or private-repo responses).
+        if (!result.ok && result.fallbackAllowed) {
+          result = await checkUrl(url, db.data)
+        }
+      } else {
+        result = await checkUrl(url, db.data)
+      }
+
       checkedCount++
 
       if (result.cached) cachedCount++
