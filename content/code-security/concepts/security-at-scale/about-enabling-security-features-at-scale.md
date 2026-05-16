@@ -45,6 +45,12 @@ For more information on purchasing {% data variables.product.prodname_GH_cs_or_s
 To learn how to create {% data variables.product.prodname_custom_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
 {% endif %}
 
+### After you apply a configuration
+
+When you apply a {% data variables.product.prodname_security_configuration %} to repositories, each repository enters a managed relationship with that configuration. That relationship can change over time. For example, if a repository admin overrides a security setting on an unenforced configuration, if an organization or enterprise admin detaches the configuration, if enforcement is enabled, or if the initial attachment fails. Each change is reflected in the repository's configuration status.
+
+For the full list of configuration statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
+
 ## About {% data variables.product.prodname_global_settings %}
 
 While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization.

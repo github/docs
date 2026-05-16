@@ -100,7 +100,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% elsif ghes < 3.19 %}2.21.4{% elsif ghes < 3.20 %}2.22.4{% elsif ghes < 3.21 %}2.23.9{% endif %}
+  {% ifversion ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% elsif ghes < 3.19 %}2.21.4{% elsif ghes < 3.20 %}2.22.4{% elsif ghes < 3.21 %}2.23.9{% elsif ghes < 3.22 %}2.24.3{% endif %}
 codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -153,7 +153,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% elsif ghes < 3.19 %}2.324.0{% elsif ghes < 3.20 %}2.328.0{% elsif ghes < 3.21 %}2.330.0{% endif %}
+  {% ifversion ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% elsif ghes < 3.19 %}2.324.0{% elsif ghes < 3.20 %}2.328.0{% elsif ghes < 3.21 %}2.330.0{% elsif ghes < 3.22 %}2.331.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -215,8 +215,8 @@ prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Adv
 prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
 prodname_cs_or_sp: '{% ifversion ghas-products %}Secret Protection or Code Security{% else %}Advanced Security{% endif %}'
 prodname_cs_and_sp: '{% ifversion ghas-products %}Secret Protection and Code Security{% else %}Advanced Security{% endif %}'
-UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif ghes > 3.15 %}Code security{% else %}Code security and analysis{% endif %}'
-UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif ghes > 3.14 %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% else %}Code security and analysis{% endif %}'
+UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}Code security{% else %}Code security and analysis{% endif %}'
 UI_code_security_scanning: '{% ifversion ghas-products %}Code Security{% else %}Code scanning{% endif %}'
 UI_secret_protection_scanning: '{% ifversion ghas-products %}Secret Protection{% else %}Secret scanning{% endif %}'
 

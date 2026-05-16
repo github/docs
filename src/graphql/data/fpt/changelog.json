@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>CLOSED</code> was added to enum 'ProjectV2FieldType'</p>",
+          "<p>Enum value <code>CREATED</code> was added to enum 'ProjectV2FieldType'</p>",
+          "<p>Enum value <code>UPDATED</code> was added to enum 'ProjectV2FieldType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-05-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>UNKNOWN</code> was added to enum <code>SecurityAdvisorySeverity</code></p>"
         ]
       }

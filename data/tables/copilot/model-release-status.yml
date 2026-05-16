@@ -154,14 +154,6 @@
   ask_mode: true
   edit_mode: true
 
-# xAI models
-- name: 'Grok Code Fast 1'
-  provider: 'xAI'
-  release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'

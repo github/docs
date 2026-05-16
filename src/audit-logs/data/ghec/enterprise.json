@@ -1251,7 +1251,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.disabled_for_new_repos",
@@ -1283,7 +1283,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.disabled_for_new_user_namespace_repos",
@@ -1316,7 +1316,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.enabled",
@@ -1348,7 +1348,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.enabled_for_new_repos",
@@ -1380,7 +1380,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.enabled_for_new_user_namespace_repos",
@@ -1413,7 +1413,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business.advanced_security_metered_usage_lock",
@@ -1577,7 +1577,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.user_namespace_repos_enabled",
@@ -1610,7 +1610,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business.audit_log_export",
@@ -4003,7 +4003,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features"
   },
   {
     "action": "business_secret_scanning_automatic_validity_checks.enabled",
@@ -4035,7 +4035,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features"
   },
   {
     "action": "business_secret_scanning_custom_pattern.create",
@@ -4256,7 +4256,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning.disabled_for_new_repos",
@@ -4288,7 +4288,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning.enable",
@@ -4320,7 +4320,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning.enabled_for_new_repos",
@@ -4352,7 +4352,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_generic_secrets.disabled",
@@ -4514,7 +4514,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection_custom_message.enable",
@@ -4546,7 +4546,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection_custom_message.update",
@@ -4578,7 +4578,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection.disable",
@@ -4610,7 +4610,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection.disabled_for_new_repos",
@@ -4642,7 +4642,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection.enable",
@@ -4674,7 +4674,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection.enabled_for_new_repos",
@@ -4706,7 +4706,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection_pattern_configuration.push_protection_setting_changed",
@@ -4740,7 +4740,7 @@
       "secret_type_display_name",
       "created_at"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection_pattern_configuration.updated",
@@ -4771,7 +4771,7 @@
       "user_agent",
       "created_at"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business.secret_scanning_repo_admin_settings_policy_update",

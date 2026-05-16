@@ -45,7 +45,8 @@ If you use the REST API for {% data variables.product.prodname_secret_scanning %
 | Extended metadata | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | Some |
 | Base64 format support | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | Some |
 
->[! NOTE] Validity and extended metadata checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
+> [!NOTE]
+> Validity and extended metadata checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
 
 ## Supported generic patterns
 

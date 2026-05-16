@@ -1,0 +1,432 @@
+{
+  "created": {
+    "descriptionHtml": "<p>A new custom property was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a custom property.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization\">Managing custom properties for repositories in your organization</a>\". For information about the APIs to manage custom properties, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/orgs/custom-properties\">Custom properties</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Custom properties\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "definition",
+        "description": "<p>Custom property defined on an organization</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "property_name",
+            "description": "<p>The name of the property</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>The URL that can be used to fetch, update, or delete info about this property via the API.</p>"
+          },
+          {
+            "type": "string",
+            "name": "source_type",
+            "description": "<p>The source type of the property</p>",
+            "enum": [
+              "organization",
+              "enterprise"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "value_type",
+            "description": "<p>The type of the value for the property</p>",
+            "isRequired": true,
+            "enum": [
+              "string",
+              "single_select",
+              "multi_select",
+              "true_false",
+              "url"
+            ]
+          },
+          {
+            "type": "boolean",
+            "name": "required",
+            "description": "<p>Whether the property is required.</p>"
+          },
+          {
+            "type": "null or string or array",
+            "name": "default_value",
+            "description": "<p>Default value of the property</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "<p>Short description of the property</p>"
+          },
+          {
+            "type": "array of strings or null",
+            "name": "allowed_values",
+            "description": "<p>An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values.</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "values_editable_by",
+            "description": "<p>Who can edit the values of the property</p>",
+            "enum": [
+              "org_actors",
+              "org_and_repo_actors",
+              null
+            ]
+          },
+          {
+            "type": "boolean",
+            "name": "require_explicit_values",
+            "description": "<p>Whether setting properties values is mandatory</p>"
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "custom_property"
+  },
+  "deleted": {
+    "descriptionHtml": "<p>A custom property was deleted.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a custom property.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization\">Managing custom properties for repositories in your organization</a>\". For information about the APIs to manage custom properties, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/orgs/custom-properties\">Custom properties</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Custom properties\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "deleted"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "definition",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "property_name",
+            "description": "<p>The name of the property that was deleted.</p>",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "organization",
+      "app"
+    ],
+    "action": "deleted",
+    "category": "custom_property"
+  },
+  "promote_to_enterprise": {
+    "descriptionHtml": "<p>A custom property was promoted to an enterprise.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a custom property.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization\">Managing custom properties for repositories in your organization</a>\". For information about the APIs to manage custom properties, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/orgs/custom-properties\">Custom properties</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Custom properties\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "promote_to_enterprise"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "definition",
+        "description": "<p>Custom property defined on an organization</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "property_name",
+            "description": "<p>The name of the property</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>The URL that can be used to fetch, update, or delete info about this property via the API.</p>"
+          },
+          {
+            "type": "string",
+            "name": "source_type",
+            "description": "<p>The source type of the property</p>",
+            "enum": [
+              "organization",
+              "enterprise"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "value_type",
+            "description": "<p>The type of the value for the property</p>",
+            "isRequired": true,
+            "enum": [
+              "string",
+              "single_select",
+              "multi_select",
+              "true_false",
+              "url"
+            ]
+          },
+          {
+            "type": "boolean",
+            "name": "required",
+            "description": "<p>Whether the property is required.</p>"
+          },
+          {
+            "type": "null or string or array",
+            "name": "default_value",
+            "description": "<p>Default value of the property</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "<p>Short description of the property</p>"
+          },
+          {
+            "type": "array of strings or null",
+            "name": "allowed_values",
+            "description": "<p>An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values.</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "values_editable_by",
+            "description": "<p>Who can edit the values of the property</p>",
+            "enum": [
+              "org_actors",
+              "org_and_repo_actors",
+              null
+            ]
+          },
+          {
+            "type": "boolean",
+            "name": "require_explicit_values",
+            "description": "<p>Whether setting properties values is mandatory</p>"
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "organization",
+      "app"
+    ],
+    "action": "promote_to_enterprise",
+    "category": "custom_property"
+  },
+  "updated": {
+    "descriptionHtml": "<p>A custom property was updated.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a custom property.</p>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization\">Managing custom properties for repositories in your organization</a>\". For information about the APIs to manage custom properties, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/orgs/custom-properties\">Custom properties</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Custom properties\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "updated"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "definition",
+        "description": "<p>Custom property defined on an organization</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "property_name",
+            "description": "<p>The name of the property</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>The URL that can be used to fetch, update, or delete info about this property via the API.</p>"
+          },
+          {
+            "type": "string",
+            "name": "source_type",
+            "description": "<p>The source type of the property</p>",
+            "enum": [
+              "organization",
+              "enterprise"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "value_type",
+            "description": "<p>The type of the value for the property</p>",
+            "isRequired": true,
+            "enum": [
+              "string",
+              "single_select",
+              "multi_select",
+              "true_false",
+              "url"
+            ]
+          },
+          {
+            "type": "boolean",
+            "name": "required",
+            "description": "<p>Whether the property is required.</p>"
+          },
+          {
+            "type": "null or string or array",
+            "name": "default_value",
+            "description": "<p>Default value of the property</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "<p>Short description of the property</p>"
+          },
+          {
+            "type": "array of strings or null",
+            "name": "allowed_values",
+            "description": "<p>An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values.</p>"
+          },
+          {
+            "type": "string or null",
+            "name": "values_editable_by",
+            "description": "<p>Who can edit the values of the property</p>",
+            "enum": [
+              "org_actors",
+              "org_and_repo_actors",
+              null
+            ]
+          },
+          {
+            "type": "boolean",
+            "name": "require_explicit_values",
+            "description": "<p>Whether setting properties values is mandatory</p>"
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "organization",
+      "app"
+    ],
+    "action": "updated",
+    "category": "custom_property"
+  }
+}

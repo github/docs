@@ -8,6 +8,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
+category:
+  - Secure at scale
 ---
 
 The guidance in this article is aimed at enterprise owners, organization owners, security managers and security teams. However, you will need to have the enterprise owner role to enable several of the features referenced in this article.

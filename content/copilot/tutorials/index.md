@@ -30,6 +30,7 @@ children:
   - /vibe-coding
   - /upgrade-projects
   - /copilot-cli-hooks
+  - /use-an-ai-sme
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
@@ -54,4 +55,3 @@ includedCategories:
   - Modernize applications
   - Roll Copilot out at scale
 ---
-

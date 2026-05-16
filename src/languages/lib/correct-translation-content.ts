@@ -78,6 +78,16 @@ export function correctTranslatedContentStrings(
   // measured across all eight translated languages.
   content = joinDanglingMarkers(content)
 
+  // YAML `|2-` block-scalar artifacts: some translated frontmatter fields
+  // (typically `intro`) arrive with a spurious leading newline followed by
+  // deep indentation when the translator wrote `field: |2-\n\n    content`.
+  // The YAML parser preserves the leading blank line and extra indentation
+  // in the parsed string. Strip that leading whitespace when the English
+  // source has no such prefix.
+  if (content.startsWith('\n') && !englishContent.startsWith('\n')) {
+    content = content.replace(/^\n[ \t]*/, '')
+  }
+
   // --- Per-language fixes (es, ja, pt, zh, ru, fr, ko, de) ---
 
   if (context.code === 'es') {
@@ -1914,8 +1924,13 @@ export function correctTranslatedContentStrings(
       else englishSpaces.add(m[0])
     }
     if (englishLinebreaks.size > 0) {
-      content = content.replace(/\{%(.+?)%\} /g, (match) => {
+      content = content.replace(/\{%(.+?)%\} /g, (match, _p1, offset, string) => {
         if (match.lastIndexOf('{%') > 0) return match
+        // Don't inject a linebreak when the tag is inside a heading line — doing
+        // so would split `#### {% data X %} Japanese text` into a heading with
+        // no content followed by a loose paragraph of Japanese text.
+        const lineStart = (string as string).lastIndexOf('\n', offset) + 1
+        if (/^[ \t]{0,3}#{1,6}/.test((string as string).slice(lineStart, offset))) return match
         const withLinebreak = `${match.slice(0, -1)}\n`
         if (englishLinebreaks.has(withLinebreak) && !englishSpaces.has(match)) {
           return withLinebreak
@@ -2058,11 +2073,12 @@ export function correctTranslatedContentStrings(
  * Rejoin marker lines that the translation pipeline split from their content.
  *
  * Translators sometimes leave a heading marker (`#`/`##`/...), blockquote
- * marker (`>`), or the opening `**` of a bold span (immediately following a
- * list/heading/blockquote/table marker) on its own line, with the rest of
- * the content pushed to the next line as deeply indented text. This breaks
- * rendering (empty headings, broken blockquotes, unrendered bold, unexpanded
- * Liquid and `[AUTOTITLE]` links).
+ * marker (`>`), ordered-list marker (`1.`, `2.`, ...), or the opening `**`
+ * of a bold span (immediately following a list/heading/blockquote/table
+ * marker) on its own line, with the rest of the content pushed to the next
+ * line as deeply indented text. This breaks rendering (empty headings, broken
+ * blockquotes, broken ordered lists rendered as code blocks, unrendered bold,
+ * unexpanded Liquid and `[AUTOTITLE]` links).
  *
  * Conservative thresholds:
  * - Marker line has 0–3 leading spaces (CommonMark heading/blockquote rule).
@@ -2081,11 +2097,21 @@ function joinDanglingMarkers(content: string): string {
   // Marker-only line patterns (run only against non-fenced, non-frontmatter lines).
   const headingOnly = /^([ \t]{0,3})(#{1,6})[ \t]*$/
   const blockquoteOnly = /^([ \t]{0,3}>)[ \t]*$/
+  // Ordered-list marker alone on a line: `1. \n              content`.
+  const orderedListOnly = /^([ \t]{0,3}\d+\.)[ \t]*$/
   // Bold-open after a list/heading/blockquote/table marker (no other content).
   const markerThenBoldOnly =
     /^([ \t]{0,3}(?:[*+-]|\d+\.)[ \t]+|[ \t]{0,3}>[ \t]+|[ \t]{0,3}#{1,6}[ \t]+|\|[ \t]*)\*\*[ \t]*$/
   // Continuation: 6+ leading spaces and at least one non-whitespace character.
+  // Used when checking whether the *next* line is a deeply-indented continuation
+  // after a recognised marker.
   const deepIndented = /^[ \t]{6,}(\S.*)$/
+  // Standalone deeply-indented paragraph: 9+ leading spaces.  Translation
+  // artifacts consistently use 14 spaces; legitimate list-continuation content
+  // uses at most 6 spaces (confirmed by corpus analysis).  The 9+ threshold
+  // keeps the two populations well separated and is fence-safe after the
+  // improved fence detection above.
+  const veryDeepIndented = /^[ \t]{9,}(\S.*)$/
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i]
@@ -2108,7 +2134,12 @@ function joinDanglingMarkers(content: string): string {
     }
 
     // CommonMark fenced code block: 0–3 leading spaces, then 3+ ` or ~.
-    const fenceMatch = line.match(/^[ \t]{0,3}(`{3,}|~{3,})/)
+    // CommonMark permits fences to be indented 0–3 spaces at the document
+    // level, but inside a list item a fence can appear at 4+ spaces of
+    // leading indentation.  Use `^[ \t]*` so that code blocks nested inside
+    // list items (e.g. `    ```json`) are correctly recognised and their
+    // content is not inadvertently stripped by the selfStrip pass below.
+    const fenceMatch = line.match(/^[ \t]*(`{3,}|~{3,})/)
     if (fenceMatch) {
       const marker = fenceMatch[1]
       if (!inFence) {
@@ -2129,6 +2160,21 @@ function joinDanglingMarkers(content: string): string {
       continue
     }
 
+    // A line that itself starts with 9+ spaces and is not inside a code fence
+    // is a translation-pipeline corruption artifact: the pipeline indented an
+    // entire paragraph line, causing CommonMark to render it as an indented
+    // code block (4+ spaces at the document level = code block).  Strip the
+    // leading whitespace so the content renders as a normal paragraph.
+    // Marker-only lines (headings `# `, blockquotes `> `, list items `1. `)
+    // always have ≤3 leading spaces, so they are never misidentified here.
+    // The 9+ threshold (vs the 6+ used for nextDeep) ensures that legitimate
+    // list-continuation lines (which use ≤6 spaces) are never stripped.
+    const selfStrip = line.match(veryDeepIndented)
+    if (selfStrip) {
+      out.push(selfStrip[1])
+      continue
+    }
+
     const next = i + 1 < lines.length ? lines[i + 1] : undefined
     const nextDeep = next !== undefined ? next.match(deepIndented) : null
     if (!nextDeep) {
@@ -2137,24 +2183,50 @@ function joinDanglingMarkers(content: string): string {
     }
     const nextContent = nextDeep[1]
 
+    // Consume additional deeply-indented continuation lines so multi-line
+    // wrapped headings/blockquotes/bold-opens collapse onto one line
+    // (e.g. `##\n      {%if%}\n      content`). Returns the concatenated
+    // continuation text and the new line index.
+    const consumeContinuations = (start: number): { extra: string; nextI: number } => {
+      let extra = ''
+      let j = start
+      while (j + 1 < lines.length) {
+        const cont = lines[j + 1].match(deepIndented)
+        if (!cont) break
+        extra += cont[1]
+        j++
+      }
+      return { extra, nextI: j }
+    }
+
     const heading = line.match(headingOnly)
     if (heading) {
-      out.push(`${heading[1]}${heading[2]} ${nextContent}`)
-      i++
+      const { extra, nextI } = consumeContinuations(i + 1)
+      out.push(`${heading[1]}${heading[2]} ${nextContent}${extra}`)
+      i = nextI
       continue
     }
 
     const bq = line.match(blockquoteOnly)
     if (bq) {
-      out.push(`${bq[1]} ${nextContent}`)
+      const { extra, nextI } = consumeContinuations(i + 1)
+      out.push(`${bq[1]} ${nextContent}${extra}`)
+      i = nextI
+      continue
+    }
+
+    const ol = line.match(orderedListOnly)
+    if (ol) {
+      out.push(`${ol[1]} ${nextContent}`)
       i++
       continue
     }
 
     const boldOpen = line.match(markerThenBoldOnly)
     if (boldOpen) {
-      out.push(`${boldOpen[1]}**${nextContent}`)
-      i++
+      const { extra, nextI } = consumeContinuations(i + 1)
+      out.push(`${boldOpen[1]}**${nextContent}${extra}`)
+      i = nextI
       continue
     }
 
