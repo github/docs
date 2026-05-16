@@ -1,0 +1,4 @@
+"""'Runtime OS""","""'Failure rate""","""'Avg job run time""","""'Avg job queue time""","""'Job runs"""
+"""'windows""",4.97,276319,5250,161
+"""'macos""",5.88,133457,3876,153
+"""'linux""",4.32,103413,5129,301
