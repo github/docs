@@ -1,3 +1,7 @@
+
+
+> * / https://patch-diff.githubusercontent.com/raw/github/docs/pull/44269.diff
+
 OpenVPN -- A Secure tunneling daemon
 
 Copyright (C) 2002-2026 OpenVPN Inc. This program is free software;
