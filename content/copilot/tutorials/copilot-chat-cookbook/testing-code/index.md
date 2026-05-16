@@ -6,8 +6,6 @@ redirect_from:
   - /copilot/copilot-chat-cookbook/testing-code
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /generate-unit-tests
   - /create-mock-objects

@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Create pull requests
 ---
 
 Pull requests are proposals to merge code changes into a project. A pull request is {% data variables.product.github %}'s foundational **collaboration feature**, letting you discuss and review changes before merging them. This helps teams work together, catch issues early, and maintain code quality.
@@ -29,11 +29,33 @@ The **Checks** tab displays the status of any automated tests, builds, or other 
 
 The **Files changed** tab shows the differences between the proposed changes and the existing code, making it easy to see what will change when the pull request merges.
 
+The **Merge status** of a pull request can be viewed directly in the header from anywhere in the pull request page. Click to open the details so you can quickly identify blockers, missing approvals, and get your pull request ready to merge. 
+
 ## Draft pull requests
 
 When you create a pull request, you can choose to make it a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review them. This is useful when you want to share work-in-progress without formally requesting reviews.
 
 {% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request).
+
+## Pull request refs and merge branches
+
+When you open a pull request, {% data variables.product.github %} creates up to two temporary, read-only Git references for it:
+
+| Ref | Description |
+| --- | --- |
+| `refs/pull/PULL_REQUEST_NUMBER/head` | Points to the latest commit on the pull request's head branch. |
+| `refs/pull/PULL_REQUEST_NUMBER/merge` | A merge branch—a simulated merge commit that represents what the repository would look like if the pull request were merged right now. This ref is only available when the pull request has no merge conflicts. |
+
+The merge branch automatically updates when the head branch or base branch changes. To fetch it locally:
+
+```shell
+git fetch origin refs/pull/PULL_REQUEST_NUMBER/merge
+git checkout FETCH_HEAD
+```
+
+Replace `PULL_REQUEST_NUMBER` with the number of your pull request.
+
+For information about how {% data variables.product.prodname_actions %} uses the merge branch, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#how-the-merge-branch-affects-your-workflow).
 
 ## Differences between commits on compare and pull request pages
 

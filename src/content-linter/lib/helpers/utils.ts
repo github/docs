@@ -17,18 +17,14 @@ export function addFixErrorDetail(
   addError(onError, lineNumber, `Expected: ${expected}`, ` Actual: ${actual}`, range, fixInfo)
 }
 
-export function forEachInlineChild(
+export function forEachInlineChild<T = MarkdownToken>(
   params: RuleParams,
   type: string,
-  // Handler uses `any` for function parameter variance reasons. TypeScript's contravariance rules for function
-  // parameters mean that a function accepting a specific type cannot be assigned to a parameter of type `unknown`.
-  // Therefore, `unknown` cannot be used here, as different linting rules pass tokens with varying structures
-  // beyond the base MarkdownToken interface, and some handlers are async.
-  handler: (child: any, token?: any) => void | Promise<void>,
+  handler: (child: T, token?: MarkdownToken) => void | Promise<void>,
 ): void {
   filterTokens(params, 'inline', (token: MarkdownToken) => {
     for (const child of token.children!.filter((c) => c.type === type)) {
-      handler(child, token)
+      handler(child as unknown as T, token)
     }
   })
 }

@@ -13,13 +13,10 @@ redirect_from:
   - /admin/configuration/configuring-network-settings/configuring-time-synchronization
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
 shortTitle: Configure time settings
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## Default NTP servers

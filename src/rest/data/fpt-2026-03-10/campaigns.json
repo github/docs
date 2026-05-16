@@ -1,0 +1,2347 @@
+{
+  "campaigns": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns",
+      "title": "List campaigns for an organization",
+      "category": "campaigns",
+      "subcategory": "campaigns",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "direction",
+          "description": "<p>The direction to sort the results by.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "default": "desc"
+          }
+        },
+        {
+          "name": "state",
+          "description": "<p>If specified, only campaigns with this state will be returned.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "title": "Campaign state",
+            "description": "Indicates whether a campaign is open or closed",
+            "type": "string",
+            "enum": [
+              "open",
+              "closed"
+            ]
+          }
+        },
+        {
+          "name": "sort",
+          "description": "<p>The property by which to sort the results.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "created",
+              "updated",
+              "ends_at",
+              "published"
+            ],
+            "default": "created"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists campaigns in an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "number": 3,
+                "created_at": "2024-02-14T12:29:18Z",
+                "updated_at": "2024-02-14T12:29:18Z",
+                "name": "Critical CodeQL alert",
+                "description": "Address critical alerts before they are exploited to prevent breaches, protect sensitive data, and mitigate financial and reputational damage.",
+                "managers": [
+                  {
+                    "login": "octocat",
+                    "id": 1,
+                    "node_id": "MDQ6VXNlcjE=",
+                    "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/octocat",
+                    "html_url": "https://github.com/octocat",
+                    "followers_url": "https://api.github.com/users/octocat/followers",
+                    "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                    "organizations_url": "https://api.github.com/users/octocat/orgs",
+                    "repos_url": "https://api.github.com/users/octocat/repos",
+                    "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/octocat/received_events",
+                    "type": "User",
+                    "site_admin": false
+                  }
+                ],
+                "ends_at": "2024-03-14T12:29:18Z",
+                "closed_at": null,
+                "state": "open"
+              },
+              {
+                "number": 4,
+                "created_at": "2024-03-30T12:29:18Z",
+                "updated_at": "2024-03-30T12:29:18Z",
+                "name": "Mitre top 10 KEV",
+                "description": "Remediate the MITRE Top 10 KEV (Known Exploited Vulnerabilities) to enhance security by addressing vulnerabilities actively exploited by attackers. This reduces risk, prevents breaches and can help protect sensitive data.",
+                "managers": [
+                  {
+                    "login": "octocat",
+                    "id": 1,
+                    "node_id": "MDQ6VXNlcjE=",
+                    "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/octocat",
+                    "html_url": "https://github.com/octocat",
+                    "followers_url": "https://api.github.com/users/octocat/followers",
+                    "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                    "organizations_url": "https://api.github.com/users/octocat/orgs",
+                    "repos_url": "https://api.github.com/users/octocat/repos",
+                    "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/octocat/received_events",
+                    "type": "User",
+                    "site_admin": false
+                  }
+                ],
+                "ends_at": "2024-04-30T12:29:18Z",
+                "closed_at": null,
+                "state": "open"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Campaign summary",
+                "description": "The campaign metadata and alert stats.",
+                "type": "object",
+                "properties": {
+                  "number": {
+                    "type": "integer",
+                    "description": "The number of the newly created campaign"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date and time the campaign was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date and time the campaign was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The campaign name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "The campaign description"
+                  },
+                  "managers": {
+                    "description": "The campaign managers",
+                    "type": "array",
+                    "items": {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
+                    }
+                  },
+                  "team_managers": {
+                    "description": "The campaign team managers",
+                    "type": "array",
+                    "items": {
+                      "title": "Team",
+                      "description": "Groups of organization members that gives permissions on specified repositories.",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "slug": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "privacy": {
+                          "type": "string"
+                        },
+                        "notification_setting": {
+                          "type": "string"
+                        },
+                        "permission": {
+                          "type": "string"
+                        },
+                        "permissions": {
+                          "type": "object",
+                          "properties": {
+                            "pull": {
+                              "type": "boolean"
+                            },
+                            "triage": {
+                              "type": "boolean"
+                            },
+                            "push": {
+                              "type": "boolean"
+                            },
+                            "maintain": {
+                              "type": "boolean"
+                            },
+                            "admin": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "pull",
+                            "triage",
+                            "push",
+                            "maintain",
+                            "admin"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "members_url": {
+                          "type": "string"
+                        },
+                        "repositories_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "description": "The ownership type of the team",
+                          "type": "string",
+                          "enum": [
+                            "enterprise",
+                            "organization"
+                          ]
+                        },
+                        "organization_id": {
+                          "type": "integer",
+                          "description": "Unique identifier of the organization to which this team belongs"
+                        },
+                        "enterprise_id": {
+                          "type": "integer",
+                          "description": "Unique identifier of the enterprise to which this team belongs"
+                        },
+                        "parent": {
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "title": "Team Simple",
+                              "description": "Groups of organization members that gives permissions on specified repositories.",
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "description": "Unique identifier of the team",
+                                  "type": "integer"
+                                },
+                                "node_id": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "description": "URL for the team",
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "members_url": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "Name of the team",
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "description": "Description of the team",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "permission": {
+                                  "description": "Permission that the team will have for its repositories",
+                                  "type": "string"
+                                },
+                                "privacy": {
+                                  "description": "The level of privacy this team should have",
+                                  "type": "string"
+                                },
+                                "notification_setting": {
+                                  "description": "The notification setting the team has set",
+                                  "type": "string"
+                                },
+                                "html_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "repositories_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "slug": {
+                                  "type": "string"
+                                },
+                                "ldap_dn": {
+                                  "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "The ownership type of the team",
+                                  "type": "string",
+                                  "enum": [
+                                    "enterprise",
+                                    "organization"
+                                  ]
+                                },
+                                "organization_id": {
+                                  "type": "integer",
+                                  "description": "Unique identifier of the organization to which this team belongs"
+                                },
+                                "enterprise_id": {
+                                  "type": "integer",
+                                  "description": "Unique identifier of the enterprise to which this team belongs"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "node_id",
+                                "url",
+                                "members_url",
+                                "name",
+                                "description",
+                                "permission",
+                                "html_url",
+                                "repositories_url",
+                                "slug",
+                                "type"
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "node_id",
+                        "url",
+                        "members_url",
+                        "name",
+                        "description",
+                        "permission",
+                        "html_url",
+                        "repositories_url",
+                        "slug",
+                        "parent",
+                        "type"
+                      ]
+                    }
+                  },
+                  "published_at": {
+                    "description": "The date and time the campaign was published, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ends_at": {
+                    "description": "The date and time the campaign has ended, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "closed_at": {
+                    "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "state": {
+                    "title": "Campaign state",
+                    "description": "Indicates whether a campaign is open or closed",
+                    "type": "string",
+                    "enum": [
+                      "open",
+                      "closed"
+                    ]
+                  },
+                  "contact_link": {
+                    "description": "The contact link of the campaign.",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "alert_stats": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "open_count": {
+                        "type": "integer",
+                        "description": "The number of open alerts"
+                      },
+                      "closed_count": {
+                        "type": "integer",
+                        "description": "The number of closed alerts"
+                      },
+                      "in_progress_count": {
+                        "type": "integer",
+                        "description": "The number of in-progress alerts"
+                      }
+                    },
+                    "required": [
+                      "open_count",
+                      "closed_count",
+                      "in_progress_count"
+                    ]
+                  }
+                },
+                "required": [
+                  "number",
+                  "created_at",
+                  "updated_at",
+                  "description",
+                  "managers",
+                  "ends_at",
+                  "state",
+                  "contact_link"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Campaigns\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/campaigns",
+      "title": "Create a campaign for an organization",
+      "category": "campaigns",
+      "subcategory": "campaigns",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Create a campaign for an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens must have the \"Code scanning alerts\" repository permissions (read) on all repositories included\nin the campaign.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Critical CodeQL alerts",
+              "description": "Address critical alerts before they are exploited to prevent breaches, protect sensitive data, and mitigate financial and reputational damage.",
+              "managers": [
+                "octocat"
+              ],
+              "ends_at": "2024-03-14T00:00:00Z",
+              "code_scanning_alerts": [
+                {
+                  "repository_id": 1296269,
+                  "alert_numbers": [
+                    1,
+                    2
+                  ]
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "number": 3,
+              "created_at": "2024-02-14T12:29:18Z",
+              "updated_at": "2024-02-14T12:29:18Z",
+              "name": "Critical CodeQL alert",
+              "description": "Address critical alerts before they are exploited to prevent breaches, protect sensitive data, and mitigate financial and reputational damage.",
+              "managers": [
+                {
+                  "login": "octocat",
+                  "id": 1,
+                  "node_id": "MDQ6VXNlcjE=",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/octocat",
+                  "html_url": "https://github.com/octocat",
+                  "followers_url": "https://api.github.com/users/octocat/followers",
+                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                  "organizations_url": "https://api.github.com/users/octocat/orgs",
+                  "repos_url": "https://api.github.com/users/octocat/repos",
+                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/octocat/received_events",
+                  "type": "User",
+                  "site_admin": false
+                }
+              ],
+              "published_at": "2024-02-14T12:29:18Z",
+              "ends_at": "2024-03-14T12:29:18Z",
+              "closed_at": null,
+              "state": "open",
+              "alert_stats": {
+                "open_count": 10,
+                "closed_count": 3,
+                "in_progress_count": 3
+              }
+            },
+            "schema": {
+              "title": "Campaign summary",
+              "description": "The campaign metadata and alert stats.",
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "description": "The number of the newly created campaign"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the campaign was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the campaign was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The campaign name"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "The campaign description"
+                },
+                "managers": {
+                  "description": "The campaign managers",
+                  "type": "array",
+                  "items": {
+                    "title": "Simple User",
+                    "description": "A GitHub user.",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "login": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "gravatar_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "followers_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "following_url": {
+                        "type": "string"
+                      },
+                      "gists_url": {
+                        "type": "string"
+                      },
+                      "starred_url": {
+                        "type": "string"
+                      },
+                      "subscriptions_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "organizations_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "repos_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "events_url": {
+                        "type": "string"
+                      },
+                      "received_events_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "site_admin": {
+                        "type": "boolean"
+                      },
+                      "starred_at": {
+                        "type": "string"
+                      },
+                      "user_view_type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "avatar_url",
+                      "events_url",
+                      "followers_url",
+                      "following_url",
+                      "gists_url",
+                      "gravatar_id",
+                      "html_url",
+                      "id",
+                      "node_id",
+                      "login",
+                      "organizations_url",
+                      "received_events_url",
+                      "repos_url",
+                      "site_admin",
+                      "starred_url",
+                      "subscriptions_url",
+                      "type",
+                      "url"
+                    ]
+                  }
+                },
+                "team_managers": {
+                  "description": "The campaign team managers",
+                  "type": "array",
+                  "items": {
+                    "title": "Team",
+                    "description": "Groups of organization members that gives permissions on specified repositories.",
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "slug": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "privacy": {
+                        "type": "string"
+                      },
+                      "notification_setting": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "string"
+                      },
+                      "permissions": {
+                        "type": "object",
+                        "properties": {
+                          "pull": {
+                            "type": "boolean"
+                          },
+                          "triage": {
+                            "type": "boolean"
+                          },
+                          "push": {
+                            "type": "boolean"
+                          },
+                          "maintain": {
+                            "type": "boolean"
+                          },
+                          "admin": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "pull",
+                          "triage",
+                          "push",
+                          "maintain",
+                          "admin"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "members_url": {
+                        "type": "string"
+                      },
+                      "repositories_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "description": "The ownership type of the team",
+                        "type": "string",
+                        "enum": [
+                          "enterprise",
+                          "organization"
+                        ]
+                      },
+                      "organization_id": {
+                        "type": "integer",
+                        "description": "Unique identifier of the organization to which this team belongs"
+                      },
+                      "enterprise_id": {
+                        "type": "integer",
+                        "description": "Unique identifier of the enterprise to which this team belongs"
+                      },
+                      "parent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Team Simple",
+                            "description": "Groups of organization members that gives permissions on specified repositories.",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Unique identifier of the team",
+                                "type": "integer"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "description": "URL for the team",
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "members_url": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name of the team",
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "Description of the team",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "permission": {
+                                "description": "Permission that the team will have for its repositories",
+                                "type": "string"
+                              },
+                              "privacy": {
+                                "description": "The level of privacy this team should have",
+                                "type": "string"
+                              },
+                              "notification_setting": {
+                                "description": "The notification setting the team has set",
+                                "type": "string"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repositories_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "slug": {
+                                "type": "string"
+                              },
+                              "ldap_dn": {
+                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The ownership type of the team",
+                                "type": "string",
+                                "enum": [
+                                  "enterprise",
+                                  "organization"
+                                ]
+                              },
+                              "organization_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the organization to which this team belongs"
+                              },
+                              "enterprise_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the enterprise to which this team belongs"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "node_id",
+                              "url",
+                              "members_url",
+                              "name",
+                              "description",
+                              "permission",
+                              "html_url",
+                              "repositories_url",
+                              "slug",
+                              "type"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "node_id",
+                      "url",
+                      "members_url",
+                      "name",
+                      "description",
+                      "permission",
+                      "html_url",
+                      "repositories_url",
+                      "slug",
+                      "parent",
+                      "type"
+                    ]
+                  }
+                },
+                "published_at": {
+                  "description": "The date and time the campaign was published, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "ends_at": {
+                  "description": "The date and time the campaign has ended, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "closed_at": {
+                  "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "state": {
+                  "title": "Campaign state",
+                  "description": "Indicates whether a campaign is open or closed",
+                  "type": "string",
+                  "enum": [
+                    "open",
+                    "closed"
+                  ]
+                },
+                "contact_link": {
+                  "description": "The contact link of the campaign.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
+                },
+                "alert_stats": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "open_count": {
+                      "type": "integer",
+                      "description": "The number of open alerts"
+                    },
+                    "closed_count": {
+                      "type": "integer",
+                      "description": "The number of closed alerts"
+                    },
+                    "in_progress_count": {
+                      "type": "integer",
+                      "description": "The number of in-progress alerts"
+                    }
+                  },
+                  "required": [
+                    "open_count",
+                    "closed_count",
+                    "in_progress_count"
+                  ]
+                }
+              },
+              "required": [
+                "number",
+                "created_at",
+                "updated_at",
+                "description",
+                "managers",
+                "ends_at",
+                "state",
+                "contact_link"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Unprocessable Entity</p>"
+        },
+        {
+          "httpStatusCode": "429",
+          "description": "<p>Too Many Requests</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Campaigns\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
+      "title": "Get a campaign for an organization",
+      "category": "campaigns",
+      "subcategory": "campaigns",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "campaign_number",
+          "description": "<p>The campaign number.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a campaign for an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "campaign_number": "CAMPAIGN_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "number": 3,
+              "created_at": "2024-02-14T12:29:18Z",
+              "updated_at": "2024-02-14T12:29:18Z",
+              "name": "Critical CodeQL alert",
+              "description": "Address critical alerts before they are exploited to prevent breaches, protect sensitive data, and mitigate financial and reputational damage.",
+              "managers": [
+                {
+                  "login": "octocat",
+                  "id": 1,
+                  "node_id": "MDQ6VXNlcjE=",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/octocat",
+                  "html_url": "https://github.com/octocat",
+                  "followers_url": "https://api.github.com/users/octocat/followers",
+                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                  "organizations_url": "https://api.github.com/users/octocat/orgs",
+                  "repos_url": "https://api.github.com/users/octocat/repos",
+                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/octocat/received_events",
+                  "type": "User",
+                  "site_admin": false
+                }
+              ],
+              "published_at": "2024-02-14T12:29:18Z",
+              "ends_at": "2024-03-14T12:29:18Z",
+              "closed_at": null,
+              "state": "open",
+              "alert_stats": {
+                "open_count": 10,
+                "closed_count": 3,
+                "in_progress_count": 3
+              }
+            },
+            "schema": {
+              "title": "Campaign summary",
+              "description": "The campaign metadata and alert stats.",
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "description": "The number of the newly created campaign"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the campaign was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the campaign was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The campaign name"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "The campaign description"
+                },
+                "managers": {
+                  "description": "The campaign managers",
+                  "type": "array",
+                  "items": {
+                    "title": "Simple User",
+                    "description": "A GitHub user.",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "login": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "gravatar_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "followers_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "following_url": {
+                        "type": "string"
+                      },
+                      "gists_url": {
+                        "type": "string"
+                      },
+                      "starred_url": {
+                        "type": "string"
+                      },
+                      "subscriptions_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "organizations_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "repos_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "events_url": {
+                        "type": "string"
+                      },
+                      "received_events_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "site_admin": {
+                        "type": "boolean"
+                      },
+                      "starred_at": {
+                        "type": "string"
+                      },
+                      "user_view_type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "avatar_url",
+                      "events_url",
+                      "followers_url",
+                      "following_url",
+                      "gists_url",
+                      "gravatar_id",
+                      "html_url",
+                      "id",
+                      "node_id",
+                      "login",
+                      "organizations_url",
+                      "received_events_url",
+                      "repos_url",
+                      "site_admin",
+                      "starred_url",
+                      "subscriptions_url",
+                      "type",
+                      "url"
+                    ]
+                  }
+                },
+                "team_managers": {
+                  "description": "The campaign team managers",
+                  "type": "array",
+                  "items": {
+                    "title": "Team",
+                    "description": "Groups of organization members that gives permissions on specified repositories.",
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "slug": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "privacy": {
+                        "type": "string"
+                      },
+                      "notification_setting": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "string"
+                      },
+                      "permissions": {
+                        "type": "object",
+                        "properties": {
+                          "pull": {
+                            "type": "boolean"
+                          },
+                          "triage": {
+                            "type": "boolean"
+                          },
+                          "push": {
+                            "type": "boolean"
+                          },
+                          "maintain": {
+                            "type": "boolean"
+                          },
+                          "admin": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "pull",
+                          "triage",
+                          "push",
+                          "maintain",
+                          "admin"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "members_url": {
+                        "type": "string"
+                      },
+                      "repositories_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "description": "The ownership type of the team",
+                        "type": "string",
+                        "enum": [
+                          "enterprise",
+                          "organization"
+                        ]
+                      },
+                      "organization_id": {
+                        "type": "integer",
+                        "description": "Unique identifier of the organization to which this team belongs"
+                      },
+                      "enterprise_id": {
+                        "type": "integer",
+                        "description": "Unique identifier of the enterprise to which this team belongs"
+                      },
+                      "parent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Team Simple",
+                            "description": "Groups of organization members that gives permissions on specified repositories.",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Unique identifier of the team",
+                                "type": "integer"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "description": "URL for the team",
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "members_url": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name of the team",
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "Description of the team",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "permission": {
+                                "description": "Permission that the team will have for its repositories",
+                                "type": "string"
+                              },
+                              "privacy": {
+                                "description": "The level of privacy this team should have",
+                                "type": "string"
+                              },
+                              "notification_setting": {
+                                "description": "The notification setting the team has set",
+                                "type": "string"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repositories_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "slug": {
+                                "type": "string"
+                              },
+                              "ldap_dn": {
+                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The ownership type of the team",
+                                "type": "string",
+                                "enum": [
+                                  "enterprise",
+                                  "organization"
+                                ]
+                              },
+                              "organization_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the organization to which this team belongs"
+                              },
+                              "enterprise_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the enterprise to which this team belongs"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "node_id",
+                              "url",
+                              "members_url",
+                              "name",
+                              "description",
+                              "permission",
+                              "html_url",
+                              "repositories_url",
+                              "slug",
+                              "type"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "node_id",
+                      "url",
+                      "members_url",
+                      "name",
+                      "description",
+                      "permission",
+                      "html_url",
+                      "repositories_url",
+                      "slug",
+                      "parent",
+                      "type"
+                    ]
+                  }
+                },
+                "published_at": {
+                  "description": "The date and time the campaign was published, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "ends_at": {
+                  "description": "The date and time the campaign has ended, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "closed_at": {
+                  "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "state": {
+                  "title": "Campaign state",
+                  "description": "Indicates whether a campaign is open or closed",
+                  "type": "string",
+                  "enum": [
+                    "open",
+                    "closed"
+                  ]
+                },
+                "contact_link": {
+                  "description": "The contact link of the campaign.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
+                },
+                "alert_stats": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "open_count": {
+                      "type": "integer",
+                      "description": "The number of open alerts"
+                    },
+                    "closed_count": {
+                      "type": "integer",
+                      "description": "The number of closed alerts"
+                    },
+                    "in_progress_count": {
+                      "type": "integer",
+                      "description": "The number of in-progress alerts"
+                    }
+                  },
+                  "required": [
+                    "open_count",
+                    "closed_count",
+                    "in_progress_count"
+                  ]
+                }
+              },
+              "required": [
+                "number",
+                "created_at",
+                "updated_at",
+                "description",
+                "managers",
+                "ends_at",
+                "state",
+                "contact_link"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Unprocessable Entity</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Campaigns\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
+      "title": "Update a campaign",
+      "category": "campaigns",
+      "subcategory": "campaigns",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "campaign_number",
+          "description": "<p>The campaign number.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>The name of the campaign</p>"
+        },
+        {
+          "type": "string",
+          "name": "description",
+          "description": "<p>A description for the campaign</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "managers",
+          "description": "<p>The logins of the users to set as the campaign managers. At this time, only a single manager can be supplied.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "team_managers",
+          "description": "<p>The slugs of the teams to set as the campaign managers.</p>"
+        },
+        {
+          "type": "string",
+          "name": "ends_at",
+          "description": "<p>The end date and time of the campaign, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "contact_link",
+          "description": "<p>The contact link of the campaign. Must be a URI.</p>"
+        },
+        {
+          "type": "string",
+          "name": "state",
+          "description": "<p>Indicates whether a campaign is open or closed</p>",
+          "enum": [
+            "open",
+            "closed"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Updates a campaign in an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Critical CodeQL alerts"
+            },
+            "parameters": {
+              "org": "ORG",
+              "campaign_number": "CAMPAIGN_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "number": 3,
+              "created_at": "2024-02-14T12:29:18Z",
+              "updated_at": "2024-02-14T12:29:18Z",
+              "name": "Critical CodeQL alert",
+              "description": "Address critical alerts before they are exploited to prevent breaches, protect sensitive data, and mitigate financial and reputational damage.",
+              "managers": [
+                {
+                  "login": "octocat",
+                  "id": 1,
+                  "node_id": "MDQ6VXNlcjE=",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/octocat",
+                  "html_url": "https://github.com/octocat",
+                  "followers_url": "https://api.github.com/users/octocat/followers",
+                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                  "organizations_url": "https://api.github.com/users/octocat/orgs",
+                  "repos_url": "https://api.github.com/users/octocat/repos",
+                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/octocat/received_events",
+                  "type": "User",
+                  "site_admin": false
+                }
+              ],
+              "published_at": "2024-02-14T12:29:18Z",
+              "ends_at": "2024-03-14T12:29:18Z",
+              "closed_at": null,
+              "state": "open",
+              "alert_stats": {
+                "open_count": 10,
+                "closed_count": 3,
+                "in_progress_count": 3
+              }
+            },
+            "schema": {
+              "title": "Campaign summary",
+              "description": "The campaign metadata and alert stats.",
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "integer",
+                  "description": "The number of the newly created campaign"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the campaign was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "The date and time the campaign was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The campaign name"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "The campaign description"
+                },
+                "managers": {
+                  "description": "The campaign managers",
+                  "type": "array",
+                  "items": {
+                    "title": "Simple User",
+                    "description": "A GitHub user.",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "login": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "gravatar_id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "followers_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "following_url": {
+                        "type": "string"
+                      },
+                      "gists_url": {
+                        "type": "string"
+                      },
+                      "starred_url": {
+                        "type": "string"
+                      },
+                      "subscriptions_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "organizations_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "repos_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "events_url": {
+                        "type": "string"
+                      },
+                      "received_events_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "site_admin": {
+                        "type": "boolean"
+                      },
+                      "starred_at": {
+                        "type": "string"
+                      },
+                      "user_view_type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "avatar_url",
+                      "events_url",
+                      "followers_url",
+                      "following_url",
+                      "gists_url",
+                      "gravatar_id",
+                      "html_url",
+                      "id",
+                      "node_id",
+                      "login",
+                      "organizations_url",
+                      "received_events_url",
+                      "repos_url",
+                      "site_admin",
+                      "starred_url",
+                      "subscriptions_url",
+                      "type",
+                      "url"
+                    ]
+                  }
+                },
+                "team_managers": {
+                  "description": "The campaign team managers",
+                  "type": "array",
+                  "items": {
+                    "title": "Team",
+                    "description": "Groups of organization members that gives permissions on specified repositories.",
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "slug": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "privacy": {
+                        "type": "string"
+                      },
+                      "notification_setting": {
+                        "type": "string"
+                      },
+                      "permission": {
+                        "type": "string"
+                      },
+                      "permissions": {
+                        "type": "object",
+                        "properties": {
+                          "pull": {
+                            "type": "boolean"
+                          },
+                          "triage": {
+                            "type": "boolean"
+                          },
+                          "push": {
+                            "type": "boolean"
+                          },
+                          "maintain": {
+                            "type": "boolean"
+                          },
+                          "admin": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "pull",
+                          "triage",
+                          "push",
+                          "maintain",
+                          "admin"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "members_url": {
+                        "type": "string"
+                      },
+                      "repositories_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "description": "The ownership type of the team",
+                        "type": "string",
+                        "enum": [
+                          "enterprise",
+                          "organization"
+                        ]
+                      },
+                      "organization_id": {
+                        "type": "integer",
+                        "description": "Unique identifier of the organization to which this team belongs"
+                      },
+                      "enterprise_id": {
+                        "type": "integer",
+                        "description": "Unique identifier of the enterprise to which this team belongs"
+                      },
+                      "parent": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "title": "Team Simple",
+                            "description": "Groups of organization members that gives permissions on specified repositories.",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Unique identifier of the team",
+                                "type": "integer"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "description": "URL for the team",
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "members_url": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name of the team",
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "Description of the team",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "permission": {
+                                "description": "Permission that the team will have for its repositories",
+                                "type": "string"
+                              },
+                              "privacy": {
+                                "description": "The level of privacy this team should have",
+                                "type": "string"
+                              },
+                              "notification_setting": {
+                                "description": "The notification setting the team has set",
+                                "type": "string"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repositories_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "slug": {
+                                "type": "string"
+                              },
+                              "ldap_dn": {
+                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The ownership type of the team",
+                                "type": "string",
+                                "enum": [
+                                  "enterprise",
+                                  "organization"
+                                ]
+                              },
+                              "organization_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the organization to which this team belongs"
+                              },
+                              "enterprise_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the enterprise to which this team belongs"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "node_id",
+                              "url",
+                              "members_url",
+                              "name",
+                              "description",
+                              "permission",
+                              "html_url",
+                              "repositories_url",
+                              "slug",
+                              "type"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "node_id",
+                      "url",
+                      "members_url",
+                      "name",
+                      "description",
+                      "permission",
+                      "html_url",
+                      "repositories_url",
+                      "slug",
+                      "parent",
+                      "type"
+                    ]
+                  }
+                },
+                "published_at": {
+                  "description": "The date and time the campaign was published, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "ends_at": {
+                  "description": "The date and time the campaign has ended, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.",
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "closed_at": {
+                  "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "state": {
+                  "title": "Campaign state",
+                  "description": "Indicates whether a campaign is open or closed",
+                  "type": "string",
+                  "enum": [
+                    "open",
+                    "closed"
+                  ]
+                },
+                "contact_link": {
+                  "description": "The contact link of the campaign.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
+                },
+                "alert_stats": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "open_count": {
+                      "type": "integer",
+                      "description": "The number of open alerts"
+                    },
+                    "closed_count": {
+                      "type": "integer",
+                      "description": "The number of closed alerts"
+                    },
+                    "in_progress_count": {
+                      "type": "integer",
+                      "description": "The number of in-progress alerts"
+                    }
+                  },
+                  "required": [
+                    "open_count",
+                    "closed_count",
+                    "in_progress_count"
+                  ]
+                }
+              },
+              "required": [
+                "number",
+                "created_at",
+                "updated_at",
+                "description",
+                "managers",
+                "ends_at",
+                "state",
+                "contact_link"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Unprocessable Entity</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Campaigns\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
+      "title": "Delete a campaign for an organization",
+      "category": "campaigns",
+      "subcategory": "campaigns",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "campaign_number",
+          "description": "<p>The campaign number.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Deletes a campaign in an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG",
+              "campaign_number": "CAMPAIGN_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Deletion successful</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>Deletion successful</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Campaigns\" organization permissions": "write"
+          }
+        ]
+      }
+    }
+  ]
+}

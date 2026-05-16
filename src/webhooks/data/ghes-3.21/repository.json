@@ -1,0 +1,935 @@
+{
+  "anonymous_access_disabled": {
+    "descriptionHtml": "<p>Someone disabled anonymous Git read access to the repository. For more information, see \"<a href=\"/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository\">Enabling anonymous Git read access for a repository</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "anonymous_access_disabled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app",
+      "business",
+      "organization",
+      "repository"
+    ],
+    "action": "anonymous_access_disabled",
+    "category": "repository"
+  },
+  "anonymous_access_enabled": {
+    "descriptionHtml": "<p>Someone enabled anonymous Git read access to the repository. For more information, see \"<a href=\"/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository\">Enabling anonymous Git read access for a repository</a>.\"</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "anonymous_access_enabled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app",
+      "business",
+      "organization",
+      "repository"
+    ],
+    "action": "anonymous_access_enabled",
+    "category": "repository"
+  },
+  "archived": {
+    "descriptionHtml": "<p>A repository was archived.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "archived"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "archived",
+    "category": "repository"
+  },
+  "created": {
+    "descriptionHtml": "<p>A repository was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "repository"
+  },
+  "deleted": {
+    "descriptionHtml": "<p>A repository was deleted. GitHub Apps and repository webhooks will not receive this event.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "deleted"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "deleted",
+    "category": "repository"
+  },
+  "edited": {
+    "descriptionHtml": "<p>The topics, default branch, description, or homepage of a repository was changed.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "edited"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "default_branch",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "from",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "description",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "from",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "homepage",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "from",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "topics",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "array of strings or null",
+                "name": "from",
+                "description": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "edited",
+    "category": "repository"
+  },
+  "privatized": {
+    "descriptionHtml": "<p>The visibility of a repository was changed to <code>private</code>.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "privatized"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "privatized",
+    "category": "repository"
+  },
+  "publicized": {
+    "descriptionHtml": "<p>The visibility of a repository was changed to <code>public</code>.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "publicized"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "publicized",
+    "category": "repository"
+  },
+  "renamed": {
+    "descriptionHtml": "<p>The name of a repository was changed.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "renamed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "repository",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object",
+                "name": "name",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "from",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "renamed",
+    "category": "repository"
+  },
+  "transferred": {
+    "descriptionHtml": "<p>Ownership of the repository was transferred to a user or organization account. This event is only sent to the account where the ownership is transferred. To receive the <code>repository.transferred</code> event, the new owner account must have the GitHub App installed, and the App must be subscribed to \"Repository\" events.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "transferred"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "owner",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object",
+                "name": "from",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "object",
+                    "name": "organization",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "avatar_url",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string or null",
+                        "name": "description",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "events_url",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "hooks_url",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "html_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "integer",
+                        "name": "id",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "issues_url",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "login",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "members_url",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "node_id",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "public_members_url",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "repos_url",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "url",
+                        "description": "",
+                        "isRequired": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object or null",
+                    "name": "user",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "avatar_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "boolean",
+                        "name": "deleted",
+                        "description": ""
+                      },
+                      {
+                        "type": "string or null",
+                        "name": "email",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "events_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "followers_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "following_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "gists_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "gravatar_id",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "html_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "integer",
+                        "name": "id",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "login",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "name",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "node_id",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "organizations_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "received_events_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "repos_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "boolean",
+                        "name": "site_admin",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "starred_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "subscriptions_url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "type",
+                        "description": "",
+                        "enum": [
+                          "Bot",
+                          "User",
+                          "Organization"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "name": "url",
+                        "description": ""
+                      },
+                      {
+                        "type": "string",
+                        "name": "user_view_type",
+                        "description": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "transferred",
+    "category": "repository"
+  },
+  "unarchived": {
+    "descriptionHtml": "<p>A previously archived repository was unarchived.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to repositories. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/creating-and-managing-repositories/about-repositories\">About repositories</a>.\" For information about the APIs to manage repositories, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#repository\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/repos\">Repositories</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Metadata\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "unarchived"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "business",
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "unarchived",
+    "category": "repository"
+  }
+}

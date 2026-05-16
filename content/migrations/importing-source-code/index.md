@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-# topics:
 redirect_from:
   - /categories/67/articles
   - /categories/importing

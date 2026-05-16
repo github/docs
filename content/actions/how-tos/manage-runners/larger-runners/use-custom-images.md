@@ -1,14 +1,14 @@
 ---
 title: Using custom images
 shortTitle: Use custom images
-intro: 'Create, manage, and use custom images for {% data variables.actions.github_hosted_larger_runners %} in your organization or enterprise.'
+intro: Create, manage, and use custom images for {% data variables.actions.github_hosted_larger_runners %} in your organization or enterprise.
 versions:
   feature: actions-hosted-runners
 product: '{% data variables.actions.github_hosted_larger_runners %} are only available for organizations and enterprises using the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plans. <br><a href="https://github.com/pricing?ref_product=ghec&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_actions %}</span> {% octicon "link-external" height:16 %}</a>'
-
+category:
+  - Set up runners
+contentType: how-tos
 ---
-
-{% data reusables.actions.custom-images-public-preview-note %}
 
 ## Custom images
 
@@ -56,6 +56,9 @@ To configure a workflow for image generation:
 * Add the `snapshot` keyword to the job, using either the string syntax or mapping syntax shown below.
   * Each job that includes the `snapshot` keyword creates a separate image. To generate only one image or image version, include all workflow steps in a single job.
   * Each successful run of a job that includes the `snapshot` keyword creates a new version of that image.
+
+ > [!NOTE]
+ > {% data variables.product.company_short %} recommends configuring image generation as a scheduled workflow on a weekly basis. This approach ensures dependencies remain up-to-date and have the latest security patches. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule).
 
 It can take some time for your image to be fully generated and ready to use after the workflow completes. Provisioning time varies based on runner size and configuration, and may take several hours for larger runners.
 
@@ -118,6 +121,12 @@ If you specify an older major version in the YAML (for example, version: 1.* whe
 > [!NOTE]
 > {% data variables.actions.github_hosted_larger_runner %} creation does not support wildcards in image version selection.
 
+## Billing and storage for custom images
+
+Jobs that use custom images are billed at the same per-minute rate as the {% data variables.actions.hosted_runner %} that uses the image. Storage for custom images is billed separately through {% data variables.product.prodname_actions %} storage.
+
+If you rebuild images frequently and retain older versions, your storage usage can grow quickly because each successful workflow job that includes the `snapshot` keyword creates a new image version. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions#custom-image-storage) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#custom-images-retention-policies).
+
 ## Managing custom images
 
 You can view detailed information about each image, delete unused images or specific versions, and track image versions over time.
@@ -154,3 +163,11 @@ Once your custom image is ready, you can install it on a new {% data variables.a
     ```
 
 1. Run your workflow to verify that it completes successfully. The job logs will show the image name and version in the "Set up job" section.
+
+## Security best practices for custom images
+
+To prevent unauthorized changes to your images, follow these best practices.
+
+* **Use dedicated runner groups for image generation.** Runners that generate production images must remain in a dedicated runner group. Do not share runner groups between production and development or test repositories, as anyone with access to a development or test repository could inject malicious code into a production image.
+* **Do not allow public repositories to access image-generation runners.** Limit the repositories that can use image-generation runners to only those that require it, and review access regularly.
+* **Apply least privilege to repositories.** Avoid granting organization-wide `write` access for repositories that have access to image-generation runners. Because images can be generated from any branch, anyone with write access could create a branch with arbitrary code and trigger image generation.

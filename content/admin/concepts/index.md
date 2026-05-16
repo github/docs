@@ -5,8 +5,6 @@ intro: Learn the core concepts that you'll need to understand {% data variables.
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Enterprise
 children:
   - /enterprise-fundamentals
   - /identity-and-access-management

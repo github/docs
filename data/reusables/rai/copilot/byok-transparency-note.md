@@ -1,6 +1,6 @@
 # Using Bring Your Own Key (BYOK) with {% data variables.product.prodname_copilot %}
 
-When you use Bring Your Own Key with {% data variables.copilot.copilot_chat %}, you can connect the chat experience to large language models from supported providers beyond the default {% data variables.product.prodname_copilot_short %} model. Examples of supported providers include Anthropic, Azure AI, OpenAI, and xAI. You add your API key for the chosen provider directly in your {% data variables.product.prodname_copilot_short %} settings.
+When you use Bring Your Own Key with {% data variables.copilot.copilot_chat %}, you can connect the chat experience to large language models from supported providers beyond the default {% data variables.product.prodname_copilot_short %} model. Examples of supported providers include Anthropic, AWS Bedrock, Google AI Studio, Microsoft Foundry, OpenAI, OpenAI-compatible providers, and xAI. You add your API key for the chosen provider directly in your {% data variables.product.prodname_copilot_short %} settings.
 
 When BYOK is active:
 

@@ -5,13 +5,9 @@ shortTitle: IP addresses in audit log
 permissions: Enterprise owners can display IP addresses in the audit log for an enterprise.
 versions:
   feature: enterprise-audit-log-ip-addresses
-type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Networking
-  - Security
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About display of IP addresses in the audit log
@@ -37,6 +33,8 @@ If members of your enterprise access {% data variables.location.product_location
 * Interactions with a public repository owned by an organization in your enterprise
 
 {% data variables.product.github %} does not display IP addresses in the audit log for `api.request` events that do not have repository context, such as requests triggered by GraphQL or requests to endpoints that reference only a user or organization.
+
+{% data variables.product.github %} does not display IP addresses in the audit log for certain events where the actor recorded in the audit log differs from the person or system that performed the action. {% data variables.product.github %} also does not display IP addresses when a bot or automated system performs the action.
 
 ## Enabling display of IP addresses in the audit log
 

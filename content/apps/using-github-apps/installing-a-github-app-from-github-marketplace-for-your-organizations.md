@@ -14,6 +14,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Install from Marketplace for org
+category:
+  - Install and authorize apps
 ---
 
 ## About {% data variables.product.prodname_marketplace %}

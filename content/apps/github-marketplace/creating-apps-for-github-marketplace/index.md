@@ -4,8 +4,6 @@ intro: 'You can list free and paid tools for developers to use in {% data variab
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 children:
   - /requirements-for-listing-an-app
   - /security-best-practices-for-apps-on-github-marketplace

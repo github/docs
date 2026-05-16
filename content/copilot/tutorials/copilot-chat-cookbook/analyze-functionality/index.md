@@ -7,8 +7,6 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/functionality-analysis-and-feature-suggestions
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /explore-implementations
   - /analyze-feedback

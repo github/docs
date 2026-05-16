@@ -1,13 +1,18 @@
 import Cookies from '@/frame/components/lib/cookies'
-import { ANALYTICS_ENABLED } from '@/frame/lib/constants'
+import {
+  ANALYTICS_ENABLED,
+  ANNOTATE_MODE_COOKIE_NAME,
+  DOCS_EVENTS_COOKIE_NAME,
+  TOOL_PREFERRED_COOKIE_NAME,
+  OS_PREFERRED_COOKIE_NAME,
+} from '@/frame/lib/constants'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
 import { isLoggedIn } from '@/frame/components/hooks/useHasAccount'
 import { getExperimentVariationForContext } from './experiments/experiment'
 import { EventType, EventPropsByType } from '../types'
 import { isHeadless } from './is-headless'
-
-const COOKIE_NAME = '_docs-events'
+import { sendHydroAnalyticsEvent, getOctoClientId } from './hydro-analytics'
 
 const startVisitTime = Date.now()
 
@@ -25,7 +30,7 @@ let scrollFlipCount = 0
 let maxScrollY = 0
 let previousPath: string | undefined
 let hoveredUrls = new Set()
-let eventQueue: any[] = []
+let eventQueue: Record<string, unknown>[] = []
 
 function scheduleNextFlush() {
   setTimeout(() => {
@@ -54,18 +59,21 @@ export function uuidv4(): string {
     return crypto.randomUUID()
   } catch {
     // https://stackoverflow.com/a/2117523
-    return (<any>[1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c: number) =>
-      (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
+    return (String([1e7]) + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c: string) =>
+      (
+        Number(c) ^
+        (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (Number(c) / 4)))
+      ).toString(16),
     )
   }
 }
 
 export function getUserEventsId() {
   if (cookieValue) return cookieValue
-  cookieValue = Cookies.get(COOKIE_NAME)
+  cookieValue = Cookies.get(DOCS_EVENTS_COOKIE_NAME)
   if (cookieValue) return cookieValue
   cookieValue = uuidv4()
-  Cookies.set(COOKIE_NAME, cookieValue)
+  Cookies.set(DOCS_EVENTS_COOKIE_NAME, cookieValue)
   return cookieValue
 }
 
@@ -112,8 +120,10 @@ export function sendEvent<T extends EventType>({
       page_document_type: getMetaContent('page-document-type'),
       page_type: getMetaContent('page-type'),
       content_type: getMetaContent('page-content-type'),
+      docs_team_metrics: getMetaContent('docs-team-metrics') || undefined,
       status: Number(getMetaContent('status') || 0),
       is_logged_in: isLoggedIn(),
+      octo_client_id: getOctoClientId(),
 
       // Device information
       // os, os_version, browser, browser_version:
@@ -131,10 +141,10 @@ export function sendEvent<T extends EventType>({
       user_language: navigator.language,
 
       // Preference information
-      application_preference: Cookies.get('toolPreferred'),
+      application_preference: Cookies.get(TOOL_PREFERRED_COOKIE_NAME),
       color_mode_preference: getColorModePreference(),
-      os_preference: Cookies.get('osPreferred'),
-      code_display_preference: Cookies.get('annotate-mode'),
+      os_preference: Cookies.get(OS_PREFERRED_COOKIE_NAME),
+      code_display_preference: Cookies.get(ANNOTATE_MODE_COOKIE_NAME),
 
       experiment_variation:
         getExperimentVariationForContext(
@@ -152,6 +162,9 @@ export function sendEvent<T extends EventType>({
 
   queueEvent(body)
 
+  // Send events to hydro-analytics-client for cross-subdomain tracking
+  sendHydroAnalyticsEvent(body)
+
   if (type === EventType.exit) {
     flushQueue()
   }
@@ -167,13 +180,15 @@ function flushQueue() {
   eventQueue = []
 
   try {
-    navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+    if (ANALYTICS_ENABLED) {
+      navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+    }
   } catch (err) {
     console.warn(`sendBeacon to '${endpoint}' failed.`, err)
   }
 }
 
-function queueEvent(eventBody: unknown) {
+function queueEvent(eventBody: Record<string, unknown>) {
   eventQueue.push(eventBody)
 }
 

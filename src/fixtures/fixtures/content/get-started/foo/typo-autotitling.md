@@ -4,7 +4,7 @@ intro: If the author typos the word "AUTOTITLE" it will throw
 versions:
   fpt: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 
 ## Example

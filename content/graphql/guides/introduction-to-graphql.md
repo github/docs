@@ -8,8 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
+category:
+  - Get started and make API calls
 ---
 
 ## GraphQL terminology

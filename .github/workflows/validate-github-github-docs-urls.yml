@@ -106,18 +106,15 @@ jobs:
       - name: Get changed content/data files
         if: ${{ github.event_name == 'pull_request' }}
         id: changed_files
-        uses: ./.github/actions/get-changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: |
             content/**
 
       - name: Generate PR comment
-        if: ${{ github.event_name == 'pull_request' && steps.changed_files.outputs.filtered_changed_files }}
+        if: ${{ github.event_name == 'pull_request' && steps.changed_files.outputs.any_modified == 'true' }}
         env:
-          # Make it an environment variable so that its value doesn't need to be escaped.
-          # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
-          CHANGED_FILES: |-
-            ${{ steps.changed_files.outputs.filtered_changed_files }}
+          CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           ISSUE_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
@@ -129,3 +126,8 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

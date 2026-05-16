@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
+category:
+  - Troubleshoot authentication issues
 ---
 ## Finding where the key has been used
 

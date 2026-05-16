@@ -5,11 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Notifications
-  - Accounts
 children:
   - /about-github-and-git
   - /creating-an-account-on-github

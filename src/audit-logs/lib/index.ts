@@ -2,6 +2,7 @@ import path from 'path'
 
 import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 import { getOpenApiVersion } from '@/versions/lib/all-versions'
+import { supported as supportedGhesReleases } from '@/versions/lib/enterprise-server-releases'
 import findPage from '@/frame/lib/find-page'
 import type { Context, Page } from '@/types'
 import type {
@@ -158,12 +159,12 @@ export function getAuditLogEvents(page: string, version: string): AuditLogEventT
     auditLogEventsCache.get(openApiVersion)?.set(page, [])
     auditLogEventsCache
       .get(openApiVersion)
-      ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
+      ?.set(page, readCompressedJsonFileFallback(auditLogFileName) as AuditLogEventT[])
   } else if (!auditLogEventsCache.get(openApiVersion)?.has(page)) {
     auditLogEventsCache.get(openApiVersion)?.set(page, [])
     auditLogEventsCache
       .get(openApiVersion)
-      ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
+      ?.set(page, readCompressedJsonFileFallback(auditLogFileName) as AuditLogEventT[])
   }
 
   const auditLogEvents = auditLogEventsCache.get(openApiVersion)?.get(page)
@@ -209,12 +210,14 @@ export async function filterByAllowlistValues({
   currentEvents = [],
   pipelineConfig,
   titleContext,
+  globalFields = [],
 }: {
   eventsToCheck: RawAuditLogEventT[]
   allowListValues: string | string[]
   currentEvents?: AuditLogEventT[]
   pipelineConfig: PipelineConfig
   titleContext?: TitleResolutionContext
+  globalFields?: string[]
 }) {
   if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
   if (!currentEvents) currentEvents = []
@@ -230,11 +233,18 @@ export async function filterByAllowlistValues({
       if (seen.has(event.action)) continue
       seen.add(event.action)
 
+      // Merge global fields with event-specific fields
+      const mergedFields = event.fields
+        ? [...new Set([...globalFields, ...event.fields])]
+        : globalFields.length > 0
+          ? [...globalFields]
+          : undefined
+
       const minimal: AuditLogEventT = {
         action: event.action,
         description: processAndGetEventDescription(event, eventAllowlists, pipelineConfig),
         docs_reference_links: event.docs_reference_links,
-        fields: event.fields,
+        fields: mergedFields,
       }
 
       // Resolve reference link titles if context is provided
@@ -290,6 +300,8 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
   pipelineConfig,
   auditLogPage,
   titleContext,
+  globalFields = [],
+  supportedGhesVersions = supportedGhesReleases,
 }: {
   eventsToCheck: RawAuditLogEventT[]
   allowListValue: string
@@ -297,8 +309,17 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
   pipelineConfig: PipelineConfig
   auditLogPage: string
   titleContext?: TitleResolutionContext
+  globalFields?: string[]
+  supportedGhesVersions?: string[]
 }) {
   if (!currentGhesEvents) currentGhesEvents = {}
+
+  // Upstream `audit-log-allowlists/data/schema.json` lags docs's deprecation
+  // schedule, so events still list `ghes` keys for versions we've already
+  // dropped from `supported` in `enterprise-server-releases.ts`. Without this
+  // filter, the nightly sync would re-add `src/audit-logs/data/ghes-X.Y/`
+  // dirs for those deprecated versions. See docs-engineering#6562.
+  const supportedGhesVersionSet = new Set(supportedGhesVersions)
 
   const seenByGhesVersion = new Map()
   for (const [ghesVersion, events] of Object.entries(currentGhesEvents)) {
@@ -309,6 +330,7 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
 
   for (const event of eventsToCheck) {
     for (const ghesVersion of Object.keys(event.ghes)) {
+      if (!supportedGhesVersionSet.has(ghesVersion)) continue
       const ghesVersionAllowlists = event.ghes[ghesVersion]._allowlists
       const fullGhesVersion = `ghes-${ghesVersion}`
 
@@ -316,11 +338,21 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
       if (seenByGhesVersion.get(fullGhesVersion)?.has(event.action)) continue
 
       if (ghesVersionAllowlists.includes(allowListValue)) {
+        // Get event-specific fields (prefer GHES version fields, fall back to base fields)
+        const eventFields = event.ghes[ghesVersion].fields || event.fields
+
+        // Merge global fields with event-specific fields
+        const mergedFields = eventFields
+          ? [...new Set([...globalFields, ...eventFields])]
+          : globalFields.length > 0
+            ? [...globalFields]
+            : undefined
+
         const minimal: AuditLogEventT = {
           action: event.action,
           description: processAndGetEventDescription(event, ghesVersionAllowlists, pipelineConfig),
           docs_reference_links: event.docs_reference_links,
-          fields: event.ghes[ghesVersion].fields || event.fields,
+          fields: mergedFields,
         }
 
         // Resolve reference link titles if context is provided

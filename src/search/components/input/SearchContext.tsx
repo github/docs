@@ -2,6 +2,11 @@ import { createContext, useContext, RefObject, SetStateAction, MutableRefObject 
 import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
 
+export type TranslationFunction = (
+  strings: TemplateStringsArray | string,
+  ...values: unknown[]
+) => string
+
 export interface AutocompleteSearchHitWithUserQuery extends AutocompleteSearchHit {
   isUserQuery?: boolean
 }
@@ -29,7 +34,7 @@ export interface AskAIState {
 }
 
 export interface SearchContextType {
-  t: any
+  t: TranslationFunction
   generalSearchOptions: GeneralSearchHitWithOptions[]
   aiOptionsWithUserInput: AutocompleteSearchHitWithUserQuery[]
   generalSearchResultOnSelect: (selectedOption: GeneralSearchHit) => void

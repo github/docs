@@ -22,8 +22,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Manage branches and protect code
 ---
 
 ## About branch protection rules

@@ -28,4 +28,5 @@ You can add custom properties to your enterprise to make those properties availa
 1. Enter a name, description, and type for the custom property. The name must be unique across all of your organizations, can't contain spaces, and cannot exceed 75 characters in length.
 1. Optionally, select **Allow repository actors to set this property**. When enabled, repository users and apps with the repository-level `custom properties` fine-grained permission will be able to set and update the property value for their repository. Additionally, any actor creating a repository can set the property on the repository.
 1. Optionally, select **Require this property for all repositories** and add a default value. This means that you require that all repositories in your enterprise have a value for this property. Repositories that don’t have an explicit value for this property will inherit the default value.
+{% data reusables.organizations.custom-properties-required-values %}
 1. Click **Save property**.

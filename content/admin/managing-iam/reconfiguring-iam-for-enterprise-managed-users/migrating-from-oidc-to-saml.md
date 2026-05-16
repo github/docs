@@ -5,14 +5,11 @@ intro: 'If you''re using OpenID Connect (OIDC) to authenticate members in your {
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-oidc-to-saml
   - /admin/identity-and-access-management/reconfiguring-iam-for-enterprise-managed-users/migrating-from-oidc-to-saml
+category:
+  - Configure authentication
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}
@@ -37,7 +34,7 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 ## Migrating your enterprise
 
 {% data reusables.emus.sign-in-as-setup-user %}
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.emus.use-enterprise-recovery-code %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}

@@ -7,11 +7,10 @@ category:
   - Custom instructions
   - Team collaboration
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

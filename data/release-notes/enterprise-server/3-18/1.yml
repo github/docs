@@ -6,8 +6,6 @@ sections:
     - |
       **HIGH:** An attacker could execute arbitrary code in the context of other users' browsers by supplying a malicious `label:` value that was injected into the DOM without proper sanitization. This could be triggered when a user visits a crafted Issues search URL, enabling session hijacking, account takeover, and recovery code exfiltration. GitHub has requested CVE ID [CVE-2025-11892](https://www.cve.org/cverecord?id=CVE-2025-11892) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
-      Authenticated users could target the internal aqueduct-lite endpoints by using a domain name to circumvent checks. This fix addresses this Server-Side Request Forgery (SSRF) vulnerability by blocking connections to loopback addresses after resolving the domain name for the webhook delivery address.
-    - |
        **LOW:** When a user updated a classic {% data variables.product.pat_generic_title_case %} (PAT) to remove all scopes instead of revoking the PAT, the change was silently ignored and the PAT continued to grant its previously held permissions. To mitigate this issue, GitHub updated the token management logic to correctly clear scopes when no scope is provided.
     - |
       Packages have been updated to the latest security versions.

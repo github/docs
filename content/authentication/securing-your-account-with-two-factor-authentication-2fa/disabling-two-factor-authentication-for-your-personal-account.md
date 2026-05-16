@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: Disable 2FA
+category:
+  - Set up two-factor authentication
 ---
 
 {% ifversion mandatory-2fa-dotcom-contributors %}

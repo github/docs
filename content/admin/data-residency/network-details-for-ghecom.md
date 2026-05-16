@@ -8,6 +8,8 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/network-access-to-resources-on-ghecom
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
   - /early-access/admin/data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
+category:
+  - Get started with GitHub Enterprise
 ---
 
 To access your enterprise on {% data variables.enterprise.data_residency_site %}, client systems must:
@@ -25,6 +27,14 @@ gh api /meta --hostname octocorp.ghe.com
 
 For more information, see [AUTOTITLE](/rest/meta/meta).
 
+## Using SSH with {% data variables.enterprise.data_residency_site %}
+
+To clone a repository using Git over SSH from `{% data variables.enterprise.data_residency_domain %}`, where SUBDOMAIN is your enterprise's dedicated subdomain on {% data variables.enterprise.data_residency_site %}, use the SUBDOMAIN as the SSH username instead of `git`.
+
+```shell
+git clone SUBDOMAIN@SUBDOMAIN.ghe.com:OWNER/REPO.git
+```
+
 ## {% data variables.product.github %}'s hostnames
 
 * `*.{% data variables.enterprise.data_residency_domain %}`, where SUBDOMAIN is your enterprise's dedicated subdomain on {% data variables.enterprise.data_residency_site %}
@@ -33,6 +43,7 @@ For more information, see [AUTOTITLE](/rest/meta/meta).
 * `*.githubassets.com`
 * `*.githubusercontent.com`
 * `*.blob.core.windows.net`
+* `auth.ghe.com`
 
 ## {% data variables.product.github %}'s IP addresses
 
@@ -177,12 +188,68 @@ Japan region:
 
 ### Domains for Azure private networking
 
+#### Required for all regions
+
 * `*.<TENANT>.ghe.com`
 * `<TENANT>.ghe.com`
 * `github.com`
 * `*.githubusercontent.com`
-* `*.blob.core.windows.net`
+* `*.blob.core.windows.net` (can be further restricted by region, see below)
 * `*.web.core.windows.net`
+
+#### EU
+
+`*.blob.core.windows.net` can be replaced with:
+* `memoryalphaprodsdc01.blob.core.windows.net`
+* `memoryalphaprodweu01.blob.core.windows.net`
+* `prodsdc01resultssa0.blob.core.windows.net`
+* `prodsdc01resultssa1.blob.core.windows.net`
+* `prodsdc01resultssa2.blob.core.windows.net`
+* `prodsdc01resultssa3.blob.core.windows.net`
+* `prodweu01resultssa0.blob.core.windows.net`
+* `prodweu01resultssa1.blob.core.windows.net`
+* `prodweu01resultssa2.blob.core.windows.net`
+* `prodweu01resultssa3.blob.core.windows.net` 
+
+#### Australia
+
+`*.blob.core.windows.net` can be replaced with:
+* `memoryalphaprodae01.blob.core.windows.net`
+* `prodae01resultssa0.blob.core.windows.net`
+* `prodae01resultssa1.blob.core.windows.net`
+* `prodae01resultssa2.blob.core.windows.net`
+* `prodae01resultssa3.blob.core.windows.net`
+
+#### Japan
+
+`*.blob.core.windows.net` can be replaced with:
+* `memoryalphaprodjpw01.blob.core.windows.net`
+* `prodjpw01resultssa0.blob.core.windows.net`
+* `prodjpw01resultssa1.blob.core.windows.net`
+* `prodjpw01resultssa2.blob.core.windows.net`
+* `prodjpw01resultssa3.blob.core.windows.net`
+
+### OAuth callback URL for connecting an Azure subscription for billing
+
+When you connect or update an Azure subscription for billing, you must allow access to the following URL:
+
+* `https://github.com/enterprises/oauth_callback`
+
+This URL is required during the OAuth authentication flow that occurs when:
+
+* Connecting an Azure subscription to your enterprise for the first time
+* Changing or updating an existing Azure subscription connection
+
+> [!IMPORTANT]
+> * The URL must be allowed with all query parameters, for example `https://github.com/enterprises/oauth_callback?code=...`
+> * After the Azure subscription is successfully connected and the subscription ID is stored, you can remove this URL from your allowlist
+> * To change or update your Azure subscription, you must add the URL back to your allowlist
+
+The OAuth flow works as follows:
+
+1. The user starts the connection process on `SUBDOMAIN.ghe.com`
+1. Azure redirects to `https://github.com/enterprises/oauth_callback` to complete the OAuth flow
+1. The system redirects back to `SUBDOMAIN.ghe.com` to finalize the connection
 
 ## IP ranges for {% data variables.product.prodname_importer_proper_name %}
 

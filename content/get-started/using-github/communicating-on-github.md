@@ -12,11 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Discussions
-  - Fundamentals
+category:
+  - Explore and contribute
 ---
 ## Introduction
 

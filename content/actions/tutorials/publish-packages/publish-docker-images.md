@@ -1,7 +1,7 @@
 ---
 title: Publishing Docker images
 shortTitle: Publish Docker images
-intro: 'In this tutorial, you''ll learn how to publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
+intro: In this tutorial, you'll learn how to publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images
@@ -13,12 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Packaging
-  - Publishing
-  - Docker
 layout: inline
+contentType: tutorials
+category:
+  - Build and test code
 ---
 
 ## Introduction
@@ -117,7 +115,7 @@ jobs:
 
 {% ifversion artifact-attestations %}
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest@v4
         with:
           subject-name: index.docker.io/my-docker-hub-namespace/my-docker-hub-repository
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
@@ -236,3 +234,15 @@ Then the `build-push-action` action builds and pushes the Docker image to Docker
 > * To maintain a consistent digest and allow a single attestation to verify all copies, push to one registry first and use a tool like [`crane copy`](https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane_copy.md) to replicate the image elsewhere.
 > * If you choose to build and push to each registry separately instead, you must generate a distinct attestation for each one to ensure your artifacts remain verifiable.
 {% endif %}
+
+## Hands-on practice
+
+Practice publishing Docker images with the [Publishing Docker images](https://github.com/skills/publish-docker-images) {% data variables.product.prodname_learning %} exercise.
+
+In this exercise, you will learn how to:
+
+* Authenticate to {% data variables.product.prodname_registry %} using the `GITHUB_TOKEN`.
+* Build and publish container images to the {% data variables.product.prodname_container_registry %} (`ghcr.io`).
+* Use official Docker actions, such as `docker/login-action`, `docker/build-push-action`, and `docker/setup-buildx-action`.
+* Generate tags automatically with `docker/metadata-action` based on branches, pull requests, and releases.
+* Create features, pull requests, and releases with proper container versioning.

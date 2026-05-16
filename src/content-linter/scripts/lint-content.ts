@@ -89,7 +89,7 @@ type FormattedResults = Record<string, FormattedResult[]>
  */
 export const globalConfig = {
   // Do not ever lint these filepaths
-  excludePaths: ['content/contributing/'],
+  excludePaths: ['content/contributing/', 'data/llms-txt/'],
 }
 
 program
@@ -285,8 +285,8 @@ async function main() {
   console.log('\n')
   const took = end - start
   if (warningFileCount > 0 || errorFileCount > 0) {
-    spinner.info(
-      `💡 You can disable linter rules for specific lines or blocks of text. See https://gh.io/suppress-linter-rule.\n\n`,
+    console.log(
+      `💡 You can disable linter rules for specific lines or blocks of text. See https://gh.io/suppress-linter-rule.\n`,
     )
   }
   spinner.info(
@@ -512,11 +512,13 @@ function getFormattedResults(
     .filter(([, results]) => results.length)
   for (const [key, fileResults] of filteredResults) {
     if (verbose) {
-      output[key] = fileResults.map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
+      output[key] = fileResults
+        .map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
+        .filter((result): result is FormattedResult => result !== null)
     } else {
-      const formattedResults = fileResults.map((flaw: LintError) =>
-        formatResult(flaw, isInPrecommitMode),
-      )
+      const formattedResults = fileResults
+        .map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
+        .filter((result): result is FormattedResult => result !== null)
 
       // Only add the file to output if there are results after filtering
       if (formattedResults.length > 0) {
@@ -562,14 +564,18 @@ function getCountBySeverity(
 // Removes null values and properties that are not relevant to content
 // writers, adds the severity to each result object, and transforms
 // some error and fix data into a more readable format.
-function formatResult(object: LintError, isInPrecommitMode: boolean): FormattedResult {
+function formatResult(object: LintError, isInPrecommitMode: boolean): FormattedResult | null {
   const formattedResult: FormattedResult = {} as FormattedResult
 
   // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
   const ruleConfig = allConfig[ruleName] as Config | undefined
+  // Skip rules that aren't in our config. This can happen when using
+  // <!-- markdownlint-disable --> / <!-- markdownlint-enable --> comments
+  // without specifying rule names, which re-enables ALL markdownlint rules
+  // including ones we don't use (like line-length/MD013).
   if (!ruleConfig) {
-    throw new Error(`Rule not found in allConfig: '${ruleName}'`)
+    return null
   }
   formattedResult.severity =
     ruleConfig.severity || getSearchReplaceRuleSeverity(ruleName, object, isInPrecommitMode)

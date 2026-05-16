@@ -1,0 +1,362 @@
+{
+  "blocked": {
+    "descriptionHtml": "<p>A user was blocked from the organization.</p>",
+    "summaryHtml": "<p>This event occurs when organization owners or moderators block or unblock a non-member from collaborating on the organization's repositories. For more information, see \"<a href=\"https://docs.github.com/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization\">Blocking a user from your organization</a>.\" For information about the APIs to manage blocked users, see <a href=\"https://docs.github.com/graphql/reference/objects#userblockedevent\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/rest/orgs/blocking\">Blocking users</a>\" in the REST API documentation.</p>\n<p>If you want to receive an event when members are added or removed from an organization, use the <code>organization</code> event instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "blocked"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "blocked_user",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "organization",
+      "business",
+      "app"
+    ],
+    "action": "blocked",
+    "category": "org_block"
+  },
+  "unblocked": {
+    "descriptionHtml": "<p>A previously blocked user was unblocked from the organization.</p>",
+    "summaryHtml": "<p>This event occurs when organization owners or moderators block or unblock a non-member from collaborating on the organization's repositories. For more information, see \"<a href=\"https://docs.github.com/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization\">Blocking a user from your organization</a>.\" For information about the APIs to manage blocked users, see <a href=\"https://docs.github.com/graphql/reference/objects#userblockedevent\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/rest/orgs/blocking\">Blocking users</a>\" in the REST API documentation.</p>\n<p>If you want to receive an event when members are added or removed from an organization, use the <code>organization</code> event instead.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "unblocked"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "blocked_user",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "email",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "",
+            "enum": [
+              "Bot",
+              "User",
+              "Organization"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "organization",
+      "business",
+      "app"
+    ],
+    "action": "unblocked",
+    "category": "org_block"
+  }
+}

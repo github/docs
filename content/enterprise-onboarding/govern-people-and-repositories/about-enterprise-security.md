@@ -8,12 +8,7 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-code-security-for-your-enterprise
   - /enterprise-onboarding/feature-enhancements/about-enterprise-security
-type: overview
-topics:
-  - Enterprise
-  - Set up
-  - Security
-contentType: other
+contentType: concepts
 ---
 
 {% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}. Other security features require an {% data variables.product.prodname_AS %} license to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}.

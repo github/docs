@@ -8,7 +8,7 @@ interface VersionDateData {
   releaseCandidateDate?: string
   generalAvailabilityDate?: string
   deprecationDate: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface EnhancedVersionDateData extends VersionDateData {
@@ -29,18 +29,20 @@ const rawDates: RawDatesData = JSON.parse(
 // ============================================================================
 
 // Upcoming GHES release numbers (used in frontmatter and release planning)
-export const next = '3.20'
-export const nextNext = '3.21'
+export const next = '3.22'
+export const nextNext = '3.23'
 
 // Currently supported GHES versions (in descending order, latest first)
-export const supported = ['3.19', '3.18', '3.17', '3.16', '3.15', '3.14']
+export const supported = ['3.21', '3.20', '3.19', '3.18', '3.17', '3.16']
 
 // Set to version number when in RC phase, null when no RC is active
-export const releaseCandidate = null
+export const releaseCandidate = '3.21'
 
 // Deprecated versions with functional redirect handling (3.0+)
 // When archiving a new version, add it here and update the archival process
 export const deprecatedWithFunctionalRedirects = [
+  '3.15',
+  '3.14',
   '3.13',
   '3.12',
   '3.11',
@@ -127,6 +129,12 @@ export const isOldestReleaseDeprecated = nextDeprecationDate
   ? new Date() > new Date(nextDeprecationDate)
   : false
 
+// Find any other releases that may share the oldest deprecation date
+// We'll want to display the deprecation banner on all of these releases (not just oldest)
+export const releasesWithOldestDeprecationDate = Object.entries(dates)
+  .filter(([, versionData]) => versionData.deprecationDate === nextDeprecationDate)
+  .map(([version]) => version)
+
 // Filtered version arrays for different use cases
 export const deprecatedOnNewSite = deprecated.filter((version) =>
   versionSatisfiesRange(version, '>=2.13'),
@@ -210,6 +218,7 @@ export default {
   oldestSupported,
   nextDeprecationDate,
   isOldestReleaseDeprecated,
+  releasesWithOldestDeprecationDate,
   deprecatedOnNewSite,
   dates,
   firstVersionDeprecatedOnNewSite,

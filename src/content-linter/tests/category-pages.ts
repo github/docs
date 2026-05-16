@@ -239,6 +239,15 @@ describe.skip('category pages', () => {
 })
 
 function getPath(productDir: string, link: string, filename: string) {
+  // Handle absolute /content/ paths for cross-product children
+  // The link parameter contains the child path from frontmatter
+  if (link.startsWith('/content/')) {
+    const absolutePath = link.slice('/content/'.length)
+    if (filename === 'index') {
+      return path.join(contentDir, absolutePath, 'index.md')
+    }
+    return path.join(contentDir, absolutePath, `${filename}.md`)
+  }
   return path.join(productDir, link, `${filename}.md`)
 }
 

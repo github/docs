@@ -6,6 +6,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/requesting-server-statistics-using-the-rest-api
+category:
+  - Monitor and audit your enterprise
 ---
 
 You can request up to 365 days of metrics in a single {% data variables.product.prodname_server_statistics %} REST API request. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. For a list of the metrics collected, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected).

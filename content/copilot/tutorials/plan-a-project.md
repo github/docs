@@ -3,10 +3,6 @@ title: Planning a project with GitHub Copilot
 shortTitle: Plan a project
 intro: 'Plan your next project by using {% data variables.product.prodname_copilot %} to turn your ideas into issues.'
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.product.prodname_copilot_short %} to create issues. <br> <a href="https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=button&ref_plan=free" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_copilot_short %} for free</span> {% octicon "link-external" height:16 %}</a>'
-topics:
-  - Copilot
-  - Issues
-  - Project management
 versions:
   feature: copilot
 contentType: tutorials
@@ -108,11 +104,11 @@ If {% data variables.product.prodname_copilot_short %} generates a sub-issue tha
 
 ## Next steps
 
-Now that you’ve generated and refined your project issues, you can assign them to the right team members or even to {% data variables.product.prodname_copilot_short %} itself for further assistance. To learn more about how to assign {% data variables.product.prodname_copilot_short %} or contributors to issues, and how to continue planning and implementing your project with {% data variables.product.prodname_copilot_short %}’s agentic features, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue).
+Now that you’ve generated and refined your project issues, you can assign them to the right team members or even to {% data variables.product.prodname_copilot_short %} itself for further assistance. To learn more about how to assign {% data variables.product.prodname_copilot_short %} or contributors to issues, and how to continue planning and implementing your project with {% data variables.product.prodname_copilot_short %}’s agentic features, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-or-update-issues)
-* [AUTOTITLE](/copilot/tutorials/coding-agent/pilot-coding-agent)
-* [AUTOTITLE](/copilot/tutorials/coding-agent/get-the-best-results)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/copilot-for-github-tasks/use-copilot-to-create-or-update-issues)
+* [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent)
+* [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)
 * [AUTOTITLE](/copilot/tutorials/speed-up-development-work)

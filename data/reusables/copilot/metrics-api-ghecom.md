@@ -1,1 +1,0 @@
->[!NOTE] The {% data variables.product.prodname_copilot_short %} metrics endpoints are **not** available for {% data variables.enterprise.data_residency %} on {% data variables.enterprise.data_residency_site %}.

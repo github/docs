@@ -4,13 +4,14 @@ shortTitle: Use your own API keys
 intro: 'Learn how to integrate your preferred custom models with {% data variables.product.prodname_copilot %} by using your own LLM API keys, and make them available for organizations in your enterprise account.'
 versions:
   feature: copilot-byok
-topics:
-  - Copilot
 contentType: how-tos
 allowTitleToDifferFromFilename: true
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
 
-{% data reusables.copilot.byok-intro %}
+{% data reusables.copilot.byok-intro %} {% data reusables.copilot.byok-no-subscription-required %}
 
 ## Why bring your own API keys?
 
@@ -23,6 +24,8 @@ As an enterprise owner, you may have specific requirements for governance, data 
 > [!IMPORTANT] We highly recommend adhering to the principle of least privilege by assigning only the minimum necessary scopes to your API keys.
 
 After you've added your key and selected one or more models, you and members of your organizations will be able to use them with {% data variables.copilot.copilot_byok_supported_features %}. Your models will appear at the bottom of the model picker, under the enterprise name.
+
+> [!NOTE] For members of your organizations to use third-party models in {% data variables.product.prodname_vscode %}, the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy must be enabled. For more information, see the [{% data variables.product.prodname_copilot_short %} settings page](https://github.com/settings/copilot/features) in {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}

@@ -55,22 +55,19 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Check for query description
       expect(res.body).toContain('Lookup a given repository by the owner and repository name.')
 
-      // Check for type link
-      expect(res.body).toContain('**Type:** [Repository](/en/graphql/reference/objects#repository)')
+      // Check for type (without link)
+      expect(res.body).toContain('**Type:** Repository')
     })
 
-    test('query arguments are listed in table format', async () => {
+    test('query arguments are listed in bullet format', async () => {
       const res = await getCached('/en/graphql/reference/queries')
       expect(res.statusCode).toBe(200)
 
-      // Check for arguments table for codeOfConduct query
+      // Check for arguments section for codeOfConduct query
       expect(res.body).toContain('### Arguments for `codeOfConduct`')
-      expect(res.body).toMatch(/\|\s*Name\s*\|\s*Type\s*\|\s*Description\s*\|/)
-      expect(res.body).toMatch(/\|\s*-+\s*\|\s*-+\s*\|\s*-+\s*\|/)
 
-      // Check for specific arguments
-      expect(res.body).toMatch(/\|\s*`key`\s*\|/)
-      expect(res.body).toContain('[`String!`](/en/graphql/reference/scalars#string)')
+      // Check for specific arguments in bullet format
+      expect(res.body).toContain('`key` (String!)')
       expect(res.body).toContain("The code of conduct's key.")
     })
 
@@ -84,13 +81,13 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Check for mutation description
       expect(res.body).toContain('Create a new repository.')
 
-      // Check for input fields table
+      // Check for input fields in bullet format
       expect(res.body).toContain('### Input fields for `createRepository`')
-      expect(res.body).toContain('| `input` |')
+      expect(res.body).toContain('`input`')
 
-      // Check for return fields table
+      // Check for return fields in bullet format
       expect(res.body).toContain('### Return fields for `createRepository`')
-      expect(res.body).toMatch(/\|\s*`repository`\s*\|/)
+      expect(res.body).toContain('`repository`')
       expect(res.body).toContain('The new repository.')
     })
 
@@ -101,30 +98,42 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Check for object heading - AddedToMergeQueueEvent has implements
       expect(res.body).toContain('## AddedToMergeQueueEvent')
 
-      // Check for implements section
-      expect(res.body).toContain('### Implements')
-      expect(res.body).toMatch(/[*-]\s*\[`Node`\]\(\/.*graphql\/reference\/interfaces#node\)/)
+      // Check for implements inline
+      expect(res.body).toContain('**Implements:** Node')
 
-      // Check for fields table
+      // Check for fields in bullet format
       expect(res.body).toContain('### Fields for `AddedToMergeQueueEvent`')
-      expect(res.body).toMatch(/\|\s*`id`\s*\|/)
-      expect(res.body).toMatch(/\|\s*`actor`\s*\|/)
-      expect(res.body).toMatch(/\|\s*`createdAt`\s*\|/)
+      expect(res.body).toContain('`id`')
+      expect(res.body).toContain('`actor`')
+      expect(res.body).toContain('`createdAt`')
     })
 
-    test('objects page shows field arguments inline', async () => {
+    test('objects page shows field arguments as nested bullets', async () => {
       const res = await getCached('/en/graphql/reference/objects')
       expect(res.statusCode).toBe(200)
 
       // Check for User object with repositories field that has arguments
       expect(res.body).toContain('## User')
-      expect(res.body).toContain('| `repositories` |')
+      expect(res.body).toContain('`repositories`')
 
-      // Check for inline arguments formatting
-      expect(res.body).toContain('**Arguments:**')
-      expect(res.body).toContain('- `first`')
+      // Check for nested argument bullets
+      expect(res.body).toContain('`first`')
       expect(res.body).toContain('Returns the first n elements from the list.')
-      expect(res.body).toContain('- `orderBy`')
+      expect(res.body).toContain('`orderBy`')
+    })
+
+    test('objects page collapses boilerplate Connection and Edge types', async () => {
+      const res = await getCached('/en/graphql/reference/objects')
+      expect(res.statusCode).toBe(200)
+
+      // Check for Connection/Edge summary section
+      expect(res.body).toContain('## Connection and Edge types')
+      expect(res.body).toContain('standard pagination fields')
+
+      // Boilerplate Connection/Edge types should be in the summary, not as H2 sections
+      // ActorConnection has only standard fields (edges, nodes, pageInfo, totalCount)
+      expect(res.body).toContain('`ActorConnection`')
+      expect(res.body).not.toMatch(/^## ActorConnection$/m)
     })
 
     test('interfaces page renders correctly', async () => {
@@ -137,9 +146,9 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Check for interface description
       expect(res.body).toContain('An object with an ID.')
 
-      // Check for fields table
+      // Check for fields in bullet format
       expect(res.body).toContain('### Fields for `Node`')
-      expect(res.body).toContain('| `id` |')
+      expect(res.body).toContain('`id`')
       expect(res.body).toContain('ID of the object.')
     })
 
@@ -153,13 +162,13 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Check for enum description
       expect(res.body).toContain("The repository's visibility level.")
 
-      // Check for values section
+      // Check for values in bullet format
       expect(res.body).toContain('### Values for `RepositoryVisibility`')
-      expect(res.body).toContain('**`PUBLIC`**')
+      expect(res.body).toContain('`PUBLIC`')
       expect(res.body).toContain('The repository is visible to everyone.')
-      expect(res.body).toContain('**`PRIVATE`**')
+      expect(res.body).toContain('`PRIVATE`')
       expect(res.body).toContain('The repository is visible only to those with explicit access.')
-      expect(res.body).toContain('**`INTERNAL`**')
+      expect(res.body).toContain('`INTERNAL`')
     })
 
     test('unions page renders with possible types', async () => {
@@ -172,13 +181,11 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Check for union description
       expect(res.body).toContain('The results of a search.')
 
-      // Check for possible types
+      // Check for possible types in bullet format (without links)
       expect(res.body).toContain('### Possible types for `SearchResultItem`')
-      expect(res.body).toMatch(/[*-]\s*\[`Bot`\]\(\/.*graphql\/reference\/objects#bot\)/)
-      expect(res.body).toMatch(
-        /[*-]\s*\[`PullRequest`\]\(\/.*graphql\/reference\/objects#pullrequest\)/,
-      )
-      expect(res.body).toMatch(/[*-]\s*\[`User`\]\(\/.*graphql\/reference\/objects#user\)/)
+      expect(res.body).toMatch(/\*\s*Bot/)
+      expect(res.body).toMatch(/\*\s*PullRequest/)
+      expect(res.body).toMatch(/\*\s*User/)
     })
 
     test('input-objects page renders correctly', async () => {
@@ -191,9 +198,9 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
       // Check for input object description
       expect(res.body).toContain('Autogenerated input type of CreateRepository.')
 
-      // Check for input fields table
+      // Check for input fields in bullet format
       expect(res.body).toContain('### Input fields for `AbortQueuedMigrationsInput`')
-      expect(res.body).toMatch(/\|\s*`ownerId`\s*\|/)
+      expect(res.body).toContain('`ownerId`')
       expect(res.body).toContain('The ID of the organization that is running the migrations.')
     })
 
@@ -226,7 +233,7 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
   })
 
   describe('Overview pages', () => {
-    test('changelog page renders with changes', async () => {
+    test('changelog index page renders with latest year changes', async () => {
       const res = await getCached('/en/graphql/overview/changelog')
       expect(res.statusCode).toBe(200)
 
@@ -243,16 +250,38 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
         'Breaking changes include changes that will break existing queries',
       )
 
-      // Check for date-based changelog sections
-      expect(res.body).toContain('## Schema changes for 2025-11-30')
+      // Index page shows latest year (2026) entries only
+      expect(res.body).toContain('## Schema changes for 2026-')
 
       // Check for change items
       expect(res.body).toContain('### The GraphQL schema includes these changes:')
-      expect(res.body).toContain('Type SuggestedReviewerActor was added')
+
+      // Should NOT contain entries from other years
+      expect(res.body).not.toContain('## Schema changes for 2025-')
+
+      // Check for year navigation
+      expect(res.body).toContain('2026')
+      expect(res.body).toContain('2025')
+    })
+
+    test('changelog year page renders with that year only', async () => {
+      const res = await getCached('/en/graphql/overview/changelog/2025')
+      expect(res.statusCode).toBe(200)
+
+      // Check for year-specific heading
+      expect(res.body).toContain('# GraphQL changelog for 2025')
+
+      // Check for date-based changelog sections from 2025
+      expect(res.body).toContain('## Schema changes for 2025-')
+
+      // Should NOT contain entries from other years
+      expect(res.body).not.toContain('## Schema changes for 2026-')
+      expect(res.body).not.toContain('## Schema changes for 2024-')
     })
 
     test('changelog removes HTML tags from changes', async () => {
-      const res = await getCached('/en/graphql/overview/changelog')
+      // Use a year page that has the specific test data
+      const res = await getCached('/en/graphql/overview/changelog/2025')
       expect(res.statusCode).toBe(200)
 
       // Check that HTML tags are removed
@@ -314,7 +343,6 @@ describe('GraphQL transformer', { timeout: 10000 }, () => {
 
       // Check that AUTOTITLE has been resolved
       expect(res.body).toMatch(/(Forming calls with GraphQL|Hello World)/)
-      expect(res.body).toContain('(/en/get-started/start-your-journey/hello-world)')
 
       // Make sure the raw AUTOTITLE tag is not present
       expect(res.body).not.toContain('[AUTOTITLE]')

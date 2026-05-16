@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/annotating-code-examples
+category:
+  - Write and format content
 ---
 
 ## About code annotations

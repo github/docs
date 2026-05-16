@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Community health file
+category:
+  - Set up your project for contributions
 ---
 
 ## About default community health files
@@ -26,7 +26,7 @@ You can add default community health files to a **public**{% ifversion ghec or g
 
 If no corresponding file is found in the current repository, {% data variables.product.github %} will use the default file from the `.github` repository, following the same order of precedence.
 
-**Note:** The `.github` repository must be **public**{% ifversion ghec or ghes %} or **internal**{% endif %} for templates to be applied organization-wide. Private `.github` repositories are not supported.
+>[!NOTE] The `.github` repository must be **public**{% ifversion ghec or ghes %} or **internal**{% endif %} for most default community health files to be applied organization-wide. Private `.github` repositories are not supported.{% ifversion ghec or ghes %} However, **issue and pull request templates require a public `.github` repository** and will not be applied organization-wide from an internal repository.{% endif %}
 
 For example, anyone who creates an issue or pull request in a repository that does not have its own `CONTRIBUTING.md` file will see a link to the default `CONTRIBUTING.md` from the `.github` repository. However, if a repository has any files in its own `.github/ISSUE_TEMPLATE` folder, such as issue templates or a `_config.yml` file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used. This allows repository maintainers to override the default files with specific templates or content on per-repository basis.
 
@@ -37,6 +37,19 @@ Storing the files in `.github` repository allows making changes to the defaults 
 As a repository maintainer, you can use the community standards checklist to see if your project meets the recommended community standards to help people use and contribute to your project. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories).
 
 {% endif %}
+
+## About security policies
+
+{% ifversion fpt or ghec %}
+After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see [AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github). For more information about repository security advisories, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories).
+{% endif %}
+
+{% ifversion ghes %}
+<!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
+By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
+{% endif %}
+
+For an example of a real `SECURITY.md` file, see [https://github.com/electron/electron/blob/main/SECURITY.md](https://github.com/electron/electron/blob/main/SECURITY.md).
 
 ## Supported file types
 
@@ -52,8 +65,8 @@ You can create defaults in your organization or personal account for the followi
 |  {% ifversion fpt or ghec %} |
 | _FUNDING.yml_ | A FUNDING file displays a sponsor button in your repository to increase the visibility of funding options for your open source project. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository). |
 |  {% endif %} |
-| _GOVERNANCE.md_ | A GOVERNANCE file lets people know about how your project is governed. For example, it might discuss project roles and how decisions are made. |
-| Issue and pull request templates and _config.yml_ | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).<br /><br />If an issue template sets a label, that label must be created in your `.github` repository and any repositories where the template will be used. |
+|  _GOVERNANCE.md_ | A GOVERNANCE file lets people know about how your project is governed. For example, it might discuss project roles and how decisions are made. For more information, see [Leadership and Governance - Open Source Guides](https://opensource.guide/leadership-and-governance/#understanding-governance-for-your-growing-project). |
+| Issue and pull request templates and _config.yml_ | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).<br /><br />If an issue template sets a label, that label must be created in your `.github` repository and any repositories where the template will be used.{% ifversion ghec or ghes %} Organization-wide issue and pull request templates require the `.github` repository to be public.{% endif %} |
 | _SECURITY.md_ | A SECURITY file gives instructions on how to report a security vulnerability in your project and description that hyperlinks the file. For more information, see [AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository). |
 | _SUPPORT.md_ | A SUPPORT file lets people know about ways to get help with your project. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-support-resources-to-your-project). |
 

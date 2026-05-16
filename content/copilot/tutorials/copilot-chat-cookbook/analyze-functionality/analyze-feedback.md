@@ -12,11 +12,10 @@ versions:
 category:
   - Functionality analysis
   - Author and optimize with Copilot
+  - Scale institutional knowledge
 complexity:
   - Intermediate
 octicon: lightbulb
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

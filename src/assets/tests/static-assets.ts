@@ -3,7 +3,7 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
-import type { Response } from 'express'
+import type { Request, Response } from 'express'
 
 import { get } from '@/tests/helpers/e2etest'
 import { checkCachingHeaders } from '@/tests/helpers/caching-headers'
@@ -32,7 +32,7 @@ function mockRequest(requestPath: string, { headers }: { headers?: Record<string
       _headers[header.toLowerCase()] = value
     },
     headers,
-  }
+  } as unknown as Request & ExtendedRequest
 }
 
 type MockResponse = {
@@ -93,7 +93,7 @@ const mockResponse = () => {
     res.statusCode = code
     return res
   }
-  return res
+  return res as unknown as Response & MockResponse
 }
 
 describe('static assets', () => {
@@ -224,11 +224,7 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(
-      req as unknown as ExtendedRequest,
-      res as unknown as Response,
-      next,
-    )
+    await archivedEnterpriseVersionsAssets(req, res, next)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -244,11 +240,7 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(
-      req as unknown as ExtendedRequest,
-      res as unknown as Response,
-      next,
-    )
+    await archivedEnterpriseVersionsAssets(req, res, next)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -264,11 +256,7 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(
-      req as unknown as ExtendedRequest,
-      res as unknown as Response,
-      next,
-    )
+    await archivedEnterpriseVersionsAssets(req, res, next)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -285,11 +273,7 @@ describe('archived enterprise static assets', () => {
       nexted = true
     }
     setDefaultFastlySurrogateKey(req, res, next)
-    await archivedEnterpriseVersionsAssets(
-      req as unknown as ExtendedRequest,
-      res as unknown as Response,
-      next,
-    )
+    await archivedEnterpriseVersionsAssets(req, res, next)
     // It didn't exit in that middleware but called next() to move on
     // with any other middlewares.
     expect(nexted).toBe(true)
@@ -307,11 +291,7 @@ describe('archived enterprise static assets', () => {
       nexted = true
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(
-      req as unknown as ExtendedRequest,
-      res as unknown as Response,
-      next,
-    )
+    await archivedEnterpriseVersionsAssets(req, res, next)
     // It tried to go via the proxy, but it wasn't there, but then it
     // tried "our disk" and it's eventually there.
     expect(nexted).toBe(true)
@@ -357,11 +337,7 @@ describe('archived enterprise static assets', () => {
           nexted = true
         }
         setDefaultFastlySurrogateKey(req, res, () => {})
-        await archivedEnterpriseVersionsAssets(
-          req as unknown as ExtendedRequest,
-          res as unknown as Response,
-          next,
-        )
+        await archivedEnterpriseVersionsAssets(req, res, next)
         expect(res.statusCode).toBe(expectStatus)
         if (shouldCallNext) {
           expect(nexted).toBe(true)
@@ -400,11 +376,7 @@ describe('archived enterprise static assets', () => {
           nexted = true
         }
         setDefaultFastlySurrogateKey(req, res, () => {})
-        await archivedEnterpriseVersionsAssets(
-          req as unknown as ExtendedRequest,
-          res as unknown as Response,
-          next,
-        )
+        await archivedEnterpriseVersionsAssets(req, res, next)
         expect(nexted).toBe(shouldCallNext)
         expect(res.statusCode).toBe(expectStatus)
       })

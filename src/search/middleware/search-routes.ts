@@ -10,7 +10,9 @@ import catchMiddlewareError from '@/observability/middleware/catch-middleware-er
 import { generalSearchRoute } from '@/search/lib/routes/general-search-route'
 import { aiSearchAutocompleteRoute } from '@/search/lib/routes/ai-search-autocomplete-route'
 import { combinedSearchRoute } from '@/search/lib/routes/combined-search-route'
+import { createLogger } from '@/observability/logger'
 
+const logger = createLogger('search:middleware:search-routes')
 const router = express.Router()
 
 router.get('/legacy', (req: Request, res: Response) => {
@@ -37,23 +39,32 @@ export async function handleGetSearchResultsError(
     const reports = FailBot.report(error, { url: req.url, ...options })
     if (reports) await Promise.all(reports)
   }
-  res.status(500).json({ error: error.message })
+  // Avoid "Cannot set headers after they are sent to the client" error
+  // if response was already partially sent before the error occurred
+  if (!res.headersSent) {
+    res.status(500).json({ error: error.message })
+  } else {
+    logger.warn('Response headers already sent; unable to send error response.', {
+      url: req.url,
+      message: error?.message,
+    })
+  }
 }
 
 // Redirects search routes to their latest versions
 router.get('/', (req: Request, res: Response) => {
-  res.redirect(307, req.originalUrl.replace('/search', '/search/v1'))
+  res.safeRedirect(307, req.originalUrl.replace('/search', '/search/v1'))
 })
 
 router.get('/ai-search-autocomplete', (req: Request, res: Response) => {
-  res.redirect(
+  res.safeRedirect(
     307,
     req.originalUrl.replace('/search/ai-search-autocomplete', '/search/ai-search-autocomplete/v1'),
   )
 })
 
 router.get('/combined-search', (req: Request, res: Response) => {
-  res.redirect(
+  res.safeRedirect(
     307,
     req.originalUrl.replace('/search/combined-search', '/search/combined-search/v1'),
   )

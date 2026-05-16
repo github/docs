@@ -29,7 +29,6 @@
 | GHD008 | early-access-references | Files that are not early access should not reference early-access or early-access files | error | feature, early-access |
 | GHD009 | frontmatter-early-access-references | Files that are not early access should not have frontmatter that references early-access | error | frontmatter, feature, early-access |
 | GHD010 | frontmatter-hidden-docs | Articles with frontmatter property `hidden` can only be located in specific products | error | frontmatter, feature, early-access |
-| GHD011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
 | GHD012 | frontmatter-schema | Frontmatter must conform to the schema | error | frontmatter, schema |
 | GHD013 | github-owned-action-references | GitHub-owned action references should not be hardcoded | error | feature, actions |
 | GHD014 | liquid-data-references-defined | Liquid data or indented data references were found in content that have no value or do not exist in the data directory | error | liquid |
@@ -44,7 +43,7 @@
 | GHD031 | image-alt-text-exclude-words | Alternate text for images should not begin with words like "image" or "graphic" | error | accessibility, images |
 | GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with punctuation | error | accessibility, images |
 | GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | error | accessibility, images |
-| GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
+| GHD034 | frontmatter-curly-quotes | Frontmatter title and intro should not contain curly quotes | error | frontmatter, format |
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
 | GHD038 | expired-content | Expired content must be remediated. | warning | expired |
 | GHD039 | expiring-soon | Content that expires soon should be proactively addressed. | warning | expired |
@@ -57,13 +56,16 @@
 | GHD047 | table-column-integrity | Tables must have consistent column counts across all rows | error | tables, accessibility, formatting |
 | GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | error | frontmatter, versions |
 | GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | error | actions, reusable, third-party |
-| GHD056 | frontmatter-landing-recommended | Only landing pages can have recommended articles, there should be no duplicate recommended articles, and all recommended articles must exist | error | frontmatter, landing, recommended |
+| GHD056 | frontmatter-landing-carousels | Only landing pages can have carousels, there should be no duplicate articles, and all articles must exist | error | frontmatter, landing, carousels |
 | GHD057 | ctas-schema | CTA URLs must conform to the schema | error | ctas, schema, urls |
 | GHD058 | journey-tracks-liquid | Journey track properties must use valid Liquid syntax | error | frontmatter, journey-tracks, liquid |
 | GHD059 | journey-tracks-guide-path-exists | Journey track guide paths must reference existing content files | error | frontmatter, journey-tracks |
 | GHD060 | journey-tracks-unique-ids | Journey track IDs must be unique within a page | error | frontmatter, journey-tracks, unique-ids |
 | GHD061 | frontmatter-hero-image | Hero image paths must be absolute, extensionless, and point to valid images in /assets/images/banner-images/ | error | frontmatter, images |
 | GHD062 | frontmatter-intro-links | introLinks keys must be valid keys defined in data/ui.yml under product_landing | error | frontmatter, single-source |
+| GHD063 | frontmatter-children | Children frontmatter paths must exist. Supports relative paths and absolute /content/ paths for cross-product inclusion. | error | frontmatter, children |
+| GHD065 | frontmatter-content-type | Content files in content-type directories must have a contentType frontmatter property that matches the parent directory. | error | frontmatter, content-type |
+| GHD066 | frontmatter-docs-team-metrics | Articles whose path contains a docsTeamMetrics value must include that value in their docsTeamMetrics frontmatter property. | error | frontmatter, docs-team-metrics |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: site.data | Catch occurrences of deprecated liquid data syntax. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |

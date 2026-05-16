@@ -1,15 +1,11 @@
 ---
-title: 'Managing support entitlements'
-intro: 'Manage support entitlements for your enterprise.'
+title: Managing support entitlements
+intro: Manage support entitlements for your enterprise.
 versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
-type: how_to
-topics:
-  - Enterprise
-  - Set up
-  - Support
 shortTitle: Manage support entitlements
+contentType: how-tos
 ---
 
 ## About support entitlements
@@ -37,7 +33,3 @@ To add a support entitlement to a user, the user must already be a member of an 
 You can manually remove support entitlements for enterprise members provided they are not enterprise owners or billing managers.
 
 To learn how to remove support entitlements, see [Removing a support entitlement from an enterprise member](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise#removing-a-support-entitlement-from-an-enterprise-member).
-
-## Next steps
-
-Next, learn how to stay compliant and secure by setting up governance policies for your users and repositories. See [AUTOTITLE](/enterprise-onboarding/govern-people-and-repositories/about-enterprise-policies).

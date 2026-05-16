@@ -5,15 +5,13 @@ shortTitle: 'Control costs at scale'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
-  - REST
 permissions: 'Enterprise owners and billing managers'
 product: '{% data reusables.billing.cta-ghec-cost-centers %}'
 contentType: tutorials
 audience:
   - driver
+category:
+  - Track spending and control costs
 ---
 
 Cost centers help you track and control {% data variables.product.github %} costs by mapping them to your company's financial structure.
@@ -47,7 +45,7 @@ Follow these steps to plan your cost centers:
 
 Now you'll create your first cost center using the user interface (UI) to familiarize yourself with how cost centers work. Choose one of the cost centers you've identified as an example—it's best to start with a small financial entity.
 
-{% data reusables.billing.nav-to-ent %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
 {% data reusables.billing.cost-center-click-new %}
 1. In the text box under "Name", enter the name of the financial entity you want to track costs for.
@@ -134,7 +132,7 @@ In your terminal, run the following command, replacing `ENTERPRISE` with the slu
 ```shell copy
 gh api \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers
 ```
 
@@ -176,7 +174,7 @@ In your terminal, run the following command, replacing `ENTERPRISE` and `NAME` w
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers \
    -f 'name=NAME'
 ```
@@ -202,7 +200,7 @@ In your terminal, run the following command, replacing `COST_CENTER_ID` with the
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers/COST_CENTER_ID/resource \
   --input - <<< '{
   "users": [
@@ -246,7 +244,7 @@ In your terminal, run the following command, replacing `ENTERPRISE`, `COST_CENTE
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/budgets \
   -f budget_type='SkuPricing' \
   -f budget_product_sku='copilot_premium_request' \

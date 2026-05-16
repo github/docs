@@ -5,9 +5,8 @@ redirect_from:
   - /github-cookies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
+category:
+  - Review privacy and security policies
 ---
 
 
@@ -25,7 +24,6 @@ GitHub | `app_manifest_token` | This cookie is used during the App Manifest flow
 GitHub | `color_mode` | This cookie is used to indicate the user selected theme preference. | Session
 GitHub | `_device_id` | This cookie is used to track recognized devices for security purposes. | One year
 GitHub | `dotcom_user` | This cookie is used to signal to us that the user is already logged in. | One year
-GitHub | `enterprise_trial_redirect_to` | This cookie is used to complete a redirect for trial users | 5 minutes
 GitHub | `fileTreeExpanded` | Used to indicate whether the file tree on the code view was last expanded or collapsed | 30 days
 GitHub | `ghcc` | This cookie validates user's choice about cookies | 180 Days
 GitHub | `_gh_ent` | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | Two weeks
@@ -49,6 +47,7 @@ GitHub | `show_cookie_banner` | Set based on the client’s region and used to d
 GitHub | `social_csrf_token` | This cookie is set by the social initiate path to ensure that the user that started the flow is the same user that completes it. | 5 minutes
 GitHub | `tz` | This cookie allows us to customize timestamps to your time zone. | Session
 GitHub | `user_session` | This cookie is used to log you in. | Two weeks
+[HockeyStack](https://www.hockeystack.com/legal/privacy-policy) | `HockeyStack_Website_Tracking_Fingerprint` | This cookie is used for analytics to store and track visits across GitHub Resource sites | Until user closes browser or completes authentication request
 [Microsoft](https://privacy.microsoft.com/en-us/privacystatement) | `ai_session` | Application Insights session ID | One year
 [Microsoft](https://privacy.microsoft.com/en-us/privacystatement) | `ai_user` | Application Insights user ID | 30 minutes
 [Microsoft](https://privacy.microsoft.com/en-us/privacystatement) | `ANONCHK` | This Microsoft Clarity cookie monitors website performance | One year

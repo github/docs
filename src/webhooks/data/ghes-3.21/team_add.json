@@ -1,0 +1,258 @@
+{
+  "default": {
+    "descriptionHtml": "",
+    "summaryHtml": "<p>This event occurs when a team is added to a repository.\nFor more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository\">Managing teams and people with access to your repository</a>.\"</p>\n<p>For activity relating to teams, see the <code>teams</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Members\" organization permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "team",
+        "description": "<p>Groups of organization members that gives permissions on specified repositories.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "boolean",
+            "name": "deleted",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "<p>Description of the team</p>"
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "<p>Unique identifier of the team</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "members_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "<p>Name of the team</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": ""
+          },
+          {
+            "type": "object or null",
+            "name": "parent",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "<p>Description of the team</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "<p>Unique identifier of the team</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "members_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>Name of the team</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "permission",
+                "description": "<p>Permission that the team will have for its repositories</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "privacy",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "open",
+                  "closed",
+                  "secret"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "notification_setting",
+                "description": "<p>Whether team members will receive notifications when their team is @mentioned</p>",
+                "isRequired": true,
+                "enum": [
+                  "notifications_enabled",
+                  "notifications_disabled"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "repositories_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "slug",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "<p>URL for the team</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The ownership type of the team</p>",
+                "isRequired": true,
+                "enum": [
+                  "enterprise",
+                  "organization"
+                ]
+              },
+              {
+                "type": "integer",
+                "name": "organization_id",
+                "description": "<p>Unique identifier of the organization to which this team belongs</p>"
+              },
+              {
+                "type": "integer",
+                "name": "enterprise_id",
+                "description": "<p>Unique identifier of the enterprise to which this team belongs</p>"
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "permission",
+            "description": "<p>Permission that the team will have for its repositories</p>"
+          },
+          {
+            "type": "string",
+            "name": "privacy",
+            "description": "",
+            "enum": [
+              "open",
+              "closed",
+              "secret"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "notification_setting",
+            "description": "<p>Whether team members will receive notifications when their team is @mentioned</p>",
+            "enum": [
+              "notifications_enabled",
+              "notifications_disabled"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "repositories_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "slug",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>URL for the team</p>"
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": "<p>The ownership type of the team</p>",
+            "enum": [
+              "enterprise",
+              "organization"
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "organization_id",
+            "description": "<p>Unique identifier of the organization to which this team belongs</p>"
+          },
+          {
+            "type": "integer",
+            "name": "enterprise_id",
+            "description": "<p>Unique identifier of the enterprise to which this team belongs</p>"
+          }
+        ]
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "default",
+    "category": "team_add"
+  }
+}

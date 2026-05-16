@@ -55,8 +55,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subCategory = category
   }
 
-  const restData = await getRest(currentVersion, apiVersion)
-  const restOperations = (restData && restData[category] && restData[category][subCategory]) || []
+  const categoryData = await getRest(currentVersion, apiVersion, category)
+  const restOperations = (categoryData && categoryData[subCategory]) || []
 
   // Gets the miniTocItems in the article context. At this point it will only
   // include miniTocItems generated from the Markdown pages in

@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
-import { turnOffExperimentsInPage, dismissCTAPopover } from '../helpers/turn-off-experiments'
+import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
 import { HOVERCARDS_ENABLED, ANALYTICS_ENABLED } from '../../frame/lib/constants'
 
 // This exists for the benefit of local testing.
@@ -22,7 +22,6 @@ test('view home page', async ({ page }) => {
 test('logo link keeps current version', async ({ page }) => {
   await page.goto('/enterprise-cloud@latest')
   await turnOffExperimentsInPage(page)
-  await dismissCTAPopover(page)
   // Basically clicking into any page that isn't the home page for this version.
   await page.getByTestId('product').getByRole('link', { name: 'Get started' }).click()
   await expect(page).toHaveURL(/\/en\/enterprise-cloud@latest\/get-started/)
@@ -58,7 +57,6 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
 
   await page.goto('/')
   await turnOffExperimentsInPage(page)
-  await dismissCTAPopover(page)
 
   // Use the search overlay
   await page.locator('[data-testid="search"]:visible').click()
@@ -84,7 +82,6 @@ test('open search, and perform a general search', async ({ page }) => {
 
   await page.goto('/')
   await turnOffExperimentsInPage(page)
-  await dismissCTAPopover(page)
 
   await page.locator('[data-testid="search"]:visible').click()
   await page.getByTestId('overlay-search-input').fill('serve playwright')
@@ -182,7 +179,6 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
 
   await page.goto('/enterprise-cloud@latest')
   await turnOffExperimentsInPage(page)
-  await dismissCTAPopover(page)
 
   // Use the search overlay
   await page.locator('[data-testid="search"]:visible').click()
@@ -205,15 +201,14 @@ test('404 page renders correctly', async ({ page }) => {
   const response = await page.goto('/this-definitely-does-not-exist')
   expect(response?.status()).toBe(404)
 
-  // Check that the 404 page content is rendered
-  await expect(page.getByText(/It looks like this page doesn't exist/)).toBeVisible()
+  // 404 pages now render a minimal HTML response
+  await expect(page.getByText('Page not found.')).toBeVisible()
 })
 
 test.describe('platform picker', () => {
   test('switch operating systems', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
 
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Mac' }).click()
     await expect(page).toHaveURL(/\?platform=mac/)
@@ -230,7 +225,6 @@ test.describe('platform picker', () => {
     // default platform set to windows in fixture fronmatter
     await page.goto('/get-started/liquid/platform-specific')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
     ).not.toBeVisible()
@@ -249,7 +243,6 @@ test.describe('platform picker', () => {
   test('remember last clicked OS', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
 
     // Return and now the cookie should start us off on Windows again
@@ -263,7 +256,6 @@ test.describe('tool picker', () => {
   test('switch tools', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
     await expect(page).toHaveURL(/\?tool=cli/)
@@ -289,7 +281,6 @@ test.describe('tool picker', () => {
   test('remember last clicked tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
 
     // Return and now the cookie should start us off with Web UI content again
@@ -303,7 +294,6 @@ test.describe('tool picker', () => {
     // default tool set to webui in fixture frontmatter
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
     ).toBeVisible()
@@ -353,7 +343,6 @@ test.describe('hover cards', () => {
   test('hover over link', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -416,7 +405,6 @@ test.describe('hover cards', () => {
   test('use keyboard shortcut to open hover card', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
 
     // Simply putting focus on the link should not open the hovercard
     await page
@@ -449,7 +437,6 @@ test.describe('hover cards', () => {
   test('able to use Esc to close hovercard', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -505,11 +492,7 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
 
     // version picker should be visible
-    await page
-      .getByRole('button', {
-        name: 'Select GitHub product version: current version is free-pro-team@latest',
-      })
-      .click()
+    await page.getByTestId('version-picker').getByRole('button').click()
     expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
 
@@ -549,11 +532,7 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
 
     // version picker is visible
-    await page
-      .getByRole('button', {
-        name: 'Select GitHub product version: current version is free-pro-team@latest',
-      })
-      .click()
+    await page.getByTestId('version-picker').getByRole('button').click()
     expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
 
@@ -584,11 +563,7 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('language-picker')).not.toBeVisible()
 
     // version picker is visible
-    await expect(
-      page.getByRole('button', {
-        name: 'Select GitHub product version: current version is free-pro-team@latest',
-      }),
-    ).toBeVisible()
+    await expect(page.getByTestId('version-picker').getByRole('button')).toBeVisible()
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
@@ -610,7 +585,6 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
 
     // header sign-up button is not visible
     await expect(page.getByTestId('header-signup')).not.toBeVisible()
@@ -619,11 +593,7 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('language-picker')).not.toBeVisible()
 
     // version picker is not visible
-    await expect(
-      page.getByRole('button', {
-        name: 'Select GitHub product version: current version is free-pro-team@latest',
-      }),
-    ).not.toBeVisible()
+    await expect(page.getByTestId('version-picker').getByRole('button')).not.toBeVisible()
 
     // version picker is in mobile menu
     await expect(page.getByTestId('version-picker')).not.toBeVisible()
@@ -651,7 +621,6 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
 
     // Use the search overlay
     await page.locator('[data-testid="mobile-search-button"]:visible').click()
@@ -676,7 +645,6 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
-    await dismissCTAPopover(page)
 
     // Use the search overlay
     await page.locator('[data-testid="mobile-search-button"]:visible').click()
@@ -937,7 +905,6 @@ test('open search, and ask Copilot (Ask AI) a question', async ({ page }) => {
 
   await page.goto('/')
   await turnOffExperimentsInPage(page)
-  await dismissCTAPopover(page)
 
   await page.locator('[data-testid="search"]:visible').click()
   await page.getByTestId('overlay-search-input').fill('How do I create a Repository?')
@@ -980,7 +947,6 @@ test('open search, Ask AI returns 400 error and shows general search results', a
 
   await page.goto('/')
   await turnOffExperimentsInPage(page)
-  await dismissCTAPopover(page)
 
   await page.locator('[data-testid="search"]:visible').click()
   await page.getByTestId('overlay-search-input').fill('foo')
@@ -1060,6 +1026,88 @@ test.describe('LandingCarousel component', () => {
     // Should show 1 card on mobile
     const cards = carousel.locator('a')
     await expect(cards).toHaveCount(1)
+  })
+})
+
+test.describe('Multi-carousel support', () => {
+  test('displays multiple carousels from carousels frontmatter', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    // Should have multiple carousels rendered
+    const carousels = page.locator('[data-testid="landing-carousel"]')
+    const carouselCount = await carousels.count()
+
+    // We defined exactly 2 carousels in the frontmatter
+    expect(carouselCount).toBe(2)
+  })
+
+  test('carousel with matching ui.yml key displays translated title', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    // The "recommended" carousel should show "Recommended" title from ui.yml
+    const carouselHeadings = page.locator('[data-testid="landing-carousel"] h2')
+
+    const headingTexts = await carouselHeadings.allTextContents()
+
+    // Check that at least one heading has "Recommended"
+    expect(headingTexts.some((text) => text.includes('Recommended'))).toBe(true)
+  })
+
+  test('carousel without matching ui.yml key renders without title', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    // The "titleTwoNoMatchingUiYml" carousel should not have a visible heading
+    // or the heading element should be empty/not exist for that carousel
+    const carouselHeadings = page.locator('[data-testid="landing-carousel"] h2')
+    const headingTexts = await carouselHeadings.allTextContents()
+
+    // The raw key "titleTwoNoMatchingUiYml" should NOT appear as a heading
+    // (the component should not show the key as fallback)
+    expect(headingTexts.some((text) => text === 'titleTwoNoMatchingUiYml')).toBe(false)
+  })
+
+  test('heading h2 element is only present when ui.yml translation exists', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    const carousels = page.locator('[data-testid="landing-carousel"]')
+    const count = await carousels.count()
+
+    // We have 2 carousels: "recommended" and "titleTwoNoMatchingUiYml"
+    expect(count).toBe(2)
+
+    // Count carousels that have h2 elements
+    let carouselsWithHeadings = 0
+    for (let i = 0; i < count; i++) {
+      const carousel = carousels.nth(i)
+      const h2Count = await carousel.locator('h2').count()
+      if (h2Count > 0) {
+        carouselsWithHeadings++
+      }
+    }
+
+    // Only 1 carousel should have a heading (recommended has ui.yml entry)
+    // titleTwoNoMatchingUiYml should NOT have an h2 element at all
+    expect(carouselsWithHeadings).toBe(1)
+
+    // Verify the specific titles that should be visible
+    const visibleHeadings = await carousels.locator('h2').allTextContents()
+    expect(visibleHeadings).toContain('Recommended')
+    expect(visibleHeadings).not.toContain('titleTwoNoMatchingUiYml')
+  })
+
+  test('each carousel has articles based on frontmatter paths', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    const carousels = page.locator('[data-testid="landing-carousel"]')
+    const count = await carousels.count()
+
+    // Each carousel should have at least one article
+    for (let i = 0; i < count; i++) {
+      const carousel = carousels.nth(i)
+      const articles = carousel.locator('[data-testid="carousel-items"] a')
+      const articleCount = await articles.count()
+      expect(articleCount).toBeGreaterThan(0)
+    }
   })
 })
 
@@ -1343,5 +1391,107 @@ test.describe('LandingArticleGridWithFilter component', () => {
 
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
+  })
+
+  test('bespoke landing page does not show duplicate articles', async ({ page }) => {
+    // The bespoke fixture lists individual articles AND their parent group
+    // as children, which would cause duplicates without deduplication.
+    await page.goto('/get-started/article-grid-bespoke')
+
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+
+    const articleCards = articleGrid.getByTestId('article-card')
+    // There are 4 unique articles across grid-category-one (2) and grid-category-two (2).
+    // Even though grid-article-one and grid-article-two are listed both individually
+    // and as children of grid-category-one, they should appear only once each.
+    await expect(articleCards).toHaveCount(4)
+
+    // Verify no duplicate titles by collecting all card titles
+    const titles: string[] = []
+    const count = await articleCards.count()
+    for (let i = 0; i < count; i++) {
+      const title = await articleCards.nth(i).locator('h3 span').textContent()
+      titles.push(title!)
+    }
+    const uniqueTitles = new Set(titles)
+    expect(uniqueTitles.size).toBe(titles.length)
+  })
+})
+
+test.describe('Non-child page resolution', () => {
+  test('category page with local children renders properly', async ({ page }) => {
+    // The local-category has local children (local-article-one, local-article-two)
+    // and an external article reference via children frontmatter
+    await page.goto('/get-started/non-child-resolution/local-category')
+
+    // Should have a title
+    await expect(page).toHaveTitle(/Local category test/)
+
+    // The page should load without errors and have main content
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('cross-product children page loads correctly', async ({ page }) => {
+    // The articles-only fixture now uses /content/ prefix in children for cross-product paths
+    await page.goto('/get-started/non-child-resolution/articles-only')
+
+    await expect(page).toHaveTitle(/Cross-product children test/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('children-only page with /content/ path loads correctly', async ({ page }) => {
+    // The children-only fixture uses /content/ prefix for cross-product paths
+    await page.goto('/get-started/non-child-resolution/children-only')
+
+    await expect(page).toHaveTitle(/Children only test/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('standalone article is accessible', async ({ page }) => {
+    await page.goto('/get-started/non-child-resolution/standalone-article')
+
+    await expect(page).toHaveTitle(/Standalone article/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('versioned cross-product children - fpt shows only fpt article', async ({ page }) => {
+    // In fpt version, only the only-fpt article should be available
+    await page.goto('/get-started/non-child-resolution/versioned-cross-product')
+
+    await expect(page).toHaveTitle(/Versioned cross-product test/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Check TOC has the fpt-only article
+    const tocLinks = page.locator('[data-testid="table-of-contents"] a')
+    await expect(tocLinks).toHaveCount(1)
+    await expect(tocLinks.first()).toHaveAttribute('href', /only-fpt/)
+  })
+
+  test('versioned cross-product children - ghec shows ghec articles', async ({ page }) => {
+    // In ghec version, only-ghec and only-ghec-and-ghes should be available
+    await page.goto(
+      '/enterprise-cloud@latest/get-started/non-child-resolution/versioned-cross-product',
+    )
+
+    await expect(page).toHaveTitle(/Versioned cross-product test/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Check TOC has ghec articles (only-ghec and only-ghec-and-ghes)
+    const tocLinks = page.locator('[data-testid="table-of-contents"] a')
+    await expect(tocLinks).toHaveCount(2)
+  })
+
+  test('cross-product children excluded from sidebar in Japanese translation', async ({ page }) => {
+    // The Japanese translation should work with cross-product children
+    await page.goto('/ja/get-started/non-child-resolution')
+
+    // Verify page loads correctly with Japanese site context
+    // Note: The title may not be fully translated in test fixtures, but the page should render
+    await expect(page).toHaveTitle(/GitHub Docs/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Verify page loads correctly - the cross-product children don't prevent the page from working
+    // The detailed sidebar filtering is tested by the survey test which verifies no duplicate entries
   })
 })

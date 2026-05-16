@@ -19,6 +19,7 @@ export interface SecretScanningEntry {
   isPrivateWithGhas: boolean | string
   hasPushProtection: boolean | string
   hasValidityCheck: boolean | string
+  hasExtendedMetadata?: boolean | string
   base64Supported: boolean | string
   isduplicate: boolean
 }
@@ -65,6 +66,10 @@ export default {
       },
       hasValidityCheck: {
         description: 'whether the secret has its validation status checked',
+        type: ['boolean', 'string'],
+      },
+      hasExtendedMetadata: {
+        description: 'whether extended metadata is available for this secret',
         type: ['boolean', 'string'],
       },
       base64Supported: {

@@ -18,6 +18,19 @@ interface CTAParams {
   ref_style?: string
 }
 
+const CTA_PARAM_KEYS: (keyof CTAParams)[] = ['ref_product', 'ref_plan', 'ref_type', 'ref_style']
+
+interface CTASchemaProperty {
+  type: string
+  name: string
+  description: string
+  enum: string[]
+}
+
+type CTASchemaProperties = {
+  [K in keyof CTAParams]-?: CTASchemaProperty
+}
+
 // Conversion mappings from old CTA format to new schema
 const ctaToTypeMapping: Record<string, string> = {
   'GHEC trial': 'trial',
@@ -153,27 +166,40 @@ function extractCTAParams(url: string): CTAParams {
   const urlObj = new URL(url)
   const ctaParams: CTAParams = {}
   for (const [key, value] of urlObj.searchParams.entries()) {
-    if (key.startsWith('ref_')) {
-      ;(ctaParams as any)[key] = value
+    if (key.startsWith('ref_') && CTA_PARAM_KEYS.includes(key as keyof CTAParams)) {
+      ctaParams[key as keyof CTAParams] = value
     }
   }
   return ctaParams
 }
 
+interface AjvErrorParams {
+  missingProperty?: string
+  allowedValues?: string[]
+  additionalProperty?: string
+}
+
+interface AjvError {
+  keyword: string
+  instancePath: string
+  message?: string
+  params: AjvErrorParams
+}
+
 // Process AJV validation errors into readable messages
-function formatValidationErrors(ctaParams: CTAParams, errors: any[]): string[] {
+function formatValidationErrors(ctaParams: CTAParams, errors: AjvError[]): string[] {
   const errorMessages: string[] = []
   for (const error of errors) {
     let message = ''
     if (error.keyword === 'required') {
-      message = `Missing required parameter: ${(error.params as any)?.missingProperty}`
+      message = `Missing required parameter: ${error.params.missingProperty}`
     } else if (error.keyword === 'enum') {
       const paramName = error.instancePath.substring(1)
       const invalidValue = ctaParams[paramName as keyof CTAParams]
-      const allowedValues = (error.params as any)?.allowedValues || []
+      const allowedValues = error.params.allowedValues || []
       message = `Invalid value for ${paramName}: "${invalidValue}". Valid values are: ${allowedValues.join(', ')}`
     } else if (error.keyword === 'additionalProperties') {
-      message = `Unexpected parameter: ${(error.params as any)?.additionalProperty}`
+      message = `Unexpected parameter: ${error.params.additionalProperty}`
     } else {
       message = `Validation error: ${error.message}`
     }
@@ -191,7 +217,7 @@ function validateCTAParams(params: CTAParams): { isValid: boolean; errors: strin
     return { isValid: true, errors: [] }
   }
 
-  const errors = formatValidationErrors(params, ajvErrors)
+  const errors = formatValidationErrors(params, ajvErrors as unknown as AjvError[])
   return {
     isValid: false,
     errors,
@@ -382,12 +408,14 @@ async function interactiveBuilder(): Promise<void> {
 
     // Required parameters
     console.log(chalk.white(`\nRequired parameters:`))
+    const schemaProps = ctaSchema.properties as CTASchemaProperties
 
     for (const requiredParam of ctaSchema.required) {
-      ;(params as any)[requiredParam] = await selectFromOptions(
+      const paramKey = requiredParam as keyof CTAParams
+      params[paramKey] = await selectFromOptions(
         requiredParam,
-        (ctaSchema.properties as any)[requiredParam].description,
-        (ctaSchema.properties as any)[requiredParam].enum,
+        schemaProps[paramKey].description,
+        schemaProps[paramKey].enum,
         prompt,
       )
     }
@@ -399,15 +427,16 @@ async function interactiveBuilder(): Promise<void> {
     const optionalProperties = allProperties.filter((prop) => !ctaSchema.required.includes(prop))
 
     for (const optionalParam of optionalProperties) {
+      const paramKey = optionalParam as keyof CTAParams
       const includeParam = await confirmChoice(
-        `Include ${(ctaSchema.properties as any)[optionalParam].name.toLowerCase()}?`,
+        `Include ${schemaProps[paramKey].name.toLowerCase()}?`,
         prompt,
       )
       if (includeParam) {
-        ;(params as any)[optionalParam] = await selectFromOptions(
+        params[paramKey] = await selectFromOptions(
           optionalParam,
-          (ctaSchema.properties as any)[optionalParam].description,
-          (ctaSchema.properties as any)[optionalParam].enum,
+          schemaProps[paramKey].description,
+          schemaProps[paramKey].enum,
           prompt,
         )
       }

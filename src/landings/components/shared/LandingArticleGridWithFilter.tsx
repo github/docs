@@ -5,9 +5,10 @@ import cx from 'classnames'
 
 import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
-import { ArticleCardItems, ChildTocItem, TocItem } from '@/landings/types'
+import { ChildTocItem, TocItem } from '@/landings/types'
 import { LandingType } from '@/landings/context/LandingContext'
 import type { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
+import { flattenArticles, deriveStopWords, searchArticles } from '@/landings/lib/article-search'
 
 import styles from './LandingArticleGridWithFilter.module.scss'
 
@@ -20,30 +21,6 @@ type ArticleGridProps = {
 }
 
 const ALL_CATEGORIES = 'all_categories'
-
-// Helper function to recursively flatten nested articles
-// Excludes index pages (pages with childTocItems)
-const flattenArticlesRecursive = (articles: (TocItem | ChildTocItem)[]): ArticleCardItems => {
-  const flattened: ArticleCardItems = []
-
-  for (const article of articles) {
-    // If the article has children, recursively process them but don't include the parent (index page)
-    if (article.childTocItems && article.childTocItems.length > 0) {
-      flattened.push(...flattenArticlesRecursive(article.childTocItems))
-    } else {
-      // Only add articles that don't have children (actual article pages, not index pages)
-      flattened.push(article as ChildTocItem)
-    }
-  }
-
-  return flattened
-}
-
-// Wrapper function that flattens and sorts alphabetically by title (only once)
-const flattenArticles = (articles: (TocItem | ChildTocItem)[]): ArticleCardItems => {
-  const flattened = flattenArticlesRecursive(articles)
-  return flattened.sort((a, b) => a.title.localeCompare(b.title))
-}
 
 // Hook to get current articles per page based on screen size
 const useResponsiveArticlesPerPage = () => {
@@ -93,13 +70,17 @@ export const ArticleGrid = ({
   // Recursively flatten all articles from tocItems, including both direct children and nested articles
   const allArticles = useMemo(() => flattenArticles(tocItems), [tocItems])
 
+  // Auto-derive stop words from article frequency
+  const stopWords = useMemo(() => deriveStopWords(allArticles), [allArticles])
+
   // Filter articles based on includedCategories for discovery landing pages
   // For bespoke landing pages, show all articles regardless of includedCategories
   const filteredArticlesByLandingType = useMemo(() => {
     if (landingType === 'discovery' && includedCategories && includedCategories.length > 0) {
-      // For discovery pages, only include articles that have at least one matching category
+      // For discovery pages, keep articles that either have a matching category
+      // or have no category at all (uncategorized articles are still part of the content tree).
       return allArticles.filter((article) => {
-        if (!article.category || article.category.length === 0) return false
+        if (!article.category || article.category.length === 0) return true
         return article.category.some((cat) =>
           includedCategories.some((included) => included.toLowerCase() === cat.toLowerCase()),
         )
@@ -151,20 +132,7 @@ export const ArticleGrid = ({
     let results = filteredArticlesByLandingType
 
     if (searchQuery) {
-      results = results.filter((token) => {
-        return Object.values(token).some((value) => {
-          if (typeof value === 'string') {
-            return value.toLowerCase().includes(searchQuery.toLowerCase())
-          } else if (Array.isArray(value)) {
-            return value.some((item) => {
-              if (typeof item === 'string') {
-                return item.toLowerCase().includes(searchQuery.toLowerCase())
-              }
-            })
-          }
-          return false
-        })
-      })
+      results = searchArticles(results, searchQuery, stopWords)
     }
 
     if (selectedCategory !== ALL_CATEGORIES) {
@@ -304,6 +272,7 @@ export const ArticleGrid = ({
             <TextInput
               leadingVisual={SearchIcon}
               placeholder={t('article_grid.search_articles')}
+              aria-label={t('article_grid.search_articles')}
               ref={inputRef}
               autoComplete="false"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

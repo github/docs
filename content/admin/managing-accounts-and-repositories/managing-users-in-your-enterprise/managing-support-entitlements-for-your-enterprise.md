@@ -6,10 +6,9 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 versions:
   ghec: '*'
-topics:
-  - Enterprise
-  - Support
 shortTitle: Manage support entitlements
+category:
+  - Manage accounts and repositories
 ---
 
 ## About support entitlements

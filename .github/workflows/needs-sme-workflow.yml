@@ -13,13 +13,13 @@ on:
 
 permissions:
   contents: read
-  issues: write
-  pull-requests: write
 
 jobs:
   add-issue-comment:
     if: ${{ github.repository == 'github/docs' && (github.event.label.name == 'needs SME' && github.event_name == 'issues') }}
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: Check out repo
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -39,6 +39,8 @@ jobs:
   add-pr-comment:
     if: ${{ github.repository == 'github/docs' && (github.event.label.name == 'needs SME' && github.event_name == 'pull_request_target') }}
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Check out repo
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1

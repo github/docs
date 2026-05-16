@@ -7,6 +7,8 @@ versions:
 shortTitle: Quickstart
 redirect_from:
   - /nonprofit/quickstart-for-github-for-nonprofits
+category:
+  - Apply for nonprofit benefits
 ---
 
 ## Introduction

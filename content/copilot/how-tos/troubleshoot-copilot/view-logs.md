@@ -10,14 +10,12 @@ redirect_from:
   - /copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment
   - /copilot/how-tos/troubleshoot/viewing-logs-for-github-copilot-in-your-environment
   - /copilot/how-tos/troubleshoot/view-logs
-topics:
-  - Copilot
-  - Logging
-  - Troubleshooting
 versions:
   feature: copilot
 shortTitle: View logs
 contentType: how-tos
+category:
+  - Troubleshooting Copilot
 ---
 
 {% jetbrains %}
@@ -143,7 +141,7 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
       * Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    * For Windows or Linux:
       * Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
-1. Type "Diagnostics", and then select **{% data variables.product.prodname_copilot %}: Collect Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
+1. Type "Diagnostics", and then select **Developer: Chat Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
 1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot %} can actually access the necessary services.
 
 ## Viewing Electron logs

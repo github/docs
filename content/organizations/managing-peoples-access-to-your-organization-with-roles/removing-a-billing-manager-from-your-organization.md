@@ -7,11 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
-  - Billing
 shortTitle: Remove billing manager
+category:
+  - Assign roles and permissions
 ---
 
 > [!NOTE]

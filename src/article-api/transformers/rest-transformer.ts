@@ -2,20 +2,30 @@ import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import type { Operation } from '@/rest/components/types'
 import { renderContent } from '@/content-render/index'
+import { engine } from '@/content-render/liquid/engine'
+import { apiTransformerTags } from '@/article-api/liquid-renderers'
+import { loadTemplate } from '@/article-api/lib/load-template'
+import { summarizeSchema } from '@/article-api/lib/summarize-schema'
 import matter from '@gr2m/gray-matter'
-import { readFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
 import { fastTextOnly } from '@/content-render/unified/text-only'
+import GithubSlugger from 'github-slugger'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+// Register article-api-specific Liquid tags on the shared engine.
+// These are only used by REST templates and kept here (not in engine.ts)
+// to avoid a circular dependency: rest-tags → renderContent → engine.
+for (const [tagName, tagClass] of Object.entries(apiTransformerTags)) {
+  engine.registerTag(tagName, tagClass as any)
+}
+
+const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 
 /**
  * Transformer for REST API pages
  * Converts REST operations and their data into markdown format using a Liquid template
  */
 export class RestTransformer implements PageTransformer {
+  templateName = 'rest-page.template.md'
+
   canTransform(page: Page): boolean {
     // Only transform REST pages that are not landing pages
     // Landing pages (like /en/rest) will be handled by a separate transformer
@@ -28,6 +38,9 @@ export class RestTransformer implements PageTransformer {
     context: Context,
     apiVersion?: string,
   ): Promise<string> {
+    const startTime = DEBUG ? Date.now() : 0
+    if (DEBUG) console.log(`[DEBUG] RestTransformer: ${pathname}`)
+
     // Import getRest dynamically to avoid circular dependencies
     const { default: getRest } = await import('@/rest/lib/index')
 
@@ -54,15 +67,14 @@ export class RestTransformer implements PageTransformer {
     const subcategory = pathParts[restIndex + 2] // May be undefined for category-only pages
 
     // Get the REST operations data
-    const restData = await getRest(currentVersion, effectiveApiVersion)
+    const categoryData = await getRest(currentVersion, effectiveApiVersion, category)
 
     let operations: Operation[] = []
 
-    if (subcategory && restData[category]?.[subcategory]) {
-      operations = restData[category][subcategory]
-    } else if (category && restData[category]) {
+    if (subcategory && categoryData?.[subcategory]) {
+      operations = categoryData[subcategory]
+    } else if (category && categoryData) {
       // For categories without subcategories, operations are nested directly
-      const categoryData = restData[category]
       // Flatten all operations from all subcategories
       operations = Object.values(categoryData).flat()
     }
@@ -100,8 +112,7 @@ export class RestTransformer implements PageTransformer {
     )
 
     // Load and render template
-    const templatePath = join(__dirname, '../templates/rest-page.template.md')
-    const templateContent = readFileSync(templatePath, 'utf8')
+    const templateContent = loadTemplate(this.templateName)
 
     // Render the template with Liquid
     const rendered = await renderContent(templateContent, {
@@ -110,6 +121,7 @@ export class RestTransformer implements PageTransformer {
       markdownRequested: true,
     })
 
+    if (DEBUG) console.log(`[DEBUG] RestTransformer completed in ${Date.now() - startTime}ms`)
     return rendered
   }
 
@@ -130,6 +142,30 @@ export class RestTransformer implements PageTransformer {
     const preparedOperations = await Promise.all(
       operations.map(async (operation) => await this.prepareOperation(operation)),
     )
+
+    // Deduplicate identical response schemas across operations on the same page.
+    // When multiple endpoints share the same schema, render it once and reference it.
+    const slugger = new GithubSlugger()
+    const titleToSlug = new Map<string, string>()
+    for (const op of preparedOperations) {
+      titleToSlug.set(op.title, slugger.slug(op.title))
+    }
+    const schemaMap = new Map<string, string>()
+    for (const op of preparedOperations) {
+      if (!op.codeExamples) continue
+      for (const example of op.codeExamples as any[]) {
+        const schema = example.response?.schema
+        if (!schema || typeof schema !== 'string') continue
+
+        const existing = schemaMap.get(schema)
+        if (existing && existing !== op.title) {
+          const slug = titleToSlug.get(existing) || ''
+          example.response.schema = `Same response schema as [${existing}](#${slug}).`
+        } else if (!existing) {
+          schemaMap.set(schema, op.title)
+        }
+      }
+    }
 
     return {
       page: {
@@ -191,7 +227,7 @@ export class RestTransformer implements PageTransformer {
           response: {
             statusCode: example.response?.statusCode,
             schema: (example.response as any)?.schema
-              ? JSON.stringify((example.response as any).schema, null, 2)
+              ? summarizeSchema((example.response as any).schema)
               : null,
           },
         }

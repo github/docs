@@ -4,16 +4,13 @@ intro: Learn how to set up an enterprise account for your customer as a Microsof
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - User account
-  - Enterprise
-  - Upgrades
 shortTitle: Create as CSP partner
 product: 'Microsoft Cloud Solution Provider (CSP) partners setting up {% data variables.product.prodname_enterprise %}. <br>{% data variables.product.github %} partners should see [AUTOTITLE](/billing/how-tos/manage-for-client/create-client-enterprise).'
 redirect_from:
   - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-an-enterprise-account-as-a-microsoft-csp-partner
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 ## Prerequisites

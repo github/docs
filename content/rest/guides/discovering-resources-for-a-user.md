@@ -8,9 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: Discover resources for a user
+category:
+  - Build apps and integrations
 ---
 
 

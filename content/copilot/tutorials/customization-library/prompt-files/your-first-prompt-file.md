@@ -7,11 +7,10 @@ category:
   - Prompt files
   - Getting started
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 
@@ -32,7 +31,7 @@ Start with this simple prompt file that helps you write clear, well-documented c
 
 ```text copy
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Generate a clear code explanation with examples'
 ---
 

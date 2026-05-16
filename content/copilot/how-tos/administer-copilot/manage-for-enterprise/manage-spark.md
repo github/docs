@@ -7,8 +7,6 @@ product: 'Enterprises with a {% data variables.copilot.copilot_enterprise_short 
 versions:
   feature: spark
 allowTitleToDifferFromFilename: true
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Manage Copilot for a team

@@ -10,9 +10,9 @@ redirect_from:
   - /admin/overview/about-the-github-enterprise-server-api
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 shortTitle: GitHub Enterprise API
+category:
+  - Get started with GitHub Enterprise
 ---
 
 With the APIs, you can automate many administrative tasks. Some examples include:

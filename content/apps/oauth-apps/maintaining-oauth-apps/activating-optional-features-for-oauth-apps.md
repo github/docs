@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
 shortTitle: Activate optional features
+category:
+  - Build and manage OAuth apps
 ---
 
 > [!WARNING]

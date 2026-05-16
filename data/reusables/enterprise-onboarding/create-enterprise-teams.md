@@ -13,7 +13,7 @@
 
    When you give a team access to organizations, members of the team are added directly to those organizations, without an invitation, and receive the same access as other organization members.
 
-   * Unaffiliated users and outside collaborators in the team become standard enterprise members, meaning they have access to your enterprise's internal repositories and consume a {% data variables.product.prodname_enterprise %} license.
+   * Outside collaborators{% ifversion not ghes %} and unaffiliated users{% endif %} in the team become standard enterprise members, meaning they have access to your enterprise's internal repositories{% ifversion not ghes %} and consume a {% data variables.product.prodname_enterprise %} license{% endif %}.
    * Team members receive the base level of repository permissions for the organization.
    * Organization administrators can give the team additional repository access and assign them organization-level roles, but **cannot** remove any permissions granted by enterprise administrators.
 
@@ -27,7 +27,9 @@ There are multiple ways to add users to an enterprise team.
 * [Syncing with an IdP group](#syncing-with-an-idp-group) ({% data variables.product.prodname_emus %} only)
 * Using the [AUTOTITLE](/rest/enterprise-teams/enterprise-team-members)
 
+{% ifversion ghec %}
 Enterprise teams can contain organization members, unaffiliated users, and outside collaborators.
+{% endif %}
 
 ### Adding users manually
 
@@ -37,7 +39,7 @@ Enterprise teams can contain organization members, unaffiliated users, and outsi
 
 ### Syncing with an IdP group
 
-If you use {% data variables.product.prodname_emus %}, you can sync membership of an enterprise team to a group in your identity provider. That way, any changes made to the group in the IdP (such as adding or removing a user) will be synced to the enterprise team via SCIM. For details and requirements, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups).
+If you {% ifversion ghes %}have enabled SCIM on {% data variables.product.prodname_ghe_server %}{% else %}use {% data variables.product.prodname_emus %}{% endif %}, you can sync membership of an enterprise team to a group in your identity provider. That way, any changes made to the group in the IdP (such as adding or removing a user) will be synced to the enterprise team via SCIM. For details and requirements, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups).
 
 1. On the enterprise teams page, click the team you want to sync.
 1. Ensure the team contains no manually assigned users. You can remove users by using the **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="More member actions" %}** menu next to the user's name in the member list.

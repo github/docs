@@ -11,6 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Use and manage runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -18,9 +21,6 @@ versions:
 For information on how to use labels to route jobs to specific types of self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow). You can also route jobs to runners in a specific group. For more information, see [AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group).
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
-
-> [!NOTE]
-> Actions Runner Controller does not support multiple labels, to find out more please read our [Actions Runner Controller documentation](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#using-arc-runners-in-a-workflow)
 
 ## Creating a custom label
 

@@ -5,7 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
+contentType: get-started
 ---
 
 ## Internal links never need language prefix

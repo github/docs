@@ -12,9 +12,9 @@ redirect_from:
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-topics:
-  - Enterprise
 shortTitle: View & manage SAML access
+category:
+  - Manage accounts and repositories
 ---
 
 ## About SAML access to your enterprise account

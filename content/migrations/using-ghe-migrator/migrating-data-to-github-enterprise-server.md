@@ -1,6 +1,6 @@
 ---
 title: Migrating data to GitHub Enterprise Server
-intro: 'After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
+intro: After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You'll be able to review changes for potential conflicts before permanently applying the changes to your target instance.
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -18,11 +18,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Migration
 shortTitle: Migrate data
+contentType: how-tos
+category:
+  - Run an enterprise migration
 ---
 
 ## Preparing the migrated data

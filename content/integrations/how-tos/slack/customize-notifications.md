@@ -1,14 +1,14 @@
 ---
 title: Customizing notifications for GitHub in Slack
 shortTitle: Customize notifications
-intro: 'Learn how to customize notifications for GitHub in Slack.'
+intro: Learn how to customize notifications for GitHub in Slack.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Integration
-contentType: reference
+contentType: how-tos
+category:
+  - Use integrations
 ---
 
 You can customize your notifications by subscribing to activity that is relevant to your Slack channel, and unsubscribing from activity that is less helpful to your project.

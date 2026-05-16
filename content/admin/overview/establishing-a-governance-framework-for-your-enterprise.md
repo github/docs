@@ -1,15 +1,14 @@
 ---
 title: Establishing a governance framework for your enterprise
-intro: 'You can manage governance and compliance for your enterprise using features and tools available in {% data variables.product.prodname_enterprise %}.'
+intro: You can manage governance and compliance for your enterprise using features and tools available in {% data variables.product.prodname_enterprise %}.
 shortTitle: Governance framework
 allowTitleToDifferFromFilename: true
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Fundamentals
+contentType: concepts
+category:
+  - Secure and govern your enterprise
 ---
 
 As an enterprise owner, you are responsible for maintaining a strong security posture, complying with regulations, mitigating risks, and protecting intellectual property, within your enterprise. {% data variables.product.company_short %} has tools that can help with that.
@@ -64,7 +63,7 @@ Other policies are available as blanket restrictions. These give you more contro
 
 ## Targeting policies with metadata
 
-You can enable better governance through automated policy enforcement. This is possible with custom properties, allowing you to add structured metadata to your resources. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).
+You can enable better governance through automated policy enforcement. This is possible with custom properties, allowing you to add structured metadata to your resources.{% ifversion ghec or ghes > 3.20 %} See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).{% endif %}
 
 With **repository custom properties**, you can classify repositories by attributes like risk level, team ownership, or compliance requirements. This metadata enables you to automatically apply different governance rules based on repository characteristics.
 
@@ -72,7 +71,7 @@ With **organization custom properties**, you can categorize organizations within
 
 Both types of custom properties integrate with rulesets, allowing you to create powerful governance frameworks that automatically enforce the right policies based on metadata rather than manual repository selection.
 
-See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organizations).
+See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization){% ifversion ghec or ghes > 3.20 %} and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organizations){% endif %}.
 
 ## Monitoring activity
 
@@ -94,7 +93,7 @@ With **{% data variables.product.prodname_secret_scanning %}**, you can scan you
 
 To learn more, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
-{% data variables.product.prodname_secret_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% endif %} for enablement at enterprise level.
+{% data variables.product.prodname_secret_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-configurations){% endif %} for enablement at enterprise level.
 
 ### Push protection
 
@@ -137,4 +136,4 @@ Many industries have regulations that require regular security assessments and v
 
 To get started quickly with {% data variables.product.prodname_code_scanning %}, we recommend you use the default setup. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
-{% data variables.product.prodname_code_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% endif %} for enablement at enterprise level.
+{% data variables.product.prodname_code_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-configurations){% endif %} for enablement at enterprise level.

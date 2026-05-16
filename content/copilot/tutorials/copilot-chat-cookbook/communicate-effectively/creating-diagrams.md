@@ -10,8 +10,8 @@ octicon: copilot
 category:
   - Communicate effectively
   - Visualize data
-topics:
-  - Copilot
+  - Scale institutional knowledge
+  - Author and optimize with Copilot
 contentType: tutorials
 ---
 

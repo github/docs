@@ -4,8 +4,6 @@ shortTitle: Upgrade projects
 intro: 'You can use {% data variables.product.prodname_copilot %} to upgrade your Maven and Gradle Java applications and .NET applications.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/upgrading-java-projects-with-github-copilot
   - /copilot/tutorials/upgrading-java-projects-with-github-copilot

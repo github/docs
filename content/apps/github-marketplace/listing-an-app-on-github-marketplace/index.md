@@ -15,8 +15,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 children:
   - /drafting-a-listing-for-your-app
   - /writing-a-listing-description-for-your-app

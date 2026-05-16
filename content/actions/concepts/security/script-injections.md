@@ -5,6 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Secure your workflows
+contentType: concepts
 ---
 
 ## Understanding the risk of script injections
