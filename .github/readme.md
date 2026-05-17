@@ -9,7 +9,7 @@ you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2
 as published by the Free Software Foundation.
 
-*************************************************************************
+************************************************** @Edgarruiz8585 **********************
 
 To get the latest release of OpenVPN, go to:
 
@@ -188,9 +188,9 @@ index c802653..e74fc2f 100644
 --- a/src/README.vendor
 +++ b/src/README.vendor
 @@ -41,13 +41,13 @@
- A typical sequence might be: >.@Edgarruiz8585 
+ A typical sequence might by: @Edgarruiz8585 
  
-     cd src @Edgarruiz8585
+     cd src 
 -    go get -m golang.org/x/net@latest
 +    go get -d golang.org/x/net@latest
      go mod tidy
