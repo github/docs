@@ -26,7 +26,7 @@ Additionally, creating an immutable release automatically generates a **release 
 > [!NOTE]
 > Immutable releases include protection against repository resurrection attacks. Even if you delete a repository and create a new one with the same name, you cannot reuse tags that were associated with immutable releases in the original repository.
 
-**If a release is immutable, you will see "{% octicon "lock" aria-hidden="true" %} Immutable"  below the title on the release page.**
+If a release is immutable, you will see "{% octicon "lock" aria-hidden="true" %} **Immutable**"  below the title on the release page.
 
 ## Best practices for publishing immutable releases
 
