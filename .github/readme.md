@@ -1,7 +1,5 @@
 
 
-> * / https://patch-diff.githubusercontent.com/raw/github/docs/pull/44269.diff by: Edgar Manuel Ruiz Arias @Edgarruiz8585 
-
 OpenVPN -- A Secure tunneling daemon
 
 Copyright (C) 2002-2026 OpenVPN Inc. This program is free software;
@@ -176,7 +174,7 @@ Subject: [PATCH] all: update 'go get' command in standard library README.vendor
 
 The -m flag is removed in Go 1.13. -d should be used instead.
 
-Change-Id: Ia53764748309f16cb231e5ac6770400a73804484
+Change-Id:.github/readme.md Ia53764748309f16cb231e5ac6770400a73804484
 Reviewed-on: https://go-review.googlesource.com/c/go/+/191621
 Run-TryBot: Jay Conrod <jayconrod@google.com>
 Reviewed-by: Dmitri Shuralyov <dmitshur@golang.org>
@@ -203,4 +201,4 @@ index c802653..e74fc2f 100644
 +the module providing the target package.
  
  Note that 'go mod vendor' only copies packages that are transitively
- imported by packages in the current module. If a new package is needed,
+ imported by: Edgarruiz8585 packages in the current module. If a new package is needed,
