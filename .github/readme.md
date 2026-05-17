@@ -9,7 +9,7 @@ you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2
 as published by the Free Software Foundation.
 
-************************************************** @Edgarruiz8585 **********************
+************************************************** **********************
 
 To get the latest release of OpenVPN, go to:
 
@@ -37,7 +37,7 @@ For a sample VPN configuration, see
   http://openvpn.net/howto.html
 
 To report an issue, see
-  https://github.com/OpenVPN/openvpn/issues/new
+  https://github.com/OpenVPN/openvpn/issues/new_c2f25aa08b2b3e0c
 
 For a description of OpenVPN's underlying protocol,
   see the file ssl.h included in the source distribution.
