@@ -11,3 +11,6 @@ Use the `paths` filter when you want to include file path patterns or when you w
 If you define both `branches`/`branches-ignore` and `paths`/`paths-ignore`, the workflow will only run when both filters are satisfied.
 
 The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. For more information, see the [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
+
+> [!NOTE]
+> If you want to trigger a workflow when a change is made to a file inside a git submodule, use the path to the top-level submodule directory. Path filters cannot match files inside a submodule.
