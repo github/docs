@@ -419,7 +419,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instruct
 
 ## Hooks reference
 
-For detailed information about hooks—including hook configuration formats, hook events, input payloads, and decision control—see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-hooks-reference).
+For detailed information about hooks—including hook configuration formats, hook events, input payloads, and decision control—see [AUTOTITLE](/copilot/reference/hooks-reference).
 
 ## MCP server configuration
 
@@ -711,7 +711,7 @@ Use `/permissions reset` to clear in-memory approvals for the current session.
 
 ## OpenTelemetry monitoring
 
-{% data variables.copilot.copilot_cli_short %} can export traces and metrics via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/).
+{% data variables.copilot.copilot_cli_short %} can export traces and metrics via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions-genai/tree/main/docs/gen-ai/).
 
 OTel is off by default with zero overhead. It activates when any of the following conditions are met:
 
@@ -886,7 +886,7 @@ When content capture is enabled, the following attributes are populated.
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
-* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-hooks-reference)
+* [AUTOTITLE](/copilot/reference/hooks-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference)

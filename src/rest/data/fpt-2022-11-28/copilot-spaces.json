@@ -46,7 +46,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists Copilot Spaces owned by an organization. The authenticated user must have read access to the organization's Copilot Spaces.</p>\n<p>Only Spaces that are readable by the authenticated user are returned. This includes public Spaces and internal Spaces if the user is a member of the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists Copilot Spaces owned by an organization. The authenticated user must have read access to the organization's Copilot Spaces.</p>\n<p>Only Spaces that are readable by the authenticated user are returned. This includes public Spaces and internal Spaces if the user is a member of the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in a space; spaces with inaccessible resources are omitted from the response.</p>",
       "codeExamples": [
         {
           "request": {
@@ -775,7 +775,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Creates a new Copilot Space owned by an organization. The authenticated user must have permissions to create spaces in the organization.</p>\n<p>Organization members with appropriate permissions can create Copilot Spaces to be shared within their organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a new Copilot Space owned by an organization. The authenticated user must have permissions to create spaces in the organization.</p>\n<p>Organization members with appropriate permissions can create Copilot Spaces to be shared within their organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by the submitted resources.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1406,7 +1406,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.</p>\n<p>Internal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets details about a specific Copilot Space owned by an organization. The authenticated user must have read access to the Space.</p>\n<p>Internal Spaces require the authenticated user to be a member of the organization or have been granted read permissions.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2092,7 +2092,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.</p>\n<p>Organization members with appropriate permissions can update Copilot Spaces owned by their organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates a Copilot Space owned by an organization. The authenticated user must have permissions to update spaces in the organization.</p>\n<p>Organization members with appropriate permissions can update Copilot Spaces owned by their organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including any being added or updated.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2729,7 +2729,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.</p>\n<p><strong>Warning:</strong> This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.</p>\n<p>Organization members with appropriate permissions can delete Copilot Spaces owned by their organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need both the <code>read:org</code> and <code>repo</code> scopes to use this endpoint.</p>",
+      "descriptionHTML": "<p>Deletes a Copilot Space owned by an organization. The authenticated user must have permissions to delete spaces in the organization.</p>\n<p><strong>Warning:</strong> This action is permanent and cannot be undone. Deleting a Copilot Space will remove all associated resources and configurations.</p>\n<p>Organization members with appropriate permissions can delete Copilot Spaces owned by their organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need both the <code>read:org</code> and <code>repo</code> scopes to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5525,7 +5525,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.</p>\n<p>Each collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.</p>\n<p><strong>Note:</strong> Team collaborators listed here are teams that are defined in the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists all collaborators for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to view collaborators.</p>\n<p>Each collaborator entry specifies which user or team has access to the space and at what level (reader, writer, or admin). The space owner (organization) is excluded from this list.</p>\n<p><strong>Note:</strong> Team collaborators listed here are teams that are defined in the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5940,7 +5940,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.</p>\n<p><strong>Note:</strong> When adding users as collaborators, they must already be members of the organization.\nWhen adding teams as collaborators, they must be defined in the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds a collaborator (user or team) to a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.</p>\n<p><strong>Note:</strong> When adding users as collaborators, they must already be members of the organization.\nWhen adding teams as collaborators, they must be defined in the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {
@@ -6593,7 +6593,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Updates the role of a collaborator for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates the role of a collaborator for a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {
@@ -7237,7 +7237,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes a collaborator from a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Removes a collaborator from a specific Copilot Space owned by an organization. The authenticated user must have appropriate permissions to manage collaborators.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {
@@ -8548,7 +8548,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists all resources attached to a specific Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists all resources attached to a specific Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {
@@ -8730,7 +8730,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Creates a new resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.</p>\n<p>The following resource types are supported: <code>repository</code>, <code>github_file</code>, <code>free_text</code>, <code>github_issue</code>, <code>github_pull_request</code>.\nThe <code>uploaded_text_file</code> and <code>media_content</code> types are not supported via this endpoint.</p>\n<p>For <code>github_file</code> resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a <code>200</code> status.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a new resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.</p>\n<p>The following resource types are supported: <code>repository</code>, <code>github_file</code>, <code>free_text</code>, <code>github_issue</code>, <code>github_pull_request</code>.\nThe <code>uploaded_text_file</code> and <code>media_content</code> types are not supported via this endpoint.</p>\n<p>For <code>github_file</code> resources, if a resource with the same repository, file path, and SHA already exists, the existing resource is returned with a <code>200</code> status.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being created.</p>",
       "codeExamples": [],
       "statusCodes": [
         {
@@ -8803,7 +8803,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets a specific resource attached to a Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets a specific resource attached to a Copilot Space owned by an organization.\nThe authenticated user must have appropriate permissions to view the space.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {
@@ -8955,7 +8955,7 @@
           "description": "<p>Updated resource-specific metadata.</p>"
         }
       ],
-      "descriptionHTML": "<p>Updates the metadata of a resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates the metadata of a resource in a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space, including the resource being updated.</p>",
       "codeExamples": [
         {
           "request": {
@@ -9112,7 +9112,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a resource from a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Deletes a resource from a specific Copilot Space owned by an organization.\nThe authenticated user must have write permissions on the space.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens and GitHub App user access tokens must have been granted access to the organization that owns the space. They must also have been granted access to every repository referenced by resources in the space.</p>",
       "codeExamples": [
         {
           "request": {

@@ -15,7 +15,7 @@ category:
   - Responsible use
 ---
 
-## About {% data variables.copilot.copilot_cloud_agent_tmp %} on {% data variables.product.prodname_dotcom_the_website %}
+## About {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}
 
 {% data variables.copilot.copilot_cloud_agent %} is an autonomous and asynchronous software development agent integrated into {% data variables.product.github %}. The agent can pick up a task from an issue or from {% data variables.copilot.copilot_chat_short %}, research a repository, create an implementation plan, and make code changes on a branch. You can review the diff, iterate with the agent, and create a pull request when you're ready.
 

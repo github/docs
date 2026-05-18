@@ -10,7 +10,7 @@ children:
   - /a-repository-is-using-advanced-setup-for-code-scanning
   - /feature-disappears
   - /unexpected-default-setup
-  - /finding-repositories-with-attachment-failures
+  - /diagnosing-security-configuration-issues
   - /not-enough-github-advanced-security-licenses
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations

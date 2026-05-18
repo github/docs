@@ -1,0 +1,824 @@
+{
+  "published": {
+    "descriptionHtml": "<p>A security advisory was published to the GitHub community.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a global security advisory that was reviewed by GitHub. A GitHub-reviewed global security advisory provides information about security vulnerabilities or malware that have been mapped to packages in ecosystems we support. For more information about global security advisories, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-global-security-advisories\">About global security advisories</a>.\" For information about the API to manage security advisories, see <a href=\"https://docs.github.com/enterprise-server@3.21/rest/security-advisories/global-advisories\">the REST API documentation</a> or <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#securityadvisory\">the GraphQL documentation</a>.</p>\n<p>GitHub Dependabot alerts are also powered by the security advisory dataset. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/code-security/dependabot/dependabot-alerts/about-dependabot-alerts\">About Dependabot alerts</a>.\"</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "published"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "security_advisory",
+        "description": "<p>The details of the security advisory, including summary, description, and severity.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "cvss",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "number",
+                "name": "score",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "vector_string",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "cvss_severities",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "cvss_v3",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 3 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 3 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object or null",
+                "name": "cvss_v4",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 4 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 4 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects",
+            "name": "cwes",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "cwe_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "ghsa_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "identifiers",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "value",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "published_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "references",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "severity",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "summary",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "vulnerabilities",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "first_patched_version",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "identifier",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "package",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "ecosystem",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "severity",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "vulnerable_version_range",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "withdrawn_at",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "published",
+    "category": "security_advisory"
+  },
+  "updated": {
+    "descriptionHtml": "<p>The metadata or description of a security advisory was changed.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a global security advisory that was reviewed by GitHub. A GitHub-reviewed global security advisory provides information about security vulnerabilities or malware that have been mapped to packages in ecosystems we support. For more information about global security advisories, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-global-security-advisories\">About global security advisories</a>.\" For information about the API to manage security advisories, see <a href=\"https://docs.github.com/enterprise-server@3.21/rest/security-advisories/global-advisories\">the REST API documentation</a> or <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#securityadvisory\">the GraphQL documentation</a>.</p>\n<p>GitHub Dependabot alerts are also powered by the security advisory dataset. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/code-security/dependabot/dependabot-alerts/about-dependabot-alerts\">About Dependabot alerts</a>.\"</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "updated"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "security_advisory",
+        "description": "<p>The details of the security advisory, including summary, description, and severity.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "cvss",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "number",
+                "name": "score",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "vector_string",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "cvss_severities",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "cvss_v3",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 3 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 3 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object or null",
+                "name": "cvss_v4",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 4 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 4 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects",
+            "name": "cwes",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "cwe_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "ghsa_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "identifiers",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "value",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "published_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "references",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "severity",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "summary",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "vulnerabilities",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "first_patched_version",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "identifier",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "package",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "ecosystem",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "severity",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "vulnerable_version_range",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "withdrawn_at",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "updated",
+    "category": "security_advisory"
+  },
+  "withdrawn": {
+    "descriptionHtml": "<p>A previously published security advisory was withdrawn.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a global security advisory that was reviewed by GitHub. A GitHub-reviewed global security advisory provides information about security vulnerabilities or malware that have been mapped to packages in ecosystems we support. For more information about global security advisories, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-global-security-advisories\">About global security advisories</a>.\" For information about the API to manage security advisories, see <a href=\"https://docs.github.com/enterprise-server@3.21/rest/security-advisories/global-advisories\">the REST API documentation</a> or <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#securityadvisory\">the GraphQL documentation</a>.</p>\n<p>GitHub Dependabot alerts are also powered by the security advisory dataset. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/code-security/dependabot/dependabot-alerts/about-dependabot-alerts\">About Dependabot alerts</a>.\"</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "withdrawn"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "security_advisory",
+        "description": "<p>The details of the security advisory, including summary, description, and severity.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "cvss",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "number",
+                "name": "score",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "vector_string",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "cvss_severities",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "cvss_v3",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 3 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 3 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object or null",
+                "name": "cvss_v4",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 4 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 4 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects",
+            "name": "cwes",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "cwe_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "ghsa_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "identifiers",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "value",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "published_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "references",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "severity",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "summary",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "vulnerabilities",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "first_patched_version",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "identifier",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "package",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "ecosystem",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "severity",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "vulnerable_version_range",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "withdrawn_at",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "withdrawn",
+    "category": "security_advisory"
+  }
+}

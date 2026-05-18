@@ -45,7 +45,8 @@ If you use the REST API for {% data variables.product.prodname_secret_scanning %
 | Extended metadata | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | Some |
 | Base64 format support | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | Some |
 
->[! NOTE] Validity and extended metadata checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
+> [!NOTE]
+> Validity and extended metadata checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
 
 ## Supported generic patterns
 
@@ -109,11 +110,7 @@ Precision levels are estimated based on the pattern type's typical false positiv
 >[!NOTE] Push protection and validity checks are not supported for passwords.
 {% endif %}
 
-<<<<<<< HEAD
-### Default patterns
-=======
 ## Supported provider patterns
->>>>>>> origin/main
 
 Use the table below to search, filter, and browse all supported patterns. You can filter by provider name, push protection support, validity checks, and more.
 

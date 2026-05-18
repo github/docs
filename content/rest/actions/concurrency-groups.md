@@ -1,7 +1,9 @@
 ---
 title: REST API endpoints for Actions concurrency groups
 shortTitle: Actions concurrency groups
-intro: Use the REST API to view and manage concurrency groups for GitHub Actions workflows.
+intro: >-
+  Use the REST API to view and manage concurrency groups for GitHub Actions
+  workflows.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

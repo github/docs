@@ -44,6 +44,7 @@ You can start {% data variables.copilot.copilot_cloud_agent %} from:
 * Your preferred IDE or agentic coding tool with [Model Context Protocol (MCP)](#asking-copilot-to-create-a-pull-request-from-the-github-mcp-server) support
 * The [Raycast](#asking-copilot-to-create-a-pull-request-from-raycast) launcher
 * The ["New repository" form](#asking-copilot-to-create-a-pull-request-from-the-new-repository-page) on {% data variables.product.github %}
+* A failing [{% data variables.product.prodname_actions %} workflow run](#asking-copilot-to-fix-a-failing-github-actions-workflow-run) on {% data variables.product.github %}
 * [Jira](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-jira)
 * [Slack](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack)
 * [Microsoft Teams](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams)
@@ -650,6 +651,18 @@ When creating a new repository, you can ask {% data variables.product.prodname_c
     {% data variables.product.prodname_copilot_short %} will immediately open a draft pull request. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
 
 {% data reusables.copilot.cloud-agent.monitoring-progress-heading %}
+
+## Asking {% data variables.product.prodname_copilot_short %} to fix a failing {% data variables.product.prodname_actions %} workflow run
+
+> [!NOTE]
+> This feature is only available to {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users.
+
+When an {% data variables.product.prodname_actions %} workflow run fails on a pull request branch, you can ask {% data variables.product.prodname_copilot_short %} to investigate and fix the failure.
+
+1. On {% data variables.product.github %}, navigate to the failing workflow run job page.
+1. Click the **{% octicon "agent" aria-label="The Agents icon" %} Fix with {% data variables.product.prodname_copilot_short %}** button.
+
+   {% data variables.product.prodname_copilot_short %} will start a new session, investigate the cause of the failure, and push a fix to your branch.
 
 ## Further reading
 
