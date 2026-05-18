@@ -45,7 +45,7 @@ After adding a new SSH authentication key to your account on {% data variables.l
 
 {% data reusables.user-settings.ssh %}
 
-1. Click **New SSH key** or **Add SSH key**.
+1. Click [**New SSH key**](https://github.com/settings/ssh/new) or **Add SSH key**.
 1. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
 1. Select the type of key, either authentication or signing. For more information about commit signing, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 1. In the "Key" field, paste your public key.
