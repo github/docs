@@ -1595,6 +1595,19 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('* \n  one\n* \n  two', 'fr')).toBe('* one\n* two')
       // Valid bullets are not modified
       expect(fix('* normal\n* another', 'de')).toBe('* normal\n* another')
+
+      // Lone `-` (hyphen) bullet markers are also rejoined (same corruption)
+      const brokenHyphen = '- \n              [AUTOTITLE](/orgs/transfer)'
+      const expectedHyphen = '- [AUTOTITLE](/orgs/transfer)'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(brokenHyphen, lang)).toBe(expectedHyphen)
+      }
+      // No trailing space variant
+      expect(fix('-\n  [AUTOTITLE](/path)', 'ko')).toBe('- [AUTOTITLE](/path)')
+      // Multiple consecutive broken hyphen bullets
+      expect(fix('- \n  one\n- \n  two', 'fr')).toBe('- one\n- two')
+      // Valid hyphen bullets are not modified
+      expect(fix('- normal\n- another', 'de')).toBe('- normal\n- another')
     })
 
     test('rejoins broken table cells split across lines (all languages)', () => {
