@@ -177,7 +177,6 @@ export default [
       'src/article-api/**/*.{ts,js}',
       'src/audit-logs/**/*.{ts,js}',
       'src/color-schemes/**/*.{ts,js}',
-      'src/data-directory/**/*.{ts,js}',
       'src/dev-toc/**/*.{ts,js}',
       'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
