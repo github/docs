@@ -179,7 +179,7 @@ export default [
       'src/color-schemes/**/*.{ts,js}',
       'src/data-directory/**/*.{ts,js}',
       'src/dev-toc/**/*.{ts,js}',
-      'src/events/**/*.{ts,js}',
+      'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
       'src/github-apps/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
