@@ -181,15 +181,6 @@
   output: $12.00
   notes: "Prompts \u2264200K tokens"
 
-# xAI
-- model: Grok Code Fast 1
-  provider: xai
-  release_status: GA
-  category: Lightweight
-  input: $0.20
-  cached_input: $0.02
-  output: $1.50
-
 # Fine-tuned (GitHub)
 - model: 'Raptor mini[^7]'
   provider: github

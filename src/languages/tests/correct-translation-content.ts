@@ -1556,6 +1556,17 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix(translated, 'es', en)).toBe('{% endif %}\n| Column |')
     })
 
+    test('does not inject linebreak after data tag that is mid-heading', () => {
+      // English: tag is at end of heading line → English has tag+newline.
+      // Japanese: tag is mid-heading, followed by Japanese text.
+      // The linebreak recovery must NOT replace the space with a newline here,
+      // or the heading gets split into `#### TAG` + `Japanese text` paragraph.
+      const en = '#### Using {% data variables.copilot.subagents_short %}\n\nSome paragraph.'
+      const translated =
+        '#### {% data variables.copilot.subagents_short %} の使用\n\nSome paragraph.'
+      expect(fix(translated, 'ja', en)).toBe(translated)
+    })
+
     test('fixes collapsed Markdown table rows', () => {
       expect(fix('Cell1 | | Cell2', 'es')).toBe('Cell1 |\n| Cell2')
     })
@@ -1611,8 +1622,9 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('   ### \n              Title', 'ja')).toBe('   ### Title')
       // Valid headings are not modified
       expect(fix('### Already correct', 'ja')).toBe('### Already correct')
-      // 4-space indented heading-like text is not collapsed (looks like code)
-      expect(fix('    ###\n              code', 'ja')).toBe('    ###\n              code')
+      // 4-space indented heading-like text is not collapsed (no marker join);
+      // but selfStrip still removes the 14-space indentation from the next line.
+      expect(fix('    ###\n              code', 'ja')).toBe('    ###\ncode')
       // Shallow next-line indent (<6) is not collapsed
       expect(fix('### \n  Title', 'ja')).toBe('### \n  Title')
     })
@@ -1646,9 +1658,29 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('> **\n              Quoted bold**', 'ja')).toBe('> **Quoted bold**')
       // Table cell
       expect(fix('| **\n              Cell bold** | x', 'ja')).toBe('| **Cell bold** | x')
-      // Bare `**` (no preceding marker) is not collapsed — could be a closing
-      // bold marker followed by legitimate indented continuation.
-      expect(fix('**\n              text', 'ja')).toBe('**\n              text')
+      // Bare `**` (no preceding marker) is not marker-joined, but selfStrip
+      // still removes the 14-space indentation from the next line so it does
+      // not render as an indented code block.
+      expect(fix('**\n              text', 'ja')).toBe('**\ntext')
+    })
+
+    test('rejoins dangling ordered-list markers (all languages)', () => {
+      const broken =
+        '1. \n              {% data variables.product.prodname_vscode %}では、サイドバーの拡張機能アイコンをクリックします。'
+      const expected =
+        '1. {% data variables.product.prodname_vscode %}では、サイドバーの拡張機能アイコンをクリックします。'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // Higher numbered items
+      expect(fix('2. \n              Content', 'ja')).toBe('2. Content')
+      expect(fix('10. \n              Content', 'ja')).toBe('10. Content')
+      // 0–3 leading spaces are accepted
+      expect(fix('   1. \n              Indented', 'ja')).toBe('   1. Indented')
+      // Valid ordered list items are not modified
+      expect(fix('1. Already correct', 'ja')).toBe('1. Already correct')
+      // Shallow next-line indent (<6 spaces) is not collapsed
+      expect(fix('1. \n  Content', 'ja')).toBe('1. \n  Content')
     })
 
     test('does not modify content inside fenced code blocks', () => {
@@ -1722,6 +1754,46 @@ intro: |
       // a heading/blockquote/bold-open marker.
       const nested = '1. Run this command:\n\n      gh auth login'
       expect(fix(nested, 'ja')).toBe(nested)
+    })
+
+    test('strips standalone deeply-indented paragraph lines (all languages)', () => {
+      // The translation pipeline sometimes indents an entire paragraph line
+      // with 14 spaces, causing it to render as a code block at the document
+      // level.  Such lines should have their leading whitespace stripped.
+      const broken =
+        '### MCP サーバーの手動での構成\n\n              {% data variables.product.prodname_vscode %}で MCP サーバーを構成するには、...'
+      const expected =
+        '### MCP サーバーの手動での構成\n\n{% data variables.product.prodname_vscode %}で MCP サーバーを構成するには、...'
+      for (const lang of ['ja', 'de', 'es', 'fr', 'ko', 'pt', 'ru', 'zh']) {
+        expect(fix(broken, lang)).toBe(expected)
+      }
+      // 9 spaces is the minimum threshold
+      expect(fix('         content', 'ja')).toBe('content')
+      // 8 spaces is below threshold and should be preserved
+      expect(fix('        content', 'ja')).toBe('        content')
+      // Standalone 14-space line mid-document
+      expect(fix('Para one.\n\n              Para two.\n\nPara three.', 'ja')).toBe(
+        'Para one.\n\nPara two.\n\nPara three.',
+      )
+    })
+
+    test('does not strip content inside 4-space-indented fences (list code blocks)', () => {
+      // A fenced code block that itself lives inside a list item is indented
+      // by 4 spaces.  Its content may have 6–25 spaces of leading whitespace
+      // but must NOT be stripped.
+      const fenced = [
+        '1. Add this config:',
+        '',
+        '    ```json copy',
+        '    {',
+        '      "key": "value",',
+        '      "nested": {',
+        '        "deep": true',
+        '      }',
+        '    }',
+        '    ```',
+      ].join('\n')
+      expect(fix(fenced, 'ja')).toBe(fenced)
     })
   })
 

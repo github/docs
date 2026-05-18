@@ -32,7 +32,7 @@ You can customize {% data variables.product.prodname_copilot_short %}'s developm
 In addition, you can:
 
 * [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables)
-* [Disable or customize the agent's firewall](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-cloud-agent).
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).
 
 > [!NOTE]
 > Organization owners can configure the default runner type for {% data variables.copilot.copilot_cloud_agent %} across all repositories in their organization, and choose whether repositories are allowed to override this default. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent).

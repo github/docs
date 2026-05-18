@@ -185,15 +185,6 @@
   xcode: true
   jetbrains: true
 
-- name: Grok Code Fast 1
-  dotcom: true
-  cli: false
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: Raptor mini
   dotcom: false
   cli: false

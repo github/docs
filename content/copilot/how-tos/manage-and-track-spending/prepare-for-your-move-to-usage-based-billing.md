@@ -7,7 +7,7 @@ versions:
   feature: copilot
 product: '{% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}'
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -42,6 +42,30 @@ Your data stays in your browser; nothing is uploaded to a server.
 
 * **Understand what consumes credits**. {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_spaces %}, {% data variables.product.prodname_spark_short %}, and third-party coding agents consume {% data variables.product.prodname_ai_credits_short %}. Code completions and {% data variables.copilot.next_edit_suggestions %} remain unlimited for all paid plans.
 * **Consider your model usage**. Frontier models consume more credits per interaction than lightweight models. Switching to a lighter model for routine tasks can stretch your included usage further.
+
+<!-- expires 2026-09-01 -->
+
+## Update your IDE, client, and extension
+
+For the best experience with usage-based billing, update your IDE, client, and {% data variables.product.prodname_copilot_short %} extension to at least the versions listed below.
+
+> [!NOTE]
+> Older versions will continue to work, but may display incorrect model pricing, inaccurate usage information, or outdated billing terminology. Usage alert notifications may also not appear as expected.
+
+| IDE, client, or extension | Minimum version |
+| --- | --- |
+| {% data variables.product.prodname_vscode_shortname %} | 1.120 |
+| {% data variables.product.prodname_vs %} 2022 (17.x) | 17.14.33 |
+| {% data variables.product.prodname_vs %} 2025 (18.x) | 18.6.0 |
+| SQL Server Management Studio | 22.6 |
+| JetBrains IDEs (plugin) | 1.9.1 |
+| Eclipse (plugin) | 0.18.0 |
+| Xcode (extension) | 0.50.0 |
+| {% data variables.copilot.copilot_cli_short %} | 1.0.48 |
+
+We recommend keeping your IDE, client, and {% data variables.product.prodname_copilot_short %} extensions on the latest available stable version. For information on configuring automatic updates, see [AUTOTITLE](/copilot/how-tos/configure-personal-settings/configure-in-ide). To update {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
+
+<!-- end expires 2026-09-01 -->
 
 ## Further reading
 

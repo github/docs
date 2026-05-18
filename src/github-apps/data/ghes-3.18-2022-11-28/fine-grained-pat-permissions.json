@@ -4017,7 +4017,16 @@
         "subcategory": "releases",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -6270,6 +6279,15 @@
         "subcategory": "releases",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
         "additional-permissions": true,
         "access": "write"
       }
