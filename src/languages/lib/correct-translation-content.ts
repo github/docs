@@ -58,13 +58,13 @@ export function correctTranslatedContentStrings(
   )
 
   // The translation pipeline frequently splits Markdown bullet markers
-  // (`*`) and table-cell pipes (`|`) onto their own line, with the
-  // actual content pushed to the next line as deeply indented text.
+  // (`*` and `-`) and table-cell pipes (`|`) onto their own line, with
+  // the actual content pushed to the next line as deeply indented text.
   // This breaks list and table rendering and leaves `[AUTOTITLE]` links
   // unexpanded. Rejoin the marker with its content. This corruption
-  // affects every translated language (~47k bullets and ~11k cells in
-  // total), so it lives in the universal pre-fixes block.
-  content = content.replace(/^([ \t]*)\* ?\n[ \t]+/gm, '$1* ')
+  // affects every translated language, so it lives in the universal
+  // pre-fixes block.
+  content = content.replace(/^([ \t]*)([*-]) ?\n[ \t]+/gm, '$1$2 ')
   content = content.replace(/^\|[ \t]*\n[ \t]+/gm, '| ')
 
   // The same translator wrapping habit also strands heading markers
