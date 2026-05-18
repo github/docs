@@ -20,7 +20,7 @@ When you start work on an unfamiliar codebase, or you're asked to change a part 
 
 When you need to understand an unfamiliar codebase, you usually rely on a teammate who knows the code. When that person isn't available, {% data variables.copilot.copilot_cli_short %} can fill the gap. In this tutorial, you'll ask {% data variables.copilot.copilot_cli_short %} questions about a repository's code, learn prompting techniques that produce code-grounded answers, and build the confidence to start making changes.
 
-## When to use an AI SME (or even When do I use an AI SME?)
+## When to use an AI SME
 
 This tutorial is useful any time you need to understand a codebase faster. For example:
 
