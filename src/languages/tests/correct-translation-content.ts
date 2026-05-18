@@ -161,6 +161,23 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% siVersion productos-ghas %}', 'es')).toBe('{% ifversion productos-ghas %}')
       expect(fix('{%- siVersion productos-ghas %}', 'es')).toBe('{%- ifversion productos-ghas %}')
     })
+
+    test('fixes {% de escritorio %} → {% desktop %} (platform tab)', () => {
+      expect(fix('{% de escritorio %}', 'es')).toBe('{% desktop %}')
+      expect(fix('{%- de escritorio %}', 'es')).toBe('{%- desktop %}')
+    })
+
+    test('fixes fused {% variablesdatos.producto.X %} → {% data variables.product.X %}', () => {
+      expect(fix('{% variablesdatos.producto.prodname_dotcom %}', 'es')).toBe(
+        '{% data variables.product.prodname_dotcom %}',
+      )
+      expect(fix('{%- variablesdatos.producto.github %}', 'es')).toBe(
+        '{%- data variables.product.github %}',
+      )
+      expect(fix('{%variablesdatos.producto.github%}', 'es')).toBe(
+        '{% data variables.product.github%}',
+      )
+    })
   })
 
   // ─── JAPANESE (ja) ──────────────────────────────────────────────────
@@ -535,6 +552,16 @@ describe('correctTranslatedContentStrings', () => {
         '{%- data variables.product.github %}',
       )
     })
+
+    test('fixes {% 捕获 X %} → {% capture X %} (translated capture tag)', () => {
+      // With space between 捕获 and identifier
+      expect(fix('{% 捕获 myvar %}', 'zh')).toBe('{% capture myvar %}')
+      // Without space
+      expect(fix('{% 捕获myvar %}', 'zh')).toBe('{% capture myvar %}')
+      // Whitespace-stripping forms
+      expect(fix('{%- 捕获 myvar -%}', 'zh')).toBe('{%- capture myvar -%}')
+      expect(fix('{%- 捕获myvar %}', 'zh')).toBe('{%- capture myvar %}')
+    })
   })
 
   // ─── RUSSIAN (ru) ──────────────────────────────────────────────────
@@ -757,6 +784,42 @@ describe('correctTranslatedContentStrings', () => {
     test('fixes джетмозги → jetbrains', () => {
       expect(fix('{% джетмозги %}', 'ru')).toBe('{% jetbrains %}')
       expect(fix('{%- джетмозги %}', 'ru')).toBe('{%- jetbrains %}')
+    })
+
+    test('fixes uppercase {% API %} → {% api %} (platform tab)', () => {
+      expect(fix('{% API %}', 'ru')).toBe('{% api %}')
+      expect(fix('{%- API %}', 'ru')).toBe('{%- api %}')
+    })
+
+    test('fixes {% захватить X %} → {% capture X %} (translated capture tag)', () => {
+      expect(fix('{% захватить myvar %}', 'ru')).toBe('{% capture myvar %}')
+      expect(fix('{%- захватить myvar -%}', 'ru')).toBe('{%- capture myvar -%}')
+    })
+
+    test('fixes comma between plan names in ifversion/elsif/if to `or`', () => {
+      expect(fix('{% ifversion fpt, ghec %}', 'ru')).toBe('{% ifversion fpt or ghec %}')
+      expect(fix('{% elsif fpt, ghec %}', 'ru')).toBe('{% elsif fpt or ghec %}')
+      expect(fix('{%- ifversion ghes, ghec %}', 'ru')).toBe('{%- ifversion ghes or ghec %}')
+    })
+
+    test('fixAt: enterprise-licensing-language reusable garbled conditional', () => {
+      function fixAt(content: string, code: string, relativePath: string) {
+        return correctTranslatedContentStrings(content, '', {
+          code,
+          relativePath,
+          skipOrphanStripping: true,
+        })
+      }
+      const broken =
+        '{% ifversion enterprise-licensing-language %}license-language%else %}licenses{% license seats{% endif %}'
+      const out = fixAt(
+        broken,
+        'ru',
+        'data/reusables/enterprise-licensing/unique-user-licensing-model.md',
+      )
+      expect(out).toBe(
+        '{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}',
+      )
     })
   })
 
@@ -1015,6 +1078,11 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- data Variables.product.github %}', 'ko')).toBe(
         '{%- data variables.product.github %}',
       )
+    })
+
+    test('fixes {% 캡처 X %} → {% capture X %} (translated capture tag)', () => {
+      expect(fix('{% 캡처 myvar %}', 'ko')).toBe('{% capture myvar %}')
+      expect(fix('{%- 캡처 myvar -%}', 'ko')).toBe('{%- capture myvar -%}')
     })
   })
 
