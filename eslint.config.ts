@@ -181,7 +181,6 @@ export default [
       'src/dev-toc/**/*.{ts,js}',
       'src/events/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
-      'src/frame/**/*.{ts,js}',
       'src/github-apps/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
       'src/languages/**/*.{ts,js}',
