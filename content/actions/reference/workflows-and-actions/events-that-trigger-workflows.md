@@ -844,6 +844,9 @@ on:
 > [!NOTE]
 > When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
 
+> [!NOTE]
+> You can use `push` to trigger a workflow that has not been merged to the default branch. This can be useful when you want to test a workflow but cannot merge it into the default branch.
+
 ### Running your workflow only when a push to specific branches occurs
 
 You can use the `branches` or `branches-ignore` filter to configure your workflow to only run when specific branches are pushed. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore).
