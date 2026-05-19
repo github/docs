@@ -128,6 +128,12 @@ You found suspicious code in your repository, a security researcher reported an 
 
 * [Containment actions](/code-security/tutorials/secure-your-organization/responding-to-security-incidents#step-2-contain-the-threat)
 
+{% ifversion fpt or ghec %}
+
+{% data reusables.actions.runner-ip-reputation-note %}
+
+{% endif %}
+
 ## Malware and supply chain attacks
 
 This section may apply when:

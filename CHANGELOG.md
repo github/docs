@@ -6,6 +6,14 @@ We published the first iteration of a [journey landing page](https://docs.github
 
 <hr>
 
+**15 May 2026**
+
+We've published a new [GitHub Secret Protection adoption journey landing page](https://docs.github.com/en/code-security/tutorials/secret-protection-adoption-path) for AppSec administrators. Our content audit found that while individual GHSP articles existed, there was no clear end-to-end path from evaluation to organization-wide rollout. 
+
+The new page organizes existing content into a 5-phase adoption journey: assess secret risk, evaluate fit and cost, pilot with selected repositories, monitor metrics, and scale protection across your organization 🎉 
+
+<hr>
+
 **12 May 2026**
 
 We have now published the GitHub Enterprise Server (GHES) 3.21 release candidate notes. You can read the full notes here:

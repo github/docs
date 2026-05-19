@@ -47,6 +47,12 @@ Try to identify the nature of the signal you're seeing. For example, does the si
 
 For help identifying these threat signals across your organization or enterprise, consult [AUTOTITLE](/code-security/reference/security-incident-response/investigation-areas).
 
+{% ifversion fpt or ghec %}
+
+{% data reusables.actions.runner-ip-reputation-note %}
+
+{% endif %}
+
 We suggest you don't spend too much time on deep inspection in the earlier stages of your investigation, since the initial goal is to **identify** the threat signal in order to **validate** it and strategize your response.
 
 ### 2. Validate
