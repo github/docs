@@ -5,7 +5,7 @@ index 0000000000000..d1196a1fc082d
 +++ b/.github/workflows/screenreader_tests.yml
 @@ -0,0 +1,97 @@
 +name: Screen reader tests
-+on:
++on:@Edgarruiz8585
 +  push:
 +    paths:
 +      - 'gulpfile.mjs'
