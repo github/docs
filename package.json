@@ -329,7 +329,7 @@
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
     "json-schema-merge-allof": "^0.8.1",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^17.0.4",
     "markdownlint": "^0.34.0",
     "markdownlint-rule-search-replace": "^1.2.0",
     "mkdirp": "^3.0.1",
