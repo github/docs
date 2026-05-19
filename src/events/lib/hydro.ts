@@ -18,7 +18,7 @@ const { NODE_ENV, HYDRO_SECRET, HYDRO_ENDPOINT } = process.env
 const inProd = NODE_ENV === 'production'
 
 if (inProd && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
-  console.warn(
+  logger.warn(
     'Running in production but HYDRO_SECRET and HYDRO_ENDPOINT environment variables are not set.',
   )
 }

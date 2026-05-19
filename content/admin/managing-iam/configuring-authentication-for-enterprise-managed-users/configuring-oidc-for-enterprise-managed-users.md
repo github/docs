@@ -36,6 +36,8 @@ To change the lifetime policy property, you will need the object ID associated w
 
 Support for OIDC is available for customers using Entra ID.
 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
 Each Entra ID tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Entra ID to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users).
 
 OIDC does not support IdP-initiated authentication.

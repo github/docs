@@ -64,6 +64,8 @@ If you configure {% data variables.product.prodname_code_scanning %} using {% da
 
 When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_caps %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
 
+In some cases, the same vulnerability can be reached through multiple code paths, for example, when several different functions pass user input to the same unsafe operation. {% data variables.product.prodname_code_scanning_caps %} groups these related paths under a single alert rather than creating separate alerts for each path, so you can see the full scope of the vulnerability in one place.
+
 {% data reusables.code-scanning.track-alert-in-issue %}
 
 ### About alerts from multiple configurations
