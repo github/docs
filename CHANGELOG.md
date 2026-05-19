@@ -1,5 +1,11 @@
 # Docs changelog
 
+**19 May 2026**
+
+We published the first iteration of a [journey landing page](https://docs.github.com/en/enterprise-cloud@latest/copilot/get-started/enterprise-ai-governance) for enterprises adopting and governing GitHub Copilot. The journey covers sign-off and adoption, governance of core features, and agent adoption. It includes six newly published guides alongside some refreshed existing content.
+
+<hr>
+
 **12 May 2026**
 
 We have now published the GitHub Enterprise Server (GHES) 3.21 release candidate notes. You can read the full notes here:
