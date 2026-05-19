@@ -104,6 +104,15 @@
   xcode: true
   jetbrains: true
 
+- name: Gemini 3.5 Flash
+  dotcom: false
+  cli: false
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: GPT-4.1
   dotcom: true
   cli: true
