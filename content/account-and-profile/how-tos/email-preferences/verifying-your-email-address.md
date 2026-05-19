@@ -13,10 +13,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Verify your email address
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 ## Verifying your email address

@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Create site with Jekyll
+category:
+  - Set up a GitHub Pages site
 ---
 
 

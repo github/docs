@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Run an enterprise migration
 ---
 
 ## About required access for {% data variables.product.prodname_importer_proper_name %}

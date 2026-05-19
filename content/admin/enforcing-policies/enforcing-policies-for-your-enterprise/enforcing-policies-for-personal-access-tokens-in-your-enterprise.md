@@ -7,6 +7,8 @@ versions:
 shortTitle: '{% data variables.product.pat_generic_caps %} policies'
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise
+category:
+  - Secure and govern your enterprise
 ---
 
 ## Restricting access by {% data variables.product.pat_generic_plural %}
@@ -23,8 +25,8 @@ Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plur
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**, click **{% data variables.product.pat_generic_caps_plural %}**. {% ifversion tabbed-pat-settings-ui %}
-1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type. {% endif %}
+1. Under **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**, click **{% data variables.product.pat_generic_caps_plural %}**. 
+1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type. 
 1. Under **{% data variables.product.pat_v2_caps_plural %}** or **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select your access policy.
 1. Click **Save**.
 
@@ -70,7 +72,7 @@ By default, organizations require approval of {% data variables.product.pat_v2_p
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**, click **{% data variables.product.pat_generic_caps_plural %}**. {% ifversion tabbed-pat-settings-ui %}
-1. Select the **Fine-grained tokens** tab. {% endif %}
+1. Under **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**, click **{% data variables.product.pat_generic_caps_plural %}**. 
+1. Select the **Fine-grained tokens** tab. 
 1. Under **Require approval of {% data variables.product.pat_v2_plural %}**, select your approval policy:
 1. Click **Save**.

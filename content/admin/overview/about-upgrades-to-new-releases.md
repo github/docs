@@ -1,13 +1,12 @@
 ---
 title: About upgrades to new releases
 shortTitle: About upgrades
-intro: 'Learn about how features and bug fixes are added to {% data variables.product.prodname_ghe_server %} through new releases.'
+intro: Learn about how features and bug fixes are added to {% data variables.product.prodname_ghe_server %} through new releases.
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Upgrades
+contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 {% data reusables.enterprise.constantly-improving %}

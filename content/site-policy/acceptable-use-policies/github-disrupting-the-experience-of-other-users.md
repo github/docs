@@ -3,12 +3,11 @@ title: GitHub Disrupting the Experience of Other Users
 shortTitle: Disrupting the Experience of Other Users
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-disrupting-the-experience-of-other-users
   - /github/site-policy/github-community-guidelines#disrupting-the-experience-of-other-users
+category:
+  - Follow acceptable use policies
 ---
 
 Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on.

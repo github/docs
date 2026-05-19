@@ -109,32 +109,37 @@ export function getVersionObjectFromPath(href: string | undefined) {
   return allVersions[versionFromPath]
 }
 
-// TODO needs refactoring + tests
 // Return the product segment from the path
+// Extracts the product identifier from various URL patterns including versioned paths
 export function getProductStringFromPath(href: string | undefined): string {
+  // Handle empty or undefined paths
   if (!href) return 'homepage'
-  href = getPathWithoutLanguage(href)
 
-  if (href === '/') return 'homepage'
+  const normalizedHref = getPathWithoutLanguage(href)
+  if (normalizedHref === '/') return 'homepage'
 
-  // The first segment will always be empty on this split
-  const pathParts = href.split('/')
+  // Split path into segments (first segment is always empty string)
+  const pathParts = normalizedHref.split('/')
 
+  // Handle special product paths that appear anywhere in the URL
   if (pathParts.includes('early-access')) return 'early-access'
 
-  // For rest pages the currentProduct should be rest
-  // We use this to show SidebarRest, which is a different sidebar than the rest of the site
-  if (pathParts[1] === 'rest') return 'rest'
-  if (pathParts[1] === 'copilot') return 'copilot'
-  if (pathParts[1] === 'get-started') return 'get-started'
+  // Handle special products that always appear as the first segment
+  // These products use custom sidebars and need explicit handling
+  const specialProducts = ['rest', 'copilot', 'get-started']
+  if (specialProducts.includes(pathParts[1])) {
+    return pathParts[1]
+  }
 
-  // Possible scenarios for href (assume part[0] is an empty string):
-  //
-  // * part[1] is a version and part[2] is undefined, so return part[1] as an enterprise landing page
-  // * part[1] is a version and part[2] is defined, so return part[2] as the product
-  // * part[1] is NOT a version, so return part[1] as the product
-  const isEnterprise = supportedVersions.has(pathParts[1])
-  const productString = isEnterprise && pathParts[2] ? pathParts[2] : pathParts[1]
+  // Determine if first segment is a version (e.g., 'enterprise-server@3.9')
+  // If yes, product is in pathParts[2], otherwise it's in pathParts[1]
+  // Examples:
+  //   /enterprise-server@3.9/admin -> product is 'admin'
+  //   /github/getting-started -> product is 'github'
+  //   /enterprise-server@3.9 -> product is 'enterprise-server@3.9' (enterprise landing)
+  const hasVersionPrefix = supportedVersions.has(pathParts[1])
+  const productString = hasVersionPrefix && pathParts[2] ? pathParts[2] : pathParts[1]
+
   return productString
 }
 

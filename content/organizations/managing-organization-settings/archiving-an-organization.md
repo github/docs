@@ -7,8 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
+category:
+  - Set up your organization
 ---
 
 {% ifversion fpt or ghec %}

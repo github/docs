@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /about-repositories
   - /best-practices-for-repositories
@@ -27,6 +25,7 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
+  - /viewing-all-your-repositories
 shortTitle: Create & manage repositories
 ---
 

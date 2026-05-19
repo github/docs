@@ -1,6 +1,7 @@
 import walk from 'walk-sync'
 import path from 'path'
-import { TokenizationError } from 'liquidjs'
+import { TokenizationError, TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
@@ -56,7 +57,10 @@ export function getReusableLiquidString(reusablePath: string): string {
 export function getIndicesOfLiquidVariable(liquidVariable: string, fileContents: string): number[] {
   const indices: number[] = []
   try {
-    for (const token of getLiquidTokens(fileContents)) {
+    const tokens = getLiquidTokens(fileContents).filter(
+      (token): token is TagToken => token.kind === TokenKind.Tag,
+    )
+    for (const token of tokens) {
       if (token.name === 'data' && token.args.trim() === liquidVariable) {
         indices.push(token.begin)
       }

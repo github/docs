@@ -15,10 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Add members to a team
+category:
+  - Organize teams
 ---
 
 {% data reusables.organizations.team-synchronization %}

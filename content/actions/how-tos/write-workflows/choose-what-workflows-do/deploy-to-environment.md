@@ -12,6 +12,9 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/using-environments-for-deployment
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-environments-for-deployment
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/deploying-to-a-specific-environment
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites
@@ -44,3 +47,19 @@ You need to create an environment before you can use it in a workflow. See [AUTO
     * On the deployments page for the repository
     * In the visualization graph for the workflow run
     * (If a pull request triggers the workflow) As a "View deployment" button in the pull request timeline
+
+{% ifversion actions-environments-without-deployments %}
+
+1. Optionally, prevent a deployment object from being created by adding the `deployment` property. When set to `false`, the job still has access to environment secrets and variables, but no {% data variables.product.github %} deployment is created:
+
+    ```yaml copy
+    jobs:
+      JOB-ID:
+        environment:
+            name: ENVIRONMENT-NAME
+            deployment: false
+    ```
+
+    This is useful for CI or testing jobs that need environment secrets but aren't actually deploying anything. For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments#using-environments-without-deployments).
+
+{% endif %}

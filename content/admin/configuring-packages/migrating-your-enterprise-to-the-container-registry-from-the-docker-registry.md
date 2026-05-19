@@ -6,12 +6,10 @@ permissions: 'Enterprise owners can migrate Docker images to the {% data variabl
 versions:
   ghes: '*'
 shortTitle: Migrate to Container registry
-topics:
-  - Containers
-  - Docker
-  - Migration
 redirect_from:
   - /admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.package_registry.container-registry-ghes-beta %}

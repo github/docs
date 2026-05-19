@@ -24,7 +24,7 @@ jobs:
     if: github.repository == 'github/docs' && github.actor != 'docs-bot'
     steps:
       - id: membership_check
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         env:
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
@@ -83,7 +83,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
         with:

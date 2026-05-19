@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Plan your migration
 ---
 
 ## About locked repositories
@@ -32,6 +34,10 @@ While a migration is in progress, access to the destination repository is locked
 > We do not recommend locking source repositories unless you are certain you will not want to unlock them later. Consider archiving the repositories instead. For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories).
 
 For information about how to unlock repositories that were locked by {% data variables.product.prodname_importer_proper_name %}, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#locked-repositories).
+
+## Repositories locked by {% data variables.product.prodname_elm %}
+
+{% data reusables.elm.locked-repo %}
 
 ## Repositories locked by the "Organization migrations" REST API
 

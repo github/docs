@@ -1,18 +1,15 @@
 ---
 title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
 shortTitle: Backing up and restoring
-intro: 'To restore a backup of {% data variables.location.product_location %} when {% data variables.product.prodname_actions %} is enabled, you must configure {% data variables.product.prodname_actions %} before restoring the backup with {% data variables.product.prodname_enterprise_backup_utilities %}.'
+intro: To restore a backup of {% data variables.location.product_location %} when {% data variables.product.prodname_actions %} is enabled, you must configure {% data variables.product.prodname_actions %} before restoring the backup with {% data variables.product.prodname_enterprise_backup_utilities %}.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Actions
-  - Backups
-  - Enterprise
-  - Infrastructure
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
   - /admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About backups of {% data variables.product.prodname_ghe_server %} when using {% data variables.product.prodname_actions %}

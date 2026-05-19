@@ -8,12 +8,10 @@ versions:
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: View GHAS committers
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## About the "Advanced Security Committers" dashboard
@@ -28,8 +26,7 @@ For more information about billing for {% data variables.product.prodname_AS %},
 
 ## Viewing committer information
 
-1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %} to display the "Site admin" pages.
-1. In the left sidebar, click **Advanced Security Committers**. If this option is not displayed, at the top of the page, click {% octicon "rocket" aria-hidden="true" aria-label="Site admin" %} **Site admin** to show the top-level "Site admin" page.
+{% data reusables.billing.ghas-site-admin-committers %}
 
 The page shows the number of licenses currently being used and the number of licenses you would use if you enabled {% data variables.product.prodname_AS %} for all repositories.
 
@@ -37,8 +34,7 @@ The page shows the number of licenses currently being used and the number of lic
 
 Under "Calculate Additional Advanced Licenses", you can calculate how many more new or additional licenses will be used if you enable {% data variables.product.prodname_cs_or_sp %} for specific organizations and repositories.
 
-1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %} to display the "Site admin" pages.
-1. In the left sidebar, click **Advanced Security Committers**. If this option is not displayed, at the top of the page, click {% octicon "rocket" aria-hidden="true" aria-label="Site admin" %} **Site admin** to show the top-level "Site admin" page.
+{% data reusables.billing.ghas-site-admin-committers %}
 1. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. For example:
 
    ```text

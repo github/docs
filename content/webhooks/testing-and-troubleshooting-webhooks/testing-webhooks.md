@@ -14,8 +14,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
+category:
+  - Test and troubleshoot
 ---
 
 ## About testing webhooks

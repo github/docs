@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Auto linked references
+category:
+  - Write and format content
 ---
 ## URLs
 

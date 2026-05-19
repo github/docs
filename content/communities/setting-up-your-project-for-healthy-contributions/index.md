@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /about-community-management-and-moderation
   - /about-community-profiles-for-public-repositories

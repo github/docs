@@ -24,7 +24,6 @@ interface FieldArgumentInfo {
   type: {
     name: string
     id: string
-    kind: string
     href: string
   }
 }
@@ -34,7 +33,6 @@ interface ScalarInfo {
   description: string
   id: string
   href: string
-  kind?: string
   isDeprecated?: boolean
   deprecationReason?: string
   preview?: PreviewInfo
@@ -45,7 +43,6 @@ interface QueryArgumentInfo {
   defaultValue?: any // GraphQL default values can be any JSON-serializable type
   type: string
   id: string
-  kind: string
   href: string
   description: string
   isDeprecated?: boolean
@@ -56,7 +53,6 @@ interface QueryArgumentInfo {
 interface QueryInfo {
   name: string
   type: string
-  kind: string
   id: string
   href: string
   description: string
@@ -70,7 +66,6 @@ interface FieldInfo {
   name: string
   type: string
   id: string
-  kind: string
   href: string
   description: string
   arguments?: FieldArgumentInfo[]
@@ -83,7 +78,6 @@ interface InputFieldInfo {
   name: string
   type: string
   id: string
-  kind: string
   href: string
 }
 
@@ -91,7 +85,6 @@ interface ReturnFieldInfo {
   name: string
   type: string
   id: string
-  kind: string
   href: string
   description: string
   isDeprecated?: boolean
@@ -101,7 +94,6 @@ interface ReturnFieldInfo {
 
 interface MutationInfo {
   name: string
-  kind: string
   id: string
   href: string
   description: string
@@ -120,7 +112,6 @@ interface InterfaceInfo {
 
 interface ObjectInfo {
   name: string
-  kind: string
   id: string
   href: string
   description: string
@@ -133,7 +124,6 @@ interface ObjectInfo {
 
 interface GraphQLInterfaceInfo {
   name: string
-  kind: string
   id: string
   href: string
   description: string
@@ -150,7 +140,6 @@ interface EnumValueInfo {
 
 interface EnumInfo {
   name: string
-  kind: string
   id: string
   href: string
   description: string
@@ -168,7 +157,6 @@ interface PossibleTypeInfo {
 
 interface UnionInfo {
   name: string
-  kind: string
   id: string
   href: string
   description: string
@@ -183,7 +171,6 @@ interface InputFieldDetailInfo {
   description: string
   type: string
   id: string
-  kind: string
   href: string
   isDeprecated?: boolean
   deprecationReason?: string
@@ -192,7 +179,6 @@ interface InputFieldDetailInfo {
 
 interface InputObjectInfo {
   name: string
-  kind: string
   id: string
   href: string
   description: string
@@ -270,9 +256,8 @@ export default async function processSchemas(
             query.type = fieldType
             const fieldKind = helpers.getTypeKind(query.type, schema)
             if (!fieldKind) return
-            query.kind = fieldKind
             query.id = helpers.getId(query.type)
-            query.href = helpers.getFullLink(query.kind, query.id)
+            query.href = helpers.getFullLink(fieldKind, query.id)
             query.description = await helpers.getDescription(field.description?.value || '')
             query.isDeprecated = helpers.getDeprecationStatus(
               (field.directives || []) as readonly ConstDirectiveNode[],
@@ -302,8 +287,7 @@ export default async function processSchemas(
                 queryArg.id = helpers.getId(queryArg.type)
                 const argKind = helpers.getTypeKind(queryArg.type, schema)
                 if (!argKind) return
-                queryArg.kind = argKind
-                queryArg.href = helpers.getFullLink(queryArg.kind, queryArg.id)
+                queryArg.href = helpers.getFullLink(argKind, queryArg.id)
                 queryArg.description = await helpers.getDescription(arg.description?.value || '')
                 queryArg.isDeprecated = helpers.getDeprecationStatus(
                   (arg.directives || []) as readonly ConstDirectiveNode[],
@@ -338,7 +322,6 @@ export default async function processSchemas(
             const returnFields: ReturnFieldInfo[] = []
 
             mutation.name = field.name.value
-            mutation.kind = helpers.getKind(def.name.value)
             mutation.id = helpers.getId(mutation.name)
             mutation.href = helpers.getFullLink('mutations', mutation.id)
             mutation.description = await helpers.getDescription(field.description?.value || '')
@@ -367,8 +350,7 @@ export default async function processSchemas(
                 inputField.id = helpers.getId(inputField.type)
                 const argKind = helpers.getTypeKind(inputField.type, schema)
                 if (!argKind) return
-                inputField.kind = argKind
-                inputField.href = helpers.getFullLink(inputField.kind, inputField.id)
+                inputField.href = helpers.getFullLink(argKind, inputField.id)
                 inputFields.push(inputField as InputFieldInfo)
               }),
             )
@@ -398,8 +380,7 @@ export default async function processSchemas(
                 returnField.id = helpers.getId(returnField.type)
                 const fieldKind = helpers.getTypeKind(returnField.type, schema)
                 if (!fieldKind) return
-                returnField.kind = fieldKind
-                returnField.href = helpers.getFullLink(returnField.kind, returnField.id)
+                returnField.href = helpers.getFullLink(fieldKind, returnField.id)
                 returnField.description = await helpers.getDescription(
                   returnFieldDef.description?.value || '',
                 )
@@ -438,7 +419,6 @@ export default async function processSchemas(
         const objectFields: FieldInfo[] = []
 
         object.name = def.name.value
-        object.kind = helpers.getKind(def.kind)
         object.id = helpers.getId(object.name)
         object.href = helpers.getFullLink('objects', object.id)
         object.description = await helpers.getDescription(def.description?.value || '')
@@ -486,8 +466,7 @@ export default async function processSchemas(
               objectField.id = helpers.getId(objectField.type)
               const fieldKind = helpers.getTypeKind(objectField.type, schema)
               if (!fieldKind) return
-              objectField.kind = fieldKind
-              objectField.href = helpers.getFullLink(objectField.kind, objectField.id)
+              objectField.href = helpers.getFullLink(fieldKind, objectField.id)
               // InputValueDefinitionNode structure is compatible with ArgumentNode expected by getArguments
               objectField.arguments = await helpers.getArguments(
                 (field.arguments || []) as any,
@@ -524,7 +503,6 @@ export default async function processSchemas(
         const interfaceFields: FieldInfo[] = []
 
         graphqlInterface.name = def.name.value
-        graphqlInterface.kind = helpers.getKind(def.kind)
         graphqlInterface.id = helpers.getId(graphqlInterface.name)
         graphqlInterface.href = helpers.getFullLink('interfaces', graphqlInterface.id)
         graphqlInterface.description = await helpers.getDescription(def.description?.value || '')
@@ -557,8 +535,7 @@ export default async function processSchemas(
               interfaceField.id = helpers.getId(interfaceField.type)
               const fieldKind = helpers.getTypeKind(interfaceField.type, schema)
               if (!fieldKind) return
-              interfaceField.kind = fieldKind
-              interfaceField.href = helpers.getFullLink(interfaceField.kind, interfaceField.id)
+              interfaceField.href = helpers.getFullLink(fieldKind, interfaceField.id)
               // InputValueDefinitionNode structure is compatible with ArgumentNode expected by getArguments
               interfaceField.arguments = await helpers.getArguments(
                 (field.arguments || []) as any,
@@ -594,7 +571,6 @@ export default async function processSchemas(
         const enumValues: EnumValueInfo[] = []
 
         graphqlEnum.name = def.name.value
-        graphqlEnum.kind = helpers.getKind(def.kind)
         graphqlEnum.id = helpers.getId(graphqlEnum.name)
         graphqlEnum.href = helpers.getFullLink('enums', graphqlEnum.id)
         graphqlEnum.description = await helpers.getDescription(def.description?.value || '')
@@ -633,7 +609,6 @@ export default async function processSchemas(
         const possibleTypes: PossibleTypeInfo[] = []
 
         union.name = def.name.value
-        union.kind = helpers.getKind(def.kind)
         union.id = helpers.getId(union.name)
         union.href = helpers.getFullLink('unions', union.id)
         union.description = await helpers.getDescription(def.description?.value || '')
@@ -677,7 +652,6 @@ export default async function processSchemas(
         const inputFields: InputFieldDetailInfo[] = []
 
         inputObject.name = def.name.value
-        inputObject.kind = helpers.getKind(def.kind)
         inputObject.id = helpers.getId(inputObject.name)
         inputObject.href = helpers.getFullLink('input-objects', inputObject.id)
         inputObject.description = await helpers.getDescription(def.description?.value || '')
@@ -708,8 +682,7 @@ export default async function processSchemas(
               inputField.id = helpers.getId(inputField.type)
               const fieldKind = helpers.getTypeKind(inputField.type, schema)
               if (!fieldKind) return
-              inputField.kind = fieldKind
-              inputField.href = helpers.getFullLink(inputField.kind, inputField.id)
+              inputField.href = helpers.getFullLink(fieldKind, inputField.id)
               inputField.isDeprecated = helpers.getDeprecationStatus(
                 (field.directives || []) as readonly ConstDirectiveNode[],
               )
@@ -738,7 +711,6 @@ export default async function processSchemas(
       if (def.kind === 'ScalarTypeDefinition') {
         const scalar: ScalarInfo = {
           name: def.name.value,
-          kind: helpers.getKind(def.kind),
           id: helpers.getId(def.name.value),
           href: helpers.getFullLink('scalars', helpers.getId(def.name.value)),
           description: await helpers.getDescription(def.description?.value || ''),

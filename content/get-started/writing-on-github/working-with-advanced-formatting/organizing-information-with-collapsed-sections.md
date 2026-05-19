@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections
 shortTitle: Collapsed sections
+category:
+  - Write and format content
 ---
 ## Creating a collapsed section
 

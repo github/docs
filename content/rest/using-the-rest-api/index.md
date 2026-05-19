@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /getting-started-with-the-rest-api
   - /rate-limits-for-the-rest-api

@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /scripting-with-the-rest-api-and-javascript
   - /scripting-with-the-rest-api-and-ruby

@@ -5,10 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /disabling-issues
+  - /disabling-pull-requests
   - /disabling-projects-in-a-repository
   - /managing-github-actions-settings-for-a-repository
   - /enabling-or-disabling-github-discussions-for-a-repository

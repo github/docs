@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Commit changes
 ---
 ## Rewriting the most recent commit message
 

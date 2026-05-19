@@ -4,13 +4,16 @@ import {
   EmptyTitleError,
   renderContentWithFallback,
   executeWithFallback,
+  LiquidError,
 } from '../lib/render-with-fallback'
 import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
 import Page from '@/frame/lib/page'
 
 describe('Translation Error Comments', () => {
   // Mock renderContent for integration tests
-  let mockRenderContent: MockedFunction<(template: string, context: any) => string>
+  let mockRenderContent: MockedFunction<
+    (template: string, context: Record<string, unknown>) => string
+  >
 
   beforeEach(() => {
     mockRenderContent = vi.fn()
@@ -24,9 +27,8 @@ describe('Translation Error Comments', () => {
   describe('createTranslationFallbackComment', () => {
     describe('Liquid ParseError', () => {
       test('includes all fields when token information is available', () => {
-        const error = new Error("Unknown tag 'badtag', line:1, col:3")
-        error.name = 'ParseError'
-        ;(error as any).token = {
+        const error = new LiquidError("Unknown tag 'badtag', line:1, col:3", 'ParseError')
+        error.token = {
           file: '/content/test/article.md',
           getPosition: () => [1, 3],
         }
@@ -46,13 +48,15 @@ describe('Translation Error Comments', () => {
 
     describe('Liquid RenderError', () => {
       test('includes original error message when available', () => {
-        const error = new Error("Unknown variable 'variables.nonexistent.value'")
-        error.name = 'RenderError'
-        ;(error as any).token = {
+        const error = new LiquidError(
+          "Unknown variable 'variables.nonexistent.value'",
+          'RenderError',
+        )
+        error.token = {
           file: '/content/test/intro.md',
           getPosition: () => [3, 15],
         }
-        ;(error as any).originalError = new Error('Variable not found: variables.nonexistent.value')
+        error.originalError = new Error('Variable not found: variables.nonexistent.value')
 
         const result = createTranslationFallbackComment(error, 'rawIntro')
 
@@ -65,9 +69,8 @@ describe('Translation Error Comments', () => {
       })
 
       test('falls back to main error message when no originalError', () => {
-        const error = new Error('Main error message')
-        error.name = 'RenderError'
-        ;(error as any).token = {
+        const error = new LiquidError('Main error message', 'RenderError')
+        error.token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -80,9 +83,8 @@ describe('Translation Error Comments', () => {
 
     describe('Liquid TokenizationError', () => {
       test('includes tokenization error details', () => {
-        const error = new Error('Unexpected token, line:1, col:10')
-        error.name = 'TokenizationError'
-        ;(error as any).token = {
+        const error = new LiquidError('Unexpected token, line:1, col:10', 'TokenizationError')
+        error.token = {
           file: '/content/test/page.md',
           getPosition: () => [1, 10],
         }
@@ -134,9 +136,8 @@ describe('Translation Error Comments', () => {
 
     describe('Error handling edge cases', () => {
       test('handles error with no token information gracefully', () => {
-        const error = new Error('Generic liquid error without token info')
-        error.name = 'RenderError'
-        // No token property
+        const error = new LiquidError('Generic liquid error without token info', 'RenderError')
+        // No token property set
 
         const result = createTranslationFallbackComment(error, 'rawIntro')
 
@@ -150,9 +151,8 @@ describe('Translation Error Comments', () => {
       })
 
       test('handles error with token but no file', () => {
-        const error = new Error('Error message')
-        error.name = 'ParseError'
-        ;(error as any).token = {
+        const error = new LiquidError('Error message', 'ParseError')
+        error.token = {
           // No file property
           getPosition: () => [5, 10],
         }
@@ -165,9 +165,8 @@ describe('Translation Error Comments', () => {
       })
 
       test('handles error with token but no getPosition method', () => {
-        const error = new Error('Error message')
-        error.name = 'ParseError'
-        ;(error as any).token = {
+        const error = new LiquidError('Error message', 'ParseError')
+        error.token = {
           file: '/content/test.md',
           // No getPosition method
         }
@@ -181,8 +180,7 @@ describe('Translation Error Comments', () => {
 
       test('truncates very long error messages', () => {
         const longMessage = 'A'.repeat(300) // Very long error message
-        const error = new Error(longMessage)
-        error.name = 'ParseError'
+        const error = new LiquidError(longMessage, 'ParseError')
 
         const result = createTranslationFallbackComment(error, 'rawTitle')
 
@@ -198,8 +196,7 @@ describe('Translation Error Comments', () => {
       })
 
       test('properly escapes quotes in error messages', () => {
-        const error = new Error('Error with "double quotes" and more')
-        error.name = 'RenderError'
+        const error = new LiquidError('Error with "double quotes" and more', 'RenderError')
 
         const result = createTranslationFallbackComment(error, 'rawTitle')
 
@@ -220,9 +217,7 @@ describe('Translation Error Comments', () => {
       })
 
       test('handles error with no message', () => {
-        const error = new Error()
-        error.name = 'ParseError'
-        // Message will be empty string by default
+        const error = new LiquidError('', 'ParseError')
 
         const result = createTranslationFallbackComment(error, 'title')
 
@@ -232,8 +227,7 @@ describe('Translation Error Comments', () => {
       })
 
       test('cleans up multiline messages', () => {
-        const error = new Error('Line 1\nLine 2\n  Line 3  \n\nLine 5')
-        error.name = 'RenderError'
+        const error = new LiquidError('Line 1\nLine 2\n  Line 3  \n\nLine 5', 'RenderError')
 
         const result = createTranslationFallbackComment(error, 'content')
 
@@ -244,9 +238,8 @@ describe('Translation Error Comments', () => {
 
     describe('Comment format validation', () => {
       test('comment format is valid HTML', () => {
-        const error = new Error('Test error')
-        error.name = 'ParseError'
-        ;(error as any).token = {
+        const error = new LiquidError('Test error', 'ParseError')
+        error.token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -262,9 +255,8 @@ describe('Translation Error Comments', () => {
       })
 
       test('contains all required fields when available', () => {
-        const error = new Error('Detailed error message')
-        error.name = 'RenderError'
-        ;(error as any).token = {
+        const error = new LiquidError('Detailed error message', 'RenderError')
+        error.token = {
           file: '/content/detailed-test.md',
           getPosition: () => [42, 15],
         }
@@ -281,9 +273,8 @@ describe('Translation Error Comments', () => {
       })
 
       test('maintains consistent field order', () => {
-        const error = new Error('Test message')
-        error.name = 'ParseError'
-        ;(error as any).token = {
+        const error = new LiquidError('Test message', 'ParseError')
+        error.token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -320,18 +311,19 @@ describe('Translation Error Comments', () => {
         }
 
         // Mock renderContent to simulate error for Japanese, success for English
-        mockRenderContent.mockImplementation((template: string, innerContext: any) => {
-          if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
-            const error = new Error("Unknown tag 'badtag'")
-            error.name = 'ParseError'
-            ;(error as any).token = {
-              file: '/content/test.md',
-              getPosition: () => [1, 5],
+        mockRenderContent.mockImplementation(
+          (template: string, innerContext: Record<string, unknown>) => {
+            if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
+              const error = new LiquidError("Unknown tag 'badtag'", 'ParseError')
+              error.token = {
+                file: '/content/test.md',
+                getPosition: () => [1, 5],
+              }
+              throw error
             }
-            throw error
-          }
-          return innerContext.currentLanguage === 'en' ? 'English Title' : template
-        })
+            return innerContext.currentLanguage === 'en' ? 'English Title' : template
+          },
+        )
 
         const result = await renderContentWithFallback(mockPage, 'rawTitle', context)
 
@@ -357,14 +349,15 @@ describe('Translation Error Comments', () => {
           },
         }
 
-        mockRenderContent.mockImplementation((template: string, innerContext: any) => {
-          if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
-            const error = new Error("Unknown tag 'badtag'")
-            error.name = 'ParseError'
-            throw error
-          }
-          return 'English Title'
-        })
+        mockRenderContent.mockImplementation(
+          (template: string, innerContext: Record<string, unknown>) => {
+            if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
+              const error = new LiquidError("Unknown tag 'badtag'", 'ParseError')
+              throw error
+            }
+            return 'English Title'
+          },
+        )
 
         const result = await renderContentWithFallback(mockPage, 'rawTitle', context, {
           textOnly: true,
@@ -382,9 +375,8 @@ describe('Translation Error Comments', () => {
         }
 
         const failingCallable = async () => {
-          const error = new Error("Unknown variable 'variables.bad'")
-          error.name = 'RenderError'
-          ;(error as any).token = {
+          const error = new LiquidError("Unknown variable 'variables.bad'", 'RenderError')
+          error.token = {
             file: '/content/article.md',
             getPosition: () => [10, 20],
           }
@@ -410,8 +402,7 @@ describe('Translation Error Comments', () => {
         }
 
         const failingCallable = async () => {
-          const error = new Error('Test error')
-          error.name = 'RenderError'
+          const error = new LiquidError('Test error', 'RenderError')
           throw error
         }
 

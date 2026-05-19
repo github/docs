@@ -8,15 +8,13 @@ redirect_from:
   - /admin/user-management/managing-dormant-users
   - /admin/user-management/managing-users-in-your-enterprise/managing-dormant-users
 intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
-permissions: "{% ifversion ghec %}Enterprise owners{% elsif ghes %}Site administrators{% endif %}"
+permissions: '{% ifversion ghec %}Enterprise owners{% elsif ghes %}Site administrators{% endif %}'
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Licensing
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About dormant users

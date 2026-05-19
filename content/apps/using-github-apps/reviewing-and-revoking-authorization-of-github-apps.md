@@ -11,10 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Review your authorizations
+category:
+  - Install and authorize apps
 ---
 
 ## About authorized {% data variables.product.prodname_github_apps %}

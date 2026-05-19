@@ -86,6 +86,7 @@ type EnterpriseServerReleases = {
   oldestSupported: string
   nextDeprecationDate: string
   supported: Array<string>
+  releasesWithOldestDeprecationDate: Array<string>
 }
 
 export type MainContextT = {
@@ -117,15 +118,14 @@ export type MainContextT = {
   nonEnterpriseDefaultVersion: string
   page: {
     documentType: string
-    type?: string
     contentType?: string
-    topics: Array<string>
     title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
     noEarlyAccessBanner: boolean
     applicableVersions: string[]
+    docsTeamMetrics: string[] | null
   } | null
   relativePath?: string
   sidebarTree?: ProductTreeNode | null
@@ -184,8 +184,8 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const ui: UIStrings = {}
   addUINamespaces(req, ui, DEFAULT_UI_NAMESPACES)
 
-  // Every product landing page has a listing of all articles.
-  // It's used by the <ProductArticlesList> component.
+  // Product index pages (depth-2 index.md, e.g. actions/index.md) need the
+  // full product tree for landing rendering.
   const includeFullProductTree = documentType === 'product'
   const includeSidebarTree = documentType !== 'homepage'
 
@@ -193,7 +193,11 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
 
   // To know whether we need this key, we need to match this
   // with the business logic in `DeprecationBanner.tsx` which is as follows:
-  if (req.context.currentVersion.includes(req.context.enterpriseServerReleases.oldestSupported)) {
+  if (
+    req.context.enterpriseServerReleases.releasesWithOldestDeprecationDate.includes(
+      req.context.currentRelease,
+    )
+  ) {
     reusables.enterprise_deprecation = {
       version_was_deprecated: req.context.getDottedData(
         'reusables.enterprise_deprecation.version_was_deprecated',
@@ -217,15 +221,14 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const pageInfo =
     (page && {
       documentType,
-      type: req.context.page.type || null,
       contentType: req.context.page.contentType || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle || null,
-      topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText || null,
       applicableVersions: req.context.page?.permalinks.map((obj: any) => obj.pageVersion) || [],
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
+      docsTeamMetrics: req.context.page.docsTeamMetrics || null,
     }) ||
     null
 
@@ -264,6 +267,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       'oldestSupported',
       'nextDeprecationDate',
       'supported',
+      'releasesWithOldestDeprecationDate',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     error: req.context.error ? req.context.error.toString() : '',

@@ -4,6 +4,8 @@ shortTitle: Apply for GitHub Enterprise Cloud
 intro: Learn how to receive a GitHub Enterprise Cloud discount for your nonprofit.
 versions:
   fpt: '*'
+category:
+  - Apply for nonprofit benefits
 ---
 
 ## Introduction

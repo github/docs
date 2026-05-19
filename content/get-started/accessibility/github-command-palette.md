@@ -6,6 +6,8 @@ versions:
 shortTitle: GitHub Command Palette
 redirect_from:
   - /get-started/using-github/github-command-palette
+category:
+  - Customize your experience
 ---
 
 {% data reusables.command-palette.beta-note %}
