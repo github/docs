@@ -1,6 +1,6 @@
 ---
 title: Maintaining codebase standards in a GitHub Copilot rollout
-intro: 'Stay in control of your enterprise''s code with rulesets, security features, and effective training.'
+intro: Stay in control of your enterprise's code with rulesets, security features, and effective training.
 permissions: Enterprise owners
 versions:
   feature: copilot
@@ -9,6 +9,8 @@ category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
 contentType: tutorials
+redirect_from:
+  - /copilot/tutorials/roll-out-at-scale/maintain-codebase-standards
 ---
 
 Most enterprises are aware of the productivity benefits that AI coding tools can bring. However, many worry that improper usage in their company, such as malicious prompts or developers accepting AI suggestions without review, will lead to their codebase's standards being compromised.

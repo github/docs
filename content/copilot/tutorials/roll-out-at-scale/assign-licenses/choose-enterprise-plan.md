@@ -9,8 +9,9 @@ redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/planning-your-rollout/choosing-your-enterprises-plan-for-github-copilot
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/planning-your-rollout/choosing-your-enterprises-plan-for-github-copilot
   - /copilot/get-started/choosing-your-enterprises-plan-for-github-copilot
-contentType: get-started
-category: 
+  - /copilot/get-started/choose-enterprise-plan
+contentType: tutorials
+category:
   - Manage Copilot for a team
 ---
 
@@ -62,14 +63,3 @@ If your company is gaining value from agentic workflows, you will likely want to
 To download a usage report to see how many premium requests your developers are using, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests#viewing-premium-request-usage). {% data variables.copilot.copilot_business_short %} users who use more than around 800 premium requests a month would save money on a {% data variables.copilot.copilot_enterprise_short %} plan.
 
 For more information on managing spending on premium requests, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
-
-## Getting started
-
-When you've determined whether premium requests and {% data variables.copilot.copilot_enterprise_short %} features will help you achieve your goals, it's time to choose a plan. Contact our Sales team to get started with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}.
-
-<a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Contact Sales</span></a>
-
-## Further reading
-
-* [AUTOTITLE](/copilot/get-started/achieve-engineering-goals)
-* [AUTOTITLE](/copilot/reference/ai-models/model-comparison)

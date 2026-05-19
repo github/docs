@@ -7,8 +7,9 @@ versions:
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /copilot/get-started/achieve-engineering-goals
-contentType: get-started
-category: 
+  - /copilot/get-started/achieve-company-goals
+contentType: tutorials
+category:
   - Manage Copilot for a team
 ---
 

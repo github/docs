@@ -1,12 +1,14 @@
 ---
 title: Resources for getting approval of GitHub Copilot
 shortTitle: Resources for approval
-intro: 'Get ready to adopt {% data variables.product.prodname_copilot_short %} by sending resources to legal and security teams in your company.'
+intro: Get ready to adopt {% data variables.product.prodname_copilot_short %} by sending resources to legal and security teams in your company.
 versions:
   feature: copilot
-contentType: get-started
+contentType: tutorials
 category:
   - Manage Copilot for a team
+redirect_from:
+  - /copilot/get-started/resources-for-approval
 ---
 
 Before you can roll out a tool like {% data variables.product.prodname_copilot %} in your company, you will likely need signoff from legal, compliance, and cybersecurity teams.
