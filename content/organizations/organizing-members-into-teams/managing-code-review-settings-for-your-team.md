@@ -9,11 +9,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Code review settings
 permissions: Team maintainers and organization owners can configure code review settings.
+category:
+  - Organize teams
 ---
 
 ## About code review settings

@@ -1,0 +1,304 @@
+date: '2026-05-12'
+release_candidate: true
+deprecated: false
+intro: |
+  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
+  >
+  > Do not upgrade to an RC from a supported, earlier version.
+  >
+  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+sections:
+
+  features:
+
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/7382
+        - |
+          Enterprise owners and organization owners can configure whether profile names (first and last names) are displayed alongside {% data variables.product.prodname_dotcom %} handles across the product. This helps collaborators quickly identify contributors without needing to look up who a handle belongs to.
+        # https://github.com/github/releases/issues/8864
+        - |
+          You can configure a dedicated disk for log storage, mounted at `/var/log` and configured as an LVM volume, to isolate logs from the root disk. This capability applies only to standalone and high availability topologies and does not apply to cluster topology. This is now generally available in {% data variables.product.prodname_ghe_server %} versions 3.20 and 3.21. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks).
+        # https://github.com/github/releases/issues/8869
+        - |
+          Starting in 3.21, {% data variables.product.prodname_ghe_server %} will have OpenTelemetry metrics enabled and Collectd metrics disabled by default. Both new installations and upgrades will have OpenTelemetry metrics enabled. Users still have the option to toggle between OTel metrics and Collectd metrics, although it is not recommended. For more information on OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics).
+        # https://github.com/github/releases/issues/8862
+        - |
+          The capability to configure multiple data disks to host MySQL and repository data is now generally available in {% data variables.product.prodname_ghe_server %} version 3.21 and the latest patch versions of 3.17, 3.18, 3.19, and 3.20. This applies to standalone and high availability topologies. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks).
+        
+    - heading: Authentication
+      notes:
+        # https://github.com/github/releases/issues/6243
+        - |
+          The permissions selection UI for {% data variables.product.pat_v2_plural %} has been updated with a tabbed layout and searchable permissions, making it easier to find and select the appropriate token scopes. Additionally, administrators and developers can create deep links that pre-fill fields in the {% data variables.product.pat_v2 %} creation flow, allowing teams to share ready-made token templates that guide users toward creating tokens with the correct permissions.
+
+    - heading: APIs
+      notes:
+        # https://github.com/github/releases/issues/7936
+        - |
+          REST API version `2026-03-10` is available on {% data variables.product.prodname_ghe_server %}. This is the first calendar-based breaking-change version and introduces breaking changes across several REST API endpoints. For more information about the breaking changes, see [AUTOTITLE](/rest/about-the-rest-api/breaking-changes?apiVersion=2026-03-10). Requests that do not specify the `X-GitHub-Api-Version: 2026-03-10` header will continue to use the `2022-11-28` version. With the release of `2026-03-10`, the `2022-11-28` version has entered its closing down period and will be retired in the next enterprise server release after `2028-03-10`. We recommend planning your migration ahead of this date to avoid any disruption. For more information, see [AUTOTITLE](/rest/about-the-rest-api/api-versions).
+        # https://github.com/github/releases/issues/7511
+        - |
+          Organization administrators can now see enterprise teams in API responses for endpoints that involve team interactions, such as listing all teams in an organization. Previously, only enterprise administrators could view enterprise teams through the API. This feature is in public preview and subject to change. For details, see the [changelog](https://github.blog/changelog/2026-02-23-enterprise-team-support-in-organization-apis/).
+        # https://github.com/github/releases/issues/7504
+        - |
+          Organization owners can manage enterprise teams more securely by using GitHub Apps with fine-grained permissions on the Enterprise Teams API endpoints, instead of relying on {% data variables.product.pat_v1_plural %}. This feature is in public preview and subject to change. For details, see the [changelog](https://github.blog/changelog/2026-02-09-github-apps-can-now-utilize-public-preview-enterprise-teams-apis-via-fine-grained-permissions/).
+        # https://github.com/github/releases/issues/4366
+        - |
+          The workflow dispatch API endpoint now returns metadata, including the run ID, in the response, allowing developers to map a dispatch request to a workflow run. Previously, the endpoint only returned an HTTP response code, requiring extensive API polling or custom solutions to correlate dispatch requests with their resulting workflow runs.
+   
+    - heading: Audit logs
+      notes:
+        # https://github.com/github/releases/issues/7681
+        - |
+          New audit log events are now generally available to give security teams visibility into changes to {% data variables.product.prodname_dependabot %} settings. For details, see the [changelog](https://github.blog/changelog/2026-02-10-track-additional-dependabot-configuration-changes-in-audit-logs/).
+
+    - heading: Code scanning
+      notes:
+        # https://github.com/github/releases/issues/6984
+        - |
+          Assigning {% data variables.product.prodname_code_scanning %} alerts to individual users, previously available as a public preview, is now generally available. Users can assign themselves or others to {% data variables.product.prodname_code_scanning %} alerts to help track and plan work related to addressing security problems. As part of general availability, the feature now includes notifications on assignment, webhooks for assignee changes, and API support for updating assignees.
+        - |
+          This release comes installed with CodeQL 2.24.3. Significant updates since the previous version include:
+
+          * CodeQL can analyze projects using Java 26. Framework models were added for Couchbase, Struts 7.x, and expanded Spring RestTemplate SSRF sinks. The @javax.validation.constraints.Pattern annotation is now recognized as a sanitizer for log injection, SSRF, and path injection queries.
+          * Users working with Kotlin can analyze projects using Kotlin up to 2.3.10. Support for the Kotlin 1.6.x and 1.7.x series has been dropped.
+          * CodeQL can analyze .NET 10 and C# 14 projects, including new language features such as extension members, null-conditional assignments, partial events, and the field keyword in properties. The extractor also adds support for .slnx solution files.
+          * CodeQL can analyze projects using Go 1.26.
+          * CodeQL can analyze projects using Swift 6.2.2 and 6.2.3.
+          * A new experimental py/prompt-injection query for Python detects potential prompt injection vulnerabilities in code using LLMs.
+          * Users working with C/C++ can analyze code using C23/C++26 #embed directives and C++23 multidimensional subscript operators. New remote flow source models have been added for winhttp.h and the Azure SDK for C/C++.
+          * Users working with JavaScript/TypeScript benefit from new framework models for Next.js 16, MobX observer-wrapped React components, and improved vue-router taint detection.
+          * Read more in the changelogs for the CodeQL versions included in this release:
+
+            * [Code QL 2.24.0](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.0/)
+            * [Code QL 2.24.1](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.1/)
+            * [Code QL 2.24.2](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.2/)
+            * [Code QL 2.24.3](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.3/)
+        
+    - heading: Secret scanning
+      notes:    
+        # https://github.com/github/releases/issues/8228
+        - |
+          Organization owners and enterprise administrators can designate specific roles, teams, and GitHub apps as exempt from secret scanning push protection enforcement. When an exempt actor pushes content containing secrets, push protection is silently skipped with no blocks, prompts, or bypass requests. This supports trusted automation like migration bots and service accounts that need to push at high volume without push protection friction, while keeping enforcement in place for all other contributors. For details, see the [changelog](https://github.blog/changelog/2026-03-17-push-protection-exemptions-for-apps-teams-and-roles/).
+        # https://github.com/github/releases/issues/6813
+        - |
+          Site administrators and security managers benefit from several improvements to fine-grained permissions for {% data variables.product.prodname_secret_scanning %}:
+
+          * Anyone with the ability to dismiss or reopen a {% data variables.product.prodname_secret_scanning %} alert can now add or remove alert assignees.
+          * Alert assignees can now modify alerts, including resolving alerts and removing themselves as assignees.
+          * Enterprise teams, roles, and apps can be added as bypass reviewers from  security configurations.
+          * Enterprise owners and enterprise security managers can edit any custom patterns, regardless of whether they created them.
+
+          For details, see the [changelog](https://github.blog/changelog/2025-12-16-enterprise-governance-and-policy-improvements-for-secret-scanning-now-generally-available/).
+        # https://github.com/github/releases/issues/6411
+        - |
+          {% data variables.product.prodname_secret_scanning_caps %} includes new and updated patterns for the default pattern set, improving detection coverage across different secret types. Updates include new patterns, expanded validators for more secret types, and more secret scanning detectors included in the default set for push protection. For details, see the changelog. 
+    
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/7257
+        - |
+          Organization owners and security managers can assign {% data variables.product.prodname_dependabot %} alerts to specific users, bringing clear ownership and accountability to vulnerability remediation. Assignees help teams route work, track progress at alert-level granularity, and standardize triage across all security signals.
+        # https://github.com/github/releases/issues/7523
+        - |
+          {% data variables.product.prodname_dependabot %} can automatically group version updates by dependency name across multiple directories in a monorepo, consolidating redundant pull requests into a single pull request per dependency. This reduces PR noise and simplifies maintenance for teams managing monorepos with shared dependencies across many services. For details, see the [changelog](https://github.blog/changelog/2026-02-24-dependabot-can-group-updates-by-dependency-name-across-multiple-directories/).
+        # https://github.com/github/releases/issues/7258
+        - |
+          {% data variables.product.prodname_dependabot %} natively supports pre-commit, a popular multi-language framework for managing Git hooks. {% data variables.product.prodname_dependabot %} automatically detects `.pre-commit-config.yaml` files and creates pull requests to update the pinned versions of pre-commit hook repositories, eliminating the need to manually run `pre-commit autoupdate` or track new releases of configured hooks.
+        # https://github.com/github/releases/issues/7148
+        - |
+          {% data variables.product.prodname_dependabot %} can authenticate with private package registries using OpenID Connect (OIDC) tokens, eliminating the need to store and rotate long-lived credentials as repository secrets. OIDC-based authentication is supported for registries hosted on AWS CodeArtifact, Azure DevOps Artifacts, and JFrog Artifactory. For more information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication). For details, see the [changelog](https://github.blog/changelog/2026-02-03-dependabot-now-supports-oidc-authentication/).
+        # https://github.com/github/releases/issues/7146
+        - |
+          {% data variables.product.prodname_dependabot %} security updates now support the uv package manager for Python projects. Users who manage Python dependencies with uv can receive automatic security updates from {% data variables.product.prodname_dependabot %}.
+        # https://github.com/github/releases/issues/7132
+        - |
+          {% data variables.product.prodname_dependabot %} version updates now support the OpenTofu ecosystem. Users who manage infrastructure with OpenTofu can receive automated pull requests to keep their dependencies up to date. For details, see the [changelog](https://github.blog/changelog/2025-12-16-dependabot-version-updates-now-support-opentofu/).
+        # https://github.com/github/releases/issues/7015
+        - |
+          Organization owners and security managers can configure delegated dismissal controls for {% data variables.product.prodname_dependabot %} alerts, similar to the existing controls for {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} alerts. This increases accountability across development teams, prevents unauthorized alert closures, and improves the ability to manage alerts at scale. Delegated alert dismissals for {% data variables.product.prodname_dependabot %} are now generally available. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts). For details, see the [changelog](https://github.blog/changelog/2025-12-19-you-can-now-require-reviews-before-closing-dependabot-alerts-with-delegated-alert-dismissal/).
+        # https://github.com/github/releases/issues/6983
+        - |
+          {% data variables.product.prodname_dependabot %} version updates now support the Bazel ecosystem. Users with Bazel projects that use `MODULE.bazel` (bzlmod) can enable automated dependency updates through {% data variables.product.prodname_dependabot %}. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates). For details, see the [changelog](https://github.blog/changelog/2025-12-16-dependabot-version-updates-now-support-bazel/).
+        # https://github.com/github/releases/issues/6832
+        - |
+          {% data variables.product.prodname_dependabot %} version updates now support the Julia ecosystem. Users can configure {% data variables.product.prodname_dependabot %} to keep Julia dependencies up to date automatically. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates). For details, see the [changelog](https://github.blog/changelog/2025-12-16-dependabot-version-updates-now-support-julia/).
+    
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version: 2.331.0
+        - |
+          {% data reusables.actions.actions-runner-release-note %}     
+        # https://github.com/github/releases/issues/7290
+        - |
+          When a workflow job is skipped because of an `if:` conditional, the job log now shows how the conditional expression was evaluated. This helps users verify whether a job was skipped for the expected reason or if there is an error in their workflow logic.
+        # https://github.com/github/releases/issues/7112
+        - |
+          {% data variables.product.prodname_actions %} expressions support a new `case` function that enables conditional logic (if/else if/else) directly within workflow expressions. Users can use the `case` function to select values based on conditions without needing to store that logic externally.
+        # https://github.com/github/releases/issues/7074
+        - |
+          The {% data variables.product.prodname_actions %} workflow visualization page now supports rendering workflows with more than 300 jobs. Jobs are lazy loaded to prevent page errors when viewing large workflows. This feature is in public preview and subject to change.
+        # https://github.com/github/releases/issues/6898
+        - |
+          {% data variables.product.prodname_actions %} workflows triggered by `pull_request_target` events now always source workflow files and the checkout commit from the repository's default branch, preventing untrusted code from running via outdated or less-protected branches. Additionally, `GITHUB_REF` for `pull_request_target` now points to the default branch instead of the base branch, and environment branch protection rules evaluate against the ref actually used during execution: `merge_ref` for `pull_request`, `pull_request_review`, and `pull_request_review_comment` events, and the default branch for `pull_request_target` events. These changes ensure consistent, security-focused ref handling and close potential gaps in secret governance.
+        # https://github.com/github/releases/issues/5706
+        - |
+          {% data variables.product.prodname_actions %} expressions support the ternary operator, allowing users to select values based on conditionals directly in workflow configuration. This gives users more power to create complex expressions without storing logic outside of their workflow files.
+        # https://github.com/github/releases/issues/4371
+        - |
+          Organization owners can create and share {% data variables.product.prodname_actions %} workflow templates (starter workflows) using the organization's private `.github` repository. Previously, the `.github` repository had to be public to store workflow templates. This allows organizations with private environment configurations or policies against public repositories to use workflow templates. For more information, see [AUTOTITLE](/actions/sharing-automations/creating-workflow-templates-for-your-organization).
+        # https://github.com/github/releases/issues/7473
+        - |
+          Organization and repository owners can define exactly which actions and reusable workflows are permitted to run, regardless of plan type or repository visibility. Previously, action allowlist settings were restricted to certain plans. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
+        # https://github.com/github/releases/issues/7292
+        - |
+          {% data variables.product.prodname_actions %} workflows now detect and flag malformed `if` conditions that always evaluate to true, which could cause jobs to run unintentionally. This includes literals in the `if` condition, invalid format strings, and trailing newlines. Annotations and editor errors help users identify and correct these issues.
+
+    - heading: Organizations
+      notes:
+        # https://github.com/github/releases/issues/7596
+        - |
+          Organization owners can require that contributors explicitly select a value for required custom properties when creating a repository, rather than relying on a default value. This ensures repositories meet organizational policy requirements at creation time, improving adoption of rulesets and accuracy of property values. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization). For details, see the [changelog](https://github.blog/changelog/2026-02-17-custom-properties-and-rule-insights-improvements/).
+        # https://github.com/github/releases/issues/7590
+        - |
+          The capability for enterprise owners to define custom organization roles at the enterprise level that apply consistently across all downstream organizations is now generally available. These enterprise-defined roles cannot be altered by organization administrators, enabling centralized role-based access control standards. Enterprise owners can create roles through the UI or the organization role assignment API. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles) and the [changelog](https://github.blog/changelog/2026-02-23-enterprise-defined-custom-organization-roles-are-generally-available/).
+        # https://github.com/github/releases/issues/7190
+        - |
+          Organization owners can control who can request {% data variables.product.prodname_github_app %} installations for their organization. Three options are available: allow all installation requests, allow requests from organization members only, or disable all installation requests entirely. Previously, organizations could only disable requests from outside collaborators. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
+        # https://github.com/github/releases/issues/7101
+        - |
+          Organization owners can define repository custom properties with a URL value type, which validates that values conform to URL format and limits. This expands the flexibility of custom properties, allowing teams to associate relevant URLs with repositories. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/7708
+        - |
+          Users experience faster page loads and quicker interactions when browsing code. Performance improvements include reduced load times for repository overview and code view pages, optimized soft navigations, and improved interaction responsiveness. This feature is in public preview and subject to change.
+        # https://github.com/github/releases/issues/6622
+        - |
+          Organization owners and repository administrators can exempt specific actors from all ruleset behaviors, including bypass warnings and ruleset evaluation. This is useful for migrations and other scenarios where elevated access should not be visible. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+        # https://github.com/github/releases/issues/7385
+        - |
+          Repository administrators can disable pull requests entirely or restrict pull request creation to collaborators only. These settings are available under **Repository settings > General > Features**. When pull requests are disabled, the pull requests tab is hidden and existing pull request URLs return a 404. When pull requests are restricted, only collaborators can create pull requests, but anyone can view existing ones. In both cases, users see a banner when forking the repository indicating the restriction. This feature is in public preview and subject to change.
+        - |
+          Enterprise owners can designate enterprise roles, teams, and apps as bypass actors on enterprise rulesets. This makes it easier to manage ruleset exceptions consistently across all organizations and repositories within an enterprise.
+
+    - heading: Issues
+      notes:
+        # https://github.com/github/releases/issues/6413
+        - |
+          Organization owners and repository administrators can define custom fields directly on issues, making it easier to share and sync item information across projects. By using issue fields, teams can maintain a single source of truth where critical details remain consistent and up to date without manual effort. This feature is in public preview and subject to change.
+        # https://github.com/github/releases/issues/7534
+        - |
+          Organization owners and repository administrators can add file upload fields to issue forms, allowing contributors to attach required files such as logs or screenshots when submitting an issue. This reduces back-and-forth by collecting necessary information upfront.
+        # https://github.com/github/releases/issues/7244
+        - |
+          When users attempt to add low-quality comments to issues, such as "+1" or "Subscribe," a message is displayed to guide them toward more constructive contributions. This reduces noise in issue threads and makes it easier to find important information.
+        # https://github.com/github/releases/issues/7235
+        - |
+          Users can pin a comment on an issue to surface important information, such as workarounds, key updates, or decisions, at the top of the conversation. This improves the discoverability of critical context in long-running issue threads.
+
+    - heading: Projects
+      notes:
+        # https://github.com/github/releases/issues/5245
+        - |
+          The hierarchy view in projects, previously in public preview, is now generally available. Users can visualize and work with sub-issues directly within their projects, making it easier to manage work and understand the full scope of epics and initiatives. For details, see the [changelog](https://github.blog/changelog/2026-01-15-hierarchy-view-now-available-in-github-projects/).
+        # https://github.com/github/releases/issues/7237
+        - |
+          Users can import items into a project based on a repository issues query. This makes it easier to get started with a project by providing more flexibility and control over which items are added. For details, see the [changelog](https://github.blog/changelog/2026-02-19-github-projects-import-items-based-on-a-query-and-hierarchy-view-improvements/).
+
+    - heading: GitHub Discussions
+      notes:
+        # https://github.com/github/releases/issues/5488
+        - |
+          Repository administrators can post in {% data variables.product.prodname_discussions %} using an anonymous "Admin" alias, helping protect their personal identity. For details, see the [changelog](https://github.blog/changelog/2025-12-11-post-as-admin-now-available-in-github-discussions/).
+
+    - heading: Pull requests
+      notes:
+        # https://github.com/github/releases/issues/7252
+        - |
+          Test merge commits for open pull requests are now generated less frequently, improving performance and reducing repository bloat from loose Git objects. The test merge commit associated with a pull request is updated when the pull request itself changes, when the merge base between the two branches changes, or when the current test merge is older than 12 hours. All mergeability checks and rules continue to be honored.
+        # https://github.com/github/releases/issues/6670
+        - |
+          Pull request reviewers can comment on any line of a changed file, not just lines within the diff. Previously, comments could only be placed on the three lines before or after a changed line. This allows reviewers to leave feedback on unchanged lines that need attention and to place comments directly on the relevant line, making review feedback clearer and easier for authors to act on. This feature is in public preview and subject to change.
+        # https://github.com/github/releases/issues/7688
+        - |
+          Users can view PR-level discussion comments in the side panel of the new Files Changed tab, allowing them to follow conversations while reviewing code without switching between the Files Changed and Conversation tabs. The side panel also supports filtering review and discussion comments. This feature is in public preview and subject to change.
+
+    - heading: Integrations and extensions
+      notes:
+        # https://github.com/github/releases/issues/7229
+        - |
+          When users authorize a GitHub App that only requests read-level user permissions, the authorization consent screen no longer displays the "Act on your behalf" warning. This reduces unnecessary friction for apps that use {% data variables.product.prodname_dotcom %} only for identity purposes and do not perform actions on behalf of the user. This feature is in public preview and subject to change.
+        # https://github.com/github/releases/issues/7220
+        - |
+          Developers can build custom integrations, automated workflows, and AI-powered experiences using the {% data variables.product.prodname_copilot %} SDK. The SDK provides a unified API across TypeScript, Python, Go, and .NET, featuring real-time event streaming, multi-turn conversations, and full lifecycle control with minimal dependencies. This feature is in technical preview and subject to change.
+
+  changes:
+    # https://github.com/github/releases/issues/7108
+    - |
+      The **Teams** option has been removed from the left-hand navigation menu to streamline the experience. To manage team-related settings, users can navigate to **Settings > Teams**. A dismissible banner notifies users of the new location.
+    - |
+      Starting in {% data variables.product.prodname_ghe_server %} version 3.20, we have reserved the `/repos` path for a forthcoming product feature. If you currently use `/repos` for a route (for example, a username, organization name, a GitHub App, an OAuth app, reverse proxy, or internal integration), you may need to update your configuration to avoid routing conflicts.
+
+  known_issues:
+    # Known issues from "GHES Release Note Tracking" project
+    - |
+      During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [Troubleshooting access to the Management Console](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
+    - |
+      When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
+    - |
+      On instances with multiple Git storage nodes in a voting configuration, including cluster and geo-replication high availability topologies, upgrading may fail to correctly install Actions that ship with the new version. In some cases, previous versions of these Actions remain on the instance. To resolve this issue, run the following commands on the primary node: `ghe-config --unset 'app.actions.actions-repos-sha1sum'`, `ghe-config-apply`, and `/usr/local/share/enterprise/ghe-run-init-actions-graph`.
+    - |
+      `git clone` may fail after upgrading to the {% data variables.product.prodname_ghe_server %} version 3.21 release candidate image.
+
+  closing_down:
+    # https://github.com/github/releases/issues/7007
+    - |
+      Closing down: Password authentication for programmatic access to {% data variables.product.prodname_dotcom %} APIs is no longer supported as of this version of {% data variables.product.prodname_ghe_server %}. Instead, [create a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) in limited situations like testing. You should authenticate apps in production by using the web applications flow. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
+    # https://github.com/github/releases/issues/7137
+    - |
+      Closing down: The user-to-organization transformation flow is closing down. Instead, users are prompted to move their work to a new organization or repository. This change reduces confusion and the need for account name changes for both users and organizations.
+   # https://github.com/github/releases/issues/6794
+    - |
+      Closing down: {% data variables.product.prodname_dependabot %} comment commands that duplicate functionality native to the {% data variables.product.prodname_dotcom %} platform are closing down. The affected commands are `@dependabot merge`, `@dependabot cancel merge`, `@dependabot squash and merge`, `@dependabot close`, and `@dependabot reopen`. Instead, use the equivalent built-in features of {% data variables.product.prodname_dotcom %} directly. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates).
+    - |
+      Closing down: {% data variables.product.prodname_dotcom %} plans to deprecate support for LDAP and CAS in version 3.26 of {% data variables.product.prodname_ghe_server %}. This change aligns with {% data variables.product.prodname_dotcom %}’s continued investment in System for Cross-domain Identity Management (SCIM), a widely adopted standard for user lifecycle management in SaaS applications. {% data variables.product.prodname_ghe_server %} supports SCIM with paved-path integrations for popular identity providers and also for any IdP through the SCIM API. Administrators using LDAP or CAS should begin planning a migration to SAML authentication with SCIM provisioning. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/migrating-from-ldap-to-saml-with-scim) and [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api).  
+    - |
+      Closing down: [Collectd metrics](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/about-collectd-metrics) will be retired starting in {% data variables.product.prodname_ghe_server %} version 3.23. There will not be a Collectd metrics stack in 3.23. We will continue to support the Collectd stack in 3.22 and earlier versions during their respective support windows.
+    - |
+      Closing down: High availability replication for cluster topologies will be retired starting in {% data variables.product.prodname_ghe_server %} version 3.22. You will no longer be able to configure or use the feature, and we will remove the supporting code from the product.
+    # https://github.com/github/releases/issues/6651
+    - |
+      Closing down: Networking-related syscalls will be disabled by default in the pre-receive hook environment starting in {% data variables.product.prodname_ghe_server %} version 3.22. For enhanced security, hook environments will be placed in dedicated network namespaces. You will be able to override the default setting by setting `pre-receive-hook-networking` to `enabled`. In many cases, [push rulesets](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets) are an alternative for many pre-receive hooks.

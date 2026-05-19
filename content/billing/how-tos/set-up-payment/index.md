@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /manage-payment-info
   - /connect-azure-sub

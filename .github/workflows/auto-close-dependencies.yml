@@ -19,7 +19,7 @@ on:
       - submitted
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -34,12 +34,12 @@ jobs:
       }}
     runs-on: ubuntu-latest
     steps:
-      - name: Close pull request
+      - name: Close pull request and delete branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
-          gh pr close "$PR_URL"
+          gh pr close "$PR_URL" --delete-branch
 
       - name: Comment on the pull request
         env:
@@ -50,7 +50,7 @@ jobs:
 
       # Because we get far too much spam ;_;
       - name: Lock conversations
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         with:

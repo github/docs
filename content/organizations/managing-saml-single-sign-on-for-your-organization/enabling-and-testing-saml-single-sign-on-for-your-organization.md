@@ -6,10 +6,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Enable & test SAML SSO
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About SAML single sign-on

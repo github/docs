@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Manage commits
 ---
 When you revert to a previous commit, the revert is also a commit. The original commit also remains in the repository's history.
 

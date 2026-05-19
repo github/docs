@@ -87,7 +87,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   // Get data for initial webhooks page (i.e. only 1 action type per webhook and
   // no nested parameters)
-  const webhooks = (await getInitialPageWebhooks(currentVersion)) as WebhookAction[]
+  const webhooks = (await getInitialPageWebhooks(currentVersion)) as unknown as WebhookAction[]
 
   // Build the minitocs for the webhooks page which is based on the webhook
   // categories in addition to the Markdown in the webhook-events-and-payloads.md

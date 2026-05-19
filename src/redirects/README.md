@@ -69,3 +69,91 @@ Here's how the `src/archives/middleware/archived-enterprise-versions.ts` fallbac
 Redirect tests are mainly found in `tests/routing/*`, with some additional tests in `tests/rendering/server.ts`.
 
 The `src/fixtures/fixtures/*` directory includes `developer-redirects.json`, `graphql-redirects.json`, and `rest-redirects.json`.
+
+## Local debugging
+
+### Testing redirects locally
+
+Run the dev server and test redirect behavior:
+
+```bash
+npm run dev
+# Visit http://localhost:4000/<old-path> to verify redirect
+```
+
+### Viewing all redirects
+
+The global redirects object is available in `req.context.redirects`. You can inspect it during debugging or in tests.
+
+### Adding a new redirect
+
+**Via frontmatter** (preferred for content moves):
+```yaml
+---
+title: My Article
+redirect_from:
+  - /old-path
+  - /another-old-path
+---
+```
+
+**Via developer.json** (for API/reference):
+Add to `src/redirects/lib/static/developer.json` (or similar files).
+
+### Testing redirect code
+
+```bash
+npm run test -- src/redirects/tests/routing
+```
+
+## Cross-links & Ownership
+
+### Related subjects
+- [`src/frame`](../frame/README.md) - `warm-server.ts` creates Page instances for redirect generation
+- [`src/archives`](../archives/README.md) - Archived Enterprise redirect handling
+- Content frontmatter - `redirect_from` field in all content files
+
+### Ownership
+- Team: Docs Engineering
+
+Note: Most redirects are in docs-content control via frontmatter `redirect_from` field.
+
+We aren't expecting significant changes here moving forward.
+
+4. **Documentation gaps**
+   - Some legacy redirect files lack clear provenance
+   - Need better tracking of redirect addition reasons
+
+### Known limitations
+
+- Archived Enterprise redirects (2.13-2.17) incomplete
+- Redirect lookup not cached (happens per-request)
+- Multiple redirect sources can conflict
+- No automated redirect expiry/cleanup
+
+### Adding redirects best practices
+
+1. Prefer frontmatter `redirect_from` for content moves
+2. Keep redirects indefinite (links live forever on the internet)
+3. Test redirects locally before deploying
+4. Document reason for redirect (PR description)
+5. Consider version-specific redirects for GHES
+
+### Troubleshooting
+
+**Redirect not working:**
+- Check frontmatter `redirect_from` syntax
+- Verify redirect in `req.context.redirects` object
+- Ensure `handle-redirects` middleware is running
+- Check for conflicting redirects
+
+**Archived Enterprise redirect fails:**
+- Check `archived-redirects-from-213-to-217.json` for version 2.13-2.17
+- Check `archived-frontmatter-valid-urls.json` for valid target
+- Verify archived version is properly proxied
+
+**Performance issues:**
+- Large redirect maps can slow server startup
+- Consider profiling `precompile.ts` execution
+- Check for duplicate redirects
+

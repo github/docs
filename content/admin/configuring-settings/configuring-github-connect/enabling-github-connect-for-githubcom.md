@@ -1,7 +1,7 @@
 ---
 title: Enabling GitHub Connect for GitHub.com
 shortTitle: Enable for GitHub.com
-intro: 'Enable {% data variables.product.prodname_github_connect %} to access additional features and workflows from {% data variables.product.prodname_dotcom_the_website %} on {% data variables.location.product_location %}.'
+intro: Enable {% data variables.product.prodname_github_connect %} to access additional features and workflows from {% data variables.product.prodname_dotcom_the_website %} on {% data variables.location.product_location %}.
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-to-github-com
   - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com
@@ -15,12 +15,9 @@ redirect_from:
   - /admin/configuring-settings/configuring-github-connect/managing-github-connect
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - GitHub Connect
-  - Infrastructure
-  - Networking
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect).

@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Test your SSH connection
+category:
+  - Connect with SSH
 ---
 
 Before testing your SSH connection, you should have already:
@@ -69,3 +69,14 @@ You'll need to authenticate this action using your password, which is the SSH ke
    > The remote command should exit with code 1.
 
 1. Verify that the resulting message contains your username. If you receive a "permission denied" message, see [AUTOTITLE](/authentication/troubleshooting-ssh/error-permission-denied-publickey).
+
+{% ifversion ghec or fpt %}
+
+> [!TIP] {% data reusables.enterprise-data-residency.ssh-user %}
+>
+> ```shell
+> ssh -T {% data variables.enterprise.data_residency_example_git_ssh %}
+> # Attempts to ssh to {% data variables.enterprise.data_residency_example_domain %}
+> ```
+
+{% endif %}

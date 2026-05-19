@@ -121,9 +121,6 @@ sections:
         # https://github.com/github/releases/issues/5129
         - |
           Repository administrators can easily convert a fork into a standalone repository by leaving the fork network, which stops automatic syncing with the upstream repository. This is useful for taking a project in a new direction or maintaining separate versions.
-        # https://github.com/github/releases/issues/5273
-        - |
-          Users can more easily explore contributors and code frequency insights with improved navigation, interactive chart legends for hiding data series, and options to view or download the data as a CSV or PNG. See [Repositories - Updated insight views (General Availability)](https://github.blog/changelog/2025-02-25-repositories-updated-insight-views-general-availability/) on the GitHub Blog.
 
     - heading: Pull requests
       notes:
@@ -227,3 +224,7 @@ sections:
     # https://github.com/github/releases/issues/4710
     - |
       The `cvss` field for GitHub security advisories in the REST and GraphQL APIs is no longer available, and is superseded by the new `cvss_severities` field. See [Deprecation of cvss field in security advisories API](https://github.blog/changelog/2025-03-27-deprecation-of-cvss-field-in-security-advisories-api/) on the GitHub Blog.
+
+  errata:
+    - |
+      Features incorrectly indicated updated insight views for repositories are available in this release. This feature is unavailable in GitHub Enterprise Server 3.17, and will be available starting GitHub Enterprise Server 3.19.0. [Updated: 2026-01-12]

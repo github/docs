@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Issues
 children:
   - /triaging-an-issue-with-ai
   - /pinning-an-issue-to-your-repository

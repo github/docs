@@ -6,8 +6,6 @@ intro: 'Learn how to build and deploy an intelligent web app with natural langua
 versions:
   feature: spark
 product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_enterprise_short %}'
-topics:
-  - Copilot
 redirect_from:
   - /copilot/tutorials/building-ai-app-prototypes
   - /copilot/tutorials/build-apps-with-spark
@@ -177,7 +175,7 @@ Any changes made to your spark prior to repository creation will be added to you
 
 There's a two-way sync between your spark and the repository, so changes made in either {% data variables.product.prodname_spark_short %} or the main branch of your repository are automatically reflected in both places.
 
-You can also create issues in your repository and assign them to {% data variables.copilot.copilot_coding_agent %} so it can draft pull requests for fixes and improvements.
+You can also create issues in your repository and assign them to {% data variables.copilot.copilot_cloud_agent %} so it can draft pull requests for fixes and improvements.
 
 ## Next steps
 

@@ -1,8 +1,6 @@
 ---
 title: Best practices for using GitHub Copilot
 intro: 'Learn how to get the most out of {% data variables.product.prodname_copilot_short %}.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 shortTitle: Best practices

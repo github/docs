@@ -1,12 +1,12 @@
 ---
 title: Understanding the snapshot file structure
 shortTitle: Snapshot structure
-intro: 'Understand the structure and contents of backup snapshot directories, including what is stored and how hard links are used.'
+intro: Understand the structure and contents of backup snapshot directories, including what is stored and how hard links are used.
 versions:
   ghes: '>= 3.17'
-type: reference
-topics:
-  - Backups
+contentType: reference
+category:
+  - Back up and upgrade your instance
 ---
 
 Each backup snapshot is stored in a timestamped directory (e.g., `YYYYMMDDTHHMMSS`) under the backup target path (e.g., `/data/backup/data`). Snapshots include full exports of key data stores. Git repositories, {% data variables.product.prodname_pages %}, and other components are stored using hard links to optimize storage and enable efficient point-in-time restores.

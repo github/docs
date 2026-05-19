@@ -8,9 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Add a license to a repo
+category:
+  - Set up your project for contributions
 ---
 If you include a detectable license in your repository, people who visit your repository will see it at the top of the repository page. To read the entire license file, click the license name (for example: [github-linguist/linguist](https://github.com/github-linguist/linguist)).
 

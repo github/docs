@@ -10,4 +10,6 @@ children:
   - /secure-use
   - /secrets
   - /oidc
+contentType: reference
 ---
+

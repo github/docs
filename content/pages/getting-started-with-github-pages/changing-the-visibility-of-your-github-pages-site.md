@@ -7,6 +7,8 @@ permissions: 'People with admin access to a repository can change the visibility
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 shortTitle: Change visibility of site
+category:
+  - Managing a GitHub Pages site
 ---
 
 ## About access control for {% data variables.product.prodname_pages %} sites

@@ -1,4 +1,3 @@
-import { shouldUseAppRouter, isVersionedPath } from '@/app/lib/routing-patterns'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import { languagePrefixPathRegex } from '@/languages/lib/languages-server'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
@@ -16,7 +15,7 @@ const GITHUB_DOMAINS = [
 
 const DEFAULT_OPTIONS = {
   crossOriginResourcePolicy: true,
-  crossOriginEmbedderPolicy: false, // doesn't work with youtube
+  crossOriginEmbedderPolicy: false,
   referrerPolicy: {
     policy: 'no-referrer-when-downgrade' as const,
   },
@@ -28,7 +27,9 @@ const DEFAULT_OPTIONS = {
       prefetchSrc: ["'self'"],
       // When doing local dev, especially in Safari, you need to add `ws:`
       // which NextJS uses for the hot module reloading.
-      connectSrc: ["'self'", isDev && 'ws:'].filter(Boolean) as string[],
+      connectSrc: ["'self'", 'https://collector.githubapp.com', isDev && 'ws:'].filter(
+        Boolean,
+      ) as string[],
       fontSrc: ["'self'", 'data:'],
       imgSrc: [...GITHUB_DOMAINS, 'data:', 'placehold.it'],
       objectSrc: ["'self'"],
@@ -47,7 +48,6 @@ const DEFAULT_OPTIONS = {
           ? 'https://support.github.com'
           : // Assume that a developer is not testing the VA iframe locally if this env var is not set
             process.env.SUPPORT_PORTAL_URL || '',
-        'https://www.youtube-nocookie.com',
       ].filter(Boolean) as string[],
       frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: [...GITHUB_DOMAINS, "'self'", "'unsafe-inline'", 'data:'],
@@ -79,39 +79,15 @@ devDirs.scriptSrcAttr.push("'unsafe-inline'")
 const STATIC_DEPRECATED_OPTIONS = structuredClone(DEFAULT_OPTIONS)
 STATIC_DEPRECATED_OPTIONS.contentSecurityPolicy.directives.scriptSrc.push("'unsafe-inline'")
 
-// App Router specific CSP that allows inline scripts for NextJS hydration
-const APP_ROUTER_OPTIONS = structuredClone(DEFAULT_OPTIONS)
-const appRouterDirs = APP_ROUTER_OPTIONS.contentSecurityPolicy.directives
-appRouterDirs.scriptSrc.push("'unsafe-inline'") // Required for NextJS App Router hydration
-
 const defaultHelmet = helmet(DEFAULT_OPTIONS)
 const nodeDeprecatedHelmet = helmet(NODE_DEPRECATED_OPTIONS)
 const staticDeprecatedHelmet = helmet(STATIC_DEPRECATED_OPTIONS)
 const developerDeprecatedHelmet = helmet(DEVELOPER_DEPRECATED_OPTIONS)
-const appRouterHelmet = helmet(APP_ROUTER_OPTIONS)
 
 export default function helmetMiddleware(req: Request, res: Response, next: NextFunction) {
   // Enable CORS
   if (['GET', 'OPTIONS'].includes(req.method)) {
     res.set('access-control-allow-origin', '*')
-  }
-
-  // Check if this is an explicit App Router route
-  if (shouldUseAppRouter(req.path, true)) {
-    return appRouterHelmet(req, res, next)
-  }
-
-  // For potential 404s that might be handled by App Router, use App Router CSP
-  // This is a safe fallback since App Router CSP includes all necessary permissions
-  // Apply to any path that could potentially be a 404, regardless of locale prefix
-  if (
-    !req.path.startsWith('/_next/') &&
-    !req.path.startsWith('/assets/') &&
-    !req.path.startsWith('/api/') &&
-    !isVersionedPath(req.path)
-  ) {
-    // This might be a 404 that gets routed to App Router, so use App Router CSP
-    return appRouterHelmet(req, res, next)
   }
 
   // Determine version for exceptions

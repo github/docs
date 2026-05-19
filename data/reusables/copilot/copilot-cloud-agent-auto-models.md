@@ -1,0 +1,1 @@
+* {% data variables.copilot.copilot_claude_sonnet_45 %}

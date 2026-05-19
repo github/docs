@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Work with Git
 ---
 Typically, you would use `git rebase` to:
 

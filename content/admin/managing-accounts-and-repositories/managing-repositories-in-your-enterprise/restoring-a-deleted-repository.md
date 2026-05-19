@@ -4,13 +4,11 @@ intro: You can restore deleted repositories to recover their contents.
 permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Privacy
-  - Repositories
 shortTitle: Restore a deleted repository
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository
+category:
+  - Manage accounts and repositories
 ---
 
 ## About repository restoration

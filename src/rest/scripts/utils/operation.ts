@@ -64,7 +64,11 @@ export default class Operation {
     this.title = operation.summary
     this.category = operation['x-github'].category
     this.subcategory = operation['x-github'].subcategory
-    this.parameters = operation.parameters || []
+    // Shallow-clone each parameter so that renderParameterDescriptions() can
+    // safely delete fields (e.g. deprecated, example, examples) without
+    // mutating this.#operation.parameters, which renderCodeExamples() reads
+    // concurrently via getParameterExamples().
+    this.parameters = (operation.parameters || []).map((p: any) => ({ ...p }))
     this.bodyParameters = []
     return this
   }
@@ -151,6 +155,19 @@ export default class Operation {
       return Promise.all(
         this.parameters.map(async (param) => {
           param.description = await renderContent(param.description)
+          // Remove fields that are not used at runtime to keep schema.json lean
+          delete param.deprecated
+          delete param.example
+          delete param.examples
+          delete param['x-multi-segment']
+          // Strip unused parameter schema sub-fields; only type, default, and
+          // enum are consumed by renderers
+          if (param.schema && typeof param.schema === 'object') {
+            const { type, default: defaultVal, enum: enumVal } = param.schema
+            param.schema = { type }
+            if (defaultVal !== undefined) param.schema.default = defaultVal
+            if (enumVal !== undefined) param.schema.enum = enumVal
+          }
           return param
         }),
       )
@@ -168,10 +185,6 @@ export default class Operation {
     // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
     const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
-    // TODO: Remove this check
-    if (this.#operation.operationId === 'checks/create') {
-      delete schema.oneOf
-    }
     // Merges any instances of allOf in the schema using a deep merge
     const mergedAllofSchema = mergeAllOf(schema)
     try {
@@ -215,5 +228,8 @@ export default class Operation {
   // Programmatic access data structure varies by operation and is not strongly typed
   programmaticAccess(progAccessData: any): void {
     this.progAccess = progAccessData[this.#operation.operationId]
+    if (this.progAccess) {
+      delete this.progAccess.disabledForPatV2
+    }
   }
 }

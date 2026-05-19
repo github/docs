@@ -5,8 +5,6 @@ intro: 'Learn about pricing and billing cycles for {% data variables.product.pro
 product: 'Organizations on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, or organizations and enterprises on {% data variables.product.prodname_ghe_cloud %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/about-billing-for-github-copilot-in-your-organization
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-plan-for-your-organization/about-billing-for-github-copilot-in-your-organization
@@ -23,6 +21,12 @@ category:
   - Manage Copilot for a team
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 ## Available plans
 
 {% data variables.product.company_short %} offers the following plans for organization accounts:
@@ -30,7 +34,11 @@ category:
 * **{% data variables.copilot.copilot_business_short %}** at {% data variables.copilot.cfb_price_per_month %} per user per month (Purchase additional premium requests at {% data variables.copilot.additional_premium_requests %} per request)
 * **{% data variables.copilot.copilot_enterprise_short %}** at {% data variables.copilot.ce_price_per_month %} per user per month ({% data variables.product.prodname_ghe_cloud %} only, purchase additional premium requests at {% data variables.copilot.additional_premium_requests %} per request)
 
-With {% data variables.product.prodname_ghe_cloud %}, an enterprise owner chooses the plan for each organization in the enterprise. For guidance on choosing a plan, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/choosing-your-enterprises-plan-for-github-copilot).
+With {% data variables.product.prodname_ghe_cloud %}:
+
+* An enterprise owner chooses the plan for each organization in the enterprise. For guidance on choosing a plan, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/choosing-your-enterprises-plan-for-github-copilot).
+
+* Data-resident and FedRAMP-compliant {% data variables.product.prodname_copilot_short %} requests include a 10% model multiplier increase. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency#pricing-for-data-resident-copilot).
 
 ## Premium requests
 

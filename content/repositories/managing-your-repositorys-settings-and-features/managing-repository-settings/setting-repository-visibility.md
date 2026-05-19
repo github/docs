@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Repository visibility
+category:
+  - Manage access and repository policies
 ---
 
 ## About repository visibility changes

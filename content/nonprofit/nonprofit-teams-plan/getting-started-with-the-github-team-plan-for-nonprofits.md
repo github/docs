@@ -4,6 +4,8 @@ shortTitle: 'Apply for GitHub Team'
 intro: 'Learn how to receive a free GitHub Team plan for your nonprofit.'
 versions:
   fpt: '*'
+category:
+  - Apply for nonprofit benefits
 ---
 
 ## Introduction

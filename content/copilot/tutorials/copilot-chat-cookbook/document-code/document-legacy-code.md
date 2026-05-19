@@ -12,11 +12,10 @@ versions:
 category:
   - Documenting code
   - Author and optimize with Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 Working with legacy code can be challenging for developers, especially when the code is complex or not well-documented. In such cases, it can be helpful to use Copilot Chat to explain unclear or complex code to other developers or to document it for future reference.

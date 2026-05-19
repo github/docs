@@ -5,8 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Create and set up a repository
 ---
 
 Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.github %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time. Exceeding the recommended maximum limit increases the risk of degraded repository health, which includes, but is not limited to, slow response times for basic Git operations and UI latency.

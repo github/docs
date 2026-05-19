@@ -1,13 +1,13 @@
 ---
 title: GitHub CLI reference
-intro: 'You can view all of the {% data variables.product.prodname_cli %} commands in your terminal. The same information is available in the {% data variables.product.prodname_cli %} manual.'
+intro: You can view all of the {% data variables.product.prodname_cli %} commands in your terminal. The same information is available in the {% data variables.product.prodname_cli %} manual.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CLI
-type: reference
+contentType: reference
+category:
+  - Use and extend the CLI
 ---
 
 To view all top-level {% data variables.product.prodname_cli %} commands, enter `gh` without arguments.

@@ -12,6 +12,8 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Apply to GitHub Education
+category:
+  - Apply for GitHub Education
 ---
 
 ## Do I qualify for GitHub Education?

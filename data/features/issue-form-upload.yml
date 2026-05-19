@@ -1,0 +1,6 @@
+# Reference: https://github.com/github/releases/issues/7534
+# File upload field in issue forms
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.21'

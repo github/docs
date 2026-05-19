@@ -8,8 +8,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
+category:
+  - Build apps and integrations
 ---
 
 

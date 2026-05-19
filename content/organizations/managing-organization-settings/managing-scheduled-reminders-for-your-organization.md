@@ -6,10 +6,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage scheduled reminders
+category:
+  - Configure organization features
 ---
 
 ## About scheduled reminders for pull requests

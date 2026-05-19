@@ -4,8 +4,6 @@ shortTitle: Disable Copilot Free
 intro: 'Learn how to disable {% data variables.copilot.copilot_free_short %} in your IDE or {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/disabling-github-copilot-free
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/disabling-github-copilot-free
@@ -22,7 +20,9 @@ category:
 You can disable {% data variables.copilot.copilot_free_short %} in your {% data variables.product.github %} account settings. This will disable all features of {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %}.
 
 {% data reusables.copilot.your-copilot %}
-1. Under "Visibility," to the right of "Show {% data variables.product.prodname_copilot_short %}, select **Disabled** from the dropdown.
+1. Under "Visibility," in the "Show {% data variables.product.prodname_copilot_short %}" policy, select **Disabled** from the dropdown.
+
+    If you don't see this option, you may be signed in with an account that has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} license. These plans manage {% data variables.product.prodname_copilot_short %} settings at the organization or enterprise level.
 
 ## Disabling {% data variables.copilot.copilot_free_short %} in your IDE
 

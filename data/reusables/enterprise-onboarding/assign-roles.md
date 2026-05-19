@@ -6,7 +6,7 @@ For more information about using roles effectively, see [AUTOTITLE](/admin/manag
 
 >[!NOTE] These roles are in public preview and subject to change.
 
-These roles can be assigned to existing users and teams in your enterprise settings, including {% data variables.enterprise.prodname_managed_users %}.
+These roles can be assigned to existing users and teams in your enterprise settings, including {% ifversion ghes %}users whose accounts were provisioned with SCIM{% else %}{% data variables.enterprise.prodname_managed_users %}{% endif %}.
 
 Before you assign a role, you may need to create a team. Teams are the best way to manage role assignments at scale. The enterprise security manager role can **only** be assigned to a team, not to individual users. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 
@@ -16,18 +16,20 @@ Before you assign a role, you may need to create a team. Teams are the best way 
 1. Click **Assign role**.
 1. Choose the user or team and the role they should receive, then click **Assign role**.
 
-## Assigning enterprise owners, billing managers, and guest collaborators
+## Assigning enterprise owners{% ifversion not ghes %}, billing managers, and guest collaborators{% endif %}
 
-These predefined roles are chosen when you invite a user to your enterprise or provision a {% data variables.enterprise.prodname_managed_user %} from your identity provider (IdP).
+{% ifversion ghes %}This role{% else %}These roles{% endif %}:
 
-These roles cannot currently be assigned to enterprise teams, but they can be changed for existing users.
+* Can be chosen when you invite a user to your enterprise or provision a user from your identity provider (IdP)
+* Cannot currently be assigned to enterprise teams
+* Can be changed for existing users
 
-### Assigning these roles to new users
+### Assigning to new users
 
 * If you {% ifversion ghes %}have enabled SCIM provisioning{% else %}use **{% data variables.product.prodname_emus %}**{% endif %}, roles are assigned from your IdP via the SCIM `roles` attribute.
-* If you use an **enterprise with personal accounts**, you can invite someone as a user or administrator. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/invite-users-directly) or [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
+* Otherwise, you can invite someone as {% ifversion ghes %}an enterprise owner. See {% else %}a user or administrator. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/invite-users-directly) or {% endif %}[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 
-### Assigning these roles to existing administrators
+### Assigning to existing administrators
 
 You can change an administrator's role or convert them to a regular member once they have joined your enterprise.
 

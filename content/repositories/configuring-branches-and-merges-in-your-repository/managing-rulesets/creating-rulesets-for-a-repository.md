@@ -7,9 +7,11 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
-topics:
-  - Repositories
 shortTitle: Create a ruleset
+redirect_from:
+  - /repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules
+category:
+  - Manage branches and protect code
 ---
 
 ## Introduction

@@ -10,21 +10,11 @@ permissions: Organization owners can reclaim mannequins.
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/running-a-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer
+category:
+  - Run an enterprise migration
 ---
 
-## About mannequins
-
-{% data reusables.enterprise-migration-tool.about-mannequins %}
-
-Each mannequin only has a display name, which comes from the display name in the source repository. Mannequins do not have organization membership or repository access. Mannequins always use the same avatar, a ghost octocat, and include a mannequin label following the display name.
-
-![Screenshot of the header of an issue comment. The commenter is labeled as a mannequin, and the "Mannequin" label is outlined in dark orange.](/assets/images/help/github-enterprise-importer/mannequin-example.png)
-
-{% data reusables.enterprise-migration-tool.how-to-reclaim %}
-
-Reclaiming is optional and can happen any time after a migration is finished. For this reason, you can allow your team to begin working in migrated repositories before reclaiming.
-
-Mannequins are not used for Git commit attribution. For more details about commit attribution, see [Managing authorship for Git commits](#managing-authorship-for-git-commits) below.
+{% data reusables.enterprise-migration-tool.about-mannequins %} For more information, see [AUTOTITLE](/migrations/overview/mannequins-and-user-activity).
 
 ## Reclaiming mannequins
 
@@ -32,12 +22,6 @@ You can reclaim mannequins with {% data variables.product.prodname_cli %} (recom
 
 * [Reclaiming mannequins with the {% data variables.product.prodname_cli %} (recommended)](#reclaiming-mannequins-with-the-github-cli-recommended)
 * [Reclaiming mannequins in your browser](#reclaiming-mannequins-in-your-browser)
-
-By default, reclaiming a mannequin will send an attribution invitation to the target user.
-
-The target user can choose to accept or reject the invitation. After a user accepts an attribution invitation, all contributions previously attributed to the mannequin will be attributed to the user instead. In future migrations to the same organization, any contributions from the same mannequin will be automatically reclaimed for the same user.
-
-If your organization uses {% data variables.product.prodname_emus %} and you choose to reclaim mannequins with the {% data variables.product.prodname_cli %}, you can optionally skip the invitation process, immediately reclaiming the mannequin without the user's approval.
 
 > [!NOTE]
 > * You cannot reclaim mannequins after you have transferred a repository to another organization. If you wish to transfer a repository to another organization after your migration, you must reclaim the mannequins before the transfer.
@@ -93,7 +77,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
 If your migration source is Azure DevOps, you can reclaim mannequins with the {% data variables.product.prodname_ado2gh_cli %}.
 
-* {% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).
+* {% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %}{% ifversion fpt or ghec %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).{% endif %}
 * {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
@@ -159,17 +143,7 @@ If your migration source is Bitbucket Server, you can reclaim mannequins with th
 
 ### Reclaiming mannequins in your browser
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.enterprise-migration-tool.import-export-tab %}
-1. To the right of the mannequin you want to reclaim, click **Reattribute**.
-1. In the search field, type the username of the organization member you want to attribute the mannequin's contributions to, then click the member.
-
-   > [!NOTE]
-   > You can only send attribution invitations to user accounts that are already members of the organization.
-
-1. Click **Invite**.
-{% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
+{% data reusables.elm.reclaim-mannequins-in-browser %}
 
 ## Viewing the status of your attribution invitations
 
@@ -188,7 +162,7 @@ You can view the status of all attribution invitations for your organization.
 
 ## Managing authorship for Git commits
 
-Authorship for Git commits is not associated with mannequins and cannot be attributed to {% data variables.product.prodname_dotcom %} users by reclaiming mannequins. Instead, commit authorship is attributed to user accounts on {% data variables.product.prodname_dotcom %} based on the email address that was used to author the commit in Git.
+{% data reusables.elm.git-activity %}
 
 In many cases, users can reattribute commits to themselves by adding the email address used to author the commit to their user account on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
 

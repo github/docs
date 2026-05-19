@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: Configure 2FA
+category:
+  - Set up two-factor authentication
 ---
 
 {% ifversion mandatory-2fa-dotcom-contributors %}

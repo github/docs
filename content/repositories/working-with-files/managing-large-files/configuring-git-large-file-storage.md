@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Configure Git LFS
+category:
+  - Store large files with Git LFS
 ---
 If there are existing files in your repository that you'd like to use with {% data variables.product.github %}, you need to first remove them from the repository and then add them to {% data variables.large_files.product_name_short %} locally. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/moving-a-file-in-your-repository-to-git-large-file-storage).
 

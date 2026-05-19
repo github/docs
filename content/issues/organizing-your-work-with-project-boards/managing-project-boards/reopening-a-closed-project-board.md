@@ -7,10 +7,10 @@ redirect_from:
   - /github/managing-your-work-on-github/reopening-a-closed-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: 'Reopen {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+category:
+  - Use project boards (classic)
 ---
 {% data reusables.projects.project_boards_old %}
 
