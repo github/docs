@@ -1,23 +1,17 @@
 ---
-title: 'What are {% data variables.product.prodname_github_codespaces %}?'
-shortTitle: 'What are {% data variables.product.prodname_codespaces %}?'
-intro: 'Learn about what {% data variables.product.prodname_github_codespaces %} are.'
+title: What are {% data variables.product.prodname_github_codespaces %}?
+shortTitle: What are {% data variables.product.prodname_codespaces %}?
+intro: Learn about what {% data variables.product.prodname_github_codespaces %} are.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/overview
+contentType: concepts
+category:
+  - Get started
 ---
-
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
 
 ## Introduction
 

@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Configure basic settings
+category:
+  - Configure and customize GitHub Desktop
 ---
 {% mac %}
 

@@ -4,9 +4,9 @@ intro: 'Enable mandatory two-factor authentication to secure your account and ma
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: About mandatory 2FA
+category:
+  - Learn about authentication
 ---
 
 {% data reusables.two_fa.mandatory-2fa-contributors-2023-nested %}

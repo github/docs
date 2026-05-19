@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 allowTitleToDifferFromFilename: true
 children:
   - /deploy-keys

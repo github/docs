@@ -1,1 +1,1 @@
-Repository owners, organization owners, security managers, and users with the **admin** role
+Repository owners, organization owners, and users with the **admin** role

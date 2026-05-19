@@ -1,0 +1,1156 @@
+{
+  "catalog": [
+    {
+      "serverUrl": "https://models.github.ai",
+      "verb": "get",
+      "requestPath": "/catalog/models",
+      "title": "List all models",
+      "category": "models",
+      "subcategory": "catalog",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get a list of models available for use, including details like supported input/output modalities,\npublisher, and rate limits.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "",
+            "example": [
+              {
+                "id": "openai/gpt-4.1",
+                "name": "OpenAI GPT-4.1",
+                "publisher": "OpenAI",
+                "registry": "azure-openai",
+                "summary": "gpt-4.1 outperforms gpt-4o across the board, with major gains in coding, instruction following, and long-context understanding",
+                "html_url": "https://github.com/marketplace/models/azure-openai/gpt-4-1",
+                "version": "2025-04-14",
+                "capabilities": [
+                  "streaming",
+                  "tool-calling"
+                ],
+                "limits": {
+                  "max_input_tokens": 1048576,
+                  "max_output_tokens": 32768
+                },
+                "rate_limit_tier": "high",
+                "supported_input_modalities": [
+                  "text",
+                  "image",
+                  "audio"
+                ],
+                "supported_output_modalities": [
+                  "text"
+                ],
+                "tags": [
+                  "multipurpose",
+                  "multilingual",
+                  "multimodal"
+                ]
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the model"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the model"
+                  },
+                  "registry": {
+                    "type": "string",
+                    "description": "The registry where the model is listed"
+                  },
+                  "publisher": {
+                    "type": "string",
+                    "description": "The publisher of the model"
+                  },
+                  "summary": {
+                    "type": "string",
+                    "description": "A brief summary of the model's capabilities"
+                  },
+                  "rate_limit_tier": {
+                    "type": "string",
+                    "description": "The rate limit tier for the model"
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "description": "The URL to the model's detail page"
+                  },
+                  "version": {
+                    "type": "string",
+                    "description": "The version of the model"
+                  },
+                  "capabilities": {
+                    "type": "array",
+                    "description": "A list of capabilities supported by the model",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "limits": {
+                    "type": "object",
+                    "description": "The limits for the model, including input/output token limits",
+                    "properties": {
+                      "max_input_tokens": {
+                        "type": "integer",
+                        "description": "The maximum number of input tokens allowed"
+                      },
+                      "max_output_tokens": {
+                        "type": "integer",
+                        "description": "The maximum number of output tokens allowed"
+                      }
+                    }
+                  },
+                  "tags": {
+                    "type": "array",
+                    "description": "A list of tags associated with the model",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "supported_input_modalities": {
+                    "type": "array",
+                    "description": "A list of input modalities supported by the model",
+                    "items": {
+                      "type": "string",
+                      "description": "An input modality supported by the model"
+                    }
+                  },
+                  "supported_output_modalities": {
+                    "type": "array",
+                    "description": "A list of output modalities supported by the model",
+                    "items": {
+                      "type": "string",
+                      "description": "An output modality supported by the model"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": []
+    }
+  ],
+  "embeddings": [
+    {
+      "serverUrl": "https://models.github.ai",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/inference/embeddings",
+      "title": "Run an embedding request attributed to an organization",
+      "category": "models",
+      "subcategory": "embeddings",
+      "parameters": [
+        {
+          "in": "query",
+          "required": false,
+          "name": "api-version",
+          "description": "<p>The API version to use. Optional, but required for some features.</p>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "path",
+          "name": "org",
+          "required": true,
+          "description": "<p>The organization login associated with the organization to which the request is to be attributed.</p>",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "model",
+          "description": "<p>ID of the specific model to use for the request. The model ID should be in the format of {publisher}/{model_name} where \"openai/text-embedding-3-small\" is an example of a model ID. You can find supported models in the catalog/models endpoint.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string or array",
+          "name": "input",
+          "description": "<p>Input text to embed, encoded as a string or array of strings. To embed multiple inputs in a single request, pass an array of strings. Each input must not exceed the max input tokens for the model, cannot be an empty string, and any array must be 2048 dimensions or less.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "encoding_format",
+          "description": "<p>The format to return the embeddings in. Can be either float or base64.</p>",
+          "enum": [
+            "float",
+            "base64"
+          ],
+          "default": "float"
+        },
+        {
+          "type": "integer",
+          "name": "dimensions",
+          "description": "<p>The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.</p>"
+        },
+        {
+          "type": "string",
+          "name": "user",
+          "description": "<p>A unique identifier representing your end-user, which can help us to monitor and detect abuse.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>This endpoint allows you to run an embedding request attributed to a specific organization. You must be a member of the organization and have enabled models to use this endpoint.\nThe token used to authenticate must have the <code>models: read</code> permission if using a fine-grained PAT or GitHub App minted token.\nThe request body should contain the model ID and the input text(s) for the embedding request. The response will include the generated embeddings.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "model": "openai/text-embedding-3-small",
+              "input": [
+                "The food was delicious and the waiter was very friendly.",
+                "I had a great time at the restaurant."
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "",
+            "example": {
+              "object": "list",
+              "data": [
+                {
+                  "object": "embedding",
+                  "index": 0,
+                  "embedding": [
+                    0.0023064255,
+                    -0.009327292,
+                    -0.0028842222
+                  ]
+                }
+              ],
+              "model": "openai/text-embedding-3-small",
+              "usage": {
+                "prompt_tokens": 8,
+                "total_tokens": 8
+              }
+            },
+            "schema": {
+              "title": "Embedding Response",
+              "description": "The response for an embedding request.",
+              "type": "object",
+              "properties": {
+                "object": {
+                  "description": "The object type, which is always \"list\" for embedding responses.",
+                  "type": "string",
+                  "enum": [
+                    "list"
+                  ]
+                },
+                "data": {
+                  "description": "A list of embedding objects.",
+                  "type": "array",
+                  "items": {
+                    "title": "Embedding Object",
+                    "description": "An embedding vector returned by the model.",
+                    "type": "object",
+                    "properties": {
+                      "object": {
+                        "description": "The object type, which is always \"embedding\".",
+                        "type": "string",
+                        "enum": [
+                          "embedding"
+                        ]
+                      },
+                      "index": {
+                        "description": "The index of the embedding in the list of embeddings.",
+                        "type": "integer"
+                      },
+                      "embedding": {
+                        "description": "The embedding vector, which is a list of floats.",
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "required": [
+                      "object",
+                      "index",
+                      "embedding"
+                    ]
+                  }
+                },
+                "model": {
+                  "description": "The model used for the embedding.",
+                  "type": "string"
+                },
+                "usage": {
+                  "description": "Usage statistics for the request.",
+                  "type": "object",
+                  "properties": {
+                    "prompt_tokens": {
+                      "description": "The number of tokens in the input.",
+                      "type": "integer"
+                    },
+                    "total_tokens": {
+                      "description": "The total number of tokens processed.",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "prompt_tokens",
+                    "total_tokens"
+                  ]
+                }
+              },
+              "required": [
+                "object",
+                "data",
+                "model",
+                "usage"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": []
+    },
+    {
+      "serverUrl": "https://models.github.ai",
+      "verb": "post",
+      "requestPath": "/inference/embeddings",
+      "title": "Run an embedding request",
+      "category": "models",
+      "subcategory": "embeddings",
+      "parameters": [
+        {
+          "in": "query",
+          "required": false,
+          "name": "api-version",
+          "description": "<p>The API version to use. Optional, but required for some features.</p>",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "model",
+          "description": "<p>ID of the specific model to use for the request. The model ID should be in the format of {publisher}/{model_name} where \"openai/text-embedding-3-small\" is an example of a model ID. You can find supported models in the catalog/models endpoint.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string or array",
+          "name": "input",
+          "description": "<p>Input text to embed, encoded as a string or array of strings. To embed multiple inputs in a single request, pass an array of strings. Each input must not exceed the max input tokens for the model, cannot be an empty string, and any array must be 2048 dimensions or less.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "encoding_format",
+          "description": "<p>The format to return the embeddings in. Can be either float or base64.</p>",
+          "enum": [
+            "float",
+            "base64"
+          ],
+          "default": "float"
+        },
+        {
+          "type": "integer",
+          "name": "dimensions",
+          "description": "<p>The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.</p>"
+        },
+        {
+          "type": "string",
+          "name": "user",
+          "description": "<p>A unique identifier representing your end-user, which can help us to monitor and detect abuse.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>This endpoint allows you to run an embedding request. The token used to authenticate must have the <code>models: read</code> permission if using a fine-grained PAT or GitHub App minted token.\nThe request body should contain the model ID and the input text(s) for the embedding request. The response will include the generated embeddings.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "model": "openai/text-embedding-3-small",
+              "input": [
+                "The food was delicious and the waiter was very friendly.",
+                "I had a great time at the restaurant."
+              ]
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "",
+            "example": {
+              "object": "list",
+              "data": [
+                {
+                  "object": "embedding",
+                  "index": 0,
+                  "embedding": [
+                    0.0023064255,
+                    -0.009327292,
+                    -0.0028842222
+                  ]
+                }
+              ],
+              "model": "openai/text-embedding-3-small",
+              "usage": {
+                "prompt_tokens": 8,
+                "total_tokens": 8
+              }
+            },
+            "schema": {
+              "title": "Embedding Response",
+              "description": "The response for an embedding request.",
+              "type": "object",
+              "properties": {
+                "object": {
+                  "description": "The object type, which is always \"list\" for embedding responses.",
+                  "type": "string",
+                  "enum": [
+                    "list"
+                  ]
+                },
+                "data": {
+                  "description": "A list of embedding objects.",
+                  "type": "array",
+                  "items": {
+                    "title": "Embedding Object",
+                    "description": "An embedding vector returned by the model.",
+                    "type": "object",
+                    "properties": {
+                      "object": {
+                        "description": "The object type, which is always \"embedding\".",
+                        "type": "string",
+                        "enum": [
+                          "embedding"
+                        ]
+                      },
+                      "index": {
+                        "description": "The index of the embedding in the list of embeddings.",
+                        "type": "integer"
+                      },
+                      "embedding": {
+                        "description": "The embedding vector, which is a list of floats.",
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "required": [
+                      "object",
+                      "index",
+                      "embedding"
+                    ]
+                  }
+                },
+                "model": {
+                  "description": "The model used for the embedding.",
+                  "type": "string"
+                },
+                "usage": {
+                  "description": "Usage statistics for the request.",
+                  "type": "object",
+                  "properties": {
+                    "prompt_tokens": {
+                      "description": "The number of tokens in the input.",
+                      "type": "integer"
+                    },
+                    "total_tokens": {
+                      "description": "The total number of tokens processed.",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "prompt_tokens",
+                    "total_tokens"
+                  ]
+                }
+              },
+              "required": [
+                "object",
+                "data",
+                "model",
+                "usage"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": []
+    }
+  ],
+  "inference": [
+    {
+      "serverUrl": "https://models.github.ai",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/inference/chat/completions",
+      "title": "Run an inference request attributed to an organization",
+      "category": "models",
+      "subcategory": "inference",
+      "parameters": [
+        {
+          "in": "query",
+          "required": false,
+          "name": "api-version",
+          "description": "<p>The API version to use. Optional, but required for some features.</p>",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "in": "path",
+          "name": "org",
+          "required": true,
+          "description": "<p>The organization login associated with the organization to which the request is to be attributed.</p>",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "model",
+          "description": "<p>ID of the specific model to use for the request. The model ID should be in the format of {publisher}/{model_name} where \"openai/gpt-4.1\" is an example of a model ID. You can find supported models in the catalog/models endpoint.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "array of objects",
+          "name": "messages",
+          "description": "<p>The collection of context messages associated with this chat completion request. Typical usage begins with a chat message for the System role that provides instructions for the behavior of the assistant, followed by alternating messages between the User and Assistant roles.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "role",
+              "description": "<p>The chat role associated with this message</p>",
+              "isRequired": true,
+              "enum": [
+                "assistant",
+                "developer",
+                "system",
+                "user"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "content",
+              "description": "<p>The content of the message</p>",
+              "isRequired": true
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "frequency_penalty",
+          "description": "<p>A value that influences the probability of generated tokens appearing based on their cumulative frequency in generated text. Positive values will make tokens less likely to appear as their frequency increases and decrease the likelihood of the model repeating the same statements verbatim. Supported range is [-2, 2].</p>"
+        },
+        {
+          "type": "integer",
+          "name": "max_tokens",
+          "description": "<p>The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length. For example, if your prompt is 100 tokens and you set max_tokens to 50, the API will return a completion with a maximum of 50 tokens.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "modalities",
+          "description": "<p>The modalities that the model is allowed to use for the chat completions response. The default modality is text. Indicating an unsupported modality combination results in a 422 error.\nSupported values are: <code>text</code>, <code>audio</code></p>"
+        },
+        {
+          "type": "number",
+          "name": "presence_penalty",
+          "description": "<p>A value that influences the probability of generated tokens appearing based on their existing presence in generated text. Positive values will make tokens less likely to appear when they already exist and increase the model's likelihood to output new tokens. Supported range is [-2, 2].</p>"
+        },
+        {
+          "type": "object",
+          "name": "response_format",
+          "description": "<p>The desired format for the response.</p>",
+          "childParamsGroups": [
+            {
+              "type": "object",
+              "name": "Object",
+              "description": "",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "",
+                  "enum": [
+                    "text",
+                    "json_object"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "Schema for structured JSON response",
+              "description": "",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "<p>The type of the response.</p>",
+                  "isRequired": true,
+                  "enum": [
+                    "json_schema"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "json_schema",
+                  "description": "<p>The JSON schema for the response.</p>",
+                  "isRequired": true
+                }
+              ]
+            }
+          ],
+          "oneOfObject": true
+        },
+        {
+          "type": "integer",
+          "name": "seed",
+          "description": "<p>If specified, the system will make a best effort to sample deterministically such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "stream",
+          "description": "<p>A value indicating whether chat completions should be streamed for this request.</p>",
+          "default": false
+        },
+        {
+          "type": "object",
+          "name": "stream_options",
+          "description": "<p>Whether to include usage information in the response. Requires stream to be set to true.</p>",
+          "childParamsGroups": [
+            {
+              "type": "boolean",
+              "name": "include_usage",
+              "description": "<p>Whether to include usage information in the response.</p>",
+              "default": false
+            }
+          ]
+        },
+        {
+          "type": "array of strings",
+          "name": "stop",
+          "description": "<p>A collection of textual sequences that will end completion generation.</p>"
+        },
+        {
+          "type": "number",
+          "name": "temperature",
+          "description": "<p>The sampling temperature to use that controls the apparent creativity of generated completions. Higher values will make output more random while lower values will make results more focused and deterministic. It is not recommended to modify temperature and top_p for the same completion request as the interaction of these two settings is difficult to predict. Supported range is [0, 1]. Decimal values are supported.</p>"
+        },
+        {
+          "type": "string",
+          "name": "tool_choice",
+          "description": "<p>If specified, the model will configure which of the provided tools it can use for the chat completions response.</p>",
+          "enum": [
+            "auto",
+            "required",
+            "none"
+          ]
+        },
+        {
+          "type": "array of objects",
+          "name": "tools",
+          "description": "<p>A list of tools the model may request to call. Currently, only functions are supported as a tool. The model may respond with a function call request and provide the input arguments in JSON format for that function.</p>",
+          "childParamsGroups": [
+            {
+              "type": "object",
+              "name": "function",
+              "description": "",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the function to be called.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "description",
+                  "description": "<p>A description of what the function does. The model will use this description when selecting the function and interpreting its parameters.</p>"
+                },
+                {
+                  "type": "",
+                  "name": "parameters",
+                  "description": "<p>The parameters the function accepts, described as a JSON Schema object.</p>"
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "name": "type",
+              "description": "",
+              "enum": [
+                "function"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "top_p",
+          "description": "<p>An alternative to sampling with temperature called nucleus sampling. This value causes the model to consider the results of tokens with the provided probability mass. As an example, a value of 0.15 will cause only the tokens comprising the top 15% of probability mass to be considered. It is not recommended to modify temperature and top_p for the same request as the interaction of these two settings is difficult to predict. Supported range is [0, 1]. Decimal values are supported.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>This endpoint allows you to run an inference request attributed to a specific organization. You must be a member of the organization and have enabled models to use this endpoint.\nThe token used to authenticate must have the <code>models: read</code> permission if using a fine-grained PAT or GitHub App minted token.\nThe request body should contain the model ID and the messages for the chat completion request. The response will include either a non-streaming or streaming response based on the request parameters.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "model": "openai/gpt-4.1",
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "What is the capital of France?"
+                }
+              ]
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "",
+            "example": {
+              "choices": [
+                {
+                  "message": {
+                    "content": "The capital of France is Paris.",
+                    "role": "assistant"
+                  }
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "oneOf": [
+                {
+                  "title": "Non Streaming Response",
+                  "description": "A non-streaming response for the inference request.",
+                  "type": "object",
+                  "properties": {
+                    "choices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "description": "The message associated with the completion.",
+                            "type": "object",
+                            "properties": {
+                              "content": {
+                                "description": "The content of the message.",
+                                "type": "string"
+                              },
+                              "role": {
+                                "description": "The role of the message.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "title": "Streaming Response",
+                  "description": "A streaming response for the inference request",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "description": "Some details about the response.",
+                      "type": "object",
+                      "properties": {
+                        "choices": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "delta": {
+                                "description": "Container for the content of the streamed response.",
+                                "type": "object",
+                                "properties": {
+                                  "content": {
+                                    "description": "The content of the streamed response.",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": []
+    },
+    {
+      "serverUrl": "https://models.github.ai",
+      "verb": "post",
+      "requestPath": "/inference/chat/completions",
+      "title": "Run an inference request",
+      "category": "models",
+      "subcategory": "inference",
+      "parameters": [
+        {
+          "in": "query",
+          "required": false,
+          "name": "api-version",
+          "description": "<p>The API version to use. Optional, but required for some features.</p>",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "model",
+          "description": "<p>ID of the specific model to use for the request. The model ID should be in the format of {publisher}/{model_name} where \"openai/gpt-4.1\" is an example of a model ID. You can find supported models in the catalog/models endpoint.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "array of objects",
+          "name": "messages",
+          "description": "<p>The collection of context messages associated with this chat completion request. Typical usage begins with a chat message for the System role that provides instructions for the behavior of the assistant, followed by alternating messages between the User and Assistant roles.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "role",
+              "description": "<p>The chat role associated with this message</p>",
+              "isRequired": true,
+              "enum": [
+                "assistant",
+                "developer",
+                "system",
+                "user"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "content",
+              "description": "<p>The content of the message</p>",
+              "isRequired": true
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "frequency_penalty",
+          "description": "<p>A value that influences the probability of generated tokens appearing based on their cumulative frequency in generated text. Positive values will make tokens less likely to appear as their frequency increases and decrease the likelihood of the model repeating the same statements verbatim. Supported range is [-2, 2].</p>"
+        },
+        {
+          "type": "integer",
+          "name": "max_tokens",
+          "description": "<p>The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length. For example, if your prompt is 100 tokens and you set max_tokens to 50, the API will return a completion with a maximum of 50 tokens.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "modalities",
+          "description": "<p>The modalities that the model is allowed to use for the chat completions response. The default modality is text. Indicating an unsupported modality combination results in a 422 error.\nSupported values are: <code>text</code>, <code>audio</code></p>"
+        },
+        {
+          "type": "number",
+          "name": "presence_penalty",
+          "description": "<p>A value that influences the probability of generated tokens appearing based on their existing presence in generated text. Positive values will make tokens less likely to appear when they already exist and increase the model's likelihood to output new tokens. Supported range is [-2, 2].</p>"
+        },
+        {
+          "type": "object",
+          "name": "response_format",
+          "description": "<p>The desired format for the response.</p>",
+          "childParamsGroups": [
+            {
+              "type": "object",
+              "name": "Object",
+              "description": "",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "",
+                  "enum": [
+                    "text",
+                    "json_object"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "Schema for structured JSON response",
+              "description": "",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "type",
+                  "description": "<p>The type of the response.</p>",
+                  "isRequired": true,
+                  "enum": [
+                    "json_schema"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "json_schema",
+                  "description": "<p>The JSON schema for the response.</p>",
+                  "isRequired": true
+                }
+              ]
+            }
+          ],
+          "oneOfObject": true
+        },
+        {
+          "type": "integer",
+          "name": "seed",
+          "description": "<p>If specified, the system will make a best effort to sample deterministically such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "stream",
+          "description": "<p>A value indicating whether chat completions should be streamed for this request.</p>",
+          "default": false
+        },
+        {
+          "type": "object",
+          "name": "stream_options",
+          "description": "<p>Whether to include usage information in the response. Requires stream to be set to true.</p>",
+          "childParamsGroups": [
+            {
+              "type": "boolean",
+              "name": "include_usage",
+              "description": "<p>Whether to include usage information in the response.</p>",
+              "default": false
+            }
+          ]
+        },
+        {
+          "type": "array of strings",
+          "name": "stop",
+          "description": "<p>A collection of textual sequences that will end completion generation.</p>"
+        },
+        {
+          "type": "number",
+          "name": "temperature",
+          "description": "<p>The sampling temperature to use that controls the apparent creativity of generated completions. Higher values will make output more random while lower values will make results more focused and deterministic. It is not recommended to modify temperature and top_p for the same completion request as the interaction of these two settings is difficult to predict. Supported range is [0, 1]. Decimal values are supported.</p>"
+        },
+        {
+          "type": "string",
+          "name": "tool_choice",
+          "description": "<p>If specified, the model will configure which of the provided tools it can use for the chat completions response.</p>",
+          "enum": [
+            "auto",
+            "required",
+            "none"
+          ]
+        },
+        {
+          "type": "array of objects",
+          "name": "tools",
+          "description": "<p>A list of tools the model may request to call. Currently, only functions are supported as a tool. The model may respond with a function call request and provide the input arguments in JSON format for that function.</p>",
+          "childParamsGroups": [
+            {
+              "type": "object",
+              "name": "function",
+              "description": "",
+              "childParamsGroups": [
+                {
+                  "type": "string",
+                  "name": "name",
+                  "description": "<p>The name of the function to be called.</p>"
+                },
+                {
+                  "type": "string",
+                  "name": "description",
+                  "description": "<p>A description of what the function does. The model will use this description when selecting the function and interpreting its parameters.</p>"
+                },
+                {
+                  "type": "",
+                  "name": "parameters",
+                  "description": "<p>The parameters the function accepts, described as a JSON Schema object.</p>"
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "name": "type",
+              "description": "",
+              "enum": [
+                "function"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "top_p",
+          "description": "<p>An alternative to sampling with temperature called nucleus sampling. This value causes the model to consider the results of tokens with the provided probability mass. As an example, a value of 0.15 will cause only the tokens comprising the top 15% of probability mass to be considered. It is not recommended to modify temperature and top_p for the same request as the interaction of these two settings is difficult to predict. Supported range is [0, 1]. Decimal values are supported.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>This endpoint allows you to run an inference request. The token used to authenticate must have the <code>models: read</code> permission if using a fine-grained PAT or GitHub App minted token.\nThe request body should contain the model ID and\nthe messages for the chat completion request. The response will include either a non-streaming or streaming response based on the request parameters.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "model": "openai/gpt-4.1",
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "What is the capital of France?"
+                }
+              ]
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "",
+            "example": {
+              "choices": [
+                {
+                  "message": {
+                    "content": "The capital of France is Paris.",
+                    "role": "assistant"
+                  }
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "oneOf": [
+                {
+                  "title": "Non Streaming Response",
+                  "description": "A non-streaming response for the inference request.",
+                  "type": "object",
+                  "properties": {
+                    "choices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "description": "The message associated with the completion.",
+                            "type": "object",
+                            "properties": {
+                              "content": {
+                                "description": "The content of the message.",
+                                "type": "string"
+                              },
+                              "role": {
+                                "description": "The role of the message.",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "title": "Streaming Response",
+                  "description": "A streaming response for the inference request",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "description": "Some details about the response.",
+                      "type": "object",
+                      "properties": {
+                        "choices": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "delta": {
+                                "description": "Container for the content of the streamed response.",
+                                "type": "object",
+                                "properties": {
+                                  "content": {
+                                    "description": "The content of the streamed response.",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": []
+    }
+  ]
+}

@@ -4,14 +4,12 @@ intro: 'Sync licenses manually or with {% data variables.product.prodname_github
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Sync license usage
 redirect_from:
   - /billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 A {% data variables.product.prodname_enterprise %} license allows a user to use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use).

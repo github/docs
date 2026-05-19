@@ -4,8 +4,6 @@ intro: 'You can use {% data variables.product.prodname_github_codespaces %} sett
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/working-with-your-codespace
 children:

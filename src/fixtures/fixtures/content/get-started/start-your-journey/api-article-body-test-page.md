@@ -6,13 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Git
-  - Fundamentals
-  - GitHub
-  - Collaboration
-  - Community
+contentType: concepts
 redirect_from:
   - /get-started/quickstart/about-github-and-git
 ---

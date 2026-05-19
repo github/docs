@@ -5,8 +5,6 @@ intro: 'Learn how to use {% data variables.copilot.copilot_desktop_short %} resp
 product: '{% data reusables.gated-features.copilot-in-desktop %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-in-github-desktop
   - /copilot/responsible-use-of-github-copilot-features/copilot-in-github-desktop
@@ -41,7 +39,7 @@ The feature is intended to supplement rather than replace a human's work to draf
 
 ### Provide feedback
 
-If you encounter any issues or limitations with {% data variables.copilot.copilot_desktop_short %}, you can provide feedback by creating an issue in the [{% data variables.product.prodname_desktop %} open source repository](https://github.com/desktop/desktop/issues/new?template=bug_report.yaml ). This can help the developers to improve the tool and address any concerns or limitations.
+If you encounter any issues or limitations with {% data variables.copilot.copilot_desktop_short %}, you can provide feedback by creating an issue in the [{% data variables.product.prodname_desktop %} open source repository](https://github.com/desktop/desktop/issues/new?template=bug_report.yaml). This can help the developers to improve the tool and address any concerns or limitations.
 
 ## Limitations of {% data variables.copilot.copilot_desktop_short %}
 

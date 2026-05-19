@@ -5,15 +5,13 @@ shortTitle: 'Control costs at scale'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
-  - REST
 permissions: 'Enterprise owners and billing managers'
 product: '{% data reusables.billing.cta-ghec-cost-centers %}'
 contentType: tutorials
 audience:
   - driver
+category:
+  - Track spending and control costs
 ---
 
 Cost centers help you track and control {% data variables.product.github %} costs by mapping them to your company's financial structure.
@@ -47,14 +45,13 @@ Follow these steps to plan your cost centers:
 
 Now you'll create your first cost center using the user interface (UI) to familiarize yourself with how cost centers work. Choose one of the cost centers you've identified as an example—it's best to start with a small financial entity.
 
-1. Navigate to your enterprise. For example, from [https://github.com/settings/enterprises](https://github.com/settings/enterprises?ref_product=ghec&ref_type=engagement&ref_style=text).
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
-1. Click **Cost centers**.
-1. Click **New cost center** in the upper-right corner.
+{% data reusables.billing.cost-center-click-new %}
 1. In the text box under "Name", enter the name of the financial entity you want to track costs for.
 1. Optionally, if this financial entity has a separate Azure subscription, you can add the Azure subscription to the cost center to charge usage directly to it. The credentials will be verified against Azure to ensure the Azure ID associated with the account is available.
 1. Under **Resources**, select the users, organizations, and repositories to track as part of this cost center.
-1. Click **Create cost center**.
+{% data reusables.billing.cost-center-create-button %}
 
 Your new cost center is now active and usage will begin to attribute to the cost center immediately. Future billing reports will include this cost center with an entry in the `cost_center_name` column for usage allocated to it. You'll also be able to filter usage charts by this cost center.
 
@@ -98,7 +95,7 @@ Create one budget for each product, SKU, or group of SKUs that you want to contr
 
    Under "Alert Recipients", select any additional recipients to receive the alerts.
 
-1. Click **Create budget**.
+{% data reusables.billing.budget-create-button %}
 
 ### Review existing budgets for conflicts
 
@@ -135,7 +132,7 @@ In your terminal, run the following command, replacing `ENTERPRISE` with the slu
 ```shell copy
 gh api \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers
 ```
 
@@ -177,7 +174,7 @@ In your terminal, run the following command, replacing `ENTERPRISE` and `NAME` w
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers \
    -f 'name=NAME'
 ```
@@ -203,7 +200,7 @@ In your terminal, run the following command, replacing `COST_CENTER_ID` with the
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers/COST_CENTER_ID/resource \
   --input - <<< '{
   "users": [
@@ -247,7 +244,7 @@ In your terminal, run the following command, replacing `ENTERPRISE`, `COST_CENTE
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/budgets \
   -f budget_type='SkuPricing' \
   -f budget_product_sku='copilot_premium_request' \

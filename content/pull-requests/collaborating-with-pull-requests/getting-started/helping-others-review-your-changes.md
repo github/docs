@@ -7,9 +7,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Help others review your changes
+category:
+  - Create pull requests
 ---
 
 When you create a pull request, you’re asking your team to review your changes and provide feedback. This guide provides best practices for creating pull requests that are easy to review and keep your team informed, so that you can improve collaboration and the quality of reviews.

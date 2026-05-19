@@ -13,6 +13,7 @@ If your support request is outside of the scope of what our team can help you wi
 * Cloud provider configurations, such as virtual network setup, custom firewall, or proxy rules
 * Container orchestration, such as Kubernetes setup, or networking
 * Detailed assistance with workflows and data management
+* Comprehensive support for customization and tool installation on {% data variables.product.prodname_actions %} custom images
 * Preview features. {% data variables.release-phases.public_preview_caps %}, {% data variables.release-phases.private_preview %}, and {% data variables.release-phases.technical_preview %} features are out of {% data variables.contact.github_support %}'s scope.
 * {% data variables.product.prodname_copilot %} suggestions
 

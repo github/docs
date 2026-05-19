@@ -6,3 +6,6 @@ source_imports_intro: >-
   You can use these endpoints to start an import from a Git repository hosted with another service. This is the same
   functionality as the {% data variables.product.prodname_dotcom %}
   Importer. For more information, see [AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer).
+enterprise_cloud_with_data_residency: >-
+  > [!NOTE]
+  These endpoints are currently unavailable on [AUTOTITLE](/admin/data-residency).

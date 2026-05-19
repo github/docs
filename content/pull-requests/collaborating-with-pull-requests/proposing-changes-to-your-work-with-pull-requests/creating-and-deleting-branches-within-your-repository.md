@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Create & delete branches
+category:
+  - Create pull requests
 ---
 
 ## Creating a branch

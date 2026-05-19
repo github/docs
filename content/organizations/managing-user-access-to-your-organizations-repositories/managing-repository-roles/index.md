@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
 children:
   - /repository-roles-for-an-organization
   - /about-custom-repository-roles

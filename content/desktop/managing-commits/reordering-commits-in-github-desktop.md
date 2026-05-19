@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reordering-commits
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reordering-commits-in-github-desktop
+category:
+  - Manage commits
 ---
 
 ## About reordering a commit

@@ -1,8 +1,8 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 
-import cheerio from 'cheerio'
-import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
+import { load } from 'cheerio'
+import { beforeAll, describe, expect, test } from 'vitest'
 
 import Page, { FrontmatterErrorsError } from '@/frame/lib/page'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -97,7 +97,7 @@ describe('Page class', () => {
       }
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       let rendered = await page!.render(context)
-      let $ = cheerio.load(rendered)
+      let $ = load(rendered)
       expect(($ as any).text()).toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
@@ -108,7 +108,7 @@ describe('Page class', () => {
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
-      $ = cheerio.load(rendered)
+      $ = load(rendered)
       expect(($ as any).text()).toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
@@ -119,7 +119,7 @@ describe('Page class', () => {
       context.currentVersion = nonEnterpriseDefaultVersion
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
-      $ = cheerio.load(rendered)
+      $ = load(rendered)
       expect(($ as any).text()).not.toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
@@ -260,37 +260,6 @@ describe('Page class', () => {
         )!.href,
       ).toBe('/en/products/actions/some-category/some-article')
       expect(page!.permalinks.length).toBe(1)
-    })
-  })
-
-  describe('videos', () => {
-    let page: Page | undefined
-
-    beforeEach(async () => {
-      page = await Page.init({
-        relativePath: 'article-with-videos.md',
-        basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
-        languageCode: 'en',
-      })
-    })
-
-    test('includes videos specified in the featuredLinks frontmatter', async () => {
-      expect((page as any)!.featuredLinks.videos).toStrictEqual([
-        {
-          title: 'codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-        {
-          title: 'more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-        {
-          title: 'even more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-      ])
-
-      expect((page as any)!.featuredLinks.videosHeading).toBe('Custom Videos heading')
     })
   })
 
@@ -439,17 +408,16 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError('versions')
   })
 
-  // TODO - UNSKIP WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
-  test.skip('invalid versions frontmatter', async () => {
+  test('missing children frontmatter in index file', async () => {
     async function getPage() {
       return await Page.init({
-        relativePath: 'page-with-invalid-product-version.md',
+        relativePath: 'index.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
     }
 
-    await expect(getPage).rejects.toThrowError('versions')
+    await expect(getPage).rejects.toThrowError(/must contain 'children' frontmatter/)
   })
 
   test('English page with a version in frontmatter that its parent product is not available in', async () => {
@@ -465,7 +433,7 @@ describe('catches errors thrown in Page class', () => {
   })
 
   describe('versioning optional attributes', () => {
-    test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
+    test("re-rendering set appropriate 'product', 'permissions'", async () => {
       const page = await Page.init({
         relativePath: 'page-with-optional-attributes.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),

@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop
+category:
+  - Work with branches and pull requests
 ---
 ## About checks in {% data variables.product.prodname_desktop %}
 

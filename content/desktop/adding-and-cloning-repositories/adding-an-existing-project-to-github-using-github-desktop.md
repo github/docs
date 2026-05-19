@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Add an existing project
+category:
+  - Add and clone repositories
 ---
 
 {% data reusables.git.remove-git-remote %}

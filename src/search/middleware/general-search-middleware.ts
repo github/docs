@@ -9,7 +9,7 @@ When a user directly hits our API e.g. /api/search/v1?query=foo, they will hit t
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { Request, Response, NextFunction } from 'express'
 import { errors } from '@elastic/elasticsearch'
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 
 import { getPathWithoutVersion, getPathWithoutLanguage } from '@/frame/lib/path-utils'
 import { getGeneralSearchResults } from '@/search/lib/get-elasticsearch-results/general-search'
@@ -94,7 +94,11 @@ export default async function contextualizeGeneralSearch(
       }
     } else {
       const tags: string[] = [`indexName:${indexName}`, `toplevels:${searchParams.toplevel.length}`]
-      const timed = statsd.asyncTimer(getGeneralSearchResults, 'contextualize.search', tags)
+      const timed = statsd.asyncTimer(
+        adaptForTimer(getGeneralSearchResults),
+        'contextualize.search',
+        tags,
+      )
       const getGeneralSearchArgs = {
         indexName,
         searchParams,

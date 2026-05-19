@@ -7,10 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Open Source
-  - Contacting sponsors
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About sponsorship updates

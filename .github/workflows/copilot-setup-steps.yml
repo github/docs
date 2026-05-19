@@ -1,0 +1,53 @@
+# Copilot cloud agent setup steps
+#
+# This is a special-name workflow recognized by Copilot cloud agent.
+# When a cloud agent session starts (via GitHub issue assignment or the
+# Copilot UI), these steps run first to bootstrap the development
+# environment before the agent begins working.
+#
+# The workflow_dispatch trigger allows manual testing of the setup steps.
+# This is NOT a regular CI workflow — it does not run on push or PR events.
+#
+# See also:
+#   .github/copilot-instructions.md  — always-on agent instructions
+#   .github/instructions/             — contextual instruction files
+#   .github/prompts/                  — on-demand prompt files (e.g. /code-review)
+
+name: 'Copilot Setup Steps'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      ELASTICSEARCH_URL: http://localhost:9200/
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      # Search and language test suites require a running Elasticsearch instance.
+      - uses: ./.github/actions/setup-elasticsearch
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      # docs-internal has early-access content that must be fetched separately.
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      # Many test suites depend on Next.js build artifacts.
+      - name: Build
+        run: npm run build
+
+      # Populate Elasticsearch with fixture data so search/language tests work.
+      - name: Index fixtures into the local Elasticsearch
+        run: npm run index-test-fixtures

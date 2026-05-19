@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: SSH agent forwarding
+category:
+  - Connect with SSH
 ---
 
 

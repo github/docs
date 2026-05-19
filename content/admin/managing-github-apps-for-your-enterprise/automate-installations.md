@@ -5,6 +5,8 @@ versions:
   feature: enterprise-installed-apps
 contentType: tutorials
 shortTitle: Automate installations
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## Introduction

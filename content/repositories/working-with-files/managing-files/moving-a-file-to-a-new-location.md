@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Move a file
+category:
+  - Work with files
 ---
 In addition to changing the file location, you can also [update the contents of your file](/repositories/working-with-files/managing-files/editing-files), or [give it a new name](/repositories/working-with-files/managing-files/renaming-a-file) in the same commit.
 

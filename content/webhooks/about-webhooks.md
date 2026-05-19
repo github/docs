@@ -19,8 +19,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
+category:
+  - Set up and manage webhooks
 ---
 
 ## About webhooks

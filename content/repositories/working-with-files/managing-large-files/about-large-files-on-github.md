@@ -21,6 +21,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Large files
+category:
+  - Store large files with Git LFS
 ---
 
 ## About size limits on {% data variables.product.github %}
@@ -114,6 +116,6 @@ If you need to distribute large files within your repository, you can create rel
 
 {% ifversion fpt or ghec %}
 
-We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than {% data variables.large_files.max_lfs_size %}.
+We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than the maximum file size limit for {% data variables.large_files.product_name_short %} on your plan. See [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage).
 
 {% endif %}

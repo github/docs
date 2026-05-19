@@ -1,15 +1,12 @@
 ---
 title: Setting up a trial of GitHub Enterprise
-intro: 'Understand what is included in the {% data variables.product.prodname_ghe_cloud %} trial, and how to get started.'
+intro: Understand what is included in the {% data variables.product.prodname_ghe_cloud %} trial, and how to get started.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
 shortTitle: Start a trial
 redirect_from:
   - /enterprise-onboarding/getting-started-with-your-enterprise/ending-a-trial-of-github-enterprise
+contentType: how-tos
 ---
 
 To set up a trial, you must be signed in to a personal account.
@@ -21,7 +18,6 @@ To set up a trial, you must be signed in to a personal account.
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-* {% data variables.copilot.copilot_for_business %}
 * {% data variables.product.prodname_GH_cs_and_sp %}
 * An **enterprise account**, which allows you to manage multiple organizations.
 * Up to **50 licenses** to grant access to users.
@@ -30,6 +26,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.copilot.copilot_enterprise %}
+* {% data variables.copilot.copilot_for_business %}
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}
@@ -40,7 +37,7 @@ If you invite an existing organization into your trial enterprise, **all of thes
 
 ## Do I need to provide a payment method?
 
-You do not need to provide a payment method to start a trial. If you want to use {% data variables.copilot.copilot_business_short %} during the trial, you need to provide a credit card. You **won't** be charged for using {% data variables.copilot.copilot_business_short %} during the trial.
+You do not need to provide a payment method to start a trial.
 
 ## During the trial
 
