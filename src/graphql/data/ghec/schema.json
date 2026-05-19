@@ -8446,6 +8446,7 @@
       "id": "updatenotificationrestrictionsetting",
       "href": "/graphql/reference/mutations#updatenotificationrestrictionsetting",
       "description": "<p>Update the setting to restrict notifications to only verified or approved domains available to an owner.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9236,6 +9237,7 @@
       "id": "updatesubscription",
       "href": "/graphql/reference/mutations#updatesubscription",
       "description": "<p>Updates the state for subscribable subjects.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -31410,6 +31412,7 @@
       "id": "marketplacecategory",
       "href": "/graphql/reference/objects#marketplacecategory",
       "description": "<p>A public description of a Marketplace category.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -31488,6 +31491,7 @@
       "id": "marketplacelisting",
       "href": "/graphql/reference/objects#marketplacelisting",
       "description": "<p>A listing in the GitHub integration marketplace.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -80689,6 +80693,7 @@
       "id": "subscribable",
       "href": "/graphql/reference/interfaces#subscribable",
       "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -80718,6 +80723,7 @@
       "id": "subscribablethread",
       "href": "/graphql/reference/interfaces#subscribablethread",
       "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -83259,6 +83265,7 @@
       "id": "notificationrestrictionsettingvalue",
       "href": "/graphql/reference/enums#notificationrestrictionsettingvalue",
       "description": "<p>The possible values for the notification restriction setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -84628,6 +84635,7 @@
       "id": "pullrequestorderfield",
       "href": "/graphql/reference/enums#pullrequestorderfield",
       "description": "<p>Properties by which pull_requests connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -87642,6 +87650,7 @@
       "id": "subscriptionstate",
       "href": "/graphql/reference/enums#subscriptionstate",
       "description": "<p>The possible states of a subscription.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "IGNORED",
@@ -87822,6 +87831,7 @@
       "id": "threadsubscriptionformaction",
       "href": "/graphql/reference/enums#threadsubscriptionformaction",
       "description": "<p>The possible states of a thread subscription form action.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NONE",
@@ -87842,6 +87852,7 @@
       "id": "threadsubscriptionstate",
       "href": "/graphql/reference/enums#threadsubscriptionstate",
       "description": "<p>The possible states of a subscription.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -98041,6 +98052,7 @@
       "id": "pullrequestorder",
       "href": "/graphql/reference/input-objects#pullrequestorder",
       "description": "<p>Ways in which lists of issues can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
