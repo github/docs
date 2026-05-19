@@ -1,7 +1,7 @@
 ---
 title: Governing Copilot to support developer productivity
 shortTitle: Govern for adoption
-intro: 'Set a governance posture that balances compliance requirements with developer productivity, so your rollout succeeds from day one.'
+intro: Set a governance posture that balances compliance requirements with developer productivity, so your rollout succeeds from day one.
 permissions: Enterprise owners
 versions:
   feature: copilot
@@ -9,6 +9,8 @@ category:
   - Roll Copilot out at scale
 contentType: tutorials
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /copilot/tutorials/roll-out-at-scale/govern-for-adoption
 ---
 
 Getting the most from {% data variables.product.prodname_copilot %} means finding the right balance between governance and developer access. Too restrictive, and developers can't use the features that make them productive. Too permissive, and you may not meet your compliance requirements.

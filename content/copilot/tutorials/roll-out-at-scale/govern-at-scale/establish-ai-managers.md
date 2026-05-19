@@ -1,6 +1,6 @@
 ---
 title: Establishing AI managers in your enterprise
-intro: 'Reduce your administrative burden and empower your SMEs by creating a team of AI managers.'
+intro: Reduce your administrative burden and empower your SMEs by creating a team of AI managers.
 permissions: Enterprise owners
 versions:
   feature: copilot
@@ -9,6 +9,8 @@ category:
   - Roll Copilot out at scale
   - Manage Copilot for a team
 contentType: tutorials
+redirect_from:
+  - /copilot/tutorials/roll-out-at-scale/establish-ai-managers
 ---
 
 > [!NOTE]
