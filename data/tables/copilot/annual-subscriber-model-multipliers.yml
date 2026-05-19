@@ -102,10 +102,6 @@
   current_multiplier: '0'
   new_multiplier: '0.33'
 
-- model: 'Grok Code Fast 1'
-  current_multiplier: '0.25'
-  new_multiplier: '0.33'
-
 - model: 'Raptor mini'
   current_multiplier: '0'
   new_multiplier: '0.33'

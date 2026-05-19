@@ -2655,6 +2655,12 @@
       "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest"
     },
     {
+      "slug": "get-copilot-enterprise-user-teams-report-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/user-teams-1-day"
+    },
+    {
       "slug": "get-copilot-users-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2769,6 +2775,12 @@
       "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest"
     },
     {
+      "slug": "get-copilot-organization-user-teams-report-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/user-teams-1-day"
+    },
+    {
       "slug": "get-copilot-organization-users-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2791,6 +2803,12 @@
       "subcategory": "copilot-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
+    },
+    {
+      "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
+      "subcategory": "copilot-cloud-agent-management",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/copilot/cloud-agent/configuration"
     }
   ],
   "copilot-spaces": [
@@ -5677,18 +5695,6 @@
       "subcategory": "pulls",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}"
-    },
-    {
-      "slug": "archive-a-pull-request",
-      "subcategory": "pulls",
-      "verb": "put",
-      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive"
-    },
-    {
-      "slug": "unarchive-a-pull-request",
-      "subcategory": "pulls",
-      "verb": "delete",
-      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive"
     },
     {
       "slug": "list-review-comments-on-a-pull-request",

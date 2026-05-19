@@ -15,9 +15,7 @@ category:
   - Secure at scale
 ---
 
-## About applying a {% data variables.product.prodname_custom_security_configuration %}
-
-After you create a {% data variables.product.prodname_custom_security_configuration %}, you need to apply it to repositories in your organization to enable the configuration's settings on those repositories. To learn how to create a {% data variables.product.prodname_custom_security_configuration %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+To learn how to create a {% data variables.product.prodname_custom_security_configuration %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
 
 ## Applying your {% data variables.product.prodname_custom_security_configuration %} to repositories in your organization
 
@@ -35,6 +33,8 @@ After you create a {% data variables.product.prodname_custom_security_configurat
 
 >[!NOTE]
 > If you apply an enforced configuration, this information is reported in the list of repositories. An enforced configuration means that repository owners are blocked from changing features that have been enabled or disabled in the configuration, but features that are not set aren't enforced.
+
+After you apply a configuration, each repository's configuration status reflects the result of the operation—for example, `attached`, `attaching`, or `failed`. For the full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
 
 ## Next steps
 

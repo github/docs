@@ -20,6 +20,8 @@ import { deprecated, supported } from '@/versions/lib/enterprise-server-releases
 import { allPlatforms } from '@/tools/lib/all-platforms'
 import type { Context, FrontmatterVersions, FeaturedLinksExpanded } from '@/types'
 import type { Product } from '@/products/lib/all-products'
+import { createLogger } from '@/observability/logger'
+const logger = createLogger(import.meta.url)
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -192,17 +194,18 @@ class Page {
       } as PageReadResult
     } catch (err) {
       if (err instanceof Error && (err as NodeJS.ErrnoException).code === 'ENOENT') return false
-      console.error(err)
+      logger.error('Failed to read page file', { error: err, fullPath })
       return false
     }
   }
 
   constructor(opts: PageReadResult) {
     if (opts.frontmatterErrors && opts.frontmatterErrors.length) {
-      console.error(
-        `${opts.frontmatterErrors.length} frontmatter errors trying to load ${opts.fullPath}:`,
-      )
-      console.error(opts.frontmatterErrors)
+      logger.error('Frontmatter errors loading page', {
+        errorCount: opts.frontmatterErrors.length,
+        fullPath: opts.fullPath,
+        frontmatterErrors: opts.frontmatterErrors,
+      })
       throw new FrontmatterErrorsError(
         `${opts.frontmatterErrors.length} frontmatter errors in ${opts.fullPath}`,
         opts.frontmatterErrors,

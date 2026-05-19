@@ -89,12 +89,6 @@
   excels_at: Effective and efficient edit-then-test loops with high tool precision
   further_reading: 'not applicable'
 
-# xAI
-- name: Grok Code Fast 1
-  task_area: General-purpose coding and writing
-  excels_at: Fast, accurate code completions and explanations
-  further_reading: '[Grok Code Fast 1 model card](https://data.x.ai/2025-08-20-grok-4-model-card.pdf)'
-
 # Other providers (alphabetized by model name)
 - name: Qwen2.5
   task_area: General-purpose coding and writing

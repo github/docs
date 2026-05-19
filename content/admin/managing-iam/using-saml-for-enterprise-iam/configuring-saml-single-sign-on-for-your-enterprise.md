@@ -65,11 +65,13 @@ If an unauthenticated user attempts to sign in to {% data variables.location.pro
 
 For more information about connecting Microsoft Entra ID (previously known as Azure AD) to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Cloud - Enterprise Account](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) in Microsoft Docs.
 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
 {% elsif ghes %}
 
 For more information about connecting Entra ID to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Server](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-ae-tutorial) in Microsoft Docs.
 
-We do not have a supported partner application when using Entra ID for Azure Government. 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
 
 ## Username considerations with SAML
 

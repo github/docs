@@ -165,14 +165,6 @@
   business: true
   enterprise: true
 
-- name: Grok Code Fast 1
-  free: true
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
 - name: Raptor mini
   free: true
   student: true

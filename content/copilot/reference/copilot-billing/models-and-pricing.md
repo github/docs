@@ -68,14 +68,6 @@ Anthropic models include a cache write cost in addition to cached input.
 [^5]: {% data variables.copilot.copilot_gemini_25_pro %} and {% data variables.copilot.copilot_gemini_31_pro %} pricing applies to prompts with ≤200K tokens.
 [^6]: {% data variables.copilot.copilot_gemini_3_flash %} has no long-context surcharge.
 
-### xAI
-
-| Model | Release status | Category | Input | Cached input | Output |
-| --- | --- | --- | ---: | ---: | ---: |
-| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "xai" %} |
-| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
-| {% endif %}{% endfor %} |
-
 ### Fine-tuned ({% data variables.product.github %})
 
 | Model | Release status | Category | Input | Cached input | Output |
