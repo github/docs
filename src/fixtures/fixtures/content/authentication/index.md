@@ -19,15 +19,7 @@ versions:
   ghes: '*'
   ghec: '*'
 
-changelog:
-  label: '2FA,authentication,security keys,SSH,token authentication'
-layout: product-landing
-topics:
-  - 2FA
-  - Identity
-  - Access management
-  - Usernames
-  - Device verification
+layout: discovery-landing
 children:
   - /keeping-your-account-and-data-secure
 ---

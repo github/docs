@@ -7,13 +7,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/csv-output
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 When you save analysis results from the {% data variables.product.prodname_codeql_cli %} in CSV format, each line corresponds to an alert, containing a comma-separated list with the following information:

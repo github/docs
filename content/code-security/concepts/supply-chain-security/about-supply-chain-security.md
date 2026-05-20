@@ -9,15 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Dependency review
-  - Dependency graph
-  - Vulnerabilities
-  - Dependencies
-  - Pull requests
-  - Repositories
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 ## About supply chain security at GitHub
@@ -35,7 +29,8 @@ You add dependencies directly to your supply chain when you specify them in a ma
 The supply chain features on {% data variables.product.github %} are:
 * **Dependency graph**
 * **Dependency review**
-* **{% data variables.product.prodname_dependabot_alerts %}**
+* **{% data variables.product.prodname_dependabot_alerts %}**{% ifversion dependabot-malware-alerts %}
+  * **{% data variables.product.prodname_dependabot_malware_alerts %}**{% endif %}
 * **{% data variables.product.prodname_dependabot_updates %}**
   * **{% data variables.product.prodname_dependabot_security_updates %}**
   * **{% data variables.product.prodname_dependabot_version_updates %}**
@@ -86,7 +81,7 @@ For more information about dependency review, see [AUTOTITLE](/code-security/sup
 {% data variables.product.prodname_dependabot %} keeps your dependencies up to date by informing you of any security vulnerabilities in your dependencies and automatically opening pull requests to upgrade your dependencies. {% data variables.product.prodname_dependabot %} pull requests will target the next available secure version when a {% data variables.product.prodname_dependabot %} alert is triggered, or to the latest version when a release is published.
 
 The term "{% data variables.product.prodname_dependabot %}" encompasses the following features:
-* {% data variables.product.prodname_dependabot_alerts %}: Displayed notification on the **Security** tab for the repository, and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
+* {% data variables.product.prodname_dependabot_alerts %}: Displayed notification on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository, and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
 * {% data variables.product.prodname_dependabot_updates %}:
   * {% data variables.product.prodname_dependabot_security_updates %}: Triggered updates to upgrade your dependencies to a secure version when an alert is triggered.
   * {% data variables.product.prodname_dependabot_version_updates %}: Scheduled updates to keep your dependencies up to date with the latest version.
@@ -115,12 +110,31 @@ For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dep
 
 * {% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
 {% ifversion fpt or ghec %}
-  * A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
+  * A new advisory is added to the {% data variables.product.prodname_advisory_database %}{% else %}
   * New advisory data is synchronized to your instance each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
-  * The dependency graph for the repository changes.
-* {% data variables.product.prodname_dependabot_alerts %} are displayed on the **Security** tab for the repository and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
+  * The dependency graph for the repository changes
+* {% data variables.product.prodname_dependabot_alerts %} are displayed on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
 
 For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+
+{% ifversion dependabot-malware-alerts %}
+
+##### What are {% data variables.product.prodname_dependabot_malware_alerts %}?
+
+{% data variables.product.prodname_dependabot_malware_alerts %} flag malicious dependencies in your repositories. {% data variables.product.prodname_dependabot %} generates alerts using the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities and malicious packages.
+
+{% data variables.product.prodname_dependabot %} scans for malicious packages and sends alerts when:{% ifversion fpt or ghec %}
+* A new advisory is added to the {% data variables.product.prodname_advisory_database %}{% else %}
+* New advisory data is synchronized to your instance each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
+* The dependency graph for a repository changes
+
+You can view {% data variables.product.prodname_dependabot_malware_alerts_short %} for a repository:
+* From the **{% data variables.product.prodname_security_and_quality_tab %}** tab
+* In the dependency graph
+
+Each alert includes a link to the affected file in the project, as well as the patch version number for the package (if available).
+
+{% endif %}
 
 #### What are Dependabot updates?
 

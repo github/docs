@@ -3,12 +3,6 @@ title: Dependabot supported ecosystems and repositories
 shortTitle: Dependabot ecosystems
 intro: '{% data variables.product.prodname_dependabot %} supports a variety of ecosystems and repositories'
 allowTitleToDifferFromFilename: true
-topics:
-  - Dependabot
-  - Dependencies
-  - Alerts
-  - Vulnerabilities
-  - Repositories
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 This article provides reference information about the package ecosystems and repository types that {% data variables.product.prodname_dependabot %} supports.

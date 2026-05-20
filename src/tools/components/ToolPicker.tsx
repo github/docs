@@ -2,6 +2,7 @@ import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { InArticlePicker } from './InArticlePicker'
+import { TOOL_PREFERRED_COOKIE_NAME } from '@/frame/lib/constants'
 
 // example: http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace
 
@@ -68,7 +69,7 @@ export const ToolPicker = () => {
   return (
     <InArticlePicker
       fallbackValue={getDefaultTool(defaultTool, detectedTools)}
-      cookieKey="toolPreferred"
+      cookieKey={TOOL_PREFERRED_COOKIE_NAME}
       queryStringKey={toolQueryKey}
       onValue={(value: string) => {
         preserveAnchorNodePosition(document, () => {

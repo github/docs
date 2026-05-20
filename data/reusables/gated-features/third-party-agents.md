@@ -1,1 +1,1 @@
-Third-party agents are available in the {% data variables.copilot.copilot_pro_plus %} and {% data variables.copilot.copilot_enterprise %} plans.
+Third-party agents are available in the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %}, and {% data variables.copilot.copilot_enterprise %} plans.

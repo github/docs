@@ -8,8 +8,7 @@ import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 
 interface Frontmatter {
-  type?: string
-  // Allow any additional frontmatter properties since we only care about 'type'
+  contentType?: string
   [key: string]: unknown
 }
 
@@ -76,5 +75,5 @@ function isFileRai(params: RuleParams): boolean {
   }
 
   const fm: Frontmatter = (getFrontmatter(params.frontMatterLines) as Frontmatter) || {}
-  return fm.type === 'rai'
+  return fm.contentType === 'rai'
 }

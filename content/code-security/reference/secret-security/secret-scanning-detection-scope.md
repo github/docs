@@ -7,16 +7,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Troubleshooting
 redirect_from:
   - /code-security/secret-scanning/troubleshooting-secret-scanning
   - /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning
   - /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection
   - /code-security/how-tos/secure-your-secrets/troubleshooting-secret-scanning
 contentType: reference
+category:
+  - Protect your secrets
 ---
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}

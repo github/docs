@@ -7,18 +7,12 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
-topics:
-  - Actions
-  - Dependabot
-  - Version updates
-  - Security updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Use Dependabot with Actions
 redirect_from:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
   - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+category:
+  - Secure your dependencies
 ---
 
 {% ifversion dependabot-on-actions-opt-in %}

@@ -8,21 +8,18 @@ product: '{% data reusables.gated-features.security-campaigns %}'
 contentType: how-tos
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Code scanning
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign
+category:
+  - Secure at scale
 ---
 
 ## Viewing alerts in a security campaign
 
 When a campaign targets security alerts in a repository that you have write access to, you can navigate to the list of repository alerts in the campaign.
 
-* Display the **Security** tab for the repository and click one of the campaigns under "Campaigns" in the sidebar.
-* If you have write access to more than one repository in the organization, display the **Security** tab for the organization and click one of the campaigns under "Campaigns" in the sidebar.
+* Display the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the repository and click one of the campaigns under "Campaigns" in the sidebar.
+* If you have write access to more than one repository in the organization, display the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the organization and click one of the campaigns under "Campaigns" in the sidebar.
 * Alternatively, click **View security campaign** in the campaign's email notification.
 
 This view shows the alerts in the current repository for a campaign called "SQL injection (CWE-89)" (highlighted gray) that is managed by "octocat" (outlined in dark orange).
@@ -49,13 +46,13 @@ If you want to see the code that triggered the security alert and the suggested 
 
 {% ifversion security-campaigns-assign-to-cca %}
 
-## Assigning alerts to {% data variables.copilot.copilot_coding_agent %}
+## Assigning alerts to {% data variables.copilot.copilot_cloud_agent %}
 
->[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_coding_agent %} must be available in the repository.
+>[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_cloud_agent %} must be available in the repository.
 
 If an autofix has been generated, you can assign one or more alerts to {% data variables.product.prodname_copilot_short %}. {% data variables.product.prodname_copilot_short %} will create pull requests, apply the autofixes, and add you as a requested reviewer.
 
-By assigning multiple alerts, {% data variables.copilot.copilot_coding_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
+By assigning multiple alerts, {% data variables.copilot.copilot_cloud_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
 
 1. In the campaign view for the repository, select the alerts that you want to assign.
 1. Above the list of alerts, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Assign to Copilot**.

@@ -7,11 +7,10 @@ category:
   - Prompt files
   - Development workflows
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Advanced
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

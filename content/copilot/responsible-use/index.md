@@ -4,8 +4,6 @@ shortTitle: Responsible use
 intro: 'Learn how to use {% data variables.product.prodname_copilot %} features responsibly by understanding their purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /copilot-code-completion
   - /chat-in-your-ide
@@ -17,7 +15,7 @@ children:
   - /pull-request-summaries
   - /copilot-commit-message-generation
   - /code-review
-  - /copilot-coding-agent
+  - /copilot-cloud-agent
   - /spark
   - /copilot-spaces
 redirect_from:

@@ -1,15 +1,14 @@
 ---
 title: Using GitHub in Slack
 shortTitle: Use GitHub in Slack
-intro: 'Learn how to use GitHub in Slack to improve collaboration and streamline your workflow.'
+intro: Learn how to use GitHub in Slack to improve collaboration and streamline your workflow.
 versions:
-    fpt: '*'
-    ghes: '*'
-    ghec: '*'
-topics:
-    - Integration
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 category:
   - Use integrations
+contentType: how-tos
 ---
 
 The {% data variables.product.github %} integration for Slack allows you to connect your {% data variables.product.github %} account to the {% data variables.product.github %} app in Slack. Once connected, you can use slash commands to interact with {% data variables.product.github %}, receive notifications about repository activity, and collaborate with your team directly within Slack.
@@ -37,15 +36,16 @@ To use a slash command, type `/github` followed by the command you want to execu
 |`/github close [issue link]`|Closes the specified issue as completed.|
 |`/github close [issue link] reason:"not planned"`|Closes the specified issue with a reason. Replace `"not planned"` with your reason.|
 |`/github reopen [issue link]`|Reopens the specified issue.|
-|`/github signin`|Restarts the "Connect your GitHub account" workflow.|
+|`/github signin`|Restarts the "Connect your {% data variables.product.github %} account" workflow.|
+|`/github signout`|Disconnects your {% data variables.product.github %} account from your Slack user.|
 
 >[!NOTE] When you subscribe a channel to a repository, the channel will receive notifications for all `open`, `close`, and `reopen` events on pull requests and issues in that repository. The channel will also receive notifications of any `push` events directly to the repository's default branch.
 
 {% ifversion fpt or ghec %}
 
-## Initiating {% data variables.copilot.copilot_coding_agent %} sessions within Slack
+## Initiating {% data variables.copilot.copilot_cloud_agent %} sessions within Slack
 
-The {% data variables.product.github %} app also integrates {% data variables.copilot.copilot_coding_agent %} into Slack. You can use this functionality to summon {% data variables.copilot.copilot_coding_agent %} in threads where important discussions are taking place, and ask it to make changes based on the context of those discussions. See: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack).
+The {% data variables.product.github %} app also integrates {% data variables.copilot.copilot_cloud_agent %} into Slack. You can use this functionality to summon {% data variables.copilot.copilot_cloud_agent %} in threads where important discussions are taking place, and ask it to make changes based on the context of those discussions. See: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-slack).
 
 {% endif %}
 

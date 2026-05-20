@@ -19,11 +19,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Notifications
-  - Accounts
+category:
+  - Set up Git
 ---
 ## Using Git
 

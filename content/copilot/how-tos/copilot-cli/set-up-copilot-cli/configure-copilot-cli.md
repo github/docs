@@ -1,18 +1,16 @@
 ---
-title: Configure GitHub Copilot CLI
+title: Configuring GitHub Copilot CLI
 shortTitle: Configure Copilot CLI
 intro: Configure trusted directories, tool access, and path and URL permissions for {% data variables.copilot.copilot_cli_short %}
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 contentType: how-tos
 category:
-  - Configure Copilot
+  - Configure Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
-
-{% data reusables.cli.preview-note-cli %}
 
 ## Introduction
 
@@ -41,14 +39,16 @@ If you choose to trust the directory for future sessions, the trusted directory 
 
 ### Editing trusted directories
 
-You can edit the list of permanently trusted directories.
+You can edit the list of permanently trusted directories. Trusted directories are stored in the automatically managed `config.json` file.
 
-1. Open the CLI’s `config.json` file. By default, it’s stored in a `.copilot` folder under your home directory:
+1. Open the CLI's `config.json` file. By default, it's stored in a `.copilot` folder under your home directory:
+
    * **macOS/Linux**: `~/.copilot/config.json`
    * **Windows**: `$HOME\.copilot\config.json`
 
-  You can change the config location by setting the `XDG_CONFIG_HOME` environment variable (primarily on macOS/Linux).
-1. Edit the contents of the `trusted_folders` array.
+  You can change the config location by setting the `COPILOT_HOME` environment variable. This would change `~/.copilot/` and `$HOME\.copilot\` in the above paths.
+
+1. Edit the contents of the `trustedFolders` array.
 
 ## Setting allowed tools
 
@@ -66,7 +66,7 @@ In this section, you can learn how to:
 
 ### Allowing a tool for the first time
 
-The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—for example, {% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
+The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—{% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
 
 1. Prompt {% data variables.product.prodname_copilot_short %} to perform a task that requires a tool. For example:
 
@@ -75,9 +75,9 @@ The first time that {% data variables.product.prodname_copilot_short %} needs to
    ```
 
 1. Choose from one of the three options:
-   
+
    * `1. Yes`
-      
+
       Choose this option to allow {% data variables.product.prodname_copilot_short %} to run this particular command, this time only. The next time it needs to use this tool, it will ask you again.
 
    * `2. Yes, and approve TOOL for the rest of the running session`
@@ -111,7 +111,7 @@ Use `--deny-tool` to prevent {% data variables.product.prodname_copilot_short %}
 * For example:
 
   ```shell
-  copilot --deny-tool 'shell(git push)'
+  copilot --deny-tool='shell(git push)'
   ```
 
 This option takes precedence over the `--allow-all-tools` and `--allow-tool` options.
@@ -123,7 +123,7 @@ Use `--allow-tool` to allow {% data variables.product.prodname_copilot_short %} 
 * For example:
 
   ```shell
-  copilot --allow-tool 'shell'
+  copilot --allow-tool='shell'
   ```
 
 ### Specifying which tool you want to allow or deny
@@ -141,7 +141,7 @@ Use `shell(COMMAND)` to allow or deny a specific shell command.
 * For example, to prevent {% data variables.product.prodname_copilot_short %} from using any `rm` command, use:
 
   ```shell
-  copilot --deny-tool 'shell(rm)'
+  copilot --deny-tool='shell(rm)'
   ```
 
 For `git` and `gh` commands, specify a particular first-level subcommand to allow or deny.
@@ -149,10 +149,10 @@ For `git` and `gh` commands, specify a particular first-level subcommand to allo
 * For example, to prevent {% data variables.product.prodname_copilot_short %} from using `git push`, use:
 
   ```shell
-  copilot --deny-tool 'shell(git push)'
+  copilot --deny-tool='shell(git push)'
   ```
 
-The tool specification is optional. For example, `copilot --allow-tool 'shell'` allows {% data variables.product.prodname_copilot_short %} to use any shell command without individual approval.
+The tool specification is optional. For example, `copilot --allow-tool='shell'` allows {% data variables.product.prodname_copilot_short %} to use any shell command without individual approval.
 
 #### Allowing or denying `'write'` tools
 
@@ -161,7 +161,7 @@ Use `'write'` to allow or deny tools—other than shell commands—permission to
 * For example, to allow {% data variables.product.prodname_copilot_short %} to edit files without your individual approval, use:
 
   ```shell
-  copilot --allow-tool 'write'
+  copilot --allow-tool='write'
   ```
 
 #### Allowing or denying MCP server tools
@@ -171,12 +171,12 @@ Use `'MCP_SERVER_NAME'` to allow or deny a specific tool from the specified MCP 
 * For example, to prevent {% data variables.product.prodname_copilot_short %} from using the tool called `tool_name` from the MCP server called `My-MCP-Server`, use:
 
   ```shell
-  copilot --deny-tool 'My-MCP-Server(tool_name)'
+  copilot --deny-tool='My-MCP-Server(tool_name)'
   ```
 
 `MCP_SERVER_NAME` is the name of an MCP server that you have configured.
 
-Tools from the server are specified in parentheses, using the tool name that is registered with the MCP server. 
+Tools from the server are specified in parentheses, using the tool name that is registered with the MCP server.
 
 Using the server name without specifying a tool allows or denies all tools from that server.
 
@@ -189,13 +189,13 @@ To determine exactly which tools {% data variables.product.prodname_copilot_shor
 * To prevent {% data variables.product.prodname_copilot_short %} from using the `rm` and `git push` commands, but automatically allow all other tools, use:
 
   ```shell
-  copilot --allow-all-tools --deny-tool 'shell(rm)' --deny-tool 'shell(git push)'
+  copilot --allow-all-tools --deny-tool='shell(rm)' --deny-tool='shell(git push)'
   ```
 
 * To prevent {% data variables.product.prodname_copilot_short %} from using the tool `tool_name` from the MCP server named `My-MCP-Server`, but allow all other tools from that server to be used without individual approval, use:
 
   ```shell
-  copilot --allow-tool 'My-MCP-Server' --deny-tool 'My-MCP-Server(tool_name)'
+  copilot --allow-tool='My-MCP-Server' --deny-tool='My-MCP-Server(tool_name)'
   ```
 
 ### Limiting available tools
@@ -229,7 +229,7 @@ To disallow access to the temp directory, use `--disallow-temp-dir`.
 
 ## Setting URL permissions
 
-URL permissions control which external URLs {% data variables.product.prodname_copilot_short %} can access. By default, all URLs require approval before access is granted. 
+URL permissions control which external URLs {% data variables.product.prodname_copilot_short %} can access. By default, all URLs require approval before access is granted.
 
 URL permissions apply to the `web_fetch` tool and a curated list of shell commands that access the network (such as `curl`, `wget`, and `fetch`). For shell commands, URLs are extracted using regex patterns.
 
@@ -248,15 +248,15 @@ To disable URL verification, use the `--allow-all-urls` flag.
 
 ### Pre-approving specific domains
 
-To pre-approve specific domains, use `--allow-url <domain>`.
+To pre-approve specific domains, use `--allow-url=DOMAIN`.
 
-* For example, `--allow-url github.com`.
+* For example, `--allow-url=github.com`.
 
 ### Denying specific domains
 
-To deny specific domains, use `--deny-url <domain>`.
+To deny specific domains, use `--deny-url=DOMAIN`.
 
-* For example, `--deny-url github.com`.
+* For example, `--deny-url=github.com`.
 
 ## Allowing all tools, paths, and URLs
 
@@ -269,6 +269,7 @@ This flag combines:
 
 > [!TIP] During an interactive session, you can also enable all permissions with the `/allow-all` or `/yolo` slash commands.
 
-## Next steps
+## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference)

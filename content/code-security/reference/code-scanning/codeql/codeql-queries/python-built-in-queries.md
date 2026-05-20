@@ -8,13 +8,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/python-built-in-queries
   - /code-security/code-scanning/reference/code-ql-built-in-queries/python-built-in-queries
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 {% data variables.product.prodname_codeql %} includes many queries for analyzing Python code. {% data reusables.code-scanning.codeql-query-tables.query-suite-behavior %}

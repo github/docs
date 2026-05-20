@@ -1,10 +1,13 @@
 import type { Context, Page } from '@/types'
 import type { LinkData } from '@/article-api/transformers/types'
 import { resolvePath } from './resolve-path'
+import { renderLiquid } from '@/content-render/liquid/index'
 
 interface PageWithChildren extends Page {
   children?: string[]
   category?: string[]
+  rawTitle: string
+  rawIntro?: string
 }
 
 interface TocItem extends LinkData {
@@ -26,11 +29,11 @@ export async function getAllTocItems(
   page: Page,
   context: Context,
   options: {
-    recurse?: boolean
-    renderIntros?: boolean
+    /** Only recurse into children whose resolved path starts with this prefix.
+     *  Prevents cross-product traversal (e.g. /en/rest listing /enterprise-admin). */
+    basePath?: string
   } = {},
 ): Promise<TocItem[]> {
-  const { recurse = true, renderIntros = true } = options
   const pageWithChildren = page as PageWithChildren
   const languageCode = page.languageCode || 'en'
 
@@ -44,43 +47,44 @@ export async function getAllTocItems(
   )
   const pathname = pagePermalink ? pagePermalink.href : `/${languageCode}`
 
-  const items: TocItem[] = []
+  // On the first call, set basePath to this page's path so recursion
+  // stays within the same product section.
+  const basePath = options.basePath ?? pathname
 
-  for (const childHref of pageWithChildren.children) {
-    const childPage = resolvePath(childHref, languageCode, pathname, context) as
-      | PageWithChildren
-      | undefined
-
-    if (!childPage) continue
-
-    const title = await childPage.renderTitle(context, { unwrap: true })
-    const intro =
-      renderIntros && childPage.intro
-        ? await childPage.renderProp('intro', context, { textOnly: true })
-        : ''
-
-    const childPermalink = childPage.permalinks.find(
-      (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
+  const resolvedChildren = pageWithChildren.children
+    .map((childHref) => ({
+      childHref,
+      childPage: resolvePath(childHref, languageCode, pathname, context) as
+        | PageWithChildren
+        | undefined,
+    }))
+    .filter(
+      (entry): entry is { childHref: string; childPage: PageWithChildren } =>
+        entry.childPage !== undefined,
     )
-    const href = childPermalink ? childPermalink.href : childHref
 
-    const category = childPage.category || []
+  const items = await Promise.all(
+    resolvedChildren.map(async ({ childHref, childPage }) => {
+      const childPermalink = childPage.permalinks.find(
+        (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
+      )
+      const href = childPermalink ? childPermalink.href : childHref
 
-    const item: TocItem = {
-      href,
-      title,
-      intro,
-      category,
-      childTocItems: [],
-    }
+      const title = await renderPropFast(childPage, 'title', context)
+      const intro = await renderPropFast(childPage, 'intro', context)
 
-    // Recursively get children if enabled
-    if (recurse && childPage.children && childPage.children.length > 0) {
-      item.childTocItems = await getAllTocItems(childPage, context, options)
-    }
+      const category = childPage.category || []
 
-    items.push(item)
-  }
+      // Only recurse if the child is within the same product section
+      const withinSection = href.startsWith(basePath)
+      const childTocItems =
+        withinSection && childPage.children && childPage.children.length > 0
+          ? await getAllTocItems(childPage, context, { ...options, basePath })
+          : []
+
+      return { href, title, intro, category, childTocItems } as TocItem
+    }),
+  )
 
   return items
 }
@@ -130,4 +134,39 @@ export function flattenTocItems(
 
   recurse(tocItems)
   return result
+}
+
+/**
+ * Check whether a string contains markdown link syntax that would need
+ * processing by the unified pipeline (e.g. link rewriting, AUTOTITLE).
+ *
+ * Use this to short-circuit expensive rendering when the text is
+ * Liquid-only and contains no markdown that needs transformation.
+ */
+function hasMarkdownLinks(text: string): boolean {
+  return text.includes('[') && text.includes('](/')
+}
+
+const RAW_PROP_MAP = {
+  title: 'rawTitle',
+  intro: 'rawIntro',
+} as const
+
+/**
+ * Fast-path rendering for page properties. Renders Liquid only, skipping
+ * the full unified pipeline. Falls back to page.renderProp() when the
+ * Liquid output contains markdown links that need rewriting.
+ */
+async function renderPropFast(
+  page: PageWithChildren,
+  prop: keyof typeof RAW_PROP_MAP,
+  context: Context,
+): Promise<string> {
+  const raw = page[RAW_PROP_MAP[prop]]
+  if (!raw) return ''
+  const rendered = await renderLiquid(raw, context)
+  if (hasMarkdownLinks(rendered)) {
+    return page.renderProp(prop, context, { textOnly: true })
+  }
+  return rendered.trim()
 }

@@ -39,7 +39,8 @@ const router = express.Router()
  *   "meta": {
  *     "title": "About GitHub and Git",
  *     "intro": "You can use GitHub and Git to collaborate on work.",
- *     "product": "Get started"
+ *     "product": "Get started",
+ *     "documentType": "article"
  *   },
  *   "body": "## About GitHub\n\nGitHub is a cloud-based platform where you can store, share, and work together with others to write code.\n\nStoring your code in a \"repository\" on GitHub allows you to:\n\n* **Showcase or share** your work.\n [...]"
  * }
@@ -59,6 +60,7 @@ router.get(
     }
 
     incrementArticleLookup(req, 'full', cacheInfo)
+    recordBodySize(req, bodyContent)
 
     defaultCacheControl(res)
     return res.json({
@@ -100,6 +102,7 @@ router.get(
     }
 
     incrementArticleLookup(req, 'body')
+    recordBodySize(req, bodyContent)
 
     defaultCacheControl(res)
     return res.type('text/markdown').send(bodyContent)
@@ -110,7 +113,7 @@ router.get(
  * Get metadata about an article.
  * @route GET /api/article/meta
  * @param {string} pathname - Article path (e.g. '/en/get-started/article-name')
- * @returns {object} JSON object containing article metadata with title, intro, and product information.
+ * @returns {object} JSON object containing article metadata with title, intro, product, and documentType information.
  * @throws {Error} 400 - If pathname parameter is invalid.
  * @throws {Error} 404 - If the path is valid, but the page couldn't be resolved.
  * @example
@@ -119,6 +122,7 @@ router.get(
  *   "title": "About GitHub and Git",
  *   "intro": "You can use GitHub and Git to collaborate on work.",
  *   "product": "Get started",
+ *   "documentType": "article",
  *   "breadcrumbs": [
  *     {
  *       "href": "/en/get-started",
@@ -200,6 +204,15 @@ function incrementArticleLookup(
   if (cacheInfo) tags.push(`cache:${cacheInfo}`)
 
   statsd.increment('api.article.lookup', 1, tags)
+}
+
+function recordBodySize(req: ExtendedRequestWithPageInfo, body: string) {
+  const sizeBytes = Buffer.byteLength(body, 'utf8')
+  const tags = [
+    `pathname:${req.pageinfo.pathname}`.slice(0, 200),
+    `language:${req.pageinfo.page?.languageCode || 'en'}`,
+  ]
+  statsd.distribution('api.article.body_size_bytes', sizeBytes, tags)
 }
 
 export default router

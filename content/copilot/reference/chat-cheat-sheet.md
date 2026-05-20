@@ -4,8 +4,6 @@ shortTitle: Chat cheat sheet
 intro: 'Use this cheat sheet to quickly reference the most common commands and options for using {% data variables.copilot.copilot_chat %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Author and optimize with Copilot
 redirect_from:

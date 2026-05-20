@@ -5,12 +5,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Account management
 contentType: concepts
 redirect_from:
   - /account-and-profile/concepts/personal-account-management
+category:
+  - Set up your account
 ---
 
 {% ifversion ghes < 3.21 %}

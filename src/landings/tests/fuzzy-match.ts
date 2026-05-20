@@ -1,6 +1,11 @@
 import { describe, expect, test } from 'vitest'
 
-import { fuzzyMatch, fuzzyMatchScore, bigramCoverage } from '@/landings/lib/fuzzy-match'
+import {
+  fuzzyMatch,
+  fuzzyMatchScore,
+  bigramCoverage,
+  stripStopWords,
+} from '@/landings/lib/fuzzy-match'
 
 describe('fuzzyMatch', () => {
   test('matches exact substrings', () => {
@@ -10,6 +15,7 @@ describe('fuzzyMatch', () => {
 
   test('matches singular vs plural via bigrams', () => {
     expect(fuzzyMatch('GitHub Copilot agent', 'agents')).toBe(true)
+    // "repositories" vs "repository" = 73% coverage, above 70% threshold
     expect(fuzzyMatch('Managing your repository', 'repositories')).toBe(true)
   })
 
@@ -21,6 +27,26 @@ describe('fuzzyMatch', () => {
   test('returns false for non-matching text', () => {
     expect(fuzzyMatch('GitHub Copilot', 'xyz')).toBe(false)
     expect(fuzzyMatch('Repository settings', 'workflow')).toBe(false)
+  })
+
+  test('short terms (<=4 chars) require exact substring match', () => {
+    // "test" is 4 chars — exact substring only
+    expect(fuzzyMatch('Writing tests', 'test')).toBe(true)
+    expect(fuzzyMatch('Generating tables', 'test')).toBe(false)
+    // "mcp" is 3 chars
+    expect(fuzzyMatch('Using the GitHub MCP Server', 'mcp')).toBe(true)
+    expect(fuzzyMatch('Coding agents', 'mcp')).toBe(false)
+    // "pr" is 2 chars — exact substring only
+    expect(fuzzyMatch('Writing PR descriptions', 'pr')).toBe(true)
+    // "pr" is a substring of "enterprise", so this still matches (exact match)
+    expect(fuzzyMatch('Enterprise setup', 'pr')).toBe(true)
+  })
+
+  test('rejects false positives from similar-looking words at 75% threshold', () => {
+    // "billing" vs "installing" shared bigrams ll,li,in,ng = 4/6 = 67% (below 75%)
+    expect(fuzzyMatch('Installing extensions', 'billing')).toBe(false)
+    // "pricing" vs "writing pr" shared bigrams pr,ri,in,ng = 4/6 = 67% (below 75%)
+    expect(fuzzyMatch('Writing PR descriptions', 'pricing')).toBe(false)
   })
 
   test('matches multi-word queries via bigram coverage', () => {
@@ -56,18 +82,23 @@ describe('fuzzyMatchScore', () => {
   })
 
   test('returns bigram coverage score for fuzzy matches', () => {
-    // Bigram coverage should give a score between 0.6 and 1
+    // Bigram coverage should give a score between 0.7 and 1
     const score = fuzzyMatchScore('About Copilot memory features', 'memory copilot')
-    expect(score).toBeGreaterThan(0.6)
+    expect(score).toBeGreaterThanOrEqual(0.7)
     expect(score).toBeLessThan(1)
   })
 
   test('matches singular vs plural via bigrams', () => {
     // "agents" bigrams: ag, ge, en, nt, ts (5)
     // "agent" in text has: ag, ge, en, nt (4)
-    // Coverage: 4/5 = 0.8, which is > 0.6 threshold
+    // Coverage: 4/5 = 0.8, which is > 0.7 threshold
     const score = fuzzyMatchScore('GitHub Copilot agent', 'agents')
-    expect(score).toBeGreaterThan(0.6)
+    expect(score).toBeGreaterThanOrEqual(0.7)
+  })
+
+  test('rejects short terms that are not exact substrings', () => {
+    expect(fuzzyMatchScore('Generating tables', 'test')).toBe(-1)
+    expect(fuzzyMatchScore('Coding agents', 'mcp')).toBe(-1)
   })
 
   test('exact substring matches score higher than fuzzy matches', () => {
@@ -115,5 +146,27 @@ describe('bigramCoverage', () => {
   test('ignores whitespace in both text and search', () => {
     expect(bigramCoverage('co pi lot', 'copilot')).toBe(1)
     expect(bigramCoverage('copilot', 'co pi lot')).toBe(1)
+  })
+})
+
+describe('stripStopWords', () => {
+  test('removes specified stop words (case-insensitive)', () => {
+    expect(stripStopWords('GitHub Copilot agents', ['copilot', 'github'])).toBe('agents')
+    expect(stripStopWords('copilot trial', ['copilot', 'github'])).toBe('trial')
+    expect(stripStopWords('start Copilot trial', ['copilot', 'github'])).toBe('start trial')
+  })
+
+  test('returns empty string when only stop words', () => {
+    expect(stripStopWords('copilot', ['copilot', 'github'])).toBe('')
+    expect(stripStopWords('GitHub Copilot', ['copilot', 'github'])).toBe('')
+  })
+
+  test('preserves other words unchanged', () => {
+    expect(stripStopWords('billing plans', ['copilot', 'github'])).toBe('billing plans')
+    expect(stripStopWords('code review', ['copilot', 'github'])).toBe('code review')
+  })
+
+  test('with empty stop words list, preserves all words', () => {
+    expect(stripStopWords('GitHub Copilot agents', [])).toBe('GitHub Copilot agents')
   })
 })

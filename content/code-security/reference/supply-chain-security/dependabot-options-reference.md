@@ -13,14 +13,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Dependabot options
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 This article provides reference information for the configuration options available in the `dependabot.yml` file. Use these options to customize how {% data variables.product.prodname_dependabot %} monitors package ecosystems, schedules updates, and creates pull requests. For an overview of the `dependabot.yml` file and how it works, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-the-dependabot-yml-file).
@@ -35,7 +31,7 @@ All options marked with a {% octicon "shield-check" aria-label="Security updates
 | `updates` | Top level| Section where you define each `package-ecosystem` to update.|
 | [`package-ecosystem`](#package-ecosystem-) | Under `updates` | Define a package manager to update. |
 | [`directories` or `directory`](#directories-or-directory--) | Under each `package-ecosystem` entry | Define the location of the manifest or other definition files to update. |
-| [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, or `monthly`. |
+| [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, `monthly`{% ifversion fpt or ghes > 3.18 %}, `quarterly`, `semiannually`, `yearly`, or `cron`{% endif %}. |
 
 Optionally, you can also include a top-level `registries` key to define access details for private registries, see [Top-level `registries` key](#top-level-registries-key).
 
@@ -85,6 +81,9 @@ When `allow` is specified {% data variables.product.prodname_dependabot %} uses 
 |------------|---------|
 | `dependency-name` | Allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. |
 | `dependency-type` | Allow updates for dependencies of specific types. |
+| {% ifversion dependabot-allow-update-types %} |
+| `update-types` | Allow updates to one or more semantic versioning levels. Supported values: `version-update:semver-patch`, `version-update:semver-minor`, and `version-update:semver-major`. |
+| {% endif %} |
 
 ### `dependency-name` (`allow`)
 
@@ -104,6 +103,26 @@ For most package managers, you should define a value that will match the depende
 | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, `gomod`{% ifversion dependabot-uv-support %}, `uv`{% endif %}, also the dependencies of direct dependencies.|
 | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`{% ifversion dependabot-uv-support %}, `uv`{% endif %} (not all managers) | Only to dependencies defined by the package manager as production dependencies. |
 | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`{% ifversion dependabot-uv-support %}, `uv`{% endif %} (not all managers) | Only to dependencies defined by the package manager as development dependencies. |
+
+{% ifversion dependabot-allow-update-types %}
+
+### `update-types` (`allow`)
+
+`update-types` only affects _version_ updates, not _security updates_.
+
+Specify which semantic versions (SemVer) to allow.
+
+SemVer is an accepted standard for defining versions of software packages, in the form `x.y.z`. {% data variables.product.prodname_dependabot %} assumes that versions in this form are always `major.minor.patch`. The `update-types` value is a list of one or more strings.
+
+* Use `version-update:semver-patch` to allow patch releases.
+* Use `version-update:semver-minor` to allow minor releases.
+* Use `version-update:semver-major` to allow major releases.
+
+When `update-types` is omitted from an `allow` rule, all update types are allowed for that rule.
+
+You can combine `update-types` with `dependency-name` or `dependency-type` to further narrow allowed updates. For examples of how you can combine these options, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/controlling-dependencies-updated#allowing-specific-semantic-versioning-levels-for-updates).
+
+{% endif %}
 
 ## `assignees` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -199,42 +218,58 @@ You can specify the duration of the cooldown using the options below.
 | `include` | List of dependencies to **apply cooldown** (up to **150 items**). Supports wildcards (`*`). |
 | `exclude` | List of dependencies **excluded from cooldown** (up to **150 items**). Supports wildcards (`*`). |
 
-The table below shows the package managers for which SemVer is supported.
+The table below shows the package managers that support `cooldown`. The `default-days` option is supported for all package managers listed, while `semver-major-days`, `semver-minor-days`, and `semver-patch-days` are supported only where indicated.
 
-| Package manager        | SemVer supported |
-|-----------------------|------------------|
+| Package manager        | Default days supported | SemVer-bump days supported |
+|-----------------------|:----------------------:|:--------------------------:|
 | {% ifversion dependabot-bazel-support %} |
-| Bazel               | {% octicon "x" aria-label="Not supported" %}              |
+| Bazel               | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
-| Bundler               | {% octicon "check" aria-label="Supported" %}              |
-| Bun                   | {% octicon "check" aria-label="Supported" %}              |
-| Cargo                 | {% octicon "check" aria-label="Supported" %}              |
-| Composer              | {% octicon "check" aria-label="Supported" %}              |
-| Devcontainers         | {% octicon "x" aria-label="Not supported" %}              |
-| Docker                | {% octicon "x" aria-label="Not supported" %}              |
-| Docker Compose        | {% octicon "x" aria-label="Not supported" %}              |
-| Dotnet SDK            | {% octicon "check" aria-label="Supported" %}              |
-| Elm                   | {% octicon "check" aria-label="Supported" %}              |
-| {% data variables.product.prodname_actions %} | {% octicon "x" aria-label="Not supported" %} |
-| Gitsubmodule          | {% octicon "x" aria-label="Not supported" %}              |
-| Gomod (Go Modules)    | {% octicon "check" aria-label="Supported" %}              |
-| Gradle                | {% octicon "check" aria-label="Supported" %}              |
-| Helm                  | {% octicon "x" aria-label="Not supported" %}              |
-| Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              |
+| Bundler               | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Bun                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Cargo                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Composer              | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-conda-support %} |
+| Conda                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
+| Deno                  | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Devcontainers         | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Docker                | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Docker Compose        | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Dotnet SDK            | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Elm                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.product.prodname_actions %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Gitsubmodule          | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Gomod (Go Modules)    | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Gradle                | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Helm                  | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% ifversion dependabot-julia-support %} |
-| Julia                 | {% octicon "check" aria-label="Supported" %}              |
+| Julia                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
-| Maven                 | {% octicon "check" aria-label="Supported" %}              |
-| NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              |
-| NuGet                 | {% octicon "check" aria-label="Supported" %}              |
+| Maven                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-nix-support %} |
+| Nix flakes            | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
+| NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| NuGet                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% ifversion dependabot-opentofu-support %} |
-| OpenTofu              | {% octicon "check" aria-label="Supported" %}              |
+| OpenTofu              | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
-| Pip                   | {% octicon "check" aria-label="Supported" %}              |
-| Pub                   | {% octicon "check" aria-label="Supported" %}              |
-| Swift                 | {% octicon "check" aria-label="Supported" %}              |
-| Terraform             | {% octicon "x" aria-label="Not supported" %}              |
-| UV                    | {% octicon "check" aria-label="Supported" %}              |
+| Pip                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-pre-commit-support %} |
+| pre-commit            | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
+| Pub                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-rust-toolchain-support %} |
+| Rust toolchain        | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
+| Swift                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Terraform             | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| UV                    | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-vcpkg-support %} |
+| vcpkg                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 
 > [!NOTE]
 >
@@ -281,8 +316,11 @@ Parameters | Purpose |
 | `IDENTIFIER` | Define an identifier for the group to use in branch names and pull request titles. This must start and end with a letter, and can contain letters, pipes `\|`, underscores `_`, or hyphens `-`. |
 | `applies-to` | Specify which type of update the group applies to. When undefined, defaults to version updates. Supported values: `version-updates` or `security-updates`. |
 | `dependency-type` | Limit the group to a type. Supported values: `development` or `production`. |
-| `patterns` | Define one or more patterns to include dependencies with matching names. |
 | `exclude-patterns` | Define one or more patterns to exclude dependencies from the group. |
+| {% ifversion dependabot-updates-group-by %} |
+| `group-by` | Group updates across multiple directories. Supported value: `dependency-name`. |
+| {% endif %} |
+| `patterns` | Define one or more patterns to include dependencies with matching names. |
 | `update-types` | Limit the group to one or more semantic versioning levels. Supported values: `minor`, `patch`, and `major`. |
 
 ### `dependency-type` (`groups`)
@@ -293,6 +331,30 @@ By default, a group will include all types of dependencies.
 
 * Use `development` to include only dependencies in the "Development dependency group."
 * Use `production` to include only dependencies in the "Production dependency group."
+
+{% ifversion dependabot-updates-group-by %}
+
+### `group-by` (`groups`)
+
+Use `groups.<group-name>.group-by` to specify how {% data variables.product.prodname_dependabot %} should group updates across multiple directories in a monorepo.
+
+* **Type:** String
+* **Accepted values:** `dependency-name`
+* **Applies to:** Configurations with multiple directories specified
+
+When set to `dependency-name`, {% data variables.product.prodname_dependabot %} will create a single pull request for each dependency update across all specified directories, rather than separate pull requests per directory.
+
+**Limitations of cross-directory grouping**
+
+When using `group-by: dependency-name`:
+
+* All directories must use the same package ecosystem (for example, all `npm` or all `bundler`)
+* Applies to **version updates only**
+* If directories have incompatible version constraints for a dependency, {% data variables.product.prodname_dependabot %} will create separate pull requests
+
+For examples showing the use of `group-by`, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#grouping-updates-across-directories-in-a-monorepo).
+
+{% endif %}
 
 ### `patterns` and `exclude-patterns` (`groups`)
 
@@ -328,7 +390,7 @@ When `ignore` is used {% data variables.product.prodname_dependabot %} uses the 
 |------------|---------|
 | `dependency-name` | Ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. |
 | `versions` | Ignore specific versions or ranges of versions. |
-| `update-types` | Ignore updates to one or more semantic versioning levels. Supported values: `version-update:semver-minor`, `version-update:semver-patch`, and `version-update:semver-major`. |
+| `update-types` | Ignore updates to one or more semantic versioning levels. Supported values: `version-update:semver-patch`, `version-update:semver-minor`, and `version-update:semver-major`. |
 
 ### `dependency-name` (`ignore`)
 
@@ -415,7 +477,7 @@ Supported value: the numeric identifier of a milestone.
 >[!TIP]
 >If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
 
-{% ifversion not ghes %}
+{% ifversion dependabot-multi-ecosystem-support %}
 
 ## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
 
@@ -488,7 +550,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-bun-support %} |
 | Bun | `bun`         | >=v1.2.5              |
 | {% endif %} |
-| Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
+| Bundler | `bundler` | v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | v2         |
 | {% ifversion dependabot-conda-support %} |
@@ -499,9 +561,7 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
 | {% endif %} |
-| {% ifversion dependabot-dotnet-sdk %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
-| {% endif %} |
 | {% ifversion dependabot-helm-support %} |
 | Helm Charts            | `helm`            | v3               |
 | {% endif %} |
@@ -515,16 +575,22 @@ Package manager | YAML value      | Supported versions |
 | Go modules     | `gomod`          | v1               |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
+| {% ifversion dependabot-nix-support %} |
+| Nix flakes | `nix`            | Not applicable   |
+| {% endif %} |
 | npm            | `npm`            |  v7, v8, v9, v10   |
-| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} |
+| NuGet          | `nuget`          | <=6.12.0 |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
-| pip| `pip`            | v24.2          |
-| pip-compile | `pip`            | 7.4.1            |
-| pipenv         | `pip`            | <= 2024.4.1    |
-| pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
-| poetry         | `pip`            | v2               |
+| pip         | `pip`            | 24.2             |
+| pip-compile | `pip`            | 7.5.3            |
+| pipenv      | `pip`            | <= 2024.4.1      |
+| pnpm   | `npm`            | v7, v8, v9, v10   |
+| poetry      | `pip`    | v2    |
+| {% ifversion dependabot-pre-commit-support %} |
+| pre-commit | `pre-commit` | Not applicable |
+| {% endif %} |
 | pub         | `pub`            | v2  |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain | `rust-toolchain` | Not applicable   |
@@ -630,8 +696,6 @@ Reviewers must have at least read access to the repository.
 | {% endif %} |
 | [`timezone`](#timezone) | Specify the timezone of the `time` value.  |
 
-{% ifversion fpt or ghec %}
-
 ### `interval`
 
 Supported values: `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron`
@@ -646,20 +710,8 @@ Each package manager **must** define a schedule interval.
 * Use `yearly` to run on the first day of January.
 * Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
 
-{% elsif ghes %}
-
-### `interval`
-
-Supported values: `daily`, `weekly`, `monthly`{% ifversion dependabot-schedule-updates %}, or `cron`{% endif %}
-
-Each package manager **must** define a schedule interval.
-
-* Use `daily` to run on every weekday, Monday to Friday.
-* Use `weekly` to run once a week, by default on Monday.
-* Use `monthly` to run on the first day of each month.{% ifversion dependabot-schedule-updates %}
-* Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).{% endif %}
-
-{% endif %}
+>[!NOTE]
+> The supported values `quarterly`, `semiannually`, and `yearly` are only available on {% data variables.product.prodname_ghe_server %} from version 3.19.
 
 By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  {% ifversion dependabot-schedule-updates %}If you use a `cron` interval, you can define the update time with a `cronjob` expression.{% endif %}
 
@@ -688,6 +740,7 @@ Examples : `0 9 * * *`, `every day at 5pm`
 `0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
 
 > [!NOTE]
+>
 > * Timezones must be specified in the [`timezone`](#timezone) parameter and not in the `cronjob`.
 > * A `cronjob` type schedule is required to use a `cron` interval.
 
@@ -847,13 +900,11 @@ New version `1.2.0`
 New version `2.0.0`
 
 * `increase`: new constraint `^2.0.0`
-* `increase-if-necessary`: new constraint `^2.0.0 `
+* `increase-if-necessary`: new constraint `^2.0.0`
 * `widen`: new constraint `>=1.0.0 <3.0.0`
 
 > [!NOTE]
-> If the package manager you use does not yet support configuring the `versioning-strategy` parameter, or does not support a value you need. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in https://github.com/dependabot/dependabot-core/.
-
-{% ifversion dependabot-updates-supported-versioning-tags %}
+> If the package manager you use does not yet support configuring the `versioning-strategy` parameter, or does not support a value you need, the strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in <https://github.com/dependabot/dependabot-core/>.
 
 ### Versioning tags
 
@@ -881,8 +932,6 @@ New version `2.0.0`
 * **`stable`:** The most reliable, production-ready version.
 
 <!-- markdownlint-enable outdated-release-phase-terminology -->
-
-{% endif %}
 
 ## Top-level `registries` key
 
@@ -939,6 +988,8 @@ updates:
 
 The parameters used to provide authentication details for access to a private registry vary according to the registry `type`.
 
+{% ifversion dependabot-oidc-support %}
+
 | Registry `type` | Required authentication parameters |
 |--|--|
 | `cargo-registry` | `token` |
@@ -955,12 +1006,36 @@ The parameters used to provide authentication details for access to a private re
 | `rubygems-server` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
 | `terraform-registry` | `token` |
 
+{% else %}
+
+| Registry `type` | Required authentication parameters |
+|--|--|
+| `cargo-registry` | `token` |
+| `composer-repository` | `username` and `password` |
+| `docker-registry` | `username` and `password` |
+| `git` | `username` and `password` |
+| `hex-organization` | `organization` and `key` |
+| `hex-repository` | `repo` and `auth-key` optionally with the corresponding `public-key-fingerprint` |
+| `maven-repository` | `username` and `password` |
+| `npm-registry` | `username` and `password`<br>or `token` |
+| `nuget-feed` | `username` and `password`<br>or `token` |
+| `pub-registry` | `token` |
+| `python-index` | `username` and `password`<br>or `token` |
+| `rubygems-server` | `username` and `password`<br>or `token` |
+| `terraform-registry` | `token` |
+
+{% endif %}
+
 All sensitive data used for authentication should be stored securely and referenced from that secure location, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
 
 > [!TIP]
 > {% data reusables.dependabot.password-definition %}
 
+{% ifversion dependabot-oidc-support %}
+
 For more information about  OIDC support for {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/actions/concepts/security/openid-connect#oidc-support-for-dependabot) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication).
+
+{% endif %}
 
 ### `url` and `replaces-base`
 

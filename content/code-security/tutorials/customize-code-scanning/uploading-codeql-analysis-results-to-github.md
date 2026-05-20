@@ -8,63 +8,52 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
-## About SARIF output
-
-{% data variables.product.github %} creates {% data variables.product.prodname_code_scanning %} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF is designed to represent the output of a broad range of static analysis tools, and there are many features in the SARIF specification that are considered "optional". The results must use SARIF version 2.1.0. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning).
-
-After analyzing a {% data variables.product.prodname_codeql %} database using the {% data variables.product.prodname_codeql_cli %}, you will have a SARIF file that contains the results. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries). You can then use the {% data variables.product.prodname_codeql_cli %} to upload results to {% data variables.product.github %}.
+After analyzing a {% data variables.product.prodname_codeql %} database using the {% data variables.product.prodname_codeql_cli %}, you will have a SARIF file that contains the results. You can then use the {% data variables.product.prodname_codeql_cli %} to upload results to {% data variables.product.github %}.
 
 If you used a method other than the {% data variables.product.prodname_codeql_cli %} to generate results, you can use other upload methods. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github).
 
-{% data reusables.code-scanning.upload-sarif-ghas %}
-
 ## Generating a token for authentication with {% data variables.product.github %}
 
-Before you can upload your results to {% data variables.product.github %}, you will first need to generate a {% data variables.product.pat_generic %}.
+Before you can upload your results to {% data variables.product.github %}, you will first need to generate a {% data variables.product.pat_generic %}. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 * **{% data variables.product.pat_v1_caps %}** requires "{% data variables.product.prodname_code_scanning_caps %} alerts" **Read and write** access for the required repositories.
 * **{% data variables.product.pat_v2_caps %}** requires "repo" **security_events** access.
 
-For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-
-If you have installed the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.github %} as code scanning alerts, you can use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to upload results to {% data variables.product.github %}. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system#generating-a-token-for-authentication-with-github).
+If you have installed the {% data variables.product.prodname_codeql_cli %} in a third-party CI system, you can also use a {% data variables.product.prodname_github_app %} to upload results to {% data variables.product.github %}. See [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system#generating-a-token-for-authentication-with-github).
 
 ## Uploading results to {% data variables.product.github %}
 
-{% data reusables.code-scanning.upload-sarif-alert-limit %}
+1. {% data reusables.code-scanning.upload-sarif-alert-limit %}
+1. Determine the best way to pass the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} you created in the previous section to the {% data variables.product.prodname_codeql_cli %}. We recommend that you review your CI system's guidance on the secure use of a secret store. The {% data variables.product.prodname_codeql_cli %} supports:
 
-Before you can upload results to {% data variables.product.github %}, you must determine the best way to pass the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} you created in the previous section to the {% data variables.product.prodname_codeql_cli %}. We recommend that you review your CI system's guidance on the secure use of a secret store. The {% data variables.product.prodname_codeql_cli %} supports:
+   * Interfacing with a secret store using the `--github-auth-stdin` option (recommended).
+   * Saving the secret in the environment variable `GITHUB_TOKEN` and running the CLI without including the `--github-auth-stdin` option.
+   * For testing purposes you can pass the `--github-auth-stdin` command-line option and supply a temporary token via standard input.
 
-* Interfacing with a secret store using the `--github-auth-stdin` option (recommended).
-* Saving the secret in the environment variable `GITHUB_TOKEN` and running the CLI without including the `--github-auth-stdin` option.
-* For testing purposes you can pass the `--github-auth-stdin` command-line option and supply a temporary token via standard input.
+1. When you have decided on the most secure and reliable method for your configuration, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`.
 
-When you have decided on the most secure and reliable method for your configuration, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`.
+   ```shell
+   # {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available from a secret store
+   <call-to-retrieve-secret> | codeql github upload-results \
+       --repository=<repository-name> \
+       --ref=<ref> --commit=<commit> \
+       --sarif=<file> {% ifversion ghes %}--github-url=<URL> \
+       {% endif %}--github-auth-stdin
 
-```shell
-# {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available from a secret store
-<call-to-retrieve-secret> | codeql github upload-results \
-    --repository=<repository-name> \
-    --ref=<ref> --commit=<commit> \
-    --sarif=<file> {% ifversion ghes %}--github-url=<URL> \
-    {% endif %}--github-auth-stdin
-
-# {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available in GITHUB_TOKEN
-codeql github upload-results \
-    --repository=<repository-name> \
-    --ref=<ref> --commit=<commit> \
-    --sarif=<file> {% ifversion ghes %}--github-url=<URL> \
-    {% endif %}
-```
+   # {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available in GITHUB_TOKEN
+   codeql github upload-results \
+       --repository=<repository-name> \
+       --ref=<ref> --commit=<commit> \
+       --sarif=<file> {% ifversion ghes %}--github-url=<URL> \
+       {% endif %}
+   ```
 
 | Option | Required | Usage |
 | ------ | :------: | ----- |
@@ -94,7 +83,7 @@ codeql github upload-results \
     {% endif %}
 ```
 
-There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.github %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests) and [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).
+There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.github %} shortly afterward. You can see alerts directly in the pull request or on the **{% data variables.product.prodname_security_and_quality_tab %}** tab for branches, depending on the code you checked out. 
 
 ## Uploading diagnostic information to {% data variables.product.github %} if the analysis fails
 

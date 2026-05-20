@@ -1,9 +1,9 @@
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 const NEXT_DATA_QUERY = 'script#__NEXT_DATA__'
 const PRIMER_DATA_QUERY = 'script#__PRIMER_DATA__'
 
-function getScriptData($: ReturnType<typeof cheerio.load>, key: string): unknown {
+function getScriptData($: CheerioAPI, key: string): unknown {
   const data = $(key)
   if (data.length !== 1) {
     throw new Error(`Not exactly 1 element match for '${key}'. Found ${data.length}`)
@@ -18,7 +18,5 @@ function getScriptData($: ReturnType<typeof cheerio.load>, key: string): unknown
   throw new Error(`Could not extract data from '${key}'`)
 }
 
-export const getNextData = ($: ReturnType<typeof cheerio.load>): unknown =>
-  getScriptData($, NEXT_DATA_QUERY)
-export const getPrimerData = ($: ReturnType<typeof cheerio.load>): unknown =>
-  getScriptData($, PRIMER_DATA_QUERY)
+export const getNextData = ($: CheerioAPI): unknown => getScriptData($, NEXT_DATA_QUERY)
+export const getPrimerData = ($: CheerioAPI): unknown => getScriptData($, PRIMER_DATA_QUERY)

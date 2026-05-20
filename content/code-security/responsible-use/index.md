@@ -6,13 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
-  - Code Quality
 contentType: rai
 children:
   - /responsible-use-autofix-code-scanning

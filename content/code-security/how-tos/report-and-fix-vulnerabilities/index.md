@@ -6,17 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
-  - Dependencies
-  - Dependabot
 contentType: how-tos
 children:
   - configure-vulnerability-reporting
-  - report-a-vulnerability
+  - privately-reporting-a-security-vulnerability
   - fix-reported-vulnerabilities
 ---
+

@@ -10,6 +10,9 @@ redirect_from:
   - /actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
   - /actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds
   - /actions/how-tos/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds
+category:
+  - Secure your workflows
+contentType: how-tos
 ---
 
 ## Prerequisites
@@ -23,9 +26,9 @@ You can use {% data variables.product.prodname_actions %} to generate artifact a
 To generate an artifact attestation, you must:
 
 * Ensure you have the appropriate permissions configured in your workflow.
-* Include a step in your workflow that uses the [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance).
+* Include a step in your workflow that uses the [`attest` action](https://github.com/actions/attest).
 
-When you run your updated workflows, they will build your artifacts and generate an artifact attestation that establishes build provenance. You can view attestations in your repository's **Actions** tab. For more information, see the [`attest-build-provenance`](https://github.com/actions/attest-build-provenance) repository.
+When you run your updated workflows, they will build your artifacts and generate an artifact attestation that establishes build provenance. You can view attestations in your repository's **Actions** tab. For more information, see the [`attest`](https://github.com/actions/attest) repository.
 
 ### Generating build provenance for binaries
 
@@ -42,7 +45,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v3
+     uses: actions/attest@v4
      with:
        subject-path: 'PATH/TO/ARTIFACT'
    ```
@@ -65,7 +68,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v3
+     uses: actions/attest@v4
      with:
        subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}{% endraw %}
        subject-digest: 'sha256:fedcba0...'
@@ -84,9 +87,9 @@ To generate an attestation for an SBOM, you must:
 
 * Ensure you have the appropriate permissions configured in your workflow.
 * Create an SBOM for your artifact. For more information, see [`anchore-sbom-action`](https://github.com/marketplace/actions/anchore-sbom-action) in the {% data variables.product.prodname_marketplace %}.
-* Include a step in your workflow that uses the [`attest-sbom` action](https://github.com/actions/attest-sbom).
+* Include a step in your workflow that uses the [`attest` action](https://github.com/actions/attest) with the `sbom-path` input.
 
-When you run your updated workflows, they will build your artifacts and generate an SBOM attestation. You can view attestations in your repository's **Actions** tab. For more information, see the [`attest-sbom` action](https://github.com/actions/attest-sbom) repository.
+When you run your updated workflows, they will build your artifacts and generate an SBOM attestation. You can view attestations in your repository's **Actions** tab. For more information, see the [`attest`](https://github.com/actions/attest) repository.
 
 ### Generating an SBOM attestation for binaries
 
@@ -103,7 +106,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate SBOM attestation
-     uses: actions/attest-sbom@v2
+     uses: actions/attest@v4
      with:
        subject-path: 'PATH/TO/ARTIFACT'
        sbom-path: 'PATH/TO/SBOM'
@@ -127,7 +130,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate SBOM attestation
-     uses: actions/attest-sbom@v2
+     uses: actions/attest@v4
      with:
        subject-name: {% raw %}${{ env.REGISTRY }}/PATH/TO/IMAGE{% endraw %}
        subject-digest: 'sha256:fedcba0...'
@@ -177,7 +180,7 @@ gh attestation verify oci://ghcr.io/ORGANIZATION_NAME/IMAGE_NAME:test -R ORGANIZ
 
 To verify SBOM attestations, you have to provide the `--predicate-type` flag to reference a non-default predicate. For more information, see [Vetted predicates](https://github.com/in-toto/attestation/tree/main/spec/predicates#vetted-predicates) in the `in-toto/attestation` repository.
 
-For example, the [`attest-sbom` action](https://github.com/actions/attest-sbom) currently supports either SPDX or CycloneDX SBOM predicates. To verify an SBOM attestation in the SPDX format, you can use the following {% data variables.product.prodname_cli %} command.
+For example, the [`attest` action](https://github.com/actions/attest) currently supports either SPDX or CycloneDX SBOM predicates. To verify an SBOM attestation in the SPDX format, you can use the following {% data variables.product.prodname_cli %} command.
 
 ```bash copy
 gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY \

@@ -1,6 +1,3 @@
-> [!NOTE]
-> Plan mode is currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 Plan mode helps you to create detailed implementation plans before executing them. This ensures that all requirements are considered and addressed before any code changes are made. The plan agent does not make any code changes until the plan is reviewed and approved by you. Once approved, you can hand off the plan to the default agent or save it for further refinement, review, or team discussions.
 
 The plan agent is designed to:

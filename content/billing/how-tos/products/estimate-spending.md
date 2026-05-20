@@ -11,13 +11,11 @@ redirect_from:
   - /billing/using-the-new-billing-platform/estimating-spending
   - /billing/managing-your-billing/estimating-spending
   - /billing/tutorials/estimate-spending
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: how-tos
+category:
+  - Track spending and control costs
 ---
 
 The new billing platform provides a high-level view of your spending trends based on the usage across products. You can use this information to estimate your spending and make informed decisions about your budget.

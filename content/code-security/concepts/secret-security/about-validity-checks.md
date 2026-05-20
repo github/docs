@@ -7,12 +7,12 @@ product: |
 
   {% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
 contentType: concepts
-topics:
-  - Secret scanning
-  - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>=3.20'
+category:
+  - Protect your secrets
 ---
 
 ## About validity checks

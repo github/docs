@@ -70,8 +70,7 @@ export default function handleInvalidQuerystrings(
 
     if (invalidKeys.length > 0) {
       noCacheControl(res)
-      const invalidKey = invalidKeys[0].replace(/\[.*$/, '') // Get the base key name
-      res.status(400).send(`Invalid query string key (${invalidKey})`)
+      res.status(400).type('text').send('Invalid query string')
 
       const tags = [
         'response:400',
@@ -105,7 +104,7 @@ export default function handleInvalidQuerystrings(
       noCacheControl(res)
 
       const message = honeypotted ? 'Honeypotted' : 'Too many unrecognized query string parameters'
-      res.status(400).send(message)
+      res.status(400).type('text').send(message)
 
       const tags = [
         'response:400',
@@ -149,7 +148,7 @@ export default function handleInvalidQuerystrings(
       let newURL = req.path
       if (sp.toString()) newURL += `?${sp}`
 
-      res.redirect(302, newURL)
+      res.safeRedirect(302, newURL)
 
       const tags = [
         'response:302',

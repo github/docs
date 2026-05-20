@@ -1,4 +1,22 @@
 {
+  "2027-01-01": [
+    {
+      "location": "CheckAnnotation.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2027-01-01",
+      "criticality": "breaking",
+      "owner": "github/actions-persistence"
+    },
+    {
+      "location": "Artifact.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2027-01-01",
+      "criticality": "breaking",
+      "owner": "github/actions-persistence"
+    }
+  ],
   "2026-07-01": [
     {
       "location": "Team.viewerSubscription",

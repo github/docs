@@ -416,6 +416,18 @@ export default async function buildRecordsFromApi(
       }
 
       if (result.record) {
+        // Validate required fields before adding to records
+        if (!result.record.title) {
+          failedPages.push({
+            url: permalink.href,
+            relativePath: permalink.relativePath,
+            error: 'Record has empty title',
+            errorType: 'Validation Error',
+          })
+          if (!noMarkers) process.stdout.write(chalk.red('✗'))
+          return null
+        }
+
         // Apply popularity
         const pathArticle = permalink.relativePath.replace('/index.md', '').replace('.md', '')
         let popularity = (hasPopularPages && popularPages[pathArticle]) || 0.0

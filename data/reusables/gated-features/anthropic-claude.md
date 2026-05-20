@@ -1,1 +1,1 @@
-{% data variables.product.prodname_anthropic_claude %} is only available with the {% data variables.copilot.copilot_pro_plus %} plan.
+{% data variables.product.prodname_anthropic_claude %} is available in the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %}, and {% data variables.copilot.copilot_enterprise %} plans.

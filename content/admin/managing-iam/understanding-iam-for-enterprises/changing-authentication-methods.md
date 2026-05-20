@@ -1,6 +1,6 @@
 ---
 title: Changing authentication methods
-intro: 'You can change the way {% data variables.product.prodname_ghe_server %} authenticates with your existing accounts at any time.'
+intro: You can change the way {% data variables.product.prodname_ghe_server %} authenticates with your existing accounts at any time.
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
   - /enterprise/admin/authentication/changing-authentication-methods
@@ -11,13 +11,10 @@ redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/changing-authentication-methods
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Change authentication methods
+contentType: concepts
+category:
+  - Configure authentication
 ---
 User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
 

@@ -13,12 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Webhooks
-  - Integration
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 ## About integration with code scanning

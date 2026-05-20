@@ -5,12 +5,13 @@ allowTitleToDifferFromFilename: true
 intro: 'Create specialized agents with tailored expertise for specific development tasks.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
-  - Configure Copilot
-  - Author and optimize with Copilot
+  - Configure Copilot # Copilot discovery page
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: how-tos
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -21,7 +22,7 @@ When you prompt {% data variables.product.prodname_copilot_short %} to carry out
 
 Work performed by a {% data variables.copilot.copilot_custom_agent_short %} is carried out using a subagent, which is a temporary agent spun up to complete the task. The subagent has its own context window, which can be populated by information that is not relevant to the main agent. In this way, especially for larger tasks, parts of the work can be offloaded to {% data variables.copilot.custom_agents_short %}, without cluttering the main agent's context window. The main agent can then focus on higher-level planning and coordination.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
+For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-custom-agents).
 
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %}
 
@@ -32,7 +33,7 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
 1. Choose between the options to create the {% data variables.copilot.copilot_custom_agent_short %} in the repository or in your home directory:
 
    * **Project** (`.github/agents/`)
-   * **User** (`~/.config/copilot/agents/`)
+   * **User** (`~/.copilot/agents/`)
 
    > [!NOTE]
    > If you have {% data variables.copilot.custom_agents_short %} with the same name in both locations, the one in your home directory will be used, rather than the one in the repository.
@@ -137,4 +138,5 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/comparing-cli-features)
 * [AUTOTITLE](/copilot/reference/custom-agents-configuration)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#custom-agents-reference)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-agents)—a curated collection of examples

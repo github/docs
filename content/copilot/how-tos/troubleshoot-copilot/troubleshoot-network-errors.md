@@ -1,10 +1,6 @@
 ---
 title: Troubleshooting network errors for GitHub Copilot
 intro: Resolve common errors related to proxies and custom certificates.
-topics:
-  - Copilot
-  - Logging
-  - Troubleshooting
 redirect_from:
   - /copilot/troubleshooting-github-copilot/troubleshooting-certificate-errors-for-github-copilot
   - /copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot

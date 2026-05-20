@@ -5,12 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Security overview
-  - Organizations
-  - Teams
-  - Dependencies
-  - Code Security
 children:
   - /end-to-end-supply-chain-overview
   - /securing-accounts

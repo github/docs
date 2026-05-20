@@ -4,18 +4,13 @@ intro: You can configure the {% data variables.product.prodname_actions_runner_c
 versions:
   feature: dependabot-arc-support
 permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
-topics:
-  - Repositories
-  - Dependabot
-  - Version updates
-  - Security updates
-  - Dependencies
-  - Pull requests
 contentType: tutorials
 allowTitleToDifferFromFilename: true
 shortTitle: Configure ARC
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/setting-dependabot-to-run-on-self-hosted-runners-using-arc
+category:
+  - Secure your dependencies
 ---
 
 ## Working with the {% data variables.product.prodname_actions_runner_controller %} (ARC)

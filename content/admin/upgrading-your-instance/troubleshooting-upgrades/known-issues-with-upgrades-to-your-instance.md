@@ -1,18 +1,16 @@
 ---
 title: Known issues with upgrades to your instance
-intro: 'See an overview of workarounds for issues that impact the upgrade process for {% data variables.product.prodname_ghe_server %}, or impact your instance after you complete an upgrade.'
+intro: See an overview of workarounds for issues that impact the upgrade process for {% data variables.product.prodname_ghe_server %}, or impact your instance after you complete an upgrade.
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Troubleshooting
-  - Upgrades
 shortTitle: Known issues with upgrades
 redirect_from:
   - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance
+contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 ## About known issues with {% data variables.product.prodname_ghe_server %} upgrades
@@ -28,15 +26,6 @@ We have lifted the pause on upgrades to versions 3.15, 3.16, and 3.17. You can n
 We have extended the support window for versions 3.14, 3.15, 3.16, and 3.17. The support window for 3.13 remains unchanged. The closing down date for each of 3.14, 3.15, 3.16, and 3.17 has been updated. For more information, see [AUTOTITLE](/admin/all-releases#releases-of-github-enterprise-server).
 
 We will continue to release patches for 3.14, 3.15, 3.16, and 3.17 throughout this extended support window.
-
-{% ifversion ghes < 3.15 %}
-
-## Elasticsearch Upgrade
-
-As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade).
-{% endif %}
-
-{% ifversion ghes > 3.14 %}
 
 ## Required root disk size increased to 400GB
 
@@ -70,7 +59,6 @@ In case you did not have the opportunity to run the encryption diagnostics scrip
 If undecryptable records are detected, you will be prompted whether you want to proceed with the upgrade or not. If you proceed, the upgrade process deletes the undecryptable records. Otherwise, the upgrade process will exit.
 
 If you have any questions during the upgrade, you can reach out to {% data variables.contact.github_support %}. Once you have had the time and opportunity to understand the impact, you can retrigger the upgrade.
-{% endif %}
 
 {% ifversion ghes < 3.17 %}
 

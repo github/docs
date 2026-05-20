@@ -1,0 +1,226 @@
+{
+  "default": {
+    "descriptionHtml": "",
+    "summaryHtml": "<p>This event occurs when code security and analysis features are enabled or disabled for a repository. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/code-security/getting-started/github-security-features\">GitHub security features</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Administration\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "from",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "security_and_analysis",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "object",
+                    "name": "advanced_security",
+                    "description": "<p>Enable or disable GitHub Advanced Security for the repository.</p>\n<p>For standalone Code Scanning or Secret Protection products, this parameter cannot be used.</p>",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "status",
+                        "description": "",
+                        "enum": [
+                          "enabled",
+                          "disabled"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "code_security",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "status",
+                        "description": "",
+                        "enum": [
+                          "enabled",
+                          "disabled"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "dependabot_security_updates",
+                    "description": "<p>Enable or disable Dependabot security updates for the repository.</p>",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "status",
+                        "description": "<p>The enablement status of Dependabot security updates for the repository.</p>",
+                        "enum": [
+                          "enabled",
+                          "disabled"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "secret_scanning",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "status",
+                        "description": "",
+                        "enum": [
+                          "enabled",
+                          "disabled"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "secret_scanning_push_protection",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "status",
+                        "description": "",
+                        "enum": [
+                          "enabled",
+                          "disabled"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "secret_scanning_non_provider_patterns",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "status",
+                        "description": "",
+                        "enum": [
+                          "enabled",
+                          "disabled"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "secret_scanning_delegated_alert_dismissal",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "status",
+                        "description": "",
+                        "enum": [
+                          "enabled",
+                          "disabled"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "secret_scanning_delegated_bypass",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "string",
+                        "name": "status",
+                        "description": "",
+                        "enum": [
+                          "enabled",
+                          "disabled"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "name": "secret_scanning_delegated_bypass_options",
+                    "description": "",
+                    "childParamsGroups": [
+                      {
+                        "type": "array of objects",
+                        "name": "reviewers",
+                        "description": "<p>The bypass reviewers for secret scanning delegated bypass</p>",
+                        "childParamsGroups": [
+                          {
+                            "type": "integer",
+                            "name": "reviewer_id",
+                            "description": "<p>The ID of the team or role selected as a bypass reviewer</p>",
+                            "isRequired": true
+                          },
+                          {
+                            "type": "string",
+                            "name": "reviewer_type",
+                            "description": "<p>The type of the bypass reviewer</p>",
+                            "isRequired": true,
+                            "enum": [
+                              "TEAM",
+                              "ROLE"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>Full Repository</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "default",
+    "category": "security_and_analysis"
+  }
+}

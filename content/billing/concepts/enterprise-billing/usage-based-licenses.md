@@ -14,13 +14,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
 permissions: Enterprise administrators
 product: '{% data variables.product.prodname_enterprise %}'
 shortTitle: Usage-based licenses
 contentType: concepts
+category:
+  - Manage enterprise licenses
 ---
 
 Usage-based billing means you pay each month for the number of licenses actually consumed in your enterprise account, instead of committing to a fixed number in advance. This model provides flexibility and can be more cost-efficient than traditional volume licensing.

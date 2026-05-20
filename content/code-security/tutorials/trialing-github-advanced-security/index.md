@@ -8,10 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '> 3.15'
-topics:
-  - Enterprise
-  - Code Security
-  - Secret Protection
 children:
   - /planning-a-trial-of-ghas
   - /trial-advanced-security

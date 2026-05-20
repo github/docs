@@ -23,11 +23,10 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [`changelog`](#changelog)
   - [`defaultPlatform`](#defaultplatform)
   - [`defaultTool`](#defaulttool)
-  - [`learningTracks`](#learningtracks)
-  - [`includeGuides`](#includeguides)
+
   - [`journeyTracks`](#journeytracks)
-  - [`type`](#type)
-  - [`topics`](#topics)
+  - [`journeyArticlesHeading`](#journeyarticlesheading)
+  - [`contentType`](#contenttype)
   - [`communityRedirect`](#communityRedirect)
   - [`effectiveDate`](#effectiveDate)
   - [Escaping single quotes](#escaping-single-quotes)
@@ -41,7 +40,6 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [Legacy filepaths and redirects for links](#legacy-filepaths-and-redirects-for-links)
   - [Index pages](#index-pages)
   - [Home page](#homepage)
-  - [Creating new product guides pages](#creating-new-product-guides-pages)
 
 ## Frontmatter
 
@@ -151,8 +149,7 @@ shortTitle: Contributing to projects
 ### `layout`
 
 - Purpose: Render the proper page layout.
-- Type: `String` that matches the name of the layout.
-For a layout named `components/landing`, the value would be `product-landing`.
+- Type: `String` that matches the name of a supported layout. See `layoutNames` in `src/frame/lib/frontmatter.ts` for the authoritative list (for example, `discovery-landing`, `journey-landing`, `bespoke-landing`, `category-landing`, `toc-landing`, `inline`).
 - Optional. If omitted, `DefaultLayout` is used.
 
 ### `children`
@@ -231,27 +228,6 @@ defaultPlatform: linux
 defaultTool: cli
 ```
 
-### `learningTracks`
-- Purpose: Render a list of learning tracks on a product's sub-landing page.
-- type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-- Optional
-
-**Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
-
-### `includeGuides`
-- Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
-- Type: `Array`
-- Optional.
-
-Example:
-
-```yaml
-includeGuides:
-  - /actions/guides/about-continuous-integration
-  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-  - /actions/guides/building-and-testing-nodejs
-  - /actions/guides/building-and-testing-powershell
-```
 
 ### `journeyTracks`
 - Purpose: Define journeys for journey landing pages.
@@ -285,15 +261,28 @@ journeyTracks:
       - href: '/actions/deployment/deploying-with-github-actions'
 ```
 
-### `type`
-- Purpose: Indicate the type of article.
-- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`.
-- Optional.
+### `journeyArticlesHeading`
+- Purpose: Override the default "Articles" heading shown above the article list on single-track journey landing pages.
+- Type: `String`
+- Only applicable when used with `layout: journey-landing` and a single journey track.
+- Optional. If omitted, the heading defaults to the translated value of `journey_landing.articles_heading` ("Articles").
 
-### `topics`
-- Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](/data/allowed-topics.ts). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/src/search/tests/topics.ts) will fail.
-- Type: Array of `String`s
-- Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
+Example:
+
+```yaml
+layout: journey-landing
+journeyArticlesHeading: "Guides"
+journeyTracks:
+  - id: ado_migration
+    title: Run your migration
+    guides:
+      - href: /migrations/ado/understand-migrations-from-azure-devops-to-github
+```
+
+### `contentType`
+- Purpose: Indicate the type of article.
+- Type: `String`, one of `get-started`, `concepts`, `how-tos`, `reference`, `tutorials`, `rai`, `landing` (only applies to `content/<product>/index.md` files).
+- Optional.
 
 ### `communityRedirect`
 - Purpose: Set a custom link and link name for `Ask the GitHub community` link in the footer.
@@ -439,13 +428,3 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 
 `childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
 
-### Creating new product guides pages
-
-To create a product guides page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
-
-1. Use the product guides page template by referencing `layout: product-guides`.
-1. (optional) Include the learning tracks in [`learningTracks`](#learningTracks).
-1. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
-
-If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-If using `includeGuides`, make sure each of the articles in this list has [`topics`](#topics) and [`type`](#type) in its frontmatter.

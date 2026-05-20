@@ -8,12 +8,10 @@ versions:
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: View GHAS committers
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## About the "Advanced Security Committers" dashboard

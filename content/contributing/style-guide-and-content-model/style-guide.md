@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/writing-for-github-docs/style-guide
+category:
+  - Follow the style guide and content model
 ---
 
 <!--
@@ -1008,12 +1010,8 @@ Each release note in a set describes one of the following changes.
 * [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 * [Changes](#changes): notable changes to past behavior
 * [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
-{%- ifversion ghes < 3.16 %}
-* [Deprecations](#deprecations): removal of a feature or behavior
-{%- else %}
 * [Closing down](#closing-down): the process of being retired and should no longer be relied upon for future work
 * [Retired](#retired): end of a product or feature lifecycle
-{%- endif %}
 * [Errata](#errata): correction to inaccurate release note or documentation
 
 You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note) and [Removing a release note](#removing-a-release-note).
@@ -1156,36 +1154,6 @@ A release note for a known issue answers the following questions.
 
 * > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
 
-{% ifversion ghes < 3.16 %}
-
-### Deprecations
-
-A deprecation release note summarizes a behavior or feature that {% data variables.product.company_short %} has removed or plans to remove. Generally, notes for deprecations are only part of feature releases.
-
-#### Writing release notes for deprecations
-
-A release note for a deprecation answers the following questions.
-
-1. Does this existing functionality apply to me, with my role or access?
-1. What is the functionality that's being deprecated?
-1. If applicable, what replaces the deprecated functionality?
-1. If applicable, where can I read more?
-
-> _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see [_ARTICLE TITLE_](/) (**4**).
-
-* Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
-* To reduce repetition and unnecessary words, "now" is usually implied.
-* To clarify actors and impact, avoid passive language when possible.
-* Categorize each feature in a section, under a feature heading.
-
-#### Examples of release notes for deprecations
-
-* > **Upcoming deprecation:** In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
-
-* > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
-
-{% else %}
-
 ### Closing down
 
 A release note for a feature that is closing down summarizes a behavior or feature that {% data variables.product.github %} plans to remove. These features are still available for production use and come with the associated support SLAs and technical support obligations. However, they are in the process of being retired and should no longer be relied upon for future work. Closing down is a transitional stage where users are advised to stop using the feature and prepare for its retirement.
@@ -1235,8 +1203,6 @@ A release note for a retired feature answers the following questions.
 #### Examples of release notes for retired features
 
 * > **Retired:** {% data variables.product.github %} no longer supports required workflows for {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 3.11 and later. Use repository rulesets instead. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging).
-
-{% endif %}
 
 ### Errata
 
@@ -1659,7 +1625,7 @@ Unless the content is about administering an enterprise product, describe an ind
 With {% data variables.product.company_short %}'s enterprise products, administrators manage an enterprise account. An enterprise account can own multiple organizations, and people's user accounts can be members of the organizations. For more information, see the "Roles in an enterprise" article for each product.
 
 * [{% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
-* [{% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [{% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 

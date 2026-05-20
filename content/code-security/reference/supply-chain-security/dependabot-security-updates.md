@@ -2,16 +2,13 @@
 title: Dependabot security updates reference
 shortTitle: Dependabot security updates
 intro: Find usage information for {% data variables.product.prodname_dependabot_security_updates %}.
-topics:
-  - Dependency graph
-  - Dependencies
-  - Vulnerabilities
-  - Repositories
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 ## Priority of grouped security update settings

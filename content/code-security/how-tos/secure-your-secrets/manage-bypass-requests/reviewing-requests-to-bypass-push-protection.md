@@ -1,30 +1,25 @@
 ---
 title: Reviewing requests to bypass push protection
 shortTitle: Review bypass requests
-intro: You can use security overview to review requests to bypass push protection from contributors pushing to repositories across your organization.
+intro: Approve or deny requests from contributors who need to push commits containing secrets to your organization's repositories.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-sp-only %}'
 contentType: how-tos
-topics:
-  - Security overview
-  - Secret Protection
-  - Organizations
-  - Teams
-  - Secret scanning
-  - Alerts
 versions:
-  feature: security-overview-delegated-bypass-requests
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/security-overview/reviewing-requests-to-bypass-push-protection
+category:
+  - Secure at scale
 ---
 
-## About bypass requests
+## Prerequisites
 
-If your organization has configured delegated bypass for push protection, a designated team of reviewers controls which organization members can push secrets to repositories in your organization, and which members must first make a "bypass request" in order to push the secret.
+Before you can review bypass requests, delegated bypass must be enabled for your organization or repositories. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enabling-delegated-bypass-for-push-protection).
 
-On the "Push protection bypass" page in security overview, reviewers can find, review (approve or deny) and manage these requests.
-
-For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection).
+You can review and manage these requests in security overview.
 
 ## Reviewing bypass requests for an organization
 
@@ -34,9 +29,8 @@ For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advan
 1. Select the **All statuses** dropdown menu, then click **Open** to view requests that are awaiting review, or that have been approved but for which the commits haven't been pushed to the repository yet.
 1. Click the request that you want to review.
 1. Review the details of the request.
-{% ifversion push-protection-bypass-reviewer-comment -%}
 {% data reusables.repositories.bypass-requests-reviewer-comment %}
-{%- endif %}
+
 1. To allow the contributor to push the commit containing the secret, click **Approve bypass request**. Or, to require the contributor to remove the secret from the commit, click **Deny bypass request**.
 
 ## Filtering requests

@@ -6,11 +6,6 @@ product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-fe
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
-topics:
-  - Secret Protection
-  - Secret scanning
-  - AI
-  - Copilot
 redirect_from:
   - /code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns
   - /code-security/secret-scanning/about-generating-regular-expressions-with-ai
@@ -19,6 +14,8 @@ redirect_from:
   - /code-security/secret-scanning/copilot-secret-scanning/responsible-use-ai-regex-generator
   - /code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator
 contentType: rai
+category:
+  - Protect your secrets
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->

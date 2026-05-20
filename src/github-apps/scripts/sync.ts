@@ -227,11 +227,11 @@ export async function syncGitHubAppsData(
               const worksWithData = {
                 'user-to-server': Boolean(
                   isUserAccessToken &&
-                    !isActorExcluded(excludedActors, 'user_to_server', actorTypeMap),
+                  !isActorExcluded(excludedActors, 'user_to_server', actorTypeMap),
                 ),
                 'server-to-server': Boolean(
                   isInstallationAccessToken &&
-                    !isActorExcluded(excludedActors, 'server_to_server', actorTypeMap),
+                  !isActorExcluded(excludedActors, 'server_to_server', actorTypeMap),
                 ),
                 'additional-permissions': additionalPermissions,
               }

@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage default labels
+category:
+  - Set repository policies
 ---
 
 Organization owners can manage default labels for repositories in the organization.

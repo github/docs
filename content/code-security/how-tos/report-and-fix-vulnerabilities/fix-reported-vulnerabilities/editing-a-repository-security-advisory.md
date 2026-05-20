@@ -12,10 +12,9 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Vulnerabilities
 shortTitle: Edit repository advisories
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}

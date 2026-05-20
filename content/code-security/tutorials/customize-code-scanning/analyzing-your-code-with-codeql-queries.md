@@ -7,15 +7,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/analyzing-databases-with-the-codeql-cli
   - /code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## About analyzing databases with the {% data variables.product.prodname_codeql_cli %}
@@ -68,7 +66,7 @@ You must specify `<database>`, `--format`, and `--output`. You can specify addit
 | <code><span style="white-space: nowrap;">--output</span></code> | {% octicon "check" aria-label="Required" %} | Specify the location where you want to save the SARIF results file, including the desired filename with the `.sarif` extension. |
 | <code><span style="white-space: nowrap;">--sarif-category</span></code> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository.<br><br>Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. |
 | <code><span style="white-space: nowrap;">--sarif-add-baseline-file-info</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to submit file coverage information to the {% data variables.code-scanning.tool_status_page %}. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page#how-codeql-defines-scanned-files). |
-| <code><span style="white-space: nowrap;">--sarif-include-query-help</span></code> | {% octicon "x" aria-label="Optional" %} | Specify whether to include query help in the SARIF output. One of: `always`: Include query help for all queries. `custom_queries_only` (default): Include query help only for custom queries, that is, queries in query packs which are not of the form `codeql/<lang>-queries`. `never`: Do not include query help for any queries. Any query help for custom queries included in the SARIF output will be displayed in any code scanning alerts for the query. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli#including-query-help-for-custom-codeql-queries-in-sarif-files). |
+| <code><span style="white-space: nowrap;">--sarif-include-query-help</span></code> | {% octicon "x" aria-label="Optional" %} | Specify whether to include query help in the SARIF output. One of: `always`: Include query help for all queries. `custom_queries_only` (default): Include query help only for custom queries, that is, queries in query packs which are not of the form `codeql/<lang>-queries`. `never`: Do not include query help for any queries. Any query help for custom queries included in the SARIF output will be displayed in any code scanning alerts for the query. For more information, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/writing-and-sharing-custom-queries-for-the-codeql-cli#including-query-help-for-custom-codeql-queries-in-sarif-files). |
 | `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include {% data variables.product.prodname_codeql %} query packs in your analysis. For more information, see [Downloading and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#downloading-and-using-codeql-query-packs). |
 | <code><span style="white-space: nowrap;">--download</span></code> | {% octicon "x" aria-label="Optional" %}  | Use if some of your {% data variables.product.prodname_codeql %} query packs are not yet on disk and need to be downloaded before running queries. |
 | <code><span style="white-space: nowrap;">--threads</span></code> | {% octicon "x" aria-label="Optional" %}  | Use if you want to use more than one thread to run queries. The default value is `1`. You can specify more threads to speed up query execution. To set the number of threads to the number of logical processors, specify `0`. |
@@ -155,7 +153,7 @@ codeql database analyze <javascript-database> ../ql/javascript/ql/src/Declaratio
 
 You can also run your own custom queries with the `database analyze` command.
 For more information about preparing your queries to use with the {% data variables.product.prodname_codeql_cli %},
-see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli).
+see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/writing-and-sharing-custom-queries-for-the-codeql-cli).
 
 ### Running all queries in a directory
 
@@ -290,7 +288,7 @@ Results files can be integrated into your own code-review or debugging infrastru
 
 When you analyze a {% data variables.product.prodname_codeql %} database using a {% data variables.product.prodname_code_scanning %} query suite, in addition to generating detailed information about alerts, the CLI reports diagnostic data from the database generation step and summary metrics. If you choose to generate SARIF output, the additional data is also included in the SARIF file. For repositories with few alerts, you may find this information useful for determining if there are genuinely few problems in the code, or if there were errors generating the {% data variables.product.prodname_codeql %} database. For more detailed output from `codeql database analyze`, use the `--verbose` option.
 
-For more information about the type of diagnostic information available, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#about-analysis-and-diagnostic-information).
+For more information about the type of diagnostic information available, see [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs).
 
 You can choose to export and upload diagnostic information to {% data variables.product.github %} even if a {% data variables.product.prodname_codeql %} analysis fails. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github#uploading-diagnostic-information-to-github-if-the-analysis-fails).
 

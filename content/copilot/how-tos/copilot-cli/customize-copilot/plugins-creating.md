@@ -5,19 +5,20 @@ allowTitleToDifferFromFilename: true
 intro: 'Create a plugin to share customizations in an easy-to-install package.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
-  - Configure Copilot
-  - Author and optimize with Copilot
+  - Configure Copilot # Copilot discovery page
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: how-tos
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
 
 Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
 
-{% data reusables.copilot.cli-help-note %}
+{% data reusables.copilot.copilot-cli.cli-help-note %}
 
 ## Plugin structure
 
@@ -44,7 +45,7 @@ my-plugin/
 
    **Example `plugin.json` file**
 
-   {% data reusables.copilot.cli-example-plugin-file %}
+   {% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
 
    For details of the full set of fields you can include in this file, see [AUTOTITLE](/copilot/reference/cli-plugin-reference#pluginjson).
 

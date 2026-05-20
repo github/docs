@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 children:
   - /using-ssh-over-the-https-port
   - /recovering-your-ssh-key-passphrase

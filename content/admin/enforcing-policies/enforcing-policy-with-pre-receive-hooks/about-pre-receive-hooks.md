@@ -8,11 +8,9 @@ redirect_from:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Policies
-  - Pre-receive hooks
+contentType: concepts
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About pre-receive hooks

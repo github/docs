@@ -14,18 +14,18 @@ const firstPartyPrefixes = ['actions/', './.github/actions/', 'github/', 'octo-o
 
 interface WorkflowStep {
   uses?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface WorkflowJob {
   steps?: WorkflowStep[]
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface WorkflowYaml {
   jobs?: Record<string, WorkflowJob>
   steps?: WorkflowStep[]
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export const thirdPartyActionPinning: Rule = {

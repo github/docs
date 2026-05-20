@@ -7,15 +7,11 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Teams
-  - SSH
-  - Security
-  - Accounts
 redirect_from:
   - /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts
 contentType: tutorials
+category:
+  - Secure your dependencies
 ---
 ## About this guide
 

@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 children:
   - /managing-multiple-accounts
   - /merging-multiple-personal-accounts

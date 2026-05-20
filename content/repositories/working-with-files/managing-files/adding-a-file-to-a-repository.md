@@ -14,9 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Add a file
+category:
+  - Work with files
 ---
 
 ## Adding a file to a repository on {% data variables.product.github %}

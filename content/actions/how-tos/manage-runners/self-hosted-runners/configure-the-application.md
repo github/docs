@@ -13,6 +13,9 @@ versions:
   ghes: '*'
   ghec: '*'
 defaultPlatform: linux
+category:
+  - Set up runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

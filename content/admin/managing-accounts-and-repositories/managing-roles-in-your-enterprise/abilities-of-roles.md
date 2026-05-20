@@ -15,10 +15,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 allowTitleToDifferFromFilename: true
 contentType: reference
+category:
+  - Manage accounts and repositories
 ---
 
 ## About roles in an enterprise

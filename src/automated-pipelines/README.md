@@ -2,7 +2,7 @@
 
 Our automated pipelines directory contains code shared by our automated pipelines, including REST, GraphQL, Webhooks, CodeQL CLI, and GitHub Apps.
 
-## What is automated pipelines
+## What are automated pipelines
 
 An automated pipeline consumes data from an external source that is used to create content for docs.github.com. An automated pipeline does not automate documentation that is created by our content writing team. For example, if a writer creates a structured data file like YAML or JSON that lives in the `docs-internal` repo, using that data to create a page does not create an automated pipeline.
 

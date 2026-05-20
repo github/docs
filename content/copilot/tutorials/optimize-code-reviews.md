@@ -6,8 +6,6 @@ intro: Automate reviews with {% data variables.product.prodname_copilot_short %}
 product: '{% data variables.copilot.copilot_code-review_short %} is available for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: tutorials
 category:
   - Accelerate PR velocity
@@ -221,7 +219,7 @@ Automatic review comments help you optimize your reviews and secure your code mo
 To make your reviews more efficient and effective using {% data variables.product.prodname_copilot_short %}'s review capabilities, get started by following these steps.
 
 1. Create custom instructions specific to your project and repository. Write your own, or take inspiration from our library of examples. See [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
-1. To enable automatic {% data variables.copilot.copilot_code-review_short %} for your repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review).
+1. To enable automatic {% data variables.copilot.copilot_code-review_short %} for your repository, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review).
 1. To configure {% data variables.copilot.copilot_autofix_short %} for your repo you'll need to enable {% data variables.product.prodname_code_scanning %}. Once {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} analysis is enabled, {% data variables.copilot.copilot_autofix_short %} is enabled by default. For the easiest setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning). 
 
 ## Further reading

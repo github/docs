@@ -1,13 +1,10 @@
 ---
 title: Creating custom roles
 shortTitle: Create custom roles
-intro: 'Create custom organization roles with fine-grained permissions tailored to your enterprise needs.'
+intro: Create custom organization roles with fine-grained permissions tailored to your enterprise needs.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Permissions
+contentType: how-tos
 ---
 
 {% data reusables.enterprise-onboarding.create-custom-roles %}

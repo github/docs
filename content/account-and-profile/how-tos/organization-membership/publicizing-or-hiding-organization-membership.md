@@ -1,6 +1,6 @@
 ---
 title: Publicizing or hiding organization membership
-intro: Show avatars for organizations where you’re an organization member.
+intro: Show avatars for organizations where you're an organization member.
 redirect_from:
   - /articles/publicizing-or-concealing-organization-membership
   - /articles/publicizing-or-hiding-organization-membership
@@ -13,10 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Show or hide membership
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 
 {% data reusables.profile.access_org %}

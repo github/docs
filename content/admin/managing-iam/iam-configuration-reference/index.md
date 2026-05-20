@@ -4,11 +4,6 @@ intro: 'You can view reference information about configuration of authentication
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 children:
   - /saml-configuration-reference
   - /username-considerations-for-external-authentication

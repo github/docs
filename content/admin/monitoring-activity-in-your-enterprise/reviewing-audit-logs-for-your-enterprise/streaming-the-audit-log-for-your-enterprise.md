@@ -1,22 +1,18 @@
 ---
 title: Streaming the audit log for your enterprise
-intro: 'Learn how to stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
+intro: Learn how to stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.
 versions:
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Organizations
 shortTitle: Stream audit logs
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 permissions: Enterprise owners
+contentType: tutorials
+category:
+  - Monitor and audit your enterprise
 ---
-
 
 >[!NOTE] {% ifversion ghes %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
@@ -117,8 +113,7 @@ From {% data variables.product.prodname_dotcom %}:
 1. Under "Authentication", click **Access keys**.{% endif %}
 1. Configure the stream settings.
 
-{% ifversion ghec or ghes > 3.14 %}
-    - Under "Region", select the bucket's region. For example, `us-east-1`.{% endif %}
+    - Under "Region", select the bucket's region. For example, `us-east-1`.
     - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
     - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
     - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.

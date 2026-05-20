@@ -12,11 +12,9 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Vulnerabilities
-  - Collaboration
 shortTitle: Remove collaborators
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}

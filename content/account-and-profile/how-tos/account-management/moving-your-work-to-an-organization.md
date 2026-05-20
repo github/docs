@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghes: '>= 3.21'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Move work to organization
+category:
+  - Change or close your account
+contentType: how-tos
 ---
 
 ## Keeping your username for the organization
@@ -28,5 +28,9 @@ If you want your new organization to use your current personal account username,
 
 ## Further reading
 
+{% ifversion fpt or ghec %}
 - [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)
+{% else %}
+- [AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)
+{% endif %}
 - [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)

@@ -13,12 +13,10 @@ redirect_from:
   - /billing/managing-your-billing/adding-licenses-to-an-organization
   - /billing/how-tos/manage-plan-and-licenses/manage-organization-licenses
   - /billing/how-tos/manage-plan-and-licenses/add-licenses
-topics:
-  - Billing
-  - Enterprise
-  - Team
 shortTitle: Manage user licenses
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Organizations on {% data variables.product.prodname_team %}
@@ -32,6 +30,9 @@ If you're the **owner** or **billing manager** of an organization on a {% data v
 1. In the {% data variables.product.prodname_team %} banner, click **Edit** and select **Add seats** or **Remove seats**.
 1. Define the number of new seats you require. The details of the prorated cost for the remainder of the billing cycle and the total for your next bill are updated automatically.
 1. Click **Add seats** or **Remove seats**.
+
+> [!NOTE]
+> **Remove seats** is only displayed when you have unassigned seats available.
 
 ### Changing members to outside collaborators
 
@@ -55,7 +56,7 @@ To add or remove licenses from your enterprise account:
 
 Enterprise **owners** or **billing managers** can add or remove user licenses.
 
-{% data reusables.billing.nav-to-ent %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
 {% data reusables.billing.click-licensing %}
 1. Next to "Enterprise Cloud", click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **Manage licenses**.

@@ -16,14 +16,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Alerts
-  - Dependencies
-  - Pull requests
-  - Repositories
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
@@ -65,17 +60,7 @@ In order to use grouped security updates, you must first enable the following fe
 
 ### Enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} for an organization
 
-{% ifversion security-configurations %} You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates).
-
-{% else %}
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-1. Under "{% data variables.product.UI_advanced_security %}," to the right of "Grouped security updates," click **Disable all** or **Enable all**.
-1. Optionally, to enable grouped {% data variables.product.prodname_dependabot_security_updates %} for new repositories in your organization, select **Automatically enable for new repositories**.
-
-{% endif %}
+You can enable grouped {% data variables.product.prodname_dependabot_security_updates %} into a single pull request. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates).
 
 ## Overriding the default behavior with a configuration file
 
@@ -115,6 +100,11 @@ updates:
     registries:
       - example
   - package-ecosystem: "gomod"
+    directories:
+      - "**/*"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
     groups:
       golang:
         applies-to: security-updates
@@ -123,7 +113,7 @@ updates:
 ```
 
 > [!NOTE]
-> In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates, the `directory` must be the path to the manifest files, and you should not specify a `target-branch`.
+> In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates, the `directory` must be the path to the manifest files (or `directories` must contain paths or glob patterns matching the manifest file locations), and you should not specify a `target-branch`.
 
 ## Further reading
 

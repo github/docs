@@ -12,8 +12,6 @@ redirect_from:
 product: '{% data reusables.gated-features.copilot-chat-callout %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: rai
 category:
   - Responsible use

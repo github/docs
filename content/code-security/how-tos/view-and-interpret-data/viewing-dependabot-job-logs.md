@@ -8,15 +8,11 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Dependabot
-  - Troubleshooting
-  - Errors
-  - Security updates
-  - Dependencies
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs
   - /code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs
+category:
+  - Secure your dependencies
 ---
 
 When {% data variables.product.prodname_dependabot_updates %} fail or behave unexpectedly, job logs show you exactly what happened. Access job logs from the dependency graph to debug issues quickly. For background on what job logs contain and the types of jobs {% data variables.product.github %} records, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-job-logs).

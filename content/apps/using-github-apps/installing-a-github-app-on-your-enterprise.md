@@ -5,6 +5,8 @@ versions:
   feature: enterprise-installed-apps
 shortTitle: Install apps on your enterprise
 permissions: 'Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise. App managers cannot install apps at the enterprise level.'
+category:
+  - Install and authorize apps
 ---
 
 > [!NOTE]

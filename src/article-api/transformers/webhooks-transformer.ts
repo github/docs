@@ -48,7 +48,7 @@ export class WebhooksTransformer implements PageTransformer {
       }
     }
 
-    // Prepare webhooks data for template
+    // Prepare webhooks data for template (payload examples are omitted to save space)
     const preparedWebhooks = webhooksData.map((webhook) => ({
       name: webhook.name,
       actionTypes: webhook.actionTypes,
@@ -63,10 +63,30 @@ export class WebhooksTransformer implements PageTransformer {
           : '',
         isRequired: param.isRequired || false,
       })),
-      payloadExample: webhook.data.payloadExample
-        ? JSON.stringify(webhook.data.payloadExample, null, 2)
-        : null,
     }))
+
+    // Identify common body parameters that appear in most webhooks
+    const paramCounts = new Map<string, number>()
+    for (const webhook of preparedWebhooks) {
+      for (const param of webhook.bodyParameters) {
+        paramCounts.set(param.name, (paramCounts.get(param.name) || 0) + 1)
+      }
+    }
+    const threshold = preparedWebhooks.length * 0.6
+    const commonParamNames = new Set(
+      [...paramCounts.entries()].filter(([, count]) => count >= threshold).map(([name]) => name),
+    )
+
+    // Remove common params from each webhook and collect them for summary
+    const commonParams =
+      preparedWebhooks[0]?.bodyParameters.filter((p: { name: string }) =>
+        commonParamNames.has(p.name),
+      ) || []
+    for (const webhook of preparedWebhooks) {
+      webhook.bodyParameters = webhook.bodyParameters.filter(
+        (p: { name: string }) => !commonParamNames.has(p.name),
+      )
+    }
 
     // Prepare template data
     const templateData: Record<string, unknown> = {
@@ -76,6 +96,7 @@ export class WebhooksTransformer implements PageTransformer {
       },
       manualContent,
       webhooks: preparedWebhooks,
+      commonParams,
     }
 
     // Load and render template

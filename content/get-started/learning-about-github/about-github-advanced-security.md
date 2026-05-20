@@ -6,12 +6,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security
 redirect_from:
   - /github/getting-started-with-github/about-github-advanced-security
   - /github/getting-started-with-github/learning-about-github/about-github-advanced-security
 shortTitle: GitHub Advanced Security
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About {% data variables.product.prodname_GHAS %} {% ifversion ghas-products %}products{% endif %}
@@ -129,13 +129,22 @@ A {% data variables.product.prodname_GHAS %} license provides the following addi
 
 {% endif %}
 
-{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
+{% ifversion ghas-products %}
 
-## Run an assessment of your organization's exposure to secret leaks
+## Run a free security risk assessment
 
-{% ifversion secret-risk-assessment %}{% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
+<a href="https://github.com/get_started?with=risk-assessment&ref_product=code-scanning&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Get started with security risk assessments</span> {% octicon "link-external" height:16 %}</a>
 
-Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. This can help you understand the current exposure of repositories in your organization to leaked secrets, as well as help you see how many existing secret leaks could have been prevented by {% data variables.product.prodname_GH_secret_protection %}.{% endif %}{% else %}{% endif %}
+Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run free security risk assessments to understand their exposure to security vulnerabilities:
+
+{% ifversion secret-risk-assessment %}
+* **Secret leaks**: Scan your organization for leaked secrets and see how many could have been prevented by {% data variables.product.prodname_GH_secret_protection %}. See [AUTOTITLE](/code-security/concepts/secret-security/about-secret-security-with-github#secret-risk-assessment).
+{% endif %}
+{% ifversion code-security-risk-assessment %}
+* **Code vulnerabilities**: Scan up to 20 of your most active repositories and see how many vulnerabilities could be automatically fixed with {% data variables.copilot.copilot_autofix_short %} if you enable {% data variables.product.prodname_GH_code_security %}. See [AUTOTITLE](/code-security/concepts/code-scanning/code-security-risk-assessment).
+{% endif %}
+
+{% endif %}
 
 ## Deploying {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %} in your enterprise{% endif %}
 
@@ -143,17 +152,19 @@ To learn about what you need to know to plan your deployment of {% ifversion gha
 
 ## Enabling features
 
-{% ifversion ghes < 3.15 %}
-A site administrator must enable {% data variables.product.prodname_AS %} for {% data variables.location.product_location %} before you can use these features. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).
-{% endif %}
-
-{% ifversion security-configurations %}
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
-{% endif %}
-
-{% ifversion security-configurations %}{% else %}Once your system is set up, you can enable and disable these features at the organization or repository level. See [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %}
 
 If you are on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan, license use for the entire team or enterprise is shown on your license page. {% ifversion fpt or ghec %}See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).{% endif %}
+
+{% ifversion disable-ghas-button %}
+
+## Managing {% data variables.product.prodname_GHAS %}
+
+Enterprise owners can manage {% data variables.product.prodname_GHAS %} licensing and access for their enterprise, including disabling {% data variables.product.prodname_GHAS %} across all repositories and preventing future re-enablement. See [AUTOTITLE](/billing/how-tos/products/manage-ghas-licenses#disabling-github-advanced-security-across-your-enterprise).
+
+For information about managing your {% data variables.product.prodname_GHAS %} license, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/managing-your-github-advanced-security-license-usage).
+
+{% endif %}
 
 {% ifversion copilot-chat-ghas-alerts %}
 

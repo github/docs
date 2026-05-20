@@ -13,15 +13,13 @@ redirect_from:
   - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/migrating-from-github-enterprise-1110x-to-2123
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/migrating-from-github-enterprise-1110x-to-2123
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/migrating-from-github-enterprise-1110x-to-2123
-intro: 'To migrate from {% data variables.product.prodname_enterprise %} 11.10.x to 2.1.23, you''ll need to set up a new appliance instance and migrate data from the previous instance.'
+intro: To migrate from {% data variables.product.prodname_enterprise %} 11.10.x to 2.1.23, you'll need to set up a new appliance instance and migrate data from the previous instance.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Migration
-  - Upgrades
 shortTitle: Migrate from 11.10.x to 2.1.23
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 > [!NOTE]

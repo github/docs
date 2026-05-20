@@ -6,12 +6,19 @@ permissions: Enterprise owners and organization owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category: 
   - Manage Copilot for a team
 ---
+
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
+> [!IMPORTANT]
+> **Starting April 20, 2026**, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans have tighter usage limits: Session limits and weekly (7 day) limits. For more information, see [AUTOTITLE](/copilot/concepts/usage-limits).
 
 ## Management methods
 

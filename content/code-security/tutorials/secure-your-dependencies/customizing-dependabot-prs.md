@@ -8,15 +8,11 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Customize Dependabot PRs
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
+category:
+  - Secure your dependencies
 ---
 
 There are various ways to customize your {% data variables.product.prodname_dependabot %} pull requests so that they better suit your own internal processes.

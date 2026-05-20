@@ -1,7 +1,7 @@
 ---
 title: Running jobs on larger runners
 shortTitle: Use larger runners
-intro: 'You can speed up your workflows by configuring them to run on {% data variables.actions.hosted_runner %}s.'
+intro: You can speed up your workflows by configuring them to run on {% data variables.actions.hosted_runner %}s.
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 defaultPlatform: linux
 versions:
@@ -12,6 +12,9 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners
   - /actions/how-tos/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners
   - /actions/how-tos/using-larger-runners/running-jobs-on-larger-runners
+category:
+  - Use and manage runners
+contentType: how-tos
 ---
 
 ## Running jobs on your runner
@@ -41,9 +44,6 @@ Once your runner type has been defined, you can update your workflow YAML files 
 Use the labels in the table below to run your workflows on the corresponding macOS {% data variables.actions.hosted_runner %}.
 
 {% data reusables.actions.larger-runners-table %}
-
-> [!NOTE]
-> For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
 
 {% endmac %}
 

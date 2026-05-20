@@ -4,8 +4,6 @@ intro: 'Discover a curated collection of custom instructions to enhance your {% 
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /your-first-custom-instructions
   - /concept-explainer

@@ -7,11 +7,11 @@ versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
-topics:
-  - Code Quality
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/interpret-results
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

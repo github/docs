@@ -7,15 +7,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/about-codeql-packs
   - /code-security/codeql-cli/codeql-cli-reference/about-codeql-packs
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 You can customize your {% data variables.product.prodname_codeql %} analysis by downloading packs created by others and running them on your codebase. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-query-packs).
@@ -32,7 +30,7 @@ Before you can use a {% data variables.product.prodname_codeql %} query pack to 
 > [!NOTE]
 > If you specify a particular version of a query pack to use, be aware that the version you specify may eventually become too old for the latest version of {% data variables.product.prodname_codeql %} to make efficient use of. To ensure optimal performance, if you need to specify exact query pack versions, you should reevaluate which versions you pin to whenever you upgrade the {% data variables.product.prodname_codeql_cli %} you're using.
 >
-> For more information about pack compatibility, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility).
+> For more information about pack compatibility, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli/codeql-query-packs#codeql-pack-compatibility).
 
 ### Basic example of downloading and using query packs
 

@@ -7,15 +7,12 @@ permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   feature: secret-scanning-ai-generic-secret-detection
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - AI
-  - Copilot
 redirect_from:
   - /code-security/secret-scanning/enabling-ai-powered-generic-secret-detection
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection
   - /code-security/secret-scanning/copilot-secret-scanning/enabling-ai-powered-generic-secret-detection
+category:
+  - Protect your secrets
 ---
 
 ## Enabling {% data variables.secret-scanning.generic-secret-detection %}

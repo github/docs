@@ -7677,6 +7677,70 @@
     ]
   },
   {
+    "action": "org.code_scanning_scan_inactive_repos_disabled",
+    "description": "Scanning inactive repositories was disabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "org.code_scanning_scan_inactive_repos_enabled",
+    "description": "Scanning inactive repositories was enabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale",
@@ -12688,7 +12752,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.create",
@@ -12725,7 +12789,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.destroy",
@@ -12761,7 +12825,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.revoke",
@@ -12795,7 +12859,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.update",
@@ -12834,7 +12898,7 @@
       "actor_is_bot",
       "old_base_role"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_wide_project_base_role.update",
@@ -22382,7 +22446,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {
@@ -22506,7 +22571,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {
@@ -22594,7 +22660,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {

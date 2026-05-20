@@ -12,13 +12,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Security advisories
-  - Vulnerabilities
-  - Collaboration
-  - Forks
 shortTitle: Collaborate in a fork
 contentType: tutorials
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}

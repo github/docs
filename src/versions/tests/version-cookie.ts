@@ -48,11 +48,11 @@ describe('version cookie redirects', () => {
   test('homepage redirects to enterprise-server version from cookie', async () => {
     const res = await get('/', {
       headers: {
-        Cookie: `${USER_VERSION_COOKIE_NAME}=enterprise-server@3.15`,
+        Cookie: `${USER_VERSION_COOKIE_NAME}=enterprise-server@3.16`,
       },
       followRedirects: false,
     })
     expect(res.statusCode).toBe(302)
-    expect(res.headers.location).toBe('/en/enterprise-server@3.15')
+    expect(res.headers.location).toBe('/en/enterprise-server@3.16')
   })
 })

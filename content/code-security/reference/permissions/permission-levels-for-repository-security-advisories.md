@@ -14,11 +14,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Security advisories
-  - Vulnerabilities
-  - Permissions
 contentType: reference
+category:
+  - Report and disclose vulnerabilities
 ---
 
 ## Permissions overview

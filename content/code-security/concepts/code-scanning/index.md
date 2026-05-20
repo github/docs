@@ -8,17 +8,20 @@ versions:
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/introduction-to-code-scanning
-topics:
-  - Code Security
-  - Code scanning
 contentType: concepts
 children:
   - /about-code-scanning
   - /about-code-scanning-alerts
+  - /code-security-risk-assessment
+  - /copilot-autofix-for-code-scanning
   - /setup-types
   - /about-integration-with-code-scanning
   - /sarif-files
+  - /code-scanning-alert-tracking-using-issues
   - /merge-protection
+  - /multi-repository-variant-analysis
   - /codeql
   - /tool-status-page
+  - /pull-request-alert-metrics
+  - /repository-properties
 ---

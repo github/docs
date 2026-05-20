@@ -7,48 +7,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Dependency review
-  - Vulnerabilities
-  - Dependencies
-  - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
-## About the {% data variables.dependency-review.action_name %}
+The "{% data variables.dependency-review.action_name %}" refers to the specific action that can report on differences in a pull request within the {% data variables.product.prodname_actions %} context. It can also add enforcement mechanisms to the {% data variables.product.prodname_actions %} workflow. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependency-review#about-the-dependency-review-action).
 
-The "{% data variables.dependency-review.action_name %}" refers to the specific action that can report on differences in a pull request within the {% data variables.product.prodname_actions %}  context, and add enforcement mechanisms to the {% data variables.product.prodname_actions %} workflow.
-
-{% data reusables.dependency-review.dependency-review-action-overview %}
-
-{% data reusables.dependency-review.org-level-enforcement %}
-
-Here is a list of common configuration options. For more information, and a full list of options, see [Dependency Review](https://github.com/marketplace/actions/dependency-review) on the {% data variables.product.prodname_marketplace %}.
-
-| Option | Required | Usage |
-|------------------|-------------------------------|--------|
-| `fail-on-severity` | {% octicon "x" aria-label="Optional" %} | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
-| {% ifversion dependency-review-action-licenses %} |
-| `allow-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|
-| {% endif %} |
-| {% ifversion dependency-review-action-licenses %} |
-| `deny-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
-| {% endif %} |
-| `fail-on-scopes` | {% octicon "x" aria-label="Optional" %} | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilities in the scopes that match the list.|
-| `comment-summary-in-pr` | {% octicon "x" aria-label="Optional" %} | Enable or disable the reporting of the review summary as a comment in the pull request. If enabled, you must give the workflow or job the `pull-requests: write` permission. With each execution, a new comment will overwrite the existing one.|
-| `allow-ghsas` | {% octicon "x" aria-label="Optional" %} | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
-| `config-file` | {% octicon "x" aria-label="Optional" %} | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
-| `external-repo-token` | {% octicon "x" aria-label="Optional" %} | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
-
-{% ifversion dependency-review-action-licenses %}
-
-> [!TIP]
-> The `allow-licenses` and `deny-licenses` options are mutually exclusive.
-
+For a list of common configuration options, see [Dependency review](https://github.com/marketplace/actions/dependency-review#configuration-options) on the {% data variables.product.prodname_marketplace %}.
+ 
 ## Configuring the {% data variables.dependency-review.action_name %}
 
 There are two methods of configuring the {% data variables.dependency-review.action_name %}:
@@ -195,7 +165,6 @@ Notice that all of the examples use a short version number for the action (`v3`)
    <!-- markdownlint-enable search-replace -->
 
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
-{% endif %}
 
 ## Further reading
 

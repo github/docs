@@ -6,15 +6,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/creating-codeql-query-suites
   - /code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
@@ -22,7 +20,7 @@ contentType: tutorials
 You can create query suites for the queries that you want to frequently use in your {% data variables.product.prodname_codeql %} analyses. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/codeql-query-suites).
 
 > [!NOTE]
-> Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs) and contain the correct query metadata. For more information, see [Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli).
+> Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs) and contain the correct query metadata. For more information, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/writing-and-sharing-custom-queries-for-the-codeql-cli).
 
 ## Locating queries to add to a query suite
 

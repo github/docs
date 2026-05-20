@@ -164,9 +164,12 @@ describe('GitHub Apps transformer', () => {
       const res = await get(makeURL('/en/rest/authentication/permissions-required-for-github-apps'))
       expect(res.statusCode).toBe(200)
 
-      // Check for IAT and UAT links in Tokens column
-      expect(res.body).toMatch(/\[IAT\]\(\/en\/apps\/creating-github-apps\//)
-      expect(res.body).toMatch(/\[UAT\]\(\/en\/apps\/creating-github-apps\//)
+      // Check for legend
+      expect(res.body).toContain('UAT = user access token')
+      expect(res.body).toContain('IAT = installation access token')
+
+      // Check that token types appear in actual table rows (not just the legend)
+      expect(res.body).toMatch(/\|\s*(?:UAT|IAT|UAT, IAT|None)\s*\|/)
     })
 
     test('table shows additional permissions with checkmark/cross', async () => {
@@ -221,8 +224,6 @@ describe('GitHub Apps transformer', () => {
 
       // Check that AUTOTITLE has been resolved
       expect(res.body).not.toContain('[AUTOTITLE]')
-      // Should have actual link text
-      expect(res.body).toMatch(/\[.*?\]\(\/en\/apps\//)
     })
 
     test('API version parameter is supported', async () => {

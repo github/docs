@@ -8,6 +8,8 @@ versions:
 contentType: tutorials
 audience:
   - driver
+category:
+  - Set up runners
 ---
 
 You can run workflows on {% data variables.product.github %}-hosted or self-hosted runners, or use a mixture of runner types.

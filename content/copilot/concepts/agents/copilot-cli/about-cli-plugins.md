@@ -6,11 +6,12 @@ intro: 'Plugins are installable packages that extend {% data variables.copilot.c
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
-  - Learn about Copilot
+  - Learn about Copilot # Copilot discovery page
+  - Learn about Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 Plugins provide a way to distribute custom CLI functionality. You can use a plugin to add a preconfigured set of capabilities to {% data variables.copilot.copilot_cli_short %}.
@@ -58,6 +59,8 @@ Examples of marketplaces include:
 
 For more about adding marketplaces and installing plugins from them, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
 
+Enterprise administrators can also define plugin standards that apply across the enterprise, including specifying additional marketplaces and plugins that are automatically installed for all {% data variables.copilot.copilot_cli_short %} users. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards).
+
 ## Plugins compared with manual configuration
 
 Any functionality that you could add with a plugin, you could also add by configuring {% data variables.copilot.copilot_cli_short %} manually—for example, by adding custom agent profiles or MCP servers. However, plugins provide several advantages over manual configuration:
@@ -73,3 +76,4 @@ Any functionality that you could add with a plugin, you could also add by config
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating)
 * [AUTOTITLE](/copilot/reference/cli-plugin-reference)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)

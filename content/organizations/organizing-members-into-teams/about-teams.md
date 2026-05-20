@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 allowTitleToDifferFromFilename: true
+category:
+  - Organize teams
 ---
 
 ## About teams

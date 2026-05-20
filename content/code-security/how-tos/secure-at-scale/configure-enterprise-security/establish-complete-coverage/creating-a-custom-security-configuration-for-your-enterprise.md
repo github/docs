@@ -5,22 +5,14 @@ intro: Build a {% data variables.product.prodname_custom_security_configuration 
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
 versions:
   feature: security-configuration-enterprise-level
-topics:
-  - Advanced Security
-  - Enterprise
-  - Security
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About {% data variables.product.prodname_custom_security_configurations %}
-
-{% ifversion security-configurations-cloud %}
-
-We recommend securing your enterprise with the {% data variables.product.prodname_github_security_configuration %}, then evaluating the security findings on your repositories before configuring {% data variables.product.prodname_custom_security_configurations %}. For more information, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/applying-the-github-recommended-security-configuration-to-your-enterprise).
-
-{% endif %}
 
 With {% data variables.product.prodname_custom_security_configurations %}, you can create collections of enablement settings for {% data variables.product.company_short %}'s security products to meet the specific security needs of your enterprise. For example, you can create a different {% data variables.product.prodname_custom_security_configuration %} for each organization or group of organizations to reflect their unique security requirements and compliance obligations.
 
@@ -54,21 +46,21 @@ When creating a security configuration, keep in mind that:
 {% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "{% data variables.product.prodname_security_configurations_caps %}" section, click **New configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "{% data variables.product.prodname_security_configurations_caps %}" page, name your configuration and create a description.
-1. Optionally, enable "{% data variables.product.prodname_secret_protection %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. Enabling {% data variables.product.prodname_secret_protection %} enables alerts for {% data variables.product.prodname_secret_scanning %}. In addition, you can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_secret_scanning %} features:
-    {% ifversion secret-scanning-validity-check-partner-patterns %}
-    * **Validity checks**.  To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/concepts/secret-security/about-validity-checks) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}{% ifversion fpt or ghec %}
+1. Optionally, enable "{% data variables.product.prodname_secret_protection %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. Enabling {% data variables.product.prodname_secret_protection %} enables alerts for {% data variables.product.prodname_secret_scanning %}. In addition, you can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_secret_scanning %} features:{% ifversion secret-scanning-validity-check-partner-patterns %}
+    * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% ifversion ghes > 3.19 %}
+       Your site administrator must enable validity checks before you can use this feature. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-secret-scanning-for-your-appliance).{% endif %}{% endif %}{% ifversion fpt or ghec %}
     * **Extended metadata**. To learn more about extended metadata checks, see [About extended metadata checks](/code-security/concepts/secret-security/about-validity-checks#about-extended-metadata-checks) and [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#reviewing-extended-metadata-for-a-token).
     > [!NOTE]
-    > You can only enable extended metadata checks if validity checks are enabled.{% endif %}{% ifversion org-npp-enablement-security-configurations %}
-    * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
+    > You can only enable extended metadata checks if validity checks are enabled.{% endif %}
+    * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% ifversion secret-scanning-ai-generic-secret-detection %}
     * **Scan for generic passwords**. To learn more, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% endif %}
     * **Push protection**. To learn about push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).{% ifversion push-protection-delegated-bypass-configurations-enterprise %}
-    * **Bypass privileges**. By assigning bypass privileges, selected repository, organization, and business members can bypass push protection. There is a review and approval process for all other contributors. See [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).{% endif %}{% ifversion security-delegated-alert-dismissal %}
+    * **Bypass privileges**. By assigning bypass privileges{% ifversion push-protection-org-enterprise-exemptions %} or exemptions{% endif %}, selected actors can bypass{% ifversion push-protection-org-enterprise-exemptions %} or skip{% endif %} push protection. There is a review and approval process for all other contributors. See [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).{% endif %}{% ifversion security-delegated-alert-dismissal %}
     * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning).{% endif %}
 1. Optionally, enable "{% data variables.product.prodname_code_security %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. You can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_code_scanning %} features:
    * **Default setup**. To learn more about default setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#about-default-setup).
-      {% data reusables.code-scanning.enable-default-setup-allow-advanced-setup-note %}{% ifversion code-scanning-default-setup-customize-labels %}
-   * **Runner type**. If you want to target specific runners for {% data variables.product.prodname_code_scanning %}, you can choose to use custom-labeled runners at this step. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).{% endif %} {% ifversion security-delegated-alert-dismissal %}
+      {% data reusables.code-scanning.enable-default-setup-allow-advanced-setup-note %}
+   * **Runner type**. If you want to target specific runners for {% data variables.product.prodname_code_scanning %}, you can choose to use custom-labeled runners at this step. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners). {% ifversion security-delegated-alert-dismissal %}
     * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning).{% endif %}
 1. Still under "{% data variables.product.prodname_code_security %}", in the "Dependency scanning" table, choose whether you want to enable, disable, or keep the existing settings for the following dependency scanning features:
    * **Dependency graph**. To learn about dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
@@ -77,16 +69,17 @@ When creating a security configuration, keep in mind that:
    * **Automatic dependency submission**. To learn about automatic dependency submission, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository).{%- endif %}
    * **{% data variables.product.prodname_dependabot %} alerts**. To learn about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
    * **Security updates**. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% ifversion dependabot-delegated-alert-dismissal %}
-   * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal).{% endif %}{% ifversion fpt or ghec %}
+   * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal).{% endif %}{% ifversion dependabot-malware-alerts %}
+   * **{% data variables.product.prodname_dependabot_malware_alerts_short_caps %}**. To learn more, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts).{% endif %}{% ifversion fpt or ghec %}
 1. For "Private vulnerability reporting", choose whether you want to enable, disable, or keep the existing settings. To learn about private vulnerability reporting, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).{% endif %}
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
    * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+{% data reusables.code-scanning.save-custom-configuration %}
 
 ## Creating a {% data variables.product.prodname_GHAS %} configuration
 
@@ -100,15 +93,15 @@ When creating a security configuration, keep in mind that:
 1. In the "{% data variables.product.prodname_GHAS %} features" row, choose whether to include or exclude {% data variables.product.prodname_GHAS %} (GHAS) features.
 1. In the "{% data variables.product.prodname_secret_scanning_caps %}" table, choose whether you want to enable, disable, or keep the existing settings for the following security features:{% ifversion ghes > 3.16 %}
     * **Alerts**. To learn about {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).{% endif %} {% ifversion secret-scanning-validity-check-partner-patterns %}
-    * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}{% ifversion org-npp-enablement-security-configurations %}
-    * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
+    * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}
+    * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% ifversion secret-scanning-ai-generic-secret-detection %}
     * **Scan for generic passwords**. To learn more, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% endif %}
     * **Push protection**. To learn about push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).{% ifversion security-delegated-alert-dismissal %}
     * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning).{% endif %}
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" table, choose whether you want to enable, disable, or keep the existing settings for {% data variables.product.prodname_code_scanning %} default setup.
    * **Default setup**. To learn more, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#about-default-setup).
-      {% data reusables.code-scanning.enable-default-setup-allow-advanced-setup-note %}{% ifversion code-scanning-default-setup-customize-labels %}
-   * **Runner type**. If you want to target specific runners for {% data variables.product.prodname_code_scanning %}, you can choose to use custom-labeled runners at this step. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).{% endif %} {% ifversion security-delegated-alert-dismissal %}
+      {% data reusables.code-scanning.enable-default-setup-allow-advanced-setup-note %}
+   * **Runner type**. If you want to target specific runners for {% data variables.product.prodname_code_scanning %}, you can choose to use custom-labeled runners at this step. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners). {% ifversion security-delegated-alert-dismissal %}
     * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning).{% endif %}
 1. In the "Dependency scanning" table, choose whether you want to enable, disable, or keep the existing settings for the following dependency scanning features:
    * **Dependency graph**. To learn about dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
@@ -117,16 +110,17 @@ When creating a security configuration, keep in mind that:
    * **Automatic dependency submission**. To learn about automatic dependency submission, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository).{%- endif %}
    * **{% data variables.product.prodname_dependabot %} alerts**. To learn about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
    * **Security updates**. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% ifversion dependabot-delegated-alert-dismissal %}
-   * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal).{% endif %}{% ifversion fpt or ghec %}
+   * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal).{% endif %}{% ifversion dependabot-malware-alerts %}
+   * **{% data variables.product.prodname_dependabot_malware_alerts_short_caps %}**. To learn more, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts).{% endif %}{% ifversion fpt or ghec %}
 1. For "Private vulnerability reporting", choose whether you want to enable, disable, or keep the existing settings. To learn about private vulnerability reporting, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).{% endif %}
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
    * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+{% data reusables.code-scanning.save-custom-configuration %}
 
 {% else %}
 
@@ -149,16 +143,16 @@ When creating a security configuration, keep in mind that:
     > You cannot manually change the enablement setting for the dependency graph. This setting is installed and managed by a site administrator at the instance level.
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the security settings table, choose whether you want to enable, disable, or keep the existing settings for {% data variables.product.prodname_code_scanning %} default setup. To learn about default setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#about-default-setup).
 1. In the "{% data variables.product.prodname_secret_scanning_caps %}" section of the security settings table, choose whether you want to enable, disable, or keep the existing settings for the following security features:
-    * **Alerts**. To learn about {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).{% ifversion org-npp-enablement-security-configurations %}
-    * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}
+    * **Alerts**. To learn about {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+    * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).
     * **Push protection**. To learn about push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, or **Private and internal**, or **All repositories**.
 
 1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.
 
-    {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+{% data reusables.code-scanning.save-custom-configuration %}
 
 {% endif %}
 

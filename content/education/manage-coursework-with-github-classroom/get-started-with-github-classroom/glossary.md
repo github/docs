@@ -5,6 +5,8 @@ versions:
   fpt: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/glossary
+category:
+  - Set up GitHub Classroom
 ---
 ## assignment
 

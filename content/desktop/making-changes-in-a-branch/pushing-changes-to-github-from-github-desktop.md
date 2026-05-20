@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Work with branches and pull requests
 ---
 ## About pushing changes to {% data variables.product.prodname_dotcom %}
 

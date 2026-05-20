@@ -187,7 +187,7 @@ export const Survey = () => {
               <span>{t`additional_feedback`}</span>
             </label>
             <textarea
-              className="form-control input-sm width-full"
+              className={cx('form-control input-sm width-full', styles.accessibleBorder)}
               name="survey-comment"
               id="survey-comment"
               value={comment}
@@ -201,7 +201,10 @@ export const Survey = () => {
             </label>
             <input
               type="email"
-              className="form-control input-sm width-full color-bg-transparent"
+              className={cx(
+                'form-control input-sm width-full color-bg-transparent',
+                styles.accessibleBorder,
+              )}
               name="survey-email"
               id="survey-email"
               value={email}

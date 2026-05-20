@@ -13,11 +13,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Troubleshooting
 shortTitle: Declined card
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 **If your card is declined, we'll send you an email about why the payment was declined. You'll have a few days to resolve the problem before we try charging you again**.

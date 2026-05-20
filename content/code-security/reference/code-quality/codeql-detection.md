@@ -5,11 +5,11 @@ allowTitleToDifferFromFilename: true
 intro: Information on how CodeQL-powered analysis for {% data variables.product.prodname_code_quality_short %} works, the workflow used, and the status checks reported on pull requests.
 versions:
   feature: code-quality
-topics:
-  - Code Quality
 contentType: reference
 redirect_from:
   - /code-security/code-quality/reference/codeql-detection
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}
@@ -18,7 +18,7 @@ redirect_from:
 
 {% data variables.product.prodname_code_quality_short %} uses {% data variables.product.prodname_codeql %} to perform rule-based analysis of pull requests and your default branch.
 
-* Findings for your **default branch** appear under the "{% data variables.code-quality.all_findings %}" dashboard under your repository's Security tab.
+* Findings for your **default branch** appear under the "{% data variables.code-quality.all_findings %}" dashboard under your repository's **{% data variables.product.prodname_security_and_quality_tab %}** tab.
 
 * Findings **on pull requests** appear as comments made by `{% data variables.code-quality.pr_commenter %}`.
 

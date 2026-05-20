@@ -8,13 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
-  - REST
 permissions: 'Enterprise owners, organization owners, and billing managers'
-product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: tutorials
+category:
+  - Track spending and control costs
 ---
 
 After you transition to metered billing, you may want to automatically track usage and costs for paid {% data variables.product.github %} features in your internal reporting systems. For example, you might want to monitor spend over time, reconcile invoices, or feed usage data into finance or BI tools.
@@ -75,7 +72,7 @@ You must authenticate your request to this endpoint.
 ```bash
 curl -L \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   https://api.github.com/enterprises/ENTERPRISE/settings/billing/usage/summary
 ```
 
@@ -85,7 +82,7 @@ Replace `ENTERPRISE` with the enterprise slug and set the `GITHUB_TOKEN` environ
 
 ```bash
 gh api \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/usage/summary
 ```
 

@@ -5,8 +5,6 @@ intro: The code generation dashboard shows how {% data variables.product.prodnam
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -16,8 +14,6 @@ category:
   - View metrics
   - Track Copilot usage
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 By comparing user-initiated and agent-initiated activity across models, languages, and modes, you can see how teams are adopting AI-assisted and agent-driven development.
 

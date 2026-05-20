@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('annotations', () => {
   test('code-snippet-with-hashbang', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/foo/code-snippet-with-hashbang')
+    const $: CheerioAPI = await getDOM('/get-started/foo/code-snippet-with-hashbang')
     const annotations = $('#article-contents .annotate')
 
     // Check http://localhost:4000/en/get-started/foo/code-snippet-with-hashbang

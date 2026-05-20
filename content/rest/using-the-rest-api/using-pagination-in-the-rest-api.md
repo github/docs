@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: Pagination
+category:
+  - Learn about the REST API
 ---
 
 ## About pagination

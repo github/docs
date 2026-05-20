@@ -7,14 +7,11 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Fundamentals
-  - Security
-  - CI
-  - CD
 redirect_from:
   - /code-security/supply-chain-security/end-to-end-supply-chain/securing-builds
 contentType: tutorials
+category:
+  - Secure your dependencies
 ---
 
 ## About this guide
@@ -61,7 +58,7 @@ How exactly you sign your build will depend on what sort of code you're writing,
 
 For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion fpt or ghec %}, [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect),{% endif %} and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
-{% ifversion fpt or ghec %}
+{% ifversion immutable-releases %}
 
 ## Use immutable releases
 

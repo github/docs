@@ -15,12 +15,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 shortTitle: Explore dependencies
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Viewing the dependency graph

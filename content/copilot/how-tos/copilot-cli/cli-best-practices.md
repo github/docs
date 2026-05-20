@@ -1,16 +1,17 @@
 ---
 title: Best practices for GitHub Copilot CLI
 shortTitle: Copilot CLI best practices
-intro: 'Learn how to get the most out of {% data variables.copilot.copilot_cli %}.'
+intro: Learn how to get the most out of {% data variables.copilot.copilot_cli %}.
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
-contentType: get-started
+contentType: how-tos
 category:
-  - Learn about Copilot
+  - Build with Copilot CLI
+  - Copilot in the CLI
   - Author and optimize with Copilot
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -66,7 +67,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-custo
 
 ### Configure allowed tools
 
-Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can choose to **Allow once**, or **Always allow** to add the tool to your allowlist for this and future sessions.
+Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can typically choose either to allow it just this time, or allow the tool to be used for the rest of the CLI session.
 
 To reset previously approved tools, use:
 
@@ -77,7 +78,7 @@ To reset previously approved tools, use:
 You can also preconfigure allowed tools via CLI flags:
 
 ```bash
-copilot --allow-tool 'shell(git:*)' --deny-tool 'shell(git push)'
+copilot --allow-tool='shell(git:*)' --deny-tool='shell(git push)'
 ```
 
 **Common permission patterns:**
@@ -93,17 +94,35 @@ Use `/model` to choose from available models based on your task complexity:
 
 | Model | Best For | Tradeoffs |
 | ----- | -------- | --------- |
+| **Auto** | Reduced rate limiting and lower latency and errors | See [AUTOTITLE](/copilot/concepts/auto-model-selection#auto-model-selection-in-github-copilot-cli)|
 | **Claude Opus 4.5** (default) | Complex architecture, difficult debugging, nuanced refactoring | Most capable but uses more [premium requests](/copilot/concepts/billing/copilot-requests#model-multipliers) |
 | **Claude Sonnet 4.5** | Day-to-day coding, most routine tasks | Fast, cost-effective, handles most work well |
 | **GPT-5.2 Codex** | Code generation, code review, straightforward implementations | Excellent for reviewing code produced by other models |
 
 **Recommendations:**
 
+* **Auto** intelligently chooses models based on real time system health and model performance, reducing rate limiting and providing lower latency and errors.
 * **Opus 4.5** is ideal for tasks requiring deep reasoning, complex system design, subtle bug investigation, or extensive context understanding.
 * **Switch to Sonnet 4.5** for routine tasks where speed and cost efficiency matter—it handles the majority of everyday coding effectively.
 * **Use Codex** for high-volume code generation and as a second opinion for reviewing code produced by other models.
 
 You can switch models mid-session with `/model` as task complexity changes.
+
+If your organization or enterprise has configured custom models using their own LLM provider API keys, those models also appear in `/model` at the bottom of the list.
+
+### Use your own model provider
+
+You can configure {% data variables.copilot.copilot_cli_short %} to use your own model provider instead of {% data variables.product.github %}-hosted models. Run `copilot help providers` for full setup instructions.
+
+**Key considerations:**
+
+* Your model must support **tool calling** (function calling) and **streaming**. {% data variables.copilot.copilot_cli_short %} returns an error if either capability is missing.
+* For best results, use a model with a context window of at least 128k tokens.
+* Built-in sub-agents (`/review`, `/task`, explore, `/fleet`) automatically inherit your provider configuration.
+* Premium request cost estimates are hidden when using your own provider. Token usage (input, output, and cache counts) is still displayed.
+* `/delegate` only works if you are also signed in to {% data variables.product.github %}. It transfers the session to {% data variables.product.github %}'s server-side {% data variables.product.prodname_copilot_short %}, not your provider.
+
+See [Using your own model provider](/copilot/concepts/agents/copilot-cli/about-copilot-cli#using-your-own-model-provider).
 
 ## 2. Plan before you code
 
@@ -262,14 +281,14 @@ Visualize your current context usage with `/context`. It shows a breakdown of:
 
 * System/tools tokens
 * Message history tokens
-* Available free space
+* Free space
 * Buffer allocation
 
 ## 4. Delegate work effectively
 
 ### The `/delegate` command
 
-**Offload work to run in the cloud using {% data variables.copilot.copilot_coding_agent %}.** This is particularly powerful for:
+**Offload work to run in the cloud using {% data variables.copilot.copilot_cloud_agent %}.** This is particularly powerful for:
 
 * Tasks that can run asynchronously.
 * Changes to other repositories.
@@ -283,7 +302,7 @@ Visualize your current context usage with `/context`. It shows a breakdown of:
 
 **What happens:**
 
-* Your request is sent to {% data variables.copilot.copilot_coding_agent %}.
+* Your request is sent to {% data variables.copilot.copilot_cloud_agent %}.
 * The agent creates a pull request with the changes.
 * You can continue working locally while the cloud agent works.
 
@@ -397,7 +416,7 @@ This multi-repository capability enables:
 
 ### Using images for UI work
 
-{% data variables.product.prodname_copilot_short %} can work with visual references. Simply **drag and drop** images directly into the CLI input, or reference image files:
+{% data variables.product.prodname_copilot_short %} can work with visual references. Simply **drag and drop** images directly into the CLI input, paste an image from the clipboard by using <kbd>Ctrl</kbd>+<kbd>V</kbd>, or reference image files in your prompt:
 
 ```copilot
 Implement this design: @mockup.png
@@ -412,6 +431,12 @@ For large-scale changes:
 Run the linter and write all errors to `migration-checklist.md` as a checklist.
 Then fix each issue one by one, checking them off as you go.
 ```
+
+### Autonomous task completion
+
+Switch into autopilot mode to allow {% data variables.product.prodname_copilot_short %} to work autonomously on a task until it is complete. This is ideal for long-running tasks that don't require constant supervision. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
+
+Optionally, you can usually speed up large tasks by using the `/fleet` slash command at the start of your prompt to allow {% data variables.product.prodname_copilot_short %} to break the task into parallel subtasks that are run by subagents. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet).
 
 ## 7. Team guidelines
 
@@ -476,9 +501,20 @@ To submit private feedback to {% data variables.product.github %} about {% data 
 /feedback
 ```
 
+## Hands-on practice
+Try the [Creating applications with {% data variables.copilot.copilot_cli_short %}](https://github.com/skills/create-applications-with-the-copilot-cli) Skills exercise for practical experience building an application with {% data variables.copilot.copilot_cli_short %}.
+
+Here is what you will learn:
+* Install {% data variables.copilot.copilot_cli_short %}
+* Use the issue template to create an issue
+* Generate a Node.js CLI calculator app
+* Expand calculator functionality
+* Write unit tests for calculator functions
+* Create, review, and merge your pull request
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)
-* [AUTOTITLE](/copilot/reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
 * [{% data variables.product.prodname_copilot_short %} plans and pricing](https://github.com/features/copilot/plans)

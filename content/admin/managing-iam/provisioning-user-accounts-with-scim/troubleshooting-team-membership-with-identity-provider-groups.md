@@ -1,21 +1,18 @@
 ---
 title: Troubleshooting team membership with identity provider groups
 shortTitle: Troubleshoot team membership with IdP
-intro: 'If you manage team membership using groups on your identity provider (IdP), but team membership is not in sync, you can troubleshoot the problem.'
+intro: If you manage team membership using groups on your identity provider (IdP), but team membership is not in sync, you can troubleshoot the problem.
 product: '{% data reusables.gated-features.emus %}'
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Teams
-  - Troubleshooting
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/troubleshooting-team-membership-with-identity-provider-groups
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups
   - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups
+contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}

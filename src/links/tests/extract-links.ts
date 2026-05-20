@@ -7,6 +7,7 @@ import {
   isAssetLink,
 } from '../lib/extract-links'
 import { latestStable } from '@/versions/lib/enterprise-server-releases'
+import type { Page } from '@/types'
 
 describe('extractLinksFromMarkdown', () => {
   test('extracts simple internal links', () => {
@@ -140,6 +141,75 @@ Also [versioned](/enterprise-server@{{ currentVersion }}/admin).
     expect(result.internalLinks.length).toBeGreaterThanOrEqual(0)
   })
 
+  test('extracts external links with parentheses in URLs', () => {
+    const content = `
+See the [shebang article](https://en.wikipedia.org/wiki/Shebang_(Unix)) for more.
+Also [Continuum](https://en.wikipedia.org/wiki/Continuum_(measurement)) is relevant.
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.externalLinks).toHaveLength(2)
+    expect(result.externalLinks[0].href).toBe('https://en.wikipedia.org/wiki/Shebang_(Unix)')
+    expect(result.externalLinks[1].href).toBe(
+      'https://en.wikipedia.org/wiki/Continuum_(measurement)',
+    )
+  })
+
+  test('skips links inside fenced code blocks', () => {
+    const content = `
+Here is [a real link](https://example.com).
+
+\`\`\`yaml
+![badge](https://github.com/octocat/repo/actions/workflows/ci.yml/badge.svg)
+[example](https://fake-example.com/not-real)
+\`\`\`
+
+And [another real link](https://real.example.com/page).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.externalLinks).toHaveLength(2)
+    expect(result.externalLinks[0].href).toBe('https://example.com')
+    expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
+  })
+
+  test('preserves correct line numbers when code blocks are stripped', () => {
+    const content = `Line 1
+[Link on line 2](/path/one)
+\`\`\`
+code block on line 3
+code block on line 4
+\`\`\`
+Line 6
+[Link on line 8](/path/two)
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks[0].line).toBe(2)
+    // Line numbers are preserved because code block content is replaced with spaces
+    expect(result.internalLinks[1].line).toBe(8)
+  })
+
+  test('skips links inside indented fenced code blocks', () => {
+    const content = `
+Here is [a real link](https://example.com).
+
+1. Step one:
+
+   \`\`\`yaml
+   [example](https://fake-example.com/not-real)
+   \`\`\`
+
+And [another real link](https://real.example.com/page).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.externalLinks).toHaveLength(2)
+    expect(result.externalLinks[0].href).toBe('https://example.com')
+    expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
+  })
+
   test('handles complex nested brackets', () => {
     const content = `
 Use the [\`git clone\`](/repositories/cloning) command.
@@ -148,6 +218,100 @@ See [Using [brackets] in text](/guides/brackets).
     const result = extractLinksFromMarkdown(content)
 
     expect(result.internalLinks).toHaveLength(2)
+  })
+
+  test('extracts reference-style link definitions', () => {
+    const content = `
+See [the guide][ssh-agent] for details.
+Also [generating keys][gen-keys].
+
+[ssh-agent]: /authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding
+[gen-keys]: /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks[0].href).toBe(
+      '/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding',
+    )
+    // Anchor fragment should be stripped from the href
+    expect(result.internalLinks[1].href).toBe(
+      '/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent',
+    )
+  })
+
+  test('reports correct line numbers for reference-style link definitions', () => {
+    const content = `Line 1
+Line 2
+
+[ref-a]: /path/one
+[ref-b]: /path/two
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks[0].line).toBe(4)
+    expect(result.internalLinks[1].line).toBe(5)
+  })
+
+  test('does not extract external reference-style link definitions', () => {
+    const content = `
+[external]: https://example.com
+[internal]: /docs/overview
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/docs/overview')
+  })
+})
+
+describe('liquidPrefixedLinks', () => {
+  test('extracts links whose href starts with a Liquid tag', () => {
+    const content = `
+See [About EMUs]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/about-enterprise-managed-users).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.liquidPrefixedLinks).toHaveLength(1)
+    expect(result.liquidPrefixedLinks[0].href).toBe(
+      '{% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/about-enterprise-managed-users',
+    )
+  })
+
+  test('does not include Liquid-prefixed links in internalLinks', () => {
+    const content = `
+See [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview).
+Also see [normal link](/actions/overview).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/actions/overview')
+    expect(result.liquidPrefixedLinks).toHaveLength(1)
+  })
+
+  test('reports correct line numbers for Liquid-prefixed links', () => {
+    const content = `Line 1
+Line 2
+See [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview).
+Line 4
+See [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/overview).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.liquidPrefixedLinks).toHaveLength(2)
+    expect(result.liquidPrefixedLinks[0].line).toBe(3)
+    expect(result.liquidPrefixedLinks[1].line).toBe(5)
+  })
+
+  test('returns empty liquidPrefixedLinks when none present', () => {
+    const content = `
+See [normal link](/actions/overview) for details.
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.liquidPrefixedLinks).toHaveLength(0)
   })
 })
 
@@ -173,19 +337,37 @@ describe('normalizeLinkPath', () => {
       '/en/enterprise-server@3.10/admin/overview',
     )
   })
+
+  test('removes query string', () => {
+    expect(normalizeLinkPath('/actions/guides?tab=cli')).toBe('/actions/guides')
+  })
+
+  test('removes query string before anchor fragment', () => {
+    expect(normalizeLinkPath('/actions/guides?tab=cli#section')).toBe('/actions/guides')
+  })
+
+  test('removes query string with trailing slash', () => {
+    expect(normalizeLinkPath('/actions/guides/?tab=cli')).toBe('/actions/guides')
+  })
+
+  test('handles path with only a query string (no anchor)', () => {
+    expect(normalizeLinkPath('/repositories/overview?version=3')).toBe('/repositories/overview')
+  })
 })
 
 describe('checkInternalLink', () => {
   const pageMap = {
-    '/en/actions/getting-started': {} as any,
-    '/en/repositories/overview': {} as any,
-    '/actions/guides': {} as any,
-    [`/en/enterprise-server@${latestStable}/admin/overview`]: {} as any,
+    '/en/actions/getting-started': {} as unknown as Page,
+    '/en/repositories/overview': {} as unknown as Page,
+    '/actions/guides': {} as unknown as Page,
+    [`/en/enterprise-server@${latestStable}/admin/overview`]: {} as unknown as Page,
   }
 
   const redirects = {
     '/en/old-path': '/en/new-path',
     '/en/deprecated': '/en/current',
+    '/enterprise-server@3.19/actions/old-path': '/enterprise-server@3.19/actions/new-path',
+    '/actions/legacy-path': '/actions/current-path',
   }
 
   test('finds direct page match', () => {
@@ -232,6 +414,25 @@ describe('checkInternalLink', () => {
   test('resolves enterprise-server@latest for non-existent page', () => {
     const result = checkInternalLink('/enterprise-server@latest/does/not/exist', pageMap, redirects)
     expect(result.exists).toBe(false)
+  })
+
+  test('finds redirect after stripping language prefix', () => {
+    // Links from rendered HTML have /en/ prefix but redirects are stored without it
+    const result = checkInternalLink(
+      '/en/enterprise-server@3.19/actions/old-path',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/enterprise-server@3.19/actions/new-path')
+  })
+
+  test('finds versionless redirect after stripping language prefix', () => {
+    const result = checkInternalLink('/en/actions/legacy-path', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/actions/current-path')
   })
 })
 

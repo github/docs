@@ -1,20 +1,20 @@
 ---
 title: Viewing all repositories
-intro: 'The repository dashboard lists the repositories you''ve created as well as where you''ve made contributions. You can use search and filters to find the right repositories and create saved views.'
+intro: The repository dashboard lists the repositories you've created as well as where you've made contributions. You can use search and filters to find the right repositories and create saved views.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>=3.22'
-topics:
-  - Repositories
 shortTitle: View all repositories
-type: how_to
+contentType: how-tos
+category:
+  - Manage, move, and archive a repository
 ---
 
 ## Viewing repositories
 
-Your repository dashboard is available at the top of any page. On the dashboard, you can see repositories by `My contributions`, `My repositories`, and `My forks`.
+Your repository dashboard is available at the top of any page. On the dashboard, you can see repositories by `My contributions`, `My repositories`, `My forks`, and `Admin access`.
 
 1. At the top of any page, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %}** to see your repositories.
 

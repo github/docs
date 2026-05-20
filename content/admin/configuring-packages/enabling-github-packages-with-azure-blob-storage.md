@@ -1,16 +1,14 @@
 ---
 title: Enabling GitHub Packages with Azure Blob Storage
-intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.'
+intro: Set up {% data variables.product.prodname_registry %} with Azure Blob Storage as your external storage.
 versions:
   ghes: '*'
-type: tutorial
-topics:
-  - Enterprise
-  - Packages
-  - Storage
 shortTitle: Enable Packages with Azure
 redirect_from:
   - /admin/packages/enabling-github-packages-with-azure-blob-storage
+contentType: tutorials
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 > [!WARNING]

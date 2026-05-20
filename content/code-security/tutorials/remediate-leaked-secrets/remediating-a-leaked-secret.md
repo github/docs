@@ -3,11 +3,6 @@ title: Remediating a leaked secret in your repository
 shortTitle: Remediate a leaked secret
 allowTitleToDifferFromFilename: true
 intro: Learn how to respond effectively to a leaked secret in your {% data variables.product.github %} repository.
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret
 contentType: tutorials
+category:
+  - Protect your secrets
 ---
 
 ## Introduction

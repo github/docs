@@ -5,11 +5,11 @@ intro: Identify and resolve a code quality block on your pull request so you can
 versions:
   feature: code-quality
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
-topics:
-  - Code Quality
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/unblock-your-pr
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}
@@ -46,15 +46,15 @@ The merge block banner may specify the minimum severity level. All findings at t
 
 In order to unblock your pull request, you need to resolve each required finding by deciding whether to **fix** the issue in your code or **dismiss** the comment.
 
-### Leveraging {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_coding_agent %} to fix findings
+### Leveraging {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_cloud_agent %} to fix findings
 
 #### {% data variables.copilot.copilot_autofix_short %}
 
 {% data reusables.code-quality.fix-findings-with-copilot-autofix %}
 
-#### {% data variables.copilot.copilot_coding_agent %}
+#### {% data variables.copilot.copilot_cloud_agent %}
 
-{% data reusables.code-quality.fix-findings-with-coding-agent %}
+{% data reusables.code-quality.fix-findings-with-cloud-agent %}
 
 ### Dismissing the finding
 

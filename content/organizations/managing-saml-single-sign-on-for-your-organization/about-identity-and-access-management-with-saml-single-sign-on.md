@@ -6,10 +6,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: IAM with SAML SSO
+category:
+  - Configure SAML single sign-on
 ---
 
 {% data reusables.saml.ghec-only %}

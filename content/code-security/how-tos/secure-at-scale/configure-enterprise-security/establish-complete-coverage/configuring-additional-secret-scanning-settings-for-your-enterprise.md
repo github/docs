@@ -5,13 +5,11 @@ intro: Learn how to configure additional {% data variables.product.prodname_secr
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
 versions:
   feature: security-configuration-enterprise-level
-topics:
-  - Advanced Security
-  - Enterprise
-  - Security
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About additional settings for {% data variables.product.prodname_secret_scanning %}

@@ -31,10 +31,12 @@ interface IgnoredChange {
 
 interface RawPreview {
   title: string
+  description?: string
   toggled_on: string[]
   toggled_by: string
   announcement?: unknown
   updates?: unknown
+  owning_teams?: string[]
 }
 
 interface UpcomingChangeEntry {

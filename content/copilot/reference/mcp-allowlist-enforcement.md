@@ -3,8 +3,6 @@ title: MCP allowlist enforcement
 intro: 'Understand the logic and limitations of MCP allowlist enforcement.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 category:
   - Learn about Copilot

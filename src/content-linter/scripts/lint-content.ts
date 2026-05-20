@@ -89,7 +89,7 @@ type FormattedResults = Record<string, FormattedResult[]>
  */
 export const globalConfig = {
   // Do not ever lint these filepaths
-  excludePaths: ['content/contributing/'],
+  excludePaths: ['content/contributing/', 'data/llms-txt/'],
 }
 
 program
@@ -285,8 +285,8 @@ async function main() {
   console.log('\n')
   const took = end - start
   if (warningFileCount > 0 || errorFileCount > 0) {
-    spinner.info(
-      `💡 You can disable linter rules for specific lines or blocks of text. See https://gh.io/suppress-linter-rule.\n\n`,
+    console.log(
+      `💡 You can disable linter rules for specific lines or blocks of text. See https://gh.io/suppress-linter-rule.\n`,
     )
   }
   spinner.info(

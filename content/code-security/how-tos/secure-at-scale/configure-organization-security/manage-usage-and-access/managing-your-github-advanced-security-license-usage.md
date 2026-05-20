@@ -6,15 +6,14 @@ allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.ghas-billing %}'
 versions:
-  feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## Prerequisites
@@ -26,6 +25,7 @@ Before you can effectively manage your paid use of {% data variables.product.pro
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
+1. Click the **Repositories** tab.
 1. In the "Apply configurations" section, your current license usage will be displayed. {% ifversion ghas-products %}This screenshot shows metered usage. If you have bought a volume/subscription license, then the number of licenses available is also reported.
 
     ![Screenshot of the "Apply configurations" section. The current license use for the enterprise is outlined in dark orange.](/assets/images/help/security-configurations/current-sp-cs-license-usage.png)

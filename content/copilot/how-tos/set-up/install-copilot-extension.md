@@ -5,8 +5,6 @@ intro: 'To use {% data variables.product.prodname_copilot_short %} in your prefe
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment
   - /copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment

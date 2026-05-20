@@ -11,10 +11,9 @@ redirect_from:
   - /admin/administering-your-instance/command-line-utilities
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Enterprise
-  - SSH
+contentType: reference
+category:
+  - Install and configure your instance
 ---
 
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
@@ -135,7 +134,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run). {% ifversion ghes > 3.15 %} Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. {% endif %}
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run). Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. 
 
 ```shell
 ghe-config-apply
@@ -1287,6 +1286,12 @@ GHE_LICENSE_FILE=/path/license ghe-license import
 # License imported at /data/user/common/enterprise.ghl.
 # License synchronized.
 ```
+
+## Migrations
+
+### elm
+
+`elm` is the command-line tool for {% data variables.product.prodname_elm %}, a tool for live migrations to {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/migrations/elm/elm-cli-reference).
 
 ## Security
 

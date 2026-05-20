@@ -2,14 +2,13 @@
 title: About setup types for code scanning
 shortTitle: Setup types
 intro: Depending on your needs, {% data variables.product.github %} offers a default or advanced setup for {% data variables.product.prodname_code_scanning %}.
-topics:
-  - Code Security
-  - Code scanning
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Find and fix code vulnerabilities
 ---
 
 ## About default setup
@@ -30,8 +29,6 @@ If the code in a repository changes to include any {% data variables.product.pro
 
 After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs.
 
-If you need more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you should instead configure advanced setup.
-
 ### Configuration options
 
 For existing configurations of default setup, you can edit:
@@ -42,13 +39,17 @@ For existing configurations of default setup, you can edit:
 
 If your codebase depends on a library or framework that is not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can also extend the {% data variables.product.prodname_codeql %} coverage in default setup using {% data variables.product.prodname_codeql %} model packs. For more information, see [Extending CodeQL coverage with CodeQL model packs in default setup](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup).
 
+{% ifversion codeql-custom-properties %}
+
+Additional configuration options that are shared between all {% data variables.product.prodname_code_scanning %} setup types are available. See [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties).
+
+{% endif %}
+
 ### Available runners
 
 You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages on self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners.
 
-You can assign self-hosted runners for default setup by giving the runners {% ifversion code-scanning-default-setup-customize-labels %}the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners.{% else %}the `code-scanning` label.{% endif %}
-
-{% ifversion code-scanning-default-setup-customize-labels %}
+You can assign self-hosted runners for default setup by giving the runners the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners.
 
 Unless you have a specific use case, we recommend that you only assign runners with the default `code-scanning` label. However, you may want to use custom labels to:
 
@@ -56,11 +57,9 @@ Unless you have a specific use case, we recommend that you only assign runners w
 * Run your {% data variables.product.prodname_code_scanning %} analyses on a particular platform (for example, macOS).
 * Have granular control over the workload for your {% data variables.product.prodname_dotcom %}-hosted runners and self-hosted runners.
 
-{% endif %}
-
 ## About advanced setup
 
-Advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. You can set up {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_actions %} or an external continuous integration or continuous delivery/deployment (CI/CD) system.
+If you need more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you should instead configure advanced setup. Advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. You can set up {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_actions %} or an external continuous integration or continuous delivery/deployment (CI/CD) system.
 
 {% data reusables.code-scanning.about-multiple-configurations-link %}
 

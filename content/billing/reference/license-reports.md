@@ -6,12 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 contentType: reference
+category:
+  - Track spending and control costs
 ---
 
 Each license report shows information about license users in your enterprise account, for {% data variables.product.prodname_copilot_short %}, or for {% data variables.product.prodname_AS %}.

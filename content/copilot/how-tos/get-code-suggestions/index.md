@@ -4,8 +4,6 @@ shortTitle: Get code suggestions
 intro: 'Learn how to get suggestions from {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /get-ide-code-suggestions
   - /find-matching-code

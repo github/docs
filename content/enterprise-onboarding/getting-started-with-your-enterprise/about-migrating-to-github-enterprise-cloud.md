@@ -3,12 +3,8 @@ title: About migrating to GitHub Enterprise Cloud
 intro: Explore migrating your current solution into {% data variables.product.prodname_ghe_cloud %}.
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Accounts
-  - Enterprise
 shortTitle: Migrations
-contentType: other
+contentType: concepts
 ---
 
 {% data reusables.migrations.about-migrations %}

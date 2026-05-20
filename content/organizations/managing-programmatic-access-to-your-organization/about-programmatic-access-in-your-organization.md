@@ -2,16 +2,13 @@
 title: About programmatic access in your organization
 intro: 'As an organization owner, you can control access to your organization by {% data variables.product.pat_generic %}s, {% data variables.product.prodname_github_apps %}, and {% data variables.product.prodname_oauth_apps %}.'
 permissions: Organization owners can control programmatic access in their organization.
-topics:
-  - Organizations
-  - GitHub Apps
-  - OAuth apps
-  - API
 shortTitle: About programmatic access
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage app and API access
 ---
 
 ## About programmatic access

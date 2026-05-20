@@ -7,8 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 children:
   - /introduction-to-graphql
   - /forming-calls-with-graphql

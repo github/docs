@@ -7,11 +7,11 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Quickstart
-topics:
-  - API
 redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
+category:
+  - Learn about the REST API
 ---
 
 ## Introduction

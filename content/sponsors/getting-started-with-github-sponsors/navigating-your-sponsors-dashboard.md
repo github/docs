@@ -1,15 +1,12 @@
 ---
 title: Navigating your Sponsors dashboard
-intro: 'View {% data variables.product.prodname_sponsors %}-related activity from your Sponsors dashboard.'
+intro: View {% data variables.product.prodname_sponsors %}-related activity from your Sponsors dashboard.
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Open Source
-  - Fundamentals
-  - Sponsors
-  - Sponsors profile
+contentType: concepts
+category:
+  - Understand sponsorships
 ---
 ## About your Sponsors dashboard
 

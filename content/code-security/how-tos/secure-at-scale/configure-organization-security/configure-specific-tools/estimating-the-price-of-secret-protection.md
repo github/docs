@@ -6,12 +6,11 @@ product: '{% data reusables.gated-features.secret-risk-assessment-calculators %}
 versions:
   feature: secret-risk-assessment
 permissions: '{% data reusables.permissions.push-protection-roi-calculator %}'
-topics:
-  - Secret scanning
-  - Secret Protection
 contentType: how-tos
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/estimating-the-price-of-secret-protection
+category:
+  - Secure at scale
 ---
 
 ## What is the pricing calculator?

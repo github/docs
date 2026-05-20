@@ -6,19 +6,13 @@ shortTitle: Enable delegated alert dismissal
 versions:
   feature: dependabot-delegated-alert-dismissal
 contentType: how-tos
-topics:
-  - Dependabot
-  - Code Security
-  - Security updates
-  - Alerts
-  - Dependencies
 redirect_from:
   - /code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal
+category:
+  - Secure your dependencies
 ---
 
-## About enabling delegated alert dismissal
-
-{% data reusables.security.delegated-alert-dismissal-intro %}
+{% data reusables.security.delegated-alert-dismissal-capacity %}
 
 ## Configuring delegated dismissal for a repository
 

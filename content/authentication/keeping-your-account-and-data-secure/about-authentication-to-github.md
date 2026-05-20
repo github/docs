@@ -5,13 +5,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github
 shortTitle: Authentication to GitHub
+category:
+  - Learn about authentication
 ---
 ## About authentication to {% data variables.product.github %}
 
@@ -146,6 +145,8 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 
 {% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
 
+{% data reusables.apps.ghs-stateless-token-format %}
+
 | Token type | Prefix | More information |
 | :- | :- | :- |
 | {% data variables.product.pat_v1_caps %} | `ghp_` | [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)  |
@@ -154,3 +155,5 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 | User access token for a {% data variables.product.prodname_github_app %} | `ghu_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) |
 | Installation access token for a {% data variables.product.prodname_github_app %} | `ghs_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation) |
 | Refresh token for a {% data variables.product.prodname_github_app %} | `ghr_` | [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens) |
+
+For more information {% data variables.product.github %}'s token types and their management, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types).
