@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>issueFields</code> was added to object type <code>Repository</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Repository.issueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Repository.issueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Repository.issueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Repository.issueFields</code></p>",
+          "<p>Argument <code>orderBy: IssueFieldOrder</code> (with default value) added to field <code>Repository.issueFields</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-05-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>ContentWarning</code> was added</p>",
           "<p>Field <code>category</code> was added to object type <code>ContentWarning</code></p>",
           "<p>Field <code>customSubCategory</code> was added to object type <code>ContentWarning</code></p>",

@@ -349,7 +349,7 @@ type ActorLocation @docsCategory(name: "users") {
 """
 The actor's type.
 """
-enum ActorType {
+enum ActorType @docsCategory(name: "users") {
   """
   Indicates a team actor.
   """
@@ -1319,7 +1319,7 @@ type AddVerifiableDomainPayload {
 """
 Represents an 'added_to_merge_queue' event on a given pull request.
 """
-type AddedToMergeQueueEvent implements Node {
+type AddedToMergeQueueEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -1461,7 +1461,7 @@ input AgentAssignmentInput @docsCategory(name: "users") {
 """
 Copilot Agentic fields in context of the current viewer.
 """
-interface Agentic {
+interface Agentic @docsCategory(name: "copilot") {
   """
   Channel value for subscribing to live updates for session creations.
   """
@@ -1856,7 +1856,7 @@ interface Assignable @docsCategory(name: "issues") {
 """
 Represents an 'assigned' event on any assignable object.
 """
-type AssignedEvent implements Node {
+type AssignedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -2076,7 +2076,7 @@ enum AuditLogOrderField @docsCategory(name: "enterprise-admin") {
 """
 Represents a 'auto_merge_disabled' event on a given pull request.
 """
-type AutoMergeDisabledEvent implements Node {
+type AutoMergeDisabledEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2116,7 +2116,7 @@ type AutoMergeDisabledEvent implements Node {
 """
 Represents a 'auto_merge_enabled' event on a given pull request.
 """
-type AutoMergeEnabledEvent implements Node {
+type AutoMergeEnabledEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2146,7 +2146,7 @@ type AutoMergeEnabledEvent implements Node {
 """
 Represents an auto-merge request for a pull request
 """
-type AutoMergeRequest {
+type AutoMergeRequest @docsCategory(name: "pulls") {
   """
   The email address of the author of this auto-merge request.
   """
@@ -2189,7 +2189,7 @@ type AutoMergeRequest {
 """
 Represents a 'auto_rebase_enabled' event on a given pull request.
 """
-type AutoRebaseEnabledEvent implements Node {
+type AutoRebaseEnabledEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2219,7 +2219,7 @@ type AutoRebaseEnabledEvent implements Node {
 """
 Represents a 'auto_squash_enabled' event on a given pull request.
 """
-type AutoSquashEnabledEvent implements Node {
+type AutoSquashEnabledEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2249,7 +2249,7 @@ type AutoSquashEnabledEvent implements Node {
 """
 Represents a 'automatic_base_change_failed' event on a given pull request.
 """
-type AutomaticBaseChangeFailedEvent implements Node {
+type AutomaticBaseChangeFailedEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2284,7 +2284,7 @@ type AutomaticBaseChangeFailedEvent implements Node {
 """
 Represents a 'automatic_base_change_succeeded' event on a given pull request.
 """
-type AutomaticBaseChangeSucceededEvent implements Node {
+type AutomaticBaseChangeSucceededEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2324,7 +2324,7 @@ scalar Base64String
 """
 Represents a 'base_ref_changed' event on a given issue or pull request.
 """
-type BaseRefChangedEvent implements Node {
+type BaseRefChangedEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2364,7 +2364,7 @@ type BaseRefChangedEvent implements Node {
 """
 Represents a 'base_ref_deleted' event on a given pull request.
 """
-type BaseRefDeletedEvent implements Node {
+type BaseRefDeletedEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2394,7 +2394,7 @@ type BaseRefDeletedEvent implements Node {
 """
 Represents a 'base_ref_force_pushed' event on a given pull request.
 """
-type BaseRefForcePushedEvent implements Node {
+type BaseRefForcePushedEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -2683,7 +2683,7 @@ type Bot implements Actor & Node & UniformResourceLocatable @docsCategory(name: 
 """
 Types which can be actors for `BranchActorAllowance` objects.
 """
-union BranchActorAllowanceActor = App | Team | User
+union BranchActorAllowanceActor @docsCategory(name: "branches") = App | Team | User
 
 """
 Parameters to be used for the branch_name_pattern rule
@@ -2738,7 +2738,7 @@ input BranchNamePatternParametersInput {
 """
 A branch protection rule.
 """
-type BranchProtectionRule implements Node {
+type BranchProtectionRule implements Node @docsCategory(name: "branches") {
   """
   Can this branch be deleted.
   """
@@ -3034,7 +3034,7 @@ type BranchProtectionRule implements Node {
 """
 A conflict between two branch protection rules.
 """
-type BranchProtectionRuleConflict {
+type BranchProtectionRuleConflict @docsCategory(name: "branches") {
   """
   Identifies the branch protection rule.
   """
@@ -3155,12 +3155,12 @@ input BulkSponsorship @docsCategory(name: "sponsors") {
 """
 Types that can represent a repository ruleset bypass actor.
 """
-union BypassActor = App | Team | User
+union BypassActor @docsCategory(name: "repos") = App | Team | User
 
 """
 A user, team, or app who has the ability to bypass a force push requirement on a protected branch.
 """
-type BypassForcePushAllowance implements Node {
+type BypassForcePushAllowance implements Node @docsCategory(name: "branches") {
   """
   The actor that can force push.
   """
@@ -3220,7 +3220,7 @@ type BypassForcePushAllowanceEdge {
 """
 A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.
 """
-type BypassPullRequestAllowance implements Node {
+type BypassPullRequestAllowance implements Node @docsCategory(name: "branches") {
   """
   The actor that can bypass.
   """
@@ -3280,7 +3280,7 @@ type BypassPullRequestAllowanceEdge {
 """
 The Common Vulnerability Scoring System
 """
-type CVSS {
+type CVSS @docsCategory(name: "security-advisories") {
   """
   The CVSS score associated with this advisory
   """
@@ -3295,7 +3295,7 @@ type CVSS {
 """
 A common weakness enumeration
 """
-type CWE implements Node {
+type CWE implements Node @docsCategory(name: "security-advisories") {
   """
   The id of the CWE
   """
@@ -3528,7 +3528,7 @@ type ChangeUserStatusPayload {
 """
 A single check annotation.
 """
-type CheckAnnotation {
+type CheckAnnotation @docsCategory(name: "checks") {
   """
   The annotation's severity level.
   """
@@ -3606,7 +3606,7 @@ type CheckAnnotationConnection {
 """
 Information from a check run analysis to specific lines of code.
 """
-input CheckAnnotationData {
+input CheckAnnotationData @docsCategory(name: "checks") {
   """
   Represents an annotation's information level
   """
@@ -3656,7 +3656,7 @@ type CheckAnnotationEdge {
 """
 Represents an annotation's information level.
 """
-enum CheckAnnotationLevel {
+enum CheckAnnotationLevel @docsCategory(name: "checks") {
   """
   An annotation indicating an inescapable error.
   """
@@ -3676,7 +3676,7 @@ enum CheckAnnotationLevel {
 """
 A character position in a check annotation.
 """
-type CheckAnnotationPosition {
+type CheckAnnotationPosition @docsCategory(name: "checks") {
   """
   Column number (1 indexed).
   """
@@ -3691,7 +3691,7 @@ type CheckAnnotationPosition {
 """
 Information from a check run analysis to specific lines of code.
 """
-input CheckAnnotationRange {
+input CheckAnnotationRange @docsCategory(name: "checks") {
   """
   The ending column of the range.
   """
@@ -3716,7 +3716,7 @@ input CheckAnnotationRange {
 """
 An inclusive pair of positions for a check annotation.
 """
-type CheckAnnotationSpan {
+type CheckAnnotationSpan @docsCategory(name: "checks") {
   """
   End position (inclusive).
   """
@@ -3731,7 +3731,7 @@ type CheckAnnotationSpan {
 """
 The possible states for a check suite or run conclusion.
 """
-enum CheckConclusionState {
+enum CheckConclusionState @docsCategory(name: "checks") {
   """
   The check suite or run requires action.
   """
@@ -3781,7 +3781,7 @@ enum CheckConclusionState {
 """
 A check run.
 """
-type CheckRun implements Node & RequirableByPullRequest & UniformResourceLocatable {
+type CheckRun implements Node & RequirableByPullRequest & UniformResourceLocatable @docsCategory(name: "checks") {
   """
   The check run's annotations
   """
@@ -3951,7 +3951,7 @@ type CheckRun implements Node & RequirableByPullRequest & UniformResourceLocatab
 """
 Possible further actions the integrator can perform.
 """
-input CheckRunAction {
+input CheckRunAction @docsCategory(name: "checks") {
   """
   A short explanation of what this action would do.
   """
@@ -4011,7 +4011,7 @@ type CheckRunEdge {
 """
 The filters that are available when fetching check runs.
 """
-input CheckRunFilter {
+input CheckRunFilter @docsCategory(name: "checks") {
   """
   Filters the check runs created by this application ID.
   """
@@ -4046,7 +4046,7 @@ input CheckRunFilter {
 """
 Descriptive details about the check run.
 """
-input CheckRunOutput {
+input CheckRunOutput @docsCategory(name: "checks") {
   """
   The annotations that are made as part of the check run.
   """
@@ -4076,7 +4076,7 @@ input CheckRunOutput {
 """
 Images attached to the check run output displayed in the GitHub pull request UI.
 """
-input CheckRunOutputImage {
+input CheckRunOutputImage @docsCategory(name: "checks") {
   """
   The alternative text for the image.
   """
@@ -4096,7 +4096,7 @@ input CheckRunOutputImage {
 """
 The possible states of a check run in a status rollup.
 """
-enum CheckRunState {
+enum CheckRunState @docsCategory(name: "checks") {
   """
   The check run requires action.
   """
@@ -4171,7 +4171,7 @@ enum CheckRunState {
 """
 Represents a count of the state of a check run.
 """
-type CheckRunStateCount {
+type CheckRunStateCount @docsCategory(name: "checks") {
   """
   The number of check runs with this state.
   """
@@ -4186,7 +4186,7 @@ type CheckRunStateCount {
 """
 The possible types of check runs.
 """
-enum CheckRunType {
+enum CheckRunType @docsCategory(name: "checks") {
   """
   Every check run available.
   """
@@ -4201,7 +4201,7 @@ enum CheckRunType {
 """
 The possible states for a check suite or run status.
 """
-enum CheckStatusState {
+enum CheckStatusState @docsCategory(name: "checks") {
   """
   The check suite or run has been completed.
   """
@@ -4236,7 +4236,7 @@ enum CheckStatusState {
 """
 A single check step.
 """
-type CheckStep {
+type CheckStep @docsCategory(name: "checks") {
   """
   Identifies the date and time when the check step was completed.
   """
@@ -4321,7 +4321,7 @@ type CheckStepEdge {
 """
 A check suite.
 """
-type CheckSuite implements Node {
+type CheckSuite implements Node @docsCategory(name: "checks") {
   """
   The GitHub App which created this check suite.
   """
@@ -4481,7 +4481,7 @@ type CheckSuite implements Node {
 """
 The auto-trigger preferences that are available for check suites.
 """
-input CheckSuiteAutoTriggerPreference {
+input CheckSuiteAutoTriggerPreference @docsCategory(name: "checks") {
   """
   The node ID of the application that owns the check suite.
   """
@@ -4536,7 +4536,7 @@ type CheckSuiteEdge {
 """
 The filters that are available when fetching check suites.
 """
-input CheckSuiteFilter {
+input CheckSuiteFilter @docsCategory(name: "checks") {
   """
   Filters the check suites created by this application ID.
   """
@@ -4551,7 +4551,7 @@ input CheckSuiteFilter {
 """
 An object which can have its data claimed or claim data from another.
 """
-union Claimable = Mannequin | User
+union Claimable @docsCategory(name: "users") = Mannequin | User
 
 """
 Autogenerated input type of ClearLabelsFromLabelable
@@ -4876,7 +4876,7 @@ type ClosePullRequestPayload {
 """
 Represents a 'closed' event on any `Closable`.
 """
-type ClosedEvent implements Node & UniformResourceLocatable {
+type ClosedEvent implements Node & UniformResourceLocatable @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -4926,7 +4926,7 @@ type ClosedEvent implements Node & UniformResourceLocatable {
 """
 The object which triggered a `ClosedEvent`.
 """
-union Closer = Commit | ProjectV2 | PullRequest
+union Closer @docsCategory(name: "issues") = Commit | ProjectV2 | PullRequest
 
 """
 The Code of Conduct for a repository
@@ -4968,7 +4968,7 @@ Choose which tools must provide code scanning results before the reference is
 updated. When configured, code scanning must be enabled and have results for
 both the commit and the reference being updated.
 """
-type CodeScanningParameters {
+type CodeScanningParameters @docsCategory(name: "repos") {
   """
   Tools that must provide code scanning results for this rule to pass.
   """
@@ -4980,7 +4980,7 @@ Choose which tools must provide code scanning results before the reference is
 updated. When configured, code scanning must be enabled and have results for
 both the commit and the reference being updated.
 """
-input CodeScanningParametersInput {
+input CodeScanningParametersInput @docsCategory(name: "repos") {
   """
   Tools that must provide code scanning results for this rule to pass.
   """
@@ -4990,7 +4990,7 @@ input CodeScanningParametersInput {
 """
 A tool that must provide code scanning results for this rule to pass.
 """
-type CodeScanningTool {
+type CodeScanningTool @docsCategory(name: "repos") {
   """
   The severity level at which code scanning results that raise alerts block a
   reference update. For more information on alert severity levels, see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
@@ -5013,7 +5013,7 @@ type CodeScanningTool {
 """
 A tool that must provide code scanning results for this rule to pass.
 """
-input CodeScanningToolInput {
+input CodeScanningToolInput @docsCategory(name: "repos") {
   """
   The severity level at which code scanning results that raise alerts block a
   reference update. For more information on alert severity levels, see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
@@ -5241,7 +5241,7 @@ enum CommentCannotUpdateReason @docsCategory(name: "issues") {
 """
 Represents a 'comment_deleted' event on a given issue or pull request.
 """
-type CommentDeletedEvent implements Node {
+type CommentDeletedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -5791,7 +5791,8 @@ input CommitAuthorEmailPatternParametersInput {
 """
 Represents a comment on a given Commit.
 """
-type CommitComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
+type CommitComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment
+  @docsCategory(name: "commits") {
   """
   The actor who authored the comment.
   """
@@ -6049,7 +6050,7 @@ type CommitCommentEdge {
 """
 A thread of comments on a commit.
 """
-type CommitCommentThread implements Node & RepositoryNode {
+type CommitCommentThread implements Node & RepositoryNode @docsCategory(name: "commits") {
   """
   The comments that exist in this thread.
   """
@@ -6404,7 +6405,7 @@ input CommitterEmailPatternParametersInput {
 """
 Represents a comparison between two commit revisions.
 """
-type Comparison implements Node {
+type Comparison implements Node @docsCategory(name: "commits") {
   """
   The number of commits ahead of the base branch.
   """
@@ -6494,7 +6495,7 @@ type ComparisonCommitConnection {
 """
 The status of a git comparison between two refs.
 """
-enum ComparisonStatus {
+enum ComparisonStatus @docsCategory(name: "commits") {
   """
   The head ref is ahead of the base ref.
   """
@@ -6609,7 +6610,7 @@ type ContributingGuidelines @docsCategory(name: "repos") {
 """
 Represents a contribution a user made on GitHub, such as opening an issue.
 """
-interface Contribution {
+interface Contribution @docsCategory(name: "users") {
   """
   Whether this contribution is associated with a record you do not have access to. For
   example, your own 'first issue' contribution may have been made on a repository you can no
@@ -7318,7 +7319,7 @@ type ConvertPullRequestToDraftPayload {
 """
 Represents a 'convert_to_draft' event on a given pull request.
 """
-type ConvertToDraftEvent implements Node & UniformResourceLocatable {
+type ConvertToDraftEvent implements Node & UniformResourceLocatable @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -7383,7 +7384,7 @@ type ConvertedFromDraftEvent implements Node & ProjectV2Event @docsCategory(name
 """
 Represents a 'converted_note_to_issue' event on a given issue or pull request.
 """
-type ConvertedNoteToIssueEvent implements Node {
+type ConvertedNoteToIssueEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -7488,7 +7489,7 @@ input CopilotCodeReviewParametersInput {
 """
 Copilot endpoint information
 """
-type CopilotEndpoints {
+type CopilotEndpoints @docsCategory(name: "copilot") {
   """
   Copilot API endpoint
   """
@@ -9948,7 +9949,7 @@ union CreatedRepositoryOrRestrictedContribution @docsCategory(name: "users") =
 """
 Represents a mention made by one issue or pull request to another.
 """
-type CrossReferencedEvent implements Node & UniformResourceLocatable {
+type CrossReferencedEvent implements Node & UniformResourceLocatable @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -10061,7 +10062,7 @@ enum CustomPropertyValueType @docsCategory(name: "repos") {
 """
 The Common Vulnerability Scoring System
 """
-type CvssSeverities {
+type CvssSeverities @docsCategory(name: "security-advisories") {
   """
   The CVSS v3 severity associated with this advisory
   """
@@ -10138,7 +10139,7 @@ type DeclineTopicSuggestionPayload {
 """
 The possible base permissions for repositories.
 """
-enum DefaultRepositoryPermissionField {
+enum DefaultRepositoryPermissionField @docsCategory(name: "repos") {
   """
   Can read, write, and administrate repos by default
   """
@@ -11086,7 +11087,7 @@ type DemilestonedEvent implements Node @docsCategory(name: "issues") {
 """
 A Dependabot Update for a dependency in a repository
 """
-type DependabotUpdate implements RepositoryNode {
+type DependabotUpdate implements RepositoryNode @docsCategory(name: "dependabot") {
   """
   The error from a dependency update
   """
@@ -11106,7 +11107,7 @@ type DependabotUpdate implements RepositoryNode {
 """
 An error produced from a Dependabot Update
 """
-type DependabotUpdateError {
+type DependabotUpdateError @docsCategory(name: "dependabot") {
   """
   The body of the error
   """
@@ -11126,7 +11127,7 @@ type DependabotUpdateError {
 """
 A dependency manifest entry
 """
-type DependencyGraphDependency {
+type DependencyGraphDependency @docsCategory(name: "dependency-graph") {
   """
   Does the dependency itself have dependencies?
   """
@@ -11214,7 +11215,7 @@ type DependencyGraphDependencyEdge {
 """
 The possible ecosystems of a dependency graph package.
 """
-enum DependencyGraphEcosystem {
+enum DependencyGraphEcosystem @docsCategory(name: "dependency-graph") {
   """
   GitHub Actions
   """
@@ -11274,7 +11275,7 @@ enum DependencyGraphEcosystem {
 """
 Dependency manifest for a repository
 """
-type DependencyGraphManifest implements Node {
+type DependencyGraphManifest implements Node @docsCategory(name: "dependency-graph") {
   """
   Path to view the manifest file blob
   """
@@ -11379,7 +11380,7 @@ type DependencyGraphManifestEdge {
 """
 A repository deploy key.
 """
-type DeployKey implements Node {
+type DeployKey implements Node @docsCategory(name: "deploy-keys") {
   """
   Identifies the date and time when the object was created.
   """
@@ -11459,7 +11460,7 @@ type DeployKeyEdge {
 """
 Represents a 'deployed' event on a given pull request.
 """
-type DeployedEvent implements Node {
+type DeployedEvent implements Node @docsCategory(name: "deployments") {
   """
   Identifies the actor who performed the event.
   """
@@ -11499,7 +11500,7 @@ type DeployedEvent implements Node {
 """
 Represents triggered deployment instance.
 """
-type Deployment implements Node {
+type Deployment implements Node @docsCategory(name: "deployments") {
   """
   Identifies the commit sha of the deployment.
   """
@@ -11654,7 +11655,7 @@ type DeploymentEdge {
 """
 Represents a 'deployment_environment_changed' event on a given pull request.
 """
-type DeploymentEnvironmentChangedEvent implements Node {
+type DeploymentEnvironmentChangedEvent implements Node @docsCategory(name: "deployments") {
   """
   Identifies the actor who performed the event.
   """
@@ -11684,7 +11685,7 @@ type DeploymentEnvironmentChangedEvent implements Node {
 """
 Ordering options for deployment connections
 """
-input DeploymentOrder {
+input DeploymentOrder @docsCategory(name: "deployments") {
   """
   The ordering direction.
   """
@@ -11699,7 +11700,7 @@ input DeploymentOrder {
 """
 Properties by which deployment connections can be ordered.
 """
-enum DeploymentOrderField {
+enum DeploymentOrderField @docsCategory(name: "deployments") {
   """
   Order collection by creation time
   """
@@ -11709,7 +11710,7 @@ enum DeploymentOrderField {
 """
 A protection rule.
 """
-type DeploymentProtectionRule {
+type DeploymentProtectionRule @docsCategory(name: "deployments") {
   """
   Identifies the primary key from the database.
   """
@@ -11799,7 +11800,7 @@ type DeploymentProtectionRuleEdge {
 """
 The possible protection rule types.
 """
-enum DeploymentProtectionRuleType {
+enum DeploymentProtectionRuleType @docsCategory(name: "deployments") {
   """
   Branch policy
   """
@@ -11819,7 +11820,7 @@ enum DeploymentProtectionRuleType {
 """
 A request to deploy a workflow run to an environment.
 """
-type DeploymentRequest {
+type DeploymentRequest @docsCategory(name: "deployments") {
   """
   Whether or not the current user can approve the deployment
   """
@@ -11909,7 +11910,7 @@ type DeploymentRequestEdge {
 """
 A deployment review.
 """
-type DeploymentReview implements Node {
+type DeploymentReview implements Node @docsCategory(name: "deployments") {
   """
   The comment the user left.
   """
@@ -12004,7 +12005,7 @@ type DeploymentReviewEdge {
 """
 The possible states for a deployment review.
 """
-enum DeploymentReviewState {
+enum DeploymentReviewState @docsCategory(name: "deployments") {
   """
   The deployment was approved.
   """
@@ -12019,7 +12020,7 @@ enum DeploymentReviewState {
 """
 Users and teams.
 """
-union DeploymentReviewer = Team | User
+union DeploymentReviewer @docsCategory(name: "deployments") = Team | User
 
 """
 The connection type for DeploymentReviewer.
@@ -12064,7 +12065,7 @@ type DeploymentReviewerEdge {
 """
 The possible states in which a deployment can be.
 """
-enum DeploymentState {
+enum DeploymentState @docsCategory(name: "deployments") {
   """
   The pending deployment was not updated after 30 minutes.
   """
@@ -12124,7 +12125,7 @@ enum DeploymentState {
 """
 Describes the status of a given deployment attempt.
 """
-type DeploymentStatus implements Node {
+type DeploymentStatus implements Node @docsCategory(name: "deployments") {
   """
   Identifies the date and time when the object was created.
   """
@@ -12219,7 +12220,7 @@ type DeploymentStatusEdge {
 """
 The possible states for a deployment status.
 """
-enum DeploymentStatusState {
+enum DeploymentStatusState @docsCategory(name: "deployments") {
   """
   The deployment experienced an error.
   """
@@ -12294,7 +12295,7 @@ type DequeuePullRequestPayload {
 """
 The possible sides of a diff.
 """
-enum DiffSide {
+enum DiffSide @docsCategory(name: "pulls") {
   """
   The left side of the diff.
   """
@@ -13449,7 +13450,7 @@ type DismissPullRequestReviewPayload {
 """
 The possible reasons that a Dependabot alert was dismissed.
 """
-enum DismissReason {
+enum DismissReason @docsCategory(name: "dependabot") {
   """
   A fix has already been started
   """
@@ -13634,7 +13635,7 @@ type DraftIssue implements Node @docsCategory(name: "projects") {
 """
 Specifies a review comment to be left with a Pull Request Review.
 """
-input DraftPullRequestReviewComment {
+input DraftPullRequestReviewComment @docsCategory(name: "pulls") {
   """
   Body of the comment to leave.
   """
@@ -13654,7 +13655,7 @@ input DraftPullRequestReviewComment {
 """
 Specifies a review comment thread to be left with a Pull Request Review.
 """
-input DraftPullRequestReviewThread {
+input DraftPullRequestReviewThread @docsCategory(name: "pulls") {
   """
   Body of the comment to leave.
   """
@@ -13690,7 +13691,7 @@ input DraftPullRequestReviewThread {
 """
 The Exploit Prediction Scoring System
 """
-type EPSS {
+type EPSS @docsCategory(name: "security-advisories") {
   """
   The EPSS percentage represents the likelihood of a CVE being exploited.
   """
@@ -13810,7 +13811,7 @@ type EnqueuePullRequestPayload {
 """
 An account to manage multiple organizations with consolidated policy and billing.
 """
-type Enterprise implements Node {
+type Enterprise implements Node @docsCategory(name: "enterprise-admin") {
   """
   The announcement banner set on this enterprise, if any. Only visible to members of the enterprise.
   """
@@ -14182,7 +14183,7 @@ type EnterpriseAdministratorEdge {
 """
 An invitation for a user to become an owner or billing manager of an enterprise.
 """
-type EnterpriseAdministratorInvitation implements Node {
+type EnterpriseAdministratorInvitation implements Node @docsCategory(name: "enterprise-admin") {
   """
   Identifies the date and time when the object was created.
   """
@@ -14262,7 +14263,7 @@ type EnterpriseAdministratorInvitationEdge {
 """
 Ordering options for enterprise administrator invitation connections
 """
-input EnterpriseAdministratorInvitationOrder {
+input EnterpriseAdministratorInvitationOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -14277,7 +14278,7 @@ input EnterpriseAdministratorInvitationOrder {
 """
 Properties by which enterprise administrator invitation connections can be ordered.
 """
-enum EnterpriseAdministratorInvitationOrderField {
+enum EnterpriseAdministratorInvitationOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order enterprise administrator member invitations by creation time
   """
@@ -14287,7 +14288,7 @@ enum EnterpriseAdministratorInvitationOrderField {
 """
 The possible administrator roles in an enterprise account.
 """
-enum EnterpriseAdministratorRole {
+enum EnterpriseAdministratorRole @docsCategory(name: "enterprise-admin") {
   """
   Represents a billing manager of the enterprise account.
   """
@@ -14307,7 +14308,7 @@ enum EnterpriseAdministratorRole {
 """
 The possible values for the enterprise allow private repository forking policy value.
 """
-enum EnterpriseAllowPrivateRepositoryForkingPolicyValue {
+enum EnterpriseAllowPrivateRepositoryForkingPolicyValue @docsCategory(name: "enterprise-admin") {
   """
   Members can fork a repository to an organization within this enterprise.
   """
@@ -14364,7 +14365,7 @@ interface EnterpriseAuditEntryData @docsCategory(name: "enterprise-admin") {
 """
 Enterprise billing information visible to enterprise billing managers and owners.
 """
-type EnterpriseBillingInfo {
+type EnterpriseBillingInfo @docsCategory(name: "enterprise-admin") {
   """
   The number of licenseable users/emails across the enterprise.
   """
@@ -14444,7 +14445,7 @@ type EnterpriseConnection {
 """
 The possible values for the enterprise base repository permission setting.
 """
-enum EnterpriseDefaultRepositoryPermissionSettingValue {
+enum EnterpriseDefaultRepositoryPermissionSettingValue @docsCategory(name: "enterprise-admin") {
   """
   Organization members will be able to clone, pull, push, and add new collaborators to all organization repositories.
   """
@@ -14474,7 +14475,7 @@ enum EnterpriseDefaultRepositoryPermissionSettingValue {
 """
 The possible values for an enabled/no policy enterprise setting.
 """
-enum EnterpriseDisallowedMethodsSettingValue {
+enum EnterpriseDisallowedMethodsSettingValue @docsCategory(name: "enterprise-admin") {
   """
   The setting prevents insecure 2FA methods from being used by members of the enterprise.
   """
@@ -14504,7 +14505,7 @@ type EnterpriseEdge {
 """
 The possible values for an enabled/disabled enterprise setting.
 """
-enum EnterpriseEnabledDisabledSettingValue {
+enum EnterpriseEnabledDisabledSettingValue @docsCategory(name: "enterprise-admin") {
   """
   The setting is disabled for organizations in the enterprise.
   """
@@ -14524,7 +14525,7 @@ enum EnterpriseEnabledDisabledSettingValue {
 """
 The possible values for an enabled/no policy enterprise setting.
 """
-enum EnterpriseEnabledSettingValue {
+enum EnterpriseEnabledSettingValue @docsCategory(name: "enterprise-admin") {
   """
   The setting is enabled for organizations in the enterprise.
   """
@@ -14586,7 +14587,7 @@ An identity provider configured to provision identities for an enterprise.
 Visible to enterprise owners or enterprise owners' personal access tokens
 (classic) with read:enterprise or admin:enterprise scope.
 """
-type EnterpriseIdentityProvider implements Node {
+type EnterpriseIdentityProvider implements Node @docsCategory(name: "enterprise-admin") {
   """
   The digest algorithm used to sign SAML requests for the identity provider.
   """
@@ -14671,7 +14672,7 @@ type EnterpriseIdentityProvider implements Node {
 """
 An object that is a member of an enterprise.
 """
-union EnterpriseMember = EnterpriseUserAccount | User
+union EnterpriseMember @docsCategory(name: "enterprise-admin") = EnterpriseUserAccount | User
 
 """
 The connection type for EnterpriseMember.
@@ -14716,7 +14717,7 @@ type EnterpriseMemberEdge {
 """
 An invitation for a user to become an unaffiliated member of an enterprise.
 """
-type EnterpriseMemberInvitation implements Node {
+type EnterpriseMemberInvitation implements Node @docsCategory(name: "enterprise-admin") {
   """
   Identifies the date and time when the object was created.
   """
@@ -14791,7 +14792,7 @@ type EnterpriseMemberInvitationEdge {
 """
 Ordering options for enterprise administrator invitation connections
 """
-input EnterpriseMemberInvitationOrder {
+input EnterpriseMemberInvitationOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -14806,7 +14807,7 @@ input EnterpriseMemberInvitationOrder {
 """
 Properties by which enterprise member invitation connections can be ordered.
 """
-enum EnterpriseMemberInvitationOrderField {
+enum EnterpriseMemberInvitationOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order enterprise member invitations by creation time
   """
@@ -14816,7 +14817,7 @@ enum EnterpriseMemberInvitationOrderField {
 """
 Ordering options for enterprise member connections.
 """
-input EnterpriseMemberOrder {
+input EnterpriseMemberOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -14831,7 +14832,7 @@ input EnterpriseMemberOrder {
 """
 Properties by which enterprise member connections can be ordered.
 """
-enum EnterpriseMemberOrderField {
+enum EnterpriseMemberOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order enterprise members by creation time
   """
@@ -14846,7 +14847,7 @@ enum EnterpriseMemberOrderField {
 """
 The possible values for the enterprise members can create repositories setting.
 """
-enum EnterpriseMembersCanCreateRepositoriesSettingValue {
+enum EnterpriseMembersCanCreateRepositoriesSettingValue @docsCategory(name: "enterprise-admin") {
   """
   Members will be able to create public and private repositories.
   """
@@ -14876,7 +14877,7 @@ enum EnterpriseMembersCanCreateRepositoriesSettingValue {
 """
 The possible values for the members can make purchases setting.
 """
-enum EnterpriseMembersCanMakePurchasesSettingValue {
+enum EnterpriseMembersCanMakePurchasesSettingValue @docsCategory(name: "enterprise-admin") {
   """
   The setting is disabled for organizations in the enterprise.
   """
@@ -14891,7 +14892,7 @@ enum EnterpriseMembersCanMakePurchasesSettingValue {
 """
 The possible values we have for filtering Platform::Objects::User#enterprises.
 """
-enum EnterpriseMembershipType {
+enum EnterpriseMembershipType @docsCategory(name: "enterprise-admin") {
   """
   Returns all enterprises in which the user is an admin.
   """
@@ -14916,7 +14917,7 @@ enum EnterpriseMembershipType {
 """
 Ordering options for enterprises.
 """
-input EnterpriseOrder {
+input EnterpriseOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -14931,7 +14932,7 @@ input EnterpriseOrder {
 """
 Properties by which enterprise connections can be ordered.
 """
-enum EnterpriseOrderField {
+enum EnterpriseOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order enterprises by name
   """
@@ -15057,7 +15058,7 @@ type EnterpriseOutsideCollaboratorEdge {
 Enterprise information visible to enterprise owners or enterprise owners'
 personal access tokens (classic) with read:enterprise or admin:enterprise scope.
 """
-type EnterpriseOwnerInfo {
+type EnterpriseOwnerInfo @docsCategory(name: "enterprise-admin") {
   """
   A list of all of the administrators for this enterprise.
   """
@@ -16212,7 +16213,7 @@ type EnterprisePendingMemberInvitationEdge {
 """
 A subset of repository information queryable from an enterprise.
 """
-type EnterpriseRepositoryInfo implements Node {
+type EnterpriseRepositoryInfo implements Node @docsCategory(name: "enterprise-admin") {
   """
   The Node ID of the EnterpriseRepositoryInfo object
   """
@@ -16277,7 +16278,7 @@ type EnterpriseRepositoryInfoEdge {
 """
 An Enterprise Server installation.
 """
-type EnterpriseServerInstallation implements Node {
+type EnterpriseServerInstallation implements Node @docsCategory(name: "enterprise-admin") {
   """
   Identifies the date and time when the object was created.
   """
@@ -16457,7 +16458,7 @@ type EnterpriseServerInstallationMembershipEdge {
 """
 Ordering options for Enterprise Server installation connections.
 """
-input EnterpriseServerInstallationOrder {
+input EnterpriseServerInstallationOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -16472,7 +16473,7 @@ input EnterpriseServerInstallationOrder {
 """
 Properties by which Enterprise Server installation connections can be ordered.
 """
-enum EnterpriseServerInstallationOrderField {
+enum EnterpriseServerInstallationOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order Enterprise Server installations by creation time
   """
@@ -16492,7 +16493,7 @@ enum EnterpriseServerInstallationOrderField {
 """
 A user account on an Enterprise Server installation.
 """
-type EnterpriseServerUserAccount implements Node {
+type EnterpriseServerUserAccount implements Node @docsCategory(name: "enterprise-admin") {
   """
   Identifies the date and time when the object was created.
   """
@@ -16612,7 +16613,7 @@ type EnterpriseServerUserAccountEdge {
 """
 An email belonging to a user account on an Enterprise Server installation.
 """
-type EnterpriseServerUserAccountEmail implements Node {
+type EnterpriseServerUserAccountEmail implements Node @docsCategory(name: "enterprise-admin") {
   """
   Identifies the date and time when the object was created.
   """
@@ -16687,7 +16688,7 @@ type EnterpriseServerUserAccountEmailEdge {
 """
 Ordering options for Enterprise Server user account email connections.
 """
-input EnterpriseServerUserAccountEmailOrder {
+input EnterpriseServerUserAccountEmailOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -16702,7 +16703,7 @@ input EnterpriseServerUserAccountEmailOrder {
 """
 Properties by which Enterprise Server user account email connections can be ordered.
 """
-enum EnterpriseServerUserAccountEmailOrderField {
+enum EnterpriseServerUserAccountEmailOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order emails by email
   """
@@ -16712,7 +16713,7 @@ enum EnterpriseServerUserAccountEmailOrderField {
 """
 Ordering options for Enterprise Server user account connections.
 """
-input EnterpriseServerUserAccountOrder {
+input EnterpriseServerUserAccountOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -16727,7 +16728,7 @@ input EnterpriseServerUserAccountOrder {
 """
 Properties by which Enterprise Server user account connections can be ordered.
 """
-enum EnterpriseServerUserAccountOrderField {
+enum EnterpriseServerUserAccountOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order user accounts by login
   """
@@ -16742,7 +16743,7 @@ enum EnterpriseServerUserAccountOrderField {
 """
 A user accounts upload from an Enterprise Server installation.
 """
-type EnterpriseServerUserAccountsUpload implements Node {
+type EnterpriseServerUserAccountsUpload implements Node @docsCategory(name: "enterprise-admin") {
   """
   Identifies the date and time when the object was created.
   """
@@ -16822,7 +16823,7 @@ type EnterpriseServerUserAccountsUploadEdge {
 """
 Ordering options for Enterprise Server user accounts upload connections.
 """
-input EnterpriseServerUserAccountsUploadOrder {
+input EnterpriseServerUserAccountsUploadOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -16837,7 +16838,7 @@ input EnterpriseServerUserAccountsUploadOrder {
 """
 Properties by which Enterprise Server user accounts upload connections can be ordered.
 """
-enum EnterpriseServerUserAccountsUploadOrderField {
+enum EnterpriseServerUserAccountsUploadOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order user accounts uploads by creation time
   """
@@ -16847,7 +16848,7 @@ enum EnterpriseServerUserAccountsUploadOrderField {
 """
 Synchronization state of the Enterprise Server user accounts upload
 """
-enum EnterpriseServerUserAccountsUploadSyncState {
+enum EnterpriseServerUserAccountsUploadSyncState @docsCategory(name: "enterprise-admin") {
   """
   The synchronization of the upload failed.
   """
@@ -16867,7 +16868,7 @@ enum EnterpriseServerUserAccountsUploadSyncState {
 """
 An account for a user who is an admin of an enterprise or a member of an enterprise through one or more organizations.
 """
-type EnterpriseUserAccount implements Actor & Node {
+type EnterpriseUserAccount implements Actor & Node @docsCategory(name: "enterprise-admin") {
   """
   A URL pointing to the enterprise user account's public avatar.
   """
@@ -17007,7 +17008,7 @@ type EnterpriseUserAccount implements Actor & Node {
 """
 The possible roles for enterprise membership.
 """
-enum EnterpriseUserAccountMembershipRole {
+enum EnterpriseUserAccountMembershipRole @docsCategory(name: "enterprise-admin") {
   """
   The user is a member of an organization in the enterprise.
   """
@@ -17028,7 +17029,7 @@ enum EnterpriseUserAccountMembershipRole {
 """
 The possible GitHub Enterprise deployments where this user can exist.
 """
-enum EnterpriseUserDeployment {
+enum EnterpriseUserDeployment @docsCategory(name: "enterprise-admin") {
   """
   The user is part of a GitHub Enterprise Cloud deployment.
   """
@@ -17043,7 +17044,7 @@ enum EnterpriseUserDeployment {
 """
 An environment.
 """
-type Environment implements Node {
+type Environment implements Node @docsCategory(name: "deployments") {
   """
   Identifies the primary key from the database.
   """
@@ -17143,7 +17144,7 @@ type EnvironmentEdge {
 """
 Properties by which environments connections can be ordered
 """
-enum EnvironmentOrderField {
+enum EnvironmentOrderField @docsCategory(name: "deployments") {
   """
   Order environments by name.
   """
@@ -17153,7 +17154,7 @@ enum EnvironmentOrderField {
 """
 Properties by which environments connections can be ordered
 """
-enum EnvironmentPinnedFilterField {
+enum EnvironmentPinnedFilterField @docsCategory(name: "deployments") {
   """
   All environments will be returned.
   """
@@ -17173,7 +17174,7 @@ enum EnvironmentPinnedFilterField {
 """
 Ordering options for environments
 """
-input Environments {
+input Environments @docsCategory(name: "deployments") {
   """
   The direction in which to order environments by the specified field.
   """
@@ -17194,7 +17195,7 @@ access to members. If SAML is configured on the enterprise, the external
 identity is visible to (1) enterprise owners, (2) enterprise owners' personal
 access tokens (classic) with read:enterprise or admin:enterprise scope.
 """
-type ExternalIdentity implements Node {
+type ExternalIdentity implements Node @docsCategory(name: "enterprise-admin") {
   """
   The GUID for this identity
   """
@@ -17229,7 +17230,7 @@ type ExternalIdentity implements Node {
 """
 An attribute for the External Identity attributes collection
 """
-type ExternalIdentityAttribute {
+type ExternalIdentityAttribute @docsCategory(name: "enterprise-admin") {
   """
   The attribute metadata as JSON
   """
@@ -17289,7 +17290,7 @@ type ExternalIdentityEdge {
 """
 SAML attributes for the External Identity
 """
-type ExternalIdentitySamlAttributes {
+type ExternalIdentitySamlAttributes @docsCategory(name: "enterprise-admin") {
   """
   SAML Identity attributes
   """
@@ -17329,7 +17330,7 @@ type ExternalIdentitySamlAttributes {
 """
 SCIM attributes for the External Identity
 """
-type ExternalIdentityScimAttributes {
+type ExternalIdentityScimAttributes @docsCategory(name: "enterprise-admin") {
   """
   The emails associated with the SCIM identity
   """
@@ -17554,7 +17555,7 @@ input FilePathRestrictionParametersInput {
 """
 The possible viewed states of a file .
 """
-enum FileViewedState {
+enum FileViewedState @docsCategory(name: "pulls") {
   """
   The file has new changes since last viewed.
   """
@@ -18368,7 +18369,7 @@ type GitActorEdge {
 """
 Represents information about the GitHub instance.
 """
-type GitHubMetadata {
+type GitHubMetadata @docsCategory(name: "meta") {
   """
   Returns a String that's a SHA of `github-services`
   """
@@ -18458,7 +18459,7 @@ scalar GitSSHRemote
 """
 Information about a signature (GPG or S/MIME) on a Commit or Tag.
 """
-interface GitSignature {
+interface GitSignature @docsCategory(name: "git") {
   """
   Email used to sign this object.
   """
@@ -18599,7 +18600,7 @@ scalar GitTimestamp
 """
 Represents a GPG signature on a Commit or Tag.
 """
-type GpgSignature implements GitSignature {
+type GpgSignature implements GitSignature @docsCategory(name: "git") {
   """
   Email used to sign this object.
   """
@@ -18750,7 +18751,7 @@ scalar HTML
 """
 Represents a 'head_ref_deleted' event on a given pull request.
 """
-type HeadRefDeletedEvent implements Node {
+type HeadRefDeletedEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -18785,7 +18786,7 @@ type HeadRefDeletedEvent implements Node {
 """
 Represents a 'head_ref_force_pushed' event on a given pull request.
 """
-type HeadRefForcePushedEvent implements Node {
+type HeadRefForcePushedEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -18825,7 +18826,7 @@ type HeadRefForcePushedEvent implements Node {
 """
 Represents a 'head_ref_restored' event on a given pull request.
 """
-type HeadRefRestoredEvent implements Node {
+type HeadRefRestoredEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -18875,7 +18876,7 @@ interface HovercardContext @docsCategory(name: "users") {
 """
 The possible states in which authentication can be configured with an identity provider.
 """
-enum IdentityProviderConfigurationState {
+enum IdentityProviderConfigurationState @docsCategory(name: "enterprise-admin") {
   """
   Authentication with an identity provider is configured but not enforced.
   """
@@ -19030,7 +19031,7 @@ type InviteEnterpriseMemberPayload {
 """
 The possible values for the IP allow list enabled setting.
 """
-enum IpAllowListEnabledSettingValue {
+enum IpAllowListEnabledSettingValue @docsCategory(name: "enterprise-admin") {
   """
   The setting is disabled for the owner.
   """
@@ -19045,7 +19046,7 @@ enum IpAllowListEnabledSettingValue {
 """
 An IP address or range of addresses that is allowed to access an owner's resources.
 """
-type IpAllowListEntry implements Node {
+type IpAllowListEntry implements Node @docsCategory(name: "enterprise-admin") {
   """
   A single IP address or range of IP addresses in CIDR notation.
   """
@@ -19125,7 +19126,7 @@ type IpAllowListEntryEdge {
 """
 Ordering options for IP allow list entry connections.
 """
-input IpAllowListEntryOrder {
+input IpAllowListEntryOrder @docsCategory(name: "enterprise-admin") {
   """
   The ordering direction.
   """
@@ -19140,7 +19141,7 @@ input IpAllowListEntryOrder {
 """
 Properties by which IP allow list entry connections can be ordered.
 """
-enum IpAllowListEntryOrderField {
+enum IpAllowListEntryOrderField @docsCategory(name: "enterprise-admin") {
   """
   Order IP allow list entries by the allow list value.
   """
@@ -19155,7 +19156,7 @@ enum IpAllowListEntryOrderField {
 """
 The possible values for the IP allow list configuration for installed GitHub Apps setting.
 """
-enum IpAllowListForInstalledAppsEnabledSettingValue {
+enum IpAllowListForInstalledAppsEnabledSettingValue @docsCategory(name: "enterprise-admin") {
   """
   The setting is disabled for the owner.
   """
@@ -19170,12 +19171,12 @@ enum IpAllowListForInstalledAppsEnabledSettingValue {
 """
 Types that can own an IP allow list.
 """
-union IpAllowListOwner = App | Enterprise | Organization
+union IpAllowListOwner @docsCategory(name: "enterprise-admin") = App | Enterprise | Organization
 
 """
 The possible values for the IP allow list user-level enforcement enabled setting.
 """
-enum IpAllowListUserLevelEnforcementEnabledSettingValue {
+enum IpAllowListUserLevelEnforcementEnabledSettingValue @docsCategory(name: "enterprise-admin") {
   """
   The setting is disabled for the owner.
   """
@@ -22720,7 +22721,7 @@ enum LanguageOrderField @docsCategory(name: "repos") {
 """
 Reason why a semantic or hybrid issue search fell back to lexical search
 """
-enum LexicalFallbackReason {
+enum LexicalFallbackReason @docsCategory(name: "search") {
   """
   Query targets non-issue types (e.g., pull requests)
   """
@@ -23105,7 +23106,7 @@ interface Lockable @docsCategory(name: "issues") {
 """
 Represents a 'locked' event on a given issue or pull request.
 """
-type LockedEvent implements Node {
+type LockedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -23135,7 +23136,7 @@ type LockedEvent implements Node {
 """
 A placeholder user for attribution of imported data on GitHub.
 """
-type Mannequin implements Actor & Node & UniformResourceLocatable {
+type Mannequin implements Actor & Node & UniformResourceLocatable @docsCategory(name: "migrations") {
   """
   A URL pointing to the GitHub App's public avatar.
   """
@@ -23240,7 +23241,7 @@ type MannequinEdge {
 """
 Ordering options for mannequins.
 """
-input MannequinOrder {
+input MannequinOrder @docsCategory(name: "migrations") {
   """
   The ordering direction.
   """
@@ -23255,7 +23256,7 @@ input MannequinOrder {
 """
 Properties by which mannequins can be ordered.
 """
-enum MannequinOrderField {
+enum MannequinOrderField @docsCategory(name: "migrations") {
   """
   Order mannequins why when they were created.
   """
@@ -23395,7 +23396,7 @@ type MarkPullRequestReadyForReviewPayload {
 """
 Represents a 'marked_as_duplicate' event on a given issue or pull request.
 """
-type MarkedAsDuplicateEvent implements Node {
+type MarkedAsDuplicateEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -23857,7 +23858,7 @@ input MaxFileSizeParametersInput {
 """
 Represents a member feature request notification
 """
-type MemberFeatureRequestNotification implements Node {
+type MemberFeatureRequestNotification implements Node @docsCategory(name: "orgs") {
   """
   Represents member feature request body containing entity name and the number of feature requests
   """
@@ -24402,7 +24403,7 @@ type MembersCanDeleteReposEnableAuditEntry implements AuditEntry & EnterpriseAud
 """
 Represents a 'mentioned' event on a given issue or pull request.
 """
-type MentionedEvent implements Node {
+type MentionedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -24477,7 +24478,7 @@ type MergeBranchPayload {
 """
 The possible default commit messages for merges.
 """
-enum MergeCommitMessage {
+enum MergeCommitMessage @docsCategory(name: "repos") {
   """
   Default to a blank commit message.
   """
@@ -24497,7 +24498,7 @@ enum MergeCommitMessage {
 """
 The possible default commit titles for merges.
 """
-enum MergeCommitTitle {
+enum MergeCommitTitle @docsCategory(name: "repos") {
   """
   Default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
   """
@@ -24572,7 +24573,7 @@ type MergePullRequestPayload {
 """
 The queue of pull request entries to be merged into a protected branch in a repository.
 """
-type MergeQueue implements Node {
+type MergeQueue implements Node @docsCategory(name: "pulls") {
   """
   The configuration for this merge queue
   """
@@ -24632,7 +24633,7 @@ type MergeQueue implements Node {
 """
 Configuration for a MergeQueue
 """
-type MergeQueueConfiguration {
+type MergeQueueConfiguration @docsCategory(name: "pulls") {
   """
   The amount of time in minutes to wait for a check response before considering it a failure.
   """
@@ -24673,7 +24674,7 @@ type MergeQueueConfiguration {
 """
 Entries in a MergeQueue
 """
-type MergeQueueEntry implements Node {
+type MergeQueueEntry implements Node @docsCategory(name: "pulls") {
   """
   The base commit for this entry
   """
@@ -24778,7 +24779,7 @@ type MergeQueueEntryEdge {
 """
 The possible states for a merge queue entry.
 """
-enum MergeQueueEntryState {
+enum MergeQueueEntryState @docsCategory(name: "pulls") {
   """
   The entry is currently waiting for checks to pass.
   """
@@ -24846,7 +24847,7 @@ enum MergeQueueMergeMethod {
 """
 The possible merging strategies for a merge queue.
 """
-enum MergeQueueMergingStrategy {
+enum MergeQueueMergingStrategy @docsCategory(name: "pulls") {
   """
   Entries only allowed to merge if they are passing.
   """
@@ -24955,7 +24956,7 @@ input MergeQueueParametersInput {
 """
 Detailed status information about a pull request merge.
 """
-enum MergeStateStatus {
+enum MergeStateStatus @docsCategory(name: "pulls") {
   """
   The head ref is out of date.
   """
@@ -25003,7 +25004,7 @@ enum MergeStateStatus {
 """
 Whether or not a PullRequest can be merged.
 """
-enum MergeableState {
+enum MergeableState @docsCategory(name: "pulls") {
   """
   The pull request cannot be merged due to merge conflicts.
   """
@@ -25023,7 +25024,7 @@ enum MergeableState {
 """
 Represents a 'merged' event on a given pull request.
 """
-type MergedEvent implements Node & UniformResourceLocatable {
+type MergedEvent implements Node & UniformResourceLocatable @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -25073,7 +25074,7 @@ type MergedEvent implements Node & UniformResourceLocatable {
 """
 Represents a GitHub Enterprise Importer (GEI) migration.
 """
-interface Migration {
+interface Migration @docsCategory(name: "migrations") {
   """
   The migration flag to continue on error.
   """
@@ -25134,7 +25135,7 @@ interface Migration {
 """
 A GitHub Enterprise Importer (GEI) migration source.
 """
-type MigrationSource implements Node {
+type MigrationSource implements Node @docsCategory(name: "migrations") {
   """
   The Node ID of the MigrationSource object
   """
@@ -25159,7 +25160,7 @@ type MigrationSource implements Node {
 """
 Represents the different GitHub Enterprise Importer (GEI) migration sources.
 """
-enum MigrationSourceType {
+enum MigrationSourceType @docsCategory(name: "migrations") {
   """
   An Azure DevOps migration source.
   """
@@ -25179,7 +25180,7 @@ enum MigrationSourceType {
 """
 The GitHub Enterprise Importer (GEI) migration state.
 """
-enum MigrationState {
+enum MigrationState @docsCategory(name: "migrations") {
   """
   The migration has failed.
   """
@@ -25758,7 +25759,7 @@ type MovedColumnsInProjectEvent implements Node @docsCategory(name: "projects-cl
 """
 The root query for implementing GraphQL mutations.
 """
-type Mutation {
+type Mutation @docsCategory(name: "meta") {
   """
   Clear all of a customer's queued migrations
   """
@@ -25767,7 +25768,7 @@ type Mutation {
     Parameters for AbortQueuedMigrations
     """
     input: AbortQueuedMigrationsInput!
-  ): AbortQueuedMigrationsPayload
+  ): AbortQueuedMigrationsPayload @docsCategory(name: "migrations")
 
   """
   Abort a repository migration queued or in progress.
@@ -25777,7 +25778,7 @@ type Mutation {
     Parameters for AbortRepositoryMigration
     """
     input: AbortRepositoryMigrationInput!
-  ): AbortRepositoryMigrationPayload
+  ): AbortRepositoryMigrationPayload @docsCategory(name: "migrations")
 
   """
   Accepts a pending invitation for a user to become an administrator of an enterprise.
@@ -25787,7 +25788,7 @@ type Mutation {
     Parameters for AcceptEnterpriseAdministratorInvitation
     """
     input: AcceptEnterpriseAdministratorInvitationInput!
-  ): AcceptEnterpriseAdministratorInvitationPayload
+  ): AcceptEnterpriseAdministratorInvitationPayload @docsCategory(name: "enterprise-admin")
 
   """
   Accepts a pending invitation for a user to become an unaffiliated member of an enterprise.
@@ -25797,7 +25798,7 @@ type Mutation {
     Parameters for AcceptEnterpriseMemberInvitation
     """
     input: AcceptEnterpriseMemberInvitationInput!
-  ): AcceptEnterpriseMemberInvitationPayload
+  ): AcceptEnterpriseMemberInvitationPayload @docsCategory(name: "enterprise-admin")
 
   """
   Applies a suggested topic to the repository.
@@ -25817,7 +25818,7 @@ type Mutation {
     Parameters for AccessUserNamespaceRepository
     """
     input: AccessUserNamespaceRepositoryInput!
-  ): AccessUserNamespaceRepositoryPayload
+  ): AccessUserNamespaceRepositoryPayload @docsCategory(name: "enterprise-admin")
 
   """
   Adds assignees to an assignable object.
@@ -25847,7 +25848,7 @@ type Mutation {
     Parameters for AddComment
     """
     input: AddCommentInput!
-  ): AddCommentPayload
+  ): AddCommentPayload @docsCategory(name: "issues")
 
   """
   Adds a comment to a Discussion, possibly as a reply to another comment.
@@ -25877,7 +25878,7 @@ type Mutation {
     Parameters for AddEnterpriseOrganizationMember
     """
     input: AddEnterpriseOrganizationMemberInput!
-  ): AddEnterpriseOrganizationMemberPayload
+  ): AddEnterpriseOrganizationMemberPayload @docsCategory(name: "enterprise-admin")
 
   """
   Adds a support entitlement to an enterprise member.
@@ -25887,7 +25888,7 @@ type Mutation {
     Parameters for AddEnterpriseSupportEntitlement
     """
     input: AddEnterpriseSupportEntitlementInput!
-  ): AddEnterpriseSupportEntitlementPayload
+  ): AddEnterpriseSupportEntitlementPayload @docsCategory(name: "enterprise-admin")
 
   """
   Adds labels to a labelable object.
@@ -25955,7 +25956,7 @@ type Mutation {
     Parameters for AddPullRequestReview
     """
     input: AddPullRequestReviewInput!
-  ): AddPullRequestReviewPayload
+  ): AddPullRequestReviewPayload @docsCategory(name: "pulls")
 
   """
   Adds a comment to a review.
@@ -25965,7 +25966,7 @@ type Mutation {
     Parameters for AddPullRequestReviewComment
     """
     input: AddPullRequestReviewCommentInput!
-  ): AddPullRequestReviewCommentPayload
+  ): AddPullRequestReviewCommentPayload @docsCategory(name: "pulls")
 
   """
   Adds a new thread to a pending Pull Request Review.
@@ -25975,7 +25976,7 @@ type Mutation {
     Parameters for AddPullRequestReviewThread
     """
     input: AddPullRequestReviewThreadInput!
-  ): AddPullRequestReviewThreadPayload
+  ): AddPullRequestReviewThreadPayload @docsCategory(name: "pulls")
 
   """
   Adds a reply to an existing Pull Request Review Thread.
@@ -25985,7 +25986,7 @@ type Mutation {
     Parameters for AddPullRequestReviewThreadReply
     """
     input: AddPullRequestReviewThreadReplyInput!
-  ): AddPullRequestReviewThreadReplyPayload
+  ): AddPullRequestReviewThreadReplyPayload @docsCategory(name: "pulls")
 
   """
   Adds a reaction to a subject.
@@ -26015,7 +26016,7 @@ type Mutation {
     Parameters for AddSubIssue
     """
     input: AddSubIssueInput!
-  ): AddSubIssuePayload
+  ): AddSubIssuePayload @docsCategory(name: "issues")
 
   """
   Add an upvote to a discussion or discussion comment.
@@ -26035,7 +26036,7 @@ type Mutation {
     Parameters for AddVerifiableDomain
     """
     input: AddVerifiableDomainInput!
-  ): AddVerifiableDomainPayload
+  ): AddVerifiableDomainPayload @docsCategory(name: "orgs")
 
   """
   Approve all pending deployments under one or more environments
@@ -26045,7 +26046,7 @@ type Mutation {
     Parameters for ApproveDeployments
     """
     input: ApproveDeploymentsInput!
-  ): ApproveDeploymentsPayload
+  ): ApproveDeploymentsPayload @docsCategory(name: "deployments")
 
   """
   Approve a verifiable domain for notification delivery.
@@ -26055,7 +26056,7 @@ type Mutation {
     Parameters for ApproveVerifiableDomain
     """
     input: ApproveVerifiableDomainInput!
-  ): ApproveVerifiableDomainPayload
+  ): ApproveVerifiableDomainPayload @docsCategory(name: "orgs")
 
   """
   Archives a ProjectV2Item
@@ -26076,7 +26077,7 @@ type Mutation {
     Parameters for ArchivePullRequest
     """
     input: ArchivePullRequestInput!
-  ): ArchivePullRequestPayload
+  ): ArchivePullRequestPayload @docsCategory(name: "pulls")
 
   """
   Marks a repository as archived.
@@ -26096,7 +26097,7 @@ type Mutation {
     Parameters for CancelEnterpriseAdminInvitation
     """
     input: CancelEnterpriseAdminInvitationInput!
-  ): CancelEnterpriseAdminInvitationPayload
+  ): CancelEnterpriseAdminInvitationPayload @docsCategory(name: "enterprise-admin")
 
   """
   Cancels a pending invitation for an unaffiliated member to join an enterprise.
@@ -26106,7 +26107,7 @@ type Mutation {
     Parameters for CancelEnterpriseMemberInvitation
     """
     input: CancelEnterpriseMemberInvitationInput!
-  ): CancelEnterpriseMemberInvitationPayload
+  ): CancelEnterpriseMemberInvitationPayload @docsCategory(name: "enterprise-admin")
 
   """
   Cancel an active sponsorship.
@@ -26202,7 +26203,7 @@ type Mutation {
     Parameters for ClosePullRequest
     """
     input: ClosePullRequestInput!
-  ): ClosePullRequestPayload
+  ): ClosePullRequestPayload @docsCategory(name: "pulls")
 
   """
   Convert a project note card to one associated with a newly created issue.
@@ -26236,7 +26237,7 @@ type Mutation {
     Parameters for ConvertPullRequestToDraft
     """
     input: ConvertPullRequestToDraftInput!
-  ): ConvertPullRequestToDraftPayload
+  ): ConvertPullRequestToDraftPayload @docsCategory(name: "pulls")
 
   """
   Copy a project.
@@ -26256,7 +26257,7 @@ type Mutation {
     Parameters for CreateAttributionInvitation
     """
     input: CreateAttributionInvitationInput!
-  ): CreateAttributionInvitationPayload
+  ): CreateAttributionInvitationPayload @docsCategory(name: "migrations")
 
   """
   Create a new branch protection rule
@@ -26266,7 +26267,7 @@ type Mutation {
     Parameters for CreateBranchProtectionRule
     """
     input: CreateBranchProtectionRuleInput!
-  ): CreateBranchProtectionRulePayload
+  ): CreateBranchProtectionRulePayload @docsCategory(name: "branches")
 
   """
   Create a check run.
@@ -26276,7 +26277,7 @@ type Mutation {
     Parameters for CreateCheckRun
     """
     input: CreateCheckRunInput!
-  ): CreateCheckRunPayload
+  ): CreateCheckRunPayload @docsCategory(name: "checks")
 
   """
   Create a check suite
@@ -26286,7 +26287,7 @@ type Mutation {
     Parameters for CreateCheckSuite
     """
     input: CreateCheckSuiteInput!
-  ): CreateCheckSuitePayload
+  ): CreateCheckSuitePayload @docsCategory(name: "checks")
 
   """
   Appends a commit to the given branch as the authenticated user.
@@ -26347,7 +26348,7 @@ type Mutation {
     Parameters for CreateDeployment
     """
     input: CreateDeploymentInput!
-  ): CreateDeploymentPayload
+  ): CreateDeploymentPayload @docsCategory(name: "deployments")
 
   """
   Create a deployment status.
@@ -26357,7 +26358,7 @@ type Mutation {
     Parameters for CreateDeploymentStatus
     """
     input: CreateDeploymentStatusInput!
-  ): CreateDeploymentStatusPayload
+  ): CreateDeploymentStatusPayload @docsCategory(name: "deployments")
 
   """
   Create a discussion.
@@ -26382,7 +26383,7 @@ type Mutation {
     Parameters for CreateEnterpriseOrganization
     """
     input: CreateEnterpriseOrganizationInput!
-  ): CreateEnterpriseOrganizationPayload
+  ): CreateEnterpriseOrganizationPayload @docsCategory(name: "enterprise-admin")
 
   """
   Creates an environment or simply returns it if already exists.
@@ -26392,7 +26393,7 @@ type Mutation {
     Parameters for CreateEnvironment
     """
     input: CreateEnvironmentInput!
-  ): CreateEnvironmentPayload
+  ): CreateEnvironmentPayload @docsCategory(name: "deployments")
 
   """
   Creates a new IP allow list entry.
@@ -26402,7 +26403,7 @@ type Mutation {
     Parameters for CreateIpAllowListEntry
     """
     input: CreateIpAllowListEntryInput!
-  ): CreateIpAllowListEntryPayload
+  ): CreateIpAllowListEntryPayload @docsCategory(name: "enterprise-admin")
 
   """
   Creates a new issue.
@@ -26472,7 +26473,7 @@ type Mutation {
     Parameters for CreateMigrationSource
     """
     input: CreateMigrationSourceInput!
-  ): CreateMigrationSourcePayload
+  ): CreateMigrationSourcePayload @docsCategory(name: "migrations")
 
   """
   Creates a new project.
@@ -26536,7 +26537,7 @@ type Mutation {
     Parameters for CreatePullRequest
     """
     input: CreatePullRequestInput!
-  ): CreatePullRequestPayload
+  ): CreatePullRequestPayload @docsCategory(name: "pulls")
 
   """
   Create a new Git Ref.
@@ -26546,7 +26547,7 @@ type Mutation {
     Parameters for CreateRef
     """
     input: CreateRefInput!
-  ): CreateRefPayload
+  ): CreateRefPayload @docsCategory(name: "git")
 
   """
   Create a new repository.
@@ -26576,7 +26577,7 @@ type Mutation {
     Parameters for CreateRepositoryRuleset
     """
     input: CreateRepositoryRulesetInput!
-  ): CreateRepositoryRulesetPayload
+  ): CreateRepositoryRulesetPayload @docsCategory(name: "repos")
 
   """
   Create a GitHub Sponsors profile to allow others to sponsor you or your organization.
@@ -26647,7 +26648,7 @@ type Mutation {
     Parameters for DeleteBranchProtectionRule
     """
     input: DeleteBranchProtectionRuleInput!
-  ): DeleteBranchProtectionRulePayload
+  ): DeleteBranchProtectionRulePayload @docsCategory(name: "branches")
 
   """
   Deletes a deployment.
@@ -26657,7 +26658,7 @@ type Mutation {
     Parameters for DeleteDeployment
     """
     input: DeleteDeploymentInput!
-  ): DeleteDeploymentPayload
+  ): DeleteDeploymentPayload @docsCategory(name: "deployments")
 
   """
   Delete a discussion and all of its replies.
@@ -26687,7 +26688,7 @@ type Mutation {
     Parameters for DeleteEnvironment
     """
     input: DeleteEnvironmentInput!
-  ): DeleteEnvironmentPayload
+  ): DeleteEnvironmentPayload @docsCategory(name: "deployments")
 
   """
   Deletes an IP allow list entry.
@@ -26697,7 +26698,7 @@ type Mutation {
     Parameters for DeleteIpAllowListEntry
     """
     input: DeleteIpAllowListEntryInput!
-  ): DeleteIpAllowListEntryPayload
+  ): DeleteIpAllowListEntryPayload @docsCategory(name: "enterprise-admin")
 
   """
   Deletes an Issue object.
@@ -26777,7 +26778,7 @@ type Mutation {
     Parameters for DeletePackageVersion
     """
     input: DeletePackageVersionInput!
-  ): DeletePackageVersionPayload
+  ): DeletePackageVersionPayload @docsCategory(name: "packages")
 
   """
   Deletes a project.
@@ -26879,7 +26880,7 @@ type Mutation {
     Parameters for DeletePullRequestReview
     """
     input: DeletePullRequestReviewInput!
-  ): DeletePullRequestReviewPayload
+  ): DeletePullRequestReviewPayload @docsCategory(name: "pulls")
 
   """
   Deletes a pull request review comment.
@@ -26889,7 +26890,7 @@ type Mutation {
     Parameters for DeletePullRequestReviewComment
     """
     input: DeletePullRequestReviewCommentInput!
-  ): DeletePullRequestReviewCommentPayload
+  ): DeletePullRequestReviewCommentPayload @docsCategory(name: "pulls")
 
   """
   Delete a Git Ref.
@@ -26899,7 +26900,7 @@ type Mutation {
     Parameters for DeleteRef
     """
     input: DeleteRefInput!
-  ): DeleteRefPayload
+  ): DeleteRefPayload @docsCategory(name: "git")
 
   """
   Delete a repository custom property.
@@ -26919,7 +26920,7 @@ type Mutation {
     Parameters for DeleteRepositoryRuleset
     """
     input: DeleteRepositoryRulesetInput!
-  ): DeleteRepositoryRulesetPayload
+  ): DeleteRepositoryRulesetPayload @docsCategory(name: "repos")
 
   """
   Deletes a user list.
@@ -26939,7 +26940,7 @@ type Mutation {
     Parameters for DeleteVerifiableDomain
     """
     input: DeleteVerifiableDomainInput!
-  ): DeleteVerifiableDomainPayload
+  ): DeleteVerifiableDomainPayload @docsCategory(name: "orgs")
 
   """
   Remove a pull request from the merge queue.
@@ -26949,7 +26950,7 @@ type Mutation {
     Parameters for DequeuePullRequest
     """
     input: DequeuePullRequestInput!
-  ): DequeuePullRequestPayload
+  ): DequeuePullRequestPayload @docsCategory(name: "pulls")
 
   """
   Disable auto merge on the given pull request
@@ -26959,7 +26960,7 @@ type Mutation {
     Parameters for DisablePullRequestAutoMerge
     """
     input: DisablePullRequestAutoMergeInput!
-  ): DisablePullRequestAutoMergePayload
+  ): DisablePullRequestAutoMergePayload @docsCategory(name: "pulls")
 
   """
   Dismisses an approved or rejected pull request review.
@@ -26969,7 +26970,7 @@ type Mutation {
     Parameters for DismissPullRequestReview
     """
     input: DismissPullRequestReviewInput!
-  ): DismissPullRequestReviewPayload
+  ): DismissPullRequestReviewPayload @docsCategory(name: "pulls")
 
   """
   Dismisses the Dependabot alert.
@@ -26979,7 +26980,7 @@ type Mutation {
     Parameters for DismissRepositoryVulnerabilityAlert
     """
     input: DismissRepositoryVulnerabilityAlertInput!
-  ): DismissRepositoryVulnerabilityAlertPayload
+  ): DismissRepositoryVulnerabilityAlertPayload @docsCategory(name: "dependabot")
 
   """
   Enable the default auto-merge on a pull request.
@@ -26989,7 +26990,7 @@ type Mutation {
     Parameters for EnablePullRequestAutoMerge
     """
     input: EnablePullRequestAutoMergeInput!
-  ): EnablePullRequestAutoMergePayload
+  ): EnablePullRequestAutoMergePayload @docsCategory(name: "pulls")
 
   """
   Add a pull request to the merge queue.
@@ -26999,7 +27000,7 @@ type Mutation {
     Parameters for EnqueuePullRequest
     """
     input: EnqueuePullRequestInput!
-  ): EnqueuePullRequestPayload
+  ): EnqueuePullRequestPayload @docsCategory(name: "pulls")
 
   """
   Follow an organization.
@@ -27029,7 +27030,7 @@ type Mutation {
     Parameters for GrantEnterpriseOrganizationsMigratorRole
     """
     input: GrantEnterpriseOrganizationsMigratorRoleInput!
-  ): GrantEnterpriseOrganizationsMigratorRolePayload
+  ): GrantEnterpriseOrganizationsMigratorRolePayload @docsCategory(name: "enterprise-admin")
 
   """
   Grant the migrator role to a user or a team.
@@ -27039,7 +27040,7 @@ type Mutation {
     Parameters for GrantMigratorRole
     """
     input: GrantMigratorRoleInput!
-  ): GrantMigratorRolePayload
+  ): GrantMigratorRolePayload @docsCategory(name: "migrations")
 
   """
   Creates a new project by importing columns and a list of issues/PRs.
@@ -27063,7 +27064,7 @@ type Mutation {
     Parameters for InviteEnterpriseAdmin
     """
     input: InviteEnterpriseAdminInput!
-  ): InviteEnterpriseAdminPayload
+  ): InviteEnterpriseAdminPayload @docsCategory(name: "enterprise-admin")
 
   """
   Invite someone to become an unaffiliated member of the enterprise.
@@ -27073,7 +27074,7 @@ type Mutation {
     Parameters for InviteEnterpriseMember
     """
     input: InviteEnterpriseMemberInput!
-  ): InviteEnterpriseMemberPayload
+  ): InviteEnterpriseMemberPayload @docsCategory(name: "enterprise-admin")
 
   """
   Links a project to a repository.
@@ -27093,7 +27094,7 @@ type Mutation {
     Parameters for LinkProjectV2ToTeam
     """
     input: LinkProjectV2ToTeamInput!
-  ): LinkProjectV2ToTeamPayload
+  ): LinkProjectV2ToTeamPayload @docsCategory(name: "projects")
 
   """
   Creates a repository link for a project.
@@ -27137,7 +27138,7 @@ type Mutation {
     Parameters for MarkFileAsViewed
     """
     input: MarkFileAsViewedInput!
-  ): MarkFileAsViewedPayload
+  ): MarkFileAsViewedPayload @docsCategory(name: "pulls")
 
   """
   Mark a project as a template. Note that only projects which are owned by an Organization can be marked as a template.
@@ -27157,7 +27158,7 @@ type Mutation {
     Parameters for MarkPullRequestReadyForReview
     """
     input: MarkPullRequestReadyForReviewInput!
-  ): MarkPullRequestReadyForReviewPayload
+  ): MarkPullRequestReadyForReviewPayload @docsCategory(name: "pulls")
 
   """
   Merge a head into a branch.
@@ -27177,7 +27178,7 @@ type Mutation {
     Parameters for MergePullRequest
     """
     input: MergePullRequestInput!
-  ): MergePullRequestPayload
+  ): MergePullRequestPayload @docsCategory(name: "pulls")
 
   """
   Minimizes a comment on an Issue, Commit, Pull Request, or Gist
@@ -27225,7 +27226,7 @@ type Mutation {
     Parameters for PinEnvironment
     """
     input: PinEnvironmentInput!
-  ): PinEnvironmentPayload
+  ): PinEnvironmentPayload @docsCategory(name: "deployments")
 
   """
   Pin an issue to a repository
@@ -27275,7 +27276,7 @@ type Mutation {
     Parameters for RegenerateEnterpriseIdentityProviderRecoveryCodes
     """
     input: RegenerateEnterpriseIdentityProviderRecoveryCodesInput!
-  ): RegenerateEnterpriseIdentityProviderRecoveryCodesPayload
+  ): RegenerateEnterpriseIdentityProviderRecoveryCodesPayload @docsCategory(name: "enterprise-admin")
 
   """
   Regenerates a verifiable domain's verification token.
@@ -27285,7 +27286,7 @@ type Mutation {
     Parameters for RegenerateVerifiableDomainToken
     """
     input: RegenerateVerifiableDomainTokenInput!
-  ): RegenerateVerifiableDomainTokenPayload
+  ): RegenerateVerifiableDomainTokenPayload @docsCategory(name: "orgs")
 
   """
   Reject all pending deployments under one or more environments
@@ -27295,7 +27296,7 @@ type Mutation {
     Parameters for RejectDeployments
     """
     input: RejectDeploymentsInput!
-  ): RejectDeploymentsPayload
+  ): RejectDeploymentsPayload @docsCategory(name: "deployments")
 
   """
   Removes assignees from an assignable object.
@@ -27325,7 +27326,7 @@ type Mutation {
     Parameters for RemoveEnterpriseAdmin
     """
     input: RemoveEnterpriseAdminInput!
-  ): RemoveEnterpriseAdminPayload
+  ): RemoveEnterpriseAdminPayload @docsCategory(name: "enterprise-admin")
 
   """
   Removes the identity provider from an enterprise. Owners of enterprises both
@@ -27336,7 +27337,7 @@ type Mutation {
     Parameters for RemoveEnterpriseIdentityProvider
     """
     input: RemoveEnterpriseIdentityProviderInput!
-  ): RemoveEnterpriseIdentityProviderPayload
+  ): RemoveEnterpriseIdentityProviderPayload @docsCategory(name: "enterprise-admin")
 
   """
   Completely removes a user from the enterprise
@@ -27346,7 +27347,7 @@ type Mutation {
     Parameters for RemoveEnterpriseMember
     """
     input: RemoveEnterpriseMemberInput!
-  ): RemoveEnterpriseMemberPayload
+  ): RemoveEnterpriseMemberPayload @docsCategory(name: "enterprise-admin")
 
   """
   Removes an organization from the enterprise
@@ -27356,7 +27357,7 @@ type Mutation {
     Parameters for RemoveEnterpriseOrganization
     """
     input: RemoveEnterpriseOrganizationInput!
-  ): RemoveEnterpriseOrganizationPayload
+  ): RemoveEnterpriseOrganizationPayload @docsCategory(name: "enterprise-admin")
 
   """
   Removes a support entitlement from an enterprise member.
@@ -27366,7 +27367,7 @@ type Mutation {
     Parameters for RemoveEnterpriseSupportEntitlement
     """
     input: RemoveEnterpriseSupportEntitlementInput!
-  ): RemoveEnterpriseSupportEntitlementPayload
+  ): RemoveEnterpriseSupportEntitlementPayload @docsCategory(name: "enterprise-admin")
 
   """
   Removes labels from a Labelable object.
@@ -27386,7 +27387,7 @@ type Mutation {
     Parameters for RemoveOutsideCollaborator
     """
     input: RemoveOutsideCollaboratorInput!
-  ): RemoveOutsideCollaboratorPayload
+  ): RemoveOutsideCollaboratorPayload @docsCategory(name: "orgs")
 
   """
   Removes a reaction from a subject.
@@ -27416,7 +27417,7 @@ type Mutation {
     Parameters for RemoveSubIssue
     """
     input: RemoveSubIssueInput!
-  ): RemoveSubIssuePayload
+  ): RemoveSubIssuePayload @docsCategory(name: "issues")
 
   """
   Remove an upvote to a discussion or discussion comment.
@@ -27466,7 +27467,7 @@ type Mutation {
     Parameters for ReorderEnvironment
     """
     input: ReorderEnvironmentInput!
-  ): ReorderEnvironmentPayload
+  ): ReorderEnvironmentPayload @docsCategory(name: "deployments")
 
   """
   Replaces all actors for assignable object.
@@ -27486,7 +27487,7 @@ type Mutation {
     Parameters for ReprioritizeSubIssue
     """
     input: ReprioritizeSubIssueInput!
-  ): ReprioritizeSubIssuePayload
+  ): ReprioritizeSubIssuePayload @docsCategory(name: "issues")
 
   """
   Set review requests on a pull request.
@@ -27496,7 +27497,7 @@ type Mutation {
     Parameters for RequestReviews
     """
     input: RequestReviewsInput!
-  ): RequestReviewsPayload
+  ): RequestReviewsPayload @docsCategory(name: "pulls")
 
   """
   Set review requests on a pull request using login strings instead of IDs.
@@ -27506,7 +27507,7 @@ type Mutation {
     Parameters for RequestReviewsByLogin
     """
     input: RequestReviewsByLoginInput!
-  ): RequestReviewsByLoginPayload
+  ): RequestReviewsByLoginPayload @docsCategory(name: "pulls")
 
   """
   Rerequests an existing check suite.
@@ -27516,7 +27517,7 @@ type Mutation {
     Parameters for RerequestCheckSuite
     """
     input: RerequestCheckSuiteInput!
-  ): RerequestCheckSuitePayload
+  ): RerequestCheckSuitePayload @docsCategory(name: "checks")
 
   """
   Marks a review thread as resolved.
@@ -27526,7 +27527,7 @@ type Mutation {
     Parameters for ResolveReviewThread
     """
     input: ResolveReviewThreadInput!
-  ): ResolveReviewThreadPayload
+  ): ResolveReviewThreadPayload @docsCategory(name: "pulls")
 
   """
   Retire a published payment tier from your GitHub Sponsors profile so it cannot be used to start new sponsorships.
@@ -27546,7 +27547,7 @@ type Mutation {
     Parameters for RevertPullRequest
     """
     input: RevertPullRequestInput!
-  ): RevertPullRequestPayload
+  ): RevertPullRequestPayload @docsCategory(name: "pulls")
 
   """
   Revoke the migrator role to a user for all organizations under an enterprise account.
@@ -27556,7 +27557,7 @@ type Mutation {
     Parameters for RevokeEnterpriseOrganizationsMigratorRole
     """
     input: RevokeEnterpriseOrganizationsMigratorRoleInput!
-  ): RevokeEnterpriseOrganizationsMigratorRolePayload
+  ): RevokeEnterpriseOrganizationsMigratorRolePayload @docsCategory(name: "enterprise-admin")
 
   """
   Revoke the migrator role from a user or a team.
@@ -27566,7 +27567,7 @@ type Mutation {
     Parameters for RevokeMigratorRole
     """
     input: RevokeMigratorRoleInput!
-  ): RevokeMigratorRolePayload
+  ): RevokeMigratorRolePayload @docsCategory(name: "migrations")
 
   """
   Creates or updates the identity provider for an enterprise.
@@ -27576,7 +27577,7 @@ type Mutation {
     Parameters for SetEnterpriseIdentityProvider
     """
     input: SetEnterpriseIdentityProviderInput!
-  ): SetEnterpriseIdentityProviderPayload
+  ): SetEnterpriseIdentityProviderPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets the value of an IssueFieldValue.
@@ -27636,7 +27637,7 @@ type Mutation {
     Parameters for StartOrganizationMigration
     """
     input: StartOrganizationMigrationInput!
-  ): StartOrganizationMigrationPayload
+  ): StartOrganizationMigrationPayload @docsCategory(name: "migrations")
 
   """
   Starts a GitHub Enterprise Importer (GEI) repository migration.
@@ -27646,7 +27647,7 @@ type Mutation {
     Parameters for StartRepositoryMigration
     """
     input: StartRepositoryMigrationInput!
-  ): StartRepositoryMigrationPayload
+  ): StartRepositoryMigrationPayload @docsCategory(name: "migrations")
 
   """
   Submits a pending pull request review.
@@ -27656,7 +27657,7 @@ type Mutation {
     Parameters for SubmitPullRequestReview
     """
     input: SubmitPullRequestReviewInput!
-  ): SubmitPullRequestReviewPayload
+  ): SubmitPullRequestReviewPayload @docsCategory(name: "pulls")
 
   """
   Transfer an organization from one enterprise to another enterprise.
@@ -27666,7 +27667,7 @@ type Mutation {
     Parameters for TransferEnterpriseOrganization
     """
     input: TransferEnterpriseOrganizationInput!
-  ): TransferEnterpriseOrganizationPayload
+  ): TransferEnterpriseOrganizationPayload @docsCategory(name: "enterprise-admin")
 
   """
   Transfer an issue to a different repository
@@ -27698,7 +27699,7 @@ type Mutation {
     Parameters for UnarchivePullRequest
     """
     input: UnarchivePullRequestInput!
-  ): UnarchivePullRequestPayload
+  ): UnarchivePullRequestPayload @docsCategory(name: "pulls")
 
   """
   Unarchives a repository.
@@ -27748,7 +27749,7 @@ type Mutation {
     Parameters for UnlinkProjectV2FromTeam
     """
     input: UnlinkProjectV2FromTeamInput!
-  ): UnlinkProjectV2FromTeamPayload
+  ): UnlinkProjectV2FromTeamPayload @docsCategory(name: "projects")
 
   """
   Deletes a repository link from a project.
@@ -27792,7 +27793,7 @@ type Mutation {
     Parameters for UnmarkFileAsViewed
     """
     input: UnmarkFileAsViewedInput!
-  ): UnmarkFileAsViewedPayload
+  ): UnmarkFileAsViewedPayload @docsCategory(name: "pulls")
 
   """
   Unmark an issue as a duplicate of another issue.
@@ -27852,7 +27853,7 @@ type Mutation {
     Parameters for UnresolveReviewThread
     """
     input: UnresolveReviewThreadInput!
-  ): UnresolveReviewThreadPayload
+  ): UnresolveReviewThreadPayload @docsCategory(name: "pulls")
 
   """
   Update a branch protection rule
@@ -27862,7 +27863,7 @@ type Mutation {
     Parameters for UpdateBranchProtectionRule
     """
     input: UpdateBranchProtectionRuleInput!
-  ): UpdateBranchProtectionRulePayload
+  ): UpdateBranchProtectionRulePayload @docsCategory(name: "branches")
 
   """
   Update a check run
@@ -27872,7 +27873,7 @@ type Mutation {
     Parameters for UpdateCheckRun
     """
     input: UpdateCheckRunInput!
-  ): UpdateCheckRunPayload
+  ): UpdateCheckRunPayload @docsCategory(name: "checks")
 
   """
   Modifies the settings of an existing check suite
@@ -27882,7 +27883,7 @@ type Mutation {
     Parameters for UpdateCheckSuitePreferences
     """
     input: UpdateCheckSuitePreferencesInput!
-  ): UpdateCheckSuitePreferencesPayload
+  ): UpdateCheckSuitePreferencesPayload @docsCategory(name: "checks")
 
   """
   Update a discussion
@@ -27912,7 +27913,7 @@ type Mutation {
     Parameters for UpdateEnterpriseAdministratorRole
     """
     input: UpdateEnterpriseAdministratorRoleInput!
-  ): UpdateEnterpriseAdministratorRolePayload
+  ): UpdateEnterpriseAdministratorRolePayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether private repository forks are enabled for an enterprise.
@@ -27922,7 +27923,7 @@ type Mutation {
     Parameters for UpdateEnterpriseAllowPrivateRepositoryForkingSetting
     """
     input: UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput!
-  ): UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload
+  ): UpdateEnterpriseAllowPrivateRepositoryForkingSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets the base repository permission for organizations in an enterprise.
@@ -27932,7 +27933,7 @@ type Mutation {
     Parameters for UpdateEnterpriseDefaultRepositoryPermissionSetting
     """
     input: UpdateEnterpriseDefaultRepositoryPermissionSettingInput!
-  ): UpdateEnterpriseDefaultRepositoryPermissionSettingPayload
+  ): UpdateEnterpriseDefaultRepositoryPermissionSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether deploy keys are allowed to be created and used for an enterprise.
@@ -27942,7 +27943,7 @@ type Mutation {
     Parameters for UpdateEnterpriseDeployKeySetting
     """
     input: UpdateEnterpriseDeployKeySettingInput!
-  ): UpdateEnterpriseDeployKeySettingPayload
+  ): UpdateEnterpriseDeployKeySettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether organization members with admin permissions on a repository can change repository visibility.
@@ -27952,7 +27953,7 @@ type Mutation {
     Parameters for UpdateEnterpriseMembersCanChangeRepositoryVisibilitySetting
     """
     input: UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput!
-  ): UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload
+  ): UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets the members can create repositories setting for an enterprise.
@@ -27962,7 +27963,7 @@ type Mutation {
     Parameters for UpdateEnterpriseMembersCanCreateRepositoriesSetting
     """
     input: UpdateEnterpriseMembersCanCreateRepositoriesSettingInput!
-  ): UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload
+  ): UpdateEnterpriseMembersCanCreateRepositoriesSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets the members can delete issues setting for an enterprise.
@@ -27982,7 +27983,7 @@ type Mutation {
     Parameters for UpdateEnterpriseMembersCanDeleteRepositoriesSetting
     """
     input: UpdateEnterpriseMembersCanDeleteRepositoriesSettingInput!
-  ): UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload
+  ): UpdateEnterpriseMembersCanDeleteRepositoriesSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether members can invite collaborators are enabled for an enterprise.
@@ -27992,7 +27993,7 @@ type Mutation {
     Parameters for UpdateEnterpriseMembersCanInviteCollaboratorsSetting
     """
     input: UpdateEnterpriseMembersCanInviteCollaboratorsSettingInput!
-  ): UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload
+  ): UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether or not an organization owner can make purchases.
@@ -28002,7 +28003,7 @@ type Mutation {
     Parameters for UpdateEnterpriseMembersCanMakePurchasesSetting
     """
     input: UpdateEnterpriseMembersCanMakePurchasesSettingInput!
-  ): UpdateEnterpriseMembersCanMakePurchasesSettingPayload
+  ): UpdateEnterpriseMembersCanMakePurchasesSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets the members can update protected branches setting for an enterprise.
@@ -28012,7 +28013,7 @@ type Mutation {
     Parameters for UpdateEnterpriseMembersCanUpdateProtectedBranchesSetting
     """
     input: UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingInput!
-  ): UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload
+  ): UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets the members can view dependency insights for an enterprise.
@@ -28022,7 +28023,7 @@ type Mutation {
     Parameters for UpdateEnterpriseMembersCanViewDependencyInsightsSetting
     """
     input: UpdateEnterpriseMembersCanViewDependencyInsightsSettingInput!
-  ): UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload
+  ): UpdateEnterpriseMembersCanViewDependencyInsightsSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether organization projects are enabled for an enterprise.
@@ -28032,7 +28033,7 @@ type Mutation {
     Parameters for UpdateEnterpriseOrganizationProjectsSetting
     """
     input: UpdateEnterpriseOrganizationProjectsSettingInput!
-  ): UpdateEnterpriseOrganizationProjectsSettingPayload
+  ): UpdateEnterpriseOrganizationProjectsSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Updates the role of an enterprise owner with an organization.
@@ -28042,7 +28043,7 @@ type Mutation {
     Parameters for UpdateEnterpriseOwnerOrganizationRole
     """
     input: UpdateEnterpriseOwnerOrganizationRoleInput!
-  ): UpdateEnterpriseOwnerOrganizationRolePayload
+  ): UpdateEnterpriseOwnerOrganizationRolePayload @docsCategory(name: "enterprise-admin")
 
   """
   Updates an enterprise's profile.
@@ -28062,7 +28063,7 @@ type Mutation {
     Parameters for UpdateEnterpriseRepositoryProjectsSetting
     """
     input: UpdateEnterpriseRepositoryProjectsSettingInput!
-  ): UpdateEnterpriseRepositoryProjectsSettingPayload
+  ): UpdateEnterpriseRepositoryProjectsSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets the two-factor authentication methods that users of an enterprise may not use.
@@ -28072,7 +28073,7 @@ type Mutation {
     Parameters for UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting
     """
     input: UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingInput!
-  ): UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingPayload
+  ): UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether two factor authentication is required for all users in an enterprise.
@@ -28082,7 +28083,7 @@ type Mutation {
     Parameters for UpdateEnterpriseTwoFactorAuthenticationRequiredSetting
     """
     input: UpdateEnterpriseTwoFactorAuthenticationRequiredSettingInput!
-  ): UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload
+  ): UpdateEnterpriseTwoFactorAuthenticationRequiredSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Updates an environment.
@@ -28092,7 +28093,7 @@ type Mutation {
     Parameters for UpdateEnvironment
     """
     input: UpdateEnvironmentInput!
-  ): UpdateEnvironmentPayload
+  ): UpdateEnvironmentPayload @docsCategory(name: "deployments")
 
   """
   Sets whether an IP allow list is enabled on an owner.
@@ -28102,7 +28103,7 @@ type Mutation {
     Parameters for UpdateIpAllowListEnabledSetting
     """
     input: UpdateIpAllowListEnabledSettingInput!
-  ): UpdateIpAllowListEnabledSettingPayload
+  ): UpdateIpAllowListEnabledSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Updates an IP allow list entry.
@@ -28112,7 +28113,7 @@ type Mutation {
     Parameters for UpdateIpAllowListEntry
     """
     input: UpdateIpAllowListEntryInput!
-  ): UpdateIpAllowListEntryPayload
+  ): UpdateIpAllowListEntryPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether IP allow list configuration for installed GitHub Apps is enabled on an owner.
@@ -28122,7 +28123,7 @@ type Mutation {
     Parameters for UpdateIpAllowListForInstalledAppsEnabledSetting
     """
     input: UpdateIpAllowListForInstalledAppsEnabledSettingInput!
-  ): UpdateIpAllowListForInstalledAppsEnabledSettingPayload
+  ): UpdateIpAllowListForInstalledAppsEnabledSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Sets whether IP allow list user-level enforcement is enabled on an enterprise.
@@ -28132,7 +28133,7 @@ type Mutation {
     Parameters for UpdateIpAllowListUserLevelEnforcementEnabledSetting
     """
     input: UpdateIpAllowListUserLevelEnforcementEnabledSettingInput!
-  ): UpdateIpAllowListUserLevelEnforcementEnabledSettingPayload
+  ): UpdateIpAllowListUserLevelEnforcementEnabledSettingPayload @docsCategory(name: "enterprise-admin")
 
   """
   Updates an Issue.
@@ -28222,7 +28223,7 @@ type Mutation {
     Parameters for UpdateOrganizationAllowPrivateRepositoryForkingSetting
     """
     input: UpdateOrganizationAllowPrivateRepositoryForkingSettingInput!
-  ): UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload
+  ): UpdateOrganizationAllowPrivateRepositoryForkingSettingPayload @docsCategory(name: "orgs")
 
   """
   Sets whether contributors are required to sign off on web-based commits for repositories in an organization.
@@ -28368,7 +28369,7 @@ type Mutation {
     Parameters for UpdatePullRequest
     """
     input: UpdatePullRequestInput!
-  ): UpdatePullRequestPayload
+  ): UpdatePullRequestPayload @docsCategory(name: "pulls")
 
   """
   Merge or Rebase HEAD from upstream branch into pull request branch
@@ -28378,7 +28379,7 @@ type Mutation {
     Parameters for UpdatePullRequestBranch
     """
     input: UpdatePullRequestBranchInput!
-  ): UpdatePullRequestBranchPayload
+  ): UpdatePullRequestBranchPayload @docsCategory(name: "pulls")
 
   """
   Updates the body of a pull request review.
@@ -28388,7 +28389,7 @@ type Mutation {
     Parameters for UpdatePullRequestReview
     """
     input: UpdatePullRequestReviewInput!
-  ): UpdatePullRequestReviewPayload
+  ): UpdatePullRequestReviewPayload @docsCategory(name: "pulls")
 
   """
   Updates a pull request review comment.
@@ -28398,7 +28399,7 @@ type Mutation {
     Parameters for UpdatePullRequestReviewComment
     """
     input: UpdatePullRequestReviewCommentInput!
-  ): UpdatePullRequestReviewCommentPayload
+  ): UpdatePullRequestReviewCommentPayload @docsCategory(name: "pulls")
 
   """
   Update a Git Ref.
@@ -28408,7 +28409,7 @@ type Mutation {
     Parameters for UpdateRef
     """
     input: UpdateRefInput!
-  ): UpdateRefPayload
+  ): UpdateRefPayload @docsCategory(name: "git")
 
   """
   Creates, updates and/or deletes multiple refs in a repository.
@@ -28435,7 +28436,7 @@ type Mutation {
     Parameters for UpdateRefs
     """
     input: UpdateRefsInput!
-  ): UpdateRefsPayload
+  ): UpdateRefsPayload @docsCategory(name: "git")
 
   """
   Update information about a repository.
@@ -28465,7 +28466,7 @@ type Mutation {
     Parameters for UpdateRepositoryRuleset
     """
     input: UpdateRepositoryRulesetInput!
-  ): UpdateRepositoryRulesetPayload
+  ): UpdateRepositoryRulesetPayload @docsCategory(name: "repos")
 
   """
   Sets whether contributors are required to sign off on web-based commits for a repository.
@@ -28505,7 +28506,7 @@ type Mutation {
     Parameters for UpdateTeamReviewAssignment
     """
     input: UpdateTeamReviewAssignmentInput!
-  ): UpdateTeamReviewAssignmentPayload
+  ): UpdateTeamReviewAssignmentPayload @docsCategory(name: "pulls")
 
   """
   Update team repository.
@@ -28515,7 +28516,7 @@ type Mutation {
     Parameters for UpdateTeamsRepository
     """
     input: UpdateTeamsRepositoryInput!
-  ): UpdateTeamsRepositoryPayload
+  ): UpdateTeamsRepositoryPayload @docsCategory(name: "teams")
 
   """
   Replaces the repository's topics with the given topics.
@@ -28555,13 +28556,13 @@ type Mutation {
     Parameters for VerifyVerifiableDomain
     """
     input: VerifyVerifiableDomainInput!
-  ): VerifyVerifiableDomainPayload
+  ): VerifyVerifiableDomainPayload @docsCategory(name: "orgs")
 }
 
 """
 An object with an ID.
 """
-interface Node {
+interface Node @docsCategory(name: "meta") {
   """
   ID of the object.
   """
@@ -28588,7 +28589,7 @@ An OIDC identity provider configured to provision identities for an enterprise.
 Visible to enterprise owners or enterprise owners' personal access tokens
 (classic) with read:enterprise or admin:enterprise scope.
 """
-type OIDCProvider implements Node {
+type OIDCProvider implements Node @docsCategory(name: "enterprise-admin") {
   """
   The enterprise this identity provider belongs to.
   """
@@ -28653,7 +28654,7 @@ type OIDCProvider implements Node {
 """
 The OIDC identity provider type
 """
-enum OIDCProviderType {
+enum OIDCProviderType @docsCategory(name: "enterprise-admin") {
   """
   Azure Active Directory
   """
@@ -28937,7 +28938,7 @@ enum OperationType @docsCategory(name: "meta") {
 """
 Possible directions in which to order a list of items when provided an `orderBy` argument.
 """
-enum OrderDirection {
+enum OrderDirection @docsCategory(name: "meta") {
   """
   Specifies an ascending order for a given `orderBy` argument.
   """
@@ -30079,7 +30080,7 @@ type OrgDisableOauthAppRestrictionsAuditEntry implements AuditEntry & Node & Org
 """
 Audit log entry for a org.disable_saml event.
 """
-type OrgDisableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData {
+type OrgDisableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -30257,7 +30258,8 @@ type OrgDisableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEn
 """
 Audit log entry for a org.disable_two_factor_requirement event.
 """
-type OrgDisableTwoFactorRequirementAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData {
+type OrgDisableTwoFactorRequirementAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData
+  @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -30550,7 +30552,7 @@ type OrgEnableOauthAppRestrictionsAuditEntry implements AuditEntry & Node & Orga
 """
 Audit log entry for a org.enable_saml event.
 """
-type OrgEnableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData {
+type OrgEnableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -30728,7 +30730,8 @@ type OrgEnableSamlAuditEntry implements AuditEntry & Node & OrganizationAuditEnt
 """
 Audit log entry for a org.enable_two_factor_requirement event.
 """
-type OrgEnableTwoFactorRequirementAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData {
+type OrgEnableTwoFactorRequirementAuditEntry implements AuditEntry & Node & OrganizationAuditEntryData
+  @docsCategory(name: "orgs") {
   """
   The action name
   """
@@ -30874,7 +30877,7 @@ type OrgEnableTwoFactorRequirementAuditEntry implements AuditEntry & Node & Orga
 """
 Ordering options for an organization's enterprise owner connections.
 """
-input OrgEnterpriseOwnerOrder {
+input OrgEnterpriseOwnerOrder @docsCategory(name: "orgs") {
   """
   The ordering direction.
   """
@@ -30889,7 +30892,7 @@ input OrgEnterpriseOwnerOrder {
 """
 Properties by which enterprise owners can be ordered.
 """
-enum OrgEnterpriseOwnerOrderField {
+enum OrgEnterpriseOwnerOrderField @docsCategory(name: "orgs") {
   """
   Order enterprise owners by login.
   """
@@ -33847,7 +33850,8 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
 """
 An account on GitHub, with one or more owners, that has repositories, members and teams.
 """
-type Organization implements Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type Organization implements Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable
+  @docsCategory(name: "orgs") {
   """
   The announcement banner set on this organization, if any. Only visible to members of the organization's enterprise.
   """
@@ -35612,7 +35616,7 @@ Organizations. Visible to (1) organization owners, (2) organization owners'
 personal access tokens (classic) with read:org or admin:org scope, (3) GitHub
 App with an installation token with read or write access to members.
 """
-type OrganizationIdentityProvider implements Node {
+type OrganizationIdentityProvider implements Node @docsCategory(name: "orgs") {
   """
   The digest algorithm used to sign SAML requests for the Identity Provider.
   """
@@ -35692,7 +35696,7 @@ type OrganizationIdentityProvider implements Node {
 """
 An Invitation for a user to an organization.
 """
-type OrganizationInvitation implements Node {
+type OrganizationInvitation implements Node @docsCategory(name: "orgs") {
   """
   Identifies the date and time when the object was created.
   """
@@ -35790,7 +35794,7 @@ type OrganizationInvitationEdge {
 """
 The possible organization invitation roles.
 """
-enum OrganizationInvitationRole {
+enum OrganizationInvitationRole @docsCategory(name: "orgs") {
   """
   The user is invited to be an admin of the organization.
   """
@@ -35815,7 +35819,7 @@ enum OrganizationInvitationRole {
 """
 The possible organization invitation sources.
 """
-enum OrganizationInvitationSource {
+enum OrganizationInvitationSource @docsCategory(name: "orgs") {
   """
   The invitation was created from the web interface or from API
   """
@@ -35835,7 +35839,7 @@ enum OrganizationInvitationSource {
 """
 The possible organization invitation types.
 """
-enum OrganizationInvitationType {
+enum OrganizationInvitationType @docsCategory(name: "orgs") {
   """
   The invitation was to an email address.
   """
@@ -35900,7 +35904,7 @@ type OrganizationMemberEdge {
 """
 The possible roles within an organization for its members.
 """
-enum OrganizationMemberRole {
+enum OrganizationMemberRole @docsCategory(name: "orgs") {
   """
   The user is an administrator of the organization.
   """
@@ -35915,7 +35919,7 @@ enum OrganizationMemberRole {
 """
 The possible values for the members can create repositories setting on an organization.
 """
-enum OrganizationMembersCanCreateRepositoriesSettingValue {
+enum OrganizationMembersCanCreateRepositoriesSettingValue @docsCategory(name: "orgs") {
   """
   Members will be able to create public and private repositories.
   """
@@ -35940,7 +35944,7 @@ enum OrganizationMembersCanCreateRepositoriesSettingValue {
 """
 A GitHub Enterprise Importer (GEI) organization migration.
 """
-type OrganizationMigration implements Node {
+type OrganizationMigration implements Node @docsCategory(name: "migrations") {
   """
   Identifies the date and time when the object was created.
   """
@@ -35995,7 +35999,7 @@ type OrganizationMigration implements Node {
 """
 The Octoshift Organization migration state.
 """
-enum OrganizationMigrationState {
+enum OrganizationMigrationState @docsCategory(name: "migrations") {
   """
   The Octoshift migration has failed.
   """
@@ -36055,7 +36059,7 @@ union OrganizationOrUser @docsCategory(name: "projects") = Organization | User
 """
 Ordering options for organization connections.
 """
-input OrganizationOrder {
+input OrganizationOrder @docsCategory(name: "orgs") {
   """
   The ordering direction.
   """
@@ -36070,7 +36074,7 @@ input OrganizationOrder {
 """
 Properties by which organization connections can be ordered.
 """
-enum OrganizationOrderField {
+enum OrganizationOrderField @docsCategory(name: "orgs") {
   """
   Order organizations by creation time
   """
@@ -36145,7 +36149,7 @@ input OrganizationPropertyTargetDefinitionInput {
 """
 An organization teams hovercard context
 """
-type OrganizationTeamsHovercardContext implements HovercardContext {
+type OrganizationTeamsHovercardContext implements HovercardContext @docsCategory(name: "teams") {
   """
   A string describing this context
   """
@@ -36200,7 +36204,7 @@ type OrganizationTeamsHovercardContext implements HovercardContext {
 """
 An organization list hovercard context
 """
-type OrganizationsHovercardContext implements HovercardContext {
+type OrganizationsHovercardContext implements HovercardContext @docsCategory(name: "orgs") {
   """
   A string describing this context
   """
@@ -36250,7 +36254,7 @@ type OrganizationsHovercardContext implements HovercardContext {
 """
 Information for an uploaded package.
 """
-type Package implements Node {
+type Package implements Node @docsCategory(name: "packages") {
   """
   The Node ID of the Package object
   """
@@ -36365,7 +36369,7 @@ type PackageEdge {
 """
 A file in a package version.
 """
-type PackageFile implements Node {
+type PackageFile implements Node @docsCategory(name: "packages") {
   """
   The Node ID of the PackageFile object
   """
@@ -36455,7 +36459,7 @@ type PackageFileEdge {
 """
 Ways in which lists of package files can be ordered upon return.
 """
-input PackageFileOrder {
+input PackageFileOrder @docsCategory(name: "packages") {
   """
   The direction in which to order package files by the specified field.
   """
@@ -36470,7 +36474,7 @@ input PackageFileOrder {
 """
 Properties by which package file connections can be ordered.
 """
-enum PackageFileOrderField {
+enum PackageFileOrderField @docsCategory(name: "packages") {
   """
   Order package files by creation time
   """
@@ -36480,7 +36484,7 @@ enum PackageFileOrderField {
 """
 Ways in which lists of packages can be ordered upon return.
 """
-input PackageOrder {
+input PackageOrder @docsCategory(name: "packages") {
   """
   The direction in which to order packages by the specified field.
   """
@@ -36495,7 +36499,7 @@ input PackageOrder {
 """
 Properties by which package connections can be ordered.
 """
-enum PackageOrderField {
+enum PackageOrderField @docsCategory(name: "packages") {
   """
   Order packages by creation time
   """
@@ -36505,7 +36509,7 @@ enum PackageOrderField {
 """
 Represents an owner of a package.
 """
-interface PackageOwner {
+interface PackageOwner @docsCategory(name: "packages") {
   """
   The Node ID of the PackageOwner object
   """
@@ -36560,7 +36564,7 @@ interface PackageOwner {
 """
 Represents a object that contains package activity statistics such as downloads.
 """
-type PackageStatistics {
+type PackageStatistics @docsCategory(name: "packages") {
   """
   Number of times the package was downloaded since it was created.
   """
@@ -36570,7 +36574,7 @@ type PackageStatistics {
 """
 A version tag contains the mapping between a tag name and a version.
 """
-type PackageTag implements Node {
+type PackageTag implements Node @docsCategory(name: "packages") {
   """
   The Node ID of the PackageTag object
   """
@@ -36590,7 +36594,7 @@ type PackageTag implements Node {
 """
 The possible types of a package.
 """
-enum PackageType {
+enum PackageType @docsCategory(name: "packages") {
   """
   A debian package.
   """
@@ -36645,7 +36649,7 @@ enum PackageType {
 """
 Information about a specific package version.
 """
-type PackageVersion implements Node {
+type PackageVersion implements Node @docsCategory(name: "packages") {
   """
   List of files associated with this package version
   """
@@ -36765,7 +36769,7 @@ type PackageVersionEdge {
 """
 Ways in which lists of package versions can be ordered upon return.
 """
-input PackageVersionOrder {
+input PackageVersionOrder @docsCategory(name: "packages") {
   """
   The direction in which to order package versions by the specified field.
   """
@@ -36780,7 +36784,7 @@ input PackageVersionOrder {
 """
 Properties by which package version connections can be ordered.
 """
-enum PackageVersionOrderField {
+enum PackageVersionOrderField @docsCategory(name: "packages") {
   """
   Order package versions by creation time
   """
@@ -36790,7 +36794,7 @@ enum PackageVersionOrderField {
 """
 Represents a object that contains package version activity statistics such as downloads.
 """
-type PackageVersionStatistics {
+type PackageVersionStatistics @docsCategory(name: "packages") {
   """
   Number of times the package was downloaded since it was created.
   """
@@ -36825,7 +36829,7 @@ type PageInfo {
 """
 Represents a 'parent_issue_added' event on a given issue.
 """
-type ParentIssueAddedEvent implements Node {
+type ParentIssueAddedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -36850,7 +36854,7 @@ type ParentIssueAddedEvent implements Node {
 """
 Represents a 'parent_issue_removed' event on a given issue.
 """
-type ParentIssueRemovedEvent implements Node {
+type ParentIssueRemovedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -36875,7 +36879,7 @@ type ParentIssueRemovedEvent implements Node {
 """
 The possible types of patch statuses.
 """
-enum PatchStatus {
+enum PatchStatus @docsCategory(name: "pulls") {
   """
   The file was added. Git status 'A'.
   """
@@ -37320,7 +37324,7 @@ enum PinnedDiscussionPattern @docsCategory(name: "discussions") {
 """
 Represents a pinned environment on a given repository
 """
-type PinnedEnvironment implements Node {
+type PinnedEnvironment implements Node @docsCategory(name: "deployments") {
   """
   Identifies the date and time when the pinned environment was created
   """
@@ -37395,7 +37399,7 @@ type PinnedEnvironmentEdge {
 """
 Ordering options for pinned environments
 """
-input PinnedEnvironmentOrder {
+input PinnedEnvironmentOrder @docsCategory(name: "deployments") {
   """
   The direction in which to order pinned environments by the specified field.
   """
@@ -37410,7 +37414,7 @@ input PinnedEnvironmentOrder {
 """
 Properties by which pinned environments connections can be ordered
 """
-enum PinnedEnvironmentOrderField {
+enum PinnedEnvironmentOrderField @docsCategory(name: "deployments") {
   """
   Order pinned environments by position
   """
@@ -37420,7 +37424,7 @@ enum PinnedEnvironmentOrderField {
 """
 Represents a 'pinned' event on a given issue or pull request.
 """
-type PinnedEvent implements Node {
+type PinnedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -41996,7 +42000,7 @@ input PropertyTargetDefinitionInput {
 """
 A user's public key.
 """
-type PublicKey implements Node {
+type PublicKey implements Node @docsCategory(name: "users") {
   """
   The last time this authorization was used to perform an action. Values will be null for keys not owned by the user.
   """
@@ -42109,7 +42113,8 @@ type PublishSponsorsTierPayload {
 """
 A repository pull request.
 """
-type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type PullRequest implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment
+  @docsCategory(name: "pulls") {
   """
   Reason that the conversation was locked.
   """
@@ -43235,7 +43240,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 """
 Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
 """
-enum PullRequestAllowedMergeMethods {
+enum PullRequestAllowedMergeMethods @docsCategory(name: "pulls") {
   """
   Add all commits from the head branch to the base branch with a merge commit.
   """
@@ -43255,7 +43260,7 @@ enum PullRequestAllowedMergeMethods {
 """
 The possible methods for updating a pull request's head branch with the base branch.
 """
-enum PullRequestBranchUpdateMethod {
+enum PullRequestBranchUpdateMethod @docsCategory(name: "pulls") {
   """
   Update branch via merge
   """
@@ -43270,7 +43275,7 @@ enum PullRequestBranchUpdateMethod {
 """
 A file changed in a pull request.
 """
-type PullRequestChangedFile {
+type PullRequestChangedFile @docsCategory(name: "pulls") {
   """
   The number of additions to the file.
   """
@@ -43340,7 +43345,7 @@ type PullRequestChangedFileEdge {
 """
 Represents a Git commit part of a pull request.
 """
-type PullRequestCommit implements Node & UniformResourceLocatable {
+type PullRequestCommit implements Node & UniformResourceLocatable @docsCategory(name: "pulls") {
   """
   The Git commit object
   """
@@ -43370,7 +43375,7 @@ type PullRequestCommit implements Node & UniformResourceLocatable {
 """
 Represents a commit comment thread part of a pull request.
 """
-type PullRequestCommitCommentThread implements Node & RepositoryNode {
+type PullRequestCommitCommentThread implements Node & RepositoryNode @docsCategory(name: "pulls") {
   """
   The comments that exist in this thread.
   """
@@ -43495,7 +43500,7 @@ type PullRequestConnection {
 """
 This aggregates pull requests opened by a user within one repository.
 """
-type PullRequestContributionsByRepository {
+type PullRequestContributionsByRepository @docsCategory(name: "pulls") {
   """
   The pull request contributions.
   """
@@ -43535,7 +43540,7 @@ type PullRequestContributionsByRepository {
 """
 The policy controlling who can create pull requests in a repository.
 """
-enum PullRequestCreationPolicy {
+enum PullRequestCreationPolicy @docsCategory(name: "pulls") {
   """
   Anyone can create pull requests.
   """
@@ -43565,7 +43570,7 @@ type PullRequestEdge {
 """
 Represents available types of methods to use when merging a pull request.
 """
-enum PullRequestMergeMethod {
+enum PullRequestMergeMethod @docsCategory(name: "pulls") {
   """
   Add all commits from the head branch to the base branch with a merge commit.
   """
@@ -43701,7 +43706,8 @@ input PullRequestParametersInput {
 """
 A review object for a given pull request.
 """
-type PullRequestReview implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
+type PullRequestReview implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment
+  @docsCategory(name: "pulls") {
   """
   The actor who authored the comment.
   """
@@ -43987,7 +43993,8 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
 """
 A review comment associated with a given repository pull request.
 """
-type PullRequestReviewComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
+type PullRequestReviewComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment
+  @docsCategory(name: "pulls") {
   """
   The actor who authored the comment.
   """
@@ -44327,7 +44334,7 @@ type PullRequestReviewCommentEdge {
 """
 The possible states of a pull request review comment.
 """
-enum PullRequestReviewCommentState {
+enum PullRequestReviewCommentState @docsCategory(name: "pulls") {
   """
   A comment that is part of a pending review
   """
@@ -44367,7 +44374,7 @@ type PullRequestReviewConnection {
 """
 This aggregates pull request reviews made by a user within one repository.
 """
-type PullRequestReviewContributionsByRepository {
+type PullRequestReviewContributionsByRepository @docsCategory(name: "pulls") {
   """
   The pull request review contributions.
   """
@@ -44407,7 +44414,7 @@ type PullRequestReviewContributionsByRepository {
 """
 The review status of a pull request.
 """
-enum PullRequestReviewDecision {
+enum PullRequestReviewDecision @docsCategory(name: "pulls") {
   """
   The pull request has received an approving review.
   """
@@ -44442,7 +44449,7 @@ type PullRequestReviewEdge {
 """
 The possible events to perform on a pull request review.
 """
-enum PullRequestReviewEvent {
+enum PullRequestReviewEvent @docsCategory(name: "pulls") {
   """
   Submit feedback and approve merging these changes.
   """
@@ -44467,7 +44474,7 @@ enum PullRequestReviewEvent {
 """
 The possible states of a pull request review.
 """
-enum PullRequestReviewState {
+enum PullRequestReviewState @docsCategory(name: "pulls") {
   """
   A review allowing the pull request to merge.
   """
@@ -44497,7 +44504,7 @@ enum PullRequestReviewState {
 """
 A threaded list of comments for a given pull request.
 """
-type PullRequestReviewThread implements Node {
+type PullRequestReviewThread implements Node @docsCategory(name: "pulls") {
   """
   A list of pull request comments associated with the thread.
   """
@@ -44662,7 +44669,7 @@ type PullRequestReviewThreadEdge {
 """
 The possible subject types of a pull request review comment.
 """
-enum PullRequestReviewThreadSubjectType {
+enum PullRequestReviewThreadSubjectType @docsCategory(name: "pulls") {
   """
   A comment that has been made against the file of a pull request
   """
@@ -44677,7 +44684,7 @@ enum PullRequestReviewThreadSubjectType {
 """
 Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.
 """
-type PullRequestRevisionMarker {
+type PullRequestRevisionMarker @docsCategory(name: "pulls") {
   """
   Identifies the date and time when the object was created.
   """
@@ -44697,7 +44704,7 @@ type PullRequestRevisionMarker {
 """
 The possible states of a pull request.
 """
-enum PullRequestState {
+enum PullRequestState @docsCategory(name: "pulls") {
   """
   A pull request that has been closed without being merged.
   """
@@ -44717,7 +44724,7 @@ enum PullRequestState {
 """
 A repository pull request template.
 """
-type PullRequestTemplate {
+type PullRequestTemplate @docsCategory(name: "pulls") {
   """
   The body of the template
   """
@@ -44737,7 +44744,7 @@ type PullRequestTemplate {
 """
 A threaded list of comments for a given pull request.
 """
-type PullRequestThread implements Node {
+type PullRequestThread implements Node @docsCategory(name: "pulls") {
   """
   A list of pull request comments associated with the thread.
   """
@@ -44877,7 +44884,7 @@ type PullRequestTimelineConnection {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItem =
+union PullRequestTimelineItem @docsCategory(name: "pulls") =
   | AssignedEvent
   | BaseRefDeletedEvent
   | BaseRefForcePushedEvent
@@ -44930,7 +44937,7 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems =
+union PullRequestTimelineItems @docsCategory(name: "pulls") =
   | AddedToMergeQueueEvent
   | AddedToProjectEvent
   | AddedToProjectV2Event
@@ -45463,7 +45470,7 @@ enum PullRequestTimelineItemsItemType {
 """
 The possible target states when updating a pull request.
 """
-enum PullRequestUpdateState {
+enum PullRequestUpdateState @docsCategory(name: "pulls") {
   """
   A pull request that has been closed without being merged.
   """
@@ -45513,7 +45520,7 @@ type Push implements Node @docsCategory(name: "git") {
 """
 A team, user, or app who has the ability to push to a protected branch.
 """
-type PushAllowance implements Node {
+type PushAllowance implements Node @docsCategory(name: "branches") {
   """
   The actor that can push.
   """
@@ -45533,7 +45540,7 @@ type PushAllowance implements Node {
 """
 Types that can be an actor.
 """
-union PushAllowanceActor = App | Team | User
+union PushAllowanceActor @docsCategory(name: "branches") = App | Team | User
 
 """
 The connection type for PushAllowance.
@@ -45578,7 +45585,7 @@ type PushAllowanceEdge {
 """
 The query root of GitHub's GraphQL interface.
 """
-type Query implements Node {
+type Query implements Node @docsCategory(name: "meta") {
   """
   Look up a code of conduct by its key
   """
@@ -46144,7 +46151,7 @@ type Query implements Node {
 """
 Represents the client's rate limit.
 """
-type RateLimit {
+type RateLimit @docsCategory(name: "meta") {
   """
   The point cost for the current query counting against the rate limit.
   """
@@ -46558,7 +46565,7 @@ type ReactorEdge {
 """
 Represents a 'ready_for_review' event on a given pull request.
 """
-type ReadyForReviewEvent implements Node & UniformResourceLocatable {
+type ReadyForReviewEvent implements Node & UniformResourceLocatable @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -46593,7 +46600,7 @@ type ReadyForReviewEvent implements Node & UniformResourceLocatable {
 """
 Represents a Git reference.
 """
-type Ref implements Node {
+type Ref implements Node @docsCategory(name: "git") {
   """
   A list of pull requests with this ref as the head ref.
   """
@@ -46797,7 +46804,7 @@ input RefNameConditionTargetInput {
 """
 Ways in which lists of git refs can be ordered upon return.
 """
-input RefOrder {
+input RefOrder @docsCategory(name: "git") {
   """
   The direction in which to order refs by the specified field.
   """
@@ -46812,7 +46819,7 @@ input RefOrder {
 """
 Properties by which ref connections can be ordered.
 """
-enum RefOrderField {
+enum RefOrderField @docsCategory(name: "git") {
   """
   Order refs by their alphanumeric name
   """
@@ -46917,7 +46924,7 @@ type RefUpdateRule @docsCategory(name: "git") {
 """
 Represents a 'referenced' event on a given `ReferencedSubject`.
 """
-type ReferencedEvent implements Node {
+type ReferencedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -46962,7 +46969,7 @@ type ReferencedEvent implements Node {
 """
 Any referencable object
 """
-union ReferencedSubject = Issue | PullRequest
+union ReferencedSubject @docsCategory(name: "issues") = Issue | PullRequest
 
 """
 Autogenerated input type of RegenerateEnterpriseIdentityProviderRecoveryCodes
@@ -47965,7 +47972,7 @@ type RemoveUpvotePayload {
 """
 Represents a 'removed_from_merge_queue' event on a given pull request.
 """
-type RemovedFromMergeQueueEvent implements Node {
+type RemovedFromMergeQueueEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -48084,7 +48091,7 @@ type RemovedFromProjectV2Event implements Node & ProjectV2Event @docsCategory(na
 """
 Represents a 'renamed' event on a given issue or pull request
 """
-type RenamedTitleEvent implements Node {
+type RenamedTitleEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -48119,7 +48126,7 @@ type RenamedTitleEvent implements Node {
 """
 An object which has a renamable title
 """
-union RenamedTitleSubject = Issue | PullRequest
+union RenamedTitleSubject @docsCategory(name: "issues") = Issue | PullRequest
 
 """
 Autogenerated input type of ReopenDiscussion
@@ -48214,7 +48221,7 @@ type ReopenPullRequestPayload {
 """
 Represents a 'reopened' event on any `Closable`.
 """
-type ReopenedEvent implements Node {
+type ReopenedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -52425,6 +52432,36 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): Issue
 
   """
+  A list of the repository's issue fields, inherited from the organization
+  """
+  issueFields(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for issue fields returned from the connection.
+    """
+    orderBy: IssueFieldOrder = {field: CREATED_AT, direction: ASC}
+  ): IssueFieldsConnection
+
+  """
   Returns a single issue-like object from the current repository by number.
   """
   issueOrPullRequest(
@@ -53698,7 +53735,7 @@ interface RepositoryAuditEntryData @docsCategory(name: "repos") {
 """
 Information extracted from a repository's `CODEOWNERS` file.
 """
-type RepositoryCodeowners {
+type RepositoryCodeowners @docsCategory(name: "repos") {
   """
   Any problems that were encountered while parsing the `CODEOWNERS` file.
   """
@@ -53708,7 +53745,7 @@ type RepositoryCodeowners {
 """
 An error in a `CODEOWNERS` file.
 """
-type RepositoryCodeownersError {
+type RepositoryCodeownersError @docsCategory(name: "repos") {
   """
   The column number where the error occurs.
   """
@@ -54586,7 +54623,7 @@ enum RepositoryLockReason @docsCategory(name: "repos") {
 """
 A GitHub Enterprise Importer (GEI) repository migration.
 """
-type RepositoryMigration implements Migration & Node {
+type RepositoryMigration implements Migration & Node @docsCategory(name: "migrations") {
   """
   The migration flag to continue on error.
   """
@@ -54687,7 +54724,7 @@ type RepositoryMigrationEdge {
 """
 Ordering options for repository migrations.
 """
-input RepositoryMigrationOrder {
+input RepositoryMigrationOrder @docsCategory(name: "migrations") {
   """
   The ordering direction.
   """
@@ -54702,7 +54739,7 @@ input RepositoryMigrationOrder {
 """
 Possible directions in which to order a list of repository migrations when provided an `orderBy` argument.
 """
-enum RepositoryMigrationOrderDirection {
+enum RepositoryMigrationOrderDirection @docsCategory(name: "migrations") {
   """
   Specifies an ascending order for a given `orderBy` argument.
   """
@@ -54717,7 +54754,7 @@ enum RepositoryMigrationOrderDirection {
 """
 Properties by which repository migrations can be ordered.
 """
-enum RepositoryMigrationOrderField {
+enum RepositoryMigrationOrderField @docsCategory(name: "migrations") {
   """
   Order mannequins why when they were created.
   """
@@ -54982,7 +55019,7 @@ enum RepositoryPermission @docsCategory(name: "repos") {
 """
 Information about the availability of features and limits for a repository based on its billing plan.
 """
-type RepositoryPlanFeatures {
+type RepositoryPlanFeatures @docsCategory(name: "repos") {
   """
   Whether reviews can be automatically requested and enforced with a CODEOWNERS file
   """
@@ -55057,7 +55094,7 @@ input RepositoryPropertyConditionTargetInput {
 """
 A repository rule.
 """
-type RepositoryRule implements Node {
+type RepositoryRule implements Node @docsCategory(name: "repos") {
   """
   The Node ID of the RepositoryRule object
   """
@@ -55182,7 +55219,7 @@ type RepositoryRuleEdge {
 """
 Specifies the attributes for a new or updated rule.
 """
-input RepositoryRuleInput {
+input RepositoryRuleInput @docsCategory(name: "repos") {
   """
   Optional ID of this rule when updating
   """
@@ -55202,7 +55239,7 @@ input RepositoryRuleInput {
 """
 Ordering options for repository rules.
 """
-input RepositoryRuleOrder {
+input RepositoryRuleOrder @docsCategory(name: "repos") {
   """
   The ordering direction.
   """
@@ -55217,7 +55254,7 @@ input RepositoryRuleOrder {
 """
 Properties by which repository rule connections can be ordered.
 """
-enum RepositoryRuleOrderField {
+enum RepositoryRuleOrderField @docsCategory(name: "repos") {
   """
   Order repository rules by created time
   """
@@ -55237,7 +55274,7 @@ enum RepositoryRuleOrderField {
 """
 The rule types supported in rulesets
 """
-enum RepositoryRuleType {
+enum RepositoryRuleType @docsCategory(name: "repos") {
   """
   Authorization
   """
@@ -55405,7 +55442,7 @@ enum RepositoryRuleType {
 """
 A repository ruleset.
 """
-type RepositoryRuleset implements Node {
+type RepositoryRuleset implements Node @docsCategory(name: "repos") {
   """
   The actors that can bypass this ruleset
   """
@@ -55510,7 +55547,7 @@ type RepositoryRuleset implements Node {
 """
 A team, app or user that has the ability to bypass rules defined on a ruleset
 """
-type RepositoryRulesetBypassActor implements Node {
+type RepositoryRulesetBypassActor implements Node @docsCategory(name: "repos") {
   """
   The actor that can bypass rules.
   """
@@ -55565,7 +55602,7 @@ type RepositoryRulesetBypassActor implements Node {
 """
 The bypass mode for a specific actor on a ruleset.
 """
-enum RepositoryRulesetBypassActorBypassMode {
+enum RepositoryRulesetBypassActorBypassMode @docsCategory(name: "repos") {
   """
   The actor can always bypass rules
   """
@@ -55627,7 +55664,7 @@ Specifies the attributes for a new or updated ruleset bypass actor. Only one of
 `actor_id`, `repository_role_database_id`, `organization_admin`,
 `enterprise_owner`, or `deploy_key` should be specified.
 """
-input RepositoryRulesetBypassActorInput {
+input RepositoryRulesetBypassActorInput @docsCategory(name: "repos") {
   """
   For Team, Integration and User bypasses, the Team, Integration, or User ID
   """
@@ -55707,7 +55744,7 @@ type RepositoryRulesetEdge {
 """
 The targets supported for rulesets.
 """
-enum RepositoryRulesetTarget {
+enum RepositoryRulesetTarget @docsCategory(name: "repos") {
   """
   Branch
   """
@@ -56154,7 +56191,7 @@ type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & Enterpri
 """
 A Dependabot alert for a repository with a dependency affected by a security vulnerability.
 """
-type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
+type RepositoryVulnerabilityAlert implements Node & RepositoryNode @docsCategory(name: "dependabot") {
   """
   When was the alert auto-dismissed?
   """
@@ -56279,7 +56316,7 @@ type RepositoryVulnerabilityAlertConnection {
 """
 The possible relationships of an alert's dependency.
 """
-enum RepositoryVulnerabilityAlertDependencyRelationship {
+enum RepositoryVulnerabilityAlertDependencyRelationship @docsCategory(name: "dependabot") {
   """
   A direct dependency of your project
   """
@@ -56304,7 +56341,7 @@ enum RepositoryVulnerabilityAlertDependencyRelationship {
 """
 The possible scopes of an alert's dependency.
 """
-enum RepositoryVulnerabilityAlertDependencyScope {
+enum RepositoryVulnerabilityAlertDependencyScope @docsCategory(name: "dependabot") {
   """
   A dependency that is only used in development
   """
@@ -56334,7 +56371,7 @@ type RepositoryVulnerabilityAlertEdge {
 """
 The possible states of an alert
 """
-enum RepositoryVulnerabilityAlertState {
+enum RepositoryVulnerabilityAlertState @docsCategory(name: "dependabot") {
   """
   An alert that has been automatically closed by Dependabot.
   """
@@ -56524,7 +56561,7 @@ type RequestReviewsPayload {
 """
 The possible states that can be requested when creating a check run.
 """
-enum RequestableCheckStatusState {
+enum RequestableCheckStatusState @docsCategory(name: "checks") {
   """
   The check suite or run has been completed.
   """
@@ -56554,7 +56591,7 @@ enum RequestableCheckStatusState {
 """
 Types that can be requested reviewers.
 """
-union RequestedReviewer = Bot | Mannequin | Team | User
+union RequestedReviewer @docsCategory(name: "pulls") = Bot | Mannequin | Team | User
 
 """
 The connection type for RequestedReviewer.
@@ -56599,7 +56636,7 @@ type RequestedReviewerEdge {
 """
 Represents a type that can be required by a pull request for merging.
 """
-interface RequirableByPullRequest {
+interface RequirableByPullRequest @docsCategory(name: "pulls") {
   """
   Whether this is required to pass before merging for a specific pull request.
   """
@@ -56683,7 +56720,7 @@ input RequiredReviewerConfigurationInput {
 """
 Represents a required status check for a protected branch, but not any specific run of that check.
 """
-type RequiredStatusCheckDescription {
+type RequiredStatusCheckDescription @docsCategory(name: "branches") {
   """
   The App that must provide this status in order for it to be accepted.
   """
@@ -56698,7 +56735,7 @@ type RequiredStatusCheckDescription {
 """
 Specifies the attributes for a new or updated required status check.
 """
-input RequiredStatusCheckInput {
+input RequiredStatusCheckInput @docsCategory(name: "branches") {
   """
   The ID of the App that must set the status in order for it to be accepted.
   Omit this value to use whichever app has recently been setting this status, or
@@ -56938,7 +56975,7 @@ type RevertPullRequestPayload {
 """
 A user, team, or app who has the ability to dismiss a review on a protected branch.
 """
-type ReviewDismissalAllowance implements Node {
+type ReviewDismissalAllowance implements Node @docsCategory(name: "branches") {
   """
   The actor that can dismiss.
   """
@@ -56958,7 +56995,7 @@ type ReviewDismissalAllowance implements Node {
 """
 Types that can be an actor.
 """
-union ReviewDismissalAllowanceActor = App | Team | User
+union ReviewDismissalAllowanceActor @docsCategory(name: "branches") = App | Team | User
 
 """
 The connection type for ReviewDismissalAllowance.
@@ -57003,7 +57040,7 @@ type ReviewDismissalAllowanceEdge {
 """
 Represents a 'review_dismissed' event on a given issue or pull request.
 """
-type ReviewDismissedEvent implements Node & UniformResourceLocatable {
+type ReviewDismissedEvent implements Node & UniformResourceLocatable @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -57068,7 +57105,7 @@ type ReviewDismissedEvent implements Node & UniformResourceLocatable {
 """
 A request for a user to review a pull request.
 """
-type ReviewRequest implements Node {
+type ReviewRequest implements Node @docsCategory(name: "pulls") {
   """
   Whether this request was created for a code owner
   """
@@ -57138,7 +57175,7 @@ type ReviewRequestEdge {
 """
 Represents an 'review_request_removed' event on a given pull request.
 """
-type ReviewRequestRemovedEvent implements Node {
+type ReviewRequestRemovedEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -57168,7 +57205,7 @@ type ReviewRequestRemovedEvent implements Node {
 """
 Represents an 'review_requested' event on a given pull request.
 """
-type ReviewRequestedEvent implements Node {
+type ReviewRequestedEvent implements Node @docsCategory(name: "pulls") {
   """
   Identifies the actor who performed the event.
   """
@@ -57199,7 +57236,7 @@ type ReviewRequestedEvent implements Node {
 A hovercard context with a message describing the current code review state of the pull
 request.
 """
-type ReviewStatusHovercardContext implements HovercardContext {
+type ReviewStatusHovercardContext implements HovercardContext @docsCategory(name: "pulls") {
   """
   A string describing this context
   """
@@ -57314,7 +57351,7 @@ type RevokeMigratorRolePayload {
 """
 Possible roles a user may have in relation to an organization.
 """
-enum RoleInOrganization {
+enum RoleInOrganization @docsCategory(name: "orgs") {
   """
   A user who is a direct member of the organization.
   """
@@ -57334,7 +57371,7 @@ enum RoleInOrganization {
 """
 The level of enforcement for a rule or ruleset.
 """
-enum RuleEnforcement {
+enum RuleEnforcement @docsCategory(name: "repos") {
   """
   Rules will be enforced
   """
@@ -57355,7 +57392,7 @@ enum RuleEnforcement {
 """
 Types which can be parameters for `RepositoryRule` objects.
 """
-union RuleParameters =
+union RuleParameters @docsCategory(name: "repos") =
   | BranchNamePatternParameters
   | CodeScanningParameters
   | CommitAuthorEmailPatternParameters
@@ -57377,7 +57414,7 @@ union RuleParameters =
 """
 Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
 """
-input RuleParametersInput {
+input RuleParametersInput @docsCategory(name: "repos") {
   """
   Parameters used for the `branch_name_pattern` rule type
   """
@@ -57467,12 +57504,12 @@ input RuleParametersInput {
 """
 Types which can have `RepositoryRule` objects.
 """
-union RuleSource = Enterprise | Organization | Repository
+union RuleSource @docsCategory(name: "repos") = Enterprise | Organization | Repository
 
 """
 The possible digest algorithms used to sign SAML requests for an identity provider.
 """
-enum SamlDigestAlgorithm {
+enum SamlDigestAlgorithm @docsCategory(name: "enterprise-admin") {
   """
   SHA1
   """
@@ -57497,7 +57534,7 @@ enum SamlDigestAlgorithm {
 """
 The possible signature algorithms used to sign SAML requests for a Identity Provider.
 """
-enum SamlSignatureAlgorithm {
+enum SamlSignatureAlgorithm @docsCategory(name: "enterprise-admin") {
   """
   RSA-SHA1
   """
@@ -57622,7 +57659,15 @@ enum SavedReplyOrderField @docsCategory(name: "users") {
 """
 The results of a search.
 """
-union SearchResultItem = App | Discussion | Issue | MarketplaceListing | Organization | PullRequest | Repository | User
+union SearchResultItem @docsCategory(name: "search") =
+  | App
+  | Discussion
+  | Issue
+  | MarketplaceListing
+  | Organization
+  | PullRequest
+  | Repository
+  | User
 
 """
 A list of results that matched against a search query. Regardless of the number
@@ -57719,7 +57764,7 @@ type SearchResultItemEdge {
 """
 Represents the individual results of a search.
 """
-enum SearchType {
+enum SearchType @docsCategory(name: "search") {
   """
   Returns matching discussions in repositories.
   """
@@ -57759,7 +57804,7 @@ enum SearchType {
 """
 A GitHub Security Advisory
 """
-type SecurityAdvisory implements Node {
+type SecurityAdvisory implements Node @docsCategory(name: "security-advisories") {
   """
   The classification of the advisory
   """
@@ -57932,7 +57977,7 @@ type SecurityAdvisory implements Node {
 """
 Classification of the advisory.
 """
-enum SecurityAdvisoryClassification {
+enum SecurityAdvisoryClassification @docsCategory(name: "security-advisories") {
   """
   Classification of general advisories.
   """
@@ -57972,7 +58017,7 @@ type SecurityAdvisoryConnection {
 """
 The possible ecosystems of a security vulnerability's package.
 """
-enum SecurityAdvisoryEcosystem {
+enum SecurityAdvisoryEcosystem @docsCategory(name: "security-advisories") {
   """
   GitHub Actions
   """
@@ -58052,7 +58097,7 @@ type SecurityAdvisoryEdge {
 """
 A GitHub Security Advisory Identifier
 """
-type SecurityAdvisoryIdentifier {
+type SecurityAdvisoryIdentifier @docsCategory(name: "security-advisories") {
   """
   The identifier type, e.g. GHSA, CVE
   """
@@ -58067,7 +58112,7 @@ type SecurityAdvisoryIdentifier {
 """
 An advisory identifier to filter results on.
 """
-input SecurityAdvisoryIdentifierFilter {
+input SecurityAdvisoryIdentifierFilter @docsCategory(name: "security-advisories") {
   """
   The identifier type.
   """
@@ -58082,7 +58127,7 @@ input SecurityAdvisoryIdentifierFilter {
 """
 Identifier formats available for advisories.
 """
-enum SecurityAdvisoryIdentifierType {
+enum SecurityAdvisoryIdentifierType @docsCategory(name: "security-advisories") {
   """
   Common Vulnerabilities and Exposures Identifier.
   """
@@ -58097,7 +58142,7 @@ enum SecurityAdvisoryIdentifierType {
 """
 Ordering options for security advisory connections
 """
-input SecurityAdvisoryOrder {
+input SecurityAdvisoryOrder @docsCategory(name: "security-advisories") {
   """
   The ordering direction.
   """
@@ -58112,7 +58157,7 @@ input SecurityAdvisoryOrder {
 """
 Properties by which security advisory connections can be ordered.
 """
-enum SecurityAdvisoryOrderField {
+enum SecurityAdvisoryOrderField @docsCategory(name: "security-advisories") {
   """
   Order advisories by EPSS percentage
   """
@@ -58137,7 +58182,7 @@ enum SecurityAdvisoryOrderField {
 """
 An individual package
 """
-type SecurityAdvisoryPackage {
+type SecurityAdvisoryPackage @docsCategory(name: "security-advisories") {
   """
   The ecosystem the package belongs to, e.g. RUBYGEMS, NPM
   """
@@ -58152,7 +58197,7 @@ type SecurityAdvisoryPackage {
 """
 An individual package version
 """
-type SecurityAdvisoryPackageVersion {
+type SecurityAdvisoryPackageVersion @docsCategory(name: "security-advisories") {
   """
   The package name or version
   """
@@ -58162,7 +58207,7 @@ type SecurityAdvisoryPackageVersion {
 """
 A GitHub Security Advisory Reference
 """
-type SecurityAdvisoryReference {
+type SecurityAdvisoryReference @docsCategory(name: "security-advisories") {
   """
   A publicly accessible reference
   """
@@ -58172,7 +58217,7 @@ type SecurityAdvisoryReference {
 """
 Severity of the vulnerability.
 """
-enum SecurityAdvisorySeverity {
+enum SecurityAdvisorySeverity @docsCategory(name: "security-advisories") {
   """
   Critical.
   """
@@ -58202,7 +58247,7 @@ enum SecurityAdvisorySeverity {
 """
 An individual vulnerability within an Advisory
 """
-type SecurityVulnerability {
+type SecurityVulnerability @docsCategory(name: "security-advisories") {
   """
   The Advisory associated with this Vulnerability
   """
@@ -58283,7 +58328,7 @@ type SecurityVulnerabilityEdge {
 """
 Ordering options for security vulnerability connections
 """
-input SecurityVulnerabilityOrder {
+input SecurityVulnerabilityOrder @docsCategory(name: "security-advisories") {
   """
   The ordering direction.
   """
@@ -58298,7 +58343,7 @@ input SecurityVulnerabilityOrder {
 """
 Properties by which security vulnerability connections can be ordered.
 """
-enum SecurityVulnerabilityOrderField {
+enum SecurityVulnerabilityOrderField @docsCategory(name: "security-advisories") {
   """
   Order vulnerability by update time
   """
@@ -58558,7 +58603,7 @@ type SetUserInteractionLimitPayload {
 """
 Represents an S/MIME signature on a Commit or Tag.
 """
-type SmimeSignature implements GitSignature {
+type SmimeSignature implements GitSignature @docsCategory(name: "git") {
   """
   Email used to sign this object.
   """
@@ -61542,7 +61587,7 @@ enum SponsorshipPrivacy @docsCategory(name: "sponsors") {
 """
 The possible default commit messages for squash merges.
 """
-enum SquashMergeCommitMessage {
+enum SquashMergeCommitMessage @docsCategory(name: "repos") {
   """
   Default to a blank commit message.
   """
@@ -61562,7 +61607,7 @@ enum SquashMergeCommitMessage {
 """
 The possible default commit titles for squash merges.
 """
-enum SquashMergeCommitTitle {
+enum SquashMergeCommitTitle @docsCategory(name: "repos") {
   """
   Default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
   """
@@ -61577,7 +61622,7 @@ enum SquashMergeCommitTitle {
 """
 Represents an SSH signature on a Commit or Tag.
 """
-type SshSignature implements GitSignature {
+type SshSignature implements GitSignature @docsCategory(name: "git") {
   """
   Email used to sign this object.
   """
@@ -62010,7 +62055,7 @@ input StatusCheckConfigurationInput {
 """
 Represents the rollup for both the check runs and status for a commit.
 """
-type StatusCheckRollup implements Node {
+type StatusCheckRollup implements Node @docsCategory(name: "commits") {
   """
   The commit the status and check runs are attached to.
   """
@@ -62055,7 +62100,7 @@ type StatusCheckRollup implements Node {
 """
 Types that can be inside a StatusCheckRollup context.
 """
-union StatusCheckRollupContext = CheckRun | StatusContext
+union StatusCheckRollupContext @docsCategory(name: "commits") = CheckRun | StatusContext
 
 """
 The connection type for StatusCheckRollupContext.
@@ -62190,7 +62235,7 @@ type StatusContext implements Node & RequirableByPullRequest @docsCategory(name:
 """
 Represents a count of the state of a status context.
 """
-type StatusContextStateCount {
+type StatusContextStateCount @docsCategory(name: "commits") {
   """
   The number of statuses with this state.
   """
@@ -62275,7 +62320,7 @@ type StripeConnectAccount @docsCategory(name: "sponsors") {
 """
 Represents a 'sub_issue_added' event on a given issue.
 """
-type SubIssueAddedEvent implements Node {
+type SubIssueAddedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -62300,7 +62345,7 @@ type SubIssueAddedEvent implements Node {
 """
 Represents a 'sub_issue_removed' event on a given issue.
 """
-type SubIssueRemovedEvent implements Node {
+type SubIssueRemovedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -62325,7 +62370,7 @@ type SubIssueRemovedEvent implements Node {
 """
 Summary of the state of an issue's sub-issues
 """
-type SubIssuesSummary {
+type SubIssuesSummary @docsCategory(name: "issues") {
   """
   Count of completed sub-issues
   """
@@ -62510,7 +62555,7 @@ interface SubscribableThread @docsCategory(name: "activity") {
 """
 Represents a 'subscribed' event on a given `Subscribable`.
 """
-type SubscribedEvent implements Node {
+type SubscribedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -62555,7 +62600,7 @@ enum SubscriptionState @docsCategory(name: "activity") {
 """
 A suggestion to review a pull request based on a user's commit history and review comments.
 """
-type SuggestedReviewer {
+type SuggestedReviewer @docsCategory(name: "pulls") {
   """
   Is this suggestion based on past commits?
   """
@@ -62575,7 +62620,7 @@ type SuggestedReviewer {
 """
 A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.
 """
-type SuggestedReviewerActor {
+type SuggestedReviewerActor @docsCategory(name: "pulls") {
   """
   Is this suggestion based on past commits?
   """
@@ -62635,7 +62680,7 @@ type SuggestedReviewerActorEdge {
 """
 Represents a Git tag.
 """
-type Tag implements GitObject & Node {
+type Tag implements GitObject & Node @docsCategory(name: "git") {
   """
   An abbreviated version of the Git object ID
   """
@@ -62740,7 +62785,7 @@ input TagNamePatternParametersInput {
 """
 A team of users in an organization.
 """
-type Team implements MemberStatusable & Node & Subscribable & TeamReviewRequestable {
+type Team implements MemberStatusable & Node & Subscribable & TeamReviewRequestable @docsCategory(name: "teams") {
   """
   A list of teams that are ancestors of this team.
   """
@@ -63896,7 +63941,7 @@ type TeamMemberEdge {
 """
 Ordering options for team member connections
 """
-input TeamMemberOrder {
+input TeamMemberOrder @docsCategory(name: "teams") {
   """
   The ordering direction.
   """
@@ -63911,7 +63956,7 @@ input TeamMemberOrder {
 """
 Properties by which team member connections can be ordered.
 """
-enum TeamMemberOrderField {
+enum TeamMemberOrderField @docsCategory(name: "teams") {
   """
   Order team members by creation time
   """
@@ -63926,7 +63971,7 @@ enum TeamMemberOrderField {
 """
 The possible team member roles; either 'maintainer' or 'member'.
 """
-enum TeamMemberRole {
+enum TeamMemberRole @docsCategory(name: "teams") {
   """
   A team maintainer has permission to add and remove team members.
   """
@@ -63941,7 +63986,7 @@ enum TeamMemberRole {
 """
 Defines which types of team members are included in the returned list. Can be one of IMMEDIATE, CHILD_TEAM or ALL.
 """
-enum TeamMembershipType {
+enum TeamMembershipType @docsCategory(name: "teams") {
   """
   Includes immediate and child team members for the team.
   """
@@ -63961,7 +64006,7 @@ enum TeamMembershipType {
 """
 The possible team notification values.
 """
-enum TeamNotificationSetting {
+enum TeamNotificationSetting @docsCategory(name: "teams") {
   """
   No one will receive notifications.
   """
@@ -63976,7 +64021,7 @@ enum TeamNotificationSetting {
 """
 Ways in which team connections can be ordered.
 """
-input TeamOrder {
+input TeamOrder @docsCategory(name: "teams") {
   """
   The direction in which to order nodes.
   """
@@ -63991,7 +64036,7 @@ input TeamOrder {
 """
 Properties by which team connections can be ordered.
 """
-enum TeamOrderField {
+enum TeamOrderField @docsCategory(name: "teams") {
   """
   Allows ordering a list of teams by name.
   """
@@ -64001,7 +64046,7 @@ enum TeamOrderField {
 """
 The possible team privacy values.
 """
-enum TeamPrivacy {
+enum TeamPrivacy @docsCategory(name: "teams") {
   """
   A secret team can only be seen by its members.
   """
@@ -64427,7 +64472,7 @@ type TeamRepositoryEdge {
 """
 Ordering options for team repository connections
 """
-input TeamRepositoryOrder {
+input TeamRepositoryOrder @docsCategory(name: "teams") {
   """
   The ordering direction.
   """
@@ -64442,7 +64487,7 @@ input TeamRepositoryOrder {
 """
 Properties by which team repository connections can be ordered.
 """
-enum TeamRepositoryOrderField {
+enum TeamRepositoryOrderField @docsCategory(name: "teams") {
   """
   Order repositories by creation time
   """
@@ -64477,7 +64522,7 @@ enum TeamRepositoryOrderField {
 """
 The possible team review assignment algorithms
 """
-enum TeamReviewAssignmentAlgorithm {
+enum TeamReviewAssignmentAlgorithm @docsCategory(name: "teams") {
   """
   Balance review load across the entire team
   """
@@ -64492,7 +64537,7 @@ enum TeamReviewAssignmentAlgorithm {
 """
 Represents a team that can be requested to review a pull request.
 """
-interface TeamReviewRequestable {
+interface TeamReviewRequestable @docsCategory(name: "teams") {
   """
   The Node ID of the TeamReviewRequestable object
   """
@@ -64512,7 +64557,7 @@ interface TeamReviewRequestable {
 """
 The role of a user on a team.
 """
-enum TeamRole {
+enum TeamRole @docsCategory(name: "teams") {
   """
   User has admin rights on the team.
   """
@@ -64527,7 +64572,7 @@ enum TeamRole {
 """
 A text match within a search result.
 """
-type TextMatch {
+type TextMatch @docsCategory(name: "search") {
   """
   The specific text fragment within the property matched on.
   """
@@ -64547,7 +64592,7 @@ type TextMatch {
 """
 Represents a single highlight in a search result match.
 """
-type TextMatchHighlight {
+type TextMatchHighlight @docsCategory(name: "search") {
   """
   The indice in the fragment where the matched text begins.
   """
@@ -65055,7 +65100,7 @@ type TreeEntry @docsCategory(name: "git") {
 """
 Filters by whether or not 2FA is enabled and if the method configured is considered secure or insecure.
 """
-enum TwoFactorCredentialSecurityType {
+enum TwoFactorCredentialSecurityType @docsCategory(name: "enterprise-admin") {
   """
   No method of two-factor authentication.
   """
@@ -65175,7 +65220,7 @@ type UnarchiveRepositoryPayload {
 """
 Represents an 'unassigned' event on any assignable object.
 """
-type UnassignedEvent implements Node {
+type UnassignedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -65271,7 +65316,7 @@ type UnfollowUserPayload {
 """
 Represents a type that can be retrieved by a URL.
 """
-interface UniformResourceLocatable {
+interface UniformResourceLocatable @docsCategory(name: "meta") {
   """
   The HTML path to this resource.
   """
@@ -65286,7 +65331,7 @@ interface UniformResourceLocatable {
 """
 Represents an unknown signature on a Commit or Tag.
 """
-type UnknownSignature implements GitSignature {
+type UnknownSignature implements GitSignature @docsCategory(name: "git") {
   """
   Email used to sign this object.
   """
@@ -65507,7 +65552,7 @@ type UnlockLockablePayload {
 """
 Represents an 'unlocked' event on a given issue or pull request.
 """
-type UnlockedEvent implements Node {
+type UnlockedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -65662,7 +65707,7 @@ type UnmarkProjectV2AsTemplatePayload {
 """
 Represents an 'unmarked_as_duplicate' event on a given issue or pull request.
 """
-type UnmarkedAsDuplicateEvent implements Node {
+type UnmarkedAsDuplicateEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -65858,7 +65903,7 @@ type UnresolveReviewThreadPayload {
 """
 Represents an 'unsubscribed' event on a given `Subscribable`.
 """
-type UnsubscribedEvent implements Node {
+type UnsubscribedEvent implements Node @docsCategory(name: "issues") {
   """
   Identifies the actor who performed the event.
   """
@@ -65883,7 +65928,7 @@ type UnsubscribedEvent implements Node {
 """
 Entities that can be updated.
 """
-interface Updatable {
+interface Updatable @docsCategory(name: "issues") {
   """
   Check if the current viewer can update this object.
   """
@@ -70830,7 +70875,7 @@ enum UserBlockDuration @docsCategory(name: "users") {
 """
 Represents a 'user_blocked' event on a given user.
 """
-type UserBlockedEvent implements Node {
+type UserBlockedEvent implements Node @docsCategory(name: "users") {
   """
   Identifies the actor who performed the event.
   """
@@ -70985,7 +71030,7 @@ type UserEdge {
 """
 Email attributes from External Identity
 """
-type UserEmailMetadata {
+type UserEmailMetadata @docsCategory(name: "users") {
   """
   Boolean to identify primary emails
   """
@@ -71180,7 +71225,7 @@ type UserListSuggestion @docsCategory(name: "users") {
 """
 A repository owned by an Enterprise Managed user.
 """
-type UserNamespaceRepository implements Node {
+type UserNamespaceRepository implements Node @docsCategory(name: "enterprise-admin") {
   """
   The Node ID of the UserNamespaceRepository object
   """
@@ -71380,7 +71425,7 @@ enum UserViewType @docsCategory(name: "users") {
 """
 A domain that can be verified or approved for an organization or an enterprise.
 """
-type VerifiableDomain implements Node {
+type VerifiableDomain implements Node @docsCategory(name: "orgs") {
   """
   Identifies the date and time when the object was created.
   """
@@ -71500,7 +71545,7 @@ type VerifiableDomainEdge {
 """
 Ordering options for verifiable domain connections.
 """
-input VerifiableDomainOrder {
+input VerifiableDomainOrder @docsCategory(name: "orgs") {
   """
   The ordering direction.
   """
@@ -71515,7 +71560,7 @@ input VerifiableDomainOrder {
 """
 Properties by which verifiable domain connections can be ordered.
 """
-enum VerifiableDomainOrderField {
+enum VerifiableDomainOrderField @docsCategory(name: "orgs") {
   """
   Order verifiable domains by their creation date.
   """
@@ -71530,7 +71575,7 @@ enum VerifiableDomainOrderField {
 """
 Types that can own a verifiable domain.
 """
-union VerifiableDomainOwner = Enterprise | Organization
+union VerifiableDomainOwner @docsCategory(name: "orgs") = Enterprise | Organization
 
 """
 Autogenerated input type of VerifyVerifiableDomain
@@ -71605,7 +71650,7 @@ interface Votable @docsCategory(name: "discussions") {
 """
 A workflow contains meta information about an Actions workflow file.
 """
-type Workflow implements Node & UniformResourceLocatable {
+type Workflow implements Node & UniformResourceLocatable @docsCategory(name: "actions") {
   """
   Identifies the date and time when the object was created.
   """
@@ -71730,7 +71775,7 @@ input WorkflowFileReferenceInput {
 """
 A workflow run.
 """
-type WorkflowRun implements Node & UniformResourceLocatable {
+type WorkflowRun implements Node & UniformResourceLocatable @docsCategory(name: "actions") {
   """
   The check suite this workflow run belongs to.
   """
@@ -71880,7 +71925,7 @@ type WorkflowRunEdge {
 """
 An executed workflow file for a workflow run.
 """
-type WorkflowRunFile implements Node & UniformResourceLocatable {
+type WorkflowRunFile implements Node & UniformResourceLocatable @docsCategory(name: "actions") {
   """
   The Node ID of the WorkflowRunFile object
   """
@@ -71930,7 +71975,7 @@ type WorkflowRunFile implements Node & UniformResourceLocatable {
 """
 Ways in which lists of workflow runs can be ordered upon return.
 """
-input WorkflowRunOrder {
+input WorkflowRunOrder @docsCategory(name: "actions") {
   """
   The direction in which to order workflow runs by the specified field.
   """
@@ -71945,7 +71990,7 @@ input WorkflowRunOrder {
 """
 Properties by which workflow run connections can be ordered.
 """
-enum WorkflowRunOrderField {
+enum WorkflowRunOrderField @docsCategory(name: "actions") {
   """
   Order workflow runs by most recently created
   """
@@ -71955,7 +72000,7 @@ enum WorkflowRunOrderField {
 """
 The possible states for a workflow.
 """
-enum WorkflowState {
+enum WorkflowState @docsCategory(name: "actions") {
   """
   The workflow is active.
   """

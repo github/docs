@@ -824,6 +824,7 @@
       "id": "abortqueuedmigrations",
       "href": "/graphql/reference/mutations#abortqueuedmigrations",
       "description": "<p>Clear all of a customer's queued migrations.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -854,6 +855,7 @@
       "id": "abortrepositorymigration",
       "href": "/graphql/reference/mutations#abortrepositorymigration",
       "description": "<p>Abort a repository migration queued or in progress.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -884,6 +886,7 @@
       "id": "acceptenterpriseadministratorinvitation",
       "href": "/graphql/reference/mutations#acceptenterpriseadministratorinvitation",
       "description": "<p>Accepts a pending invitation for a user to become an administrator of an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -921,6 +924,7 @@
       "id": "acceptenterprisememberinvitation",
       "href": "/graphql/reference/mutations#acceptenterprisememberinvitation",
       "description": "<p>Accepts a pending invitation for a user to become an unaffiliated member of an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -991,6 +995,7 @@
       "id": "accessusernamespacerepository",
       "href": "/graphql/reference/mutations#accessusernamespacerepository",
       "description": "<p>Access user namespace repository for a temporary duration.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1097,6 +1102,7 @@
       "id": "addcomment",
       "href": "/graphql/reference/mutations#addcomment",
       "description": "<p>Adds a comment to an Issue or Pull Request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1203,6 +1209,7 @@
       "id": "addenterpriseorganizationmember",
       "href": "/graphql/reference/mutations#addenterpriseorganizationmember",
       "description": "<p>Adds enterprise members to an organization within the enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1233,6 +1240,7 @@
       "id": "addenterprisesupportentitlement",
       "href": "/graphql/reference/mutations#addenterprisesupportentitlement",
       "description": "<p>Adds a support entitlement to an enterprise member.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1434,6 +1442,7 @@
       "id": "addpullrequestreview",
       "href": "/graphql/reference/mutations#addpullrequestreview",
       "description": "<p>Adds a review to a Pull Request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1471,6 +1480,7 @@
       "id": "addpullrequestreviewcomment",
       "href": "/graphql/reference/mutations#addpullrequestreviewcomment",
       "description": "<p>Adds a comment to a review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1508,6 +1518,7 @@
       "id": "addpullrequestreviewthread",
       "href": "/graphql/reference/mutations#addpullrequestreviewthread",
       "description": "<p>Adds a new thread to a pending Pull Request Review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1538,6 +1549,7 @@
       "id": "addpullrequestreviewthreadreply",
       "href": "/graphql/reference/mutations#addpullrequestreviewthreadreply",
       "description": "<p>Adds a reply to an existing Pull Request Review Thread.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1644,6 +1656,7 @@
       "id": "addsubissue",
       "href": "/graphql/reference/mutations#addsubissue",
       "description": "<p>Adds a sub-issue to a given issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1712,6 +1725,7 @@
       "id": "addverifiabledomain",
       "href": "/graphql/reference/mutations#addverifiabledomain",
       "description": "<p>Adds a verifiable domain to an owning account.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1742,6 +1756,7 @@
       "id": "approvedeployments",
       "href": "/graphql/reference/mutations#approvedeployments",
       "description": "<p>Approve all pending deployments under one or more environments.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1772,6 +1787,7 @@
       "id": "approveverifiabledomain",
       "href": "/graphql/reference/mutations#approveverifiabledomain",
       "description": "<p>Approve a verifiable domain for notification delivery.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1833,6 +1849,7 @@
       "id": "archivepullrequest",
       "href": "/graphql/reference/mutations#archivepullrequest",
       "description": "<p>Archive a pull request. Closes, locks, and marks the pull request as archived.\nOnly repository admins can archive pull requests.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1894,6 +1911,7 @@
       "id": "cancelenterpriseadmininvitation",
       "href": "/graphql/reference/mutations#cancelenterpriseadmininvitation",
       "description": "<p>Cancels a pending invitation for an administrator to join an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -1931,6 +1949,7 @@
       "id": "cancelenterprisememberinvitation",
       "href": "/graphql/reference/mutations#cancelenterprisememberinvitation",
       "description": "<p>Cancels a pending invitation for an unaffiliated member to join an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2224,6 +2243,7 @@
       "id": "closepullrequest",
       "href": "/graphql/reference/mutations#closepullrequest",
       "description": "<p>Close a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2317,6 +2337,7 @@
       "id": "convertpullrequesttodraft",
       "href": "/graphql/reference/mutations#convertpullrequesttodraft",
       "description": "<p>Converts a pull request to draft.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2378,6 +2399,7 @@
       "id": "createattributioninvitation",
       "href": "/graphql/reference/mutations#createattributioninvitation",
       "description": "<p>Invites a user to claim reattributable data.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2422,6 +2444,7 @@
       "id": "createbranchprotectionrule",
       "href": "/graphql/reference/mutations#createbranchprotectionrule",
       "description": "<p>Create a new branch protection rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2452,6 +2475,7 @@
       "id": "createcheckrun",
       "href": "/graphql/reference/mutations#createcheckrun",
       "description": "<p>Create a check run.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2482,6 +2506,7 @@
       "id": "createchecksuite",
       "href": "/graphql/reference/mutations#createchecksuite",
       "description": "<p>Create a check suite.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2550,6 +2575,7 @@
       "id": "createdeployment",
       "href": "/graphql/reference/mutations#createdeployment",
       "description": "<p>Creates a new deployment event.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2587,6 +2613,7 @@
       "id": "createdeploymentstatus",
       "href": "/graphql/reference/mutations#createdeploymentstatus",
       "description": "<p>Create a deployment status.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2648,6 +2675,7 @@
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/mutations#createenterpriseorganization",
       "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2685,6 +2713,7 @@
       "id": "createenvironment",
       "href": "/graphql/reference/mutations#createenvironment",
       "description": "<p>Creates an environment or simply returns it if already exists.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2715,6 +2744,7 @@
       "id": "createipallowlistentry",
       "href": "/graphql/reference/mutations#createipallowlistentry",
       "description": "<p>Creates a new IP allow list entry.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -2945,6 +2975,7 @@
       "id": "createmigrationsource",
       "href": "/graphql/reference/mutations#createmigrationsource",
       "description": "<p>Creates a GitHub Enterprise Importer (GEI) migration source.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3131,6 +3162,7 @@
       "id": "createpullrequest",
       "href": "/graphql/reference/mutations#createpullrequest",
       "description": "<p>Create a new pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3161,6 +3193,7 @@
       "id": "createref",
       "href": "/graphql/reference/mutations#createref",
       "description": "<p>Create a new Git Ref.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3253,6 +3286,7 @@
       "id": "createrepositoryruleset",
       "href": "/graphql/reference/mutations#createrepositoryruleset",
       "description": "<p>Create a repository ruleset.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3478,6 +3512,7 @@
       "id": "deletebranchprotectionrule",
       "href": "/graphql/reference/mutations#deletebranchprotectionrule",
       "description": "<p>Delete a branch protection rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3501,6 +3536,7 @@
       "id": "deletedeployment",
       "href": "/graphql/reference/mutations#deletedeployment",
       "description": "<p>Deletes a deployment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3586,6 +3622,7 @@
       "id": "deleteenvironment",
       "href": "/graphql/reference/mutations#deleteenvironment",
       "description": "<p>Deletes an environment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3609,6 +3646,7 @@
       "id": "deleteipallowlistentry",
       "href": "/graphql/reference/mutations#deleteipallowlistentry",
       "description": "<p>Deletes an IP allow list entry.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -3849,6 +3887,7 @@
       "id": "deletepackageversion",
       "href": "/graphql/reference/mutations#deletepackageversion",
       "description": "<p>Delete a package version.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4158,6 +4197,7 @@
       "id": "deletepullrequestreview",
       "href": "/graphql/reference/mutations#deletepullrequestreview",
       "description": "<p>Deletes a pull request review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4188,6 +4228,7 @@
       "id": "deletepullrequestreviewcomment",
       "href": "/graphql/reference/mutations#deletepullrequestreviewcomment",
       "description": "<p>Deletes a pull request review comment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4225,6 +4266,7 @@
       "id": "deleteref",
       "href": "/graphql/reference/mutations#deleteref",
       "description": "<p>Delete a Git Ref.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4279,6 +4321,7 @@
       "id": "deleterepositoryruleset",
       "href": "/graphql/reference/mutations#deleterepositoryruleset",
       "description": "<p>Delete a repository ruleset.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4333,6 +4376,7 @@
       "id": "deleteverifiabledomain",
       "href": "/graphql/reference/mutations#deleteverifiabledomain",
       "description": "<p>Deletes a verifiable domain.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4363,6 +4407,7 @@
       "id": "dequeuepullrequest",
       "href": "/graphql/reference/mutations#dequeuepullrequest",
       "description": "<p>Remove a pull request from the merge queue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4393,6 +4438,7 @@
       "id": "disablepullrequestautomerge",
       "href": "/graphql/reference/mutations#disablepullrequestautomerge",
       "description": "<p>Disable auto merge on the given pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4430,6 +4476,7 @@
       "id": "dismisspullrequestreview",
       "href": "/graphql/reference/mutations#dismisspullrequestreview",
       "description": "<p>Dismisses an approved or rejected pull request review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4460,6 +4507,7 @@
       "id": "dismissrepositoryvulnerabilityalert",
       "href": "/graphql/reference/mutations#dismissrepositoryvulnerabilityalert",
       "description": "<p>Dismisses the Dependabot alert.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4490,6 +4538,7 @@
       "id": "enablepullrequestautomerge",
       "href": "/graphql/reference/mutations#enablepullrequestautomerge",
       "description": "<p>Enable the default auto-merge on a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4527,6 +4576,7 @@
       "id": "enqueuepullrequest",
       "href": "/graphql/reference/mutations#enqueuepullrequest",
       "description": "<p>Add a pull request to the merge queue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4619,6 +4669,7 @@
       "id": "grantenterpriseorganizationsmigratorrole",
       "href": "/graphql/reference/mutations#grantenterpriseorganizationsmigratorrole",
       "description": "<p>Grant the migrator role to a user for all organizations under an enterprise account.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4649,6 +4700,7 @@
       "id": "grantmigratorrole",
       "href": "/graphql/reference/mutations#grantmigratorrole",
       "description": "<p>Grant the migrator role to a user or a team.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4711,6 +4763,7 @@
       "id": "inviteenterpriseadmin",
       "href": "/graphql/reference/mutations#inviteenterpriseadmin",
       "description": "<p>Invite someone to become an administrator of the enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4741,6 +4794,7 @@
       "id": "inviteenterprisemember",
       "href": "/graphql/reference/mutations#inviteenterprisemember",
       "description": "<p>Invite someone to become an unaffiliated member of the enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4802,6 +4856,7 @@
       "id": "linkprojectv2toteam",
       "href": "/graphql/reference/mutations#linkprojectv2toteam",
       "description": "<p>Links a project to a team.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -4940,6 +4995,7 @@
       "id": "markfileasviewed",
       "href": "/graphql/reference/mutations#markfileasviewed",
       "description": "<p>Mark a pull request file as viewed.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5001,6 +5057,7 @@
       "id": "markpullrequestreadyforreview",
       "href": "/graphql/reference/mutations#markpullrequestreadyforreview",
       "description": "<p>Marks a pull request ready for review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5062,6 +5119,7 @@
       "id": "mergepullrequest",
       "href": "/graphql/reference/mutations#mergepullrequest",
       "description": "<p>Merge a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5194,6 +5252,7 @@
       "id": "pinenvironment",
       "href": "/graphql/reference/mutations#pinenvironment",
       "description": "<p>Pin an environment to a repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5355,6 +5414,7 @@
       "id": "regenerateenterpriseidentityproviderrecoverycodes",
       "href": "/graphql/reference/mutations#regenerateenterpriseidentityproviderrecoverycodes",
       "description": "<p>Regenerates the identity provider recovery codes for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5385,6 +5445,7 @@
       "id": "regenerateverifiabledomaintoken",
       "href": "/graphql/reference/mutations#regenerateverifiabledomaintoken",
       "description": "<p>Regenerates a verifiable domain's verification token.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5415,6 +5476,7 @@
       "id": "rejectdeployments",
       "href": "/graphql/reference/mutations#rejectdeployments",
       "description": "<p>Reject all pending deployments under one or more environments.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5514,6 +5576,7 @@
       "id": "removeenterpriseadmin",
       "href": "/graphql/reference/mutations#removeenterpriseadmin",
       "description": "<p>Removes an administrator from the enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5565,6 +5628,7 @@
       "id": "removeenterpriseidentityprovider",
       "href": "/graphql/reference/mutations#removeenterpriseidentityprovider",
       "description": "<p>Removes the identity provider from an enterprise. Owners of enterprises both\nwith and without Enterprise Managed Users may use this mutation.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5595,6 +5659,7 @@
       "id": "removeenterprisemember",
       "href": "/graphql/reference/mutations#removeenterprisemember",
       "description": "<p>Completely removes a user from the enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5639,6 +5704,7 @@
       "id": "removeenterpriseorganization",
       "href": "/graphql/reference/mutations#removeenterpriseorganization",
       "description": "<p>Removes an organization from the enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5683,6 +5749,7 @@
       "id": "removeenterprisesupportentitlement",
       "href": "/graphql/reference/mutations#removeenterprisesupportentitlement",
       "description": "<p>Removes a support entitlement from an enterprise member.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5744,6 +5811,7 @@
       "id": "removeoutsidecollaborator",
       "href": "/graphql/reference/mutations#removeoutsidecollaborator",
       "description": "<p>Removes outside collaborator from all repositories in an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -5850,6 +5918,7 @@
       "id": "removesubissue",
       "href": "/graphql/reference/mutations#removesubissue",
       "description": "<p>Removes a sub-issue from a given issue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6011,6 +6080,7 @@
       "id": "reorderenvironment",
       "href": "/graphql/reference/mutations#reorderenvironment",
       "description": "<p>Reorder a pinned repository environment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6072,6 +6142,7 @@
       "id": "reprioritizesubissue",
       "href": "/graphql/reference/mutations#reprioritizesubissue",
       "description": "<p>Reprioritizes a sub-issue to a different position in the parent list.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6102,6 +6173,7 @@
       "id": "requestreviews",
       "href": "/graphql/reference/mutations#requestreviews",
       "description": "<p>Set review requests on a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6146,6 +6218,7 @@
       "id": "requestreviewsbylogin",
       "href": "/graphql/reference/mutations#requestreviewsbylogin",
       "description": "<p>Set review requests on a pull request using login strings instead of IDs.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6190,6 +6263,7 @@
       "id": "rerequestchecksuite",
       "href": "/graphql/reference/mutations#rerequestchecksuite",
       "description": "<p>Rerequests an existing check suite.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6220,6 +6294,7 @@
       "id": "resolvereviewthread",
       "href": "/graphql/reference/mutations#resolvereviewthread",
       "description": "<p>Marks a review thread as resolved.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6281,6 +6356,7 @@
       "id": "revertpullrequest",
       "href": "/graphql/reference/mutations#revertpullrequest",
       "description": "<p>Create a pull request that reverts the changes from a merged pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6318,6 +6394,7 @@
       "id": "revokeenterpriseorganizationsmigratorrole",
       "href": "/graphql/reference/mutations#revokeenterpriseorganizationsmigratorrole",
       "description": "<p>Revoke the migrator role to a user for all organizations under an enterprise account.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6348,6 +6425,7 @@
       "id": "revokemigratorrole",
       "href": "/graphql/reference/mutations#revokemigratorrole",
       "description": "<p>Revoke the migrator role from a user or a team.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6378,6 +6456,7 @@
       "id": "setenterpriseidentityprovider",
       "href": "/graphql/reference/mutations#setenterpriseidentityprovider",
       "description": "<p>Creates or updates the identity provider for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6570,6 +6649,7 @@
       "id": "startorganizationmigration",
       "href": "/graphql/reference/mutations#startorganizationmigration",
       "description": "<p>Starts a GitHub Enterprise Importer organization migration.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6600,6 +6680,7 @@
       "id": "startrepositorymigration",
       "href": "/graphql/reference/mutations#startrepositorymigration",
       "description": "<p>Starts a GitHub Enterprise Importer (GEI) repository migration.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6630,6 +6711,7 @@
       "id": "submitpullrequestreview",
       "href": "/graphql/reference/mutations#submitpullrequestreview",
       "description": "<p>Submits a pending pull request review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6660,6 +6742,7 @@
       "id": "transferenterpriseorganization",
       "href": "/graphql/reference/mutations#transferenterpriseorganization",
       "description": "<p>Transfer an organization from one enterprise to another enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6752,6 +6835,7 @@
       "id": "unarchivepullrequest",
       "href": "/graphql/reference/mutations#unarchivepullrequest",
       "description": "<p>Unarchive a pull request. Removes the archived flag from the pull request.\nDoes not automatically reopen or unlock the pull request. Only repository\nadmins can unarchive pull requests.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -6906,6 +6990,7 @@
       "id": "unlinkprojectv2fromteam",
       "href": "/graphql/reference/mutations#unlinkprojectv2fromteam",
       "description": "<p>Unlinks a project to a team.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7044,6 +7129,7 @@
       "id": "unmarkfileasviewed",
       "href": "/graphql/reference/mutations#unmarkfileasviewed",
       "description": "<p>Unmark a pull request file as viewed.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7236,6 +7322,7 @@
       "id": "unresolvereviewthread",
       "href": "/graphql/reference/mutations#unresolvereviewthread",
       "description": "<p>Marks a review thread as unresolved.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7266,6 +7353,7 @@
       "id": "updatebranchprotectionrule",
       "href": "/graphql/reference/mutations#updatebranchprotectionrule",
       "description": "<p>Update a branch protection rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7296,6 +7384,7 @@
       "id": "updatecheckrun",
       "href": "/graphql/reference/mutations#updatecheckrun",
       "description": "<p>Update a check run.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7326,6 +7415,7 @@
       "id": "updatechecksuitepreferences",
       "href": "/graphql/reference/mutations#updatechecksuitepreferences",
       "description": "<p>Modifies the settings of an existing check suite.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7418,6 +7508,7 @@
       "id": "updateenterpriseadministratorrole",
       "href": "/graphql/reference/mutations#updateenterpriseadministratorrole",
       "description": "<p>Updates the role of an enterprise administrator.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7448,6 +7539,7 @@
       "id": "updateenterpriseallowprivaterepositoryforkingsetting",
       "href": "/graphql/reference/mutations#updateenterpriseallowprivaterepositoryforkingsetting",
       "description": "<p>Sets whether private repository forks are enabled for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7485,6 +7577,7 @@
       "id": "updateenterprisedefaultrepositorypermissionsetting",
       "href": "/graphql/reference/mutations#updateenterprisedefaultrepositorypermissionsetting",
       "description": "<p>Sets the base repository permission for organizations in an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7522,6 +7615,7 @@
       "id": "updateenterprisedeploykeysetting",
       "href": "/graphql/reference/mutations#updateenterprisedeploykeysetting",
       "description": "<p>Sets whether deploy keys are allowed to be created and used for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7559,6 +7653,7 @@
       "id": "updateenterprisememberscanchangerepositoryvisibilitysetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscanchangerepositoryvisibilitysetting",
       "description": "<p>Sets whether organization members with admin permissions on a repository can change repository visibility.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7596,6 +7691,7 @@
       "id": "updateenterprisememberscancreaterepositoriessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscancreaterepositoriessetting",
       "description": "<p>Sets the members can create repositories setting for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7671,6 +7767,7 @@
       "id": "updateenterprisememberscandeleterepositoriessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscandeleterepositoriessetting",
       "description": "<p>Sets the members can delete repositories setting for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7708,6 +7805,7 @@
       "id": "updateenterprisememberscaninvitecollaboratorssetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscaninvitecollaboratorssetting",
       "description": "<p>Sets whether members can invite collaborators are enabled for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7745,6 +7843,7 @@
       "id": "updateenterprisememberscanmakepurchasessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscanmakepurchasessetting",
       "description": "<p>Sets whether or not an organization owner can make purchases.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7782,6 +7881,7 @@
       "id": "updateenterprisememberscanupdateprotectedbranchessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscanupdateprotectedbranchessetting",
       "description": "<p>Sets the members can update protected branches setting for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7819,6 +7919,7 @@
       "id": "updateenterprisememberscanviewdependencyinsightssetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscanviewdependencyinsightssetting",
       "description": "<p>Sets the members can view dependency insights for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7856,6 +7957,7 @@
       "id": "updateenterpriseorganizationprojectssetting",
       "href": "/graphql/reference/mutations#updateenterpriseorganizationprojectssetting",
       "description": "<p>Sets whether organization projects are enabled for an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7893,6 +7995,7 @@
       "id": "updateenterpriseownerorganizationrole",
       "href": "/graphql/reference/mutations#updateenterpriseownerorganizationrole",
       "description": "<p>Updates the role of an enterprise owner with an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7954,6 +8057,7 @@
       "id": "updateenterpriserepositoryprojectssetting",
       "href": "/graphql/reference/mutations#updateenterpriserepositoryprojectssetting",
       "description": "<p>Sets whether repository projects are enabled for a enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -7991,6 +8095,7 @@
       "id": "updateenterprisetwofactorauthenticationdisallowedmethodssetting",
       "href": "/graphql/reference/mutations#updateenterprisetwofactorauthenticationdisallowedmethodssetting",
       "description": "<p>Sets the two-factor authentication methods that users of an enterprise may not use.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8028,6 +8133,7 @@
       "id": "updateenterprisetwofactorauthenticationrequiredsetting",
       "href": "/graphql/reference/mutations#updateenterprisetwofactorauthenticationrequiredsetting",
       "description": "<p>Sets whether two factor authentication is required for all users in an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8065,6 +8171,7 @@
       "id": "updateenvironment",
       "href": "/graphql/reference/mutations#updateenvironment",
       "description": "<p>Updates an environment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8095,6 +8202,7 @@
       "id": "updateipallowlistenabledsetting",
       "href": "/graphql/reference/mutations#updateipallowlistenabledsetting",
       "description": "<p>Sets whether an IP allow list is enabled on an owner.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8125,6 +8233,7 @@
       "id": "updateipallowlistentry",
       "href": "/graphql/reference/mutations#updateipallowlistentry",
       "description": "<p>Updates an IP allow list entry.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8155,6 +8264,7 @@
       "id": "updateipallowlistforinstalledappsenabledsetting",
       "href": "/graphql/reference/mutations#updateipallowlistforinstalledappsenabledsetting",
       "description": "<p>Sets whether IP allow list configuration for installed GitHub Apps is enabled on an owner.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8185,6 +8295,7 @@
       "id": "updateipallowlistuserlevelenforcementenabledsetting",
       "href": "/graphql/reference/mutations#updateipallowlistuserlevelenforcementenabledsetting",
       "description": "<p>Sets whether IP allow list user-level enforcement is enabled on an enterprise.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8477,6 +8588,7 @@
       "id": "updateorganizationallowprivaterepositoryforkingsetting",
       "href": "/graphql/reference/mutations#updateorganizationallowprivaterepositoryforkingsetting",
       "description": "<p>Sets whether private repository forks are enabled for an organization.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8896,6 +9008,7 @@
       "id": "updatepullrequest",
       "href": "/graphql/reference/mutations#updatepullrequest",
       "description": "<p>Update a pull request.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8933,6 +9046,7 @@
       "id": "updatepullrequestbranch",
       "href": "/graphql/reference/mutations#updatepullrequestbranch",
       "description": "<p>Merge or Rebase HEAD from upstream branch into pull request branch.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8963,6 +9077,7 @@
       "id": "updatepullrequestreview",
       "href": "/graphql/reference/mutations#updatepullrequestreview",
       "description": "<p>Updates the body of a pull request review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -8993,6 +9108,7 @@
       "id": "updatepullrequestreviewcomment",
       "href": "/graphql/reference/mutations#updatepullrequestreviewcomment",
       "description": "<p>Updates a pull request review comment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9023,6 +9139,7 @@
       "id": "updateref",
       "href": "/graphql/reference/mutations#updateref",
       "description": "<p>Update a Git Ref.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9053,6 +9170,7 @@
       "id": "updaterefs",
       "href": "/graphql/reference/mutations#updaterefs",
       "description": "<p>Creates, updates and/or deletes multiple refs in a repository.</p>\n<p>This mutation takes a list of <code>RefUpdate</code>s and performs these updates\non the repository. All updates are performed atomically, meaning that\nif one of them is rejected, no other ref will be modified.</p>\n<p><code>RefUpdate.beforeOid</code> specifies that the given reference needs to point\nto the given value before performing any updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to verify that\nthe references should not exist.</p>\n<p><code>RefUpdate.afterOid</code> specifies the value that the given reference\nwill point to after performing all updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to delete a\nreference.</p>\n<p>If <code>RefUpdate.force</code> is set to <code>true</code>, a non-fast-forward updates\nfor the given reference will be allowed.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9138,6 +9256,7 @@
       "id": "updaterepositoryruleset",
       "href": "/graphql/reference/mutations#updaterepositoryruleset",
       "description": "<p>Update a repository ruleset.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9268,6 +9387,7 @@
       "id": "updateteamreviewassignment",
       "href": "/graphql/reference/mutations#updateteamreviewassignment",
       "description": "<p>Updates team review assignment.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9298,6 +9418,7 @@
       "id": "updateteamsrepository",
       "href": "/graphql/reference/mutations#updateteamsrepository",
       "description": "<p>Update team repository.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9449,6 +9570,7 @@
       "id": "verifyverifiabledomain",
       "href": "/graphql/reference/mutations#verifyverifiabledomain",
       "description": "<p>Verify that a verifiable domain has the expected DNS record.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "input",
@@ -9583,6 +9705,7 @@
       "id": "addedtomergequeueevent",
       "href": "/graphql/reference/objects#addedtomergequeueevent",
       "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -9964,6 +10087,7 @@
       "id": "assignedevent",
       "href": "/graphql/reference/objects#assignedevent",
       "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10081,6 +10205,7 @@
       "id": "automergedisabledevent",
       "href": "/graphql/reference/objects#automergedisabledevent",
       "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10145,6 +10270,7 @@
       "id": "automergeenabledevent",
       "href": "/graphql/reference/objects#automergeenabledevent",
       "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10195,6 +10321,7 @@
       "id": "automergerequest",
       "href": "/graphql/reference/objects#automergerequest",
       "description": "<p>Represents an auto-merge request for a pull request.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "authorEmail",
@@ -10252,6 +10379,7 @@
       "id": "autorebaseenabledevent",
       "href": "/graphql/reference/objects#autorebaseenabledevent",
       "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10302,6 +10430,7 @@
       "id": "autosquashenabledevent",
       "href": "/graphql/reference/objects#autosquashenabledevent",
       "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10352,6 +10481,7 @@
       "id": "automaticbasechangefailedevent",
       "href": "/graphql/reference/objects#automaticbasechangefailedevent",
       "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10409,6 +10539,7 @@
       "id": "automaticbasechangesucceededevent",
       "href": "/graphql/reference/objects#automaticbasechangesucceededevent",
       "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10466,6 +10597,7 @@
       "id": "baserefchangedevent",
       "href": "/graphql/reference/objects#baserefchangedevent",
       "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10530,6 +10662,7 @@
       "id": "baserefdeletedevent",
       "href": "/graphql/reference/objects#baserefdeletedevent",
       "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -10580,6 +10713,7 @@
       "id": "baserefforcepushedevent",
       "href": "/graphql/reference/objects#baserefforcepushedevent",
       "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -11093,6 +11227,7 @@
       "id": "branchprotectionrule",
       "href": "/graphql/reference/objects#branchprotectionrule",
       "description": "<p>A branch protection rule.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -11576,6 +11711,7 @@
       "id": "branchprotectionruleconflict",
       "href": "/graphql/reference/objects#branchprotectionruleconflict",
       "description": "<p>A conflict between two branch protection rules.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "branchProtectionRule",
@@ -11721,6 +11857,7 @@
       "id": "bypassforcepushallowance",
       "href": "/graphql/reference/objects#bypassforcepushallowance",
       "description": "<p>A user, team, or app who has the ability to bypass a force push requirement on a protected branch.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -11815,6 +11952,7 @@
       "id": "bypasspullrequestallowance",
       "href": "/graphql/reference/objects#bypasspullrequestallowance",
       "description": "<p>A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -11909,6 +12047,7 @@
       "id": "cvss",
       "href": "/graphql/reference/objects#cvss",
       "description": "<p>The Common Vulnerability Scoring System.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "score",
@@ -11931,6 +12070,7 @@
       "id": "cwe",
       "href": "/graphql/reference/objects#cwe",
       "description": "<p>A common weakness enumeration.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -12032,6 +12172,7 @@
       "id": "checkannotation",
       "href": "/graphql/reference/objects#checkannotation",
       "description": "<p>A single check annotation.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "annotationLevel",
@@ -12163,6 +12304,7 @@
       "id": "checkannotationposition",
       "href": "/graphql/reference/objects#checkannotationposition",
       "description": "<p>A character position in a check annotation.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "column",
@@ -12185,6 +12327,7 @@
       "id": "checkannotationspan",
       "href": "/graphql/reference/objects#checkannotationspan",
       "description": "<p>An inclusive pair of positions for a check annotation.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "end",
@@ -12207,6 +12350,7 @@
       "id": "checkrun",
       "href": "/graphql/reference/objects#checkrun",
       "description": "<p>A check run.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -12549,6 +12693,7 @@
       "id": "checkrunstatecount",
       "href": "/graphql/reference/objects#checkrunstatecount",
       "description": "<p>Represents a count of the state of a check run.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "count",
@@ -12571,6 +12716,7 @@
       "id": "checkstep",
       "href": "/graphql/reference/objects#checkstep",
       "description": "<p>A single check step.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "completedAt",
@@ -12693,6 +12839,7 @@
       "id": "checksuite",
       "href": "/graphql/reference/objects#checksuite",
       "description": "<p>A check suite.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -13015,6 +13162,7 @@
       "id": "closedevent",
       "href": "/graphql/reference/objects#closedevent",
       "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -13156,6 +13304,7 @@
       "id": "codescanningparameters",
       "href": "/graphql/reference/objects#codescanningparameters",
       "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "codeScanningTools",
@@ -13171,6 +13320,7 @@
       "id": "codescanningtool",
       "href": "/graphql/reference/objects#codescanningtool",
       "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "alertsThreshold",
@@ -13200,6 +13350,7 @@
       "id": "commentdeletedevent",
       "href": "/graphql/reference/objects#commentdeletedevent",
       "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -14034,6 +14185,7 @@
       "id": "commitcomment",
       "href": "/graphql/reference/objects#commitcomment",
       "description": "<p>Represents a comment on a given Commit.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Comment",
@@ -14460,6 +14612,7 @@
       "id": "commitcommentthread",
       "href": "/graphql/reference/objects#commitcommentthread",
       "description": "<p>A thread of comments on a commit.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -14810,6 +14963,7 @@
       "id": "comparison",
       "href": "/graphql/reference/objects#comparison",
       "description": "<p>Represents a comparison between two commit revisions.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -15942,6 +16096,7 @@
       "id": "converttodraftevent",
       "href": "/graphql/reference/objects#converttodraftevent",
       "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -16060,6 +16215,7 @@
       "id": "convertednotetoissueevent",
       "href": "/graphql/reference/objects#convertednotetoissueevent",
       "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -16194,6 +16350,7 @@
       "id": "copilotendpoints",
       "href": "/graphql/reference/objects#copilotendpoints",
       "description": "<p>Copilot endpoint information.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "api",
@@ -16831,6 +16988,7 @@
       "id": "crossreferencedevent",
       "href": "/graphql/reference/objects#crossreferencedevent",
       "description": "<p>Represents a mention made by one issue or pull request to another.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -16921,6 +17079,7 @@
       "id": "cvssseverities",
       "href": "/graphql/reference/objects#cvssseverities",
       "description": "<p>The Common Vulnerability Scoring System.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "cvssV3",
@@ -16994,6 +17153,7 @@
       "id": "dependabotupdate",
       "href": "/graphql/reference/objects#dependabotupdate",
       "description": "<p>A Dependabot Update for a dependency in a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "RepositoryNode",
@@ -17030,6 +17190,7 @@
       "id": "dependabotupdateerror",
       "href": "/graphql/reference/objects#dependabotupdateerror",
       "description": "<p>An error produced from a Dependabot Update.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "body",
@@ -17059,6 +17220,7 @@
       "id": "dependencygraphdependency",
       "href": "/graphql/reference/objects#dependencygraphdependency",
       "description": "<p>A dependency manifest entry.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "hasDependencies",
@@ -17183,6 +17345,7 @@
       "id": "dependencygraphmanifest",
       "href": "/graphql/reference/objects#dependencygraphmanifest",
       "description": "<p>Dependency manifest for a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -17350,6 +17513,7 @@
       "id": "deploykey",
       "href": "/graphql/reference/objects#deploykey",
       "description": "<p>A repository deploy key.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -17472,6 +17636,7 @@
       "id": "deployedevent",
       "href": "/graphql/reference/objects#deployedevent",
       "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -17536,6 +17701,7 @@
       "id": "deployment",
       "href": "/graphql/reference/objects#deployment",
       "description": "<p>Represents triggered deployment instance.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -17773,6 +17939,7 @@
       "id": "deploymentenvironmentchangedevent",
       "href": "/graphql/reference/objects#deploymentenvironmentchangedevent",
       "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -17823,6 +17990,7 @@
       "id": "deploymentprotectionrule",
       "href": "/graphql/reference/objects#deploymentprotectionrule",
       "description": "<p>A protection rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "databaseId",
@@ -17962,6 +18130,7 @@
       "id": "deploymentrequest",
       "href": "/graphql/reference/objects#deploymentrequest",
       "description": "<p>A request to deploy a workflow run to an environment.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "currentUserCanApprove",
@@ -18101,6 +18270,7 @@
       "id": "deploymentreview",
       "href": "/graphql/reference/objects#deploymentreview",
       "description": "<p>A deployment review.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -18312,6 +18482,7 @@
       "id": "deploymentstatus",
       "href": "/graphql/reference/objects#deploymentstatus",
       "description": "<p>Describes the status of a given deployment attempt.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -20229,6 +20400,7 @@
       "id": "epss",
       "href": "/graphql/reference/objects#epss",
       "description": "<p>The Exploit Prediction Scoring System.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "percentage",
@@ -20251,6 +20423,7 @@
       "id": "enterprise",
       "href": "/graphql/reference/objects#enterprise",
       "description": "<p>An account to manage multiple organizations with consolidated policy and billing.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -20858,6 +21031,7 @@
       "id": "enterpriseadministratorinvitation",
       "href": "/graphql/reference/objects#enterpriseadministratorinvitation",
       "description": "<p>An invitation for a user to become an owner or billing manager of an enterprise.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -20980,6 +21154,7 @@
       "id": "enterprisebillinginfo",
       "href": "/graphql/reference/objects#enterprisebillinginfo",
       "description": "<p>Enterprise billing information visible to enterprise billing managers and owners.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "allLicensableUsersCount",
@@ -21183,6 +21358,7 @@
       "id": "enterpriseidentityprovider",
       "href": "/graphql/reference/objects#enterpriseidentityprovider",
       "description": "<p>An identity provider configured to provision identities for an enterprise.\nVisible to enterprise owners or enterprise owners' personal access tokens\n(classic) with read:enterprise or admin:enterprise scope.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -21384,6 +21560,7 @@
       "id": "enterprisememberinvitation",
       "href": "/graphql/reference/objects#enterprisememberinvitation",
       "description": "<p>An invitation for a user to become an unaffiliated member of an enterprise.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -21676,6 +21853,7 @@
       "id": "enterpriseownerinfo",
       "href": "/graphql/reference/objects#enterpriseownerinfo",
       "description": "<p>Enterprise information visible to enterprise owners or enterprise owners'\npersonal access tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "admins",
@@ -23656,6 +23834,7 @@
       "id": "enterpriserepositoryinfo",
       "href": "/graphql/reference/objects#enterpriserepositoryinfo",
       "description": "<p>A subset of repository information queryable from an enterprise.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -23757,6 +23936,7 @@
       "id": "enterpriseserverinstallation",
       "href": "/graphql/reference/objects#enterpriseserverinstallation",
       "description": "<p>An Enterprise Server installation.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -24045,6 +24225,7 @@
       "id": "enterpriseserveruseraccount",
       "href": "/graphql/reference/objects#enterpriseserveruseraccount",
       "description": "<p>A user account on an Enterprise Server installation.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -24235,6 +24416,7 @@
       "id": "enterpriseserveruseraccountemail",
       "href": "/graphql/reference/objects#enterpriseserveruseraccountemail",
       "description": "<p>An email belonging to a user account on an Enterprise Server installation.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -24350,6 +24532,7 @@
       "id": "enterpriseserveruseraccountsupload",
       "href": "/graphql/reference/objects#enterpriseserveruseraccountsupload",
       "description": "<p>A user accounts upload from an Enterprise Server installation.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -24472,6 +24655,7 @@
       "id": "enterpriseuseraccount",
       "href": "/graphql/reference/objects#enterpriseuseraccount",
       "description": "<p>An account for a user who is an admin of an enterprise or a member of an enterprise through one or more organizations.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -24717,6 +24901,7 @@
       "id": "environment",
       "href": "/graphql/reference/objects#environment",
       "description": "<p>An environment.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -24877,6 +25062,7 @@
       "id": "externalidentity",
       "href": "/graphql/reference/objects#externalidentity",
       "description": "<p>An external identity provisioned by SAML SSO or SCIM. If SAML is configured on\nthe organization, the external identity is visible to (1) organization owners,\n(2) organization owners' personal access tokens (classic) with read:org or\nadmin:org scope, (3) GitHub App with an installation token with read or write\naccess to members. If SAML is configured on the enterprise, the external\nidentity is visible to (1) enterprise owners, (2) enterprise owners' personal\naccess tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -24934,6 +25120,7 @@
       "id": "externalidentityattribute",
       "href": "/graphql/reference/objects#externalidentityattribute",
       "description": "<p>An attribute for the External Identity attributes collection.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "metadata",
@@ -25021,6 +25208,7 @@
       "id": "externalidentitysamlattributes",
       "href": "/graphql/reference/objects#externalidentitysamlattributes",
       "description": "<p>SAML attributes for the External Identity.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "attributes",
@@ -25078,6 +25266,7 @@
       "id": "externalidentityscimattributes",
       "href": "/graphql/reference/objects#externalidentityscimattributes",
       "description": "<p>SCIM attributes for the External Identity.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "emails",
@@ -26133,6 +26322,7 @@
       "id": "githubmetadata",
       "href": "/graphql/reference/objects#githubmetadata",
       "description": "<p>Represents information about the GitHub instance.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "gitHubServicesSha",
@@ -26190,6 +26380,7 @@
       "id": "gpgsignature",
       "href": "/graphql/reference/objects#gpgsignature",
       "description": "<p>Represents a GPG signature on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitSignature",
@@ -26268,6 +26459,7 @@
       "id": "headrefdeletedevent",
       "href": "/graphql/reference/objects#headrefdeletedevent",
       "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -26325,6 +26517,7 @@
       "id": "headrefforcepushedevent",
       "href": "/graphql/reference/objects#headrefforcepushedevent",
       "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -26389,6 +26582,7 @@
       "id": "headrefrestoredevent",
       "href": "/graphql/reference/objects#headrefrestoredevent",
       "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -26448,6 +26642,7 @@
       "id": "ipallowlistentry",
       "href": "/graphql/reference/objects#ipallowlistentry",
       "description": "<p>An IP address or range of addresses that is allowed to access an owner's resources.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -31134,6 +31329,7 @@
       "id": "lockedevent",
       "href": "/graphql/reference/objects#lockedevent",
       "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -31184,6 +31380,7 @@
       "id": "mannequin",
       "href": "/graphql/reference/objects#mannequin",
       "description": "<p>A placeholder user for attribution of imported data on GitHub.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -31355,6 +31552,7 @@
       "id": "markedasduplicateevent",
       "href": "/graphql/reference/objects#markedasduplicateevent",
       "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -31999,6 +32197,7 @@
       "id": "memberfeaturerequestnotification",
       "href": "/graphql/reference/objects#memberfeaturerequestnotification",
       "description": "<p>Represents a member feature request notification.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -32677,6 +32876,7 @@
       "id": "mentionedevent",
       "href": "/graphql/reference/objects#mentionedevent",
       "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -32720,6 +32920,7 @@
       "id": "mergequeue",
       "href": "/graphql/reference/objects#mergequeue",
       "description": "<p>The queue of pull request entries to be merged into a protected branch in a repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -32822,6 +33023,7 @@
       "id": "mergequeueconfiguration",
       "href": "/graphql/reference/objects#mergequeueconfiguration",
       "description": "<p>Configuration for a MergeQueue.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "checkResponseTimeout",
@@ -32879,6 +33081,7 @@
       "id": "mergequeueentry",
       "href": "/graphql/reference/objects#mergequeueentry",
       "description": "<p>Entries in a MergeQueue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -33093,6 +33296,7 @@
       "id": "mergedevent",
       "href": "/graphql/reference/objects#mergedevent",
       "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -33176,6 +33380,7 @@
       "id": "migrationsource",
       "href": "/graphql/reference/objects#migrationsource",
       "description": "<p>A GitHub Enterprise Importer (GEI) migration source.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -33747,6 +33952,7 @@
       "id": "oidcprovider",
       "href": "/graphql/reference/objects#oidcprovider",
       "description": "<p>An OIDC identity provider configured to provision identities for an enterprise.\nVisible to enterprise owners or enterprise owners' personal access tokens\n(classic) with read:enterprise or admin:enterprise scope.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -35475,6 +35681,7 @@
       "id": "orgdisablesamlauditentry",
       "href": "/graphql/reference/objects#orgdisablesamlauditentry",
       "description": "<p>Audit log entry for a org.disable_saml event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -35696,6 +35903,7 @@
       "id": "orgdisabletwofactorrequirementauditentry",
       "href": "/graphql/reference/objects#orgdisabletwofactorrequirementauditentry",
       "description": "<p>Audit log entry for a org.disable_two_factor_requirement event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -36067,6 +36275,7 @@
       "id": "orgenablesamlauditentry",
       "href": "/graphql/reference/objects#orgenablesamlauditentry",
       "description": "<p>Audit log entry for a org.enable_saml event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -36288,6 +36497,7 @@
       "id": "orgenabletwofactorrequirementauditentry",
       "href": "/graphql/reference/objects#orgenabletwofactorrequirementauditentry",
       "description": "<p>Audit log entry for a org.enable_two_factor_requirement event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -39970,6 +40180,7 @@
       "id": "organization",
       "href": "/graphql/reference/objects#organization",
       "description": "<p>An account on GitHub, with one or more owners, that has repositories, members and teams.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Actor",
@@ -42834,6 +43045,7 @@
       "id": "organizationidentityprovider",
       "href": "/graphql/reference/objects#organizationidentityprovider",
       "description": "<p>An Identity Provider configured to provision SAML and SCIM identities for\nOrganizations. Visible to (1) organization owners, (2) organization owners'\npersonal access tokens (classic) with read:org or admin:org scope, (3) GitHub\nApp with an installation token with read or write access to members.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -42970,6 +43182,7 @@
       "id": "organizationinvitation",
       "href": "/graphql/reference/objects#organizationinvitation",
       "description": "<p>An Invitation for a user to an organization.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -43187,6 +43400,7 @@
       "id": "organizationmigration",
       "href": "/graphql/reference/objects#organizationmigration",
       "description": "<p>A GitHub Enterprise Importer (GEI) organization migration.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -43316,6 +43530,7 @@
       "id": "organizationteamshovercardcontext",
       "href": "/graphql/reference/objects#organizationteamshovercardcontext",
       "description": "<p>An organization teams hovercard context.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "HovercardContext",
@@ -43411,6 +43626,7 @@
       "id": "organizationshovercardcontext",
       "href": "/graphql/reference/objects#organizationshovercardcontext",
       "description": "<p>An organization list hovercard context.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "HovercardContext",
@@ -43501,6 +43717,7 @@
       "id": "package",
       "href": "/graphql/reference/objects#package",
       "description": "<p>Information for an uploaded package.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -43688,6 +43905,7 @@
       "id": "packagefile",
       "href": "/graphql/reference/objects#packagefile",
       "description": "<p>A file in a package version.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -43824,6 +44042,7 @@
       "id": "packagestatistics",
       "href": "/graphql/reference/objects#packagestatistics",
       "description": "<p>Represents a object that contains package activity statistics such as downloads.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "downloadsTotalCount",
@@ -43839,6 +44058,7 @@
       "id": "packagetag",
       "href": "/graphql/reference/objects#packagetag",
       "description": "<p>A version tag contains the mapping between a tag name and a version.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -43875,6 +44095,7 @@
       "id": "packageversion",
       "href": "/graphql/reference/objects#packageversion",
       "description": "<p>Information about a specific package version.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -44065,6 +44286,7 @@
       "id": "packageversionstatistics",
       "href": "/graphql/reference/objects#packageversionstatistics",
       "description": "<p>Represents a object that contains package version activity statistics such as downloads.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "downloadsTotalCount",
@@ -44116,6 +44338,7 @@
       "id": "parentissueaddedevent",
       "href": "/graphql/reference/objects#parentissueaddedevent",
       "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -44159,6 +44382,7 @@
       "id": "parentissueremovedevent",
       "href": "/graphql/reference/objects#parentissueremovedevent",
       "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -44446,6 +44670,7 @@
       "id": "pinnedenvironment",
       "href": "/graphql/reference/objects#pinnedenvironment",
       "description": "<p>Represents a pinned environment on a given repository.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -44561,6 +44786,7 @@
       "id": "pinnedevent",
       "href": "/graphql/reference/objects#pinnedevent",
       "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -49541,6 +49767,7 @@
       "id": "publickey",
       "href": "/graphql/reference/objects#publickey",
       "description": "<p>A user's public key.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -49663,6 +49890,7 @@
       "id": "pullrequest",
       "href": "/graphql/reference/objects#pullrequest",
       "description": "<p>A repository pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Assignable",
@@ -51579,6 +51807,7 @@
       "id": "pullrequestchangedfile",
       "href": "/graphql/reference/objects#pullrequestchangedfile",
       "description": "<p>A file changed in a pull request.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "additions",
@@ -51680,6 +51909,7 @@
       "id": "pullrequestcommit",
       "href": "/graphql/reference/objects#pullrequestcommit",
       "description": "<p>Represents a Git commit part of a pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -51735,6 +51965,7 @@
       "id": "pullrequestcommitcommentthread",
       "href": "/graphql/reference/objects#pullrequestcommitcommentthread",
       "description": "<p>Represents a commit comment thread part of a pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -51936,6 +52167,7 @@
       "id": "pullrequestcontributionsbyrepository",
       "href": "/graphql/reference/objects#pullrequestcontributionsbyrepository",
       "description": "<p>This aggregates pull requests opened by a user within one repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "contributions",
@@ -52084,6 +52316,7 @@
       "id": "pullrequestreview",
       "href": "/graphql/reference/objects#pullrequestreview",
       "description": "<p>A review object for a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Comment",
@@ -52565,6 +52798,7 @@
       "id": "pullrequestreviewcomment",
       "href": "/graphql/reference/objects#pullrequestreviewcomment",
       "description": "<p>A review comment associated with a given repository pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Comment",
@@ -53138,6 +53372,7 @@
       "id": "pullrequestreviewcontributionsbyrepository",
       "href": "/graphql/reference/objects#pullrequestreviewcontributionsbyrepository",
       "description": "<p>This aggregates pull request reviews made by a user within one repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "contributions",
@@ -53229,6 +53464,7 @@
       "id": "pullrequestreviewthread",
       "href": "/graphql/reference/objects#pullrequestreviewthread",
       "description": "<p>A threaded list of comments for a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -53482,6 +53718,7 @@
       "id": "pullrequestrevisionmarker",
       "href": "/graphql/reference/objects#pullrequestrevisionmarker",
       "description": "<p>Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "createdAt",
@@ -53511,6 +53748,7 @@
       "id": "pullrequesttemplate",
       "href": "/graphql/reference/objects#pullrequesttemplate",
       "description": "<p>A repository pull request template.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "body",
@@ -53540,6 +53778,7 @@
       "id": "pullrequestthread",
       "href": "/graphql/reference/objects#pullrequestthread",
       "description": "<p>A threaded list of comments for a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -53916,6 +54155,7 @@
       "id": "pushallowance",
       "href": "/graphql/reference/objects#pushallowance",
       "description": "<p>A team, user, or app who has the ability to push to a protected branch.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -54010,6 +54250,7 @@
       "id": "ratelimit",
       "href": "/graphql/reference/objects#ratelimit",
       "description": "<p>Represents the client's rate limit.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "cost",
@@ -54442,6 +54683,7 @@
       "id": "readyforreviewevent",
       "href": "/graphql/reference/objects#readyforreviewevent",
       "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -54504,6 +54746,7 @@
       "id": "ref",
       "href": "/graphql/reference/objects#ref",
       "description": "<p>Represents a Git reference.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -54903,6 +55146,7 @@
       "id": "referencedevent",
       "href": "/graphql/reference/objects#referencedevent",
       "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -55544,6 +55788,7 @@
       "id": "removedfrommergequeueevent",
       "href": "/graphql/reference/objects#removedfrommergequeueevent",
       "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -55735,6 +55980,7 @@
       "id": "renamedtitleevent",
       "href": "/graphql/reference/objects#renamedtitleevent",
       "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -55792,6 +56038,7 @@
       "id": "reopenedevent",
       "href": "/graphql/reference/objects#reopenedevent",
       "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -61245,6 +61492,60 @@
           ]
         },
         {
+          "name": "issueFields",
+          "description": "<p>A list of the repository's issue fields, inherited from the organization.</p>",
+          "type": "IssueFieldsConnection",
+          "id": "issuefieldsconnection",
+          "href": "/graphql/reference/objects#issuefieldsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue fields returned from the connection.</p>",
+              "type": {
+                "name": "IssueFieldOrder",
+                "id": "issuefieldorder",
+                "href": "/graphql/reference/input-objects#issuefieldorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "issueOrPullRequest",
           "description": "<p>Returns a single issue-like object from the current repository by number.</p>",
           "type": "IssueOrPullRequest",
@@ -63345,6 +63646,7 @@
       "id": "repositorycodeowners",
       "href": "/graphql/reference/objects#repositorycodeowners",
       "description": "<p>Information extracted from a repository's <code>CODEOWNERS</code> file.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "errors",
@@ -63360,6 +63662,7 @@
       "id": "repositorycodeownerserror",
       "href": "/graphql/reference/objects#repositorycodeownerserror",
       "description": "<p>An error in a <code>CODEOWNERS</code> file.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "column",
@@ -63984,6 +64287,7 @@
       "id": "repositorymigration",
       "href": "/graphql/reference/objects#repositorymigration",
       "description": "<p>A GitHub Enterprise Importer (GEI) repository migration.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Migration",
@@ -64168,6 +64472,7 @@
       "id": "repositoryplanfeatures",
       "href": "/graphql/reference/objects#repositoryplanfeatures",
       "description": "<p>Information about the availability of features and limits for a repository based on its billing plan.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "codeowners",
@@ -64233,6 +64538,7 @@
       "id": "repositoryrule",
       "href": "/graphql/reference/objects#repositoryrule",
       "description": "<p>A repository rule.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -64377,6 +64683,7 @@
       "id": "repositoryruleset",
       "href": "/graphql/reference/objects#repositoryruleset",
       "description": "<p>A repository ruleset.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -64554,6 +64861,7 @@
       "id": "repositoryrulesetbypassactor",
       "href": "/graphql/reference/objects#repositoryrulesetbypassactor",
       "description": "<p>A team, app or user that has the ability to bypass rules defined on a ruleset.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -65284,6 +65592,7 @@
       "id": "repositoryvulnerabilityalert",
       "href": "/graphql/reference/objects#repositoryvulnerabilityalert",
       "description": "<p>A Dependabot alert for a repository with a dependency affected by a security vulnerability.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -65597,6 +65906,7 @@
       "id": "requiredstatuscheckdescription",
       "href": "/graphql/reference/objects#requiredstatuscheckdescription",
       "description": "<p>Represents a required status check for a protected branch, but not any specific run of that check.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "app",
@@ -65699,6 +66009,7 @@
       "id": "reviewdismissalallowance",
       "href": "/graphql/reference/objects#reviewdismissalallowance",
       "description": "<p>A user, team, or app who has the ability to dismiss a review on a protected branch.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -65793,6 +66104,7 @@
       "id": "reviewdismissedevent",
       "href": "/graphql/reference/objects#reviewdismissedevent",
       "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -65897,6 +66209,7 @@
       "id": "reviewrequest",
       "href": "/graphql/reference/objects#reviewrequest",
       "description": "<p>A request for a user to review a pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -66005,6 +66318,7 @@
       "id": "reviewrequestremovedevent",
       "href": "/graphql/reference/objects#reviewrequestremovedevent",
       "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -66055,6 +66369,7 @@
       "id": "reviewrequestedevent",
       "href": "/graphql/reference/objects#reviewrequestedevent",
       "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -66105,6 +66420,7 @@
       "id": "reviewstatushovercardcontext",
       "href": "/graphql/reference/objects#reviewstatushovercardcontext",
       "description": "<p>A hovercard context with a message describing the current code review state of the pull\nrequest.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "HovercardContext",
@@ -66371,6 +66687,7 @@
       "id": "securityadvisory",
       "href": "/graphql/reference/objects#securityadvisory",
       "description": "<p>A GitHub Security Advisory.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -66707,6 +67024,7 @@
       "id": "securityadvisoryidentifier",
       "href": "/graphql/reference/objects#securityadvisoryidentifier",
       "description": "<p>A GitHub Security Advisory Identifier.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "type",
@@ -66729,6 +67047,7 @@
       "id": "securityadvisorypackage",
       "href": "/graphql/reference/objects#securityadvisorypackage",
       "description": "<p>An individual package.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "ecosystem",
@@ -66751,6 +67070,7 @@
       "id": "securityadvisorypackageversion",
       "href": "/graphql/reference/objects#securityadvisorypackageversion",
       "description": "<p>An individual package version.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "identifier",
@@ -66766,6 +67086,7 @@
       "id": "securityadvisoryreference",
       "href": "/graphql/reference/objects#securityadvisoryreference",
       "description": "<p>A GitHub Security Advisory Reference.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "url",
@@ -66781,6 +67102,7 @@
       "id": "securityvulnerability",
       "href": "/graphql/reference/objects#securityvulnerability",
       "description": "<p>An individual vulnerability within an Advisory.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "advisory",
@@ -66889,6 +67211,7 @@
       "id": "smimesignature",
       "href": "/graphql/reference/objects#smimesignature",
       "description": "<p>Represents an S/MIME signature on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitSignature",
@@ -68322,6 +68645,7 @@
       "id": "sshsignature",
       "href": "/graphql/reference/objects#sshsignature",
       "description": "<p>Represents an SSH signature on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitSignature",
@@ -68666,6 +68990,7 @@
       "id": "statuscheckrollup",
       "href": "/graphql/reference/objects#statuscheckrollup",
       "description": "<p>Represents the rollup for both the check runs and status for a commit.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -68956,6 +69281,7 @@
       "id": "statuscontextstatecount",
       "href": "/graphql/reference/objects#statuscontextstatecount",
       "description": "<p>Represents a count of the state of a status context.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "count",
@@ -69029,6 +69355,7 @@
       "id": "subissueaddedevent",
       "href": "/graphql/reference/objects#subissueaddedevent",
       "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -69072,6 +69399,7 @@
       "id": "subissueremovedevent",
       "href": "/graphql/reference/objects#subissueremovedevent",
       "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -69115,6 +69443,7 @@
       "id": "subissuessummary",
       "href": "/graphql/reference/objects#subissuessummary",
       "description": "<p>Summary of the state of an issue's sub-issues.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "completed",
@@ -69260,6 +69589,7 @@
       "id": "subscribedevent",
       "href": "/graphql/reference/objects#subscribedevent",
       "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -69303,6 +69633,7 @@
       "id": "suggestedreviewer",
       "href": "/graphql/reference/objects#suggestedreviewer",
       "description": "<p>A suggestion to review a pull request based on a user's commit history and review comments.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isAuthor",
@@ -69332,6 +69663,7 @@
       "id": "suggestedrevieweractor",
       "href": "/graphql/reference/objects#suggestedrevieweractor",
       "description": "<p>A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isAuthor",
@@ -69419,6 +69751,7 @@
       "id": "tag",
       "href": "/graphql/reference/objects#tag",
       "description": "<p>Represents a Git tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitObject",
@@ -69545,6 +69878,7 @@
       "id": "team",
       "href": "/graphql/reference/objects#team",
       "description": "<p>A team of users in an organization.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "MemberStatusable",
@@ -71758,6 +72092,7 @@
       "id": "textmatch",
       "href": "/graphql/reference/objects#textmatch",
       "description": "<p>A text match within a search result.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "fragment",
@@ -71787,6 +72122,7 @@
       "id": "textmatchhighlight",
       "href": "/graphql/reference/objects#textmatchhighlight",
       "description": "<p>Represents a single highlight in a search result match.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "beginIndice",
@@ -72291,6 +72627,7 @@
       "id": "unassignedevent",
       "href": "/graphql/reference/objects#unassignedevent",
       "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -72350,6 +72687,7 @@
       "id": "unknownsignature",
       "href": "/graphql/reference/objects#unknownsignature",
       "description": "<p>Represents an unknown signature on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "GitSignature",
@@ -72472,6 +72810,7 @@
       "id": "unlockedevent",
       "href": "/graphql/reference/objects#unlockedevent",
       "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -72515,6 +72854,7 @@
       "id": "unmarkedasduplicateevent",
       "href": "/graphql/reference/objects#unmarkedasduplicateevent",
       "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -72616,6 +72956,7 @@
       "id": "unsubscribedevent",
       "href": "/graphql/reference/objects#unsubscribedevent",
       "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -75665,6 +76006,7 @@
       "id": "userblockedevent",
       "href": "/graphql/reference/objects#userblockedevent",
       "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -75903,6 +76245,7 @@
       "id": "useremailmetadata",
       "href": "/graphql/reference/objects#useremailmetadata",
       "description": "<p>Email attributes from External Identity.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "primary",
@@ -76195,6 +76538,7 @@
       "id": "usernamespacerepository",
       "href": "/graphql/reference/objects#usernamespacerepository",
       "description": "<p>A repository owned by an Enterprise Managed user.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -76440,6 +76784,7 @@
       "id": "verifiabledomain",
       "href": "/graphql/reference/objects#verifiabledomain",
       "description": "<p>A domain that can be verified or approved for an organization or an enterprise.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -76655,6 +77000,7 @@
       "id": "workflow",
       "href": "/graphql/reference/objects#workflow",
       "description": "<p>A workflow contains meta information about an Actions workflow file.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -76821,6 +77167,7 @@
       "id": "workflowrun",
       "href": "/graphql/reference/objects#workflowrun",
       "description": "<p>A workflow run.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -77066,6 +77413,7 @@
       "id": "workflowrunfile",
       "href": "/graphql/reference/objects#workflowrunfile",
       "description": "<p>An executed workflow file for a workflow run.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "Node",
@@ -77221,6 +77569,7 @@
       "id": "agentic",
       "href": "/graphql/reference/interfaces#agentic",
       "description": "<p>Copilot Agentic fields in context of the current viewer.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "viewerCopilotAgentCreatesChannel",
@@ -77725,6 +78074,7 @@
       "id": "contribution",
       "href": "/graphql/reference/interfaces#contribution",
       "description": "<p>Represents a contribution a user made on GitHub, such as opening an issue.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isRestricted",
@@ -77865,6 +78215,7 @@
       "id": "gitsignature",
       "href": "/graphql/reference/interfaces#gitsignature",
       "description": "<p>Information about a signature (GPG or S/MIME) on a Commit or Tag.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "email",
@@ -78168,6 +78519,7 @@
       "id": "migration",
       "href": "/graphql/reference/interfaces#migration",
       "description": "<p>Represents a GitHub Enterprise Importer (GEI) migration.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "continueOnError",
@@ -78290,6 +78642,7 @@
       "id": "node",
       "href": "/graphql/reference/interfaces#node",
       "description": "<p>An object with an ID.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -78380,6 +78733,7 @@
       "id": "packageowner",
       "href": "/graphql/reference/interfaces#packageowner",
       "description": "<p>Represents an owner of a package.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -79941,6 +80295,7 @@
       "id": "requirablebypullrequest",
       "href": "/graphql/reference/interfaces#requirablebypullrequest",
       "description": "<p>Represents a type that can be required by a pull request for merging.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "isRequired",
@@ -80790,6 +81145,7 @@
       "id": "teamreviewrequestable",
       "href": "/graphql/reference/interfaces#teamreviewrequestable",
       "description": "<p>Represents a team that can be requested to review a pull request.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "id",
@@ -80842,6 +81198,7 @@
       "id": "uniformresourcelocatable",
       "href": "/graphql/reference/interfaces#uniformresourcelocatable",
       "description": "<p>Represents a type that can be retrieved by a URL.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "resourcePath",
@@ -80864,6 +81221,7 @@
       "id": "updatable",
       "href": "/graphql/reference/interfaces#updatable",
       "description": "<p>Entities that can be updated.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "viewerCanUpdate",
@@ -80927,6 +81285,7 @@
       "id": "actortype",
       "href": "/graphql/reference/enums#actortype",
       "description": "<p>The actor's type.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "TEAM",
@@ -80956,6 +81315,7 @@
       "id": "checkannotationlevel",
       "href": "/graphql/reference/enums#checkannotationlevel",
       "description": "<p>Represents an annotation's information level.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FAILURE",
@@ -80976,6 +81336,7 @@
       "id": "checkconclusionstate",
       "href": "/graphql/reference/enums#checkconclusionstate",
       "description": "<p>The possible states for a check suite or run conclusion.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTION_REQUIRED",
@@ -81020,6 +81381,7 @@
       "id": "checkrunstate",
       "href": "/graphql/reference/enums#checkrunstate",
       "description": "<p>The possible states of a check run in a status rollup.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTION_REQUIRED",
@@ -81084,6 +81446,7 @@
       "id": "checkruntype",
       "href": "/graphql/reference/enums#checkruntype",
       "description": "<p>The possible types of check runs.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -81100,6 +81463,7 @@
       "id": "checkstatusstate",
       "href": "/graphql/reference/enums#checkstatusstate",
       "description": "<p>The possible states for a check suite or run status.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMPLETED",
@@ -81248,6 +81612,7 @@
       "id": "comparisonstatus",
       "href": "/graphql/reference/enums#comparisonstatus",
       "description": "<p>The status of a git comparison between two refs.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AHEAD",
@@ -81330,6 +81695,7 @@
       "id": "defaultrepositorypermissionfield",
       "href": "/graphql/reference/enums#defaultrepositorypermissionfield",
       "description": "<p>The possible base permissions for repositories.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -81354,6 +81720,7 @@
       "id": "dependencygraphecosystem",
       "href": "/graphql/reference/enums#dependencygraphecosystem",
       "description": "<p>The possible ecosystems of a dependency graph package.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTIONS",
@@ -81406,6 +81773,7 @@
       "id": "deploymentorderfield",
       "href": "/graphql/reference/enums#deploymentorderfield",
       "description": "<p>Properties by which deployment connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -81418,6 +81786,7 @@
       "id": "deploymentprotectionruletype",
       "href": "/graphql/reference/enums#deploymentprotectionruletype",
       "description": "<p>The possible protection rule types.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BRANCH_POLICY",
@@ -81438,6 +81807,7 @@
       "id": "deploymentreviewstate",
       "href": "/graphql/reference/enums#deploymentreviewstate",
       "description": "<p>The possible states for a deployment review.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "APPROVED",
@@ -81454,6 +81824,7 @@
       "id": "deploymentstate",
       "href": "/graphql/reference/enums#deploymentstate",
       "description": "<p>The possible states in which a deployment can be.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ABANDONED",
@@ -81506,6 +81877,7 @@
       "id": "deploymentstatusstate",
       "href": "/graphql/reference/enums#deploymentstatusstate",
       "description": "<p>The possible states for a deployment status.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ERROR",
@@ -81546,6 +81918,7 @@
       "id": "diffside",
       "href": "/graphql/reference/enums#diffside",
       "description": "<p>The possible sides of a diff.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "LEFT",
@@ -81659,6 +82032,7 @@
       "id": "dismissreason",
       "href": "/graphql/reference/enums#dismissreason",
       "description": "<p>The possible reasons that a Dependabot alert was dismissed.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FIX_STARTED",
@@ -81687,6 +82061,7 @@
       "id": "enterpriseadministratorinvitationorderfield",
       "href": "/graphql/reference/enums#enterpriseadministratorinvitationorderfield",
       "description": "<p>Properties by which enterprise administrator invitation connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -81699,6 +82074,7 @@
       "id": "enterpriseadministratorrole",
       "href": "/graphql/reference/enums#enterpriseadministratorrole",
       "description": "<p>The possible administrator roles in an enterprise account.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BILLING_MANAGER",
@@ -81719,6 +82095,7 @@
       "id": "enterpriseallowprivaterepositoryforkingpolicyvalue",
       "href": "/graphql/reference/enums#enterpriseallowprivaterepositoryforkingpolicyvalue",
       "description": "<p>The possible values for the enterprise allow private repository forking policy value.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ENTERPRISE_ORGANIZATIONS",
@@ -81751,6 +82128,7 @@
       "id": "enterprisedefaultrepositorypermissionsettingvalue",
       "href": "/graphql/reference/enums#enterprisedefaultrepositorypermissionsettingvalue",
       "description": "<p>The possible values for the enterprise base repository permission setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -81779,6 +82157,7 @@
       "id": "enterprisedisallowedmethodssettingvalue",
       "href": "/graphql/reference/enums#enterprisedisallowedmethodssettingvalue",
       "description": "<p>The possible values for an enabled/no policy enterprise setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "INSECURE",
@@ -81795,6 +82174,7 @@
       "id": "enterpriseenableddisabledsettingvalue",
       "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue",
       "description": "<p>The possible values for an enabled/disabled enterprise setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -81815,6 +82195,7 @@
       "id": "enterpriseenabledsettingvalue",
       "href": "/graphql/reference/enums#enterpriseenabledsettingvalue",
       "description": "<p>The possible values for an enabled/no policy enterprise setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ENABLED",
@@ -81831,6 +82212,7 @@
       "id": "enterprisememberinvitationorderfield",
       "href": "/graphql/reference/enums#enterprisememberinvitationorderfield",
       "description": "<p>Properties by which enterprise member invitation connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -81843,6 +82225,7 @@
       "id": "enterprisememberorderfield",
       "href": "/graphql/reference/enums#enterprisememberorderfield",
       "description": "<p>Properties by which enterprise member connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -81859,6 +82242,7 @@
       "id": "enterprisememberscancreaterepositoriessettingvalue",
       "href": "/graphql/reference/enums#enterprisememberscancreaterepositoriessettingvalue",
       "description": "<p>The possible values for the enterprise members can create repositories setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -81887,6 +82271,7 @@
       "id": "enterprisememberscanmakepurchasessettingvalue",
       "href": "/graphql/reference/enums#enterprisememberscanmakepurchasessettingvalue",
       "description": "<p>The possible values for the members can make purchases setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -81903,6 +82288,7 @@
       "id": "enterprisemembershiptype",
       "href": "/graphql/reference/enums#enterprisemembershiptype",
       "description": "<p>The possible values we have for filtering Platform::Objects::User#enterprises.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -81927,6 +82313,7 @@
       "id": "enterpriseorderfield",
       "href": "/graphql/reference/enums#enterpriseorderfield",
       "description": "<p>Properties by which enterprise connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NAME",
@@ -81939,6 +82326,7 @@
       "id": "enterpriseserverinstallationorderfield",
       "href": "/graphql/reference/enums#enterpriseserverinstallationorderfield",
       "description": "<p>Properties by which Enterprise Server installation connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -81959,6 +82347,7 @@
       "id": "enterpriseserveruseraccountemailorderfield",
       "href": "/graphql/reference/enums#enterpriseserveruseraccountemailorderfield",
       "description": "<p>Properties by which Enterprise Server user account email connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "EMAIL",
@@ -81971,6 +82360,7 @@
       "id": "enterpriseserveruseraccountorderfield",
       "href": "/graphql/reference/enums#enterpriseserveruseraccountorderfield",
       "description": "<p>Properties by which Enterprise Server user account connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "LOGIN",
@@ -81987,6 +82377,7 @@
       "id": "enterpriseserveruseraccountsuploadorderfield",
       "href": "/graphql/reference/enums#enterpriseserveruseraccountsuploadorderfield",
       "description": "<p>Properties by which Enterprise Server user accounts upload connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -81999,6 +82390,7 @@
       "id": "enterpriseserveruseraccountsuploadsyncstate",
       "href": "/graphql/reference/enums#enterpriseserveruseraccountsuploadsyncstate",
       "description": "<p>Synchronization state of the Enterprise Server user accounts upload.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FAILURE",
@@ -82019,6 +82411,7 @@
       "id": "enterpriseuseraccountmembershiprole",
       "href": "/graphql/reference/enums#enterpriseuseraccountmembershiprole",
       "description": "<p>The possible roles for enterprise membership.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MEMBER",
@@ -82039,6 +82432,7 @@
       "id": "enterpriseuserdeployment",
       "href": "/graphql/reference/enums#enterpriseuserdeployment",
       "description": "<p>The possible GitHub Enterprise deployments where this user can exist.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOUD",
@@ -82055,6 +82449,7 @@
       "id": "environmentorderfield",
       "href": "/graphql/reference/enums#environmentorderfield",
       "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NAME",
@@ -82067,6 +82462,7 @@
       "id": "environmentpinnedfilterfield",
       "href": "/graphql/reference/enums#environmentpinnedfilterfield",
       "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -82087,6 +82483,7 @@
       "id": "fileviewedstate",
       "href": "/graphql/reference/enums#fileviewedstate",
       "description": "<p>The possible viewed states of a file .</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISMISSED",
@@ -82287,6 +82684,7 @@
       "id": "identityproviderconfigurationstate",
       "href": "/graphql/reference/enums#identityproviderconfigurationstate",
       "description": "<p>The possible states in which authentication can be configured with an identity provider.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CONFIGURED",
@@ -82307,6 +82705,7 @@
       "id": "ipallowlistenabledsettingvalue",
       "href": "/graphql/reference/enums#ipallowlistenabledsettingvalue",
       "description": "<p>The possible values for the IP allow list enabled setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -82323,6 +82722,7 @@
       "id": "ipallowlistentryorderfield",
       "href": "/graphql/reference/enums#ipallowlistentryorderfield",
       "description": "<p>Properties by which IP allow list entry connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALLOW_LIST_VALUE",
@@ -82339,6 +82739,7 @@
       "id": "ipallowlistforinstalledappsenabledsettingvalue",
       "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue",
       "description": "<p>The possible values for the IP allow list configuration for installed GitHub Apps setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -82355,6 +82756,7 @@
       "id": "ipallowlistuserlevelenforcementenabledsettingvalue",
       "href": "/graphql/reference/enums#ipallowlistuserlevelenforcementenabledsettingvalue",
       "description": "<p>The possible values for the IP allow list user-level enforcement enabled setting.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -82914,6 +83316,7 @@
       "id": "lexicalfallbackreason",
       "href": "/graphql/reference/enums#lexicalfallbackreason",
       "description": "<p>Reason why a semantic or hybrid issue search fell back to lexical search.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NON_ISSUE_TARGET",
@@ -82975,6 +83378,7 @@
       "id": "mannequinorderfield",
       "href": "/graphql/reference/enums#mannequinorderfield",
       "description": "<p>Properties by which mannequins can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -82991,6 +83395,7 @@
       "id": "mergecommitmessage",
       "href": "/graphql/reference/enums#mergecommitmessage",
       "description": "<p>The possible default commit messages for merges.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BLANK",
@@ -83011,6 +83416,7 @@
       "id": "mergecommittitle",
       "href": "/graphql/reference/enums#mergecommittitle",
       "description": "<p>The possible default commit titles for merges.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE_MESSAGE",
@@ -83027,6 +83433,7 @@
       "id": "mergequeueentrystate",
       "href": "/graphql/reference/enums#mergequeueentrystate",
       "description": "<p>The possible states for a merge queue entry.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AWAITING_CHECKS",
@@ -83091,6 +83498,7 @@
       "id": "mergequeuemergingstrategy",
       "href": "/graphql/reference/enums#mergequeuemergingstrategy",
       "description": "<p>The possible merging strategies for a merge queue.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALLGREEN",
@@ -83107,6 +83515,7 @@
       "id": "mergestatestatus",
       "href": "/graphql/reference/enums#mergestatestatus",
       "description": "<p>Detailed status information about a pull request merge.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BEHIND",
@@ -83147,6 +83556,7 @@
       "id": "mergeablestate",
       "href": "/graphql/reference/enums#mergeablestate",
       "description": "<p>Whether or not a PullRequest can be merged.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CONFLICTING",
@@ -83167,6 +83577,7 @@
       "id": "migrationsourcetype",
       "href": "/graphql/reference/enums#migrationsourcetype",
       "description": "<p>Represents the different GitHub Enterprise Importer (GEI) migration sources.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AZURE_DEVOPS",
@@ -83187,6 +83598,7 @@
       "id": "migrationstate",
       "href": "/graphql/reference/enums#migrationstate",
       "description": "<p>The GitHub Enterprise Importer (GEI) migration state.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FAILED",
@@ -83282,6 +83694,7 @@
       "id": "oidcprovidertype",
       "href": "/graphql/reference/enums#oidcprovidertype",
       "description": "<p>The OIDC identity provider type.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AAD",
@@ -83352,6 +83765,7 @@
       "id": "orderdirection",
       "href": "/graphql/reference/enums#orderdirection",
       "description": "<p>Possible directions in which to order a list of items when provided an <code>orderBy</code> argument.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ASC",
@@ -83414,6 +83828,7 @@
       "id": "orgenterpriseownerorderfield",
       "href": "/graphql/reference/enums#orgenterpriseownerorderfield",
       "description": "<p>Properties by which enterprise owners can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "LOGIN",
@@ -83630,6 +84045,7 @@
       "id": "organizationinvitationrole",
       "href": "/graphql/reference/enums#organizationinvitationrole",
       "description": "<p>The possible organization invitation roles.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -83654,6 +84070,7 @@
       "id": "organizationinvitationsource",
       "href": "/graphql/reference/enums#organizationinvitationsource",
       "description": "<p>The possible organization invitation sources.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MEMBER",
@@ -83674,6 +84091,7 @@
       "id": "organizationinvitationtype",
       "href": "/graphql/reference/enums#organizationinvitationtype",
       "description": "<p>The possible organization invitation types.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "EMAIL",
@@ -83690,6 +84108,7 @@
       "id": "organizationmemberrole",
       "href": "/graphql/reference/enums#organizationmemberrole",
       "description": "<p>The possible roles within an organization for its members.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -83706,6 +84125,7 @@
       "id": "organizationmemberscancreaterepositoriessettingvalue",
       "href": "/graphql/reference/enums#organizationmemberscancreaterepositoriessettingvalue",
       "description": "<p>The possible values for the members can create repositories setting on an organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -83730,6 +84150,7 @@
       "id": "organizationmigrationstate",
       "href": "/graphql/reference/enums#organizationmigrationstate",
       "description": "<p>The Octoshift Organization migration state.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FAILED",
@@ -83778,6 +84199,7 @@
       "id": "organizationorderfield",
       "href": "/graphql/reference/enums#organizationorderfield",
       "description": "<p>Properties by which organization connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -83794,6 +84216,7 @@
       "id": "packagefileorderfield",
       "href": "/graphql/reference/enums#packagefileorderfield",
       "description": "<p>Properties by which package file connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -83806,6 +84229,7 @@
       "id": "packageorderfield",
       "href": "/graphql/reference/enums#packageorderfield",
       "description": "<p>Properties by which package connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -83818,6 +84242,7 @@
       "id": "packagetype",
       "href": "/graphql/reference/enums#packagetype",
       "description": "<p>The possible types of a package.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DEBIAN",
@@ -83854,6 +84279,7 @@
       "id": "packageversionorderfield",
       "href": "/graphql/reference/enums#packageversionorderfield",
       "description": "<p>Properties by which package version connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -83866,6 +84292,7 @@
       "id": "patchstatus",
       "href": "/graphql/reference/enums#patchstatus",
       "description": "<p>The possible types of patch statuses.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADDED",
@@ -84001,6 +84428,7 @@
       "id": "pinnedenvironmentorderfield",
       "href": "/graphql/reference/enums#pinnedenvironmentorderfield",
       "description": "<p>Properties by which pinned environments connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "POSITION",
@@ -84563,6 +84991,7 @@
       "id": "pullrequestallowedmergemethods",
       "href": "/graphql/reference/enums#pullrequestallowedmergemethods",
       "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -84583,6 +85012,7 @@
       "id": "pullrequestbranchupdatemethod",
       "href": "/graphql/reference/enums#pullrequestbranchupdatemethod",
       "description": "<p>The possible methods for updating a pull request's head branch with the base branch.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -84599,6 +85029,7 @@
       "id": "pullrequestcreationpolicy",
       "href": "/graphql/reference/enums#pullrequestcreationpolicy",
       "description": "<p>The policy controlling who can create pull requests in a repository.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -84615,6 +85046,7 @@
       "id": "pullrequestmergemethod",
       "href": "/graphql/reference/enums#pullrequestmergemethod",
       "description": "<p>Represents available types of methods to use when merging a pull request.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -84652,6 +85084,7 @@
       "id": "pullrequestreviewcommentstate",
       "href": "/graphql/reference/enums#pullrequestreviewcommentstate",
       "description": "<p>The possible states of a pull request review comment.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "PENDING",
@@ -84668,6 +85101,7 @@
       "id": "pullrequestreviewdecision",
       "href": "/graphql/reference/enums#pullrequestreviewdecision",
       "description": "<p>The review status of a pull request.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "APPROVED",
@@ -84688,6 +85122,7 @@
       "id": "pullrequestreviewevent",
       "href": "/graphql/reference/enums#pullrequestreviewevent",
       "description": "<p>The possible events to perform on a pull request review.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "APPROVE",
@@ -84712,6 +85147,7 @@
       "id": "pullrequestreviewstate",
       "href": "/graphql/reference/enums#pullrequestreviewstate",
       "description": "<p>The possible states of a pull request review.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "APPROVED",
@@ -84740,6 +85176,7 @@
       "id": "pullrequestreviewthreadsubjecttype",
       "href": "/graphql/reference/enums#pullrequestreviewthreadsubjecttype",
       "description": "<p>The possible subject types of a pull request review comment.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "FILE",
@@ -84756,6 +85193,7 @@
       "id": "pullrequeststate",
       "href": "/graphql/reference/enums#pullrequeststate",
       "description": "<p>The possible states of a pull request.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -85096,6 +85534,7 @@
       "id": "pullrequestupdatestate",
       "href": "/graphql/reference/enums#pullrequestupdatestate",
       "description": "<p>The possible target states when updating a pull request.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CLOSED",
@@ -85166,6 +85605,7 @@
       "id": "reforderfield",
       "href": "/graphql/reference/enums#reforderfield",
       "description": "<p>Properties by which ref connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALPHABETICAL",
@@ -85567,6 +86007,7 @@
       "id": "repositorymigrationorderdirection",
       "href": "/graphql/reference/enums#repositorymigrationorderdirection",
       "description": "<p>Possible directions in which to order a list of repository migrations when provided an <code>orderBy</code> argument.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ASC",
@@ -85583,6 +86024,7 @@
       "id": "repositorymigrationorderfield",
       "href": "/graphql/reference/enums#repositorymigrationorderfield",
       "description": "<p>Properties by which repository migrations can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -85670,6 +86112,7 @@
       "id": "repositoryruleorderfield",
       "href": "/graphql/reference/enums#repositoryruleorderfield",
       "description": "<p>Properties by which repository rule connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -85690,6 +86133,7 @@
       "id": "repositoryruletype",
       "href": "/graphql/reference/enums#repositoryruletype",
       "description": "<p>The rule types supported in rulesets.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AUTHORIZATION",
@@ -85822,6 +86266,7 @@
       "id": "repositoryrulesetbypassactorbypassmode",
       "href": "/graphql/reference/enums#repositoryrulesetbypassactorbypassmode",
       "description": "<p>The bypass mode for a specific actor on a ruleset.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALWAYS",
@@ -85842,6 +86287,7 @@
       "id": "repositoryrulesettarget",
       "href": "/graphql/reference/enums#repositoryrulesettarget",
       "description": "<p>The targets supported for rulesets.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BRANCH",
@@ -85904,6 +86350,7 @@
       "id": "repositoryvulnerabilityalertdependencyrelationship",
       "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyrelationship",
       "description": "<p>The possible relationships of an alert's dependency.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DIRECT",
@@ -85928,6 +86375,7 @@
       "id": "repositoryvulnerabilityalertdependencyscope",
       "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyscope",
       "description": "<p>The possible scopes of an alert's dependency.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DEVELOPMENT",
@@ -85944,6 +86392,7 @@
       "id": "repositoryvulnerabilityalertstate",
       "href": "/graphql/reference/enums#repositoryvulnerabilityalertstate",
       "description": "<p>The possible states of an alert.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "AUTO_DISMISSED",
@@ -85968,6 +86417,7 @@
       "id": "requestablecheckstatusstate",
       "href": "/graphql/reference/enums#requestablecheckstatusstate",
       "description": "<p>The possible states that can be requested when creating a check run.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMPLETED",
@@ -85996,6 +86446,7 @@
       "id": "roleinorganization",
       "href": "/graphql/reference/enums#roleinorganization",
       "description": "<p>Possible roles a user may have in relation to an organization.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DIRECT_MEMBER",
@@ -86016,6 +86467,7 @@
       "id": "ruleenforcement",
       "href": "/graphql/reference/enums#ruleenforcement",
       "description": "<p>The level of enforcement for a rule or ruleset.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTIVE",
@@ -86036,6 +86488,7 @@
       "id": "samldigestalgorithm",
       "href": "/graphql/reference/enums#samldigestalgorithm",
       "description": "<p>The possible digest algorithms used to sign SAML requests for an identity provider.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "SHA1",
@@ -86060,6 +86513,7 @@
       "id": "samlsignaturealgorithm",
       "href": "/graphql/reference/enums#samlsignaturealgorithm",
       "description": "<p>The possible signature algorithms used to sign SAML requests for a Identity Provider.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "RSA_SHA1",
@@ -86097,6 +86551,7 @@
       "id": "searchtype",
       "href": "/graphql/reference/enums#searchtype",
       "description": "<p>Represents the individual results of a search.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISCUSSION",
@@ -86133,6 +86588,7 @@
       "id": "securityadvisoryclassification",
       "href": "/graphql/reference/enums#securityadvisoryclassification",
       "description": "<p>Classification of the advisory.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "GENERAL",
@@ -86149,6 +86605,7 @@
       "id": "securityadvisoryecosystem",
       "href": "/graphql/reference/enums#securityadvisoryecosystem",
       "description": "<p>The possible ecosystems of a security vulnerability's package.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTIONS",
@@ -86205,6 +86662,7 @@
       "id": "securityadvisoryidentifiertype",
       "href": "/graphql/reference/enums#securityadvisoryidentifiertype",
       "description": "<p>Identifier formats available for advisories.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CVE",
@@ -86221,6 +86679,7 @@
       "id": "securityadvisoryorderfield",
       "href": "/graphql/reference/enums#securityadvisoryorderfield",
       "description": "<p>Properties by which security advisory connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "EPSS_PERCENTAGE",
@@ -86245,6 +86704,7 @@
       "id": "securityadvisoryseverity",
       "href": "/graphql/reference/enums#securityadvisoryseverity",
       "description": "<p>Severity of the vulnerability.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CRITICAL",
@@ -86273,6 +86733,7 @@
       "id": "securityvulnerabilityorderfield",
       "href": "/graphql/reference/enums#securityvulnerabilityorderfield",
       "description": "<p>Properties by which security vulnerability connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "UPDATED_AT",
@@ -87572,6 +88033,7 @@
       "id": "squashmergecommitmessage",
       "href": "/graphql/reference/enums#squashmergecommitmessage",
       "description": "<p>The possible default commit messages for squash merges.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "BLANK",
@@ -87592,6 +88054,7 @@
       "id": "squashmergecommittitle",
       "href": "/graphql/reference/enums#squashmergecommittitle",
       "description": "<p>The possible default commit titles for squash merges.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "COMMIT_OR_PR_TITLE",
@@ -87671,6 +88134,7 @@
       "id": "teammemberorderfield",
       "href": "/graphql/reference/enums#teammemberorderfield",
       "description": "<p>Properties by which team member connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -87687,6 +88151,7 @@
       "id": "teammemberrole",
       "href": "/graphql/reference/enums#teammemberrole",
       "description": "<p>The possible team member roles; either<code>maintainer</code>or 'member'.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MAINTAINER",
@@ -87703,6 +88168,7 @@
       "id": "teammembershiptype",
       "href": "/graphql/reference/enums#teammembershiptype",
       "description": "<p>Defines which types of team members are included in the returned list. Can be one of IMMEDIATE, CHILD_TEAM or ALL.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALL",
@@ -87723,6 +88189,7 @@
       "id": "teamnotificationsetting",
       "href": "/graphql/reference/enums#teamnotificationsetting",
       "description": "<p>The possible team notification values.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NOTIFICATIONS_DISABLED",
@@ -87739,6 +88206,7 @@
       "id": "teamorderfield",
       "href": "/graphql/reference/enums#teamorderfield",
       "description": "<p>Properties by which team connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "NAME",
@@ -87751,6 +88219,7 @@
       "id": "teamprivacy",
       "href": "/graphql/reference/enums#teamprivacy",
       "description": "<p>The possible team privacy values.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "SECRET",
@@ -87767,6 +88236,7 @@
       "id": "teamrepositoryorderfield",
       "href": "/graphql/reference/enums#teamrepositoryorderfield",
       "description": "<p>Properties by which team repository connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -87799,6 +88269,7 @@
       "id": "teamreviewassignmentalgorithm",
       "href": "/graphql/reference/enums#teamreviewassignmentalgorithm",
       "description": "<p>The possible team review assignment algorithms.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "LOAD_BALANCE",
@@ -87815,6 +88286,7 @@
       "id": "teamrole",
       "href": "/graphql/reference/enums#teamrole",
       "description": "<p>The role of a user on a team.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ADMIN",
@@ -87939,6 +88411,7 @@
       "id": "twofactorcredentialsecuritytype",
       "href": "/graphql/reference/enums#twofactorcredentialsecuritytype",
       "description": "<p>Filters by whether or not 2FA is enabled and if the method configured is considered secure or insecure.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "DISABLED",
@@ -88018,6 +88491,7 @@
       "id": "verifiabledomainorderfield",
       "href": "/graphql/reference/enums#verifiabledomainorderfield",
       "description": "<p>Properties by which verifiable domain connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -88034,6 +88508,7 @@
       "id": "workflowrunorderfield",
       "href": "/graphql/reference/enums#workflowrunorderfield",
       "description": "<p>Properties by which workflow run connections can be ordered.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "CREATED_AT",
@@ -88046,6 +88521,7 @@
       "id": "workflowstate",
       "href": "/graphql/reference/enums#workflowstate",
       "description": "<p>The possible states for a workflow.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ACTIVE",
@@ -88129,6 +88605,7 @@
       "id": "branchactorallowanceactor",
       "href": "/graphql/reference/unions#branchactorallowanceactor",
       "description": "<p>Types which can be actors for <code>BranchActorAllowance</code> objects.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -88152,6 +88629,7 @@
       "id": "bypassactor",
       "href": "/graphql/reference/unions#bypassactor",
       "description": "<p>Types that can represent a repository ruleset bypass actor.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -88175,6 +88653,7 @@
       "id": "claimable",
       "href": "/graphql/reference/unions#claimable",
       "description": "<p>An object which can have its data claimed or claim data from another.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Mannequin",
@@ -88193,6 +88672,7 @@
       "id": "closer",
       "href": "/graphql/reference/unions#closer",
       "description": "<p>The object which triggered a <code>ClosedEvent</code>.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Commit",
@@ -88292,6 +88772,7 @@
       "id": "deploymentreviewer",
       "href": "/graphql/reference/unions#deploymentreviewer",
       "description": "<p>Users and teams.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Team",
@@ -88310,6 +88791,7 @@
       "id": "enterprisemember",
       "href": "/graphql/reference/unions#enterprisemember",
       "description": "<p>An object that is a member of an enterprise.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "EnterpriseUserAccount",
@@ -88328,6 +88810,7 @@
       "id": "ipallowlistowner",
       "href": "/graphql/reference/unions#ipallowlistowner",
       "description": "<p>Types that can own an IP allow list.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -89394,6 +89877,7 @@
       "id": "pullrequesttimelineitem",
       "href": "/graphql/reference/unions#pullrequesttimelineitem",
       "description": "<p>An item in a pull request timeline.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "AssignedEvent",
@@ -89567,6 +90051,7 @@
       "id": "pullrequesttimelineitems",
       "href": "/graphql/reference/unions#pullrequesttimelineitems",
       "description": "<p>An item in a pull request timeline.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "AddedToMergeQueueEvent",
@@ -89965,6 +90450,7 @@
       "id": "pushallowanceactor",
       "href": "/graphql/reference/unions#pushallowanceactor",
       "description": "<p>Types that can be an actor.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -90017,6 +90503,7 @@
       "id": "referencedsubject",
       "href": "/graphql/reference/unions#referencedsubject",
       "description": "<p>Any referencable object.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Issue",
@@ -90035,6 +90522,7 @@
       "id": "renamedtitlesubject",
       "href": "/graphql/reference/unions#renamedtitlesubject",
       "description": "<p>An object which has a renamable title.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Issue",
@@ -90053,6 +90541,7 @@
       "id": "requestedreviewer",
       "href": "/graphql/reference/unions#requestedreviewer",
       "description": "<p>Types that can be requested reviewers.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Bot",
@@ -90081,6 +90570,7 @@
       "id": "reviewdismissalallowanceactor",
       "href": "/graphql/reference/unions#reviewdismissalallowanceactor",
       "description": "<p>Types that can be an actor.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -90104,6 +90594,7 @@
       "id": "ruleparameters",
       "href": "/graphql/reference/unions#ruleparameters",
       "description": "<p>Types which can be parameters for <code>RepositoryRule</code> objects.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "BranchNamePatternParameters",
@@ -90197,6 +90688,7 @@
       "id": "rulesource",
       "href": "/graphql/reference/unions#rulesource",
       "description": "<p>Types which can have <code>RepositoryRule</code> objects.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Enterprise",
@@ -90220,6 +90712,7 @@
       "id": "searchresultitem",
       "href": "/graphql/reference/unions#searchresultitem",
       "description": "<p>The results of a search.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "App",
@@ -90325,6 +90818,7 @@
       "id": "statuscheckrollupcontext",
       "href": "/graphql/reference/unions#statuscheckrollupcontext",
       "description": "<p>Types that can be inside a StatusCheckRollup context.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "CheckRun",
@@ -90357,6 +90851,7 @@
       "id": "verifiabledomainowner",
       "href": "/graphql/reference/unions#verifiabledomainowner",
       "description": "<p>Types that can own a verifiable domain.</p>",
+      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "Enterprise",
@@ -91740,6 +92235,7 @@
       "id": "checkannotationdata",
       "href": "/graphql/reference/input-objects#checkannotationdata",
       "description": "<p>Information from a check run analysis to specific lines of code.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "annotationLevel",
@@ -91790,6 +92286,7 @@
       "id": "checkannotationrange",
       "href": "/graphql/reference/input-objects#checkannotationrange",
       "description": "<p>Information from a check run analysis to specific lines of code.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "endColumn",
@@ -91826,6 +92323,7 @@
       "id": "checkrunaction",
       "href": "/graphql/reference/input-objects#checkrunaction",
       "description": "<p>Possible further actions the integrator can perform.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "description",
@@ -91855,6 +92353,7 @@
       "id": "checkrunfilter",
       "href": "/graphql/reference/input-objects#checkrunfilter",
       "description": "<p>The filters that are available when fetching check runs.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "appId",
@@ -91905,6 +92404,7 @@
       "id": "checkrunoutput",
       "href": "/graphql/reference/input-objects#checkrunoutput",
       "description": "<p>Descriptive details about the check run.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "annotations",
@@ -91948,6 +92448,7 @@
       "id": "checkrunoutputimage",
       "href": "/graphql/reference/input-objects#checkrunoutputimage",
       "description": "<p>Images attached to the check run output displayed in the GitHub pull request UI.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "alt",
@@ -91977,6 +92478,7 @@
       "id": "checksuiteautotriggerpreference",
       "href": "/graphql/reference/input-objects#checksuiteautotriggerpreference",
       "description": "<p>The auto-trigger preferences that are available for check suites.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "appId",
@@ -91999,6 +92501,7 @@
       "id": "checksuitefilter",
       "href": "/graphql/reference/input-objects#checksuitefilter",
       "description": "<p>The filters that are available when fetching check suites.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "appId",
@@ -92292,6 +92795,7 @@
       "id": "codescanningparametersinput",
       "href": "/graphql/reference/input-objects#codescanningparametersinput",
       "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "codeScanningTools",
@@ -92307,6 +92811,7 @@
       "id": "codescanningtoolinput",
       "href": "/graphql/reference/input-objects#codescanningtoolinput",
       "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "alertsThreshold",
@@ -95481,6 +95986,7 @@
       "id": "deploymentorder",
       "href": "/graphql/reference/input-objects#deploymentorder",
       "description": "<p>Ordering options for deployment connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95655,6 +96161,7 @@
       "id": "draftpullrequestreviewcomment",
       "href": "/graphql/reference/input-objects#draftpullrequestreviewcomment",
       "description": "<p>Specifies a review comment to be left with a Pull Request Review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "body",
@@ -95684,6 +96191,7 @@
       "id": "draftpullrequestreviewthread",
       "href": "/graphql/reference/input-objects#draftpullrequestreviewthread",
       "description": "<p>Specifies a review comment thread to be left with a Pull Request Review.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "body",
@@ -95829,6 +96337,7 @@
       "id": "enterpriseadministratorinvitationorder",
       "href": "/graphql/reference/input-objects#enterpriseadministratorinvitationorder",
       "description": "<p>Ordering options for enterprise administrator invitation connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95851,6 +96360,7 @@
       "id": "enterprisememberinvitationorder",
       "href": "/graphql/reference/input-objects#enterprisememberinvitationorder",
       "description": "<p>Ordering options for enterprise administrator invitation connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95873,6 +96383,7 @@
       "id": "enterprisememberorder",
       "href": "/graphql/reference/input-objects#enterprisememberorder",
       "description": "<p>Ordering options for enterprise member connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95895,6 +96406,7 @@
       "id": "enterpriseorder",
       "href": "/graphql/reference/input-objects#enterpriseorder",
       "description": "<p>Ordering options for enterprises.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95917,6 +96429,7 @@
       "id": "enterpriseserverinstallationorder",
       "href": "/graphql/reference/input-objects#enterpriseserverinstallationorder",
       "description": "<p>Ordering options for Enterprise Server installation connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95939,6 +96452,7 @@
       "id": "enterpriseserveruseraccountemailorder",
       "href": "/graphql/reference/input-objects#enterpriseserveruseraccountemailorder",
       "description": "<p>Ordering options for Enterprise Server user account email connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95961,6 +96475,7 @@
       "id": "enterpriseserveruseraccountorder",
       "href": "/graphql/reference/input-objects#enterpriseserveruseraccountorder",
       "description": "<p>Ordering options for Enterprise Server user account connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -95983,6 +96498,7 @@
       "id": "enterpriseserveruseraccountsuploadorder",
       "href": "/graphql/reference/input-objects#enterpriseserveruseraccountsuploadorder",
       "description": "<p>Ordering options for Enterprise Server user accounts upload connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -96005,6 +96521,7 @@
       "id": "environments",
       "href": "/graphql/reference/input-objects#environments",
       "description": "<p>Ordering options for environments.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -96386,6 +96903,7 @@
       "id": "ipallowlistentryorder",
       "href": "/graphql/reference/input-objects#ipallowlistentryorder",
       "description": "<p>Ordering options for IP allow list entry connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -96859,6 +97377,7 @@
       "id": "mannequinorder",
       "href": "/graphql/reference/input-objects#mannequinorder",
       "description": "<p>Ordering options for mannequins.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -97299,6 +97818,7 @@
       "id": "orgenterpriseownerorder",
       "href": "/graphql/reference/input-objects#orgenterpriseownerorder",
       "description": "<p>Ordering options for an organization's enterprise owner connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -97321,6 +97841,7 @@
       "id": "organizationorder",
       "href": "/graphql/reference/input-objects#organizationorder",
       "description": "<p>Ordering options for organization connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -97387,6 +97908,7 @@
       "id": "packagefileorder",
       "href": "/graphql/reference/input-objects#packagefileorder",
       "description": "<p>Ways in which lists of package files can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -97409,6 +97931,7 @@
       "id": "packageorder",
       "href": "/graphql/reference/input-objects#packageorder",
       "description": "<p>Ways in which lists of packages can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -97431,6 +97954,7 @@
       "id": "packageversionorder",
       "href": "/graphql/reference/input-objects#packageversionorder",
       "description": "<p>Ways in which lists of package versions can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -97529,6 +98053,7 @@
       "id": "pinnedenvironmentorder",
       "href": "/graphql/reference/input-objects#pinnedenvironmentorder",
       "description": "<p>Ordering options for pinned environments.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -98177,6 +98702,7 @@
       "id": "reforder",
       "href": "/graphql/reference/input-objects#reforder",
       "description": "<p>Ways in which lists of git refs can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -98900,6 +99426,7 @@
       "id": "repositorymigrationorder",
       "href": "/graphql/reference/input-objects#repositorymigrationorder",
       "description": "<p>Ordering options for repository migrations.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -99039,6 +99566,7 @@
       "id": "repositoryruleinput",
       "href": "/graphql/reference/input-objects#repositoryruleinput",
       "description": "<p>Specifies the attributes for a new or updated rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "id",
@@ -99069,6 +99597,7 @@
       "id": "repositoryruleorder",
       "href": "/graphql/reference/input-objects#repositoryruleorder",
       "description": "<p>Ordering options for repository rules.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -99091,6 +99620,7 @@
       "id": "repositoryrulesetbypassactorinput",
       "href": "/graphql/reference/input-objects#repositoryrulesetbypassactorinput",
       "description": "<p>Specifies the attributes for a new or updated ruleset bypass actor. Only one of\n<code>actor_id</code>, <code>repository_role_database_id</code>, <code>organization_admin</code>,\n<code>enterprise_owner</code>, or <code>deploy_key</code> should be specified.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "actorId",
@@ -99344,6 +99874,7 @@
       "id": "requiredstatuscheckinput",
       "href": "/graphql/reference/input-objects#requiredstatuscheckinput",
       "description": "<p>Specifies the attributes for a new or updated required status check.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "appId",
@@ -99583,6 +100114,7 @@
       "id": "ruleparametersinput",
       "href": "/graphql/reference/input-objects#ruleparametersinput",
       "description": "<p>Specifies the parameters for a <code>RepositoryRule</code> object. Only one of the fields should be specified.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "branchNamePattern",
@@ -99733,6 +100265,7 @@
       "id": "securityadvisoryidentifierfilter",
       "href": "/graphql/reference/input-objects#securityadvisoryidentifierfilter",
       "description": "<p>An advisory identifier to filter results on.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "type",
@@ -99755,6 +100288,7 @@
       "id": "securityadvisoryorder",
       "href": "/graphql/reference/input-objects#securityadvisoryorder",
       "description": "<p>Ordering options for security advisory connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -99777,6 +100311,7 @@
       "id": "securityvulnerabilityorder",
       "href": "/graphql/reference/input-objects#securityvulnerabilityorder",
       "description": "<p>Ordering options for security vulnerability connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -100460,6 +100995,7 @@
       "id": "teammemberorder",
       "href": "/graphql/reference/input-objects#teammemberorder",
       "description": "<p>Ordering options for team member connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -100482,6 +101018,7 @@
       "id": "teamorder",
       "href": "/graphql/reference/input-objects#teamorder",
       "description": "<p>Ways in which team connections can be ordered.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -100504,6 +101041,7 @@
       "id": "teamrepositoryorder",
       "href": "/graphql/reference/input-objects#teamrepositoryorder",
       "description": "<p>Ordering options for team repository connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -103993,6 +104531,7 @@
       "id": "verifiabledomainorder",
       "href": "/graphql/reference/input-objects#verifiabledomainorder",
       "description": "<p>Ordering options for verifiable domain connections.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
@@ -104074,6 +104613,7 @@
       "id": "workflowrunorder",
       "href": "/graphql/reference/input-objects#workflowrunorder",
       "description": "<p>Ways in which lists of workflow runs can be ordered upon return.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "direction",
