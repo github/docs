@@ -16,4 +16,6 @@ category:
 
 Pull request authors and repository owners and collaborators can request a pull request review from anyone with write access to the repository. Each requested reviewer will receive a notification asking them to review the pull request.
 
+To request a review specifically from {% data variables.product.prodname_copilot_short %} — and to set per-PR preferences such as the review effort level or whether to re-review on each new push — use the dedicated [Copilot review endpoints](/rest/pulls/copilot-review) instead of adding the Copilot bot to this endpoint.
+
 <!-- Content after this section is automatically generated -->
