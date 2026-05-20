@@ -30113,5 +30113,409 @@
         ]
       }
     }
+  ],
+  "copilot-review": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-review",
+      "title": "Request a Copilot code review for a pull request",
+      "category": "pulls",
+      "subcategory": "copilot-review",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pull_number",
+          "description": "<p>The number that identifies the pull request.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "effort_level",
+          "description": "<p>How much effort Copilot should spend on this review.</p>",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "auto_review_on_push",
+          "description": "<p>When true, Copilot reviews every new push to this pull request.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Asks Copilot to review the specified pull request and, optionally, persists per-PR preferences that influence the review (<code>effort_level</code> and <code>auto_review_on_push</code>).</p>\n<p>This is the preferred way to request a Copilot review and is equivalent to requesting the <code>copilot-pull-request-reviewer[bot]</code> reviewer via the legacy <code>/requested_reviewers</code> endpoint — but it accepts per-PR overrides and returns a structured response.</p>\n<p>The call is idempotent: if a Copilot review is already pending, preferences are upserted and the response is <code>200</code>; otherwise the response is <code>201</code>.</p>\n<p>Note: this endpoint is only available on GitHub.com. It returns <code>404</code> in GHES and on installations where the per-PR preferences feature flag is not enabled.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "effort_level": "medium",
+              "auto_review_on_push": true
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "pull_request_url": "https://api.github.com/repos/octocat/Hello-World/pulls/42",
+              "pull_request_number": 42,
+              "pending_review_request": true,
+              "preferences": {
+                "effort_level": "medium",
+                "auto_review_on_push": true,
+                "requested_by_user_id": 1,
+                "created_at": "2026-01-01T00:00:00Z",
+                "updated_at": "2026-01-01T00:00:00Z"
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Existing Copilot review request updated.</p>"
+        },
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Copilot review requested.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Unprocessable Entity if Copilot cannot review this pull request (e.g. quota exhausted or actor ineligible).</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Pull requests\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-review",
+      "title": "Get Copilot review preferences for a pull request",
+      "category": "pulls",
+      "subcategory": "copilot-review",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pull_number",
+          "description": "<p>The number that identifies the pull request.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns the per-PR Copilot code review preferences and whether a Copilot review request is currently pending on the pull request.</p>\n<p>Only available on GitHub.com.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {},
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "pull_request_url": "https://api.github.com/repos/octocat/Hello-World/pulls/42",
+              "pull_request_number": 42,
+              "pending_review_request": true,
+              "preferences": {
+                "effort_level": "medium",
+                "auto_review_on_push": true,
+                "requested_by_user_id": 1,
+                "created_at": "2026-01-01T00:00:00Z",
+                "updated_at": "2026-01-01T00:00:00Z"
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Current Copilot review preferences.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Pull requests\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-review",
+      "title": "Update Copilot review preferences for a pull request",
+      "category": "pulls",
+      "subcategory": "copilot-review",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pull_number",
+          "description": "<p>The number that identifies the pull request.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "effort_level",
+          "description": "<p>How much effort Copilot should spend on this review.</p>",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "auto_review_on_push",
+          "description": "<p>When true, Copilot reviews every new push to this pull request.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Updates the per-PR Copilot code review preferences without (re-)triggering a Copilot review. To request a review at the same time as setting preferences, use the <code>POST</code> endpoint instead.</p>\n<p>Only available on GitHub.com.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "auto_review_on_push": true
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "pull_number": "PULL_NUMBER"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "pull_request_url": "https://api.github.com/repos/octocat/Hello-World/pulls/42",
+              "pull_request_number": 42,
+              "pending_review_request": true,
+              "preferences": {
+                "effort_level": "medium",
+                "auto_review_on_push": true,
+                "requested_by_user_id": 1,
+                "created_at": "2026-01-01T00:00:00Z",
+                "updated_at": "2026-01-01T00:00:00Z"
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Updated Copilot review preferences.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Unprocessable Entity if the body is invalid.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Pull requests\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/copilot-review",
+      "title": "Cancel the Copilot code review for a pull request",
+      "category": "pulls",
+      "subcategory": "copilot-review",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pull_number",
+          "description": "<p>The number that identifies the pull request.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Removes the pending Copilot review request on the pull request and clears any persisted per-PR Copilot review preferences.</p>\n<p>Only available on GitHub.com.</p>",
+      "codeExamples": [],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>Copilot review request canceled.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Pull requests\" repository permissions": "write"
+          }
+        ]
+      }
+    }
   ]
 }
