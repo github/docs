@@ -459,8 +459,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -786,8 +785,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2037,13 +2035,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -2053,6 +2051,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "completed",
               "cancelled",
@@ -2062,8 +2061,7 @@
               "denied",
               "open",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -2812,8 +2810,7 @@
           {
             "\"Enterprise credentials\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -3005,8 +3002,7 @@
           {
             "\"Custom properties\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3299,8 +3295,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3490,8 +3485,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3671,8 +3665,7 @@
           {
             "\"Custom properties\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3912,8 +3905,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3984,8 +3976,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -4181,8 +4172,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4481,8 +4471,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "admin"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4668,8 +4657,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4914,8 +4902,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "admin"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4990,8 +4977,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "admin"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5150,8 +5136,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5264,8 +5249,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -5531,8 +5515,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5607,8 +5590,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5693,8 +5675,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5779,8 +5760,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5855,8 +5835,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5941,8 +5920,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6027,8 +6005,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6260,8 +6237,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6446,8 +6422,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6820,8 +6795,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -7259,8 +7233,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -7370,8 +7343,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -7554,8 +7526,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -8430,8 +8401,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -8555,8 +8525,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -9184,8 +9153,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -10215,8 +10183,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -10297,8 +10264,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -10432,8 +10398,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11468,8 +11433,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11599,8 +11563,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11734,8 +11697,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -14647,8 +14609,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -16081,8 +16042,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -18999,8 +18959,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19071,8 +19030,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19406,10 +19364,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "members"
-            ]
+            "type": "string"
           }
         },
         {
@@ -19419,11 +19374,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 1
           }
         },
         {
@@ -19433,11 +19384,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 30,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 30
           }
         },
         {
@@ -19694,8 +19641,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19972,8 +19918,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19990,10 +19935,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -20002,10 +19944,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "members"
-            ]
+            "type": "string"
           }
         },
         {
@@ -20219,8 +20158,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -20237,10 +20175,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -20680,8 +20615,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -20698,10 +20632,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -21150,8 +21081,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -21168,10 +21098,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -21241,8 +21168,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -21269,11 +21195,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 1
           }
         },
         {
@@ -21283,11 +21205,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 30,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 30
           }
         },
         {
@@ -21619,8 +21537,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -22344,8 +22261,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -22657,8 +22573,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -23129,8 +23044,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -24009,8 +23923,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -24097,8 +24010,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ]

@@ -42,13 +42,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "pushed",
               "full_name"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -12128,11 +12128,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -15150,8 +15150,7 @@
           {
             "\"Administration\" repository permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -18941,9 +18940,6 @@
             "enum": [
               "all",
               "public"
-            ],
-            "examples": [
-              "all"
             ]
           }
         }
@@ -19767,12 +19763,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "public",
               "private"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -19792,14 +19788,14 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "owner",
               "public",
               "private",
               "member"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -19809,13 +19805,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "full_name",
             "enum": [
               "created",
               "updated",
               "pushed",
               "full_name"
-            ],
-            "default": "full_name"
+            ]
           }
         },
         {
@@ -19855,8 +19851,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -19865,8 +19860,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         }
       ],
@@ -24432,12 +24426,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "owner",
             "enum": [
               "all",
               "owner",
               "member"
-            ],
-            "default": "owner"
+            ]
           }
         },
         {
@@ -24447,13 +24441,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "full_name",
             "enum": [
               "created",
               "updated",
               "pushed",
               "full_name"
-            ],
-            "default": "full_name"
+            ]
           }
         },
         {
@@ -25834,13 +25828,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -25850,6 +25844,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "completed",
               "cancelled",
@@ -25859,8 +25854,7 @@
               "denied",
               "open",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -30668,13 +30662,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "newest",
             "enum": [
               "newest",
               "oldest",
               "stargazers",
               "watchers"
-            ],
-            "default": "newest"
+            ]
           }
         },
         {
@@ -35282,13 +35276,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -35305,13 +35299,13 @@
           "in": "query",
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "pass",
               "fail",
               "bypass",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -37377,10 +37371,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "branch,tag,push"
-            ]
+            "type": "string"
           }
         }
       ],

@@ -3375,11 +3375,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "global",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {

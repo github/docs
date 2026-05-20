@@ -23,8 +23,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The name of the tool used to generate the code scanning analysis."
+            "type": "string"
           }
         },
         {
@@ -36,8 +35,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
+            ]
           }
         },
         {
@@ -83,11 +81,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -97,7 +95,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "State of a code scanning alert.",
             "enum": [
               "open",
               "closed",
@@ -113,11 +110,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -127,7 +124,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "Severity of a code scanning alert.",
             "enum": [
               "critical",
               "high",
@@ -1489,8 +1485,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The name of the tool used to generate the code scanning analysis."
+            "type": "string"
           }
         },
         {
@@ -1502,8 +1497,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
+            ]
           }
         },
         {
@@ -1530,8 +1524,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`."
+            "type": "string"
           }
         },
         {
@@ -1550,11 +1543,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -1582,11 +1575,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -1596,7 +1589,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "State of a code scanning alert.",
             "enum": [
               "open",
               "closed",
@@ -1612,7 +1604,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "Severity of a code scanning alert.",
             "enum": [
               "critical",
               "high",
@@ -2485,9 +2476,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -3295,9 +3284,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -4148,9 +4135,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -4278,9 +4263,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -4470,9 +4453,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -4599,9 +4580,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         },
         {
@@ -4628,8 +4607,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`."
+            "type": "string"
           }
         },
         {
@@ -4857,8 +4835,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The name of the tool used to generate the code scanning analysis."
+            "type": "string"
           }
         },
         {
@@ -4870,8 +4847,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
+            ]
           }
         },
         {
@@ -4907,8 +4883,7 @@
           "description": "<p>The Git reference for the analyses you want to list. The <code>ref</code> for a branch can be formatted either as <code>refs/heads/&#x3C;branch name></code> or simply <code>&#x3C;branch name></code>. To reference a pull request use <code>refs/pull/&#x3C;number>/merge</code>.</p>",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`."
+            "type": "string"
           }
         },
         {
@@ -4917,11 +4892,7 @@
           "description": "<p>Filter analyses belonging to the same SARIF upload.</p>",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "An identifier for the upload.",
-            "examples": [
-              "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
-            ]
+            "type": "string"
           }
         },
         {
@@ -4931,11 +4902,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -4945,10 +4916,10 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created"
-            ],
-            "default": "created"
+            ]
           }
         }
       ],
