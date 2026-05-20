@@ -1,0 +1,6 @@
+2024-02-20T05:07:24.5533430Z ##[group]Run echo "dir=$(brew --cache)" >> $GITHUB_OUTPUT
+2024-02-20T05:07:24.5534200Z [36;1mecho "dir=$(brew --cache)" >> $GITHUB_OUTPUT[0m
+2024-02-20T05:07:24.5725550Z shell: /bin/bash -e {0}
+2024-02-20T05:07:24.5726120Z env:
+2024-02-20T05:07:24.5726560Z   CYPRESS_CACHE_FOLDER: /Users/runner/work/nx/nx/.cypress
+2024-02-20T05:07:24.5727170Z ##[endgroup]
