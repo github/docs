@@ -1,6 +1,6 @@
 
 
-*/* # https://github.com/schwabe/openvpn/tree/icsopenvpn
+### https://github.com/schwabe/openvpn/tree/icsopenvpn
 
 
 Since 2.4.0, OpenVPN has official support for elliptic curve crypto. Elliptic
