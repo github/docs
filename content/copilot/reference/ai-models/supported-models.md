@@ -47,7 +47,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 ## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
 
-This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies, including policies restricting {% data variables.product.prodname_copilot_short %} to data-resident or FedRAMP-compliant models.
+This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 
 {% rowheaders %}
 
@@ -76,9 +76,6 @@ The following table lists AI models that are retired or scheduled for retirement
 ## Supported AI models per client
 
 The following table shows which models are available in each client.
-
-> [!NOTE]
-> {% data reusables.copilot.auto-model-selection %}
 
 {% rowheaders %}
 
