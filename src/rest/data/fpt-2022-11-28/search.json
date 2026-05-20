@@ -36,11 +36,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -1057,11 +1057,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -2381,11 +2381,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -8172,11 +8172,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -8418,11 +8418,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -9626,11 +9626,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "desc",
               "asc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
