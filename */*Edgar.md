@@ -122,6 +122,7 @@ Problem 	Description
 Fee not available 	Filers are responsible for depositing funds in advance of their filing when the filing requires a fee. Sometimes the correct fee for the filing is not 
  
 issue with the funds not being deposited. 
-	+ > @Edgarruiz8585by:  Edgar Manuel Ruiz Arias 
+	+ >  @Edgarruiz8585
+ by:Edgar Manuel Ruiz Arias 
 	
 
