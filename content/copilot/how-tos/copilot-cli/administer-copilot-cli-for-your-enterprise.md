@@ -14,6 +14,8 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
+{% data variables.copilot.copilot_cli_short %} brings agentic capabilities to developers' command line. When {% data variables.copilot.copilot_cli_short %} is enabled, developers can use it to ask {% data variables.product.prodname_copilot_short %} to work on tasks locally or delegate work to {% data variables.copilot.copilot_cloud_agent %}.
+
 ## Enabling or disabling {% data variables.copilot.copilot_cli_short %}
 
 You can control the use of {% data variables.copilot.copilot_cli_short %} by configuring a policy.

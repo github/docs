@@ -1,5 +1,44 @@
 # Docs changelog
 
+**19 May 2026**
+
+We published the first iteration of a [journey landing page](https://docs.github.com/en/enterprise-cloud@latest/copilot/get-started/enterprise-ai-governance) for enterprises adopting and governing GitHub Copilot. The journey covers sign-off and adoption, governance of core features, and agent adoption. It includes six newly published guides alongside some refreshed existing content.
+
+<hr>
+
+**16 May 2026**
+
+To help admins understand security configuration statuses, we documented the relationship between organization and enterprise configurations and repositories, including how and why that relationship changes.
+
+- [Security configuration statuses](https://docs.github.com/en/code-security/reference/security-at-scale/security-configuration-statuses) covers all 8 statuses a security configuration can have, with descriptions, causes, and recommended actions
+- [Diagnosing security configuration issues](https://docs.github.com/en/code-security/reference/security-at-scale/troubleshoot-security-configurations/diagnosing-security-configuration-issues) now covers `removed` and `removed_by_enterprise` statuses in addition to `failed`
+- [About enabling security features at scale](https://docs.github.com/en/code-security/concepts/security-at-scale/about-enabling-security-features-at-scale) explains how configurations relate to repositories over time
+
+<hr>
+
+**15 May 2026**
+
+We've published a new [GitHub Secret Protection adoption journey landing page](https://docs.github.com/en/code-security/tutorials/secret-protection-adoption-path) for AppSec administrators. Our content audit found that while individual GHSP articles existed, there was no clear end-to-end path from evaluation to organization-wide rollout. 
+
+The new page organizes existing content into a 5-phase adoption journey: assess secret risk, evaluate fit and cost, pilot with selected repositories, monitor metrics, and scale protection across your organization 🎉 
+
+<hr>
+
+**12 May 2026**
+
+We have now published the GitHub Enterprise Server (GHES) 3.21 release candidate notes. You can read the full notes here:
+
+* [GitHub Enterprise Server 3.21.0-rc.1](https://docs.github.com/en/enterprise-server@3.21/admin/release-notes)
+
+We also updated billing preview tool for customers to compare their current usage under PRUs against usage under usage-based billing (starting June 1). We updated the related documentation to reflect the changed scope of the tool:
+
+* [Preparing for your move to usage-based billing](https://docs.github.com/en/copilot/how-tos/manage-and-track-spending/prepare-for-your-move-to-usage-based-billing)
+* [Preparing your organization for usage-based billing](https://docs.github.com/en/copilot/how-tos/manage-and-track-spending/prepare-for-usage-based-billing)
+* [Usage-based billing for individuals](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals)
+* [Usage-based billing for organizations and enterprises](https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises)
+
+<hr>
+
 **7 May 2026**
 
 Enterprise administrators can now centrally manage plugin standards for Copilot CLI. We added two new articles:

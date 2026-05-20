@@ -4,6 +4,42 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>ContentWarning</code> was added</p>",
+          "<p>Field <code>category</code> was added to object type <code>ContentWarning</code></p>",
+          "<p>Field <code>customSubCategory</code> was added to object type <code>ContentWarning</code></p>",
+          "<p>Field <code>subCategory</code> was added to object type <code>ContentWarning</code></p>",
+          "<p>Field <code>subTitle</code> was added to object type <code>ContentWarning</code></p>",
+          "<p>Field <code>title</code> was added to object type <code>ContentWarning</code></p>",
+          "<p>Field <code>type</code> was added to object type <code>ContentWarning</code></p>",
+          "<p>Enum value 'MULTI_SELECT<code>was added to enum</code>IssueFieldDataType'</p>",
+          "<p>Field <code>viewerContentWarning</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-05-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>CLOSED</code> was added to enum 'ProjectV2FieldType'</p>",
+          "<p>Enum value <code>CREATED</code> was added to enum 'ProjectV2FieldType'</p>",
+          "<p>Enum value <code>UPDATED</code> was added to enum 'ProjectV2FieldType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-05-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>UNKNOWN</code> was added to enum <code>SecurityAdvisorySeverity</code></p>"
         ]
       }

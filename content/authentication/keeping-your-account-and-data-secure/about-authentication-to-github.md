@@ -145,6 +145,8 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 
 {% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
 
+{% data reusables.apps.ghs-stateless-token-format %}
+
 | Token type | Prefix | More information |
 | :- | :- | :- |
 | {% data variables.product.pat_v1_caps %} | `ghp_` | [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)  |

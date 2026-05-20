@@ -93,6 +93,14 @@
   business: true
   enterprise: true
 
+- name: Gemini 3.5 Flash
+  free: false
+  student: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: GPT-4.1
   free: true
   student: true
@@ -161,14 +169,6 @@
   free: false
   student: false
   pro: false
-  pro_plus: true
-  business: true
-  enterprise: true
-
-- name: Grok Code Fast 1
-  free: true
-  student: true
-  pro: true
   pro_plus: true
   business: true
   enterprise: true

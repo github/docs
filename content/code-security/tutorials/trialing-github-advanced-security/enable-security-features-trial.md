@@ -67,6 +67,8 @@ You may find it helpful to apply an enterprise security configuration to all rep
 
 For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
 
+After you apply a configuration, each repository's configuration status reflects the result. For example, a repository may show as `attached`, `attaching`, or `failed`. For a full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
+
 ## Next steps
 
 Now that you have enabled the security features you want to test, you are ready to look more deeply into how {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_GH_code_security %} protect your code.

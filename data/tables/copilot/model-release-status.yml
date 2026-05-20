@@ -154,10 +154,9 @@
   ask_mode: true
   edit_mode: true
 
-# xAI models
-- name: 'Grok Code Fast 1'
-  provider: 'xAI'
-  release_status: 'GA'
+- name: 'Gemini 3.5 Flash'
+  provider: 'Google'
+  release_status: GA
   agent_mode: true
   ask_mode: true
   edit_mode: true

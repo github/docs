@@ -2415,6 +2415,16 @@
                   "node_id": "MDU6SXNzdWUzNTgwMg==",
                   "number": 132,
                   "title": "Line Number Indexes Beyond 20 Not Displayed",
+                  "type": {
+                    "id": 1,
+                    "node_id": "IT_kwDNJr9H",
+                    "name": "Bug",
+                    "description": "An unexpected problem or behavior",
+                    "color": "red",
+                    "created_at": "2023-10-09T13:30:49Z",
+                    "updated_at": "2024-05-30T18:20:53Z",
+                    "is_enabled": true
+                  },
                   "user": {
                     "login": "Nick3C",
                     "id": 90254,
@@ -4125,7 +4135,7 @@
                       },
                       "type": {
                         "title": "Issue Type",
-                        "description": "The type of issue.",
+                        "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                         "type": [
                           "object",
                           "null"
@@ -5250,7 +5260,8 @@
                       "or_boolean_not_supported",
                       "no_accessible_repos",
                       "server_error",
-                      "only_non_semantic_fields_requested"
+                      "only_non_semantic_fields_requested",
+                      "service_unavailable"
                     ]
                   }
                 }
@@ -6902,7 +6913,7 @@
                       },
                       "type": {
                         "title": "Issue Type",
-                        "description": "The type of issue.",
+                        "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                         "type": [
                           "object",
                           "null"
@@ -8027,7 +8038,8 @@
                       "or_boolean_not_supported",
                       "no_accessible_repos",
                       "server_error",
-                      "only_non_semantic_fields_requested"
+                      "only_non_semantic_fields_requested",
+                      "service_unavailable"
                     ]
                   }
                 }

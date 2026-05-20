@@ -363,16 +363,6 @@
   base64Supported: false
   isduplicate: true
 - provider: Azure
-  supportedSecret: Azure Active Directory User Credential
-  secretType: azure_active_directory_user_credential
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
-- provider: Azure
   supportedSecret: Azure AI Services Key
   secretType: azure_ai_services_key
   isPublic: true
@@ -1003,16 +993,6 @@
   base64Supported: false
   isduplicate: false
 - provider: Azure
-  supportedSecret: Azure SQL Connection String
-  secretType: azure_sql_connection_string
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
-- provider: Azure
   supportedSecret: Azure SQL Internal Default CloudSA Key
   secretType: azure_sql_internal_default_cloudsa_key
   isPublic: true
@@ -1109,16 +1089,6 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
-- provider: Azure
-  supportedSecret: Microsoft Corporate Network User Credential
-  secretType: microsoft_corporate_network_user_credential
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false

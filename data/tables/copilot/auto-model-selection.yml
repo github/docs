@@ -54,12 +54,6 @@
   chat: true
   cli: true
 
-# xAI
-- name: Grok Code Fast 1
-  cloud_agent: false
-  chat: true
-  cli: false
-
 # Fine-tuned OAI models
 - name: Raptor mini
   cloud_agent: false
