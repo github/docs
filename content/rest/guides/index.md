@@ -15,6 +15,7 @@ children:
   - /delivering-deployments
   - /rendering-data-as-graphs
   - /working-with-comments
+  - /requesting-copilot-code-review-with-the-rest-api
   - /building-a-ci-server
   - /using-the-rest-api-to-interact-with-your-git-database
   - /using-the-rest-api-to-interact-with-checks

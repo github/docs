@@ -1,9 +1,9 @@
 ---
-title: REST API endpoints for the Copilot code review on a pull request
-shortTitle: Copilot review
+title: Requesting Copilot code review with the REST API
+shortTitle: Request Copilot code review
 allowTitleToDifferFromFilename: true
-intro: 'Use the REST API to request a {% data variables.copilot.copilot_code-review_short %} on a pull request and to manage per-PR review preferences.'
-versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
+intro: 'Use the REST API to request a {% data variables.copilot.copilot_code-review_short %} on a pull request and manage per-PR review preferences.'
+versions:
   fpt: '*'
   ghec: '*'
 category:
