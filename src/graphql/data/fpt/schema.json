@@ -15167,6 +15167,7 @@
       "id": "contentwarning",
       "href": "/graphql/reference/objects#contentwarning",
       "description": "<p>The content warning for a repository.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "category",
@@ -20500,6 +20501,87 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "enterpriseTeam",
+          "description": "<p>Find an enterprise team by its slug.</p>",
+          "type": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/objects#enterpriseteam",
+          "arguments": [
+            {
+              "name": "slug",
+              "description": "<p>The slug of the enterprise team to find.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "enterpriseTeams",
+          "description": "<p>A list of enterprise teams in this enterprise.</p>",
+          "type": "EnterpriseTeamConnection!",
+          "id": "enterpriseteamconnection",
+          "href": "/graphql/reference/objects#enterpriseteamconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for enterprise teams returned from the connection.</p>",
+              "type": {
+                "name": "EnterpriseTeamOrder",
+                "id": "enterpriseteamorder",
+                "href": "/graphql/reference/input-objects#enterpriseteamorder"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the Enterprise object.</p>",
           "type": "ID!",
@@ -24647,6 +24729,416 @@
           "type": "EnterpriseServerUserAccountsUpload",
           "id": "enterpriseserveruseraccountsupload",
           "href": "/graphql/reference/objects#enterpriseserveruseraccountsupload"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeam",
+      "id": "enterpriseteam",
+      "href": "/graphql/reference/objects#enterpriseteam",
+      "description": "<p>A team that belongs to an enterprise and can be assigned to multiple organizations.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "TeamReviewRequestable",
+          "id": "teamreviewrequestable",
+          "href": "/graphql/reference/interfaces#teamreviewrequestable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "assignedOrganizations",
+          "description": "<p>Organizations this team is assigned to.</p>",
+          "type": "EnterpriseTeamAssignedOrganizationConnection!",
+          "id": "enterpriseteamassignedorganizationconnection",
+          "href": "/graphql/reference/objects#enterpriseteamassignedorganizationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for organizations returned from the connection.</p>",
+              "type": {
+                "name": "EnterpriseTeamOrganizationOrder",
+                "id": "enterpriseteamorganizationorder",
+                "href": "/graphql/reference/input-objects#enterpriseteamorganizationorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "combinedSlug",
+          "description": "<p>The human-readable, unique identifier for the enterprise and team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterprise",
+          "description": "<p>The enterprise this team belongs to.</p>",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "enterpriseTeamMembers",
+          "description": "<p>A list of users who are members of this enterprise team.</p>",
+          "type": "EnterpriseTeamMemberConnection!",
+          "id": "enterpriseteammemberconnection",
+          "href": "/graphql/reference/objects#enterpriseteammemberconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for the connection.</p>",
+              "type": {
+                "name": "EnterpriseTeamMemberOrder",
+                "id": "enterpriseteammemberorder",
+                "href": "/graphql/reference/input-objects#enterpriseteammemberorder"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the EnterpriseTeam object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "isViewerMember",
+          "description": "<p>Whether the viewer is a member of this team.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "notificationSetting",
+          "description": "<p>Whether the team will receive notifications when mentioned.</p>",
+          "type": "TeamNotificationSetting!",
+          "id": "teamnotificationsetting",
+          "href": "/graphql/reference/enums#teamnotificationsetting"
+        },
+        {
+          "name": "organizationSelectionType",
+          "description": "<p>How this team selects its associated organizations.</p>",
+          "type": "EnterpriseTeamOrganizationSelectionType!",
+          "id": "enterpriseteamorganizationselectiontype",
+          "href": "/graphql/reference/enums#enterpriseteamorganizationselectiontype"
+        },
+        {
+          "name": "privacy",
+          "description": "<p>The level of privacy the team has.</p>",
+          "type": "TeamPrivacy!",
+          "id": "teamprivacy",
+          "href": "/graphql/reference/enums#teamprivacy"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The slug corresponding to the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "viewerCanAdminister",
+          "description": "<p>Whether the viewer can administer this team.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamAssignedOrganizationConnection",
+      "id": "enterpriseteamassignedorganizationconnection",
+      "href": "/graphql/reference/objects#enterpriseteamassignedorganizationconnection",
+      "description": "<p>The connection type for Organization.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseTeamAssignedOrganizationEdge]",
+          "id": "enterpriseteamassignedorganizationedge",
+          "href": "/graphql/reference/objects#enterpriseteamassignedorganizationedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Organization]",
+          "id": "organization",
+          "href": "/graphql/reference/objects#organization"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamAssignedOrganizationEdge",
+      "id": "enterpriseteamassignedorganizationedge",
+      "href": "/graphql/reference/objects#enterpriseteamassignedorganizationedge",
+      "description": "<p>Represents an organization that an enterprise team is assigned to.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/objects#organization"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamConnection",
+      "id": "enterpriseteamconnection",
+      "href": "/graphql/reference/objects#enterpriseteamconnection",
+      "description": "<p>A list of enterprise teams owned by the enterprise.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseTeamEdge]",
+          "id": "enterpriseteamedge",
+          "href": "/graphql/reference/objects#enterpriseteamedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[EnterpriseTeam]",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/objects#enterpriseteam"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamEdge",
+      "id": "enterpriseteamedge",
+      "href": "/graphql/reference/objects#enterpriseteamedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/objects#enterpriseteam"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamMemberConnection",
+      "id": "enterpriseteammemberconnection",
+      "href": "/graphql/reference/objects#enterpriseteammemberconnection",
+      "description": "<p>The connection type for User.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseTeamMemberEdge]",
+          "id": "enterpriseteammemberedge",
+          "href": "/graphql/reference/objects#enterpriseteammemberedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[User]",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamMemberEdge",
+      "id": "enterpriseteammemberedge",
+      "href": "/graphql/reference/objects#enterpriseteammemberedge",
+      "description": "<p>Represents a user who is a member of an enterprise team.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
         }
       ]
     },
@@ -82407,6 +82899,90 @@
       ]
     },
     {
+      "name": "EnterpriseTeamMemberOrderField",
+      "id": "enterpriseteammemberorderfield",
+      "href": "/graphql/reference/enums#enterpriseteammemberorderfield",
+      "description": "<p>Properties by which enterprise team member connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order enterprise team members by creation time.</p>"
+        },
+        {
+          "name": "ID",
+          "description": "<p>Order enterprise team members by ID.</p>"
+        },
+        {
+          "name": "LOGIN",
+          "description": "<p>Order enterprise team members by login.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamOrderField",
+      "id": "enterpriseteamorderfield",
+      "href": "/graphql/reference/enums#enterpriseteamorderfield",
+      "description": "<p>Properties by which enterprise team connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order enterprise teams by creation time.</p>"
+        },
+        {
+          "name": "ID",
+          "description": "<p>Order enterprise teams by ID.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order enterprise teams by name.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamOrganizationOrderField",
+      "id": "enterpriseteamorganizationorderfield",
+      "href": "/graphql/reference/enums#enterpriseteamorganizationorderfield",
+      "description": "<p>Properties by which enterprise team organization connections can be ordered.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order enterprise team organizations by creation time.</p>"
+        },
+        {
+          "name": "ID",
+          "description": "<p>Order enterprise team organizations by ID.</p>"
+        },
+        {
+          "name": "LOGIN",
+          "description": "<p>Order enterprise team organizations by login.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamOrganizationSelectionType",
+      "id": "enterpriseteamorganizationselectiontype",
+      "href": "/graphql/reference/enums#enterpriseteamorganizationselectiontype",
+      "description": "<p>The possible organization selection types for an enterprise team.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>The team is associated with all organizations in the enterprise.</p>"
+        },
+        {
+          "name": "DISABLED",
+          "description": "<p>The team is not associated with any organizations.</p>"
+        },
+        {
+          "name": "SELECTED",
+          "description": "<p>The team is associated with selected organizations.</p>"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseUserAccountMembershipRole",
       "id": "enterpriseuseraccountmembershiprole",
       "href": "/graphql/reference/enums#enterpriseuseraccountmembershiprole",
@@ -88637,6 +89213,11 @@
           "href": "/graphql/reference/objects#app"
         },
         {
+          "name": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/objects#enterpriseteam"
+        },
+        {
           "name": "Team",
           "id": "team",
           "href": "/graphql/reference/objects#team"
@@ -89653,6 +90234,11 @@
       "isDeprecated": false,
       "possibleTypes": [
         {
+          "name": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/objects#enterpriseteam"
+        },
+        {
           "name": "Organization",
           "id": "organization",
           "href": "/graphql/reference/objects#organization"
@@ -90547,6 +91133,11 @@
           "name": "Bot",
           "id": "bot",
           "href": "/graphql/reference/objects#bot"
+        },
+        {
+          "name": "EnterpriseTeam",
+          "id": "enterpriseteam",
+          "href": "/graphql/reference/objects#enterpriseteam"
         },
         {
           "name": "Mannequin",
@@ -96513,6 +97104,75 @@
           "type": "EnterpriseServerUserAccountsUploadOrderField!",
           "id": "enterpriseserveruseraccountsuploadorderfield",
           "href": "/graphql/reference/enums#enterpriseserveruseraccountsuploadorderfield"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamMemberOrder",
+      "id": "enterpriseteammemberorder",
+      "href": "/graphql/reference/input-objects#enterpriseteammemberorder",
+      "description": "<p>Ordering options for enterprise team member connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprise team members by.</p>",
+          "type": "EnterpriseTeamMemberOrderField!",
+          "id": "enterpriseteammemberorderfield",
+          "href": "/graphql/reference/enums#enterpriseteammemberorderfield"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamOrder",
+      "id": "enterpriseteamorder",
+      "href": "/graphql/reference/input-objects#enterpriseteamorder",
+      "description": "<p>Ordering options for enterprise team connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprise teams by.</p>",
+          "type": "EnterpriseTeamOrderField!",
+          "id": "enterpriseteamorderfield",
+          "href": "/graphql/reference/enums#enterpriseteamorderfield"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseTeamOrganizationOrder",
+      "id": "enterpriseteamorganizationorder",
+      "href": "/graphql/reference/input-objects#enterpriseteamorganizationorder",
+      "description": "<p>Ordering options for enterprise team organization connections.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order organizations by.</p>",
+          "type": "EnterpriseTeamOrganizationOrderField!",
+          "id": "enterpriseteamorganizationorderfield",
+          "href": "/graphql/reference/enums#enterpriseteamorganizationorderfield"
         }
       ]
     },
