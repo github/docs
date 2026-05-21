@@ -166,7 +166,7 @@ The table below lists every supported event. The **Cloud agent** column shows wh
 | `errorOccurred` | An error occurs during execution. | No | Fires. |
 | `notification` | Fires asynchronously when the CLI emits a system notification (shell completion, agent completion or idle, permission prompts, elicitation dialogs). Fire-and-forget: never blocks the session. Supports `matcher` regex on `notification_type`. | Optional — can inject `additionalContext` into the session. | **Does not fire.** Cloud agent does not surface notifications to a user (see the **Interactivity** row in the Cloud agent execution environment table above). |
 | `permissionRequest` | Fires before the permission service runs (rules engine, session approvals, auto-allow/auto-deny, and user prompting). If the merged hook output returns `behavior: "allow"` or `"deny"`, that decision short-circuits the normal permission flow. Supports `matcher` regex on `toolName`. | Yes — can allow or deny programmatically. | Tool calls are pre-approved, so this hook either does not fire or has no effect. Use `preToolUse` to make permission decisions instead. |
-| `postToolUse` | After each tool completes successfully. | No | Fires. |
+| `postToolUse` | After each tool completes successfully. | Yes — can modify the tool result or inject additional context for the model. | Fires. |
 | `postToolUseFailure` | After a tool completes with a failure. | Yes — can provide recovery guidance via `additionalContext` (exit code `2` for command hooks). | Fires. |
 | `preCompact` | Context compaction is about to begin (manual or automatic). Supports `matcher` to filter by trigger (`"manual"` or `"auto"`). | No — notification only. | Fires only with `trigger: "auto"`. There is no user to request manual compaction. |
 | `preToolUse` | Before each tool executes. | Yes — can allow, deny, or modify. | Fires. A decision of `"ask"` is treated as `"deny"` because no user is available to answer. |
@@ -509,6 +509,30 @@ The `preToolUse` hook can control tool execution by writing a JSON object to std
 |-------|--------|-------------|
 | `decision` | `"block"`, `"allow"` | `"block"` forces another agent turn using `reason` as the prompt. |
 | `reason` | string | Prompt for the next turn when `decision` is `"block"`. |
+
+## `postToolUse` output
+
+The `postToolUse` hook can modify the tool result or inject additional context for the model by writing a JSON object to stdout.
+
+```typescript
+{
+    modifiedResult?: {
+        resultType: "success";
+        textResultForLlm: string;
+    };
+    additionalContext?: string;
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `modifiedResult` | object | Replacement tool result. Must have `resultType: "success"`. If returned with `resultType: "failure"`, the failure routes downstream and `postToolUseFailure` fires next. |
+| `additionalContext` | string | Additional guidance appended to `textResultForLlm` so the model sees it after the tool output on the same turn. When multiple hooks return `additionalContext`, the results are joined with a double newline and capped at 10 KB. |
+
+Return `{}` or empty output to keep the original successful result.
+
+> [!NOTE]
+> `modifiedResult` is honored by both SDK programmatic hooks and command/HTTP config-file `postToolUse` hooks.
 
 ## `permissionRequest` decision control
 
