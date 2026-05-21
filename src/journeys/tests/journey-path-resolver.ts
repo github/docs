@@ -304,8 +304,8 @@ describe('journey-path-resolver', () => {
 
       const result = await resolveJourneyTracks(trackWithoutDescription, mockContext)
 
-      expect(result[0].description).toBeUndefined()
-      expect(result[0].timeCommitment).toBeUndefined()
+      expect(result[0].description).toBeNull()
+      expect(result[0].timeCommitment).toBeNull()
     })
   })
 
