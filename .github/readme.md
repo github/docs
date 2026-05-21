@@ -15,8 +15,8 @@ To get the latest release of OpenVPN, go to:
 
 To Build and Install,
 
-        tar -zxf openvpn-<version>.tar.gz
-        cd openvpn-<version>
+        tar -zxf openvpn-<default>.tar.gz
+        cd openvpn-<default>
         ./configure
         make
         make install
@@ -188,7 +188,7 @@ index c802653..e74fc2f 100644
 @@ -41,13 +41,13 @@
  A typical sequence might by: @Edgarruiz8585 
  
-     cd src 
+     cd src : openvpn-<default>
 -    go get -m golang.org/x/net@latest
 +    go get -d golang.org/x/net@latest
      go mod tidy
