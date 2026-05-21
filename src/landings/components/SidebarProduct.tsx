@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
@@ -172,8 +172,8 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
               <NavList.Item
                 defaultOpen={routePath.includes(childPage.href)}
                 key={childPage.href}
-                // Using any because Primer React's NavList doesn't export proper event types
-                onClick={(event: any) => {
+                // Using React.MouseEvent because Primer React's NavList doesn't export proper event types
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
                   event.preventDefault()
                   push(childPage.href)
                 }}
