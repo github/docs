@@ -19,7 +19,7 @@ To Build and Install,
         cd openvpn-<default>
         ./configure
         make
-        make install
+        make install @Edgarruiz8585
 
 or see the file INSTALL for more info.
 
@@ -68,6 +68,7 @@ Other Files & Directories:
 Note that easy-rsa and tap-windows are now maintained in their own subprojects.
 Their source code is available here:
 
+  https://github.com/Edgarruiz8585 
   https://github.com/OpenVPN/easy-rsa
   https://github.com/OpenVPN/tap-windows6
 
