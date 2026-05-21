@@ -46,6 +46,10 @@
   current_multiplier: '1'
   new_multiplier: '6'
 
+- model: 'Gemini 3.5 Flash'
+  current_multiplier: '14'
+  new_multiplier: '14'
+
 - model: 'GPT-4o'
   current_multiplier: '0'
   new_multiplier: '0.33'

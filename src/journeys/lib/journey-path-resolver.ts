@@ -33,8 +33,8 @@ export interface JourneyContext {
 export interface JourneyTrack {
   id: string
   title: string
-  description?: string
-  timeCommitment?: string
+  description: string | null
+  timeCommitment: string | null
   guides: Array<{
     href: string
     title: string
@@ -352,8 +352,8 @@ export async function resolveJourneyTracks(
       return {
         id: track.id,
         title: renderedTitle,
-        description: renderedDescription,
-        timeCommitment: renderedTimeCommitment,
+        description: renderedDescription || null,
+        timeCommitment: renderedTimeCommitment || null,
         guides,
       }
     }),

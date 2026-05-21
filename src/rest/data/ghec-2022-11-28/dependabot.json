@@ -50,13 +50,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -66,6 +66,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "completed",
               "cancelled",
@@ -74,8 +75,7 @@
               "denied",
               "open",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -476,13 +476,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "month",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "month"
+            ]
           }
         },
         {
@@ -492,14 +492,14 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "open",
               "approved",
               "expired",
               "denied",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -1775,22 +1775,7 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "patch"
-                  ]
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "assignee",
@@ -1818,12 +1803,12 @@
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "epss_percentage"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -1833,11 +1818,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -3668,23 +3653,7 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values.</p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "patch",
-                    "deployment"
-                  ]
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "assignee",
@@ -3720,12 +3689,12 @@
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "epss_percentage"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -3735,11 +3704,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -5579,22 +5548,7 @@
           "name": "has",
           "in": "query",
           "description": "<p>Filters the list of alerts based on whether the alert has the given value. If specified, only alerts meeting this criterion will be returned.\nMultiple <code>has</code> filters can be passed to filter for alerts that have all of the values. Currently, only <code>patch</code> is supported.</p>",
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "enum": [
-                    "patch"
-                  ]
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "assignee",
@@ -5622,12 +5576,12 @@
           "description": "<p>The property by which to sort the results.\n<code>created</code> means when the alert was created.\n<code>updated</code> means when the alert's state last changed.\n<code>epss_percentage</code> sorts alerts by the Exploit Prediction Scoring System (EPSS) percentage.</p>",
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "epss_percentage"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -5637,11 +5591,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -6928,9 +6882,7 @@
           "description": "<p>The number that identifies a Dependabot alert in its repository.\nYou can find this at the end of the URL for a Dependabot alert within GitHub,\nor in <code>number</code> fields in the response from the\n<code>GET /repos/{owner}/{repo}/dependabot/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -8045,9 +7997,7 @@
           "description": "<p>The number that identifies a Dependabot alert in its repository.\nYou can find this at the end of the URL for a Dependabot alert within GitHub,\nor in <code>number</code> fields in the response from the\n<code>GET /repos/{owner}/{repo}/dependabot/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -9191,7 +9141,6 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "minimum": 1,
             "default": 1
           }
         },
@@ -9202,8 +9151,6 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         }
@@ -9896,7 +9843,6 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "minimum": 1,
             "default": 1
           }
         },
@@ -9907,8 +9853,6 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         }

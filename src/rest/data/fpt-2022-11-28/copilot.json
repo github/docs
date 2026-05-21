@@ -3509,11 +3509,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -3593,8 +3589,7 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3698,8 +3693,7 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3725,11 +3719,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -3809,8 +3799,7 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3836,11 +3825,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -3920,8 +3905,7 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4025,8 +4009,7 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4052,11 +4035,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -4270,11 +4249,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -4384,11 +4359,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],

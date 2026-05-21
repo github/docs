@@ -40,6 +40,7 @@ journeyTracks:
       - href: '/code-security/reference/secret-security/supported-secret-scanning-patterns'
       - href: '/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/estimating-the-price-of-secret-protection'
       - href: '/code-security/tutorials/remediate-leaked-secrets/calculating-the-cost-savings-of-push-protection'
+      - href: '/code-security/tutorials/trialing-github-advanced-security/trial-advanced-security'
   - id: 'pilot'
     title: 'Phase 3: Pilot GitHub Secret Protection'
     description: 'Run a pilot to validate GHSP with a small set of repositories before organization-wide enablement. Select 5-10 repositories with active development and known secret exposure. If you estimated pricing in Phase 2, you''ll confirm costs as part of the enablement flow. A successful pilot demonstrates security value quickly, identifies workflow adjustments, and gathers feedback to refine your rollout strategy.'

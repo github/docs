@@ -154,6 +154,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'Gemini 3.5 Flash'
+  provider: 'Google'
+  release_status: GA
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'

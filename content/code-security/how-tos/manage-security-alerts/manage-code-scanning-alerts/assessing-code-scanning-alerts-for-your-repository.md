@@ -31,9 +31,13 @@ By default, the {% data variables.product.prodname_code_scanning %} alerts page 
 
 {% data reusables.code-scanning.explore-alert %}
    {% data reusables.code-scanning.alert-default-branch %}
-1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
+1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used. The path view shows each step in the data flow as a numbered list, from the point where user-provided data enters the code (the source) to the point where it's used in a potentially unsafe operation (the sink).
 
    ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. The "Show paths" and "Show more" links are outlined in dark orange.](/assets/images/help/repository/code-scanning-alert-details.png)
+
+   Some alerts identify multiple paths through the code that could trigger the same vulnerability. When an alert has multiple paths, a dropdown appears above the path view showing the number of paths available. You can select each path from the dropdown to review it individually.
+
+   ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert detail page showing the paths dropdown with "3 paths available".](/assets/images/help/repository/multiple-paths-available.png)
 
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
 {% data reusables.security.alert-assignee-step %}

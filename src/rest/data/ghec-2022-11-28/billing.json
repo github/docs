@@ -3353,8 +3353,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "uuid"
+            "type": "string"
           }
         }
       ],

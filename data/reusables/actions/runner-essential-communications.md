@@ -1,3 +1,10 @@
+{% ifversion ghec %}
+
+> [!NOTE]
+> If you use {% data variables.enterprise.data_residency %}, your runners must communicate with additional hostnames beyond those listed below. For the complete network requirements, see [AUTOTITLE](/admin/data-residency/network-details-for-ghecom).
+
+{% endif %}
+
 **Needed for essential operations:**
 
 ```shell copy

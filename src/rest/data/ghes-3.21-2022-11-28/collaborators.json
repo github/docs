@@ -33,12 +33,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "outside",
               "direct",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -4483,8 +4483,7 @@
           {
             "\"Administration\" repository permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {

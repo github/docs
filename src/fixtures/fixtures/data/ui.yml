@@ -381,6 +381,7 @@ cookbook_landing:
   search_articles: Search examples
   category: Category
   complexity: Complexity
+  surface: Surface
 
 carousels:
   recommended: Recommended
