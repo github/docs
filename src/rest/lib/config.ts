@@ -11,6 +11,7 @@ export const nonAutomatedRestPaths: readonly string[] = [
   '/rest/using-the-rest-api',
   '/rest/authentication',
   '/rest/guides',
+  '/rest/pulls/copilot-review',
 ] as const
 
 // This path is used to set the page in the
