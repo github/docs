@@ -4,7 +4,7 @@ import path from 'path'
 import QuickLRU from 'quick-lru'
 import { brotliDecompress } from 'zlib'
 import { promisify } from 'util'
-import { getAutomatedPageMiniTocItems } from '@/frame/lib/get-mini-toc-items'
+import { getAutomatedPageMiniTocItems, type MiniTocItem } from '@/frame/lib/get-mini-toc-items'
 import { allVersions, getOpenApiVersion } from '@/versions/lib/all-versions'
 import languages from '@/languages/lib/languages-server'
 import type { Context } from '@/types'
@@ -19,7 +19,7 @@ export interface RestOperationCategory {
 }
 
 interface RestMiniTocData {
-  restOperationsMiniTocItems: any[]
+  restOperationsMiniTocItems: MiniTocItem[]
 }
 
 /*

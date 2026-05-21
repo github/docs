@@ -15,6 +15,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "assigned",
             "enum": [
               "assigned",
               "created",
@@ -22,8 +23,7 @@
               "subscribed",
               "repos",
               "all"
-            ],
-            "default": "assigned"
+            ]
           }
         },
         {
@@ -33,12 +33,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -57,12 +57,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "comments"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -72,11 +72,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -85,8 +85,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -1196,7 +1195,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -3160,6 +3159,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "assigned",
             "enum": [
               "assigned",
               "created",
@@ -3167,8 +3167,7 @@
               "subscribed",
               "repos",
               "all"
-            ],
-            "default": "assigned"
+            ]
           }
         },
         {
@@ -3178,12 +3177,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -3211,12 +3210,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "comments"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -3226,11 +3225,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -3239,8 +3238,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -4317,7 +4315,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -6291,12 +6289,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -6336,6 +6334,15 @@
           }
         },
         {
+          "name": "issue_field_values",
+          "description": "<p>A comma-separated list of issue field filters in <code>field_slug:value</code> format.\nOnly issues matching all specified field values are returned.\nRequires issue fields to be enabled for the repository. Issue fields are\nnot available for user-owned repositories, and field availability for\norganization-owned public repositories depends on the organization's\nvisibility settings. For example, <code>priority:Urgent,severity:High</code> filters\nissues where the <code>priority</code> field is <code>Urgent</code> AND the <code>severity</code> field is\n<code>High</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "labels",
           "description": "<p>A list of comma separated label names. Example: <code>bug,ui,@high</code></p>",
           "in": "query",
@@ -6351,12 +6358,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "comments"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -6366,11 +6373,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -6379,8 +6386,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -7357,7 +7363,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -9356,6 +9362,25 @@
           "description": "<p>Logins for Users to assign to this issue. <em>NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.</em></p>"
         },
         {
+          "type": "array of objects",
+          "name": "issue_field_values",
+          "description": "<p>An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Issue fields are only available for organization-owned repositories with the feature enabled. Field values are silently dropped otherwise.</p>",
+          "childParamsGroups": [
+            {
+              "type": "integer",
+              "name": "field_id",
+              "description": "<p>The ID of the issue field to set</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string or number",
+              "name": "value",
+              "description": "<p>The value to set for the field</p>",
+              "isRequired": true
+            }
+          ]
+        },
+        {
           "type": "string or null",
           "name": "type",
           "description": "<p>The name of the issue type to associate with this issue. <em>NOTE: Only users with push access can set the type for new issues. The type is silently dropped otherwise.</em></p>"
@@ -9433,26 +9458,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -10323,7 +10328,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -12376,26 +12381,6 @@
                     "default": true
                   }
                 ],
-                "assignee": {
-                  "login": "octocat",
-                  "id": 1,
-                  "node_id": "MDQ6VXNlcjE=",
-                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                  "gravatar_id": "",
-                  "url": "https://api.github.com/users/octocat",
-                  "html_url": "https://github.com/octocat",
-                  "followers_url": "https://api.github.com/users/octocat/followers",
-                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                  "organizations_url": "https://api.github.com/users/octocat/orgs",
-                  "repos_url": "https://api.github.com/users/octocat/repos",
-                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                  "received_events_url": "https://api.github.com/users/octocat/received_events",
-                  "type": "User",
-                  "site_admin": false
-                },
                 "assignees": [
                   {
                     "login": "octocat",
@@ -13267,7 +13252,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -15291,26 +15276,6 @@
                     "default": true
                   }
                 ],
-                "assignee": {
-                  "login": "octocat",
-                  "id": 1,
-                  "node_id": "MDQ6VXNlcjE=",
-                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                  "gravatar_id": "",
-                  "url": "https://api.github.com/users/octocat",
-                  "html_url": "https://github.com/octocat",
-                  "followers_url": "https://api.github.com/users/octocat/followers",
-                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                  "organizations_url": "https://api.github.com/users/octocat/orgs",
-                  "repos_url": "https://api.github.com/users/octocat/repos",
-                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                  "received_events_url": "https://api.github.com/users/octocat/received_events",
-                  "type": "User",
-                  "site_admin": false
-                },
                 "assignees": [
                   {
                     "login": "octocat",
@@ -16182,7 +16147,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -18311,26 +18276,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -19201,7 +19146,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -21365,6 +21310,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "assigned",
             "enum": [
               "assigned",
               "created",
@@ -21372,8 +21318,7 @@
               "subscribed",
               "repos",
               "all"
-            ],
-            "default": "assigned"
+            ]
           }
         },
         {
@@ -21383,12 +21328,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -21407,12 +21352,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "comments"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -21422,11 +21367,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -21435,8 +21380,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -22510,7 +22454,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -24866,26 +24810,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -25756,7 +25680,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -27800,26 +27724,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -28690,7 +28594,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -30749,11 +30653,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -30775,8 +30679,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -31582,8 +31485,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -32364,8 +32266,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -33156,8 +33057,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -33233,8 +33133,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -34049,8 +33948,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -34152,8 +34050,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -36900,7 +36797,7 @@
                           },
                           "type": {
                             "title": "Issue Type",
-                            "description": "The type of issue.",
+                            "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                             "type": [
                               "object",
                               "null"
@@ -41144,7 +41041,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -53553,7 +53450,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -55606,26 +55503,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -56496,7 +56373,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -58555,26 +58432,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -59445,7 +59302,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -62410,7 +62267,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -64576,18 +64433,27 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "post",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
       "title": "Add issue field values to an issue",
       "category": "issues",
       "subcategory": "issue-field-values",
       "parameters": [
         {
-          "name": "repository_id",
-          "description": "<p>The unique identifier of the repository.</p>",
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer"
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
         },
         {
@@ -64645,7 +64511,8 @@
               ]
             },
             "parameters": {
-              "repository_id": "REPOSITORY_ID",
+              "owner": "OWNER",
+              "repo": "REPO",
               "issue_number": "ISSUE_NUMBER"
             }
           },
@@ -64813,18 +64680,27 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "put",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
       "title": "Set issue field values for an issue",
       "category": "issues",
       "subcategory": "issue-field-values",
       "parameters": [
         {
-          "name": "repository_id",
-          "description": "<p>The unique identifier of the repository.</p>",
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer"
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
         },
         {
@@ -64882,7 +64758,8 @@
               ]
             },
             "parameters": {
-              "repository_id": "REPOSITORY_ID",
+              "owner": "OWNER",
+              "repo": "REPO",
               "issue_number": "ISSUE_NUMBER"
             }
           },
@@ -65050,18 +64927,27 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}",
       "title": "Delete an issue field value from an issue",
       "category": "issues",
       "subcategory": "issue-field-values",
       "parameters": [
         {
-          "name": "repository_id",
-          "description": "<p>The unique identifier of the repository.</p>",
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer"
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
           }
         },
         {
@@ -65091,7 +64977,8 @@
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
             "parameters": {
-              "repository_id": "REPOSITORY_ID",
+              "owner": "OWNER",
+              "repo": "REPO",
               "issue_number": "ISSUE_NUMBER",
               "issue_field_id": "ISSUE_FIELD_ID"
             }
@@ -66812,12 +66699,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -66827,11 +66714,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "due_on",
             "enum": [
               "due_on",
               "completeness"
-            ],
-            "default": "due_on"
+            ]
           }
         },
         {
@@ -66841,11 +66728,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "asc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "asc"
+            ]
           }
         },
         {
@@ -68394,26 +68281,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -69284,7 +69151,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -71336,26 +71203,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -72226,7 +72073,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -75174,7 +75021,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -77228,26 +77075,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -78118,7 +77945,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -80184,26 +80011,6 @@
                   "default": true
                 }
               ],
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -81074,7 +80881,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -91812,7 +91619,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"

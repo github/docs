@@ -32,6 +32,9 @@ To run the webhooks pipeline locally:
 1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the github org. 
 1. Run `npm run sync-rest -- -s rest-api-description -o webhooks`.
 
+> [!NOTE]
+> The `npm run sync-webhooks` shortcut in `package.json` does **not** pass `-s`, so it defaults to sourcing from the private `github/github` monorepo and will fail unless you are in a Codespace with that repo checked out as a sibling directory. Use the `sync-rest` command above for local development.
+
 ## About this directory
 
 - `src/webhooks/data` - The automatically generated data files created by running this pipeline.

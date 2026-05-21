@@ -92,7 +92,7 @@ For more information about viewing, prioritizing, and sorting {% data variables.
 
 You can fix or dismiss {% data variables.product.prodname_dependabot_alerts %} on {% data variables.product.prodname_dotcom %}. Let's continue to use the forked repository as an example, and the "Command Injection in lodash" alert described in the previous section.
 
-1. Navigate to the {% data variables.product.prodname_dependabot_alerts %} tab for the repository. For more information, see the [Viewing {% data variables.product.prodname_dependabot_alerts %} for your repository](#viewing-dependabot-alerts-for-your-repository) section above.
+1. Navigate to the {% data variables.product.prodname_dependabot %} tab for the repository. For more information, see the [Viewing {% data variables.product.prodname_dependabot_alerts %} for your repository](#viewing-dependabot-alerts-for-your-repository) section above.
 1. Click an alert.
 1. Click the "Command Injection in lodash" alert on the `javascript/package-lock.json` file.
 1. Review the alert. You can:

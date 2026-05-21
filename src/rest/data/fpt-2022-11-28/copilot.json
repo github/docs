@@ -1,10 +1,551 @@
 {
+  "copilot-cloud-agent-management": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/copilot/cloud-agent/configuration",
+      "title": "Get Copilot cloud agent configuration for a repository",
+      "category": "copilot",
+      "subcategory": "copilot-cloud-agent-management",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets the Copilot cloud agent configuration for a repository, including MCP server\nconfiguration, enabled review tools, Actions workflow approval settings, and firewall\nconfiguration.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example 1: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Default configuration</p>",
+            "example": {
+              "mcp_configuration": null,
+              "enabled_tools": {
+                "codeql": true,
+                "copilot_code_review": true,
+                "secret_scanning": true,
+                "dependency_vulnerability_checks": true
+              },
+              "require_actions_workflow_approval": true,
+              "is_firewall_enabled": true,
+              "is_firewall_recommended_allowlist_enabled": true,
+              "custom_allowlist": []
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "mcp_configuration": {
+                  "description": "The user-supplied MCP server configuration for the repository, as a free-form JSON object. This will be set to `null` if no configuration has been set.\n\nThe shape of a valid MCP configuration may evolve over time, so this property is intentionally not strictly typed. Clients should not assume a fixed schema.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": true
+                },
+                "enabled_tools": {
+                  "type": "object",
+                  "description": "The enabled review tools for Copilot cloud agent.",
+                  "properties": {
+                    "codeql": {
+                      "type": "boolean",
+                      "description": "Whether the CodeQL tool is enabled for the Copilot cloud agent."
+                    },
+                    "copilot_code_review": {
+                      "type": "boolean",
+                      "description": "Whether the Copilot code review tool is enabled for the Copilot cloud agent."
+                    },
+                    "secret_scanning": {
+                      "type": "boolean",
+                      "description": "Whether the secret scanning tool is enabled for the Copilot cloud agent."
+                    },
+                    "dependency_vulnerability_checks": {
+                      "type": "boolean",
+                      "description": "Whether the dependency vulnerability checks tool is enabled for the Copilot cloud agent."
+                    }
+                  },
+                  "required": [
+                    "codeql",
+                    "copilot_code_review",
+                    "secret_scanning",
+                    "dependency_vulnerability_checks"
+                  ]
+                },
+                "require_actions_workflow_approval": {
+                  "type": "boolean",
+                  "description": "Whether Actions workflow approval is required for Copilot cloud agent pull requests."
+                },
+                "is_firewall_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the firewall is enabled."
+                },
+                "is_firewall_recommended_allowlist_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the firewall recommended allowlist is enabled."
+                },
+                "custom_allowlist": {
+                  "type": "array",
+                  "description": "A list of custom allowlist entries, as hosts or URLs, that the firewall will allow the Copilot cloud agent to access.",
+                  "items": {
+                    "type": "string",
+                    "description": "A custom allowlist entry, as a host or URL, that the firewall will allow the Copilot cloud agent to access."
+                  }
+                }
+              },
+              "required": [
+                "mcp_configuration",
+                "enabled_tools",
+                "require_actions_workflow_approval",
+                "is_firewall_enabled",
+                "is_firewall_recommended_allowlist_enabled",
+                "custom_allowlist"
+              ]
+            }
+          }
+        },
+        {
+          "request": {
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Configuration with an MCP server and a custom firewall allowlist</p>",
+            "example": {
+              "mcp_configuration": {
+                "mcpServers": {
+                  "sentry": {
+                    "type": "local",
+                    "command": "npx",
+                    "args": [
+                      "@sentry/mcp-server@latest",
+                      "--host=$SENTRY_HOST"
+                    ],
+                    "env": {
+                      "SENTRY_HOST": "https://octo-org.sentry.io",
+                      "SENTRY_ACCESS_TOKEN": "$COPILOT_MCP_SENTRY_ACCESS_TOKEN"
+                    },
+                    "tools": [
+                      "search_issues",
+                      "get_issue_details"
+                    ]
+                  }
+                }
+              },
+              "enabled_tools": {
+                "codeql": true,
+                "copilot_code_review": true,
+                "secret_scanning": true,
+                "dependency_vulnerability_checks": true
+              },
+              "require_actions_workflow_approval": false,
+              "is_firewall_enabled": true,
+              "is_firewall_recommended_allowlist_enabled": true,
+              "custom_allowlist": [
+                "sentry.io",
+                "https://api.example.com"
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "mcp_configuration": {
+                  "description": "The user-supplied MCP server configuration for the repository, as a free-form JSON object. This will be set to `null` if no configuration has been set.\n\nThe shape of a valid MCP configuration may evolve over time, so this property is intentionally not strictly typed. Clients should not assume a fixed schema.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": true
+                },
+                "enabled_tools": {
+                  "type": "object",
+                  "description": "The enabled review tools for Copilot cloud agent.",
+                  "properties": {
+                    "codeql": {
+                      "type": "boolean",
+                      "description": "Whether the CodeQL tool is enabled for the Copilot cloud agent."
+                    },
+                    "copilot_code_review": {
+                      "type": "boolean",
+                      "description": "Whether the Copilot code review tool is enabled for the Copilot cloud agent."
+                    },
+                    "secret_scanning": {
+                      "type": "boolean",
+                      "description": "Whether the secret scanning tool is enabled for the Copilot cloud agent."
+                    },
+                    "dependency_vulnerability_checks": {
+                      "type": "boolean",
+                      "description": "Whether the dependency vulnerability checks tool is enabled for the Copilot cloud agent."
+                    }
+                  },
+                  "required": [
+                    "codeql",
+                    "copilot_code_review",
+                    "secret_scanning",
+                    "dependency_vulnerability_checks"
+                  ]
+                },
+                "require_actions_workflow_approval": {
+                  "type": "boolean",
+                  "description": "Whether Actions workflow approval is required for Copilot cloud agent pull requests."
+                },
+                "is_firewall_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the firewall is enabled."
+                },
+                "is_firewall_recommended_allowlist_enabled": {
+                  "type": "boolean",
+                  "description": "Whether the firewall recommended allowlist is enabled."
+                },
+                "custom_allowlist": {
+                  "type": "array",
+                  "description": "A list of custom allowlist entries, as hosts or URLs, that the firewall will allow the Copilot cloud agent to access.",
+                  "items": {
+                    "type": "string",
+                    "description": "A custom allowlist entry, as a host or URL, that the firewall will allow the Copilot cloud agent to access."
+                  }
+                }
+              },
+              "required": [
+                "mcp_configuration",
+                "enabled_tools",
+                "require_actions_workflow_approval",
+                "is_firewall_enabled",
+                "is_firewall_recommended_allowlist_enabled",
+                "custom_allowlist"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Copilot agent settings\" repository permissions": "read"
+          }
+        ]
+      }
+    }
+  ],
   "copilot-coding-agent-management": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent",
+      "title": "Set the coding agent policy for an enterprise",
+      "category": "copilot",
+      "subcategory": "copilot-coding-agent-management",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "policy_state",
+          "description": "<p>The policy state for Copilot cloud agent in the enterprise. Can be one of <code>enabled_for_all_orgs</code>, <code>disabled_for_all_orgs</code>, <code>enabled_for_selected_orgs</code>, or <code>configured_by_org_admins</code>.</p>",
+          "isRequired": true,
+          "enum": [
+            "enabled_for_all_orgs",
+            "disabled_for_all_orgs",
+            "enabled_for_selected_orgs",
+            "configured_by_org_admins"
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Sets the policy for Copilot cloud agent usage across an enterprise.</p>\n<p>Enterprise owners can configure whether Copilot cloud agent is enabled for all\norganizations, disabled for all organizations, configured by individual organization\nadmins, or enabled for selected organizations only.</p>\n<p>Only enterprise owners can set the coding agent policy for their enterprise.</p>\n<p>OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>admin:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Enable coding agent for all organizations",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "policy_state": "enabled_for_all_orgs"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+      "title": "Add organizations to the enterprise coding agent policy",
+      "category": "copilot",
+      "subcategory": "copilot-coding-agent-management",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "organizations",
+          "description": "<p>List of organization logins within the enterprise to enable Copilot cloud agent for.</p>"
+        },
+        {
+          "type": "array of objects",
+          "name": "custom_properties",
+          "description": "<p>List of custom property filters to match organizations. Organizations matching any of the specified property name/value pairs will be included. This is a one-time operation, setting the property on an organization in the future will not automatically update its coding agent policy.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "property_name",
+              "description": "<p>The name of the custom property to filter by.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "array of strings",
+              "name": "values",
+              "description": "<p>The values of the custom property to match.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Enables Copilot cloud agent for the specified organizations within the enterprise.</p>\n<p>The enterprise's coding agent policy must be set to <code>enabled_for_selected_orgs</code> before\nusing this endpoint. Organizations can be specified by login or matched via custom properties.</p>\n<p>Only organizations that have Copilot enabled and belong to the enterprise will be affected.</p>\n<p>Only enterprise owners can add organizations to the coding agent policy.</p>\n<p>OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>admin:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Add organizations that match a login or have a custom property",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "organizations": [
+                "my-org-1",
+                "my-org-2"
+              ],
+              "custom_properties": [
+                {
+                  "property_name": "department",
+                  "values": [
+                    "engineering",
+                    "security"
+                  ]
+                }
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/policies/coding_agent/organizations",
+      "title": "Remove organizations from the enterprise coding agent policy",
+      "category": "copilot",
+      "subcategory": "copilot-coding-agent-management",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "organizations",
+          "description": "<p>List of organization logins within the enterprise to disable Copilot cloud agent for.</p>"
+        },
+        {
+          "type": "array of objects",
+          "name": "custom_properties",
+          "description": "<p>List of custom property filters to match organizations. Organizations matching any of the specified property name/value pairs will be included. This is a one-time operation, setting the property on an organization in the future will not automatically update its coding agent policy.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "property_name",
+              "description": "<p>The name of the custom property to filter by.</p>",
+              "isRequired": true
+            },
+            {
+              "type": "array of strings",
+              "name": "values",
+              "description": "<p>The values of the custom property to match.</p>",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Disables Copilot cloud agent for the specified organizations within the enterprise.</p>\n<p>The enterprise's coding agent policy must be set to <code>enabled_for_selected_orgs</code> before\nusing this endpoint. Organizations can be specified by login or matched via custom properties.</p>\n<p>Only organizations that have Copilot enabled and belong to the enterprise will be affected.</p>\n<p>Only enterprise owners can remove organizations from the coding agent policy.</p>\n<p>OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>admin:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Remove organizations that match a login or have a custom property",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "organizations": [
+                "my-org-1",
+                "my-org-2"
+              ],
+              "custom_properties": [
+                {
+                  "property_name": "department",
+                  "values": [
+                    "engineering",
+                    "security"
+                  ]
+                }
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>A header with no content is returned.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
-      "title": "Get Copilot coding agent permissions for an organization",
+      "title": "Get Copilot cloud agent permissions for an organization",
       "category": "copilot",
       "subcategory": "copilot-coding-agent-management",
       "parameters": [
@@ -19,7 +560,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets information about which repositories in an organization have been enabled\nor disabled for the Copilot coding agent.</p>\n<p>Organization owners can configure whether Copilot coding agent is enabled for\nall repositories, selected repositories, or no repositories owned by organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets information about which repositories in an organization have been enabled\nor disabled for the Copilot cloud agent.</p>\n<p>Organization owners can configure whether Copilot cloud agent is enabled for\nall repositories, selected repositories, or no repositories owned by organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -41,7 +582,7 @@
               "properties": {
                 "enabled_repositories": {
                   "type": "string",
-                  "description": "The policy for which repositories can use Copilot coding agent. Can be one of `all`, `selected`, or `none`.",
+                  "description": "The policy for which repositories can use Copilot cloud agent. Can be one of `all`, `selected`, or `none`.",
                   "enum": [
                     "all",
                     "selected",
@@ -80,7 +621,7 @@
               "properties": {
                 "enabled_repositories": {
                   "type": "string",
-                  "description": "The policy for which repositories can use Copilot coding agent. Can be one of `all`, `selected`, or `none`.",
+                  "description": "The policy for which repositories can use Copilot cloud agent. Can be one of `all`, `selected`, or `none`.",
                   "enum": [
                     "all",
                     "selected",
@@ -118,7 +659,7 @@
               "properties": {
                 "enabled_repositories": {
                   "type": "string",
-                  "description": "The policy for which repositories can use Copilot coding agent. Can be one of `all`, `selected`, or `none`.",
+                  "description": "The policy for which repositories can use Copilot cloud agent. Can be one of `all`, `selected`, or `none`.",
                   "enum": [
                     "all",
                     "selected",
@@ -175,7 +716,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "put",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
-      "title": "Set Copilot coding agent permissions for an organization",
+      "title": "Set Copilot cloud agent permissions for an organization",
       "category": "copilot",
       "subcategory": "copilot-coding-agent-management",
       "parameters": [
@@ -193,7 +734,7 @@
         {
           "type": "string",
           "name": "enabled_repositories",
-          "description": "<p>The policy for which repositories can use Copilot coding agent. Can be one of <code>all</code>, <code>selected</code>, or <code>none</code>.</p>",
+          "description": "<p>The policy for which repositories can use Copilot cloud agent. Can be one of <code>all</code>, <code>selected</code>, or <code>none</code>.</p>",
           "isRequired": true,
           "enum": [
             "all",
@@ -202,7 +743,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Sets the policy for which repositories in an organization can use Copilot coding agent.</p>\n<p>Organization owners can configure whether Copilot coding agent is enabled for\nall repositories, selected repositories, or no repositories owned by the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Sets the policy for which repositories in an organization can use Copilot cloud agent.</p>\n<p>Organization owners can configure whether Copilot cloud agent is enabled for\nall repositories, selected repositories, or no repositories owned by the organization.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -264,7 +805,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
-      "title": "List repositories enabled for Copilot coding agent in an organization",
+      "title": "List repositories enabled for Copilot cloud agent in an organization",
       "category": "copilot",
       "subcategory": "copilot-coding-agent-management",
       "parameters": [
@@ -297,7 +838,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Lists the selected repositories that are enabled for Copilot coding agent in an organization.</p>\n<p>Organization owners can use this endpoint when the coding agent repository policy\nis set to <code>selected</code> to see which repositories have been enabled.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Lists the selected repositories that are enabled for Copilot cloud agent in an organization.</p>\n<p>Organization owners can use this endpoint when the coding agent repository policy\nis set to <code>selected</code> to see which repositories have been enabled.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1326,7 +1867,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "put",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
-      "title": "Set selected repositories for Copilot coding agent in an organization",
+      "title": "Set selected repositories for Copilot cloud agent in an organization",
       "category": "copilot",
       "subcategory": "copilot-coding-agent-management",
       "parameters": [
@@ -1344,11 +1885,11 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>List of repository IDs to enable for Copilot coding agent.</p>",
+          "description": "<p>List of repository IDs to enable for Copilot cloud agent.</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Replaces the list of selected repositories that are enabled for Copilot coding\nagent in an organization. This method can only be called when the coding agent\nrepository policy is set to <code>selected</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Replaces the list of selected repositories that are enabled for Copilot cloud\nagent in an organization. This method can only be called when the cloud agent\nrepository policy is set to <code>selected</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1417,7 +1958,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "put",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
-      "title": "Enable a repository for Copilot coding agent in an organization",
+      "title": "Enable a repository for Copilot cloud agent in an organization",
       "category": "copilot",
       "subcategory": "copilot-coding-agent-management",
       "parameters": [
@@ -1441,7 +1982,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Adds a repository to the list of selected repositories enabled for Copilot\ncoding agent in an organization. This method can only be called when the\ncoding agent repository policy is set to <code>selected</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Adds a repository to the list of selected repositories enabled for Copilot\ncloud agent in an organization. This method can only be called when the\ncloud agent repository policy is set to <code>selected</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1505,7 +2046,7 @@
       "serverUrl": "https://api.github.com",
       "verb": "delete",
       "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
-      "title": "Disable a repository for Copilot coding agent in an organization",
+      "title": "Disable a repository for Copilot cloud agent in an organization",
       "category": "copilot",
       "subcategory": "copilot-coding-agent-management",
       "parameters": [
@@ -1529,7 +2070,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Removes a repository from the list of selected repositories enabled for Copilot\ncoding agent in an organization. This method can only be called when the\ncoding agent repository policy is set to <code>selected</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scopes to use this endpoint.</p>",
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Removes a repository from the list of selected repositories enabled for Copilot\ncloud agent in an organization. This method can only be called when the\ncloud agent repository policy is set to <code>selected</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scopes to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2968,11 +3509,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -3052,8 +3589,7 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3157,8 +3693,113 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/user-teams-1-day",
+      "title": "Get Copilot enterprise user-teams report for a specific day",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>The day to request data for, in <code>YYYY-MM-DD</code> format.</p>",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the Copilot enterprise user-teams report for a specific day. The report provides user-team join data for Copilot across the enterprise, with one entry per user-team pair.</p>\n<p>The report contains user-team membership data for the specified day, enabling consumers to join with the existing enterprise user reports to compute team-level usage metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.</p>\n<p>The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.</p>\n<p>Enterprise owners, billing managers, and authorized users with fine-grained \"View Enterprise Copilot Metrics\" permission can retrieve Copilot metrics reports for the enterprise. OAuth app tokens and personal access tokens (classic) need either the <code>manage_billing:copilot</code> or <code>read:enterprise</code> scopes to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_day": "2025-07-01"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 1 Day Report",
+              "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+                },
+                "report_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The day of the report in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise Copilot metrics\" enterprise permissions": "read"
+          }
+        ]
       }
     },
     {
@@ -3184,11 +3825,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -3268,8 +3905,7 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3373,8 +4009,7 @@
           {
             "\"Enterprise Copilot metrics\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3400,11 +4035,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -3598,6 +4229,116 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/user-teams-1-day",
+      "title": "Get Copilot organization user-teams report for a specific day",
+      "category": "copilot",
+      "subcategory": "copilot-usage-metrics",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>The day to request data for, in <code>YYYY-MM-DD</code> format.</p>",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Use this endpoint to retrieve download links for the Copilot organization user-teams report for a specific day. The report provides user-team join data for Copilot across the organization, with one entry per user-team pair.</p>\n<p>The report contains user-team membership data for the specified day, enabling consumers to join with the existing organization user reports to compute team-level usage metrics. Reports are generated daily and made available for download through signed URLs with a limited expiration time.</p>\n<p>The response includes download links to the report files, along with the specific date of the report. The report covers a complete day for which data has been processed.</p>\n<p>Organization owners and authorized users with fine-grained \"View Organization Copilot Metrics\" permission can retrieve Copilot metrics reports for the organization. OAuth app tokens and personal access tokens (classic) need the <code>read:org</code> scope to use this endpoint.</p>\n<p>For more information about organization metrics attribution, see <a href=\"https://docs.github.com/copilot/concepts/copilot-metrics#how-are-metrics-attributed-across-organizations\">How are metrics attributed across organizations</a>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "download_links": [
+                "https://example.com/copilot-usage-report-1.json",
+                "https://example.com/copilot-usage-report-2.json"
+              ],
+              "report_day": "2025-07-01"
+            },
+            "schema": {
+              "type": "object",
+              "title": "Copilot Metrics 1 Day Report",
+              "description": "Links to download the Copilot usage metrics report for an enterprise/organization for a specific day.",
+              "properties": {
+                "download_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": "The URLs to download the Copilot usage metrics report for the enterprise/organization for the specified day."
+                },
+                "report_day": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The day of the report in `YYYY-MM-DD` format."
+                }
+              },
+              "required": [
+                "download_links",
+                "report_day"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization Copilot metrics\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/orgs/{org}/copilot/metrics/reports/users-1-day",
       "title": "Get Copilot organization users usage metrics for a specific day",
       "category": "copilot",
@@ -3618,11 +4359,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-              "2025-10-13"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -4597,6 +5334,14 @@
                               "updated_at": {
                                 "type": "string",
                                 "format": "date-time"
+                              },
+                              "notification_setting": {
+                                "type": "string",
+                                "description": "Whether team members will receive notifications when the team is mentioned.",
+                                "enum": [
+                                  "notifications_enabled",
+                                  "notifications_disabled"
+                                ]
                               }
                             },
                             "required": [
@@ -5686,6 +6431,14 @@
                         "updated_at": {
                           "type": "string",
                           "format": "date-time"
+                        },
+                        "notification_setting": {
+                          "type": "string",
+                          "description": "Whether team members will receive notifications when the team is mentioned.",
+                          "enum": [
+                            "notifications_enabled",
+                            "notifications_disabled"
+                          ]
                         }
                       },
                       "required": [

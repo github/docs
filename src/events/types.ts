@@ -37,6 +37,7 @@ export type EventProps = {
     page_document_type: string
     page_type: string
     content_type: string
+    docs_team_metrics?: string
     status: number
     is_logged_in: boolean
     dotcom_user: string

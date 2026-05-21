@@ -8,6 +8,7 @@ redirect_from:
   - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
   - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
+  - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise
 versions:
   ghes: '*'
 contentType: how-tos

@@ -653,7 +653,9 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+If the action is in an internal repository, or in a private repository configured to allow access from your workflow's repository, you can reference the action directly. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
+
+If the action isn't in a repository configured to allow access, you need to check out the repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. The following example shows this method for referencing an action. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 

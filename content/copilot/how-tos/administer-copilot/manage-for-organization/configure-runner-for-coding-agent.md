@@ -4,7 +4,7 @@ shortTitle: Configure agent runners
 allowTitleToDifferFromFilename: true
 intro: 'Configure the {% data variables.product.prodname_actions %} runners used by {% data variables.copilot.copilot_cloud_agent %} and control whether repositories can customize the runner type.'
 permissions: Organization owners
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/enterprise/contact?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Contact Sales</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos

@@ -1,5 +1,5 @@
 ---
-title: Configure GitHub Copilot CLI
+title: Configuring GitHub Copilot CLI
 shortTitle: Configure Copilot CLI
 intro: Configure trusted directories, tool access, and path and URL permissions for {% data variables.copilot.copilot_cli_short %}
 versions:
@@ -39,16 +39,16 @@ If you choose to trust the directory for future sessions, the trusted directory 
 
 ### Editing trusted directories
 
-You can edit the list of permanently trusted directories.
+You can edit the list of permanently trusted directories. Trusted directories are stored in the automatically managed `config.json` file.
 
-1. Open the CLI’s `config.json` file. By default, it’s stored in a `.copilot` folder under your home directory:
+1. Open the CLI's `config.json` file. By default, it's stored in a `.copilot` folder under your home directory:
 
    * **macOS/Linux**: `~/.copilot/config.json`
    * **Windows**: `$HOME\.copilot\config.json`
 
-  You can change the config location by setting the `COPILOT_HOME` environment variable.
+  You can change the config location by setting the `COPILOT_HOME` environment variable. This would change `~/.copilot/` and `$HOME\.copilot\` in the above paths.
 
-1. Edit the contents of the `trusted_folders` array.
+1. Edit the contents of the `trustedFolders` array.
 
 ## Setting allowed tools
 
@@ -66,7 +66,7 @@ In this section, you can learn how to:
 
 ### Allowing a tool for the first time
 
-The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—for example, {% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
+The first time that {% data variables.product.prodname_copilot_short %} needs to use a tool that may require approval—{% data reusables.cli.tools-needing-approval %}—it will ask you whether you want to allow it to run. Whether you’re prompted can depend on the tool and how it’s being used (such as the arguments provided or whether the tool has been previously approved).
 
 1. Prompt {% data variables.product.prodname_copilot_short %} to perform a task that requires a tool. For example:
 

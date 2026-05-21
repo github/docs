@@ -7606,20 +7606,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</p>\n<p>Example: <code>fields[]=123&#x26;fields[]=456&#x26;fields[]=789</code> or <code>fields=123,456,789</code></p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "before",
@@ -9529,7 +9516,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -15453,7 +15440,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -21377,7 +21364,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -27303,7 +27290,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -32445,20 +32432,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</p>\n<p>Example: fields[]=123&#x26;fields[]=456&#x26;fields[]=789 or fields=123,456,789</p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -38499,20 +38473,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the\ntitle field will be returned.</p>\n<p>Example: <code>fields[]=123&#x26;fields[]=456&#x26;fields[]=789</code> or <code>fields=123,456,789</code></p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "before",
@@ -39608,20 +39569,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</p>\n<p>Example: <code>fields[]=123&#x26;fields[]=456&#x26;fields[]=789</code> or <code>fields=123,456,789</code></p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -41499,7 +41447,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -47423,7 +47371,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -53347,7 +53295,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -59273,7 +59221,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -64410,20 +64358,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</p>\n<p>Example: fields[]=123&#x26;fields[]=456&#x26;fields[]=789 or fields=123,456,789</p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -70451,20 +70386,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the\ntitle field will be returned.</p>\n<p>Example: <code>fields[]=123&#x26;fields[]=456&#x26;fields[]=789</code> or <code>fields=123,456,789</code></p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "before",

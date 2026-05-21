@@ -44,7 +44,7 @@ If you see a trial expiration notice but have an active paid subscription, this 
 Some migrations cannot be completed through self-service options.
 
 * **Changing between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}**: If you need to migrate between these plans within your enterprise and the option isn't available in your "Billing & Licensing" settings, contact {% data variables.contact.contact_support_page %} or your account manager for assistance.
-* **Non-enterprise to enterprise environment migrations**: When moving from standalone {% data variables.product.prodname_copilot_short %} plans to a {% data variables.product.prodname_enterprise %} environment, contact {% data variables.contact.contact_support_page %} or your account manager for assistance to avoid service interruption.
+* **Non-enterprise to enterprise environment migrations**: When moving from standalone {% data variables.product.prodname_copilot_short %} plans to a {% data variables.product.prodname_enterprise %} environment, contact {% data variables.contact.contact_support_page %} or your account manager to coordinate a migration. Attempting to complete this transition without explicit and careful coordination with your account team and support representatives may result in duplicate billing of {% data variables.product.prodname_copilot_short %} seats for the remainder of the billing cycle. See [AUTOTITLE](/copilot/reference/copilot-billing/license-changes#removing-seats-1).
 
 ## Further reading
 

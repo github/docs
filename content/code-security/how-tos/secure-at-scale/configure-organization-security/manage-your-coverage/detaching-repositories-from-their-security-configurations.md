@@ -4,7 +4,9 @@ shortTitle: Detach security configuration
 intro: Go back to managing a repository's security settings on an individual basis.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/detaching-repositories-from-their-security-configurations
 contentType: how-tos
@@ -20,9 +22,12 @@ Alternatively, if you want to apply a {% data variables.product.prodname_securit
 
 ## Detaching repositories from linked {% data variables.product.prodname_security_configurations %}
 
+Detached repositories show a status of "No configuration" in the repository table on the {% data variables.product.prodname_security_configurations %} settings page. For more information about all configuration statuses, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
+
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
+1. Click the **Repositories** tab.
 1. Optionally, in the "Apply configurations" section, filter for specific repositories you would like to detach from their configurations. To learn more, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table).
 {% data reusables.security-configurations.select-repos %}
 1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **No configuration**.

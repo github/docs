@@ -68,19 +68,44 @@ const allUsedActions = chain(workflows)
 
 const scheduledWorkflows = workflows.filter(({ data }) => data.on.schedule)
 
-const alertWorkflows = workflows
-  // Only include jobs running on docs-internal
-  .filter(({ data }) =>
-    Object.values(data.jobs)
-      .map((job) => job.if)
-      .toString()
-      .includes('docs-internal'),
-  )
-  // Require slack alerts on workflows that aren't actively watched at time of run
-  .filter(({ data }) => data.on.schedule || data.on.push || data.on.issues || data.on.issue_comment)
-// Not including
-// - premerge workflows: pull_request, pull_request_target, pull_request_review, merge_group
-// - adhoc workflows: workflow_dispatch, workflow_run, workflow_call, repository_dispatch
+// Triggers where a workflow runs without a human actively watching and
+// therefore needs explicit failure reporting (Slack + issue). Attended
+// triggers (pull_request*, workflow_dispatch, workflow_call, merge_group)
+// are intentionally excluded: the person who triggered the run sees the
+// result directly.
+//
+// `issues` and `issue_comment` are only considered unattended for jobs
+// running in docs-internal itself. When a job is scoped to the public
+// github/docs fork via `if: github.repository == 'github/docs'`, those
+// triggers fire from external reporters/commenters, and the issue or
+// comment itself is the natural failure surface — piling on automated
+// alert-issues there is duplicative and noisy.
+const ALWAYS_UNATTENDED_TRIGGERS = ['schedule', 'workflow_run', 'repository_dispatch', 'push']
+const DOCS_INTERNAL_ONLY_UNATTENDED_TRIGGERS = ['issues', 'issue_comment']
+
+function jobIsPublicDocsScoped(job: WorkflowJob): boolean {
+  return typeof job.if === 'string' && /github\.repository\s*==\s*['"]github\/docs['"]/.test(job.if)
+}
+
+function jobRequiresFailureAlerts(workflow: WorkflowMeta, job: WorkflowJob): boolean {
+  const triggers = workflow.data.on || {}
+  if (ALWAYS_UNATTENDED_TRIGGERS.some((t) => (triggers as Record<string, unknown>)[t])) {
+    return true
+  }
+  if (
+    !jobIsPublicDocsScoped(job) &&
+    DOCS_INTERNAL_ONLY_UNATTENDED_TRIGGERS.some((t) => (triggers as Record<string, unknown>)[t])
+  ) {
+    return true
+  }
+  return false
+}
+
+// Workflows where at least one job requires failure alerts — used to drive
+// the parameterised tests below. Per-job filtering happens inside each test.
+const alertWorkflows = workflows.filter(({ data }) =>
+  Object.values(data.jobs).some((job) => job.steps),
+)
 // to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
 
 const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
@@ -151,23 +176,22 @@ describe('GitHub Actions workflows', () => {
     }
   })
 
-  test.each(alertWorkflows)(
-    'scheduled workflows slack alert on fail $filename',
-    ({ filename, data }) => {
-      for (const [name, job] of Object.entries(data.jobs)) {
-        if (
-          !job.steps.find((step: WorkflowStep) => step.uses === './.github/actions/slack-alert')
-        ) {
-          throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
-        }
+  test.each(alertWorkflows)('unattended workflows slack alert on fail $filename', (workflow) => {
+    const { filename, data } = workflow
+    for (const [name, job] of Object.entries(data.jobs)) {
+      if (!jobRequiresFailureAlerts(workflow, job)) continue
+      if (!job.steps.find((step: WorkflowStep) => step.uses === './.github/actions/slack-alert')) {
+        throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
       }
-    },
-  )
+    }
+  })
 
   test.each(alertWorkflows)(
-    'scheduled workflows create failure issue on fail $filename',
-    ({ filename, data }) => {
+    'unattended workflows create failure issue on fail $filename',
+    (workflow) => {
+      const { filename, data } = workflow
       for (const [name, job] of Object.entries(data.jobs)) {
+        if (!jobRequiresFailureAlerts(workflow, job)) continue
         if (
           !job.steps.find(
             (step: WorkflowStep) => step.uses === './.github/actions/create-workflow-failure-issue',
@@ -181,8 +205,10 @@ describe('GitHub Actions workflows', () => {
 
   test.each(alertWorkflows)(
     'performs a checkout before calling composite action $filename',
-    ({ filename, data }) => {
+    (workflow) => {
+      const { filename, data } = workflow
       for (const [name, job] of Object.entries(data.jobs)) {
+        if (!jobRequiresFailureAlerts(workflow, job)) continue
         if (!job.steps.find((step: WorkflowStep) => checkoutRegexp.test(step.uses || ''))) {
           throw new Error(
             `Job ${filename} # ${name} missing a checkout before calling the composite action`,

@@ -160,6 +160,14 @@ export default class Operation {
           delete param.example
           delete param.examples
           delete param['x-multi-segment']
+          // Strip unused parameter schema sub-fields; only type, default, and
+          // enum are consumed by renderers
+          if (param.schema && typeof param.schema === 'object') {
+            const { type, default: defaultVal, enum: enumVal } = param.schema
+            param.schema = { type }
+            if (defaultVal !== undefined) param.schema.default = defaultVal
+            if (enumVal !== undefined) param.schema.enum = enumVal
+          }
           return param
         }),
       )
@@ -220,5 +228,8 @@ export default class Operation {
   // Programmatic access data structure varies by operation and is not strongly typed
   programmaticAccess(progAccessData: any): void {
     this.progAccess = progAccessData[this.#operation.operationId]
+    if (this.progAccess) {
+      delete this.progAccess.disabledForPatV2
+    }
   }
 }

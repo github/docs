@@ -34,7 +34,7 @@ To learn more about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOT
 
 From the Agents tab, you can:
 
-* **Kick off new agent tasks**: Select an AI model of your choice, and optionally choose from third-party agents or {% data variables.copilot.custom_agents_short %} best suited for the task. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
+* **Kick off new agent tasks**: Select an AI model of your choice, and optionally choose from third-party agents or {% data variables.copilot.custom_agents_short %} best suited for the task. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 * **Monitor live session logs**: Once the agent starts working, you can click any agent session to open the session log and follow its progress and thought process in real time.
 * **Track active sessions**: You can view all active agent sessions that have been started in the repository.
 * **Steer agents mid-session**: If you realize you didn't scope a request correctly, or want the agent to use a specific tool or service, you can step in and provide **steering input** without stopping the run. Steering uses **one premium request** per message. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions#steering-a-copilot-session-from-the-agents-tab).

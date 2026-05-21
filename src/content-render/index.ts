@@ -2,6 +2,9 @@ import { renderLiquid } from './liquid/index'
 import { renderMarkdown, renderUnified } from './unified/index'
 import { engine } from './liquid/engine'
 import type { Context } from '@/types'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 interface RenderOptions {
   cache?: boolean | ((template: string, context: Context) => string)
@@ -38,9 +41,12 @@ export async function renderContent(
   try {
     template = await renderLiquid(template, context)
     if (context.markdownRequested) {
-      const md = await renderMarkdown(template, context)
-
-      return md
+      // Skip the remark pipeline when there are no internal links to rewrite,
+      // since link rewriting is the only transformation the pipeline performs.
+      if (!/\]\(\s*<?\//.test(template) && !/\]:\s*\//.test(template)) {
+        return template.trim()
+      }
+      return await renderMarkdown(template, context)
     }
 
     const html = await renderUnified(template, context, options)
@@ -50,7 +56,7 @@ export async function renderContent(
     return html
   } catch (error) {
     if (options.filename) {
-      console.error(`renderContent failed on file: ${options.filename}`)
+      logger.error('renderContent failed on file', { filename: options.filename })
     }
     throw error
   }

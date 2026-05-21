@@ -40,7 +40,6 @@ Use these models for common development tasks that require a balance of quality,
 |---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
 | {% data variables.copilot.copilot_gpt_5_mini %}   | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
-| {% data variables.copilot.copilot_grok_code %}    | Specialized for coding tasks. Performs well on code generation, and debugging across multiple languages.                                        |
 | {% data variables.copilot.copilot_raptor_mini %}  | Specialized for fast, accurate inline suggestions and explanations.                                        |
 
 ### When to use these models
@@ -89,9 +88,9 @@ These models are designed for tasks that require step-by-step reasoning, complex
 | Model                                                 | Why it's a good fit                                                                                                                                             |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_gpt_5_mini %}       | Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis. |
-| {% data variables.copilot.copilot_gpt_54 %}           | Great at complex reasoning, code analysis, and technical decision-making.                                                                                       |
+| {% data variables.copilot.copilot_gpt_55 %}           | Great at complex reasoning, code analysis, and technical decision-making.                                                                                       |
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure.                                                                     |
-| {% data variables.copilot.copilot_claude_opus_46 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus_45 %}.                                                               |
+| {% data variables.copilot.copilot_claude_opus_47 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus_46 %}.                                                               |
 | {% data variables.copilot.copilot_gemini_31_pro %}    | Advanced reasoning across long contexts and scientific or technical analysis.                                                                                   |
 | {% data variables.copilot.copilot_goldeneye %}        | Complex problem-solving challenges and sophisticated reasoning.                                                                                                 |
 

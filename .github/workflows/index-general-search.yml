@@ -49,7 +49,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         id: set-matrix
         with:
           script: |
@@ -331,6 +331,36 @@ jobs:
           **Workflow file:** $FILE_URL
 
           This issue was automatically created by the \`$WORKFLOW_NAME\` workflow.
+
+          ---
+
+          ## Instructions for the issue analysis agent
+
+          These scraping failures are **almost never timeouts**. They are
+          almost always caused by Liquid/Markdown corruptions in the
+          translated source that make the page fail to render. Please do not
+          file this as a transient/timeout issue.
+
+          To investigate:
+
+          1. Pull the translation repos locally:
+             \`\`\`
+             npm run clone-translations
+             \`\`\`
+          2. Identify the specific corruptions with the canonical reporter
+             (verify the exact script name in \`package.json\` before running):
+             \`\`\`
+             npm run count-translation-corruptions
+             \`\`\`
+             The script writes a structured JSON report to stdout listing each
+             corrupted file, its location, the error message, and the
+             offending/illegal tag token when available.
+          3. **Open a pull request that fixes the corruptions** rather than
+             just commenting the findings on this issue. The issue body above
+             already lists the affected pages; the value the agent adds is
+             the fix. Where possible, fix the underlying pattern in
+             \`src/languages/lib/correct-translation-content.ts\` so the same
+             corruption is corrected on future syncs.
           EOF
           )
           gh issue create \

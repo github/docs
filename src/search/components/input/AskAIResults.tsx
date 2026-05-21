@@ -22,7 +22,6 @@ import { sendEvent, uuidv4 } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { generateAISearchLinksJson } from '../helpers/ai-search-links-json'
 import { ASK_AI_EVENT_GROUP } from '@/events/components/event-groups'
-import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 
 import type { AIReference } from '../types'
 
@@ -83,7 +82,6 @@ export function AskAIResults({
     aiCouldNotAnswer: boolean
     connectedEventId?: string
   }>('ai-query-cache', 1000, 7)
-  const { isOpen: isCTAOpen, permanentDismiss: permanentlyDismissCTA } = useCTAPopoverContext()
 
   let copyUrl = ``
   if (window?.location?.href) {
@@ -144,12 +142,6 @@ export function AskAIResults({
     setInitialLoading(true)
     setResponseLoading(true)
     disclaimerRef.current?.focus()
-
-    // We permanently dismiss the CTA after performing an AI Search because the
-    // user has tried it and doesn't require additional CTA prompting to try it
-    if (isCTAOpen) {
-      permanentlyDismissCTA()
-    }
 
     const cachedData = getItem(query, version, router.locale || 'en')
     if (cachedData) {

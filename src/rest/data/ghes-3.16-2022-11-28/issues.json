@@ -15,6 +15,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "assigned",
             "enum": [
               "assigned",
               "created",
@@ -22,8 +23,7 @@
               "subscribed",
               "repos",
               "all"
-            ],
-            "default": "assigned"
+            ]
           }
         },
         {
@@ -33,12 +33,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -57,12 +57,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "comments"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -72,11 +72,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -85,8 +85,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -1309,7 +1308,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -3290,6 +3289,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "assigned",
             "enum": [
               "assigned",
               "created",
@@ -3297,8 +3297,7 @@
               "subscribed",
               "repos",
               "all"
-            ],
-            "default": "assigned"
+            ]
           }
         },
         {
@@ -3308,12 +3307,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -3341,12 +3340,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "comments"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -3356,11 +3355,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -3369,8 +3368,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -4560,7 +4558,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -6551,12 +6549,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -6596,6 +6594,15 @@
           }
         },
         {
+          "name": "issue_field_values",
+          "description": "<p>A comma-separated list of issue field filters in <code>field_slug:value</code> format.\nOnly issues matching all specified field values are returned.\nRequires issue fields to be enabled for the repository. Issue fields are\nnot available for user-owned repositories, and field availability for\norganization-owned public repositories depends on the organization's\nvisibility settings. For example, <code>priority:Urgent,severity:High</code> filters\nissues where the <code>priority</code> field is <code>Urgent</code> AND the <code>severity</code> field is\n<code>High</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "labels",
           "description": "<p>A list of comma separated label names. Example: <code>bug,ui,@high</code></p>",
           "in": "query",
@@ -6611,12 +6618,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "comments"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -6626,11 +6633,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -6639,8 +6646,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -7730,7 +7736,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -9751,6 +9757,25 @@
           "description": "<p>Logins for Users to assign to this issue. <em>NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise.</em></p>"
         },
         {
+          "type": "array of objects",
+          "name": "issue_field_values",
+          "description": "<p>An array of issue field values to set on this issue. Each field value must include the field ID and the value to set. Issue fields are only available for organization-owned repositories with the feature enabled. Field values are silently dropped otherwise.</p>",
+          "childParamsGroups": [
+            {
+              "type": "integer",
+              "name": "field_id",
+              "description": "<p>The ID of the issue field to set</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string or number",
+              "name": "value",
+              "description": "<p>The value to set for the field</p>",
+              "isRequired": true
+            }
+          ]
+        },
+        {
           "type": "string or null",
           "name": "type",
           "description": "<p>The name of the issue type to associate with this issue. <em>NOTE: Only users with push access can set the type for new issues. The type is silently dropped otherwise.</em></p>"
@@ -10831,7 +10856,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -13905,7 +13930,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -16950,7 +16975,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -20104,7 +20129,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -22285,6 +22310,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "assigned",
             "enum": [
               "assigned",
               "created",
@@ -22292,8 +22318,7 @@
               "subscribed",
               "repos",
               "all"
-            ],
-            "default": "assigned"
+            ]
           }
         },
         {
@@ -22303,12 +22328,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -22327,12 +22352,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "comments"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -22342,11 +22367,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -22355,8 +22380,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -23543,7 +23567,7 @@
                   },
                   "type": {
                     "title": "Issue Type",
-                    "description": "The type of issue.",
+                    "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                     "type": [
                       "object",
                       "null"
@@ -26919,7 +26943,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -29983,7 +30007,7 @@
                 },
                 "type": {
                   "title": "Issue Type",
-                  "description": "The type of issue.",
+                  "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                   "type": [
                     "object",
                     "null"
@@ -32059,11 +32083,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -32085,8 +32109,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -32892,8 +32915,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -33674,8 +33696,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -34466,8 +34487,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -34552,8 +34572,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -37413,7 +37432,7 @@
                           },
                           "type": {
                             "title": "Issue Type",
-                            "description": "The type of issue.",
+                            "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                             "type": [
                               "object",
                               "null"
@@ -41787,7 +41806,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -55093,12 +55112,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -55108,11 +55127,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "due_on",
             "enum": [
               "due_on",
               "completeness"
-            ],
-            "default": "due_on"
+            ]
           }
         },
         {
@@ -55122,11 +55141,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "asc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "asc"
+            ]
           }
         },
         {
@@ -65480,7 +65499,7 @@
                               },
                               "type": {
                                 "title": "Issue Type",
-                                "description": "The type of issue.",
+                                "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                                 "type": [
                                   "object",
                                   "null"

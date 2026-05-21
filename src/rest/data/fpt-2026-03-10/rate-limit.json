@@ -88,12 +88,6 @@
                   "remaining": 10,
                   "reset": 1691591091
                 }
-              },
-              "rate": {
-                "limit": 5000,
-                "used": 1,
-                "remaining": 4999,
-                "reset": 1372700873
               }
             },
             "schema": {

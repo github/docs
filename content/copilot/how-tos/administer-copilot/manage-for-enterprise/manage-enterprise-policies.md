@@ -19,6 +19,8 @@ category:
 
 When an organization owner assigns a {% data variables.product.prodname_copilot_short %} license to a member of their organization, the availability of features and models is controlled by policies.
 
+If you're setting up {% data variables.product.prodname_copilot_short %} for the first time, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/govern-for-adoption) for guidance on setting a governance posture that balances compliance with developer productivity.
+
 ## Defining policies for your enterprise
 
 Enterprise owners can define a policy for the whole enterprise, or delegate the decision to individual organization owners. See [AUTOTITLE](/copilot/concepts/policies).
