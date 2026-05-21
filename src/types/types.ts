@@ -68,6 +68,7 @@ export type PageFrontmatter = {
   childGroups?: ChildGroup[]
   sidebarLink?: SidebarLink
   spotlight?: SpotlightItem[]
+  filters?: Array<'category' | 'surface' | 'complexity'>
 }
 
 type FeaturedLinks = {
@@ -155,7 +156,6 @@ export type Context = {
   redirectNotFound?: string
   earlyAccessPageLinks?: string
   changelogUrl?: string
-  whatsNewChangelog?: ChangelogItem[]
   secretScanningData?: SecretScanningData[]
   ghesReleases?: GHESRelease[]
   ghesReleaseNotes?: GHESReleasePatch[]
@@ -173,8 +173,6 @@ export type Context = {
   breadcrumbs?: Breadcrumb[]
   glossaries?: Glossary[]
   currentProductName?: string
-  productCommunityExamples?: ProductExample[]
-  productUserExamples?: ProductExample[]
   productGroups?: ProductGroup[]
   featuredLinks?: FeaturedLinksExpanded
   renderedPage?: string
@@ -225,6 +223,7 @@ export type ToC = {
   octicon: ValidOcticon | null
   category: string[] | null
   complexity: string[] | null
+  surface: string[] | null
   industry: string[] | null
   childTocItems: ToC[]
 }
@@ -268,12 +267,6 @@ export type ReleaseNotes = {
   [majorVersion: string]: {
     [minorVersion: string]: GHESReleasePatch
   }
-}
-
-export type ChangelogItem = {
-  title: string
-  date: string
-  href: string
 }
 
 export type SecretScanningData = {
@@ -342,9 +335,11 @@ export type Page = {
   octicon?: string
   category?: string[]
   complexity?: string[]
+  surface?: string[]
   industry?: string[]
   sidebarLink?: SidebarLink
   contentType?: string
+  docsTeamMetrics?: string[]
   children?: string[]
 }
 
@@ -435,12 +430,6 @@ export type AllVersions = {
 // It's useful because otherwise you might get a TypeScript error that
 // is not possible to happen at runtime.
 export type URLSearchParamsTypes = string | string[][] | Record<string, string> | URLSearchParams
-
-export type ProductExample = {
-  repo?: string
-  user?: string
-  description: string
-}
 
 export type FeatureData = {
   [key: string]: Versions

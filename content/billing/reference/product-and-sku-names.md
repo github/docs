@@ -31,64 +31,41 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 
 <!-- markdownlint-disable GHD046 -->
 
-* `actions_beta_classroom_repository` - Actions beta classroom repository
-* `actions_beta_custom_runner_azure` - Actions beta custom runner (Azure)
-* `actions_beta_macos_xl_runner` - Actions beta macOS XL runner
-* `actions_beta_public_repository` - Actions beta public repository
-* `actions_beta_self_hosted_runner` - Actions beta self-hosted runner
 * `actions_cache_storage` - Actions cache storage
 * `actions_custom_image_storage` - Actions custom image storage
 * `actions_linux` - Actions Linux runners
-* `actions_linux_16_core_perf` - Actions Linux 16-core performance
-* `actions_linux_20_core_mem` - Actions Linux 20-core memory
 * `actions_linux_2_core_advanced` - Actions Linux 2-core advanced
 * `actions_linux_2_core_arm` - Actions Linux 2-core ARM
 * `actions_linux_32_core` - Actions Linux 32-core
 * `actions_linux_32_core_arm` - Actions Linux 32-core ARM
-* `actions_linux_32_core_stor` - Actions Linux 32-core storage
 * `actions_linux_4_core` - Actions Linux 4-core
-* `actions_linux_4_core_advanced` - Actions Linux 4-core advanced
+* `actions_linux_4_core_arm` - Actions Linux 4-core ARM
 * `actions_linux_4_core_gpu` - Actions Linux 4-core GPU
 * `actions_linux_64_core` - Actions Linux 64-core
 * `actions_linux_64_core_arm` - Actions Linux 64-core ARM
 * `actions_linux_8_core` - Actions Linux 8-core
 * `actions_linux_8_core_arm` - Actions Linux 8-core ARM
-* `actions_linux_8_core_stor` - Actions Linux 8-core storage
 * `actions_linux_96_core` - Actions Linux 96-core
-* `actions_linux_a100_24_core_gpu` - Actions Linux A100 24-core GPU
-* `actions_linux_a10_36_core_gpu` - Actions Linux A10 36-core GPU
 * `actions_linux_arm` - Actions Linux ARM
 * `actions_linux_slim` - Actions Linux slim
 * `actions_macos` - Actions macOS runners
-* `actions_macos_12_core` - Actions macOS 12-core
-* `actions_macos_8_core` - Actions macOS 8-core
 * `actions_macos_l` - Actions macOS large
 * `actions_macos_xl` - Actions macOS XL
-* `actions_self_hosted_linux` - Actions self-hosted Linux
-* `actions_self_hosted_macos` - Actions self-hosted macOS
-* `actions_self_hosted_unknown` - Actions self-hosted unknown
-* `actions_self_hosted_windows` - Actions self-hosted Windows
 * `actions_storage` - Actions storage
-* `actions_unknown` - Actions unknown
 * `actions_windows` - Actions Windows runners
 * `actions_windows_16_core` - Actions Windows 16-core
-* `actions_windows_176_core_perf` - Actions Windows 176-core performance
 * `actions_windows_2_core` - Actions Windows 2-core
 * `actions_windows_2_core_advanced` - Actions Windows 2-core advanced
 * `actions_windows_2_core_arm` - Actions Windows 2-core ARM
+* `actions_windows_4_core_arm` - Actions Windows 4-core ARM
 * `actions_windows_32_core` - Actions Windows 32-core
 * `actions_windows_32_core_arm` - Actions Windows 32-core ARM
-* `actions_windows_32_core_stor` - Actions Windows 32-core storage
 * `actions_windows_4_core` - Actions Windows 4-core
 * `actions_windows_4_core_gpu` - Actions Windows 4-core GPU
 * `actions_windows_64_core` - Actions Windows 64-core
 * `actions_windows_64_core_arm` - Actions Windows 64-core ARM
 * `actions_windows_8_core` - Actions Windows 8-core
 * `actions_windows_8_core_arm` - Actions Windows 8-core ARM
-* `actions_windows_8_core_mem` - Actions Windows 8-core memory
-* `actions_windows_8_core_stor` - Actions Windows 8-core storage
-* `actions_windows_a100_24_core_gpu` - Actions Windows A100 24-core GPU
-* `actions_windows_a10_36_core_gpu` - Actions Windows A10 36-core GPU
 * `actions_windows_arm` - Actions Windows ARM
 
  <!-- markdownlint-enable GHD046 -->

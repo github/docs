@@ -7,6 +7,9 @@ import { merge, get } from 'lodash-es'
 
 import languages from '@/languages/lib/languages-server'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 interface YAMLException extends Error {
   mark?: any
@@ -128,7 +131,7 @@ export const getDataByLanguage = memoize((dottedPath: string, langCode: string):
       // would have caused a YAMLException
       if (langCode !== 'en') {
         if (DEBUG_JIT_DATA_READS) {
-          console.warn(`Unable to parse Yaml in (${langCode}) '${dottedPath}': ${error.message}`)
+          logger.warn('Unable to parse Yaml in translation', { langCode, dottedPath, error })
         }
         // Give it one more chance, but use English this time
         return getDataByDir(dottedPath, languages.en.dir)
@@ -187,10 +190,28 @@ function getDataByDir(
     if (allData && key) {
       const value = allData[key]
       if (value) {
-        return matter(value).content
+        let content = matter(value).content
+        if (dir !== englishRoot) {
+          let englishContent = content
+          try {
+            const englishData = getYamlContent(englishRoot, fullPath.join(path.sep), englishRoot)
+            if (englishData?.[key]) {
+              englishContent = matter(englishData[key]).content
+            }
+          } catch (error) {
+            if ((error as FileSystemError).code !== 'ENOENT') {
+              throw error
+            }
+          }
+          content = correctTranslatedContentStrings(content, englishContent, {
+            dottedPath,
+            code: langCode,
+          })
+        }
+        return content
       }
     } else {
-      console.warn(`Unable to find variables Yaml file ${fullPath.join(path.sep)}`)
+      logger.warn('Unable to find variables Yaml file', { filePath: fullPath.join(path.sep) })
     }
     return undefined
   }
@@ -240,7 +261,7 @@ function getDataByDir(
     return get(allData, split.join('.'))
   }
 
-  if (first === 'product-examples' || first === 'glossaries' || first === 'release-notes') {
+  if (first === 'glossaries' || first === 'release-notes') {
     const basename = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${basename}.yml`)
@@ -329,7 +350,7 @@ const getFileContent = (
   englishRoot?: string,
 ): string => {
   const filePath = root ? path.join(root, relPath) : relPath
-  if (DEBUG_JIT_DATA_READS) console.log('READ', filePath)
+  if (DEBUG_JIT_DATA_READS) logger.info('READ', { filePath })
   try {
     return fs.readFileSync(filePath, 'utf-8')
   } catch (err) {

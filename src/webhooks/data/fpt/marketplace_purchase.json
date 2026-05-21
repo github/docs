@@ -1,0 +1,1712 @@
+{
+  "cancelled": {
+    "descriptionHtml": "<p>Someone cancelled a GitHub Marketplace plan, and the last billing cycle has ended. The change will take effect on the account immediately.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a GitHub Marketplace purchase. For more information, see \"<a href=\"https://docs.github.com/marketplace\">GitHub Marketplace</a>.\" For information about the APIs to manage GitHub Marketplace listings, see <a href=\"https://docs.github.com/graphql/reference/objects#marketplacelisting\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/rest/apps/marketplace\">GitHub Marketplace</a>\" in the REST API documentation.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "cancelled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "effective_date",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "marketplace_purchase",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of string,nulls",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "previous_marketplace_purchase",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of strings",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "marketplace"
+    ],
+    "action": "cancelled",
+    "category": "marketplace_purchase"
+  },
+  "changed": {
+    "descriptionHtml": "<p>Someone upgraded or downgraded a GitHub Marketplace plan, and the last billing cycle has ended. The change will take effect on the account immediately.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a GitHub Marketplace purchase. For more information, see \"<a href=\"https://docs.github.com/marketplace\">GitHub Marketplace</a>.\" For information about the APIs to manage GitHub Marketplace listings, see <a href=\"https://docs.github.com/graphql/reference/objects#marketplacelisting\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/rest/apps/marketplace\">GitHub Marketplace</a>\" in the REST API documentation.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "changed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "effective_date",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "marketplace_purchase",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of string,nulls",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "previous_marketplace_purchase",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": ""
+          },
+          {
+            "type": "boolean or null",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of strings",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "marketplace"
+    ],
+    "action": "changed",
+    "category": "marketplace_purchase"
+  },
+  "pending_change": {
+    "descriptionHtml": "<p>Someone downgraded or cancelled a GitHub Marketplace plan. The new plan or cancellation will take effect at the end of the current billing cycle. When the change takes effect, the <code>changed</code> or <code>cancelled</code> event will be sent.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a GitHub Marketplace purchase. For more information, see \"<a href=\"https://docs.github.com/marketplace\">GitHub Marketplace</a>.\" For information about the APIs to manage GitHub Marketplace listings, see <a href=\"https://docs.github.com/graphql/reference/objects#marketplacelisting\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/rest/apps/marketplace\">GitHub Marketplace</a>\" in the REST API documentation.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "pending_change"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "effective_date",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "marketplace_purchase",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of string,nulls",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "previous_marketplace_purchase",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of strings",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "marketplace"
+    ],
+    "action": "pending_change",
+    "category": "marketplace_purchase"
+  },
+  "pending_change_cancelled": {
+    "descriptionHtml": "<p>Someone cancelled a pending change to a GitHub Marketplace plan. Pending changes include plan cancellations and downgrades that will take effect at the end of a billing cycle.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a GitHub Marketplace purchase. For more information, see \"<a href=\"https://docs.github.com/marketplace\">GitHub Marketplace</a>.\" For information about the APIs to manage GitHub Marketplace listings, see <a href=\"https://docs.github.com/graphql/reference/objects#marketplacelisting\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/rest/apps/marketplace\">GitHub Marketplace</a>\" in the REST API documentation.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "pending_change_cancelled"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "effective_date",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "marketplace_purchase",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of strings",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "previous_marketplace_purchase",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of strings",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "marketplace"
+    ],
+    "action": "pending_change_cancelled",
+    "category": "marketplace_purchase"
+  },
+  "purchased": {
+    "descriptionHtml": "<p>Someone purchased a GitHub Marketplace plan. The change will take effect on the account immediately.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a GitHub Marketplace purchase. For more information, see \"<a href=\"https://docs.github.com/marketplace\">GitHub Marketplace</a>.\" For information about the APIs to manage GitHub Marketplace listings, see <a href=\"https://docs.github.com/graphql/reference/objects#marketplacelisting\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/rest/apps/marketplace\">GitHub Marketplace</a>\" in the REST API documentation.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "purchased"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "effective_date",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "marketplace_purchase",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of string,nulls",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "previous_marketplace_purchase",
+        "description": "",
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "account",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "organization_billing_email",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "billing_cycle",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "null",
+            "name": "free_trial_ends_on",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "next_billing_date",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "on_free_trial",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "plan",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "array of strings",
+                "name": "bullets",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "has_free_trial",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "monthly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "price_model",
+                "description": "",
+                "isRequired": true,
+                "enum": [
+                  "FREE",
+                  "FLAT_RATE",
+                  "PER_UNIT"
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "unit_name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "yearly_price_in_cents",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "unit_count",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "marketplace"
+    ],
+    "action": "purchased",
+    "category": "marketplace_purchase"
+  }
+}

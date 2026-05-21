@@ -106,6 +106,11 @@ const context = {
       description: 'Optional content type from the content frontmatter (EDI content models).',
       enum: contentTypesEnum,
     },
+    docs_team_metrics: {
+      type: 'string',
+      description:
+        'Optional comma-separated list of docsTeamMetrics frontmatter values for internal analytics filtering.',
+    },
     status: {
       type: 'number',
       description: 'The HTTP response status code of the main page HTML.',

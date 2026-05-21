@@ -1,6 +1,6 @@
 ---
-title: Viewing metrics for secret scanning push protection
-shortTitle: View secret scanning metrics
+title: Viewing metrics for {% data variables.product.prodname_secret_scanning %} push protection
+shortTitle: View {% data variables.product.prodname_secret_scanning %} metrics
 allowTitleToDifferFromFilename: true
 intro: Monitor push protection's performance across your organization{% ifversion security-overview-enterprise-secret-scanning-metrics %} or enterprise{% endif %} to identify repositories where you may need to take action.
 permissions: '{% data reusables.permissions.security-overview %}'
@@ -23,7 +23,7 @@ category:
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_secret_scanning_caps %}**.
+1. In the sidebar, under "Insights", click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_secret_scanning_caps %}**.
 1. Click on an individual secret type or repository to see the associated {% data variables.secret-scanning.alerts %} for your organization.
 {% data reusables.security-overview.filter-secret-scanning-metrics %}
 
@@ -33,7 +33,7 @@ You can view metrics for {% data variables.product.prodname_secret_scanning %} p
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
-1. In the sidebar, click **{% data variables.product.prodname_secret_scanning_caps %} metrics**.
+1. In the sidebar, click **{% data variables.product.prodname_secret_scanning_caps %}**.
 1. Click on an individual secret type or repository to see the associated {% data variables.secret-scanning.alerts %} for your enterprise.
 {% data reusables.security-overview.filter-secret-scanning-metrics %}
 

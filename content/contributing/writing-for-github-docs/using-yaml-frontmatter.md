@@ -145,8 +145,7 @@ shortTitle: Contributing to projects
 ### `layout`
 
 * Purpose: Render the proper page layout.
-* Type: `String` that matches the name of the layout.
-For a layout named `components/landing`, the value would be `product-landing`.
+* Type: `String` that matches the name of a supported layout. See `layoutNames` in `src/frame/lib/frontmatter.ts` for the authoritative list (for example, `discovery-landing`, `journey-landing`, `bespoke-landing`, `category-landing`, `toc-landing`, `inline`).
 * Optional. If omitted, `DefaultLayout` is used.
 
 ### `children`
@@ -233,6 +232,7 @@ defaultTool: cli
   * `id` (required): Unique identifier for the journey. The id only needs to be unique for journeys within a single journey landing page.
   * `title` (required): Display title for the journey (supports Liquid variables)
   * `description` (optional): Description of the journey (supports Liquid variables)
+  * `timeCommitment` (optional): Estimated time to complete the journey (for example, `2-4 hours`). Rendered as a badge next to the article count.
   * `guides` (required): Array of guide objects that make up this journey. Each guide object has:
     * `href` (required): Path to the article
     * `alternativeNextStep` (optional): Custom text to guide users to alternative paths in the journey. Supports Liquid variables and `[AUTOTITLE]`.
@@ -246,6 +246,7 @@ journeyTracks:
   - id: 'getting_started'
     title: 'Getting started with {% data variables.product.prodname_actions %}'
     description: 'Learn the basics of GitHub Actions.'
+    timeCommitment: '2-4 hours'
     guides:
       - href: '/actions/quickstart'
       - href: '/actions/learn-github-actions'

@@ -7,13 +7,18 @@ versions:
   feature: copilot
 children:
   - /about-copilot-cli
+  - /comparing-cli-features
+  - /cancel-and-roll-back
+  - /about-remote-control
   - /about-custom-agents
   - /about-cli-plugins
-  - /comparing-cli-features
+  - /about-enterprise-plugin-standards
   - /autopilot
   - /fleet
   - /research
   - /chronicle
+  - /rubber-duck
+  - /lsp-servers
   - /context-management
 contentType: concepts
 docsTeamMetrics:

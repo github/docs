@@ -647,11 +647,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         }
       ],
@@ -913,8 +913,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -987,8 +986,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1057,8 +1055,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1581,12 +1578,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "last_accessed_at",
             "enum": [
               "created_at",
               "last_accessed_at",
               "size_in_bytes"
-            ],
-            "default": "last_accessed_at"
+            ]
           }
         },
         {
@@ -1596,11 +1593,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         }
       ],
@@ -25170,11 +25167,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "latest",
             "enum": [
               "latest",
               "all"
-            ],
-            "default": "latest"
+            ]
           }
         },
         {
@@ -25625,6 +25622,12 @@
           "name": "enable_debug_logging",
           "description": "<p>Whether to enable debug logging for the re-run.</p>",
           "default": false
+        },
+        {
+          "type": "boolean",
+          "name": "enable_debugger",
+          "description": "<p>Whether to enable the debugger for the re-run of this job.</p>",
+          "default": false
         }
       ],
       "descriptionHTML": "<p>Re-run a job and its dependent jobs in a workflow run.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
@@ -25780,8 +25783,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -34460,16 +34462,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "actor",
@@ -34547,8 +34540,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -36907,16 +36899,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -37063,16 +37046,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -37143,16 +37117,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [
@@ -37243,16 +37208,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],

@@ -5,7 +5,7 @@ import styles from './BumpLink.module.scss'
 
 export type BumpLinkPropsT = {
   children?: ReactNode
-  title: ReactElement | string
+  title: ReactElement<{ children?: ReactNode }> | string
   href: string
   as?: ElementType<{ className?: string; href: string }>
   className?: string

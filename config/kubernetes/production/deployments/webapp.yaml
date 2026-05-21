@@ -40,18 +40,18 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 1250m
+              cpu: 1500m
               # Absolute minimum to start app is 1000m
               # Node is single-threaded but we want more CPUs
               # for OS and image resizing, and other binary executions
               # Better to increase replicas or memory than CPU
-              memory: 8.0Gi
+              memory: 5000Mi
               # Absolute minimum to start app is 4500Mi
               # Would increase with more pages, versions, or languages supported
               # The additional memory helps during traffic surges
             limits:
               cpu: 8000m
-              memory: 16.0Gi
+              memory: 14.0Gi
           ports:
             - name: http
               containerPort: 4000

@@ -26,7 +26,7 @@ Each event below lists only its additional fields beyond these common fields.
 {% for event in events %}
 #### `{{ event.action }}`
 
-{{ event.description }}
+{% if event.description and event.description != 'N/A' %}{{ event.description }}{% endif %}
 
 {% if event.fields.size > 0 %}**Additional fields:** {% for field in event.fields %}`{{ field }}`{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}
 

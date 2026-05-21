@@ -28,8 +28,6 @@ carousels:
     - /codespaces/developing-in-a-codespace/using-source-control-in-your-codespace
     - /codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization
     - /codespaces/reference/security-in-github-codespaces
-changelog:
-  label: codespaces
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/codespaces'

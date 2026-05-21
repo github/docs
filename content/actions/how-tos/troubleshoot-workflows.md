@@ -142,6 +142,14 @@ If you use self-hosted runners, you can view their activity and diagnose common 
 
 For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot).
 
+{% ifversion fpt or ghec %}
+
+### Runner IP addresses flagged by security scanners
+
+{% data reusables.actions.runner-ip-reputation %}
+
+{% endif %}
+
 ## Networking troubleshooting suggestions
 
 Our support is limited for network issues that involve:

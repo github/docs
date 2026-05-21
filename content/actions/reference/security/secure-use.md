@@ -239,9 +239,7 @@ For more information on how to enable {% data variables.product.prodname_code_sc
 
 For {% data variables.product.prodname_dotcom %}-hosted runners created from images maintained by {% data variables.product.company_short %}, you can view a software bill of materials (SBOM) to see what software was pre-installed on the runner. You can provide your users with the SBOM which they can run through a vulnerability scanner to validate if there are any vulnerabilities in the product. If you are building artifacts, you can include this SBOM in your bill of materials for a comprehensive list of everything that went into creating your software.
 
-SBOMs are available for Ubuntu, Windows, and macOS runner images maintained by {% data variables.product.company_short %}. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.IMAGE-NAME.json.zip` can be found in the attachments of each release.
-
-For third-party images, such as the images for ARM-powered runners, you can find details of the software that's included in the image in the [`actions/partner-runner-images` repository](https://github.com/actions/partner-runner-images).
+SBOMs are available for Ubuntu, Windows, and macOS runner images maintained by {% data variables.product.company_short %}, including ARM-powered runners. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.IMAGE-NAME.json.zip` can be found in the attachments of each release.
 
 {% endif %}
 
