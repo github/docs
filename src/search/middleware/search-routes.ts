@@ -30,23 +30,35 @@ router.get('/combined-search/v1', catchMiddlewareError(combinedSearchRoute))
 export async function handleGetSearchResultsError(
   req: Request,
   res: Response,
-  error: any,
-  options: any,
+  error: unknown,
+  options: unknown,
 ) {
+  const errorMessage = error instanceof Error ? error.message : String(error)
   if (process.env.NODE_ENV === 'development') {
     console.error(`Error calling getSearchResults(${options})`, error)
   } else {
-    const reports = FailBot.report(error, { url: req.url, ...options })
+    const extra: Record<string, unknown> =
+      options && typeof options === 'object' && !Array.isArray(options)
+        ? Object.fromEntries(
+            Object.entries(options as Record<string, unknown>).map(([k, v]) => [
+              k,
+              v && typeof v === 'object' ? JSON.stringify(v) : v,
+            ]),
+          )
+        : { options: typeof options === 'object' ? JSON.stringify(options) : options }
+    extra.url = req.url
+    const errorForReport = error instanceof Error ? error : new Error(errorMessage)
+    const reports = FailBot.report(errorForReport, extra)
     if (reports) await Promise.all(reports)
   }
   // Avoid "Cannot set headers after they are sent to the client" error
   // if response was already partially sent before the error occurred
   if (!res.headersSent) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({ error: errorMessage })
   } else {
     logger.warn('Response headers already sent; unable to send error response.', {
       url: req.url,
-      message: error?.message,
+      message: errorMessage,
     })
   }
 }
