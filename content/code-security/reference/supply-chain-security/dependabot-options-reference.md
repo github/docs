@@ -519,7 +519,6 @@ updates:
     patterns: ["aws"]
     multi-ecosystem-group: "infrastructure"
 ```
-
 {% endif %}
 
 ## `open-pull-requests-limit` {% octicon "versions" aria-label="Version updates only" height="24" %}
@@ -583,11 +582,14 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-opentofu-support %} |
 | OpenTofu     | `opentofu`       | Not applicable     |
 | {% endif %} |
-| pip         | `pip`            | 24.2             |
+| pip| `pip`            | 24.2          |
 | pip-compile | `pip`            | 7.5.3            |
-| pipenv      | `pip`            | <= 2024.4.1      |
-| pnpm   | `npm`            | v7, v8, v9, v10   |
-| poetry      | `pip`    | v2    |
+| pipenv         | `pip`            | <= 2024.4.1    |
+| pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
+| poetry         | `pip`            | 2.2.1               |
+
+
+
 | {% ifversion dependabot-pre-commit-support %} |
 | pre-commit | `pre-commit` | Not applicable |
 | {% endif %} |
