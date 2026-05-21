@@ -3155,7 +3155,7 @@ input BulkSponsorship @docsCategory(name: "sponsors") {
 """
 Types that can represent a repository ruleset bypass actor.
 """
-union BypassActor @docsCategory(name: "repos") = App | Team | User
+union BypassActor @docsCategory(name: "repos") = App | EnterpriseTeam | Team | User
 
 """
 A user, team, or app who has the ability to bypass a force push requirement on a protected branch.
@@ -6555,7 +6555,7 @@ type ConnectedEvent implements Node @docsCategory(name: "issues") {
 """
 The content warning for a repository
 """
-type ContentWarning {
+type ContentWarning @docsCategory(name: "meta") {
   """
   The content warning' category. E.g. 'mis_dis_information'
   """
@@ -13858,6 +13858,51 @@ type Enterprise implements Node @docsCategory(name: "enterprise-admin") {
   descriptionHTML: HTML!
 
   """
+  Find an enterprise team by its slug.
+  """
+  enterpriseTeam(
+    """
+    The slug of the enterprise team to find.
+    """
+    slug: String!
+  ): EnterpriseTeam
+
+  """
+  A list of enterprise teams in this enterprise.
+  """
+  enterpriseTeams(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for enterprise teams returned from the connection.
+    """
+    orderBy: EnterpriseTeamOrder = {field: ID, direction: ASC}
+
+    """
+    The search string to look for.
+    """
+    query: String
+  ): EnterpriseTeamConnection!
+
+  """
   The Node ID of the Enterprise object
   """
   id: ID!
@@ -16863,6 +16908,383 @@ enum EnterpriseServerUserAccountsUploadSyncState @docsCategory(name: "enterprise
   The synchronization of the upload succeeded.
   """
   SUCCESS
+}
+
+"""
+A team that belongs to an enterprise and can be assigned to multiple organizations.
+"""
+type EnterpriseTeam implements Node & TeamReviewRequestable @docsCategory(name: "enterprise-admin") {
+  """
+  Organizations this team is assigned to.
+  """
+  assignedOrganizations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for organizations returned from the connection.
+    """
+    orderBy: EnterpriseTeamOrganizationOrder = {field: ID, direction: ASC}
+  ): EnterpriseTeamAssignedOrganizationConnection!
+
+  """
+  The human-readable, unique identifier for the enterprise and team.
+  """
+  combinedSlug: String!
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The description of the team.
+  """
+  description: String
+
+  """
+  The enterprise this team belongs to.
+  """
+  enterprise: Enterprise
+
+  """
+  A list of users who are members of this enterprise team.
+  """
+  enterpriseTeamMembers(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Order for the connection.
+    """
+    orderBy: EnterpriseTeamMemberOrder = {field: ID, direction: ASC}
+
+    """
+    The search string to look for.
+    """
+    query: String
+  ): EnterpriseTeamMemberConnection!
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
+  The Node ID of the EnterpriseTeam object
+  """
+  id: ID!
+
+  """
+  Whether the viewer is a member of this team.
+  """
+  isViewerMember: Boolean!
+
+  """
+  The name of the team.
+  """
+  name: String!
+
+  """
+  Whether the team will receive notifications when mentioned.
+  """
+  notificationSetting: TeamNotificationSetting!
+
+  """
+  How this team selects its associated organizations.
+  """
+  organizationSelectionType: EnterpriseTeamOrganizationSelectionType!
+
+  """
+  The level of privacy the team has.
+  """
+  privacy: TeamPrivacy!
+
+  """
+  The slug corresponding to the team.
+  """
+  slug: String!
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+
+  """
+  Whether the viewer can administer this team.
+  """
+  viewerCanAdminister: Boolean!
+}
+
+"""
+The connection type for Organization.
+"""
+type EnterpriseTeamAssignedOrganizationConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseTeamAssignedOrganizationEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Organization]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+Represents an organization that an enterprise team is assigned to.
+"""
+type EnterpriseTeamAssignedOrganizationEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+  node: Organization
+}
+
+"""
+A list of enterprise teams owned by the enterprise.
+"""
+type EnterpriseTeamConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseTeamEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [EnterpriseTeam]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type EnterpriseTeamEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: EnterpriseTeam
+}
+
+"""
+The connection type for User.
+"""
+type EnterpriseTeamMemberConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseTeamMemberEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [User]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+Represents a user who is a member of an enterprise team.
+"""
+type EnterpriseTeamMemberEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+  node: User
+}
+
+"""
+Ordering options for enterprise team member connections.
+"""
+input EnterpriseTeamMemberOrder @docsCategory(name: "enterprise-admin") {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order enterprise team members by.
+  """
+  field: EnterpriseTeamMemberOrderField!
+}
+
+"""
+Properties by which enterprise team member connections can be ordered.
+"""
+enum EnterpriseTeamMemberOrderField @docsCategory(name: "enterprise-admin") {
+  """
+  Order enterprise team members by creation time.
+  """
+  CREATED_AT
+
+  """
+  Order enterprise team members by ID.
+  """
+  ID
+
+  """
+  Order enterprise team members by login.
+  """
+  LOGIN
+}
+
+"""
+Ordering options for enterprise team connections.
+"""
+input EnterpriseTeamOrder @docsCategory(name: "enterprise-admin") {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order enterprise teams by.
+  """
+  field: EnterpriseTeamOrderField!
+}
+
+"""
+Properties by which enterprise team connections can be ordered.
+"""
+enum EnterpriseTeamOrderField @docsCategory(name: "enterprise-admin") {
+  """
+  Order enterprise teams by creation time.
+  """
+  CREATED_AT
+
+  """
+  Order enterprise teams by ID.
+  """
+  ID
+
+  """
+  Order enterprise teams by name.
+  """
+  NAME
+}
+
+"""
+Ordering options for enterprise team organization connections.
+"""
+input EnterpriseTeamOrganizationOrder @docsCategory(name: "enterprise-admin") {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order organizations by.
+  """
+  field: EnterpriseTeamOrganizationOrderField!
+}
+
+"""
+Properties by which enterprise team organization connections can be ordered.
+"""
+enum EnterpriseTeamOrganizationOrderField @docsCategory(name: "enterprise-admin") {
+  """
+  Order enterprise team organizations by creation time.
+  """
+  CREATED_AT
+
+  """
+  Order enterprise team organizations by ID.
+  """
+  ID
+
+  """
+  Order enterprise team organizations by login.
+  """
+  LOGIN
+}
+
+"""
+The possible organization selection types for an enterprise team.
+"""
+enum EnterpriseTeamOrganizationSelectionType @docsCategory(name: "enterprise-admin") {
+  """
+  The team is associated with all organizations in the enterprise.
+  """
+  ALL
+
+  """
+  The team is not associated with any organizations.
+  """
+  DISABLED
+
+  """
+  The team is associated with selected organizations.
+  """
+  SELECTED
 }
 
 """
@@ -36914,7 +37336,7 @@ enum PatchStatus @docsCategory(name: "pulls") {
 """
 Types that can grant permissions on a repository to a user
 """
-union PermissionGranter @docsCategory(name: "orgs") = Organization | Repository | Team
+union PermissionGranter @docsCategory(name: "orgs") = EnterpriseTeam | Organization | Repository | Team
 
 """
 A level of permission and source for a user's access to a repository.
@@ -56520,7 +56942,7 @@ input RequestReviewsInput {
   """
   The Node IDs of the team to request.
   """
-  teamIds: [ID!] @possibleTypes(concreteTypes: ["Team"], abstractType: "TeamReviewRequestable")
+  teamIds: [ID!] @possibleTypes(concreteTypes: ["EnterpriseTeam", "Team"], abstractType: "TeamReviewRequestable")
 
   """
   Add users to the set rather than replace.
@@ -56591,7 +57013,7 @@ enum RequestableCheckStatusState @docsCategory(name: "checks") {
 """
 Types that can be requested reviewers.
 """
-union RequestedReviewer @docsCategory(name: "pulls") = Bot | Mannequin | Team | User
+union RequestedReviewer @docsCategory(name: "pulls") = Bot | EnterpriseTeam | Mannequin | Team | User
 
 """
 The connection type for RequestedReviewer.
