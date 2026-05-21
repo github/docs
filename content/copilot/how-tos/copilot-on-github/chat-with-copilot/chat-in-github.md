@@ -72,6 +72,10 @@ The response to your edited question is displayed in a new subthread. An edit co
 
 You can attach images to your prompts by pasting, dragging, or clicking {% octicon "plus" aria-label="Add attachment" %} in the prompt box and then selecting **{% octicon "file-code" aria-hidden="true" %} Upload from computer**. Select a model that supports images from the model picker. For supported file types and example questions, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs).
 
+### Conversation history and retention
+
+{% data variables.copilot.copilot_chat_short %} stores up to 100 of your most recent conversations. Messages within each conversation are kept for 28 days before being permanently deleted. Once a conversation has no messages left, it's automatically removed from your history.
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)
