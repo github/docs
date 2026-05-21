@@ -35,5 +35,6 @@ journeyTracks:
       - href: '/copilot/tutorials/cloud-agent/give-access-to-resources'
       - href: '/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise'
       - href: '/copilot/tutorials/copilot-cli-hooks'
+      - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/enable-copilot-code-review'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity'
 ---
