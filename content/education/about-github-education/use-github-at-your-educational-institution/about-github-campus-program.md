@@ -12,6 +12,8 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: GitHub Campus Program
+category:
+  - Participate in campus and community programs
 ---
 {% data variables.product.prodname_campus_program %} is a package of premium {% data variables.product.prodname_dotcom %} access for teaching-focused institutions that grant degrees, diplomas, or certificates. {% data variables.product.prodname_campus_program %} includes:
 

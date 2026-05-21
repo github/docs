@@ -1,7 +1,7 @@
 ---
 title: Adding scripts to your workflow
 shortTitle: Add scripts
-intro: 'You can use {% data variables.product.prodname_actions %} workflows to run scripts.'
+intro: You can use {% data variables.product.prodname_actions %} workflows to run scripts.
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,6 +9,9 @@ versions:
 redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow
+category:
+  - Write workflows
+contentType: how-tos
 ---
 
 You can use a {% data variables.product.prodname_actions %} workflow to run scripts and shell commands, which are then executed on the assigned runner. This example demonstrates how to use the `run` keyword to execute the command `npm install -g bats` on the runner.

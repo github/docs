@@ -1,3 +1,1 @@
-Push protection for users is on by default on the following repository types:
-
-* Public repositories
+Push protection for users is on by default for public repositories

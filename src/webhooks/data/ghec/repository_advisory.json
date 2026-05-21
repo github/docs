@@ -1,0 +1,3216 @@
+{
+  "published": {
+    "descriptionHtml": "<p>A repository security advisory was published.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a repository security advisory. For more information about repository security advisories, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories\">About GitHub Security Advisories for repositories</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Repository security advisories\" permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "published"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository_advisory",
+        "description": "<p>A repository security advisory.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "ghsa_id",
+            "description": "<p>The GitHub Security Advisory ID.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "cve_id",
+            "description": "<p>The Common Vulnerabilities and Exposures (CVE) ID.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>The API URL for the advisory.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "<p>The URL for the advisory.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "summary",
+            "description": "<p>A short summary of the advisory.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "<p>A detailed description of what the advisory entails.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "severity",
+            "description": "<p>The severity of the advisory.</p>",
+            "isRequired": true,
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low",
+              null
+            ]
+          },
+          {
+            "type": "null or object",
+            "name": "author",
+            "description": "<p>The author of the advisory.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "null or object",
+            "name": "publisher",
+            "description": "<p>The publisher of the advisory.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "array of objects",
+            "name": "identifiers",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The type of identifier.</p>",
+                "isRequired": true,
+                "enum": [
+                  "CVE",
+                  "GHSA"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "value",
+                "description": "<p>The identifier value.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "state",
+            "description": "<p>The state of the advisory.</p>",
+            "isRequired": true,
+            "enum": [
+              "published",
+              "closed",
+              "withdrawn",
+              "draft",
+              "triage"
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "created_at",
+            "description": "<p>The date and time of when the advisory was created, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "updated_at",
+            "description": "<p>The date and time of when the advisory was last updated, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "published_at",
+            "description": "<p>The date and time of when the advisory was published, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "closed_at",
+            "description": "<p>The date and time of when the advisory was closed, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "withdrawn_at",
+            "description": "<p>The date and time of when the advisory was withdrawn, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "submission",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "boolean",
+                "name": "accepted",
+                "description": "<p>Whether a private vulnerability report was accepted by the repository's administrators.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "vulnerabilities",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "package",
+                "description": "<p>The name of the package affected by the vulnerability.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "ecosystem",
+                    "description": "<p>The package's language or package management ecosystem.</p>",
+                    "isRequired": true,
+                    "enum": [
+                      "rubygems",
+                      "npm",
+                      "pip",
+                      "maven",
+                      "nuget",
+                      "composer",
+                      "go",
+                      "rust",
+                      "erlang",
+                      "actions",
+                      "pub",
+                      "other",
+                      "swift"
+                    ]
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "name",
+                    "description": "<p>The unique package name within its ecosystem.</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "vulnerable_version_range",
+                "description": "<p>The range of the package versions affected by the vulnerability.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "patched_versions",
+                "description": "<p>The package version(s) that resolve the vulnerability.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "array of strings or null",
+                "name": "vulnerable_functions",
+                "description": "<p>The functions in the package that are affected.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "cvss",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "vector_string",
+                "description": "<p>The CVSS vector.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "number or null",
+                "name": "score",
+                "description": "<p>The CVSS score.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "cvss_severities",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "cvss_v3",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 3 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 3 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object or null",
+                "name": "cvss_v4",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 4 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 4 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "cwes",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "cwe_id",
+                "description": "<p>The Common Weakness Enumeration (CWE) identifier.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The name of the CWE.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "array of strings or null",
+            "name": "cwe_ids",
+            "description": "<p>A list of only the CWE IDs.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects or null",
+            "name": "credits",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "login",
+                "description": "<p>The username of the user credited.</p>"
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The type of credit the user is receiving.</p>",
+                "enum": [
+                  "analyst",
+                  "finder",
+                  "reporter",
+                  "coordinator",
+                  "remediation_developer",
+                  "remediation_reviewer",
+                  "remediation_verifier",
+                  "tool",
+                  "sponsor",
+                  "other"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "credits_detailed",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object",
+                "name": "user",
+                "description": "<p>A GitHub user.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "name",
+                    "description": ""
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "email",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "login",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "avatar_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "gravatar_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "followers_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "following_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "gists_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "subscriptions_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "organizations_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "repos_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "received_events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "site_admin",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_at",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "user_view_type",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The type of credit the user is receiving.</p>",
+                "isRequired": true,
+                "enum": [
+                  "analyst",
+                  "finder",
+                  "reporter",
+                  "coordinator",
+                  "remediation_developer",
+                  "remediation_reviewer",
+                  "remediation_verifier",
+                  "tool",
+                  "sponsor",
+                  "other"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "state",
+                "description": "<p>The state of the user's acceptance of the credit.</p>",
+                "isRequired": true,
+                "enum": [
+                  "accepted",
+                  "declined",
+                  "pending"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "collaborating_users",
+            "description": "<p>A list of users that collaborate on the advisory.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "collaborating_teams",
+            "description": "<p>A list of teams that collaborate on the advisory.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "slug",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "privacy",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "notification_setting",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "permission",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "permissions",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "boolean",
+                    "name": "pull",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "triage",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "push",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "maintain",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "admin",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "members_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repositories_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The ownership type of the team</p>",
+                "isRequired": true,
+                "enum": [
+                  "enterprise",
+                  "organization"
+                ]
+              },
+              {
+                "type": "integer",
+                "name": "organization_id",
+                "description": "<p>Unique identifier of the organization to which this team belongs</p>"
+              },
+              {
+                "type": "integer",
+                "name": "enterprise_id",
+                "description": "<p>Unique identifier of the enterprise to which this team belongs</p>"
+              },
+              {
+                "type": "object or null",
+                "name": "parent",
+                "description": "<p>Groups of organization members that gives permissions on specified repositories.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "<p>Unique identifier of the team</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "<p>URL for the team</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "members_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "<p>Name of the team</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "description",
+                    "description": "<p>Description of the team</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "permission",
+                    "description": "<p>Permission that the team will have for its repositories</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "privacy",
+                    "description": "<p>The level of privacy this team should have</p>"
+                  },
+                  {
+                    "type": "string",
+                    "name": "notification_setting",
+                    "description": "<p>The notification setting the team has set</p>"
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "repositories_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "slug",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "ldap_dn",
+                    "description": "<p>Distinguished Name (DN) that team maps to within LDAP environment</p>"
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "<p>The ownership type of the team</p>",
+                    "isRequired": true,
+                    "enum": [
+                      "enterprise",
+                      "organization"
+                    ]
+                  },
+                  {
+                    "type": "integer",
+                    "name": "organization_id",
+                    "description": "<p>Unique identifier of the organization to which this team belongs</p>"
+                  },
+                  {
+                    "type": "integer",
+                    "name": "enterprise_id",
+                    "description": "<p>Unique identifier of the enterprise to which this team belongs</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "null or object",
+            "name": "private_fork",
+            "description": "<p>A temporary private fork of the advisory's repository for collaborating on a fix.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "<p>A unique identifier of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "<p>The GraphQL identifier of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The name of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "full_name",
+                "description": "<p>The full, globally unique, name of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "owner",
+                "description": "<p>A GitHub user.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "name",
+                    "description": ""
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "email",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "login",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "avatar_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "gravatar_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "followers_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "following_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "gists_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "subscriptions_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "organizations_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "repos_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "received_events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "site_admin",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_at",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "user_view_type",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "boolean",
+                "name": "private",
+                "description": "<p>Whether the repository is private.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "<p>The URL to view the repository on GitHub.com.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "<p>The repository description.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "fork",
+                "description": "<p>Whether the repository is a fork.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "<p>The URL to get more information about the repository from the GitHub API.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "archive_url",
+                "description": "<p>A template for the API URL to download the repository as an archive.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "assignees_url",
+                "description": "<p>A template for the API URL to list the available assignees for issues in the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "blobs_url",
+                "description": "<p>A template for the API URL to create or retrieve a raw Git blob in the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "branches_url",
+                "description": "<p>A template for the API URL to get information about branches in the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "collaborators_url",
+                "description": "<p>A template for the API URL to get information about collaborators of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "comments_url",
+                "description": "<p>A template for the API URL to get information about comments on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "commits_url",
+                "description": "<p>A template for the API URL to get information about commits on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "compare_url",
+                "description": "<p>A template for the API URL to compare two commits or refs.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "contents_url",
+                "description": "<p>A template for the API URL to get the contents of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "contributors_url",
+                "description": "<p>A template for the API URL to list the contributors to the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "deployments_url",
+                "description": "<p>The API URL to list the deployments of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "downloads_url",
+                "description": "<p>The API URL to list the downloads on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "<p>The API URL to list the events of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "forks_url",
+                "description": "<p>The API URL to list the forks of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "git_commits_url",
+                "description": "<p>A template for the API URL to get information about Git commits of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "git_refs_url",
+                "description": "<p>A template for the API URL to get information about Git refs of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "git_tags_url",
+                "description": "<p>A template for the API URL to get information about Git tags of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "issue_comment_url",
+                "description": "<p>A template for the API URL to get information about issue comments on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "issue_events_url",
+                "description": "<p>A template for the API URL to get information about issue events on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "issues_url",
+                "description": "<p>A template for the API URL to get information about issues on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "keys_url",
+                "description": "<p>A template for the API URL to get information about deploy keys on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "labels_url",
+                "description": "<p>A template for the API URL to get information about labels of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "languages_url",
+                "description": "<p>The API URL to get information about the languages of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "merges_url",
+                "description": "<p>The API URL to merge branches in the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "milestones_url",
+                "description": "<p>A template for the API URL to get information about milestones of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "notifications_url",
+                "description": "<p>A template for the API URL to get information about notifications on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "pulls_url",
+                "description": "<p>A template for the API URL to get information about pull requests on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "releases_url",
+                "description": "<p>A template for the API URL to get information about releases on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "stargazers_url",
+                "description": "<p>The API URL to list the stargazers on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "statuses_url",
+                "description": "<p>A template for the API URL to get information about statuses of a commit.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscribers_url",
+                "description": "<p>The API URL to list the subscribers on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscription_url",
+                "description": "<p>The API URL to subscribe to notifications for this repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "tags_url",
+                "description": "<p>The API URL to get information about tags on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "teams_url",
+                "description": "<p>The API URL to list the teams on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "trees_url",
+                "description": "<p>A template for the API URL to create or retrieve a raw Git tree of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "hooks_url",
+                "description": "<p>The API URL to list the hooks on the repository.</p>",
+                "isRequired": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "published",
+    "category": "repository_advisory"
+  },
+  "reported": {
+    "descriptionHtml": "<p>A private vulnerability report was submitted.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a repository security advisory. For more information about repository security advisories, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories\">About GitHub Security Advisories for repositories</a>.\"</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Repository security advisories\" permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "reported"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-cloud@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository_advisory",
+        "description": "<p>A repository security advisory.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "ghsa_id",
+            "description": "<p>The GitHub Security Advisory ID.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "cve_id",
+            "description": "<p>The Common Vulnerabilities and Exposures (CVE) ID.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "<p>The API URL for the advisory.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "<p>The URL for the advisory.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "summary",
+            "description": "<p>A short summary of the advisory.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "<p>A detailed description of what the advisory entails.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "severity",
+            "description": "<p>The severity of the advisory.</p>",
+            "isRequired": true,
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low",
+              null
+            ]
+          },
+          {
+            "type": "null or object",
+            "name": "author",
+            "description": "<p>The author of the advisory.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "null or object",
+            "name": "publisher",
+            "description": "<p>The publisher of the advisory.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "array of objects",
+            "name": "identifiers",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The type of identifier.</p>",
+                "isRequired": true,
+                "enum": [
+                  "CVE",
+                  "GHSA"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "value",
+                "description": "<p>The identifier value.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "state",
+            "description": "<p>The state of the advisory.</p>",
+            "isRequired": true,
+            "enum": [
+              "published",
+              "closed",
+              "withdrawn",
+              "draft",
+              "triage"
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "created_at",
+            "description": "<p>The date and time of when the advisory was created, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "updated_at",
+            "description": "<p>The date and time of when the advisory was last updated, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "published_at",
+            "description": "<p>The date and time of when the advisory was published, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "closed_at",
+            "description": "<p>The date and time of when the advisory was closed, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "withdrawn_at",
+            "description": "<p>The date and time of when the advisory was withdrawn, in ISO 8601 format.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "submission",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "boolean",
+                "name": "accepted",
+                "description": "<p>Whether a private vulnerability report was accepted by the repository's administrators.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "vulnerabilities",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "package",
+                "description": "<p>The name of the package affected by the vulnerability.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "ecosystem",
+                    "description": "<p>The package's language or package management ecosystem.</p>",
+                    "isRequired": true,
+                    "enum": [
+                      "rubygems",
+                      "npm",
+                      "pip",
+                      "maven",
+                      "nuget",
+                      "composer",
+                      "go",
+                      "rust",
+                      "erlang",
+                      "actions",
+                      "pub",
+                      "other",
+                      "swift"
+                    ]
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "name",
+                    "description": "<p>The unique package name within its ecosystem.</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string or null",
+                "name": "vulnerable_version_range",
+                "description": "<p>The range of the package versions affected by the vulnerability.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "patched_versions",
+                "description": "<p>The package version(s) that resolve the vulnerability.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "array of strings or null",
+                "name": "vulnerable_functions",
+                "description": "<p>The functions in the package that are affected.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "cvss",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "vector_string",
+                "description": "<p>The CVSS vector.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "number or null",
+                "name": "score",
+                "description": "<p>The CVSS score.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "cvss_severities",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "object or null",
+                "name": "cvss_v3",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 3 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 3 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object or null",
+                "name": "cvss_v4",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "vector_string",
+                    "description": "<p>The CVSS 4 vector string.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "number or null",
+                    "name": "score",
+                    "description": "<p>The CVSS 4 score.</p>",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "cwes",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "cwe_id",
+                "description": "<p>The Common Weakness Enumeration (CWE) identifier.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The name of the CWE.</p>",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "array of strings or null",
+            "name": "cwe_ids",
+            "description": "<p>A list of only the CWE IDs.</p>",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects or null",
+            "name": "credits",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "login",
+                "description": "<p>The username of the user credited.</p>"
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The type of credit the user is receiving.</p>",
+                "enum": [
+                  "analyst",
+                  "finder",
+                  "reporter",
+                  "coordinator",
+                  "remediation_developer",
+                  "remediation_reviewer",
+                  "remediation_verifier",
+                  "tool",
+                  "sponsor",
+                  "other"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "credits_detailed",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object",
+                "name": "user",
+                "description": "<p>A GitHub user.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "name",
+                    "description": ""
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "email",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "login",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "avatar_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "gravatar_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "followers_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "following_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "gists_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "subscriptions_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "organizations_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "repos_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "received_events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "site_admin",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_at",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "user_view_type",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The type of credit the user is receiving.</p>",
+                "isRequired": true,
+                "enum": [
+                  "analyst",
+                  "finder",
+                  "reporter",
+                  "coordinator",
+                  "remediation_developer",
+                  "remediation_reviewer",
+                  "remediation_verifier",
+                  "tool",
+                  "sponsor",
+                  "other"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "state",
+                "description": "<p>The state of the user's acceptance of the credit.</p>",
+                "isRequired": true,
+                "enum": [
+                  "accepted",
+                  "declined",
+                  "pending"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "collaborating_users",
+            "description": "<p>A list of users that collaborate on the advisory.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "gravatar_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "starred_at",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "collaborating_teams",
+            "description": "<p>A list of teams that collaborate on the advisory.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "slug",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "privacy",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "notification_setting",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "permission",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "permissions",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "boolean",
+                    "name": "pull",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "triage",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "push",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "maintain",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "admin",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "members_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "repositories_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "<p>The ownership type of the team</p>",
+                "isRequired": true,
+                "enum": [
+                  "enterprise",
+                  "organization"
+                ]
+              },
+              {
+                "type": "integer",
+                "name": "organization_id",
+                "description": "<p>Unique identifier of the organization to which this team belongs</p>"
+              },
+              {
+                "type": "integer",
+                "name": "enterprise_id",
+                "description": "<p>Unique identifier of the enterprise to which this team belongs</p>"
+              },
+              {
+                "type": "object or null",
+                "name": "parent",
+                "description": "<p>Groups of organization members that gives permissions on specified repositories.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "<p>Unique identifier of the team</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "<p>URL for the team</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "members_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "<p>Name of the team</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "description",
+                    "description": "<p>Description of the team</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "permission",
+                    "description": "<p>Permission that the team will have for its repositories</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "privacy",
+                    "description": "<p>The level of privacy this team should have</p>"
+                  },
+                  {
+                    "type": "string",
+                    "name": "notification_setting",
+                    "description": "<p>The notification setting the team has set</p>"
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "repositories_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "slug",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "ldap_dn",
+                    "description": "<p>Distinguished Name (DN) that team maps to within LDAP environment</p>"
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "<p>The ownership type of the team</p>",
+                    "isRequired": true,
+                    "enum": [
+                      "enterprise",
+                      "organization"
+                    ]
+                  },
+                  {
+                    "type": "integer",
+                    "name": "organization_id",
+                    "description": "<p>Unique identifier of the organization to which this team belongs</p>"
+                  },
+                  {
+                    "type": "integer",
+                    "name": "enterprise_id",
+                    "description": "<p>Unique identifier of the enterprise to which this team belongs</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "null or object",
+            "name": "private_fork",
+            "description": "<p>A temporary private fork of the advisory's repository for collaborating on a fix.</p>",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "<p>A unique identifier of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "<p>The GraphQL identifier of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The name of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "full_name",
+                "description": "<p>The full, globally unique, name of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "owner",
+                "description": "<p>A GitHub user.</p>",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "name",
+                    "description": ""
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "email",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "login",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "avatar_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "gravatar_id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "followers_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "following_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "gists_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "subscriptions_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "organizations_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "repos_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "received_events_url",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "site_admin",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_at",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "user_view_type",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "boolean",
+                "name": "private",
+                "description": "<p>Whether the repository is private.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "<p>The URL to view the repository on GitHub.com.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "<p>The repository description.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "fork",
+                "description": "<p>Whether the repository is a fork.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "<p>The URL to get more information about the repository from the GitHub API.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "archive_url",
+                "description": "<p>A template for the API URL to download the repository as an archive.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "assignees_url",
+                "description": "<p>A template for the API URL to list the available assignees for issues in the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "blobs_url",
+                "description": "<p>A template for the API URL to create or retrieve a raw Git blob in the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "branches_url",
+                "description": "<p>A template for the API URL to get information about branches in the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "collaborators_url",
+                "description": "<p>A template for the API URL to get information about collaborators of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "comments_url",
+                "description": "<p>A template for the API URL to get information about comments on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "commits_url",
+                "description": "<p>A template for the API URL to get information about commits on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "compare_url",
+                "description": "<p>A template for the API URL to compare two commits or refs.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "contents_url",
+                "description": "<p>A template for the API URL to get the contents of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "contributors_url",
+                "description": "<p>A template for the API URL to list the contributors to the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "deployments_url",
+                "description": "<p>The API URL to list the deployments of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "downloads_url",
+                "description": "<p>The API URL to list the downloads on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": "<p>The API URL to list the events of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "forks_url",
+                "description": "<p>The API URL to list the forks of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "git_commits_url",
+                "description": "<p>A template for the API URL to get information about Git commits of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "git_refs_url",
+                "description": "<p>A template for the API URL to get information about Git refs of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "git_tags_url",
+                "description": "<p>A template for the API URL to get information about Git tags of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "issue_comment_url",
+                "description": "<p>A template for the API URL to get information about issue comments on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "issue_events_url",
+                "description": "<p>A template for the API URL to get information about issue events on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "issues_url",
+                "description": "<p>A template for the API URL to get information about issues on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "keys_url",
+                "description": "<p>A template for the API URL to get information about deploy keys on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "labels_url",
+                "description": "<p>A template for the API URL to get information about labels of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "languages_url",
+                "description": "<p>The API URL to get information about the languages of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "merges_url",
+                "description": "<p>The API URL to merge branches in the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "milestones_url",
+                "description": "<p>A template for the API URL to get information about milestones of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "notifications_url",
+                "description": "<p>A template for the API URL to get information about notifications on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "pulls_url",
+                "description": "<p>A template for the API URL to get information about pull requests on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "releases_url",
+                "description": "<p>A template for the API URL to get information about releases on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "stargazers_url",
+                "description": "<p>The API URL to list the stargazers on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "statuses_url",
+                "description": "<p>A template for the API URL to get information about statuses of a commit.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscribers_url",
+                "description": "<p>The API URL to list the subscribers on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "subscription_url",
+                "description": "<p>The API URL to subscribe to notifications for this repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "tags_url",
+                "description": "<p>The API URL to get information about tags on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "teams_url",
+                "description": "<p>The API URL to list the teams on the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "trees_url",
+                "description": "<p>A template for the API URL to create or retrieve a raw Git tree of the repository.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "hooks_url",
+                "description": "<p>The API URL to list the hooks on the repository.</p>",
+                "isRequired": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "reported",
+    "category": "repository_advisory"
+  }
+}

@@ -4,8 +4,6 @@ shortTitle: Pull request summaries
 intro: 'Learn how to use {% data variables.copilot.copilot_for_prs %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-pull-request-summaries
@@ -73,6 +71,10 @@ After you rate a summary as good or bad, you can provide written feedback by cli
 ## Limitations of pull request summaries
 
 Currently, our team is aware that there are limitations to this feature. Many of them are expected in leveraging our {% data variables.product.prodname_copilot_short %} API; however, there are a few that are specific to {% data variables.copilot.copilot_for_prs %} which pertain to limited scope, longer processing times, and inaccurate responses. We also note that users should expect terms used in their PR to appear in the AI-generated summary. This feature has been subject to RAI Red Teaming and we will continue to monitor the efficacy and safety of the feature over time. For more information, see [Microsoft AI Red Team building future of safer AI](https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/) on the Microsoft security blog.
+
+### Lines changed limits
+
+Files with more than 400 combined additions and deletions are excluded from summarization.
 
 ### Limited scope
 

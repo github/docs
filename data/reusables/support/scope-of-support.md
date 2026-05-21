@@ -13,8 +13,11 @@ If your support request is outside of the scope of what our team can help you wi
 * Cloud provider configurations, such as virtual network setup, custom firewall, or proxy rules
 * Container orchestration, such as Kubernetes setup, or networking
 * Detailed assistance with workflows and data management
+* Comprehensive support for customization and tool installation on {% data variables.product.prodname_actions %} custom images
 * Preview features. {% data variables.release-phases.public_preview_caps %}, {% data variables.release-phases.private_preview %}, and {% data variables.release-phases.technical_preview %} features are out of {% data variables.contact.github_support %}'s scope.
 * {% data variables.product.prodname_copilot %} suggestions
+* {% data variables.product.prodname_copilot %} consumption questions. {% data variables.contact.github_support %} does not audit or break down {% data variables.product.prodname_copilot_short %} usage consumption. Support can explain the billing model and point you to available usage-reporting documentation, but cannot determine why usage appears high or why included usage was exhausted sooner than expected.
+* Metered billing explanations. {% data variables.contact.github_support %} does not interpret usage reporting or spending trends for metered {% data variables.product.github %} billing products, nor provide recommendations based on that data. For more information, see [AUTOTITLE](/billing/concepts/billing-cycles).
 
 {% data variables.product.prodname_copilot %} provides AI-powered code suggestions and responses. As outlined in our legal terms, you retain full responsibility for your code, including any suggestions you choose to incorporate. The quality, accuracy, relevance, or functionality of {% data variables.product.prodname_copilot_short %}’s responses may not always meet your expectations, and mistakes may occur. It is your decision whether to use {% data variables.product.prodname_copilot_short %}’s suggestions, and GitHub strongly recommends implementing reasonable policies and practices to prevent the use of any suggestion in a way that could violate the rights of others. This includes, but is not limited to, using the filtering features available in {% data variables.product.prodname_copilot_short %}.
 

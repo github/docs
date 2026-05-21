@@ -6,6 +6,8 @@ intro: 'You can use {% data variables.product.prodname_github_codespaces %} as t
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can enable {% data variables.product.prodname_github_codespaces %} for their organization and integrate {% data variables.product.prodname_github_codespaces %} as the supported editor for an assignment. {% data reusables.classroom.classroom-admins-link %}'
+category:
+  - Integrate GitHub Classroom with an IDE
 ---
 ## About {% data variables.product.prodname_github_codespaces %}
 

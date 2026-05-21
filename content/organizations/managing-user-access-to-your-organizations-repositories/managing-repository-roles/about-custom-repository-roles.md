@@ -4,12 +4,11 @@ intro: You can more granularly control access to your organization's repositorie
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: About custom roles
 redirect_from:
   - /organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles
+category:
+  - Control repository access
 ---
 
 {% data reusables.organizations.custom-repo-roles-ghec-only %}

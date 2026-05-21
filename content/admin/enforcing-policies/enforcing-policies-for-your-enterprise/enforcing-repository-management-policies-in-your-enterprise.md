@@ -1,6 +1,6 @@
 ---
 title: Enforcing repository management policies in your enterprise
-intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
+intro: You can enforce policies for repository management within your enterprise's organizations, or allow policies to be set in each organization.
 permissions: Enterprise owners can enforce policies for repository management in an enterprise.
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
@@ -37,13 +37,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Repositories
-  - Security
 shortTitle: Repository management policies
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for repository management in your enterprise
@@ -192,6 +189,19 @@ Across all organizations owned by your enterprise, you can allow members with ad
 {% data reusables.enterprise-accounts.repositories-tab %}
 1. Under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Repository issue deletion", select the dropdown menu and click a policy.
+
+{% ifversion repo-admin-branch-rename %}
+
+## Enforcing a policy for renaming protected branches
+
+By default, repository administrators can rename branches that are targeted by enterprise-level rules, provided the new branch name is still targeted by those rules. You can restrict this ability to enterprise owners only.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+1. Under "Repository branch renames", select the dropdown menu and click a policy.
+
+{% endif %}
 
 {% ifversion ghes %}
 

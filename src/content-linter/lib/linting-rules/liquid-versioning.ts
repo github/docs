@@ -1,5 +1,6 @@
 import semver from 'semver'
 import { TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getRange, addFixErrorDetail } from '../helpers/utils'
@@ -13,7 +14,7 @@ import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 interface Feature {
   versions: Record<string, string>
-  [key: string]: any
+  [key: string]: unknown
 }
 
 type AllFeatures = Record<string, Feature>
@@ -60,12 +61,13 @@ export const liquidIfTags = {
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
 
-    const tokens = getLiquidTokens(content).filter(
-      (token) =>
-        token.kind === TokenKind.Tag &&
-        token.name === 'if' &&
-        token.args.split(/\s+/).some((arg: string) => getAllPossibleVersionNames().has(arg)),
-    )
+    const tokens = getLiquidTokens(content)
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
+      .filter(
+        (token) =>
+          token.name === 'if' &&
+          token.args.split(/\s+/).some((arg: string) => getAllPossibleVersionNames().has(arg)),
+      )
 
     for (const token of tokens) {
       const args = token.args
@@ -90,7 +92,7 @@ export const liquidIfVersionTags = {
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
-      .filter((token) => token.kind === TokenKind.Tag)
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
       .filter((token) => token.name === 'ifversion' || token.name === 'elsif')
 
     for (const token of tokens) {
@@ -167,9 +169,8 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
           `Found "${version}" inside "${cond}" with a "${operator}" operator, but "${version}" does not support semantic comparisons"`,
         )
       }
-      // Using 'as any' because the operator is a runtime string value that we validate,
       // but the allowedVersionOperators array has a more specific type that TypeScript can't infer
-      if (!allowedVersionOperators.includes(operator as any)) {
+      if (!(allowedVersionOperators as readonly string[]).includes(operator)) {
         errors.push(
           `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`,
         )
@@ -257,11 +258,9 @@ function getVersionsObject(part: string, allFeatures: AllFeatures): Record<strin
   const versions: Record<string, string> = {}
   if (part in allFeatures) {
     for (const [shortName, version] of Object.entries(allFeatures[part].versions)) {
-      // Using 'as any' for recursive getVersionsObject call because it can return either
-      // a string or a nested Record<string, string>, but we flatten it to string for this context
       const versionOperator: string =
         version in allFeatures
-          ? (getVersionsObject(version, allFeatures) as any)
+          ? Object.values(getVersionsObject(version, allFeatures))[0] || '*'
           : (version as string)
       if (shortName in versions) {
         versions[shortName] = lowestVersion(versionOperator, versions[shortName])

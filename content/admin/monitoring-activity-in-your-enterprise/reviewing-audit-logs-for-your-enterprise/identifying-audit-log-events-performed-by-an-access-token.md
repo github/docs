@@ -5,11 +5,8 @@ intro: 'You can identify the actions performed by a specific token in your enter
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Authentication
-  - OAuth apps
-  - GitHub Apps
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About token data in the audit log for an enterprise

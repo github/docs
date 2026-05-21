@@ -5,11 +5,10 @@ intro: 'Learn the fundamental concepts that you''ll need to understand {% data v
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Enterprise
 children:
   - /enterprise-accounts
   - /teams-in-an-enterprise
   - /roles-in-an-enterprise
+  - /automations-in-your-enterprise
 contentType: concepts
 ---

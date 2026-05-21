@@ -105,15 +105,16 @@ export const ctasSchema: Rule = {
             for (const error of errors) {
               let message = ''
               if (error.keyword === 'required') {
-                message = `Missing required parameter: ${(error.params as any)?.missingProperty}`
+                message = `Missing required parameter: ${(error.params as { missingProperty?: string })?.missingProperty}`
               } else if (error.keyword === 'enum') {
                 const paramName = error.instancePath.substring(1)
                 // Get the actual invalid value from refParams and allowed values from params
                 const invalidValue = refParams[paramName]
-                const allowedValues = (error.params as any)?.allowedValues || []
+                const allowedValues =
+                  (error.params as { allowedValues?: unknown[] })?.allowedValues || []
                 message = `Invalid value for ${paramName}: "${invalidValue}". Valid values are: ${allowedValues.join(', ')}`
               } else if (error.keyword === 'additionalProperties') {
-                message = `Unexpected parameter: ${(error.params as any)?.additionalProperty}`
+                message = `Unexpected parameter: ${(error.params as { additionalProperty?: string })?.additionalProperty}`
               } else {
                 message = `CTA URL validation error: ${error.message}`
               }

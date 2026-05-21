@@ -4,8 +4,6 @@ shortTitle: Manage company spending
 intro: 'Learn how to track spending, view usage, and optimize license distribution.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 permissions: Enterprise owners and billing managers
 product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 redirect_from:
@@ -15,9 +13,15 @@ redirect_from:
   - /copilot/how-tos/spending/managing-your-companys-spending-on-github-copilot
   - /copilot/how-tos/spending/manage-company-spending
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
+
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
 
 When you're adopting {% data variables.product.prodname_copilot %} in an enterprise, you will want to set budgets and track spending to ensure your rollout is sustainable. {% data variables.product.github %} offers billing tools to help you visualize your spending patterns, receive alerts when you reach budget thresholds, and optimize your license usage.
 
@@ -43,15 +47,13 @@ This report includes all premium request usage by user, both within and beyond t
 
 Your organization or enterprise's policies and budgets determine whether users can use premium requests over their included allowance. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-{% data reusables.copilot.zero-budget-changes-link %}
-
 ## Mapping spending to groups of users
 
 You can create cost centers to map spending to individual business units or groups of users. Cost centers allow you to track costs tied to different initiatives and charge the costs to specific areas of your business.
 
 For example, if you were running a pilot program for {% data variables.copilot.copilot_enterprise %} for a group of employees, you might want to create a cost center to track their spending and set a budget independently of the rest of the company.
 
-For more information, see [AUTOTITLE](/billing/tutorials/use-cost-centers).
+For more information, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale).
 
 ## Preventing overspending
 
@@ -69,7 +71,7 @@ You can understand your spending trends by viewing graphs of {% data variables.p
 For more detailed insights, you can group usage by the type of {% data variables.product.prodname_copilot_short %} plan, and enterprises can filter the results by cost center.
 
 1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
-1. In the left sidebar, click **Usage** (organizations) or **Usage** and then **Metered usage** (enterprises).
+{% data reusables.billing.display-usage-view %}
 1. In the "Metered usage" section, in the search field, enter `product:copilot`. To filter by cost center, add a query like `cost_center:ce-pilot-group`.
 1. To understand spending differences between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, select the **Group: None** dropdown menu and click **Group by: SKU**.
 

@@ -1,5 +1,3 @@
-import { RequestError } from '@octokit/request-error'
-
 const DEFAULT_SLEEPTIME = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_SLEEPTIME || '30000', 10)
 const DEFAULT_ATTEMPTS = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_ATTEMPTS || '5', 10)
 
@@ -16,9 +14,14 @@ export async function octoSecondaryRatelimitRetry<T>(
     try {
       return await fn()
     } catch (error) {
+      // Use duck-typing instead of `instanceof RequestError` because octokit
+      // bundles its own copy of @octokit/request-error in dist-bundle/index.js,
+      // so the class reference differs from the top-level package and instanceof
+      // always returns false across the module boundary.
       if (
-        error instanceof RequestError &&
-        error.status === 403 &&
+        error instanceof Error &&
+        'status' in error &&
+        (error as { status: number }).status === 403 &&
         /You have exceeded a secondary rate limit/.test(error.message)
       ) {
         if (tries < attempts) {

@@ -1,0 +1,5 @@
+# Reference: Issue #20890 - Dependabot can group updates by dependency name across multiple directories in a monorepo [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.21'

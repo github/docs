@@ -8,9 +8,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 shortTitle: Form calls with GraphQL
+category:
+  - Get started and make API calls
 ---
 
 ## Authenticating with GraphQL

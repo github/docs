@@ -6,15 +6,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Download license use
 redirect_from:
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/downloading-your-github-advanced-security-usage
   - /billing/how-tos/products/download-ghas-license-use
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 You can download CSV files with details of paid license use through the {% data variables.product.github %} user interface or the REST API.
@@ -23,15 +21,8 @@ For more detailed reports on usage of all paid products, see [AUTOTITLE](/billin
 
 ## On {% data variables.product.prodname_ghe_cloud %}
 
-1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile picture.
-
-1. Select the account you want to view and then access the "Billing & Licensing" pages:
-
-   * **Organizations**: Click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
-
-   * **Enterprises**: Click **Your enterprises**, then click the enterprise name. Click the **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** tab at the top of the page.
-
-1. From the list of "Billing & licensing" pages, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing** to display the licensing page.
+{% data reusables.billing.nav-to-ent %}
+{% data reusables.billing.click-licensing %}
 
 1. In the license area of interest, click **Download CSV report**. If offered a choice, choose your preferred report.
 

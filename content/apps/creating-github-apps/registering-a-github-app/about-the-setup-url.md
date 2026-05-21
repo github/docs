@@ -5,11 +5,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Setup URL
 redirect_from:
   - /apps/creating-github-apps/setting-up-a-github-app/about-the-setup-url
+category:
+  - Register and configure a GitHub App
 ---
 
 When you register a {% data variables.product.prodname_github_app %}, you can specify a setup URL. When users install your {% data variables.product.prodname_github_app %}, they are redirected to the setup URL. If additional setup is required after installation, you can use this URL to tell users what steps to take next.

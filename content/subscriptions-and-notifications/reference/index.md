@@ -10,5 +10,6 @@ children:
   - /inbox-filters
   - /email-notification-headers
   - /types-of-emails-github-sends
+contentType: reference
 ---
 

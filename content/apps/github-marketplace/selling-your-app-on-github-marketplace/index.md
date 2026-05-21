@@ -13,8 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 children:
   - /pricing-plans-for-github-marketplace-apps
   - /billing-customers

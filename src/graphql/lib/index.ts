@@ -50,6 +50,26 @@ export function getGraphqlChangelog(version: string): any {
   return changelog.get(graphqlVersion)
 }
 
+/**
+ * Return changelog entries filtered by year.
+ */
+export function getGraphqlChangelogByYear(version: string, year: number): any[] {
+  const all = getGraphqlChangelog(version) as Array<{ date: string }>
+  return all.filter((entry) => entry.date.startsWith(String(year)))
+}
+
+/**
+ * Return the distinct years present in the changelog, sorted descending (newest first).
+ */
+export function getGraphqlChangelogYears(version: string): number[] {
+  const all = getGraphqlChangelog(version) as Array<{ date: string }>
+  const years = new Set<number>()
+  for (const entry of all) {
+    years.add(Number(entry.date.slice(0, 4)))
+  }
+  return [...years].sort((a, b) => b - a)
+}
+
 // Using any for return type as the breaking changes structure is dynamically loaded from JSON
 export function getGraphqlBreakingChanges(version: string): any {
   const graphqlVersion: string = getGraphqlVersion(version)

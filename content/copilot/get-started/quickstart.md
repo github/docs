@@ -17,10 +17,8 @@ redirect_from:
   - /copilot/using-github-copilot/getting-started-with-github-copilot
   - /copilot/quickstart
 shortTitle: Quickstart
-topics:
-  - Copilot
 contentType: get-started
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -72,7 +70,6 @@ There are many more things you can do with {% data variables.copilot.copilot_cha
 
 * Ask a general question about software development
 * Ask exploratory questions about a repository
-* Ask a question about a knowledge base
 * Find out about the changes in a pull request
 * Ask a question about a specific issue or commit
 
@@ -161,25 +158,15 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 ## Chat with {% data variables.product.prodname_copilot %}
 
-After you've installed the {% data variables.product.prodname_copilot %} extension, you can ask {% data variables.product.prodname_copilot_short %} coding-related questions.
+After you've installed the {% data variables.product.prodname_copilot %} Chat extension, you can ask {% data variables.product.prodname_copilot_short %} coding-related questions.
 
 > [!NOTE] {% data reusables.copilot.chat-access-denied %}
 
-1. Open an existing code file.
-1. Open the Chat view from the Activity Bar.
-
-   ![Screenshot of the Chat icon in the {% data variables.product.prodname_vscode_shortname %} Activity Bar.](/assets/images/help/copilot/chat-button-vscode.png)
-
-1. At the bottom of the chat view, in the chat input field, type: `explain this file`.
-1. Press <kbd>Enter</kbd>.
-
-   {% data variables.product.prodname_copilot_short %} replies in the chat view.
-
-1. In the editor, select one or more lines of code that are not commented.
-1. In the chat input field, type: `add comments to these lines`.
-1. If you like the comments that {% data variables.product.prodname_copilot_short %} suggests, hover over the suggested code in the chat view and click the "Insert at Cursor" icon to replace the selected lines with the suggested code.
-
-   ![Screenshot of the "Insert at Cursor" icon in the chat view.](/assets/images/help/copilot/insert-at-cursor-vscode.png)
+1. Create a new folder for your project and open it in VS Code.
+1. Open the Chat view by pressing <kbd>Control</kbd>+<kbd>Command</kbd>+<kbd>i</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>i</kbd> (Windows/Linux) or by selecting the chat icon in the VS Code title bar.
+1. At the bottom of the chat view, in the chat input field, type: `Create a complete task manager web application with the ability to add, delete, and mark tasks as completed. Include modern CSS styling and make it responsive. Use semantic HTML and ensure it's accessible. Separate markup, styles, and scripts into their own files.`
+1. Press <kbd>Enter</kbd>. Watch as the agent generates the necessary files and code to implement your request. You should see it update the `index.html` file, create a `styles.css` file for styling, and a `script.js` file for functionality.
+1. Review the generated files and select Keep to accept all the changes.
 
 ## Get your first inline suggestion
 
@@ -195,7 +182,7 @@ The following example uses JavaScript, however other languages will work similar
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
 * **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see [Best practices for using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/prompt-crafting) in the {% data variables.product.prodname_vscode %} documentation.
-* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [About {% data variables.copilot.next_edit_suggestions %}](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot#about-next-edit-suggestions).
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions#navigating-and-accepting-next-edit-suggestions-1).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endvscode %}
@@ -368,6 +355,7 @@ The following example uses Swift, however other languages will work similarly.
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions?tool=xcode#navigating-and-accepting-next-edit-suggestions-2).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endxcode %}
@@ -424,6 +412,7 @@ The following example uses Java, however other languages will work similarly.
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions?tool=eclipse#navigating-and-accepting-next-edit-suggestions-3).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endeclipse %}

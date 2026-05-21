@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Issues
 children:
   - /triaging-an-issue-with-ai
   - /pinning-an-issue-to-your-repository
@@ -14,5 +12,5 @@ children:
   - /transferring-an-issue-to-another-repository
   - /closing-an-issue
   - /deleting-an-issue
-  - /duplicating-an-issue
+  - /cloning-an-issue
 ---

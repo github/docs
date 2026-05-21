@@ -8,6 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/run-student-code-in-an-online-ide
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/run-student-code-in-an-online-ide
 shortTitle: Run code in IDE
+category:
+  - Track assignment progress
 ---
 
 ## About student code and IDEs

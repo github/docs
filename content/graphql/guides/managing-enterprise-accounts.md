@@ -6,9 +6,9 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 shortTitle: Manage enterprise accounts
+category:
+  - Get started and make API calls
 ---
 
 ## About managing enterprise accounts with GraphQL

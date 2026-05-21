@@ -8,6 +8,8 @@ versions:
 shortTitle: Share your app
 redirect_from:
   - /apps/maintaining-github-apps/sharing-your-github-app
+category:
+  - Maintain and share your app
 ---
 
 {% ifversion fpt or ghec %}

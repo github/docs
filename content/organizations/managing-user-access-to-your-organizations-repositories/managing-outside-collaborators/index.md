@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
 children:
   - /adding-outside-collaborators-to-repositories-in-your-organization
   - /canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization

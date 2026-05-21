@@ -5,8 +5,8 @@ intro: 'You can build search queries for the results you want with specialized c
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
-topics:
-  - GitHub search
+category:
+  - Search for code
 ---
 
 ## About code search query structure
@@ -102,6 +102,7 @@ You can use specialized keywords to qualify your search.
 * [Organization and user qualifiers](#organization-and-user-qualifiers)
 * [Enterprise qualifier](#enterprise-qualifier)
 * [Language qualifier](#language-qualifier)
+* [License qualifier](#license-qualifier)
 * [Path qualifier](#path-qualifier)
 * [Symbol qualifier](#symbol-qualifier)
 * [Content qualifier](#content-qualifier)
@@ -153,13 +154,23 @@ This searches repositories owned by organizations in the `octocorp` enterprise. 
 
 ### Language qualifier
 
-To narrow down to a specific languages, use the `language:` qualifier. For example:
+To narrow down to a specific language, use the `language:` qualifier. For example:
 
 ```text
 language:ruby OR language:cpp OR language:csharp
 ```
 
 For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
+
+### License qualifier
+
+To filter repositories based on their license or license family, use the `license:` qualifier and the exact license keyword, for example `Apache-2.0`, `CC`, `MIT`.
+
+```text
+license:MIT
+```
+
+See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository#searching-github-by-license-type) for a list of license keywords.
 
 ### Path qualifier
 

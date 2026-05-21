@@ -1,6 +1,6 @@
 ---
 title: About ghe-migrator
-intro: 'You can use `ghe-migrator` to transfer data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.'
+intro: You can use `ghe-migrator` to transfer data from a *source* location (either a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
-topics:
-  - Enterprise
-  - Migration
+contentType: concepts
+category:
+  - Understand enterprise migration tools
 ---
 
 ## Types of migrations

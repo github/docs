@@ -7,11 +7,10 @@ redirect_from:
   - /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Dependency insights
 permissions: '{% data reusables.permissions.dependency-graph-view-org-insights %}'
+category:
+  - Configure organization features
 ---
 
 > [!NOTE]

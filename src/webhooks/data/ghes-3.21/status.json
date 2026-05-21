@@ -1,0 +1,615 @@
+{
+  "default": {
+    "descriptionHtml": "",
+    "summaryHtml": "<p>This event occurs when the status of a Git commit changes. For example, commits can be marked as <code>error</code>, <code>failure</code>, <code>pending</code>, or <code>success</code>. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks\">About status checks</a>.\" For information about the APIs to manage commit statuses, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#status\">the GraphQL documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/commits/statuses\">Commit statuses</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Commit statuses\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string or null",
+        "name": "avatar_url",
+        "description": ""
+      },
+      {
+        "type": "array of objects",
+        "name": "branches",
+        "description": "<p>An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "commit",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "sha",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "protected",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "commit",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object or null",
+            "name": "author",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "comments_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "commit",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object",
+                "name": "author",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "date",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "email",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "<p>The git author's name.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "username",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "integer",
+                "name": "comment_count",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "committer",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "date",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "email",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": "<p>The git author's name.</p>",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "username",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "message",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "tree",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "sha",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object",
+                "name": "verification",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string or null",
+                    "name": "payload",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "reason",
+                    "description": "",
+                    "isRequired": true,
+                    "enum": [
+                      "expired_key",
+                      "not_signing_key",
+                      "gpgverify_error",
+                      "gpgverify_unavailable",
+                      "unsigned",
+                      "unknown_signature_type",
+                      "no_user",
+                      "unverified_email",
+                      "bad_email",
+                      "unknown_key",
+                      "malformed_signature",
+                      "invalid",
+                      "valid",
+                      "bad_cert",
+                      "ocsp_pending"
+                    ]
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "signature",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "verified",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "verified_at",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "committer",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "array of objects",
+            "name": "parents",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "sha",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "string",
+        "name": "context",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "created_at",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "string or null",
+        "name": "description",
+        "description": "<p>The optional human-readable description added to the status.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "integer",
+        "name": "id",
+        "description": "<p>The unique identifier of the status.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "name",
+        "description": "",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "sha",
+        "description": "<p>The Commit SHA.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "state",
+        "description": "<p>The new state. Can be <code>pending</code>, <code>success</code>, <code>failure</code>, or <code>error</code>.</p>",
+        "isRequired": true,
+        "enum": [
+          "pending",
+          "success",
+          "failure",
+          "error"
+        ]
+      },
+      {
+        "type": "string or null",
+        "name": "target_url",
+        "description": "<p>The optional link added to the status.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "updated_at",
+        "description": "",
+        "isRequired": true
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "default",
+    "category": "status"
+  }
+}
