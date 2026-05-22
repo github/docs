@@ -3,6 +3,8 @@ import fs from 'fs/promises'
 
 import PageClass from './page'
 import type { UnversionedTree, Page } from '@/types'
+import { createLogger } from '@/observability/logger'
+const logger = createLogger(import.meta.url)
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -50,7 +52,7 @@ export default async function createTree(
         originalPath === 'content/early-access' ||
         originalPath.startsWith('content/early-access/')
       ) {
-        console.warn(`Warning: ${msg}`)
+        logger.warn(msg, { path: originalPath })
         return
       }
       throw new Error(msg)

@@ -42,12 +42,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "enterprise",
               "organization"
-            ],
-            "default": "all"
+            ]
           }
         }
       ],
@@ -10598,12 +10598,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "member",
               "maintainer",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -11435,12 +11435,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "member",
               "maintainer",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {

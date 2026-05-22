@@ -1,5 +1,8 @@
 import type { Response } from 'express'
 
+import { createLogger } from '@/observability/logger'
+const logger = createLogger(import.meta.url)
+
 interface CacheControlOptions {
   key?: string
   public_?: boolean
@@ -42,7 +45,7 @@ function cacheControlFactory(
     .join(', ')
   return (res: Response) => {
     if (process.env.NODE_ENV !== 'production' && res.hasHeader('set-cookie') && maxAge) {
-      console.warn(
+      logger.warn(
         "You can't set a >0 cache-control header AND set-cookie or else the CDN will never respect the cache-control.",
       )
     }

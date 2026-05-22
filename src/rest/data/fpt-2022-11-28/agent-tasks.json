@@ -31,9 +31,7 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "default": 30,
-            "minimum": 1,
-            "maximum": 100
+            "default": 30
           },
           "description": "<p>The number of results per page (max 100).</p>"
         },
@@ -42,8 +40,7 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "default": 1,
-            "minimum": 1
+            "default": 1
           },
           "description": "<p>The page number of the results to fetch.</p>"
         },
@@ -94,8 +91,7 @@
           "name": "since",
           "in": "query",
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "description": "<p>Only show tasks updated at or after this time (ISO 8601 timestamp)</p>"
         },
@@ -1194,9 +1190,7 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "default": 30,
-            "minimum": 1,
-            "maximum": 100
+            "default": 30
           },
           "description": "<p>The number of results per page (max 100).</p>"
         },
@@ -1205,8 +1199,7 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "default": 1,
-            "minimum": 1
+            "default": 1
           },
           "description": "<p>The page number of the results to fetch.</p>"
         },
@@ -1257,8 +1250,7 @@
           "name": "since",
           "in": "query",
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "description": "<p>Only show tasks updated at or after this time (ISO 8601 timestamp)</p>"
         }

@@ -27,6 +27,8 @@ With {% data variables.product.prodname_emus %}, access to your enterprise's res
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your IdP is unavailable.
 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
 {% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 ## Prerequisites

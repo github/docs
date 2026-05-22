@@ -238,6 +238,7 @@ These settings apply across all your sessions and repositories. You can edit thi
 | `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. Can also be set with `--mouse` or `--no-mouse`. |
 | `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell on startup. On Windows, the CLI prefers PowerShell 7+ (`pwsh`) and falls back to Windows PowerShell (`powershell.exe`) when `pwsh` is unavailable. Windows only. |
 | `renderMarkdown` | `boolean` | `true` | Render Markdown in terminal output. |
+| `remoteExport` | `boolean` | `true` | Export sessions remotely when session sync is available. Set to `false` to opt out of remote export by default. The `remoteSessions` setting when set to `true`, or the `--remote` flag, still enables export and steering regardless of this setting. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
 | `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
 | `skillDirectories` | `string[]` | `[]` | Additional directories to search for custom skill definitions (in addition to `~/.copilot/skills/`). |
@@ -245,6 +246,7 @@ These settings apply across all your sessions and repositories. You can edit thi
 | `storeTokenPlaintext` | `boolean` | `false` | Allow authentication tokens to be stored in plain text in `config.json` when no system keychain is available. |
 | `stream` | `boolean` | `true` | Enable streaming responses. |
 | `streamerMode` | `boolean` | `false` | Hide preview model names and quota details. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
+| `terminalProgress` | `boolean` | `true` | Emit OSC 9;4 terminal progress indicators while the agent is working. Supported terminals include Windows Terminal, iTerm2, Ghostty, and ConEmu. |
 | `theme` | `"auto"` \| `"dark"` \| `"light"` | `"auto"` | Terminal color theme. `"auto"` detects the terminal background and chooses accordingly. |
 | `updateTerminalTitle` | `boolean` | `true` | Show the current intent in the terminal tab or window title. |
 

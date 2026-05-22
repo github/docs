@@ -68,6 +68,7 @@ export type PageFrontmatter = {
   childGroups?: ChildGroup[]
   sidebarLink?: SidebarLink
   spotlight?: SpotlightItem[]
+  filters?: Array<'category' | 'surface' | 'complexity'>
 }
 
 type FeaturedLinks = {
@@ -222,6 +223,7 @@ export type ToC = {
   octicon: ValidOcticon | null
   category: string[] | null
   complexity: string[] | null
+  surface: string[] | null
   industry: string[] | null
   childTocItems: ToC[]
 }
@@ -333,6 +335,7 @@ export type Page = {
   octicon?: string
   category?: string[]
   complexity?: string[]
+  surface?: string[]
   industry?: string[]
   sidebarLink?: SidebarLink
   contentType?: string

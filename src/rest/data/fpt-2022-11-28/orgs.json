@@ -4013,11 +4013,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -4026,19 +4026,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "last_rate_limited_timestamp",
-                "last_request_timestamp",
-                "rate_limited_request_count",
-                "http_method",
-                "api_route",
-                "total_request_count"
-              ],
-              "default": "total_request_count"
-            }
+            "type": "array"
           }
         },
         {
@@ -4196,11 +4184,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -4209,18 +4197,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "last_rate_limited_timestamp",
-                "last_request_timestamp",
-                "rate_limited_request_count",
-                "subject_name",
-                "total_request_count"
-              ],
-              "default": "total_request_count"
-            }
+            "type": "array"
           }
         },
         {
@@ -5139,11 +5116,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -5152,18 +5129,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "last_rate_limited_timestamp",
-                "last_request_timestamp",
-                "rate_limited_request_count",
-                "subject_name",
-                "total_request_count"
-              ],
-              "default": "total_request_count"
-            }
+            "type": "array"
           }
         },
         {
@@ -5541,10 +5507,7 @@
           "description": "<p>The cluster name.</p>",
           "required": true,
           "schema": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 128,
-            "pattern": "^[a-zA-Z0-9._-]+$"
+            "type": "string"
           }
         }
       ],
@@ -6006,10 +5969,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "minLength": 71,
-            "maxLength": 71,
-            "pattern": "^sha256:[a-f0-9]{64}$"
+            "type": "string"
           }
         }
       ],
@@ -6166,10 +6126,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "minLength": 71,
-            "maxLength": 71,
-            "pattern": "^sha256:[a-f0-9]{64}$"
+            "type": "string"
           }
         }
       ],
@@ -10695,14 +10652,14 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "admin",
               "direct_member",
               "billing_manager",
               "hiring_manager"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -10712,12 +10669,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "member",
               "scim"
-            ],
-            "default": "all"
+            ]
           }
         }
       ],
@@ -11682,12 +11639,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "2fa_disabled",
               "2fa_insecure",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -11697,12 +11654,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "admin",
               "member"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -16930,12 +16887,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "2fa_disabled",
               "2fa_insecure",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -17349,10 +17306,10 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created_at",
             "enum": [
               "created_at"
-            ],
-            "default": "created_at"
+            ]
           }
         },
         {
@@ -17362,11 +17319,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -17375,14 +17332,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "owner[]=octocat1,owner[]=octocat2"
-            ]
+            "type": "array"
           }
         },
         {
@@ -17391,10 +17341,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "Hello-World"
-            ]
+            "type": "string"
           }
         },
         {
@@ -17403,10 +17350,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "issues_read"
-            ]
+            "type": "string"
           }
         },
         {
@@ -17415,8 +17359,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -17425,8 +17368,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -17435,14 +17377,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 50,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "token_id[]=1,token_id[]=2"
-            ]
+            "type": "array"
           }
         }
       ],
@@ -17750,8 +17685,7 @@
           {
             "\"Personal access token requests\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -17855,8 +17789,7 @@
           {
             "\"Personal access token requests\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -17956,8 +17889,7 @@
           {
             "\"Personal access token requests\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -18886,8 +18818,7 @@
           {
             "\"Personal access token requests\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -18932,10 +18863,10 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created_at",
             "enum": [
               "created_at"
-            ],
-            "default": "created_at"
+            ]
           }
         },
         {
@@ -18945,11 +18876,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -18958,14 +18889,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "owner[]=octocat1,owner[]=octocat2"
-            ]
+            "type": "array"
           }
         },
         {
@@ -18974,10 +18898,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "Hello-World"
-            ]
+            "type": "string"
           }
         },
         {
@@ -18986,10 +18907,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "issues_read"
-            ]
+            "type": "string"
           }
         },
         {
@@ -18998,8 +18916,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -19008,8 +18925,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -19018,14 +18934,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 50,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "token_id[]=1,token_id[]=2"
-            ]
+            "type": "array"
           }
         }
       ],
@@ -19324,8 +19233,7 @@
           {
             "\"Personal access tokens\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19423,8 +19331,7 @@
           {
             "\"Personal access tokens\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19517,8 +19424,7 @@
           {
             "\"Personal access tokens\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -20447,8 +20353,7 @@
           {
             "\"Personal access tokens\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -20493,13 +20398,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -20516,13 +20421,13 @@
           "in": "query",
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "pass",
               "fail",
               "bypass",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -20969,10 +20874,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "branch,tag,push"
-            ]
+            "type": "string"
           }
         }
       ],

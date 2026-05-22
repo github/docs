@@ -5,7 +5,7 @@ intro: Build skills and knowledge about {% data variables.product.prodname_copil
 versions:
   feature: copilot
 children:
-  - /copilot-chat-cookbook
+  - /copilot-cookbook
   - /customization-library
   - /cloud-agent
   - /spark
@@ -41,7 +41,7 @@ sidebarLink:
   href: /copilot/tutorials
 carousels:
   recommended:
-    - /copilot/tutorials/copilot-chat-cookbook
+    - /copilot/tutorials/copilot-cookbook
     - /copilot/tutorials/customization-library
     - /copilot/tutorials/roll-out-at-scale
 includedCategories:

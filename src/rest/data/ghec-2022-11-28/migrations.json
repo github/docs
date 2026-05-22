@@ -40,17 +40,7 @@
           "description": "<p>Exclude attributes from the API response to improve performance</p>",
           "in": "query",
           "schema": {
-            "type": "array",
-            "items": {
-              "description": "Allowed values that can be passed to the exclude param.",
-              "enum": [
-                "repositories"
-              ],
-              "type": "string",
-              "examples": [
-                "repositories"
-              ]
-            }
+            "type": "array"
           }
         }
       ],
@@ -2321,17 +2311,7 @@
           "description": "<p>Exclude attributes from the API response to improve performance</p>",
           "in": "query",
           "schema": {
-            "type": "array",
-            "items": {
-              "description": "Allowed values that can be passed to the exclude param.",
-              "enum": [
-                "repositories"
-              ],
-              "type": "string",
-              "examples": [
-                "repositories"
-              ]
-            }
+            "type": "array"
           }
         }
       ],
@@ -8689,10 +8669,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "description": ""
         }

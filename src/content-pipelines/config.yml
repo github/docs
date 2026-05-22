@@ -17,8 +17,8 @@
 #
 copilot-cli:
   name: Copilot CLI
-  source-repo: github/copilot-agent-runtime
-  source-path: docs/cli
+  source-repo: github/copilot-cli-generated-docs
+  source-path: docs
   target-articles:
     - content/copilot/reference/copilot-cli-reference/cli-command-reference.md
     - content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md

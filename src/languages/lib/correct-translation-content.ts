@@ -205,6 +205,18 @@ export function correctTranslatedContentStrings(
       '{%$1 %}',
     )
 
+    // `{% de escritorio %}` — Spanish "de escritorio" = desktop (platform tab)
+    content = content.replaceAll('{% de escritorio %}', '{% desktop %}')
+    content = content.replaceAll('{%- de escritorio %}', '{%- desktop %}')
+
+    // `{% variablesdatos.producto.` — translator fused "variables" + "datos" (data)
+    // without the `data` keyword and used "producto" (product) instead of "variables.product".
+    // e.g. `{% variablesdatos.producto.prodname_dotcom %}` → `{% data variables.product.prodname_dotcom %}`
+    content = content.replace(
+      /\{%(-?)\s*variablesdatos\.producto\.([A-Za-z0-9._-]+)(\s*-?%\})/g,
+      '{%$1 data variables.product.$2$3',
+    )
+
     // [SCRAPE-6548] Per-file fix for the Spanish reusable
     // `data/reusables/dependency-graph/deduplication.md`. The translation
     // dropped the `{% endif %}` after the Dependabot graph jobs item (the
@@ -771,6 +783,12 @@ export function correctTranslatedContentStrings(
     // already opened on the previous line. Drop the inner duplicate so the
     // outer endif balances correctly.
     content = content.replaceAll('> * {% ifversion ghes %} 本文包含', '> * 本文包含')
+
+    // `{% 捕获IDENTIFIER %}` — Chinese "捕获" = "to capture" = capture.
+    // Translator translated the tag name but kept the variable name in English.
+    // Pattern: `{% 捕获IDENTIFIER %}` (no space) or `{% 捕获 IDENTIFIER %}` (with space)
+    // → `{% capture IDENTIFIER %}`
+    content = content.replace(/\{%(-?)\s*捕获\s*(\w+)\s*(-?)%\}/g, '{%$1 capture $2 $3%}')
   }
 
   if (context.code === 'ru') {
@@ -900,6 +918,23 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- эндкёрл %}', '{%- endcurl %}')
     content = content.replaceAll('{% запроса %}', '{% endraw %}')
     content = content.replaceAll('{%- запроса %}', '{%- endraw %}')
+    // `{% API %}` — uppercase API used as platform/tool tab tag (correct: lowercase `{% api %}`)
+    content = content.replaceAll('{% API %}', '{% api %}')
+    content = content.replaceAll('{%- API %}', '{%- api %}')
+
+    // `{% захватить VARNAME %}` — "захватить" = "to capture" = capture
+    // The translator translated the tag name but kept the variable name in English.
+    // Pattern: `{% захватить IDENTIFIER %}` → `{% capture IDENTIFIER %}`
+    content = content.replace(/\{%(-?)\s*захватить\s+(\w+)\s*(-?)%\}/g, '{%$1 capture $2 $3%}')
+
+    // Comma-separated plan names in ifversion/elsif/if tags:
+    // `{% ifversion fpt, ghec %}` — translator used comma instead of `or` between plans.
+    // Only safe to fix when the comma appears between recognised plan-name tokens.
+    content = content.replace(
+      /\{%(-?\s+(?:ifversion|elsif|if)\s+[^%]*?),\s*((?:fpt|ghec|ghes|ghae|ghecom)[^%]*?-?%\})/g,
+      '{%$1 or $2',
+    )
+
     // `{% джетмозги %}` — Russian literal translation of "JetBrains" (джет=jet, мозги=brains)
     content = content.replaceAll('{% джетмозги %}', '{% jetbrains %}')
     content = content.replaceAll('{%- джетмозги %}', '{%- jetbrains %}')
@@ -1058,6 +1093,15 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll(
       'Вы можете увидеть, кто внес{% endif %} коммиты в репозиторий{% ifversion fpt or ghec %} и его зависимости.',
       'Вы можете увидеть, кто внес коммиты в репозиторий{% ifversion fpt or ghec %} и его зависимости{% endif %}.',
+    )
+
+    // data/reusables/enterprise-licensing/unique-user-licensing-model.md:
+    // The translator garbled `{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}`
+    // into `{% ifversion enterprise-licensing-language %}license-language%else %}licenses{% license seats{% endif %}`.
+    // Restore the correct conditional.
+    content = content.replaceAll(
+      '{% ifversion enterprise-licensing-language %}license-language%else %}licenses{% license seats{% endif %}',
+      '{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}',
     )
   }
 
@@ -1342,6 +1386,11 @@ export function correctTranslatedContentStrings(
     // `{% Variable.` (capital V) — variant
     content = content.replaceAll('{% Variable.', '{% data variables.')
     content = content.replaceAll('{%- Variable.', '{%- data variables.')
+
+    // `{% 캡처 IDENTIFIER %}` — Korean "캡처" = "capture".
+    // Translator translated the tag name but kept the variable name in English.
+    // Pattern: `{% 캡처 IDENTIFIER %}` → `{% capture IDENTIFIER %}`
+    content = content.replace(/\{%(-?)\s*캡처\s+(\w+)\s*(-?)%\}/g, '{%$1 capture $2 $3%}')
 
     // [SCRAPE-6548] Per-file fix:
     // account-and-profile/concepts/username-changes.md (intro): orphan

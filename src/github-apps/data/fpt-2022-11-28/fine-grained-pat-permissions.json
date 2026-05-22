@@ -4513,6 +4513,24 @@
         "access": "write"
       },
       {
+        "category": "code-quality",
+        "slug": "get-a-code-quality-setup-configuration",
+        "subcategory": "code-quality",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-quality",
+        "slug": "update-a-code-quality-setup-configuration",
+        "subcategory": "code-quality",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "code-scanning",
         "slug": "get-a-code-scanning-default-setup-configuration",
         "subcategory": "code-scanning",

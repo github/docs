@@ -144,4 +144,185 @@ unsubscribeIdle();
 
 ## Next steps
 
-To continue getting started with {% data variables.copilot.copilot_sdk_short %}, see [Build Your First Copilot-Powered App](https://github.com/github/copilot-sdk/blob/main/docs/getting-started.md#step-4-add-a-custom-tool) in the `github/copilot-sdk` repository. 
+### Add a custom tool
+
+Give {% data variables.product.prodname_copilot_short %} the ability to call your code by defining a custom tool. Here's a weather lookup tool:
+
+```typescript copy
+import { CopilotClient, defineTool } from "@github/copilot-sdk";
+
+// Define a tool that Copilot can call
+const getWeather = defineTool("get_weather", {
+    description: "Get the current weather for a city",
+    parameters: {
+        type: "object",
+        properties: {
+            city: { type: "string", description: "The city name" },
+        },
+        required: ["city"],
+    },
+    handler: async (args: { city: string }) => {
+        const { city } = args;
+        // In a real app, you'd call a weather API here
+        const conditions = ["sunny", "cloudy", "rainy", "partly cloudy"];
+        const temp = Math.floor(Math.random() * 30) + 50;
+        const condition = conditions[Math.floor(Math.random() * conditions.length)];
+        return { city, temperature: `${temp}°F`, condition };
+    },
+});
+
+const client = new CopilotClient();
+const session = await client.createSession({
+    model: "gpt-4.1",
+    streaming: true,
+    tools: [getWeather],
+});
+
+session.on("assistant.message_delta", (event) => {
+    process.stdout.write(event.data.deltaContent);
+});
+
+session.on("session.idle", () => {
+    console.log(); // New line when done
+});
+
+await session.sendAndWait({
+    prompt: "What's the weather like in Seattle and Tokyo?",
+});
+
+await client.stop();
+process.exit(0);
+```
+
+For examples in Python, Go, .NET, and Rust, see [Getting started](https://github.com/github/copilot-sdk/blob/main/docs/getting-started.md#step-4-add-a-custom-tool) in the `github/copilot-sdk` repository. {% data reusables.copilot.copilot-sdk.java-sdk-link %}
+
+When you define a tool, you're telling {% data variables.product.prodname_copilot_short %}:
+
+1. **What the tool does** (description)
+1. **What parameters it needs** (schema)
+1. **What code to run** (handler)
+
+{% data variables.product.prodname_copilot_short %} decides when to call your tool based on the user's question. When it does, the {% data variables.copilot.copilot_sdk_short %} runs your handler function and sends the result back to {% data variables.product.prodname_copilot_short %}, which incorporates it into the response.
+
+### Build an interactive assistant
+
+Combine everything into an interactive chat assistant:
+
+```typescript copy
+import { CopilotClient, defineTool } from "@github/copilot-sdk";
+import * as readline from "readline";
+
+const getWeather = defineTool("get_weather", {
+    description: "Get the current weather for a city",
+    parameters: {
+        type: "object",
+        properties: {
+            city: { type: "string", description: "The city name" },
+        },
+        required: ["city"],
+    },
+    handler: async ({ city }) => {
+        const conditions = ["sunny", "cloudy", "rainy", "partly cloudy"];
+        const temp = Math.floor(Math.random() * 30) + 50;
+        const condition = conditions[Math.floor(Math.random() * conditions.length)];
+        return { city, temperature: `${temp}°F`, condition };
+    },
+});
+
+const client = new CopilotClient();
+const session = await client.createSession({
+    model: "gpt-4.1",
+    streaming: true,
+    tools: [getWeather],
+});
+
+session.on("assistant.message_delta", (event) => {
+    process.stdout.write(event.data.deltaContent);
+});
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+
+console.log("Weather Assistant (type 'exit' to quit)");
+console.log("   Try: 'What's the weather in Paris?'\n");
+
+const prompt = () => {
+    rl.question("You: ", async (input) => {
+        if (input.toLowerCase() === "exit") {
+            await client.stop();
+            rl.close();
+            return;
+        }
+
+        process.stdout.write("Assistant: ");
+        await session.sendAndWait({ prompt: input });
+        console.log("\n");
+        prompt();
+    });
+};
+
+prompt();
+```
+
+Run with:
+
+```bash copy
+npx tsx weather-assistant.ts
+```
+
+For examples in Python, Go, .NET, and Rust, see [Getting started](https://github.com/github/copilot-sdk/blob/main/docs/getting-started.md#step-5-build-an-interactive-assistant) in the `github/copilot-sdk` repository. {% data reusables.copilot.copilot-sdk.java-sdk-link %}
+
+### Connect to MCP servers
+
+MCP (Model Context Protocol) servers provide pre-built tools. Connect to {% data variables.product.github %}'s MCP server to give {% data variables.product.prodname_copilot_short %} access to repositories, issues, and pull requests:
+
+```typescript copy
+const session = await client.createSession({
+    mcpServers: {
+        github: {
+            type: "http",
+            url: "https://api.githubcopilot.com/mcp/",
+        },
+    },
+});
+```
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/use-copilot-sdk/mcp-servers).
+
+### Create custom agents
+
+Define specialized AI personas for specific tasks:
+
+```typescript copy
+const session = await client.createSession({
+    customAgents: [{
+        name: "pr-reviewer",
+        displayName: "PR Reviewer",
+        description: "Reviews pull requests for best practices",
+        prompt: "You are an expert code reviewer. Focus on security, performance, and maintainability.",
+    }],
+});
+```
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-agents).
+
+### Customize the system message
+
+Control the AI's behavior and personality by appending instructions:
+
+```typescript copy
+const session = await client.createSession({
+    systemMessage: {
+        content: "You are a helpful assistant for our engineering team. Always be concise.",
+    },
+});
+```
+
+### Further reading
+
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/choosing-a-setup-path)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/use-copilot-sdk/agent-loop)
+* [Connecting to an external CLI server](https://github.com/github/copilot-sdk/blob/main/docs/getting-started.md#connecting-to-an-external-cli-server) in the `github/copilot-sdk` repository
+* [Telemetry and observability](https://github.com/github/copilot-sdk/blob/main/docs/getting-started.md#telemetry-and-observability) in the `github/copilot-sdk` repository

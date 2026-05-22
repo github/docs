@@ -63,7 +63,11 @@ You can run several of these workflows in parallel, each in its own workspace, a
 
 ## Providing feedback
 
-The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.public_preview %}. To share feedback, click the **Give feedback** icon in the bottom-left corner of the app.
+The {% data variables.copilot.github_copilot_app %} is in {% data variables.release-phases.technical_preview %}. To share feedback, click the **Give feedback** icon in the bottom-left corner of the app.
+
+## Public code
+
+{% data variables.copilot.github_copilot_app %} may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Further reading
 

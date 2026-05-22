@@ -1241,8 +1241,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -12064,8 +12063,7 @@
         "fineGrainedPat": false,
         "permissions": [],
         "allowPermissionlessAccess": true,
-        "allowsPublicRead": true,
-        "disabledForPatV2": true
+        "allowsPublicRead": true
       }
     },
     {
@@ -12103,8 +12101,7 @@
         "fineGrainedPat": false,
         "permissions": [],
         "allowPermissionlessAccess": true,
-        "allowsPublicRead": true,
-        "disabledForPatV2": true
+        "allowsPublicRead": true
       }
     },
     {
@@ -13177,8 +13174,7 @@
         "serverToServer": false,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -14073,8 +14069,7 @@
           {
             "\"Metadata\" repository permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -14766,11 +14761,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -15688,11 +15683,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {

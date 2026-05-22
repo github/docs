@@ -47,7 +47,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 ## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
 
-This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies, including policies restricting {% data variables.product.prodname_copilot_short %} to data-resident or FedRAMP-compliant models.
+This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 
 {% rowheaders %}
 
@@ -77,9 +77,6 @@ The following table lists AI models that are retired or scheduled for retirement
 
 The following table shows which models are available in each client.
 
-> [!NOTE]
-> {% data reusables.copilot.auto-model-selection %}
-
 {% rowheaders %}
 
 | Model | {% data variables.product.prodname_dotcom_the_website %} | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | Eclipse | Xcode | JetBrains IDEs |
@@ -96,20 +93,21 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 
 {% rowheaders %}
 
-| Model | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
-| --- | --- | --- | --- | --- | --- |
-| {% data variables.copilot.copilot_gemini_3_flash %} | `v1.115.0` and later | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gemini_31_pro %} | `v1.115.0` and later | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gpt_52_codex %} | No minimum listed | `17.14.19` or `18.0.0` and later | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
-| {% data variables.copilot.copilot_gpt_53_codex %} | `v1.104.1` and later | `17.14.19` and later | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
-| {% data variables.copilot.copilot_gpt_54 %} | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_gpt_54_mini %} | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_gpt_55 %} | `v1.117` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| Model                                                | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
+|------------------------------------------------------| --- | --- | --- | --- | --- |
+| {% data variables.copilot.copilot_gemini_3_flash %}  | `v1.115.0` and later | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_31_pro %}   | `v1.115.0` and later | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_35_flash %} | `v1.115.0` and later | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gpt_52_codex %}    | No minimum listed | `17.14.19` or `18.0.0` and later | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_53_codex %}    | `v1.104.1` and later | `17.14.19` and later | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_54 %}          | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_54_mini %}     | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_55 %}          | `v1.117` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 
 {% endrowheaders %}
 
 > [!NOTE]
-> 
+>
 > * For {% data variables.copilot.copilot_gpt_53_codex %} in {% data variables.product.prodname_vscode %}, `v1.108` and later provide improved prompting and response quality.
 > * "No minimum listed" means the reviewed changelog or release guidance did not specify a minimum version, not that all older versions are supported.
 > * Even when a model appears in the model picker on older supported versions, prompting and model behavior may work best with the latest IDE and {% data variables.product.prodname_copilot_short %} extension or plugin versions.
@@ -155,6 +153,12 @@ For more information about fallback and LTS models, see [AUTOTITLE](/copilot/con
 > Testing of evaluation models has revealed that some may perform worse than other models on security-related or other categories of prompts. Customers are encouraged to validate code, including code security, using a range of models and thorough human review before incorporating suggestions into production.
 
 Evaluation models may be added, updated, or removed without notice. Availability and rate limits may differ from generally available models.
+
+## Utility models
+
+Utility models power background features across surfaces, and cannot be disabled or selected in the model picker. See [AUTOTITLE](/copilot/concepts/models/utility-models).
+
+{% data reusables.copilot.utility-models %}
 
 ## Next steps
 

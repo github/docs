@@ -49,6 +49,10 @@
   multiplier_paid: 1
   multiplier_free: Not applicable
 
+- name: Gemini 3.5 Flash
+  multiplier_paid: 14
+  multiplier_free: Not applicable
+
 - name: GPT-4.1
   multiplier_paid: 0
   multiplier_free: 1

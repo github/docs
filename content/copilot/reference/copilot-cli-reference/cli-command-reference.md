@@ -382,7 +382,7 @@ copilot --allow-tool='MyMCP'
 | `GH_HOST` | {% data variables.product.github %} hostname for both {% data variables.product.prodname_cli %} and {% data variables.copilot.copilot_cli_short %} (default: `github.com`). Set to your {% data variables.product.prodname_ghe_cloud %} with data residency hostname. Override with `COPILOT_GH_HOST` for {% data variables.copilot.copilot_cli_short %} only. |
 | `GH_TOKEN` | Authentication token. Takes precedence over `GITHUB_TOKEN`. |
 | `GITHUB_COPILOT_PROMPT_MODE_EXTENSIONS` | Set to `true` to load project extensions and allow extension management tools in prompt mode (`-p`). Disabled by default to prevent running repository-controlled extension code without interactive trust. |
-| `GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS` | Set to `true` to load repository hooks in prompt mode (`-p`). Disabled by default to prevent running repository-provided hook commands without interactive trust confirmation. |
+| `GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS` | Set to `true` to load repository hooks in prompt mode (`-p`). Repository hooks also load automatically when the folder is already trusted or `COPILOT_ALLOW_ALL` is set. |
 | `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` | Set to `true` to load workspace MCP sources in prompt mode (`-p`). Disabled by default to prevent starting repository-controlled MCP servers without interactive trust. |
 | `GITHUB_TOKEN` | Authentication token. |
 | `PLAIN_DIFF` | Set to `true` to disable rich diff rendering. |

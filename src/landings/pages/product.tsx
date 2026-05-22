@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 import { useRouter } from 'next/router'
+
+import type { ExtendedRequest } from '@/types'
+import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
@@ -132,8 +136,8 @@ const GlobalPage = ({
 export default GlobalPage
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const req = context.req as any
-  const res = context.res as any
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as Response
 
   const props: Props = {
     mainContext: await getMainContext(req, res),
@@ -151,8 +155,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
     // journey tracks are resolved in middleware and added to the request
     // so we need to add them to the journey context here
-    if ((req.context.page as any).resolvedJourneyTracks) {
-      props.journeyContext.journeyTracks = (req.context.page as any).resolvedJourneyTracks
+    const page = req.context?.page as { resolvedJourneyTracks?: JourneyTrack[] } | undefined
+    if (page?.resolvedJourneyTracks) {
+      props.journeyContext.journeyTracks = page.resolvedJourneyTracks
     }
 
     additionalUINamespaces.push('journey_landing', 'product_landing')
@@ -161,15 +166,21 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     additionalUINamespaces.push('product_landing', 'carousels')
   } else if (relativePath?.endsWith('index.md')) {
     if (currentLayoutName === 'category-landing') {
-      props.categoryLandingContext = getCategoryLandingContextFromRequest(req)
+      props.categoryLandingContext = getCategoryLandingContextFromRequest(
+        req as unknown as Parameters<typeof getCategoryLandingContextFromRequest>[0],
+      )
     } else {
-      props.tocLandingContext = getTocLandingContextFromRequest(req)
+      props.tocLandingContext = getTocLandingContextFromRequest(
+        req as unknown as Parameters<typeof getTocLandingContextFromRequest>[0],
+      )
     }
   } else if (props.mainContext.page) {
     // All articles that might have hover cards needs this
     additionalUINamespaces.push('popovers')
 
-    props.articleContext = getArticleContextFromRequest(req)
+    props.articleContext = getArticleContextFromRequest(
+      req as unknown as Parameters<typeof getArticleContextFromRequest>[0],
+    )
     if (props.articleContext.currentJourneyTrack?.trackId) {
       additionalUINamespaces.push('journey_track_nav')
     }

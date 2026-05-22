@@ -87,7 +87,12 @@
 - name: Gemini 3.1 Pro
   task_area: Deep reasoning and debugging
   excels_at: Effective and efficient edit-then-test loops with high tool precision
-  further_reading: 'not applicable'
+  further_reading: 'Not available'
+
+- name: Gemini 3.5 Flash
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Fast, reliable answers to lightweight coding questions
+  further_reading: '[Gemini 3.5 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf)'
 
 # Other providers (alphabetized by model name)
 - name: Qwen2.5

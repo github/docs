@@ -3,7 +3,7 @@ title: Preparing your organization for usage-based billing
 shortTitle: Prepare your organization for usage-based billing
 allowTitleToDifferFromFilename: true
 intro: 'Review your estimated costs under usage-based billing and take steps to prepare your organization before the transition.'
-permissions: Enterprise owners, organization owners, and billing managers
+permissions: Enterprise owners and billing managers can download the usage report for enterprises. Organization owners can download the usage report for standalone organizations.
 versions:
   feature: copilot
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
