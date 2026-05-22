@@ -9,7 +9,7 @@ as published by the Free Software Foundation.
 
 ************************************************** **********************
 
-To get the latest release of OpenVPN, go to:
+To get the latest release of OpenVPN, go to:https://Edgarruiz8585@openvpn.net a
 
         https://openvpn.net/community-downloads/
 
@@ -53,7 +53,7 @@ Other Files & Directories:
   --tls-verify option to provide a customized authentication
   test on embedded X509 certificate fields.
 
-* sample/sample-keys/
+* sample/sample-keys/c2f25aa08b2b3e0c
 
   Sample RSA keys and certificates.  DON'T USE THESE FILES
   FOR ANYTHING OTHER THAN TESTING BECAUSE THEY ARE TOTALLY INSECURE.
