@@ -13304,7 +13304,6 @@
       "id": "codescanningparameters",
       "href": "/graphql/reference/objects#codescanningparameters",
       "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
-      "isDeprecated": false,
       "fields": [
         {
           "name": "codeScanningTools",
@@ -13320,7 +13319,6 @@
       "id": "codescanningtool",
       "href": "/graphql/reference/objects#codescanningtool",
       "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
-      "isDeprecated": false,
       "fields": [
         {
           "name": "alertsThreshold",
@@ -85567,7 +85565,6 @@
       "id": "pullrequestallowedmergemethods",
       "href": "/graphql/reference/enums#pullrequestallowedmergemethods",
       "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>",
-      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -86709,7 +86706,6 @@
       "id": "repositoryruletype",
       "href": "/graphql/reference/enums#repositoryruletype",
       "description": "<p>The rule types supported in rulesets.</p>",
-      "isDeprecated": false,
       "values": [
         {
           "name": "AUTHORIZATION",
@@ -91185,7 +91181,6 @@
       "id": "ruleparameters",
       "href": "/graphql/reference/unions#ruleparameters",
       "description": "<p>Types which can be parameters for <code>RepositoryRule</code> objects.</p>",
-      "isDeprecated": false,
       "possibleTypes": [
         {
           "name": "BranchNamePatternParameters",
@@ -93386,7 +93381,6 @@
       "id": "codescanningparametersinput",
       "href": "/graphql/reference/input-objects#codescanningparametersinput",
       "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
-      "isDeprecated": false,
       "inputFields": [
         {
           "name": "codeScanningTools",
@@ -93402,7 +93396,6 @@
       "id": "codescanningtoolinput",
       "href": "/graphql/reference/input-objects#codescanningtoolinput",
       "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
-      "isDeprecated": false,
       "inputFields": [
         {
           "name": "alertsThreshold",
@@ -100774,7 +100767,6 @@
       "id": "ruleparametersinput",
       "href": "/graphql/reference/input-objects#ruleparametersinput",
       "description": "<p>Specifies the parameters for a <code>RepositoryRule</code> object. Only one of the fields should be specified.</p>",
-      "isDeprecated": false,
       "inputFields": [
         {
           "name": "branchNamePattern",
