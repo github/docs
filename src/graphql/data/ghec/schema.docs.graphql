@@ -4968,7 +4968,7 @@ Choose which tools must provide code scanning results before the reference is
 updated. When configured, code scanning must be enabled and have results for
 both the commit and the reference being updated.
 """
-type CodeScanningParameters @docsCategory(name: "repos") {
+type CodeScanningParameters {
   """
   Tools that must provide code scanning results for this rule to pass.
   """
@@ -4980,7 +4980,7 @@ Choose which tools must provide code scanning results before the reference is
 updated. When configured, code scanning must be enabled and have results for
 both the commit and the reference being updated.
 """
-input CodeScanningParametersInput @docsCategory(name: "repos") {
+input CodeScanningParametersInput {
   """
   Tools that must provide code scanning results for this rule to pass.
   """
@@ -4990,7 +4990,7 @@ input CodeScanningParametersInput @docsCategory(name: "repos") {
 """
 A tool that must provide code scanning results for this rule to pass.
 """
-type CodeScanningTool @docsCategory(name: "repos") {
+type CodeScanningTool {
   """
   The severity level at which code scanning results that raise alerts block a
   reference update. For more information on alert severity levels, see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
@@ -5013,7 +5013,7 @@ type CodeScanningTool @docsCategory(name: "repos") {
 """
 A tool that must provide code scanning results for this rule to pass.
 """
-input CodeScanningToolInput @docsCategory(name: "repos") {
+input CodeScanningToolInput {
   """
   The severity level at which code scanning results that raise alerts block a
   reference update. For more information on alert severity levels, see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
@@ -43662,7 +43662,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
 """
 Array of allowed merge methods. Allowed values include `merge`, `squash`, and `rebase`. At least one option must be enabled.
 """
-enum PullRequestAllowedMergeMethods @docsCategory(name: "pulls") {
+enum PullRequestAllowedMergeMethods {
   """
   Add all commits from the head branch to the base branch with a merge commit.
   """
@@ -55696,7 +55696,7 @@ enum RepositoryRuleOrderField @docsCategory(name: "repos") {
 """
 The rule types supported in rulesets
 """
-enum RepositoryRuleType @docsCategory(name: "repos") {
+enum RepositoryRuleType {
   """
   Authorization
   """
@@ -57814,7 +57814,7 @@ enum RuleEnforcement @docsCategory(name: "repos") {
 """
 Types which can be parameters for `RepositoryRule` objects.
 """
-union RuleParameters @docsCategory(name: "repos") =
+union RuleParameters =
   | BranchNamePatternParameters
   | CodeScanningParameters
   | CommitAuthorEmailPatternParameters
@@ -57836,7 +57836,7 @@ union RuleParameters @docsCategory(name: "repos") =
 """
 Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
 """
-input RuleParametersInput @docsCategory(name: "repos") {
+input RuleParametersInput {
   """
   Parameters used for the `branch_name_pattern` rule type
   """

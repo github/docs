@@ -174,6 +174,12 @@ You can identify all events that were performed by a specific access token. For 
 
 {% data reusables.audit_log.git-events-export-limited %}
 
+### Export limits
+
+{% data reusables.audit_log.audit-log-org-export-limit %}
+
+### Exported log keys and values
+
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
