@@ -61,7 +61,7 @@ contentType: how-tos
 | Create workspace file | `session.rpc.workspace.createFile()` | Create file in workspace |
 | **Authentication** | | |
 | Get auth status | `getAuthStatus()` | Check login state |
-| Use token | `githubToken` option | Programmatic auth |
+| Use token | `gitHubToken` option | Programmatic auth |
 | **Connectivity** | | |
 | Ping | `client.ping()` | Health check with server timestamp |
 | Get server status | `client.getStatus()` | Protocol version and server info |
@@ -92,7 +92,9 @@ contentType: how-tos
 | **Experimental** | | |
 | Agent management | `session.rpc.agent.*` | List, select, deselect, get current agent |
 | Fleet mode | `session.rpc.fleet.start()` | Parallel sub-agent execution |
-| Manual compaction | `session.rpc.compaction.compact()` | Trigger compaction on demand |
+| Manual compaction | `session.rpc.history.compact()` | Trigger compaction on demand |
+| History truncation | `session.rpc.history.truncate()` | Remove events from a point onward |
+| Session forking | `server.rpc.sessions.fork()` | Fork a session at a point in history |
 
 ### Not available in SDK (CLI-only)
 
@@ -228,7 +230,7 @@ const session = await client.createSession({
 });
 
 // Manual compaction (experimental)
-const result = await session.rpc.compaction.compact();
+const result = await session.rpc.history.compact();
 console.log(`Removed ${result.tokensRemoved} tokens, ${result.messagesRemoved} messages`);
 ```
 

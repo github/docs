@@ -7,8 +7,10 @@ product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} 
 versions:
   feature: copilot
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
+redirect_from:
+  - /copilot/concepts/auto-model-selection
 ---
 
 ## Overview
@@ -17,14 +19,14 @@ More than just a model picker, {% data variables.copilot.copilot_auto_model_sele
 
 ### Auto with task optimization
 
-> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization is generally available in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}. 
+> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization is generally available in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}.
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} with task optimization combines two systems to provide high quality results and better reliability. One system tracks real-time system health and availability, while the other evaluates task complexity. Putting these together, {% data variables.copilot.copilot_auto_model_selection_short %} routes the task to the optimal model.
 
-Routing occurs along natural cache boundaries to avoid additional cache related costs. Switching models mid-session has shown increased cost without ample improvements in quality. 
+Routing occurs along natural cache boundaries to avoid additional cache related costs. Switching models mid-session has shown increased cost without ample improvements in quality.
 This helps you get more value from {% data variables.product.prodname_copilot_short %} since it matches each task to the model that can solve it most efficiently. That means reserving higher-cost reasoning models for problems that truly need it, while routing straightforward tasks to faster, lower-cost models that still deliver great results.
 
-Benefits of using {% data variables.copilot.copilot_auto_model_selection_short %} include: 
+Benefits of using {% data variables.copilot.copilot_auto_model_selection_short %} include:
 * Matching each task to the model that can solve it most efficiently.
 * Model choice based on real-time system health and availability.
 * Language invariance: Routing decisions depend on what you are trying to do, not what language you're asking in.
@@ -46,7 +48,7 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 * Models not available in your plan.
 * Models excluded by administrator policies. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 * Models excluded by policies restricting {% data variables.product.prodname_copilot_short %} to data-resident or FedRAMP-compliant models.
-* Models with premium request multipliers greater than one. 
+* Models with premium request multipliers greater than one.
 
 ### Multiplier discounts
 
@@ -54,20 +56,20 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.product.prodname_copilot_short %}
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is available in these {% data variables.product.prodname_copilot_short %} products: 
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is available in these {% data variables.product.prodname_copilot_short %} products:
 * {% data variables.copilot.copilot_chat_short %}
 * {% data variables.copilot.copilot_cli_short %}
-* {% data variables.copilot.copilot_cloud_agent %} 
+* {% data variables.copilot.copilot_cloud_agent %}
 
 > [!TIP]
 > You can see which model was used for each {% data variables.product.prodname_copilot_short %} response.
 > * In **{% data variables.copilot.copilot_chat_short %}**, hover over the response.
 > * In **{% data variables.copilot.copilot_cli_short %}**, the model used for each response displays in the terminal.
-> * In **{% data variables.copilot.copilot_cloud_agent %}**, the model used for each response displays at the end of the response. 
+> * In **{% data variables.copilot.copilot_cloud_agent %}**, the model used for each response displays at the end of the response.
 
 ### {% data variables.copilot.copilot_chat_short %} in IDEs
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, with task optimization, is generally available in the following IDEs: 
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, with task optimization, is generally available in the following IDEs:
   * {% data variables.product.prodname_vscode_shortname %}
 
 {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is generally available in the following IDEs:
@@ -75,7 +77,7 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
   * Eclipse
   * Xcode
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is in public preview in the following IDEs: 
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is in public preview in the following IDEs:
   * {% data variables.product.prodname_vs %}
 
 #### Enabling access during {% data variables.release-phases.public_preview %}
@@ -88,7 +90,7 @@ When you select **Auto** in the {% data variables.product.prodname_openai_codex 
 
 ### {% data variables.product.prodname_openai_codex %} supported models
 
-These models are available for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in the {% data variables.product.prodname_openai_codex %} coding agent. 
+These models are available for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in the {% data variables.product.prodname_openai_codex %} coding agent.
 
 {% data reusables.copilot.openai-codex-agent-models %}
 
@@ -96,7 +98,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/openai-codex).
 
 ### {% data variables.product.prodname_anthropic_claude %} supported models
 
-These models are available for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in the {% data variables.product.prodname_anthropic_claude %} coding agent. 
+These models are available for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in the {% data variables.product.prodname_anthropic_claude %} coding agent.
 
 {% data reusables.copilot.anthropic-claude-agent-models %}
 
