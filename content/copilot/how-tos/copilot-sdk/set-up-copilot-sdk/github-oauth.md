@@ -74,7 +74,7 @@ import { CopilotClient } from "@github/copilot-sdk";
 // Create a client for an authenticated user
 function createClientForUser(userToken: string): CopilotClient {
     return new CopilotClient({
-        githubToken: userToken,
+        gitHubToken: userToken,
         useLoggedInUser: false,  // Don't fall back to CLI sign-in
     });
 }
@@ -196,7 +196,7 @@ For {% data variables.enterprise.prodname_managed_users %}, the flow is identica
 ```typescript
 // No special SDK configuration needed for EMU
 const client = new CopilotClient({
-    githubToken: emuUserToken,
+    gitHubToken: emuUserToken,
     useLoggedInUser: false,
 });
 ```
@@ -246,7 +246,7 @@ const clients = new Map<string, CopilotClient>();
 function getClientForUser(userId: string, token: string): CopilotClient {
     if (!clients.has(userId)) {
         clients.set(userId, new CopilotClient({
-            githubToken: token,
+            gitHubToken: token,
             useLoggedInUser: false,
         }));
     }
