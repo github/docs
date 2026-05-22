@@ -1,13 +1,15 @@
 ---
 title: Base and long-term support (LTS) models
 shortTitle: Base and LTS models
-intro: 'Learn about base models, long-term support (LTS) models, and how they affect model availability for enterprises using {% data variables.product.prodname_copilot %}.'
+intro: Learn about base models, long-term support (LTS) models, and how they affect model availability for enterprises using {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
 allowTitleToDifferFromFilename: true
 contentType: concepts
 category:
   - Manage Copilot for a team
+redirect_from:
+  - /copilot/concepts/fallback-and-lts-models
 ---
 
 ## About base models

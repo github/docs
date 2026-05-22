@@ -54,18 +54,21 @@ You can find information about the models available and upcoming models in the f
 * **Model comparison**: To compare model capabilities side by side, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 * **Changelog**: Model updates are announced in the [{% data variables.product.prodname_copilot_short %} changelog](https://github.blog/changelog/label/copilot/).
 
-To plan for model transitions and set user expectations, track which models {% data variables.product.github %} designates as base or long-term support (LTS):
+#### Special categories
+
+{% data variables.product.company_short %} categorizes certain types of model, allowing you to plan for model transitions and set user expectations.
 
 {% rowheaders %}
 
 | Model type | Description | Why it matters |
 | --- | --- | --- |
+| Utility model | A small set of models that power background {% data variables.product.company_short %} features across surfaces. | Your enterprise cannot disable these models. Monitor these to ensure they are compliant. |
 | Base model | The default model when no other models are enabled. | Automatically enabled within 60 days of designation. |
 | LTS model | A model supported for one year from designation. | Allows enterprises to build workflows around a stable model. |
 
 {% endrowheaders %}
 
-For more information, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
+For more information, see [AUTOTITLE](/copilot/concepts/models/utility-models) and [AUTOTITLE](/copilot/concepts/models/fallback-and-lts-models).
 
 ## Considering different release stages
 

@@ -22,8 +22,8 @@ You're building a personal assistant, side project, or experimental app. You wan
 
 **Start with:**
 
-1. [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/local-cli)—use the CLI already signed in on your machine.
-1. [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/bundled-cli)—package everything into a standalone app.
+1. [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/bundled-cli)—the SDK includes the CLI automatically—just install and go.
+1. [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/local-cli)—use your own CLI binary or running instance (advanced).
 
 ### Internal app developer
 
@@ -72,8 +72,8 @@ Use this table to find the right guide based on what you need to do.
 
 | What you need | Guide |
 |---|---|
-| Simplest possible setup | [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/local-cli) |
-| Ship a standalone app with Copilot | [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/bundled-cli) |
+| Getting started quickly | [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/bundled-cli) |
+| Use your own CLI binary or server | [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/local-cli) |
 | Users sign in with {% data variables.product.github %} | [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/github-oauth) |
 | Use your own model keys (OpenAI, Azure, etc.) | [BYOK](https://github.com/github/copilot-sdk/blob/main/docs/auth/byok.md) in the `github/copilot-sdk` repository |
 | Azure BYOK with Managed Identity (no API keys) | [AUTOTITLE](/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/azure-managed-identity) |
@@ -84,13 +84,11 @@ Use this table to find the right guide based on what you need to do.
 
 All guides assume you have:
 
-* **{% data variables.copilot.copilot_cli_short %}** installed. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli).
-* **One of the SDKs** installed:
+* **One of the SDKs** installed (Node.js, Python, and .NET SDKs include {% data variables.copilot.copilot_cli_short %} automatically):
   * Node.js: `npm install @github/copilot-sdk`
   * Python: `pip install github-copilot-sdk`
-  * Go: `go get github.com/github/copilot-sdk/go`
+  * Go: `go get github.com/github/copilot-sdk/go` (requires separate CLI installation)
   * .NET: `dotnet add package GitHub.Copilot.SDK`
-  * Java: See the [`github/copilot-sdk-java`](https://github.com/github/copilot-sdk-java) repository for Maven/Gradle setup
 
 If you're new to the {% data variables.copilot.copilot_sdk %}, start with [AUTOTITLE](/copilot/how-tos/copilot-sdk/sdk-getting-started) first, then return here for production configuration.
 
