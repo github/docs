@@ -832,7 +832,7 @@ jobs:
 > * The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see [AUTOTITLE](/graphql/reference/objects#commit) in the GraphQL API documentation or [AUTOTITLE](/rest/commits#get-a-commit).
 > * Events will not be created if more than 5,000 branches are pushed at once. Events will not be created for tags when more than three tags are pushed at once.
 
-Runs your workflow when you push a commit or tag, or when you create a repository from a template.
+Runs your workflow when you push a commit or tag, or when you create a repository from a template. This includes workflows that are not merged into the default branch. For more information, see [AUTOTITLE](actions/reference/workflows-and-actions/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs)". 
 
 For example, you can run a workflow when the `push` event occurs.
 
@@ -843,9 +843,6 @@ on:
 
 > [!NOTE]
 > When a `push` webhook event triggers a workflow run, the Actions UI's "pushed by" field shows the account of the pusher and not the author or committer. However, if the changes are pushed to a repository using SSH authentication with a deploy key, then the "pushed by" field will be the repository admin who verified the deploy key when it was added it to a repository.
-
-> [!NOTE]
-> You can use `push` to trigger a workflow that has not been merged to the default branch. This can be useful when you want to test a workflow but cannot merge it into the default branch.
 
 ### Running your workflow only when a push to specific branches occurs
 
