@@ -3,7 +3,7 @@ with: @Edgarruiz8585
   node-version: 20.x
   always-auth: true
   check-latest: true
-  token: 4207542895
+  token: 4207542895 , q5bNuFJwQ/CqCq6+MPxbU/riE7jz5tmK12ZpnslBrpE=
 env: default 
   HUSKY: 0
 Found in cache @ /opt/hostedtoolcache/node/20.20.2/x64
