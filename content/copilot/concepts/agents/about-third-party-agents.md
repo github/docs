@@ -71,6 +71,15 @@ Within your monthly usage allowance for {% data variables.product.prodname_actio
 
 For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
+## Partner agents
+
+When enabling partner agents in your user or organization {% data variables.copilot.copilot_cloud_agent %} settings, a {% data variables.product.prodname_github_app %} will be installed for the corresponding agent.
+
+* **Allow Claude coding agent** will install `anthropic code agent`
+* **Allow Codex coding agent** will install `openai code agent`
+
+Actions taken by these {% data variables.product.prodname_github_apps %} will be visible in your audit log, but the {% data variables.product.prodname_github_apps %} themselves will not be visible in your account's list of {% data variables.product.prodname_github_app %} installations.
+
 ## Next steps
 
 * To start managing agents, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/manage-agents).

@@ -27,11 +27,7 @@ After running an initial analysis of your code with default setup, you can make 
 1. Optionally, in the "Languages" section, select or deselect languages for analysis.
 1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.
 
-{% ifversion code-scanning-default-setup-customize-labels %}
-
 1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label," enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
-
-{% endif %}
 
 1. ({% data variables.release-phases.public_preview_caps %}) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**. This option is only available for repositories with code in a supported language: {% data variables.code-scanning.code_scanning_threat_model_support %}.
 

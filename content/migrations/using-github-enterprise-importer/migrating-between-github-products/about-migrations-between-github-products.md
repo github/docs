@@ -1,5 +1,5 @@
 ---
-title: About migrations between GitHub products
+title: About migrations between GitHub products with {% data variables.product.prodname_importer_proper_name %}
 shortTitle: About migrations
 intro: 'Learn which data {% data variables.product.prodname_importer_proper_name %} can migrate between {% data variables.product.company_short %} products.'
 versions:
@@ -8,17 +8,12 @@ versions:
   ghec: '*'
 category:
   - Understand enterprise migration tools
+allowTitleToDifferFromFilename: true
 ---
 
 ## About migrations between {% data variables.product.company_short %} products
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate data from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, or migrate data from {% data variables.product.prodname_dotcom_the_website %} to another account on {% data variables.product.prodname_ghe_cloud %}.
-
-For example, {% data variables.product.prodname_importer_proper_name %} can help your company to:
-
-* Adopt {% data variables.enterprise.data_residency %} by migrating your enterprise to {% data variables.enterprise.data_residency_site %}
-* Adopt certain features on {% data variables.product.prodname_dotcom_the_website %}, such as {% data variables.product.prodname_emus %} or new billing models, by migrating between enterprises on {% data variables.product.prodname_dotcom_the_website %}
-* Benefit from simplified administration and new features by migrating from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}
 
 If your migration source is an account on {% data variables.product.prodname_dotcom_the_website %}, you can migrate individual repositories between organizations, or migrate entire organizations between enterprises. If your migration source is {% data variables.product.prodname_ghe_server %}, you can migrate individual repositories.
 
@@ -27,17 +22,6 @@ The data that {% data variables.product.prodname_importer_proper_name %} migrate
 {% ifversion repo-rules-enterprise %}
 {% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
-
-## Considerations for migrations to {% data variables.product.prodname_ghe_cloud %}
-
-Before you use {% data variables.product.prodname_importer_proper_name %}, understand the following considerations:
-
-* If you **already use {% data variables.product.prodname_ghe_cloud %}**: A {% data variables.product.prodname_enterprise %} plan entitles you to one deployment of {% data variables.product.prodname_ghe_cloud %}.
-
-  For example, if you already use {% data variables.product.prodname_dotcom_the_website %}, and you also want to migrate from {% data variables.product.prodname_ghe_server %} to {% data variables.enterprise.data_residency_site %}, your usage for both won't be covered under a single plan.
-* If you're **migrating to {% data variables.product.prodname_emus %}**: You will need to integrate with an identity provider to manage user accounts. Check the level of support for your identity provider before you start. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
-* If you're **migrating from {% data variables.product.prodname_ghe_server %}**: Be aware that {% data variables.product.company_short %} applies rate limits to certain actions, which are disabled by default on {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/enterprise-cloud@latest/rest/using-the-rest-api/rate-limits-for-the-rest-api).
-* If you're **migrating to {% data variables.enterprise.data_residency %}**: Be aware that certain features are unavailable, and some features require different or additional configuration. See [AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency).
 
 ## Data that is migrated from {% data variables.product.prodname_ghe_server %}
 

@@ -14,6 +14,7 @@ type Props = {
   spotlight?: boolean
   image?: string
   complexity?: string
+  surface?: string
 }
 
 function setImage(image: string, alt: string) {

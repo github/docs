@@ -158,10 +158,8 @@ See [AUTOTITLE](/billing/how-tos/products/disable-ghas-for-enterprise).
 
 ## Further reading
 
-{%- ifversion fpt or ghec or ghes > 3.15 %}
-* [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas){% endif %}
+* [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas)
 * [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)
-{%- ifversion fpt or ghec or ghes > 3.15 %}
-* [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% else %}
-* [AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise){% endif %}
+* [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations)
+
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)

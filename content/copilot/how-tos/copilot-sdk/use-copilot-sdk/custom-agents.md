@@ -59,13 +59,14 @@ For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `name` | `string` | ✅ | Unique identifier for the agent |
-| `displayName` | `string` | | Human-readable name shown in events |
-| `description` | `string` | | What the agent does—helps the runtime select it |
-| `tools` | `string[]` or `null` | | Names of tools the agent can use. `null` or omitted = all tools |
-| `prompt` | `string` | ✅ | System prompt for the agent |
-| `mcpServers` | `object` | | MCP server configurations specific to this agent |
-| `infer` | `boolean` | | Whether the runtime can auto-select this agent (default: `true`) |
+| `name` | `string` | Yes | Unique identifier for the agent |
+| `displayName` | `string` | No | Human-readable name shown in events |
+| `description` | `string` | No | What the agent does—helps the runtime select it |
+| `tools` | `string[]` or `null` | No | Names of tools the agent can use. `null` or omitted = all tools |
+| `prompt` | `string` | Yes | System prompt for the agent |
+| `mcpServers` | `object` | No | MCP server configurations specific to this agent |
+| `infer` | `boolean` | No | Whether the runtime can auto-select this agent (default: `true`) |
+| `skills` | `string[]` | No | Skill names to preload into the agent's context at startup |
 
 > [!TIP]
 > A good `description` helps the runtime match user intent to the right agent. Be specific about the agent's expertise and capabilities.
@@ -75,6 +76,35 @@ In addition to per-agent configuration, you can set `agent` on the **session con
 | Session config property | Type | Description |
 |-------------------------|------|-------------|
 | `agent` | `string` | Name of the custom agent to pre-select at session creation. Must match a `name` in `customAgents`. |
+
+## Per-agent skills
+
+You can preload skills into an agent's context using the `skills` property. When specified, the full content of each listed skill is eagerly injected into the agent's context at startup—the agent doesn't need to invoke a skill tool; the instructions are already present. Skills are opt-in: agents receive no skills by default, and sub-agents do not inherit skills from the parent. Skill names are resolved from the session-level `skillDirectories`.
+
+```typescript
+const session = await client.createSession({
+    skillDirectories: ["./skills"],
+    customAgents: [
+        {
+            name: "security-auditor",
+            description: "Security-focused code reviewer",
+            prompt: "Focus on OWASP Top 10 vulnerabilities",
+            skills: ["security-scan", "dependency-check"],
+        },
+        {
+            name: "docs-writer",
+            description: "Technical documentation writer",
+            prompt: "Write clear, concise documentation",
+            skills: ["markdown-lint"],
+        },
+    ],
+    onPermissionRequest: async () => ({ kind: "approved" }),
+});
+```
+
+In this example, `security-auditor` starts with `security-scan` and `dependency-check` already injected into its context, while `docs-writer` starts with `markdown-lint`. An agent without a `skills` field receives no skill content.
+
+For examples in other languages, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/custom-agents.md#per-agent-skills). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
 
 ## Selecting an agent at session creation
 
@@ -134,7 +164,7 @@ When a sub-agent runs, the parent session emits lifecycle events. Subscribe to t
 | `subagent.started` | Sub-agent begins execution | `toolCallId`, `agentName`, `agentDisplayName`, `agentDescription` |
 | `subagent.completed` | Sub-agent finishes successfully | `toolCallId`, `agentName`, `agentDisplayName` |
 | `subagent.failed` | Sub-agent encounters an error | `toolCallId`, `agentName`, `agentDisplayName`, `error` |
-| `subagent.deselected` | Runtime switches away from the sub-agent | — |
+| `subagent.deselected` | Runtime switches away from the sub-agent | None |
 
 ### Subscribing to events
 
@@ -255,6 +285,73 @@ const session = await client.createSession({
 
 > [!NOTE]
 > When `tools` is `null` or omitted, the agent inherits access to all tools configured on the session. Use explicit tool lists to enforce the principle of least privilege.
+
+## Agent-exclusive tools
+
+Use the `defaultAgent` property on the session configuration to hide specific tools from the default agent (the built-in agent that handles turns when no custom agent is selected). This forces the main agent to delegate to sub-agents when those tools' capabilities are needed, keeping the main agent's context clean.
+
+This is useful when:
+
+* Certain tools generate large amounts of context that would overwhelm the main agent
+* You want the main agent to act as an orchestrator, delegating heavy work to specialized sub-agents
+* You need strict separation between orchestration and execution
+
+```typescript
+import { CopilotClient, defineTool, approveAll } from "@github/copilot-sdk";
+import { z } from "zod";
+
+const heavyContextTool = defineTool("analyze-codebase", {
+    description: "Performs deep analysis of the codebase, generating extensive context",
+    parameters: z.object({ query: z.string() }),
+    handler: async ({ query }) => {
+        // ... expensive analysis that returns lots of data
+        return { analysis: "..." };
+    },
+});
+
+const session = await client.createSession({
+    tools: [heavyContextTool],
+    defaultAgent: {
+        excludedTools: ["analyze-codebase"],
+    },
+    customAgents: [
+        {
+            name: "researcher",
+            description: "Deep codebase analysis agent with access to heavy-context tools",
+            tools: ["analyze-codebase"],
+            prompt: "You perform thorough codebase analysis using the analyze-codebase tool.",
+        },
+    ],
+});
+```
+
+For examples in Python, Go, and .NET, see the [`github/copilot-sdk` repository](https://github.com/github/copilot-sdk/blob/main/docs/features/custom-agents.md#agent-exclusive-tools). {% data reusables.copilot.copilot-sdk.java-sdk-link %}
+
+### How it works
+
+Tools listed in `defaultAgent.excludedTools`:
+
+1. **Are registered**—their handlers are available for execution
+1. **Are hidden** from the main agent's tool list—the LLM won't see or call them directly
+1. **Remain available** to any custom sub-agent that includes them in its `tools` array
+
+### Interaction with other tool filters
+
+`defaultAgent.excludedTools` is orthogonal to the session-level `availableTools` and `excludedTools`:
+
+| Filter | Scope | Effect |
+|--------|-------|--------|
+| `availableTools` | Session-wide | Allowlist—only these tools exist for anyone |
+| `excludedTools` | Session-wide | Blocklist—these tools are blocked for everyone |
+| `defaultAgent.excludedTools` | Main agent only | These tools are hidden from the main agent but available to sub-agents |
+
+Precedence:
+
+1. Session-level `availableTools`/`excludedTools` are applied first (globally)
+1. `defaultAgent.excludedTools` is applied on top, further restricting the main agent only
+
+> [!NOTE]
+> If a tool is in both `excludedTools` (session-level) and `defaultAgent.excludedTools`, the session-level exclusion takes precedence—the tool is unavailable to everyone.
 
 ## Attaching MCP servers to agents
 

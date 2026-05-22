@@ -56,7 +56,7 @@ Use an OAuth {% data variables.product.github %} App to authenticate users throu
 **How it works:**
 1. User authorizes your OAuth {% data variables.product.github %} App.
 1. Your app receives a user access token (`gho_` or `ghu_` prefix).
-1. Pass the token to the SDK via the `githubToken` option.
+1. Pass the token to the SDK via the `gitHubToken` option.
 
 **SDK configuration:**
 
@@ -64,7 +64,7 @@ Use an OAuth {% data variables.product.github %} App to authenticate users throu
 import { CopilotClient } from "@github/copilot-sdk";
 
 const client = new CopilotClient({
-    githubToken: userAccessToken,  // Token from OAuth flow
+    gitHubToken: userAccessToken,  // Token from OAuth flow
     useLoggedInUser: false,        // Don't use stored CLI credentials
 });
 ```
@@ -130,7 +130,7 @@ For complete setup instructions, including provider configuration options, limit
 
 When multiple authentication methods are available, the SDK uses them in this priority order:
 
-1. **Explicit `githubToken`** — Token passed directly to the SDK constructor
+1. **Explicit `gitHubToken`** — Token passed directly to the SDK constructor
 1. **Direct API token** — `GITHUB_COPILOT_API_TOKEN` with `COPILOT_API_URL`
 1. **Environment variable tokens** — `COPILOT_GITHUB_TOKEN` → `GH_TOKEN` → `GITHUB_TOKEN`
 1. **Stored OAuth credentials** — From previous `copilot` CLI sign-in

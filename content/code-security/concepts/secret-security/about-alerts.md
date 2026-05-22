@@ -24,7 +24,6 @@ contentType: concepts
 
 To help you triage alerts more effectively, {% data variables.product.company_short %} separates alerts into two lists:
 
-{% ifversion secret-scanning-alert-experimental-list %}
 * **Default** alerts{% ifversion secret-scanning-generic-tab %}
 * **Generic** alerts{% elsif ghes = 3.16 %}
 * **Experimental** alerts{% endif %}
@@ -32,16 +31,6 @@ To help you triage alerts more effectively, {% data variables.product.company_sh
 {% ifversion ghes = 3.16 %}
 ![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "Default" and "Experimental" alerts is highlighted with an orange outline.](/assets/images/enterprise/3.16/help/security/secret-scanning-default-alert-view.png)
 {% endif %}
-
-{% else %}
-* **High confidence** alerts.
-* **Other** alerts.
-
-![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "High confidence" and "Other" alerts is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-high-confidence-alert-view.png)
-
-{% endif %}
-
-{% ifversion secret-scanning-alert-experimental-list %}
 
 ### Default alerts list
 
@@ -52,18 +41,6 @@ The default alerts list displays alerts that relate to supported patterns and sp
 The {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list from the default alerts list.
 
 {% data variables.product.github %} will continue to release new patterns and secret types to the {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list and will promote them to the default list when feature-complete (that is, when they have an appropriately low volume and false positive rate).
-
-{% else %}
-
-### High confidence alerts list
-
-The "High confidence" alerts list displays alerts that relate to supported patterns and specified custom patterns. This list is always the default view for the alerts page.
-
-### Other alerts list
-
-The "Other" alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts have a higher rate of false positives.
-
-{% endif %}
 
 In addition, alerts that fall into this category:
 * Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
@@ -94,7 +71,6 @@ When {% data variables.product.company_short %} detects a leaked secret in a pub
 Partner alerts are not sent to repository administrators, so you do not need to take any action for this type of alert.
 
 {% endif %}
-
 
 ## Further reading
 

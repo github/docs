@@ -3,14 +3,11 @@ title: Configuring multiple data disks
 product: '{% data variables.product.prodname_ghe_server %}'
 intro: You can configure additional data disks and use them to host data of different services.
 versions:
-  ghes: '>= 3.19'
+  ghes: '>= 3.17'
 contentType: concepts
 category:
   - Scale your instance
 ---
-
-> [!NOTE]
-> The ability to configure and use multiple data disks is in {% data variables.release-phases.public_preview %} and subject to change. We would love to hear your feedback on the preview. You can share it with your customer success team, or leave a comment in the [community discussion post](https://github.com/orgs/community/discussions/181173). Our preferred option is sharing your feedback with your customer success team.
 
 ## Why introduce more disks to the GHES instance?
 

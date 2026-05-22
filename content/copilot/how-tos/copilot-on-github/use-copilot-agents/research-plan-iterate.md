@@ -15,7 +15,7 @@ redirect_from:
   - /copilot/how-tos/use-copilot-agents/cloud-agent/provide-visual-inputs
 ---
 
-{% data variables.copilot.copilot_cloud_agent_tmp %} lets you:
+{% data variables.copilot.copilot_cloud_agent %} lets you:
 
 * **Research** a repository by asking {% data variables.product.prodname_copilot_short %} questions.
 * **Plan** and refine an approach before {% data variables.product.prodname_copilot_short %} makes changes.
@@ -43,7 +43,7 @@ Ask {% data variables.copilot.copilot_cloud_agent %} questions about a repositor
 Ask {% data variables.copilot.copilot_cloud_agent %} to propose a plan before making changes.
 
 1. Describe the plan you want.
-   
+
    For example: `Create a plan to implement the most impactful performance improvements for this app.`
 1. Review the plan and iterate with {% data variables.product.prodname_copilot_short %} until it matches your intent.
 

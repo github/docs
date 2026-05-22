@@ -18,7 +18,7 @@ When push protection blocks a commit containing a secret, contributors may need 
 
 If delegated bypass for push protection is not enabled, contributors can bypass push protection at their own discretion.
 
-When enabling delegated bypass for push protection, organization owners or repository administrators decide which {% ifversion push-protection-bypass-fine-grained-permissions %}individuals, {% endif %}roles or teams can review (approve or deny) requests to bypass push protection.
+When enabling delegated bypass for push protection, organization owners or repository administrators decide which individuals, roles or teams can review (approve or deny) requests to bypass push protection.
 
 If you are a designated reviewer, you must review bypass requests and either approve or deny them based on the request details and your organization's security policies.
 
@@ -27,7 +27,7 @@ If you are a designated reviewer, you must review bypass requests and either app
 When a contributor without bypass privileges requests to push a commit containing a secret, a bypass requests is sent to the reviewers. The designated group of reviewers:
 
 * Receives an email notification containing a link to the request
-* Reviews the request in the "Bypass requests" page of the repository{% ifversion security-overview-delegated-bypass-requests %}, or in the organization's security overview{% endif %}.
+* Reviews the request in the "Bypass requests" page of the repository, or in the organization's security overview.
 * Has **7 days** to either approve or deny the request before the request expires
 
 ### Information available to reviewers
@@ -37,8 +37,8 @@ When a contributor without bypass privileges requests to push a commit containin
 * Name of the user who attempted the push
 * Repository where the push was attempted
 * Commit hash of the push
-* Timestamp of the push{% ifversion push-protection-delegated-bypass-enhancements %}
-* File path and branch information (branch information is only available for pushes to single branches){% endif %}
+* Timestamp of the push
+* File path and branch information (branch information is only available for pushes to single branches)
 
 ### Outcomes
 

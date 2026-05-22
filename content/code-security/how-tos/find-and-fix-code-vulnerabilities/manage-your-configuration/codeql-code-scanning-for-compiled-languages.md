@@ -82,8 +82,6 @@ steps:
 
 For information about the languages, libraries, and frameworks that are supported in the latest version of {% data variables.product.prodname_codeql %}, see [Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks) in the {% data variables.product.prodname_codeql %} documentation. For information about the system requirements for running the latest version of {% data variables.product.prodname_codeql %}, see [System requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/#additional-software-requirements) in the {% data variables.product.prodname_codeql %} documentation.
 
-{% ifversion codeql-dependency-caching %}
-
 ## Enable dependency caching for {% data variables.product.prodname_codeql %}
 
 For default setup workflows, dependency caching is enabled only for {% data variables.product.github %}-hosted runners in public and private repositories.
@@ -105,8 +103,6 @@ For example, the following settings would enable dependency caching for the {% d
         languages: java
         dependency-caching: true
 ```
-
-{% endif %}
 
 ## Use `none` build mode for {% data variables.product.prodname_codeql %}
 
@@ -207,5 +203,4 @@ For more information about the `run` keyword, see [AUTOTITLE](/actions/using-wor
 <!-- For "no-build" this is covered earlier in the article under "About CodeQL build modes". -->
 
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
-
 

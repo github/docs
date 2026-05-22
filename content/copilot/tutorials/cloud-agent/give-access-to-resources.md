@@ -28,15 +28,14 @@ You want {% data variables.product.prodname_copilot_short %} to:
 
 By default, the scope of {% data variables.product.prodname_copilot_short %}'s authentication token is limited to the repository where it's running. This means that {% data variables.product.prodname_copilot_short %} won't be able to authenticate to external systems or access private, organization-scoped packages.
 
-Repository administrators should add variables and secrets that {% data variables.product.prodname_copilot_short %} requires to a dedicated `copilot` {% data variables.product.prodname_actions %} environment. {% data variables.product.prodname_copilot_short %} can access this data in its setup and task execution. It won't be able to access variables or secrets outside this environment, such as organization-wide {% data variables.product.prodname_actions %} secrets.
+To provide {% data variables.product.prodname_copilot_short %} with access to secrets, repository administrators can configure Agents secrets. Organization owners can also add Agents secrets at the organization level to share configuration across multiple repositories. {% data variables.product.prodname_copilot_short %} can access this data during its setup and task execution. It won't be able to access {% data variables.product.prodname_actions %}, {% data variables.product.prodname_codespaces %}, or {% data variables.product.prodname_dependabot %} secrets and variables. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 ### Example: Save a secret
 
 A repository administrator saves an authentication token for the organization's Sentry instance.
 
-1. Go to the **Environments** section of the repository settings.
-1. Create a new environment called `copilot`.
-1. Save an access token for your Sentry instance in an environment secret called `COPILOT_MCP_SENTRY_ACCESS_TOKEN`.
+1. Go to the **Secrets and variables** > **Agents** section of the repository settings.
+1. Save an access token for your Sentry instance in a secret called `COPILOT_MCP_SENTRY_ACCESS_TOKEN`.
 
 > [!TIP] We don't need to save a token for our private {% data variables.product.prodname_registry %} registry, which we'll access using the standard {% data variables.product.prodname_actions %} `GITHUB_TOKEN`. However, you would want to save an authentication token if you were using an external package registry.
 
@@ -99,6 +98,6 @@ A developer creates a workflow to install the Node dependencies defined in a rep
 Now you have seen how access to resources is controlled at the repository and organization levels, consider how much scope you want to give users to manage these settings.
 
 1. **Choose which repositories have access** to {% data variables.copilot.copilot_cloud_agent %}. If you're concerned about a specific repository, you can block it for all users.
-1. **Consider who gets admin access** to these repositories. You can control this at the organization level by creating a team with the **All-repository admin** custom role. These users will be able to manage configuration _settings_, such as MCP configuration and `copilot` environments, in every repository.
+1. **Consider who gets admin access** to these repositories. You can control this at the organization level by creating a team with the **All-repository admin** custom role. These users will be able to manage configuration _settings_, such as MCP configuration and Agents secrets and variables, in every repository.
 1. **Use rulesets and CODEOWNERS files** to control edits of configuration _files_, such as `copilot-setup-steps.yml`, which anyone with write access can edit by default.
 1. **Review the default firewall**. The firewall doesn't affect connections to MCP servers or setup steps in `copilot-setup-steps.yml`, but it does limit {% data variables.product.prodname_copilot_short %}'s access to the Internet during task execution. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-firewall).

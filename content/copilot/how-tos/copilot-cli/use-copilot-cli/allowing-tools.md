@@ -73,7 +73,6 @@ Deny rules always take precedence over allow rules, even when `--allow-all` is s
 | `--allow-tool='MyMCP(create_issue), MyMCP(delete_issue)'` | Allow the `create_issue` and `delete_issue` tools from the `MyMCP` MCP server. |
 | `--available-tools='bash,edit,view,grep,glob' --allow-tool='shell(git:*)' --deny-tool='shell(git push)'` | Combine both layers of control for a restricted CLI session. {% data variables.product.prodname_copilot_short %} can explore the code, make edits, and commit changes, but can't reach the internet, run arbitrary subagents, or push to Git history. |
 
-
 For details of the supported tool kinds, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#tool-permission-patterns).
 
 ## Permissive options

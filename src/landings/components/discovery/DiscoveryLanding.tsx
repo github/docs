@@ -1,12 +1,16 @@
+import { useRouter } from 'next/router'
+
 import { DefaultLayout } from '@/frame/components/DefaultLayout'
 import { useLandingContext } from '@/landings/context/LandingContext'
 import { LandingHero } from '@/landings/components/shared/LandingHero'
 import { ArticleGrid } from '@/landings/components/shared/LandingArticleGridWithFilter'
 import { LandingCarousel } from '@/landings/components/shared/LandingCarousel'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
+import { RestRedirect } from '@/rest/components/RestRedirect'
 import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 
 export const DiscoveryLanding = () => {
+  const router = useRouter()
   const {
     title,
     intro,
@@ -25,6 +29,7 @@ export const DiscoveryLanding = () => {
   return (
     <DefaultLayout>
       <UtmPreserver />
+      {router.query.productId === 'rest' && <RestRedirect />}
       <div data-search="article-body">
         <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
         <div className="container-xl px-3 px-md-6 mt-6 mb-4">

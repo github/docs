@@ -41,9 +41,6 @@ You can apply various filters to the alerts list to help you find the alerts you
 |Qualifier|Description|
 |---------|-----------|
 |`bypassed`|Display alerts for secrets where push protection has been bypassed (`true`). For more information, see [AUTOTITLE](/code-security/concepts/secret-security/about-push-protection).|
-|{% ifversion ghes < 3.16 %}|
-|`confidence`|Display alerts for high-confidence secrets which relate to supported secrets and custom patterns (`high`), or non-provider patterns such as private keys (`other`). See [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns).|
-|{% endif %}|
 |`is`|Display alerts that are open (`open`){% ifversion ghes < 3.17 %} or closed (`closed`){% else %}, closed (`closed`), found in a public repository (`publicly-leaked`), or found in more than one repository within the same organization or enterprise (`multi-repository`){% endif %}.|
 |`props`|Display alerts for repositories with a specific custom property (`CUSTOM_PROPERTY_NAME`) set. For example, `props:data_sensitivity:high` display results for repositories with the `data_sensitivity` property set to the value `high`. |
 |`provider`|Display alerts for a specific provider (`PROVIDER-NAME`), for example, `provider:github`. For a list of supported partners, see [AUTOTITLE](/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-secrets).|

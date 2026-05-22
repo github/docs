@@ -3,6 +3,9 @@ import assert from 'assert'
 import { type TagToken, type Liquid } from 'liquidjs'
 import { THROW_ON_EMPTY, IndentedDataReferenceError } from './error-handling'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 interface LiquidScope {
   environments: {
@@ -55,7 +58,7 @@ const IndentedDataReference = {
         if (THROW_ON_EMPTY) {
           throw new IndentedDataReferenceError(message)
         }
-        console.warn(message)
+        logger.warn(message)
       }
       return
     }

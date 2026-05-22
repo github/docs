@@ -30,10 +30,6 @@ If you're an organization owner, you can enable {% data variables.product.prodna
 
 If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise).
 
-{% elsif ghes < 3.16 %}
-
-If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see [AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
-
 {% endif %}
 
 ## Enabling {% data variables.secret-scanning.user_alerts %}

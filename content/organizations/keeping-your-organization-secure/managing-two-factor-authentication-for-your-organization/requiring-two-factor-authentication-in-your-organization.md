@@ -36,7 +36,7 @@ category:
 You can also require two-factor authentication for organizations in an enterprise. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise).
 
 > [!NOTE]
-> Some of the users in your organization may have been selected for mandatory two-factor authentication enrollment by {% data variables.product.prodname_dotcom %}, but it has no impact on how you enable the 2FA requirement for your organization. If you enable the 2FA requirement in your organization, all users without 2FA currently enabled will be removed from your organization, including those that are required to enable it by {% data variables.product.prodname_dotcom %}.
+> Some of the users in your organization may have been selected for mandatory two-factor authentication enrollment by {% data variables.product.prodname_dotcom %}, but it has no impact on how you enable the 2FA requirement for your organization.
 
 > [!WARNING]
 > * When you require use of two-factor authentication for your organization, members {% ifversion fpt or ghec %}and billing managers {% endif %}who do not use 2FA will not be able to access your organization's resources until they enable 2FA on their account. They will retain membership even without 2FA{% ifversion not ghes %}, including consuming {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %} in your organization{% endif %}.

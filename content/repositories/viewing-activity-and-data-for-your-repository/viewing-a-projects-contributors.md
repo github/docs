@@ -23,7 +23,7 @@ category:
 You can view the top 100 contributors to a repository{% ifversion ghes %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
 {% ifversion fpt or ghec %}
-You can also see a list of people who have contributed to the project's Python dependencies. To access this list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/graphs/contributors`.
+To access the list of community contributors, visit `https://github.com/REPO-OWNER/REPO-NAME/graphs/contributors`.
 {% endif %}
 
 ## Accessing the contributors graph

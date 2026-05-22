@@ -9,11 +9,12 @@ children:
     - /style-guide
     - /about-the-content-model
     - /contents-of-a-github-docs-article
-    - /conceptual-content-type
+    - /concepts-content-type
     - /reference-content-type
     - /how-to-content-type
     - /troubleshooting-content-type
     - /release-note-content-type
+    - /get-started-content-type
     - /quickstart-content-type
     - /tutorial-content-type
     - /about-combining-multiple-content-types

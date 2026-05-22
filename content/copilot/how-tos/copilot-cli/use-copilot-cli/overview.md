@@ -163,17 +163,27 @@ A {% data variables.copilot.copilot_custom_agent_short %} is a specialized versi
       <td>Executes commands such as tests and builds, providing brief summaries on success and full output on failure.</td>
     </tr>
     <tr>
-      <td>General-purpose</td>
+      <td>General purpose</td>
       <td>Handles complex, multi-step tasks that require the full toolset and high-quality reasoning, running in a separate context to keep your main conversation clearly focused.</td>
     </tr>
     <tr>
-      <td>Code-review</td>
+      <td>Code review</td>
       <td>Reviews changes with a focus on surfacing only genuine issues, minimizing noise.</td>
+    </tr>
+    <tr>
+      <td>Research</td>
+      <td>Performs deep research across your codebase, relevant repositories, and the web, producing a detailed report with citations.</td>
+    </tr>
+    <tr>
+      <td>Rubber duck</td>
+      <td>Acts as a constructive critic to provide feedback on some non-trivial tasks. Used automatically by {% data variables.copilot.copilot_cli_short %}.</td>
     </tr>
   </tbody>
 </table>
 
 The AI model being used by the CLI can choose to delegate a task to a subsidiary subagent process, that operates using a {% data variables.copilot.copilot_custom_agent_short %} with specific expertise, if it judges that this would result in the work being completed more effectively. The model may equally choose to handle the work directly in the main agent.
+
+Some built-in {% data variables.copilot.custom_agents_short %}, such as the rubber duck agent, are consulted automatically by {% data variables.product.prodname_copilot_short %} on your behalf rather than invoked by you directly. You won't see them as separate options when you run `/agent`, but you may see {% data variables.product.prodname_copilot_short %} mention them as it works through a task.
 
 You can define your own {% data variables.copilot.custom_agents_short %} using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify what expertise the agent should have, what tools it can use, and any specific instructions for how it should respond.
 

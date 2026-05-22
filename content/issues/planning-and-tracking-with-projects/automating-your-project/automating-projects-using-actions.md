@@ -81,7 +81,7 @@ jobs:
           GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
           ORGANIZATION: YOUR_ORGANIZATION
           PROJECT_NUMBER: YOUR_PROJECT_NUMBER
-        # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. `fields` returns a union and the query uses inline fragments (`... on`) to return information about any `ProjectV2Field` and `ProjectV2SingleSelectField` fields. The response is stored in a file called `project_data.json`.
+        # Uses [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/) to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. `fields` returns a union and the query uses inline fragments (`... on`) to return information about any `ProjectV2Field` and `ProjectV2SingleSelectField` fields. The response is stored in a file called `project_data.json`.
         run: |
           gh api graphql -f query='
             query($org: String!, $number: Int!) {
@@ -125,7 +125,7 @@ jobs:
         env:
           GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
           PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
-        # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) and the API to add the pull request that triggered this workflow to the project. The `jq` flag parses the response to get the ID of the created item.
+        # Uses [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/) and the API to add the pull request that triggered this workflow to the project. The `jq` flag parses the response to get the ID of the created item.
         run: |
           item_id="$( gh api graphql -f query='
             mutation($project:ID!, $pr:ID!) {
@@ -214,7 +214,7 @@ jobs:
           GH_TOKEN: {% raw %}${{ secrets.YOUR_TOKEN }}{% endraw %}
           ORGANIZATION: YOUR_ORGANIZATION
           PROJECT_NUMBER: YOUR_PROJECT_NUMBER
-        # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. `fields` returns a union and the query uses inline fragments (`... on`) to return information about any `ProjectV2Field` and `ProjectV2SingleSelectField` fields. The response is stored in a file called `project_data.json`.
+        # Uses [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/) to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. `fields` returns a union and the query uses inline fragments (`... on`) to return information about any `ProjectV2Field` and `ProjectV2SingleSelectField` fields. The response is stored in a file called `project_data.json`.
         run: |
           gh api graphql -f query='
             query($org: String!, $number: Int!) {
@@ -258,7 +258,7 @@ jobs:
         env:
           GH_TOKEN: {% raw %}${{ secrets.YOUR_TOKEN }}{% endraw %}
           PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
-        # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) and the API to add the pull request that triggered this workflow to the project. The `jq` flag parses the response to get the ID of the created item.
+        # Uses [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/) and the API to add the pull request that triggered this workflow to the project. The `jq` flag parses the response to get the ID of the created item.
         run: |
           item_id="$( gh api graphql -f query='
             mutation($project:ID!, $pr:ID!) {

@@ -25,6 +25,7 @@ Before you can effectively manage your paid use of {% data variables.product.pro
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
+1. Click the **Repositories** tab.
 1. In the "Apply configurations" section, your current license usage will be displayed. {% ifversion ghas-products %}This screenshot shows metered usage. If you have bought a volume/subscription license, then the number of licenses available is also reported.
 
     ![Screenshot of the "Apply configurations" section. The current license use for the enterprise is outlined in dark orange.](/assets/images/help/security-configurations/current-sp-cs-license-usage.png)

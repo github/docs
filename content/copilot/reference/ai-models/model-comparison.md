@@ -40,7 +40,6 @@ Use these models for common development tasks that require a balance of quality,
 |---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
 | {% data variables.copilot.copilot_gpt_5_mini %}   | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
-| {% data variables.copilot.copilot_grok_code %}    | Specialized for coding tasks. Performs well on code generation, and debugging across multiple languages.                                        |
 | {% data variables.copilot.copilot_raptor_mini %}  | Specialized for fast, accurate inline suggestions and explanations.                                        |
 
 ### When to use these models

@@ -181,14 +181,13 @@
   output: $12.00
   notes: "Prompts \u2264200K tokens"
 
-# xAI
-- model: Grok Code Fast 1
-  provider: xai
+- model: 'Gemini 3.5 Flash'
+  provider: google
   release_status: GA
   category: Lightweight
-  input: $0.20
-  cached_input: $0.02
-  output: $1.50
+  input: $1.50
+  cached_input: $0.15
+  output: $9.00
 
 # Fine-tuned (GitHub)
 - model: 'Raptor mini[^7]'

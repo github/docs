@@ -25,8 +25,8 @@ Push protection is a {% data variables.product.prodname_secret_scanning %} featu
 Push protection blocks secrets detected in:
 
 * Pushes from the command line
-* Commits made in the {% data variables.product.prodname_dotcom %} UI{% ifversion push-protection-delegated-bypass-file-upload-support %}
-* File uploads to a repository on {% data variables.product.github %}{% endif %}
+* Commits made in the {% data variables.product.prodname_dotcom %} UI
+* File uploads to a repository on {% data variables.product.github %}
 * Requests to the REST API
 * Interactions with the {% data variables.product.github %} MCP server (public repositories only)
 

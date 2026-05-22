@@ -1241,8 +1241,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -1591,6 +1590,14 @@
                       "checks": {
                         "type": "string",
                         "description": "The level of permission to grant the access token for checks on code.",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
+                      "code_quality": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to view and manage code quality data.",
                         "enum": [
                           "read",
                           "write"
@@ -1973,6 +1980,14 @@
                       "starring": {
                         "type": "string",
                         "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                        "enum": [
+                          "read",
+                          "write"
+                        ]
+                      },
+                      "enterprise_administration": {
+                        "type": "string",
+                        "description": "The level of permission to grant the access token to administer an enterprise account.",
                         "enum": [
                           "read",
                           "write"
@@ -2565,6 +2580,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -2947,6 +2970,14 @@
                         "write"
                       ]
                     },
+                    "enterprise_administration": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to administer an enterprise account.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "enterprise_custom_properties_for_organizations": {
                       "type": "string",
                       "description": "The level of permission to grant the access token for organization custom properties management at the enterprise level.",
@@ -3306,6 +3337,15 @@
               "type": "string",
               "name": "checks",
               "description": "<p>The level of permission to grant the access token for checks on code.</p>",
+              "enum": [
+                "read",
+                "write"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "code_quality",
+              "description": "<p>The level of permission to grant the access token to view and manage code quality data.</p>",
               "enum": [
                 "read",
                 "write"
@@ -3743,6 +3783,15 @@
             },
             {
               "type": "string",
+              "name": "enterprise_administration",
+              "description": "<p>The level of permission to grant the access token to administer an enterprise account.</p>",
+              "enum": [
+                "read",
+                "write"
+              ]
+            },
+            {
+              "type": "string",
               "name": "enterprise_custom_properties_for_organizations",
               "description": "<p>The level of permission to grant the access token for organization custom properties management at the enterprise level.</p>",
               "enum": [
@@ -3981,6 +4030,14 @@
                     "checks": {
                       "type": "string",
                       "description": "The level of permission to grant the access token for checks on code.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
                       "enum": [
                         "read",
                         "write"
@@ -4363,6 +4420,14 @@
                     "starring": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
+                    "enterprise_administration": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to administer an enterprise account.",
                       "enum": [
                         "read",
                         "write"
@@ -5336,6 +5401,15 @@
             },
             {
               "type": "string",
+              "name": "code_quality",
+              "description": "<p>The level of permission to grant the access token to view and manage code quality data.</p>",
+              "enum": [
+                "read",
+                "write"
+              ]
+            },
+            {
+              "type": "string",
               "name": "codespaces",
               "description": "<p>The level of permission to grant the access token to create, edit, delete, and list Codespaces.</p>",
               "enum": [
@@ -5766,6 +5840,15 @@
             },
             {
               "type": "string",
+              "name": "enterprise_administration",
+              "description": "<p>The level of permission to grant the access token to administer an enterprise account.</p>",
+              "enum": [
+                "read",
+                "write"
+              ]
+            },
+            {
+              "type": "string",
               "name": "enterprise_custom_properties_for_organizations",
               "description": "<p>The level of permission to grant the access token for organization custom properties management at the enterprise level.</p>",
               "enum": [
@@ -6142,6 +6225,14 @@
                             "checks": {
                               "type": "string",
                               "description": "The level of permission to grant the access token for checks on code.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
                               "enum": [
                                 "read",
                                 "write"
@@ -6524,6 +6615,14 @@
                             "starring": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "enterprise_administration": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to administer an enterprise account.",
                               "enum": [
                                 "read",
                                 "write"
@@ -7506,6 +7605,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -7883,6 +7990,14 @@
                     "starring": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
+                    "enterprise_administration": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to administer an enterprise account.",
                       "enum": [
                         "read",
                         "write"
@@ -8475,6 +8590,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -8852,6 +8975,14 @@
                     "starring": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
+                    "enterprise_administration": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to administer an enterprise account.",
                       "enum": [
                         "read",
                         "write"
@@ -9454,6 +9585,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -9831,6 +9970,14 @@
                     "starring": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
+                    "enterprise_administration": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to administer an enterprise account.",
                       "enum": [
                         "read",
                         "write"
@@ -10431,6 +10578,14 @@
                         "write"
                       ]
                     },
+                    "code_quality": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to view and manage code quality data.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
                     "codespaces": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -10808,6 +10963,14 @@
                     "starring": {
                       "type": "string",
                       "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                      "enum": [
+                        "read",
+                        "write"
+                      ]
+                    },
+                    "enterprise_administration": {
+                      "type": "string",
+                      "description": "The level of permission to grant the access token to administer an enterprise account.",
                       "enum": [
                         "read",
                         "write"
@@ -11932,8 +12095,7 @@
         "fineGrainedPat": false,
         "permissions": [],
         "allowPermissionlessAccess": true,
-        "allowsPublicRead": true,
-        "disabledForPatV2": true
+        "allowsPublicRead": true
       }
     },
     {
@@ -11971,8 +12133,7 @@
         "fineGrainedPat": false,
         "permissions": [],
         "allowPermissionlessAccess": true,
-        "allowsPublicRead": true,
-        "disabledForPatV2": true
+        "allowsPublicRead": true
       }
     },
     {
@@ -12406,6 +12567,14 @@
                               "write"
                             ]
                           },
+                          "code_quality": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to view and manage code quality data.",
+                            "enum": [
+                              "read",
+                              "write"
+                            ]
+                          },
                           "codespaces": {
                             "type": "string",
                             "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -12788,6 +12957,14 @@
                               "write"
                             ]
                           },
+                          "enterprise_administration": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to administer an enterprise account.",
+                            "enum": [
+                              "read",
+                              "write"
+                            ]
+                          },
                           "enterprise_custom_properties_for_organizations": {
                             "type": "string",
                             "description": "The level of permission to grant the access token for organization custom properties management at the enterprise level.",
@@ -13029,8 +13206,7 @@
         "serverToServer": false,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -13941,8 +14117,7 @@
           {
             "\"Metadata\" repository permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -14634,11 +14809,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -15556,11 +15731,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -16889,6 +17064,14 @@
                                 "write"
                               ]
                             },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
                             "codespaces": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -17266,6 +17449,14 @@
                             "starring": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "enterprise_administration": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to administer an enterprise account.",
                               "enum": [
                                 "read",
                                 "write"
@@ -17840,6 +18031,14 @@
                                 "write"
                               ]
                             },
+                            "code_quality": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to view and manage code quality data.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
                             "codespaces": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -18217,6 +18416,14 @@
                             "starring": {
                               "type": "string",
                               "description": "The level of permission to grant the access token to list and manage repositories a user is starring.",
+                              "enum": [
+                                "read",
+                                "write"
+                              ]
+                            },
+                            "enterprise_administration": {
+                              "type": "string",
+                              "description": "The level of permission to grant the access token to administer an enterprise account.",
                               "enum": [
                                 "read",
                                 "write"

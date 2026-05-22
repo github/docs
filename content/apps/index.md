@@ -17,8 +17,6 @@ carousels:
     - /apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps
     - /apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events
     - /apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app
-changelog:
-  label: apps
 versions:
   fpt: '*'
   ghes: '*'

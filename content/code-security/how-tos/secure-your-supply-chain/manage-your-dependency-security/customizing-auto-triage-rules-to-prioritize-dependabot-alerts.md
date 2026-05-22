@@ -80,7 +80,7 @@ For more information about enabling or disabling {% data variables.product.prodn
 
 ## Adding {% data variables.dependabot.custom_rules %} to your organization
 
- You can add {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules).
+You can add {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules).
 
 ## Editing or deleting {% data variables.dependabot.custom_rules %} for your repository
 
@@ -94,5 +94,5 @@ For more information about enabling or disabling {% data variables.product.prodn
 
 ## Editing or deleting {% data variables.dependabot.custom_rules %} for your organization
 
- You can edit or delete {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules).
+You can edit or delete {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules).
 

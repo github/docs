@@ -48,8 +48,3 @@
 - /github-ae@latest/admin/overview/about-data-residency
 - /github-ae@latest/admin/overview/deploying-github-ae
 - /github-ae@latest/admin/overview/initializing-github-ae
-
-# Agent tasks REST API was rolled back before launch
-/rest
-- /rest/agent-tasks
-- /rest/agent-tasks/agent-tasks

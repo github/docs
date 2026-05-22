@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 Before enabling {% data variables.product.prodname_GH_secret_protection %} organization-wide, run a pilot to validate the solution with a small set of repositories. A pilot helps you refine your rollout strategy, identify workflow adjustments, and demonstrate security value to stakeholders. This article will help you choose the best repositories for your pilot.

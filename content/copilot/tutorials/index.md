@@ -5,7 +5,7 @@ intro: Build skills and knowledge about {% data variables.product.prodname_copil
 versions:
   feature: copilot
 children:
-  - /copilot-chat-cookbook
+  - /copilot-cookbook
   - /customization-library
   - /cloud-agent
   - /spark
@@ -30,6 +30,7 @@ children:
   - /vibe-coding
   - /upgrade-projects
   - /copilot-cli-hooks
+  - /use-an-ai-sme
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
@@ -40,7 +41,7 @@ sidebarLink:
   href: /copilot/tutorials
 carousels:
   recommended:
-    - /copilot/tutorials/copilot-chat-cookbook
+    - /copilot/tutorials/copilot-cookbook
     - /copilot/tutorials/customization-library
     - /copilot/tutorials/roll-out-at-scale
 includedCategories:
@@ -54,4 +55,3 @@ includedCategories:
   - Modernize applications
   - Roll Copilot out at scale
 ---
-

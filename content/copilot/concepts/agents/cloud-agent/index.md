@@ -9,7 +9,6 @@ children:
   - /about-cloud-agent
   - /agent-management
   - /about-custom-agents
-  - /about-hooks
   - /access-management
   - /mcp-and-cloud-agent
   - /risks-and-mitigations

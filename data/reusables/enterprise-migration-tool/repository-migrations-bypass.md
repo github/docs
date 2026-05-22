@@ -6,4 +6,4 @@ To configure the bypass:
 1. In the "Bypass list" section, click **Add bypass**.
 1. Select **Repository migrations**.
 
-For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#granting-bypass-permissions-for-your-branch-or-tag-ruleset) and [AUTOTITLE](/migrations/troubleshooting/setting-ruleset-bypasses-for-repository-migrations).
+For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#granting-bypass-permissions-for-your-branch-or-tag-ruleset) and [AUTOTITLE](/enterprise-cloud@latest/migrations/troubleshooting/setting-ruleset-bypasses-for-repository-migrations).

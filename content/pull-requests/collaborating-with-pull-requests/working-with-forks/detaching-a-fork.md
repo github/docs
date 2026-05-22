@@ -10,7 +10,7 @@ category:
   - Work with forks
 ---
 
-{% ifversion ghes > 3.16 %}
+{% ifversion fpt or ghec or ghes > 3.16 %}
 
 ## Converting a fork into a standalone repository
 
@@ -21,8 +21,12 @@ To turn your fork into a standalone repository, you can leave the fork network e
 > * All git commit metadata will be preserved. Commits may become eligible to be counted as contributions if they meet certain criteria. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
 > * Leaving the fork network is **permanent** and the new repository **cannot** be reconnected to the fork network.
 
+{% ifversion ghes %}
+
 > [!NOTE]
 > If you are unable to detach a fork, contact your site administrator.
+
+{% endif %}
 
 ## Leaving the fork network
 
@@ -42,7 +46,7 @@ While the fork is being detached, some operations will be briefly unavailable un
 
 {% endif %}
 
-## Manually Leaving the fork network
+## Manually leaving the fork network
 
 To turn your fork into a standalone repository, you can clone the fork, use the clone to create a new repository, and then delete the fork removing the connection to the original network.
 

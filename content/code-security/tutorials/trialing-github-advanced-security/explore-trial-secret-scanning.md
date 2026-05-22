@@ -6,7 +6,7 @@ intro: Introduction to the features available with {% data variables.product.pro
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.15'
+  ghes: '*'
 redirect_from:
   - /code-security/trialing-github-advanced-security/explore-trial-secret-scanning
 contentType: tutorials

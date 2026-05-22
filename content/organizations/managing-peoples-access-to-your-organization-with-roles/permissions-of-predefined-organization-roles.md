@@ -27,10 +27,9 @@ The predefined roles for organization access are:
 {%- ifversion fpt or ghec %}
 * **Billing manager:** Grants permission to view and manage billing settings and subscription details for the organization.
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.15 %}
 * **Security manager:** Grants the ability to manage security policies, security alerts, and security configurations for an organization and all its repositories.
 * **CI/CD admin:** Grants admin access to manage Actions policies, runners, runner groups, hosted compute network configurations, secrets, variables, and usage metrics for an organization.
-{%- endif %}
+
 {%- ifversion org-app-manager-teams %}
 * **App Manager:** Grants the ability to create, edit, and delete all GitHub Apps in an organization.
 {%- endif %}
@@ -130,9 +129,7 @@ The following table summarizes which permissions are included with each predefin
 | {% ifversion repo-rules-enterprise %} |
 | Manage organization-level rulesets (see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)) | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> |
 | {% endif %} |
-| {% ifversion push-protection-bypass-fine-grained-permissions %} |
 | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests (see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection)) | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
-| {% endif %} |
 | {% ifversion security-delegated-alert-dismissal %} |
 | Review and manage {% data variables.product.prodname_secret_scanning %} dismissal requests (see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning)) | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
