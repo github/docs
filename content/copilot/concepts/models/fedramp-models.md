@@ -1,11 +1,13 @@
 ---
 title: FedRAMP-compliant models for GitHub Copilot
 shortTitle: FedRAMP models
-intro: "Restrict users to models with FedRAMP Moderate certification."
+intro: Restrict users to models with FedRAMP Moderate certification.
 versions:
   feature: copilot
 product: '{% data variables.enterprise.data_residency %}'
 contentType: concepts
+redirect_from:
+  - /copilot/concepts/fedramp-models
 ---
 
 If your enterprise uses {% data variables.enterprise.data_residency %} in the US, you can enable a policy to ensure that users on your {% data variables.product.prodname_copilot_short %} plan can only use models with **FedRAMP Moderate** certification.

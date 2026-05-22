@@ -107,7 +107,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 {% endrowheaders %}
 
 > [!NOTE]
-> 
+>
 > * For {% data variables.copilot.copilot_gpt_53_codex %} in {% data variables.product.prodname_vscode %}, `v1.108` and later provide improved prompting and response quality.
 > * "No minimum listed" means the reviewed changelog or release guidance did not specify a minimum version, not that all older versions are supported.
 > * Even when a model appears in the model picker on older supported versions, prompting and model behavior may work best with the latest IDE and {% data variables.product.prodname_copilot_short %} extension or plugin versions.
@@ -153,6 +153,12 @@ For more information about fallback and LTS models, see [AUTOTITLE](/copilot/con
 > Testing of evaluation models has revealed that some may perform worse than other models on security-related or other categories of prompts. Customers are encouraged to validate code, including code security, using a range of models and thorough human review before incorporating suggestions into production.
 
 Evaluation models may be added, updated, or removed without notice. Availability and rate limits may differ from generally available models.
+
+## Utility models
+
+Utility models power background features across surfaces, and cannot be disabled or selected in the model picker. See [AUTOTITLE](/copilot/concepts/models/utility-models).
+
+{% data reusables.copilot.utility-models %}
 
 ## Next steps
 
