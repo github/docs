@@ -1,1 +1,0 @@
-To use the notifications inbox on {% data variables.product.prodname_dotcom %} and {% data variables.product.prodname_mobile %}, you must enable notifications for both **Email** and **On {% data variables.product.github %}** in your notification settings.

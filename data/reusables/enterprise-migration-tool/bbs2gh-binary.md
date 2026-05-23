@@ -1,1 +1,0 @@
-Alternatively, you can download a standalone binary from the [releases page](https://github.com/github/gh-bbs2gh/releases) for the `github/gh-bbs2gh` repository. You can run this binary directly, without the `gh` prefix.

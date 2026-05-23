@@ -1,1 +1,0 @@
-{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) is an open source extension to Git that allows you to work with large files the same way as other text files.

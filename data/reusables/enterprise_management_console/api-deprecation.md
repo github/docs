@@ -1,6 +1,0 @@
-{% ifversion management-console-manage-ghes-parity %}
-
-> [!NOTE]
-> The {% data variables.enterprise.management_console %} endpoints will be {% data variables.release-phases.closing_down %} in a future version of {% data variables.product.prodname_ghe_server %}. You can access the same functionality using the Manage {% data variables.product.prodname_ghe_server %} endpoints. For more information, see [AUTOTITLE](/rest/enterprise-admin/manage-ghes).
-
-{% endif %}

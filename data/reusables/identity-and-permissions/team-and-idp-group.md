@@ -1,1 +1,0 @@
-To connect a team on {% data variables.product.github %} to an IdP group, the team must already exist in your organization. Even if you have configured SCIM provisioning, creating a group in your IdP does not automatically create a team on {% data variables.product.github %}.

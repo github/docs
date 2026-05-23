@@ -1,1 +1,0 @@
-1. Under {% ifversion ghes %} **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**{% else %}"{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings"{% endif %}, click **Options**.

@@ -1,1 +1,0 @@
-You can always scale up your CPU or memory by resizing your instance. Changing the resources available to your instance requires downtime for your users, so {% data variables.product.company_short %} recommends over-provisioning resources to account for scale.

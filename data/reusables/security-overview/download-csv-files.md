@@ -1,1 +1,0 @@
-From security overview, you can download comma-separated values (CSV) files containing data from several pages of your organization{% ifversion security-overview-export-data %} or enterprise{% endif %}'s security overview. These files can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets.

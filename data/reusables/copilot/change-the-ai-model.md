@@ -1,1 +1,0 @@
-You can change the model {% data variables.product.prodname_copilot_short %} uses to generate responses. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.  

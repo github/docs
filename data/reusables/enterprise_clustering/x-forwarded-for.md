@@ -1,1 +1,0 @@
-Use the `X-Forwarded-For` protocol **only** when the PROXY protocol is unavailable. The `X-Forwarded-For` header is compatible with HTTP and HTTPS only. For Git connections over SSH, the IP address reported will be that of the load balancer. In some environments, client IP addresses in the instance's audit log may incorrectly appear as `127.0.0.1`.

@@ -1,5 +1,0 @@
-# Issue 13119
-# Artifact Attestations Public Beta
-versions:
-  fpt: '*'
-  ghec: '*'

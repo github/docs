@@ -1,1 +1,0 @@
-When {% data variables.copilot.copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated at the end of the response with a link to display details of the matched code in the editor.

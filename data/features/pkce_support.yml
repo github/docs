@@ -1,5 +1,0 @@
-# Reference: github/docs-content#18773
-# Support for PKCE in GitHub Apps and OAuth apps
-versions:
-  fpt: '*'
-  ghec: '*'

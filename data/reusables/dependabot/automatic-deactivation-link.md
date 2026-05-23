@@ -1,1 +1,0 @@
-When maintainers of a repository stop interacting with {% data variables.product.prodname_dependabot %} pull requests, {% data variables.product.prodname_dependabot %} temporarily pauses its updates and lets you know, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/dependabot-updates-stopped).

@@ -1,1 +1,0 @@
-If team sync is enabled for your organization or enterprise account, you can synchronize a {% data variables.product.github %} team with an IdP group. When you do this, membership changes to the IdP group are reflected on {% data variables.product.github %} automatically, reducing the need for manual updates and custom scripts.

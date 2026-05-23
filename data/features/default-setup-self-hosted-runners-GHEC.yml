@@ -1,5 +1,0 @@
-# Default setup supports self-hosted runners on GHEC
-# Reference: #12365
-
-versions:
-  ghec: '*'

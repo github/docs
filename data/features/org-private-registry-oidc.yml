@@ -1,7 +1,0 @@
-# Reference: github/github#419577
-# OIDC authentication support for organization-level private registries used by Dependabot.
-# This allows organizations to authenticate with private registries using OpenID Connect
-# instead of storing long-lived secrets.
-versions:
-  fpt: '*'
-  ghec: '*'

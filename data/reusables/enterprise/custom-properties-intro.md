@@ -1,1 +1,0 @@
-Custom properties are structured metadata fields that you can add to repositories and organizations in {% data variables.product.github %} to enable better organization, governance, and automation across your environment.

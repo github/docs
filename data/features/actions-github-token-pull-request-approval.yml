@@ -1,7 +1,0 @@
-# Approval-required workflow runs for pull requests created or updated by
-# workflows using GITHUB_TOKEN. Implementation feature flag:
-# `actions_requires_approval_for_actions_bot_prs`.
-versions:
-  fpt: '*'
-  ghec: '*'
-  # ghes: '>=3.XX' # Uncomment when this ships to GHES (currently rolling out on dotcom)

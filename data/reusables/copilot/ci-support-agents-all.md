@@ -1,1 +1,0 @@
-<li style="text-indent: -1.6em;"><span aria-hidden="true">🤖</span> &nbsp;<strong>Agent</strong> instructions (using <code>AGENTS.md</code>, <code>CLAUDE.md</code> or <code>GEMINI.md</code> files).</li>

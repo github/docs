@@ -1,1 +1,0 @@
-**Starting April 22, 2026**, new self-serve sign-ups for {% data variables.copilot.copilot_business_short %} for organizations on {% data variables.product.prodname_free_team %} and {% data variables.product.prodname_team %} plans are temporarily paused.

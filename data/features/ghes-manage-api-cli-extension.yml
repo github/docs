@@ -1,4 +1,0 @@
-# Reference: #11807
-# GH CLI extension for GHES Manage API
-versions:
-  ghes: '>=3.11'

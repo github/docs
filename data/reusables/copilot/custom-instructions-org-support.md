@@ -1,2 +1,0 @@
-> [!NOTE]
-> **Support:** Organization custom instructions are currently only supported for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.copilot.copilot_cloud_agent %} on {% data variables.product.prodname_dotcom_the_website %}.

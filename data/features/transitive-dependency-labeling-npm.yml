@@ -1,5 +1,0 @@
-# Issue 15878: Transitive Dependency labeling for npm [GA]
-
-versions:
-  fpt: '*'
-  ghec: '*'

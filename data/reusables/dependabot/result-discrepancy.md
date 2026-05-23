@@ -1,1 +1,0 @@
-The results of dependency detection reported by {% data variables.product.github %} may be different from the results returned by other tools. There are good reasons for this and it's helpful to understand how {% data variables.product.github %} determines dependencies for your project.

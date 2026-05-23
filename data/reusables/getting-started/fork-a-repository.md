@@ -1,1 +1,0 @@
-Forking a repository will allow you to make changes to another repository without affecting the original. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).

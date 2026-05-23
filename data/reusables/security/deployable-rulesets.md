@@ -1,1 +1,0 @@
-If your organization has added records to the {% data variables.product.virtual_registry %}, you can target repositories that are **deployable** (have an active storage record) or **deployed** (have an active deployment record). See [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).

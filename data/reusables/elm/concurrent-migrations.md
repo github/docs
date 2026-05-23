@@ -1,1 +1,0 @@
-up to **10** concurrent repository migrations from a single {% data variables.product.prodname_ghe_server %} instance, and **20** concurrent migrations per destination enterprise.
