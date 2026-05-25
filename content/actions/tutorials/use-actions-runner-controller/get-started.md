@@ -56,7 +56,7 @@ In order to use ARC, ensure you have the following.
     * Update the `INSTALLATION_NAME` value carefully. You will use the installation name as the value of `runs-on` in your workflows. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on).
     * Update the `NAMESPACE` value to the location you want the runner pods to be created.
     * Set `GITHUB_CONFIG_URL` to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
-    * This example uses a {% data variables.product.pat_generic %} to keep the initial setup short. For repository or organization runner scale sets, use a {% data variables.product.prodname_github_app %} in production environments when possible.
+    * This example uses a {% data variables.product.pat_v1 %} to keep the initial setup short. For repository or organization runner scale sets, use a {% data variables.product.prodname_github_app %} in production environments when possible.
     {% ifversion fpt %}
     * Set `GITHUB_PAT` to a {% data variables.product.company_short %} {% data variables.product.pat_generic %} with the `repo` and `admin:org` scopes for repository and organization runners.
     {% else %}
