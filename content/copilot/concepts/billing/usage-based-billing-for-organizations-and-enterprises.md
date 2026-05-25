@@ -74,13 +74,11 @@ Additional usage budgets are set in US dollars, and usage is shown in {% data va
 You can set budgets at four levels to control {% data variables.product.prodname_ai_credits %} spend:
 
 * **Enterprise-level budgets** track spending for all organizations, repositories, and cost centers under the enterprise.
-* **Organization-level budgets** track spending for all repositories in the organization.
 * **Cost-center-level budgets** track spending for a single cost center.
 * **User-level budgets** track spending for individual users. A $0 user-level budget means no access at all.
-
+* **Individual-level Budget** track spending for power users. Overwrites user-level budgets. 
 You can use budgets to get alerts as you approach limits, and to enforce hard stops on usage. For example, if you want to allow some additional usage but keep it in check, you could set a user-level budget slightly above the included amount.
 
-For more information on setting budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
 
 ## Next steps
 
