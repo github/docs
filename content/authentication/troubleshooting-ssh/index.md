@@ -24,3 +24,4 @@ children:
   - /error-unknown-key-type
   - /error-were-doing-an-ssh-key-audit
 ---
+https://github.com/github/docs/blob/769d4764d0615d97b7af9db104c58826c17ef375/content/authentication/connecting-to-github-with-ssh/index.md
