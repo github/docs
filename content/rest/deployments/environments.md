@@ -19,3 +19,11 @@ For more information about environments, see [AUTOTITLE](/actions/deployment/tar
 {% data reusables.gated-features.environments %}
 
 <!-- Content after this section is automatically generated -->
+# GitHub CLI api
+# https://cli.github.com/manual/gh_api
+
+gh api \
+  --method DELETE \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  /repos/OWNER/REPO/environments/ENVIRONMENT_NAME
