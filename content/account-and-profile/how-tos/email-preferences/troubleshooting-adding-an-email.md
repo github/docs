@@ -9,6 +9,8 @@ shortTitle: Troubleshoot adding an email
 contentType: how-tos
 redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/troubleshooting-adding-an-email
+category:
+  - Manage your email
 ---
 
 ## Email already in use

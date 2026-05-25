@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Build apps and integrations
 ---
 
 
@@ -26,7 +28,7 @@ Let's jump right in!
 
 First, [register a new application](https://github.com/settings/applications/new) on {% data variables.product.github %}. Set the main and callback
 URLs to `http://localhost:4567/`. As [before](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app), we're going to handle authentication for the API by
-implementing a Rack middleware using [sinatra-auth-github](https://github.com/atmos/sinatra_auth_github):
+implementing a Rack middleware using [sinatra-auth-github](https://rubygems.org/gems/sinatra_auth_github):
 
 ``` ruby
 require 'sinatra/auth/github'

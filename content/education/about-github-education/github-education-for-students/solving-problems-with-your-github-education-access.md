@@ -16,6 +16,8 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Troubleshooting access
+category:
+  - Apply for GitHub Education
 ---
 
 ## Why wasn't my application approved?

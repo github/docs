@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: SSL certificate problem
+category:
+  - Troubleshoot authentication issues
 ---
 The error you receive may look like the following:
 

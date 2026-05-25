@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Organization dashboard
+category:
+  - Set up your organization
 ---
 
 ## Accessing your organization dashboard

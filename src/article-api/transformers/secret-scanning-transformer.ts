@@ -1,16 +1,15 @@
-import type { Context, Page, SecretScanningData } from '@/types'
+import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
-import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import path from 'path'
-import { getVersionInfo } from '@/app/lib/constants'
-import { liquid, renderContent } from '@/content-render/index'
+import { liquid } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
 import { loadTemplate } from '@/article-api/lib/load-template'
+import { getSecretScanningData } from '@/secret-scanning/lib/get-secret-scanning-data'
 
 /**
  * Transformer for Secret Scanning pages.
- * Loads pattern data and converts secret scanning documentation into markdown format using a Liquid template.
+ * Loads pattern data and converts secret scanning documentation into markdown format.
  * Used by the Article API to render Secret Scanning documentation dynamically.
  */
 export class SecretScanningTransformer implements PageTransformer {
@@ -25,7 +24,8 @@ export class SecretScanningTransformer implements PageTransformer {
       const currentVersion = context.currentVersion
       if (!currentVersion) throw new Error('currentVersion is required')
 
-      const { isEnterpriseCloud, isEnterpriseServer } = getVersionInfo(currentVersion)
+      const isEnterpriseCloud = currentVersion.includes('cloud')
+      const isEnterpriseServer = currentVersion.includes('enterprise-server')
       const versionPath = isEnterpriseCloud
         ? 'ghec'
         : isEnterpriseServer
@@ -35,15 +35,15 @@ export class SecretScanningTransformer implements PageTransformer {
       const secretScanningDir = path.join(process.cwd(), 'src/secret-scanning/data/pattern-docs')
       const filepath = path.join(secretScanningDir, versionPath, 'public-docs.yml')
 
-      if (fs.existsSync(filepath)) {
-        const data = yaml.load(fs.readFileSync(filepath, 'utf-8')) as SecretScanningData[]
+      try {
+        const data = await getSecretScanningData(filepath)
 
         // Process Liquid in values
         for (const entry of data) {
           // Only process Liquid for the hasValidityCheck field, as in the middleware
           if (typeof entry.hasValidityCheck === 'string' && entry.hasValidityCheck.includes('{%')) {
             // Render Liquid and parse as YAML to get correct boolean type
-            entry.hasValidityCheck = yaml.load(
+            entry.hasValidityCheck = load(
               await liquid.parseAndRender(entry.hasValidityCheck, context),
             ) as boolean
           }
@@ -51,45 +51,84 @@ export class SecretScanningTransformer implements PageTransformer {
           if (entry.isduplicate) {
             entry.secretType += ' <br/><a href="#token-versions">Token versions</a>'
           }
-          if (entry.ismultipart) {
-            entry.secretType += ' <br/><a href="#multi-part-secrets">Multi-part secrets</a>'
-          }
         }
 
         context.secretScanningData = data
-      } else {
-        // If the file does not exist, set to empty array to ensure predictable behavior
-        context.secretScanningData = []
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+          context.secretScanningData = []
+        } else {
+          throw error
+        }
       }
     }
 
     context.markdownRequested = true
     let content = await page.render(context)
 
+    // Inject the full patterns table for agent/crawler access
+    // (The React DataTable is not rendered in markdown mode)
+    if (context.secretScanningData && context.secretScanningData.length > 0) {
+      const bool = (v: unknown) => (v ? '✓' : '✗')
+      const escape = (s: string) => s.replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
+      // Strip HTML from secretType before inserting into markdown table rows.
+      // The isduplicate logic above appends <br/><a> HTML which would break
+      // single-line markdown table rows once <br/> is later converted to \n.
+      const cleanSecretType = (s: string) =>
+        s
+          .replace(
+            / <br\/><a href="#token-versions">Token versions<\/a>/,
+            ', [Token versions](#token-versions)',
+          )
+          .replace(/<br\s*\/?>/gi, ', ')
+          .replace(/<a\s+href="([^"]*)"[^>]*>([^<]*)<\/a>/gi, '[$2]($1)')
+          .replace(/<[^>]+>/g, '')
+      const header =
+        '| Provider | Secret | Secret type | Partner | User alert | Push protection | Validity check | Metadata | Base64 |'
+      const separator = '| --- | --- | --- | :---: | :---: | :---: | :---: | :---: | :---: |'
+      const rows = context.secretScanningData.map(
+        (entry: Record<string, unknown>) =>
+          `| ${escape(String(entry.provider))} | ${escape(String(entry.supportedSecret))} | ${escape(cleanSecretType(String(entry.secretType)))} | ${bool(entry.isPublic)} | ${bool(entry.isPrivateWithGhas)} | ${bool(entry.hasPushProtection)} | ${bool(entry.hasValidityCheck)} | ${bool(entry.hasExtendedMetadata)} | ${bool(entry.base64Supported)} |`,
+      )
+      const table = ['\n\n## Supported patterns\n', header, separator, ...rows].join('\n')
+      content += table
+    }
+
     // Strip HTML comments from the rendered content
     content = content.replace(/<!--.*?-->/gs, '')
+
+    // Replace HTML icon spans with plain text equivalents
+    content = content.replace(/<span[^>]*aria-label="Supported"[^>]*>[^<]*<\/span>/g, '✓')
+    content = content.replace(/<span[^>]*aria-label="Unsupported"[^>]*>[^<]*<\/span>/g, '✗')
+    // Convert <br/> tags to newlines and <a href="...">text</a> to markdown links
+    content = content.replace(/<br\s*\/?>/gi, '\n')
+    content = content.replace(/<a\s+href="([^"]*)"[^>]*>([^<]*)<\/a>/gi, '[$2]($1)')
+    // Strip any remaining HTML tags. Loop until stable to handle nested or
+    // malformed tags (e.g. "<scr<script>ipt>"). Limit iterations to prevent
+    // infinite loops on pathological input.
+    let previous = ''
+    let iterations = 0
+    const MAX_STRIP_ITERATIONS = 10
+    while (content !== previous && iterations < MAX_STRIP_ITERATIONS) {
+      previous = content
+      content = content.replace(/<[^>]+>/g, '')
+      iterations++
+    }
 
     // Normalize whitespace after stripping comments
     content = content.replace(/\n{3,}/g, '\n\n').trim()
 
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
 
-    // Prepare template data
-    const templateData: Record<string, unknown> = {
-      page: {
-        title: page.title,
-        intro,
-      },
-      content,
-    }
-
-    // Load and render template
+    // Render the template with Liquid only — page.render() already ran
+    // rewriteLocalLinks on all markdown links, and the regex cleanup above
+    // only creates fragment links (e.g. #token-versions) which don't need
+    // link rewriting. So we skip the expensive remark re-parse.
     const templateContent = loadTemplate(this.templateName)
-
-    return await renderContent(templateContent, {
+    return await liquid.parseAndRender(templateContent, {
       ...context,
-      ...templateData,
-      markdownRequested: true,
+      page: { title: page.title, intro },
+      content,
     })
   }
 }

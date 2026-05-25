@@ -20,6 +20,12 @@ describe('secret scanning article body api', () => {
     // Verify HTML comments are stripped
     expect(res.body).not.toMatch(/<!--.*?-->/)
 
+    // Verify HTML icon spans are not present (would be replaced with ✓/✗)
+    expect(res.body).not.toMatch(/<span[^>]*aria-label="Supported"/)
+    expect(res.body).not.toMatch(/<span[^>]*aria-label="Unsupported"/)
+    // Verify no raw HTML span tags remain
+    expect(res.body).not.toMatch(/<span[^>]*>/)
+
     // Verify table content is present with providers
     expect(res.body).toMatch(/|\s*Provider\s*|/)
     expect(res.body).toMatch(/\| (Adafruit|AWS|Alibaba|Amazon)/)

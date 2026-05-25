@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /github/administering-a-repository/comparing-releases
   - /github/administering-a-repository/releasing-projects-on-github/comparing-releases
+category:
+  - Release software
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}

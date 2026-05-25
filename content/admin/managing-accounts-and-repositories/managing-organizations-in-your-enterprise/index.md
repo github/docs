@@ -17,8 +17,6 @@ intro: You can use organizations to group users within your company, such as div
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /adding-organizations-to-your-enterprise
   - /configuring-visibility-for-organization-membership

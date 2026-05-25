@@ -1,4 +1,4 @@
-With your ruleset, you can choose to target all repositories in your organization, repositories in your organization that match a certain naming convention, repositories in your organization that have custom properties, or a list of manually selected repositories in your organization.
+With your ruleset, you can choose to target all repositories in your organization or a list of manually selected repositories. You can also filter by naming convention{% ifversion virtual-registry %}, deployment context,{% endif %} or custom properties.
 
 For more information about custom properties, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 
@@ -32,3 +32,16 @@ To target all repositories in your organization, in the "Target repositories" se
    > You can add multiple targeting criteria to the same ruleset. For example, you could include any repositories matching the pattern `*cat*`, then specifically exclude a repository matching the pattern `not-a-cat`.
 
 1. Optionally, on the ruleset configuration page, select **Prevent renaming of target repositories**.
+
+{% ifversion virtual-registry %}
+
+#### Targeting repositories by deployment context
+
+{% data reusables.security.deployable-rulesets %}
+
+1. In the "Target repositories" section, next to "Repository targeting criteria" select **Repositories matching a filter**.
+1. Next to "Repositories matching a filter", click the {% octicon "pencil" aria-label="Open filter dialog" %} icon.
+1. Use the `deployed:true` or `deployable:true` filters to target repositories.
+1. Click **Apply**.
+
+{% endif %}

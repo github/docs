@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Search for work and community content
 ---
 You can search for users globally across a {% data variables.product.github %} platform, for example: across {% data variables.product.prodname_dotcom_the_website %} or across {% data variables.product.prodname_ghe_server %}.
 

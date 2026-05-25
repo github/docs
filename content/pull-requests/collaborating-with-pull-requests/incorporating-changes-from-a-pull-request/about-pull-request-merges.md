@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Merge and close pull requests
 ---
 ## Merge your commits
 

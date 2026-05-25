@@ -1,13 +1,15 @@
 ---
 title: Managing issue types in an organization
-intro: 'Learn about issue types and how to manage them in your organization.'
+intro: Learn about issue types and how to manage them in your organization.
 redirect_from:
   - /issues/tracking-your-work-with-issues/configuring-issues/managing-issue-types-in-an-organization
 versions:
   feature: issue-types
-type: overview
-shortTitle: 'Managing issue types'
-permissions: 'Organization owners can modify issue types.'
+shortTitle: Managing issue types
+permissions: Organization owners can modify issue types.
+contentType: concepts
+category:
+  - Triage and organize issues
 ---
 
 You can use issue types to classify and manage different types of issues across your organization. You can create up to {% data variables.projects.issue_type_limit %} issue types that your organization members can apply to issues, making it easier for you and your members to find issues and plan work.

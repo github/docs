@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Triage and organize issues
 ---
 For a "marked as duplicate" timeline event to appear, the user who creates the duplicate reference comment must have write access to the repository where they create the comment.
 

@@ -1,12 +1,21 @@
 import { Client } from '@elastic/elasticsearch'
 import { safeUrlDisplay } from '@/search/lib/helpers/strings'
 
-export function getElasticsearchClient(overrideURL = '', verbose = false): Client {
+const DEFAULT_REQUEST_TIMEOUT = 5000
+
+export function getElasticsearchClient(
+  overrideURL = '',
+  verbose = false,
+  options?: { requestTimeout?: number },
+): Client {
   const node = getElasticsearchURL(overrideURL)
   if (verbose) {
     console.log('Connecting to Elasticsearch URL:', safeUrlDisplay(node))
   }
-  const client = new Client({ node })
+  const client = new Client({
+    node,
+    requestTimeout: options?.requestTimeout ?? DEFAULT_REQUEST_TIMEOUT,
+  })
   return client
 }
 

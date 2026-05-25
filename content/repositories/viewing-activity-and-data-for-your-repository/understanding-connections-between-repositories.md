@@ -19,6 +19,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Connections between repositories
+category:
+  - Track repository activity
 ---
 
 ## Viewing a repository's network

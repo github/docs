@@ -4,6 +4,8 @@ intro: 'Learn the basics of Git by working through an example scenario.'
 versions:
   fpt: '*'
 shortTitle: Get started with Git
+category:
+  - Learn to code
 ---
 
 Have you ever wished you had a time machine for your code? Well, Git is exactly that, and so much more!

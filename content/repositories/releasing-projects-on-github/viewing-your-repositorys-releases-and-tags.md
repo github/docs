@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: View releases & tags
+category:
+  - Release software
 ---
 
 > [!TIP]

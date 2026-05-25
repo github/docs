@@ -148,7 +148,7 @@ export default function handleInvalidQuerystrings(
       let newURL = req.path
       if (sp.toString()) newURL += `?${sp}`
 
-      res.redirect(302, newURL)
+      res.safeRedirect(302, newURL)
 
       const tags = [
         'response:302',

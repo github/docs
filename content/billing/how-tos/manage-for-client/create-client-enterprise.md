@@ -10,6 +10,8 @@ redirect_from:
   - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/about-enterprise-accounts-for-procurement-companies
   - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-and-paying-for-an-enterprise-account-on-behalf-of-a-client
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 ## Prerequisites

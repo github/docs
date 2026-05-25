@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Review token access
+category:
+  - Manage app and API access
 ---
 
 ## About reviewing and revoking {% data variables.product.pat_v2 %}s

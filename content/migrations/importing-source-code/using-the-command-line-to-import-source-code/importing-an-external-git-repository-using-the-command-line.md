@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: External Git repo
+category:
+  - Import source code
 ---
 Before you start, make sure you know:
 

@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Community profiles
+category:
+  - Set up your project for contributions
 ---
 
 The community profile checklist checks to see if a project includes recommended community health files, such as README, CODE_OF_CONDUCT, LICENSE, or CONTRIBUTING, in a supported location. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/accessing-a-projects-community-profile).

@@ -6,7 +6,7 @@ versions:
   feature: copilot
 children:
   - /assign-licenses
-  - /establish-ai-managers
+  - /govern-at-scale
   - /enable-developers
   - /drive-downstream-impact
   - /measure-success
@@ -16,3 +16,4 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale
 contentType: tutorials
 ---
+

@@ -9,5 +9,6 @@ versions:
 children:
   - /about-notifications
   - /scheduled-reminders
+contentType: concepts
 ---
 

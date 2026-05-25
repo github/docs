@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/extraction-errors-in-the-database
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/extraction-errors-in-the-database
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}

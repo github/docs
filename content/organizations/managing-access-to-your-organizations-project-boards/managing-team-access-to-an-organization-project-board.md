@@ -8,6 +8,8 @@ versions:
   feature: projects-v1
 shortTitle: Manage team access
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 {% data reusables.projects.project_boards_old %}

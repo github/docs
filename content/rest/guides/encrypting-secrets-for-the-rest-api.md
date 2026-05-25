@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Encrypt secrets
+category:
+  - Build apps and integrations
 ---
 
 ## About encrypting secrets

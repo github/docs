@@ -95,3 +95,5 @@ sections:
       The setting to define private registries at the organization level for code scanning is only available if Dependabot is enabled for the instance.
     - |
       In patch 3.19.1, we identified an issue in the Management Console where the Backups (Preview) and Updates tabs may fail to open and instead return an Internal Server Error. We recommend using the command line interface (CLI) for backups and updates until an updated patch is released. [Updated: 2026-01-13]
+    - |
+      When viewing the status of an ongoing backup on the "Backups" page of the Management Console, the backup may initially report as "incomplete" instead of "in progress." You can ignore this initial "incomplete" status; the backup is still running and will report the correct status once it has progressed further. In some configurations, such as cluster topologies, this may take up to 5 minutes.

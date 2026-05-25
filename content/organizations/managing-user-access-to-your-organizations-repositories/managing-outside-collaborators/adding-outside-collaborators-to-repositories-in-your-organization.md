@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 shortTitle: Add outside collaborator
 permissions: People with admin access to a repository can add an outside collaborator to the repository.
+category:
+  - Control repository access
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}

@@ -15,9 +15,9 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Manage a custom domain
+category:
+  - Set up a GitHub Pages site
 ---
 
 People with admin permissions for a repository can configure a custom domain for a {% data variables.product.prodname_pages %} site.

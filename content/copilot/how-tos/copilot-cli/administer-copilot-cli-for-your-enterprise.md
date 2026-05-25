@@ -4,16 +4,21 @@ shortTitle: Administer for enterprise
 intro: 'Control the use of {% data variables.copilot.copilot_cli_short %} within your enterprise.'
 versions:
   feature: copilot
+permissions: Enterprise owners and AI managers
 contentType: how-tos
 allowTitleToDifferFromFilename: true
 category:
   - Manage Copilot for a team # Copilot discovery page
   - Administer Copilot CLI # Copilot CLI bespoke landing page
+docsTeamMetrics:
+  - copilot-cli
 ---
+
+{% data variables.copilot.copilot_cli_short %} brings agentic capabilities to developers' command line. When {% data variables.copilot.copilot_cli_short %} is enabled, developers can use it to ask {% data variables.product.prodname_copilot_short %} to work on tasks locally or delegate work to {% data variables.copilot.copilot_cloud_agent %}.
 
 ## Enabling or disabling {% data variables.copilot.copilot_cli_short %}
 
-**Enterprise owners** can control the use of {% data variables.copilot.copilot_cli_short %} by configuring a policy.
+You can control the use of {% data variables.copilot.copilot_cli_short %} by configuring a policy.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
@@ -36,9 +41,13 @@ Users can only access AI models that are enabled at the enterprise level. When y
 
 Enterprise-configured custom agents are available to use with {% data variables.copilot.copilot_cli_short %}.
 
-### {% data variables.copilot.copilot_coding_agent %} enablement
+### MCP server policies
 
-Both the {% data variables.copilot.copilot_cli_short %} policy and the {% data variables.copilot.copilot_coding_agent %} policy must be enabled for users to be able to use the `/delegate` command in {% data variables.copilot.copilot_cli_short %}.
+Enterprise and organization MCP policies apply to {% data variables.copilot.copilot_cli_short %}. You can configure an MCP registry URL so developers can discover approved servers, and set an allowlist policy to restrict which MCP servers can run. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-server-access).
+
+### {% data variables.copilot.copilot_cloud_agent %} enablement
+
+Both the {% data variables.copilot.copilot_cli_short %} policy and the {% data variables.copilot.copilot_cloud_agent %} policy must be enabled for users to be able to use the `/delegate` command in {% data variables.copilot.copilot_cli_short %}.
 
 ### Audit logging
 
@@ -52,9 +61,9 @@ Users must have an assigned {% data variables.product.prodname_copilot %} seat t
 
 All other controls do **not** affect {% data variables.copilot.copilot_cli_short %}, notably:
 
-* **Model Context Protocol (MCP) server policies**: Enterprise policies that control whether MCP servers can be used, or which MCP registry servers are allowed
 * **IDE-specific policies**: Policies configured for specific IDEs or editor extensions
 * **Content exclusions**: File path-based content exclusions
+* **User-configured model providers (BYOK)**: Users can configure {% data variables.copilot.copilot_cli_short %} to use their own model providers via environment variables. This is configured at the _user level_ and cannot be controlled by enterprise policies.
 
 ## Why can't my developers access {% data variables.copilot.copilot_cli_short %}?
 

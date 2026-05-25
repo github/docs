@@ -5,15 +5,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Vulnerabilities
-  - Secret scanning
-  - Secret Protection
 shortTitle: Prevent data leaks
 redirect_from:
   - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## About this guide
@@ -69,7 +66,7 @@ No matter how well you tighten your organization to prevent data leaks, some may
 
 ### Use {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.prodname_secret_scanning_caps %} helps secure code and keep secrets safe across organizations and repositories by scanning and detecting secrets that were accidentally committed over the full Git history of every branch in {% data variables.product.prodname_dotcom %} repositories. Any strings that match patterns {% ifversion fpt or ghec %}provided by secret scanning partners, by other service providers, or {% endif %}defined by you or your organization, are reported as alerts in the **Security** tab of repositories.
+{% data variables.product.prodname_secret_scanning_caps %} helps secure code and keep secrets safe across organizations and repositories by scanning and detecting secrets that were accidentally committed over the full Git history of every branch in {% data variables.product.prodname_dotcom %} repositories. Any strings that match patterns {% ifversion fpt or ghec %}provided by secret scanning partners, by other service providers, or {% endif %}defined by you or your organization, are reported as alerts in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of repositories.
 
 {% ifversion fpt or ghec %}
 There are two forms of {% data variables.product.prodname_secret_scanning %} available: **{% data variables.secret-scanning.partner_alerts_caps %}** and **{% data variables.secret-scanning.user_alerts_caps %}**.
@@ -78,11 +75,11 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
 * {% data variables.secret-scanning.user_alerts_caps %}: To get additional scanning capabilities for your organization, you need to enable {% data variables.secret-scanning.user_alerts %}.
 
   When enabled, {% data variables.secret-scanning.user_alerts %} can be detected on the following types of repository:{% ifversion fpt %}
-   * Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
-   * Public repositories owned by organizations
-   * Private and internal repositories owned by organizations using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}, with a license for {% data variables.product.prodname_GH_code_security %}{% elsif ghec %}
-   * Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %}
-   * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_code_security %}{% endif %}
+  * Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
+  * Public repositories owned by organizations
+  * Private and internal repositories owned by organizations using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}, with a license for {% data variables.product.prodname_GH_code_security %}{% elsif ghec %}
+  * Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %}
+  * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_code_security %}{% endif %}
 {% endif %}
 
 {% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
@@ -122,9 +119,17 @@ counter notice form and alert GitHub Support. For more information, see [DMCA co
 
 ### Revoke exposed tokens
 
-If a {% data variables.product.pat_generic_plural %} has been exposed in a {% data variables.product.github %} repository, {% data variables.product.github %} {% data variables.product.prodname_secret_scanning %} can be used to report and revoke the token. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts#reporting-a-leaked-secret).
+If credentials have been exposed in a {% data variables.product.github %} repository, {% data variables.product.github %} {% data variables.product.prodname_secret_scanning %} can be used to report and revoke the credentials. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts#reporting-a-leaked-secret).
 
-You can also revoke {% data variables.product.pat_generic_plural %} that you do not own and have been exposed outside of {% data variables.product.github %} repositories. By doing this, you are contributing to the overall security of the {% data variables.product.github %} community and can quickly limit the impact of these tokens. If you find exposed {% data variables.product.pat_generic_plural %} either on {% data variables.product.github %} or elsewhere, you can submit a revocation request using the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials).
+You can also revoke exposed credentials that you do not own and have been exposed outside of {% data variables.product.github %} repositories. By doing this, you are contributing to the overall security of the {% data variables.product.github %} community and can quickly limit the impact of these credentials. The API supports revoking:
+
+* {% data variables.product.pat_v1_caps_plural %} with the `ghp_` prefix
+* {% data variables.product.pat_v2_caps_plural %} with the `github_pat_` prefix
+* {% data variables.product.prodname_oauth_app %} tokens with the `gho_` prefix
+* {% data variables.product.prodname_github_app %} user-to-server tokens with the `ghu_` prefix
+* {% data variables.product.prodname_github_app %} refresh tokens with the `ghr_` prefix
+
+If you find any exposed tokens either on {% data variables.product.github %} or elsewhere, you can submit a revocation request using the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials) for the complete and authoritative list of supported credential types.
 
 {% endif %}
 

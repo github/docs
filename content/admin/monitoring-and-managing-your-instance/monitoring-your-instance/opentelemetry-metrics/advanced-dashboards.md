@@ -1,18 +1,14 @@
 ---
 title: Advanced dashboards of OpenTelemetry metrics
-intro: 'After enabling OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance, you have access to additional dashboards with enhanced visualization and monitoring capabilities.'
+intro: After enabling OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance, you have access to additional dashboards with enhanced visualization and monitoring capabilities.
 redirect_from:
   - /enterprise/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/enable-advanced-dashboards
 versions:
   feature: ghes-opentelemetry
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
-type: how_to
 shortTitle: Advanced dashboards
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Compare branches
+category:
+  - Create pull requests
 ---
 
 > [!NOTE]

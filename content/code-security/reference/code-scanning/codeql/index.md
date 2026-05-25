@@ -6,13 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
 contentType: reference
 children:
   - /recommended-hardware-resources-for-running-codeql
+  - /codeql-build-options-and-steps-for-compiled-languages
   - /codeql-queries
   - /codeql-cli
   - /codeql-cli-manual

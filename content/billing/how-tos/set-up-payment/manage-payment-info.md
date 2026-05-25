@@ -1,6 +1,6 @@
 ---
 title: Managing your payment and billing information
-intro: 'Learn how to view and manage your payment information and billing contacts using the new billing platform.'
+intro: 'Learn how to view, modify, and remove your payment information and billing contacts using the new billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -20,6 +20,8 @@ redirect_from:
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 shortTitle: Manage payment info
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 The payment methods available depend on your account type. Enterprise and organization accounts have more payment options than personal accounts. Invoiced enterprise accounts make their payments using other methods. For more information, see [AUTOTITLE](/billing/reference/supported-payment-methods).

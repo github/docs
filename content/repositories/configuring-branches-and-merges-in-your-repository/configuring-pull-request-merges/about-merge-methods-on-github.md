@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: About merge methods
+category:
+  - Configure merges and pull requests
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} You can enforce one type of merge method, such as commit squashing or rebasing, by only enabling the desired method for your repository.
 

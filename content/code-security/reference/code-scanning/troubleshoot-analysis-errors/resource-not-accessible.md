@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/resource-not-accessible
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/resource-not-accessible
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 >[!NOTE]
@@ -53,8 +55,6 @@ on:
       - 'dependabot/**'
   pull_request:
 ```
-
-For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow).
 
 ### Analysis still failing on the default branch
 

@@ -11,11 +11,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
 allowTitleToDifferFromFilename: true
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## Using a script to enable advanced setup
@@ -36,4 +35,4 @@ For repositories that are not eligible for default setup, you can use a bulk con
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-If your codebase depends on a library or framework that is not recognized by the standard queries in {% data variables.product.prodname_codeql %}, you can extend the {% data variables.product.prodname_codeql %} coverage in your bulk configuration script by specifying published {% data variables.product.prodname_codeql %} model packs. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs).
+If your codebase depends on a library or framework that is not recognized by the standard queries in {% data variables.product.prodname_codeql %}, you can extend the {% data variables.product.prodname_codeql %} coverage in your bulk configuration script by specifying published {% data variables.product.prodname_codeql %} model packs. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#codeql-model-packs).

@@ -113,6 +113,29 @@
 - is: https://mywiki.wooledge.org/BashPitfalls
 - startsWith: https://code.visualstudio.com/docs/configure/telemetry
 
+# AppSource blocks automated link checkers with 403.
+- startsWith: https://appsource.microsoft.com
+
+# gist.github.com search can return transient 500 errors.
+- startsWith: https://gist.github.com/search
+
+# enterprise.github.com returns transient errors. Many paths are used
+# across docs (/contact, /download, /releases, /login, /license, /support, /trial).
+- startsWith: https://enterprise.github.com/releases
+- startsWith: https://enterprise.github.com/contact
+- startsWith: https://enterprise.github.com/download
+- startsWith: https://enterprise.github.com/login
+- startsWith: https://enterprise.github.com/license
+- startsWith: https://enterprise.github.com/support
+- startsWith: https://enterprise.github.com/trial
+
+# developer.github.com can return transient 503 errors.
+- startsWith: https://developer.github.com/changes/
+- startsWith: https://developer.github.com/enterprise/
+
+# ed25519.cr.yp.to has intermittent connectivity issues.
+- is: https://ed25519.cr.yp.to
+
 # npmjs.com blocks automated link checkers with 403.
 - startsWith: https://www.npmjs.com
 

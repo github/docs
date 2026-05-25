@@ -4,6 +4,8 @@ intro: 'To use an {% data variables.product.prodname_oauth_app %} or {% data var
 versions:
   ghec: '*'
 shortTitle: Apps and SSO
+category:
+  - Sign in with SSO or a passkey
 ---
 
 ## About authorizing apps with SSO

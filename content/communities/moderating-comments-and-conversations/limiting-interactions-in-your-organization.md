@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 permissions: Organization owners and moderators can limit interactions in an organization.
 shortTitle: Limit interactions in org
+category:
+  - Moderate comments and conversations
 ---
 
 ## About temporary interaction limits

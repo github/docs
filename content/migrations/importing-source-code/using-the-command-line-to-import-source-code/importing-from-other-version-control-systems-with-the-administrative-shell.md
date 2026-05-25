@@ -1,6 +1,6 @@
 ---
 title: Importing from other version control systems with the administrative shell
-intro: 'Using the administrative shell, you can import from Subversion, Mercurial and Team Foundation Version Control to Git repositories on {% data variables.product.prodname_ghe_server %}.'
+intro: Using the administrative shell, you can import from Subversion, Mercurial and Team Foundation Version Control to Git repositories on {% data variables.product.prodname_ghe_server %}.
 redirect_from:
   - /enterprise/admin/migrations/importing-data-from-third-party-version-control-systems
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
@@ -8,9 +8,11 @@ redirect_from:
   - /admin/user-management/migrating-data-to-and-from-your-enterprise/importing-data-from-third-party-version-control-systems
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Administrative shell
 permissions: Site administrators can use the administrative shell to import data from other version control systems.
+contentType: how-tos
+category:
+  - Import source code
 ---
 
 ## Importing projects from Mercurial

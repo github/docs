@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: SSH agent forwarding
+category:
+  - Connect with SSH
 ---
 
 

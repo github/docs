@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 defaultTool: cli
 contentType: other
+category:
+  - Migrate from Azure DevOps
 ---
 
 >[!NOTE] You can also use {% data variables.product.prodname_ado2gh_cli %} to perform your migration. See [AUTOTITLE](/migrations/ado/phase-1-understand-migrations-from-azure-devops-to-github).

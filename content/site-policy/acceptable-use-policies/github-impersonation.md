@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /github/site-policy/github-impersonation
   - /github/site-policy/github-community-guidelines#impersonation
+category:
+  - Follow acceptable use policies
 ---
 
 You may not misrepresent your identity or your association with another person or organization. This includes doing any of the following in a way that misleads or deceives others:

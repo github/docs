@@ -10,6 +10,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: SSH Key with SSO
+category:
+  - Sign in with SSO or a passkey
 ---
 
 ## About authorization of SSH keys

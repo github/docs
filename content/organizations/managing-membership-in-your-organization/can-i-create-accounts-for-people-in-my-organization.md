@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Create accounts for people
+category:
+  - Manage members
 ---
 
 ## About personal accounts

@@ -12,6 +12,8 @@ redirect_from:
   - /account-and-profile/tutorials/managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/manage-cookie-preferences
 contentType: how-tos
+category:
+  - Configure account settings
 ---
 
 ## Changing your cookie preferences

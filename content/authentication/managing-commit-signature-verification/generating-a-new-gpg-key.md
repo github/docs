@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Sign your commits
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 

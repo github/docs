@@ -9,6 +9,8 @@ contentType: reference
 redirect_from:
   - /billing/reference/license-usage-calculation
   - /billing/reference/license-usage-reference
+category:
+  - Manage enterprise licenses
 ---
 
 ## People who consume a license

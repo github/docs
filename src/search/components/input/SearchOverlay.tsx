@@ -34,7 +34,7 @@ import styles from './SearchOverlay.module.scss'
 
 type Props = {
   searchOverlayOpen: boolean
-  parentRef: RefObject<HTMLElement>
+  parentRef: RefObject<HTMLElement | null>
   debug: boolean
   onClose: () => void
   params: {

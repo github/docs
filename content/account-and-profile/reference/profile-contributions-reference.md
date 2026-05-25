@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Track your contributions
 ---
 
 ## What counts as a contribution

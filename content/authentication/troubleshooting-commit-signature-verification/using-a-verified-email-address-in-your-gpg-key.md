@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Use verified email in GPG key
+category:
+  - Troubleshoot authentication issues
 ---
 {% ifversion fpt or ghec %}
 If you need to verify your GitHub email address, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address). {% endif %}If you need to update or add an email address to your GPG key, see [AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key).

@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: Primary email address
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 {% ifversion ghec %}

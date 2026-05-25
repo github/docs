@@ -1,12 +1,12 @@
 ---
 title: Backup from replica in high availability
 shortTitle: Backup from replica
-intro: 'Enable backup from a high availability replica node.'
+intro: Enable backup from a high availability replica node.
 versions:
   ghes: '> 3.19'
-type: how_to
-topics:
-  - Backups
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 ## Configuring backups from a replica node
@@ -16,10 +16,10 @@ For high availability, you can designate a replica node as your backup server. T
 > [!IMPORTANT] 
 > Backups from cache replica nodes or active geo replica nodes are not supported.
 
-To configure your backup server, run the following commands, replacing `HOSTNAME` with the hostname of the node:
+To configure your backup server on a replica, run the following commands. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/configuring-the-backup-service).
 
 ```shell
-ghe-config cluster.HOSTNAME.backup-server true
+ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
 
 ghe-config-apply
 ```

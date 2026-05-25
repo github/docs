@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Set repo management policy
+category:
+  - Set repository policies
 ---
 
 Owners can set permissions for deleting or transferring repositories in an organization.

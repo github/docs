@@ -17,6 +17,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 
 > [!TIP]

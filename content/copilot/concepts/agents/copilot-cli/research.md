@@ -5,12 +5,12 @@ allowTitleToDifferFromFilename: true
 intro: 'The `/research` slash command turns {% data variables.product.prodname_copilot_short %} into your research assistant, gathering in-depth information and insights on a topic.'
 versions:
   feature: copilot
-topics:
-  - CLI
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page
   - Learn about Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction
@@ -142,7 +142,7 @@ To share the report you can either save it to a file or create a {% data variabl
   ls -dtl ~/.copilot/session-state/*/ | head -10
   ```
 
-* **The research agent uses a specific model**: The research agent is hard-coded to use a particular AI model (see [AUTOTITLE](/copilot/reference/cli-command-reference#built-in-agents)). The model selection is not configurable via the `/model` command. The research agent always uses the defined model regardless of what model you've selected for your main session.
+* **The research agent uses a specific model**: The research agent is hard-coded to use a particular AI model (see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#built-in-agents)). The model selection is not configurable via the `/model` command. The research agent always uses the defined model regardless of what model you've selected for your main session.
 
 * **Report quality varies by query type**: The agent classifies your query into three types and adapts its response accordingly:
 

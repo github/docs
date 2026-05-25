@@ -6,12 +6,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
-  - Actions
 redirect_from:
   - /apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow
   - /apps/creating-github-apps/writing-code-for-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow
+category:
+  - Authenticate with a GitHub App
 ---
 
 ## About {% data variables.product.prodname_actions %} authentication

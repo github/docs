@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Get started and make API calls
 ---
 
 You can [perform introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) against the GraphQL API directly.

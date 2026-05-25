@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Restrict repository creation
+category:
+  - Set repository policies
 ---
 
 {% ifversion repo-policy-rules %}

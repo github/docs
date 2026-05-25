@@ -4,18 +4,13 @@ intro: You can configure an Azure Virtual Network (VNET) to run {% data variable
 versions:
   feature: dependabot-vnet-support
 permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
-topics:
-  - Repositories
-  - Dependabot
-  - Version updates
-  - Security updates
-  - Dependencies
-  - Pull requests
 allowTitleToDifferFromFilename: true
 shortTitle: Configure VNET
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/setting-dependabot-to-run-on-github-hosted-runners-using-vnet
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Configuring VNET for {% data variables.product.prodname_dependabot_updates %}
@@ -98,7 +93,7 @@ If your Azure VNET environment is configured with a firewall with an IP allowlis
         curl -L \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer YOUR-TOKEN" \
-        -H "X-GitHub-Api-Version: 2022-11-28" \
+        -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
         https://api.github.com/meta
   ```
 

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Understand search syntax
+category:
+  - Get started with search
 ---
 
 {% ifversion code-search-upgrade %}

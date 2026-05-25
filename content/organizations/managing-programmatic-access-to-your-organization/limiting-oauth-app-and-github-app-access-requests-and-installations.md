@@ -10,6 +10,8 @@ shortTitle: Limit app requests and installations
 redirect_from:
   - /organizations/managing-organization-settings/limiting-oauth-app-and-github-app-access-requests
   - /organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests
+category:
+  - Manage app and API access
 ---
 
 ## About app access requests

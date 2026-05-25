@@ -4,16 +4,15 @@ shortTitle: Enable security features in trial
 allowTitleToDifferFromFilename: true
 intro: Quickly create an enterprise-level configuration and apply {% data variables.product.prodname_cs_and_sp %} features across all repositories in your trial enterprise.
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
-topics:
-  - Code Security
-  - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.15'
+  ghes: '*'
 redirect_from:
   - /code-security/trialing-github-advanced-security/enable-security-features-trial
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 This article assumes that you have planned and then started a trial of {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
@@ -64,9 +63,11 @@ You may find it helpful to apply an enterprise security configuration to all rep
 1. Click the **Settings** tab to display the organization settings.
 1. In the sidebar, click **{% data variables.product.UI_advanced_security %}** and then **Configurations** to display the security configurations page.
 1. Optionally, select the **Apply to** dropdown menu and click either **All repositories**, to apply any configuration to all repositories in the organization, or **All repositories without configurations**, to configure just the repositories in the organization without an existing security configuration.
-1. Optionally, in the "Apply configurations" section use the "Search repositories" field or **Filter** button to filter repositories. Then select one or more repositories and use the **Apply configuration** button to choose a configuration to apply to those repositories.
+1. Optionally, click the **Repositories** tab, then in the "Apply configurations" section, use the "Search repositories" field or **Filter** button to filter repositories. Then select one or more repositories and use the **Apply configuration** button to choose a configuration to apply to those repositories.
 
 For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+
+After you apply a configuration, each repository's configuration status reflects the result. For example, a repository may show as `attached`, `attaching`, or `failed`. For a full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
 
 ## Next steps
 

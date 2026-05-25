@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/logs-not-detailed-enough
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/logs-not-detailed-enough
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 If your logs are not detailed enough to troubleshoot a problem, there are several steps you can take to obtain extra information and make logs more useful.

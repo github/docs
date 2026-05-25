@@ -11,6 +11,8 @@ redirect_from:
   - /github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository
   - /github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository
 shortTitle: Manage auto merge
+category:
+  - Configure merges and pull requests
 ---
 ## About auto-merge
 

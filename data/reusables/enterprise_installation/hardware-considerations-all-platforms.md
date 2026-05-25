@@ -6,7 +6,7 @@
 
 We recommend different hardware configurations depending on the number of user licenses for {% data variables.location.product_location %}. If you provision more resources than the minimum recommended requirements, your instance will perform and scale better.
 
-{% ifversion ghes > 3.14 %}{% data reusables.enterprise_installation.hardware-rec-table %}{% else %}{% data reusables.enterprise_installation.hardware-rec-table-legacy %}{% endif %}
+{% ifversion ghes %}{% data reusables.enterprise_installation.hardware-rec-table %}{% else %}{% data reusables.enterprise_installation.hardware-rec-table-legacy %}{% endif %}
 
 {% data reusables.actions.more-resources-for-ghes %}
 
@@ -21,7 +21,7 @@ We recommend a high-performance SSD with high input/output operations per second
 Your instance requires a persistent data disk separate from the root disk. For more information, see [AUTOTITLE](/admin/overview/system-overview).
 
 >[!WARNING]
->Root storage refers to the total size of your instance's root disk. When the instance is booted you will see {% ifversion ghes > 3.14 %}200GB available on the root filesystem. The remaining 200GB{% else %}100GB available on the root filesystem. The remaining 100GB{% endif %} is reserved for upgrades. For more information, see [AUTOTITLE](/admin/overview/system-overview#storage-architecture).
+>Root storage refers to the total size of your instance's root disk. When the instance is booted you will see {% ifversion ghes %}200GB available on the root filesystem. The remaining 200GB{% else %}100GB available on the root filesystem. The remaining 100GB{% endif %} is reserved for upgrades. For more information, see [AUTOTITLE](/admin/overview/system-overview#storage-architecture).
 
 {% ifversion ghes %}
 

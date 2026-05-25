@@ -8,16 +8,12 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: dependabot-metrics
 contentType: tutorials
-topics:
-  - Code Security
-  - Dependabot
-  - Code scanning
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-metrics
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities
+category:
+  - Secure your dependencies
 ---
 
 ## Prioritizing {% data variables.product.prodname_dependabot_alerts %} using metrics
@@ -49,7 +45,7 @@ You can customize the default funnel order on the "Alert prioritization" graph t
 
 ### 2. Focus on critical and high severity alerts
 
-Start by identifying alerts with the highest severity by using the the `severity-critical` or `severity-high` filters. These vulnerabilities pose the greatest risk and are often prioritized by compliance standards. You can then
+Start by identifying alerts with the highest severity by using the `severity-critical` or `severity-high` filters. These vulnerabilities pose the greatest risk and are often prioritized by compliance standards.
 
 ### 3. Assess exploitability and reachability
 

@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 permissions: People with admin permissions for a repository can manage the push policy for the repository.
 shortTitle: Manage the push policy
+category:
+  - Manage access and repository policies
 ---
 
 ## About the push policy

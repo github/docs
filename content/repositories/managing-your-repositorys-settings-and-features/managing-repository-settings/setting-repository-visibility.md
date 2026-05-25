@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Repository visibility
+category:
+  - Manage access and repository policies
 ---
 
 ## About repository visibility changes

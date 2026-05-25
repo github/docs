@@ -20,7 +20,6 @@ interface GraphQLTypeInfo {
 interface TypeInfo {
   name: string
   id: string
-  kind: string
   href: string
 }
 
@@ -82,7 +81,6 @@ async function getArguments(
     type.id = getId(typeName)
     const typeKind = getTypeKind(typeName, schema)
     if (!typeKind) continue // Skip if type kind cannot be determined
-    type.kind = typeKind
     type.href = getFullLink(typeKind, type.id)
     newArg.type = type as TypeInfo
     newArgs.push(newArg as ArgumentInfo)

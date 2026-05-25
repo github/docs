@@ -4,12 +4,10 @@ intro: Disable {% data variables.product.prodname_GHAS %} and prevent accidental
 permissions: Enterprise owners
 versions:
   feature: disable-ghas-button
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Disable GHAS for enterprise
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 If you want to immediately disable {% data variables.product.prodname_GHAS %} in all repositories, prevent organizations from re-enabling it and avoid unexpected billing charges, you can use the **Disable {% data variables.product.prodname_AS %}** option available in the enterprise licensing page. This is different from canceling your {% data variables.product.prodname_AS %} subscription:
@@ -34,4 +32,4 @@ Once you have disabled {% data variables.product.prodname_GHAS %}:
 * If you use **volume billing**, you agreed to a number of licenses and billing period upfront. You'll continue to pay for the rest of this period.
 * If you use **metered billing**, you pay based on usage, and your billing will stop from next month. However, you _will_ continue paying for any licenses you've already consumed this month until the end of the month.
 
-  For example, if you had 10 licenses in use and disabled GHAS on the second day of the month, you will still be billed for your 10 licenses for the full month instead of just for the two days.
+  For example, if you had 10 licenses in use and disabled {% data variables.product.prodname_GHAS %} on the second day of the month, you will still be billed for your 10 licenses for the full month instead of just for the two days.

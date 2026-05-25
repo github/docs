@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Unblock from your org
+category:
+  - Block users and report abuse
 ---
 
 After unblocking a user from your organization, they'll be able to contribute to your organization's repositories.

@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: About mandatory 2FA
+category:
+  - Learn about authentication
 ---
 
 {% data reusables.two_fa.mandatory-2fa-contributors-2023-nested %}

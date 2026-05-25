@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Create a PR template
+category:
+  - Create issue and pull request templates
 ---
 
 For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).

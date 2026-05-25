@@ -7,14 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret Protection
-  - Secret scanning
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
-  - Dependencies
-  - Dependabot
 children:
   - remediate-alerts-at-scale
   - manage-secret-scanning-alerts

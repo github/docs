@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 permissions: 'Organization owners can {% ifversion fpt or ghec %}invite users to join{% else %}add users to{% endif %} an organization.'
 shortTitle: Convert collaborator to member
+category:
+  - Control repository access
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}

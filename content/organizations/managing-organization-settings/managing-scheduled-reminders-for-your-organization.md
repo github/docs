@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Manage scheduled reminders
+category:
+  - Configure organization features
 ---
 
 ## About scheduled reminders for pull requests

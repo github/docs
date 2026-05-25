@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /billing/managing-billing-for-your-products/about-billing-for-github-models
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 > [!NOTE]

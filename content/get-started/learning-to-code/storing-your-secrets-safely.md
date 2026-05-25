@@ -4,6 +4,8 @@ shortTitle: Storing secrets safely
 intro: "Learn about secrets in software development and how you can manage them safely."
 versions:
   fpt: '*'
+category:
+  - Learn to code
 ---
 
 ## What is a secret?

@@ -1,15 +1,14 @@
 ---
 title: Auditing your organization's builds on the {% data variables.product.virtual_registry %}
-intro: "View or export metadata for build runs, storage details, and deployment context."
+intro: View or export metadata for build runs, storage details, and deployment context.
 versions:
   feature: virtual-registry
-topics:
-  - Vulnerabilities
-  - Dependencies
-contentType: concepts
-product: 'Organization accounts on any plan'
-permissions: 'Anyone with read access to an organization-owned repository'
+contentType: how-tos
+product: Organization accounts on any plan
+permissions: Anyone with read access to an organization-owned repository
 shortTitle: View linked artifacts
+category:
+  - Secure at scale
 ---
 
 You can use the {% data variables.product.virtual_registry %} to connect your organization's artifacts to their build details, deployment context, and security metadata. The {% data variables.product.virtual_registry %} collects metadata for artifacts built with {% data variables.product.prodname_actions %} in your organization's repositories, regardless of whether the artifacts are stored on {% data variables.product.github %}. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).

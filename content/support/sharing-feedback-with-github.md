@@ -4,6 +4,8 @@ intro: "You can share your ideas, thoughts, and feedback with {% data variables.
 versions:
   fpt: '*'
 shortTitle: Sharing feedback
+category:
+  - Contact GitHub
 ---
 
 > [!IMPORTANT]

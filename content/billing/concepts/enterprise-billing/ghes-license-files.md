@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 shortTitle: GHES license files
 contentType: concepts
+category:
+  - Manage enterprise licenses
 ---
 
 ## About license files

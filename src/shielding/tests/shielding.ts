@@ -21,6 +21,26 @@ describe('junk paths', () => {
     expect(res.headers['cache-control']).toMatch('public')
   })
 
+  test('double-slash protocol-relative paths are safely redirected', async () => {
+    const res = await get('//evil.com')
+    expect(res.statusCode).toBe(301)
+    // Must normalize to a safe local path, not redirect externally
+    expect(res.headers.location).toBe('/evil.com')
+  })
+
+  test('double-slash with query params does not open redirect', async () => {
+    const res = await get('//evil.com?a=1&b=2&c=3')
+    // With 3 unrecognized query keys, the query string middleware redirects
+    // using res.safeRedirect which normalizes // to /
+    expect(res.headers.location).not.toMatch(/^\/\//)
+  })
+
+  test('triple-slash paths are still blocked', async () => {
+    const res = await get('///evil.com')
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch('text/plain')
+  })
+
   test('junk base name', async () => {
     const res = await get('/en/get-started/.env.local')
     expect(res.statusCode).toBe(404)
@@ -72,24 +92,13 @@ describe('index.md and .md suffixes', () => {
     }
   })
 
-  test('any URL that ends with /.md redirects', async () => {
-    // With language prefix
+  test('any URL that ends with .md serves markdown directly', async () => {
+    // .md is stripped and request flows through with Accept: text/markdown
     {
-      const res = await get('/en/get-started/hello.md')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/en/get-started/hello')
-    }
-    // Without language prefix
-    {
-      const res = await get('/get-started/hello.md')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
-    }
-    // With query string
-    {
-      const res = await get('/get-started/hello.md?foo=bar')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
+      const res = await get('/en/get-started.md')
+      // Should not redirect — serves markdown directly (or 404 if page doesn't exist)
+      expect(res.statusCode).not.toBe(301)
+      expect(res.statusCode).not.toBe(302)
     }
   })
 })

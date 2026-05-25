@@ -1,15 +1,12 @@
 ---
 title: Configuring the backup service
 shortTitle: Configure the backup service
-intro: 'Enable and configure the built-in backup service in the {% data variables.enterprise.management_console %}, and optionally migrate legacy settings.'
+intro: Enable and configure the built-in backup service in the {% data variables.enterprise.management_console %}, and optionally migrate legacy settings.
 versions:
   ghes: '>=3.17'
-type: how_to
-topics:
-  - Backups
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 Before configuring the backup service, ensure you have:
@@ -139,7 +136,7 @@ If the device was already initialized using `ghe-storage-init-backup`, you can r
 
 ### Configuring backup settings
 
-After the backup target is mounted, the Backup Service page will become available in the {% data variables.enterprise.management_console %} in the "Backup" section. {% ifversion ghes > 3.19 %} If your instance is part of a clustered environment, the system will automatically detect the node that was initialized with `ghe-storage-init-backup` and treat it as the backup server. {% endif %}
+After the backup target is mounted, the Backup Service page will become available in the {% data variables.enterprise.management_console %} in the "Backup" section. {% ifversion ghes > 3.19 %} If your instance is part of a clustered environment, the Backup Service page will be available after `ghe-config-apply`. {% endif %}
 
 >[!NOTE] The settings page won’t appear until the backup storage is mounted at `/data/backup` by completing the initialization or mount steps above.
 

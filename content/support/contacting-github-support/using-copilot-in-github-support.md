@@ -8,6 +8,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Using Copilot in GitHub Support
+category:
+  - Contact GitHub
 ---
 
 ## About {% data variables.copilot.copilot_in_support %}

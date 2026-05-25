@@ -10,6 +10,8 @@ shortTitle: Quickstart
 redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
+category:
+  - Learn about the REST API
 ---
 
 ## Introduction

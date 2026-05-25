@@ -10,6 +10,8 @@ shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/general'
+category:
+  - Release software
 ---
 
 ## About automatically generated release notes

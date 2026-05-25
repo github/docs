@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Filter by milestone
+category:
+  - Triage and organize issues
 ---
 
 > [!TIP]

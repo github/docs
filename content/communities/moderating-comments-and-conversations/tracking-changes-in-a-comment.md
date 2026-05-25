@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Track comment changes
+category:
+  - Moderate comments and conversations
 ---
 
 ## Viewing a comment's edit history details

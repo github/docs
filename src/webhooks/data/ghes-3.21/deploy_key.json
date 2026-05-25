@@ -1,0 +1,242 @@
+{
+  "created": {
+    "descriptionHtml": "<p>A deploy key was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to deploy keys. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/developers/overview/managing-deploy-keys\">Managing deploy keys</a>.\" For information about the APIs to manage deploy keys, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#deploykey\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/deploy-keys\">Deploy keys</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Deployments\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "key",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.21/rest/deploy-keys/deploy-keys#get-a-deploy-key\"><code>deploy key</code></a> resource.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "added_by",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "key",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "last_used",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "read_only",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "title",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "verified",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "enabled",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "deploy_key"
+  },
+  "deleted": {
+    "descriptionHtml": "<p>A deploy key was deleted.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to deploy keys. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/developers/overview/managing-deploy-keys\">Managing deploy keys</a>.\" For information about the APIs to manage deploy keys, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#deploykey\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/deploy-keys\">Deploy keys</a>\" in the REST API documentation.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Deployments\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "deleted"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "key",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.21/rest/deploy-keys/deploy-keys#get-a-deploy-key\"><code>deploy key</code></a> resource.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "added_by",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "key",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "last_used",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "read_only",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "title",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "verified",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "enabled",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "deleted",
+    "category": "deploy_key"
+  }
+}

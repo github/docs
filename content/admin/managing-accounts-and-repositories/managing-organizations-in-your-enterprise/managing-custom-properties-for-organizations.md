@@ -5,11 +5,10 @@ permissions: 'Enterprise owners {% ifversion custom-org-roles %}and users with t
 versions:
   ghec: '*'
   ghes: '>= 3.21'
-topics:
-  - Enterprise
-  - Organizations
 shortTitle: Organization custom properties
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-accounts.org-custom-properties-public-preview %}

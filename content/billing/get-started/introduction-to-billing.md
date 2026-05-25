@@ -12,6 +12,8 @@ redirect_from:
   - /billing/reference/previous-billing-platform-endpoints
 shortTitle: Introduction to billing
 contentType: get-started
+category:
+  - Get started with billing
 ---
 
 ## Key functionalities

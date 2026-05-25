@@ -3,11 +3,6 @@ title: GitHub token is required to upload SARIF results
 shortTitle: GitHub token missing
 allowTitleToDifferFromFilename: true
 intro: You need to provide an authentication method for the upload process to use to access the repository.
-topics:
-  - Code scanning
-  - Errors
-  - SARIF
-  - Troubleshooting
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/missing-token
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/missing-token
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

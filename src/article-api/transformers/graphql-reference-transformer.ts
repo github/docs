@@ -97,12 +97,47 @@ export class GraphQLReferenceTransformer implements PageTransformer {
         break
     }
 
+    // For objects pages, collapse Connection/Edge types that have only standard
+    // boilerplate fields into a summary. Types with additional fields are kept.
+    let connectionEdgeSummary: string[] | null = null
+    if (schemaKey === 'objects') {
+      const BOILERPLATE_CONNECTION_FIELDS = new Set(['edges', 'nodes', 'pageInfo', 'totalCount'])
+      const BOILERPLATE_EDGE_FIELDS = new Set(['cursor', 'node'])
+      const connEdgeNames: string[] = []
+      const filteredItems: Array<Record<string, unknown>> = []
+      for (const item of preparedItems) {
+        const name = item.name as string
+        const fields = item.fields as Array<Record<string, unknown>> | undefined
+        const fieldNames = new Set((fields || []).map((f) => f.name as string))
+
+        const isBoilerplateConnection =
+          name.endsWith('Connection') &&
+          fieldNames.size === BOILERPLATE_CONNECTION_FIELDS.size &&
+          [...fieldNames].every((f) => BOILERPLATE_CONNECTION_FIELDS.has(f))
+        const isBoilerplateEdge =
+          name.endsWith('Edge') &&
+          fieldNames.size === BOILERPLATE_EDGE_FIELDS.size &&
+          [...fieldNames].every((f) => BOILERPLATE_EDGE_FIELDS.has(f))
+
+        if (isBoilerplateConnection || isBoilerplateEdge) {
+          connEdgeNames.push(name)
+        } else {
+          filteredItems.push(item)
+        }
+      }
+      if (connEdgeNames.length > 0) {
+        connectionEdgeSummary = connEdgeNames.sort()
+        preparedItems = filteredItems
+      }
+    }
+
     const templateData: Record<string, unknown> = {
       pageTitle: page.title,
       pageIntro: intro,
       manualContent,
       items: preparedItems,
       pageType: schemaKey,
+      connectionEdgeSummary,
     }
 
     const templateContent = loadTemplate(this.templateName)
@@ -243,31 +278,49 @@ export class GraphQLReferenceTransformer implements PageTransformer {
     }
   }
 
+  private static STANDARD_PAGINATION_ARGS = new Set(['after', 'before', 'first', 'last'])
+
+  /**
+   * Check if a field has only the standard pagination arguments
+   * (after, before, first, last) with no additional args.
+   */
+  private hasOnlyStandardPaginationArgs(field: FieldT): boolean {
+    if (!field.arguments || field.arguments.length !== 4) return false
+    return field.arguments.every((arg) =>
+      GraphQLReferenceTransformer.STANDARD_PAGINATION_ARGS.has(arg.name),
+    )
+  }
+
   /**
    * Prepare fields for rendering
    */
   private async prepareFields(fields: FieldT[]): Promise<Array<Record<string, unknown>>> {
-    return fields.map((field) => ({
-      name: field.name,
-      type: field.type,
-      href: field.href,
-      description: field.description ? fastTextOnly(field.description) : '',
-      defaultValue: field.defaultValue,
-      isDeprecated: field.isDeprecated || false,
-      deprecationReason: field.deprecationReason
-        ? fastTextOnly(field.deprecationReason)
-        : undefined,
-      arguments: field.arguments
-        ? field.arguments.map((arg) => ({
-            name: arg.name,
-            description: arg.description ? fastTextOnly(arg.description) : '',
-            defaultValue: arg.defaultValue,
-            type: {
-              name: arg.type.name,
-              href: arg.type.href,
-            },
-          }))
-        : undefined,
-    }))
+    return fields.map((field) => {
+      const hasPaginationOnly = this.hasOnlyStandardPaginationArgs(field)
+      return {
+        name: field.name,
+        type: field.type,
+        href: field.href,
+        description: field.description ? fastTextOnly(field.description) : '',
+        defaultValue: field.defaultValue,
+        isDeprecated: field.isDeprecated || false,
+        deprecationReason: field.deprecationReason
+          ? fastTextOnly(field.deprecationReason)
+          : undefined,
+        hasPaginationOnly,
+        arguments:
+          field.arguments && !hasPaginationOnly
+            ? field.arguments.map((arg) => ({
+                name: arg.name,
+                description: arg.description ? fastTextOnly(arg.description) : '',
+                defaultValue: arg.defaultValue,
+                type: {
+                  name: arg.type.name,
+                  href: arg.type.href,
+                },
+              }))
+            : undefined,
+      }
+    })
   }
 }

@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 shortTitle: Unavailable identity provider
 permissions: Organization owners can use a recovery code to bypass SAML SSO.
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About recovery codes

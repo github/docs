@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Manage and monitor workflow runs
 ---
 
 When a job's `if` condition is evaluated, {% data variables.product.prodname_actions %} logs the expression evaluation to help you understand the result. This is useful for debugging both why a job was skipped and why a job ran when you expected it to be skipped.

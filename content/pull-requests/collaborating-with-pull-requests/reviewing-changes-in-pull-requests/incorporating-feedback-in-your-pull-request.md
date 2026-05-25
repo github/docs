@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Incorporate feedback
+category:
+  - Review pull requests
 ---
 ## Applying suggested changes
 

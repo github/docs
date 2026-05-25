@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Update the head branch
+category:
+  - Create pull requests
 ---
 
 ## About keeping your pull request in sync

@@ -13,14 +13,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
-  - Pull requests
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->

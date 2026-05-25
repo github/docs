@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Add members to a team
+category:
+  - Organize teams
 ---
 
 {% data reusables.organizations.team-synchronization %}

@@ -25,8 +25,8 @@
   multiplier_paid: 30
   multiplier_free: Not applicable
 
-- name: Claude Sonnet 4
-  multiplier_paid: 1
+- name: Claude Opus 4.7
+  multiplier_paid: 15
   multiplier_free: Not applicable
 
 - name: Claude Sonnet 4.5
@@ -45,12 +45,12 @@
   multiplier_paid: 0.33
   multiplier_free: Not applicable
 
-- name: Gemini 3 Pro
+- name: Gemini 3.1 Pro
   multiplier_paid: 1
   multiplier_free: Not applicable
 
-- name: Gemini 3.1 Pro
-  multiplier_paid: 1
+- name: Gemini 3.5 Flash
+  multiplier_paid: 14
   multiplier_free: Not applicable
 
 - name: GPT-4.1
@@ -65,22 +65,6 @@
   multiplier_paid: 0
   multiplier_free: 1
 
-- name: GPT-5.1
-  multiplier_paid: 1
-  multiplier_free: Not applicable
-
-- name: GPT-5.1-Codex
-  multiplier_paid: 1
-  multiplier_free: Not applicable
-
-- name: GPT-5.1-Codex-Mini
-  multiplier_paid: 0.33
-  multiplier_free: Not applicable
-
-- name: GPT-5.1-Codex-Max
-  multiplier_paid: 1.0
-  multiplier_free: Not applicable
-
 - name: GPT-5.2
   multiplier_paid: 1.0
   multiplier_free: Not applicable
@@ -93,8 +77,20 @@
   multiplier_paid: 1.0
   multiplier_free: Not applicable
 
-- name: Grok Code Fast 1
+- name: GPT-5.4
+  multiplier_paid: 1.0
+  multiplier_free: Not applicable
+
+- name: GPT-5.4 mini
+  multiplier_paid: 0.33
+  multiplier_free: Not applicable
+
+- name: GPT-5.4 nano
   multiplier_paid: 0.25
+  multiplier_free: Not applicable
+
+- name: GPT-5.5
+  multiplier_paid: 7.5
   multiplier_free: Not applicable
 
 - name: Raptor mini

@@ -1,7 +1,7 @@
 ---
 title: Using GitHub CLI in workflows
 shortTitle: Use GitHub CLI
-intro: 'You can script with {% data variables.product.prodname_cli %} in {% data variables.product.prodname_actions %} workflows.'
+intro: You can script with {% data variables.product.prodname_cli %} in {% data variables.product.prodname_actions %} workflows.
 redirect_from:
   - /actions/guides/using-github-cli-in-workflows
   - /actions/advanced-guides/using-github-cli-in-workflows
@@ -13,7 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
+category:
+  - Write workflows
 ---
 
 

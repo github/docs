@@ -1,0 +1,151 @@
+{
+  "markdown": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/markdown",
+      "title": "Render a Markdown document",
+      "category": "markdown",
+      "subcategory": "markdown",
+      "parameters": [],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "text",
+          "description": "<p>The Markdown text to render in HTML.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "mode",
+          "description": "<p>The rendering mode.</p>",
+          "enum": [
+            "markdown",
+            "gfm"
+          ],
+          "default": "markdown"
+        },
+        {
+          "type": "string",
+          "name": "context",
+          "description": "<p>The repository context to use when creating references in <code>gfm</code> mode.  For example, setting <code>context</code> to <code>octo-org/octo-repo</code> will change the text <code>#42</code> into an HTML link to issue 42 in the <code>octo-org/octo-repo</code> repository.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Depending on what is rendered in the Markdown, you may need to provide additional token scopes for labels, such as <code>issues:read</code> or <code>pull_requests:read</code>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Rendering markdown",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "text": "Hello **world**"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "text/html",
+            "description": "<p>Example response</p>",
+            "example": "<p>Hello <strong>world</strong></p>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/markdown/raw",
+      "title": "Render a Markdown document in raw mode",
+      "category": "markdown",
+      "subcategory": "markdown",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>You must send Markdown as plain text (using a <code>Content-Type</code> header of <code>text/plain</code> or <code>text/x-markdown</code>) to this endpoint, rather than using JSON format. In raw mode, <a href=\"https://github.github.com/gfm/\">GitHub Flavored Markdown</a> is not supported and Markdown will be rendered in plain format like a README.md file. Markdown content must be 400 KB or less.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "text/plain",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "text": "Hello **world**"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "text/html",
+            "description": "<p>Example response</p>",
+            "example": "<p>Hello <strong>world</strong></p>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "request": {
+            "contentType": "text/x-markdown",
+            "description": "Rendering markdown",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "text": "Hello **world**"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "text/html",
+            "description": "<p>Example response</p>",
+            "example": "<p>Hello <strong>world</strong></p>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    }
+  ]
+}

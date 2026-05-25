@@ -10,12 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 shortTitle: Enable dependency graph
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 The dependency graph is a summary of the manifest and lock files stored in a repository and any dependencies that are submitted for the repository using the {% data variables.dependency-submission-api.name %}. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
@@ -40,7 +38,7 @@ Enabling the dependency graph gives {% data variables.product.github %} read-onl
 
 You can enable or disable the dependency graph for all repositories owned by your user account, regardless of their visibility. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-security-and-analysis-settings-for-your-personal-account).
 
-You can also enable the dependency graph for multiple repositories in an organization at the same time. For more information, see {% ifversion security-configurations %}[AUTOTITLE](/code-security/securing-your-organization).{% else %}[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization).{% endif %}
+You can also enable the dependency graph for multiple repositories in an organization at the same time. For more information, see [AUTOTITLE](/code-security/securing-your-organization).
 
 {% endif %}
 

@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Configure a remote repository
+category:
+  - Work with forks
 ---
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. List the current configured remote repository for your fork.

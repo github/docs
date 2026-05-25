@@ -1,11 +1,10 @@
 ---
 title: Workflows
-intro: 'Get a high-level overview of {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
+intro: Get a high-level overview of {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 redirect_from:
   - /articles/configuring-workflows
   - /actions/learn-github-actions/managing-complex-workflows
@@ -15,6 +14,9 @@ redirect_from:
   - /actions/concepts/use-cases/using-github-actions-for-project-management
   - /actions/concepts/workflows-and-actions/about-workflows
 layout: inline
+contentType: concepts
+category:
+  - Write workflows
 ---
 
 ## About workflows

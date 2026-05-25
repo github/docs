@@ -14,6 +14,8 @@ redirect_from:
   - /rest/projects/collaborators
   - /v3/projects/collaborators
   - /rest/reference/projects/collaborators
+category:
+  - Manage issues, pull requests, and projects
 ---
 
 <!-- Content after this section is automatically generated -->

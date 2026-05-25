@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Managing moderators
+category:
+  - Assign roles and permissions
 ---
 
 ## About organization moderators

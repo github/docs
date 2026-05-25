@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Use SSH over HTTPS port
+category:
+  - Troubleshoot authentication issues
 ---
 
 > [!WARNING]

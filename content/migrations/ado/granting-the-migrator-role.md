@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: other
+category:
+  - Migrate from Azure DevOps
 ---
 
 To allow someone other than an organization owner to run a migration or download migration logs, you can grant the migrator role to a user or team.

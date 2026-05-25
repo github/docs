@@ -6,11 +6,9 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 allowTitleToDifferFromFilename: true
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.use-innersource %}

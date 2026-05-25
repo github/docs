@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 permissions: Organization owners can reinstate a former member of an organization.
 shortTitle: Reinstate a member
+category:
+  - Manage members
 ---
 
 ## About member reinstatement

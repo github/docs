@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 shortTitle: Manage allowed IP addresses
 permissions: Organization owners can manage allowed IP addresses for an organization.
+category:
+  - Secure and monitor your organization
 ---
 
 ## About allowed IP addresses

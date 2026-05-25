@@ -13,6 +13,9 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage from your inbox
+contentType: how-tos
+category:
+  - Manage subscriptions and triage your inbox
 ---
 
 ## Prerequisites

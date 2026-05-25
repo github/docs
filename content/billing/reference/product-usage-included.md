@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Get started with billing
 ---
 
 The table below shows the usage available in each plan. When you exceed these amounts, you'll be charged for additional usage unless you've set a budget with the setting "Stop usage when budget limit is reached" enabled. For more information, see [AUTOTITLE](/billing/tutorials/set-up-budgets).

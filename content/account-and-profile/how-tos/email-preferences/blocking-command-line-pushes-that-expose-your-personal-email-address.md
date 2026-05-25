@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 shortTitle: Block push with personal email
 contentType: how-tos
+category:
+  - Manage your email
 ---
 When you enable this setting, each time you push to {% data variables.product.github %}, we’ll check the most recent commit. If the author email on that commit is a private email on your GitHub account, we will block the push and warn you about exposing your private email.
 

@@ -1,5 +1,5 @@
 ---
-title: Requesting an archive of your personal account’s data
+title: Requesting an archive of your personal account's data
 redirect_from:
   - /articles/requesting-an-archive-of-your-personal-account-s-data
   - /articles/requesting-an-archive-of-your-personal-accounts-data
@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Request account archive
+category:
+  - Set up your account on GitHub
 ---
 
 {% data variables.product.github %} stores repository and profile metadata from your personal account's activity. You can export your personal account's data through your account settings on {% data variables.product.prodname_dotcom %} or with the User Migration API.

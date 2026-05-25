@@ -1,14 +1,11 @@
 ---
 title: How-tos for customizing secret leak detection
-shortTitle: Detection customization
+shortTitle: Customize leak detection
 intro: Learn how to customize {% data variables.product.github %}'s secret leak detection tools.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
 contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features

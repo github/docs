@@ -1,18 +1,12 @@
 ---
 title: Verifying or approving a domain for your enterprise
 shortTitle: Verify or approve a domain
-intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm the identity of organizations owned by your enterprise account. You can also approve domains where organization members can receive email notifications.'
+intro: You can verify your ownership of domains with {% data variables.product.company_short %} to confirm the identity of organizations owned by your enterprise account. You can also approve domains where organization members can receive email notifications.
 product: '{% data reusables.gated-features.verify-and-approve-domain %}'
 versions:
   ghec: '*'
   ghes: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
-type: how_to
-topics:
-  - Enterprise
-  - Notifications
-  - Organizations
-  - Policy
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/verifying-or-approving-a-domain-for-your-enterprise-account
@@ -24,6 +18,9 @@ redirect_from:
   - /admin/policies/verifying-or-approving-a-domain-for-your-enterprise
   - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
   - /admin/configuration/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About verification of domains

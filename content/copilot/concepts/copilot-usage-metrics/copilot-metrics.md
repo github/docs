@@ -35,7 +35,7 @@ Metrics are available through:
 
 ## Which usage is included?
 
-The {% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple Copilot surfaces. Because many metrics come from IDE telemetry, **end users must have telemetry enabled in their IDE to be included in these metrics**.
+{% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple {% data variables.product.prodname_copilot_short %} surfaces, including IDE and {% data variables.copilot.copilot_cli_short %} activity. Because many metrics come from IDE telemetry, **end users must have telemetry enabled in their IDE to be included in these metrics**.
 
 The data **does not include** activity from other {% data variables.product.prodname_copilot_short %} surfaces, such as:
 
@@ -55,7 +55,6 @@ The following API resources expose {% data variables.product.prodname_copilot_sh
 | --- | --- | --- |
 | [AUTOTITLE](/rest/copilot/copilot-usage-metrics) | Advanced enterprise-, organization-, and user-level event telemetry | Provides unified telemetry across completions, chat, and agent modes. Includes usage and lines of code metrics across all IDE modes, languages, and models. Supports detailed breakdowns by feature, IDE, language, model, and user, and is the primary API resource being actively developed and maintained. |
 | [AUTOTITLE](/rest/copilot/copilot-user-management) | License and seat assignment | Lists assigned {% data variables.product.prodname_copilot_short %} seats for an organization or enterprise, including license state, user association, and `last_activity_at`. This API resource is the source of truth for license and seat information. |
-| [AUTOTITLE](/rest/copilot/copilot-metrics) | Enterprise-, organization-, and team-level usage metrics | Provides aggregated usage data for {% data variables.product.prodname_copilot_short %} features on {% data variables.product.prodname_dotcom_the_website %} (such as pull request summaries) and some IDE-based completions and chat. Does not include Agent or Edit mode telemetry. Offers enterprise-wide and per-feature breakdowns by IDE and language. Does not include individual-level data. |
 
 ## How are metrics attributed across organizations?
 
@@ -93,15 +92,13 @@ To be included in the {% data variables.product.prodname_copilot_short %} usage 
 
 The data in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard and API reports is updated on a regular schedule.
 
-During the preview, you can expect data to be available within **three full days**. This means that data for a given day is processed and made available within three full UTC days after that day closes.
-
-For example, all usage data for a Monday (which closes at midnight UTC) will be visible in the dashboard and API by the end of Thursday UTC. In some cases, such as processing delays over weekends, data may appear up to four calendar days behind the current date.
+You can expect data to be available within **two full days**. This means that data for a given day is processed and made available within two full UTC days after that day closes.
 
 ## What does the data measure?
 
 {% data variables.product.prodname_copilot_short %} usage metrics can be grouped into a few main categories: Adoption, engagement, acceptance rate, Lines of Code (LoC), and pull request lifecycle metrics.
 
-**Adoption** measures how many licensed developers are actively using {% data variables.product.prodname_copilot_short %}. For example, daily active users (DAU) tells you how many unique users interacted with {% data variables.product.prodname_copilot_short %} on a given day. Ideally, you'll see a consistent upward trend in these metrics during rollout.
+**Adoption** measures how many licensed developers are actively using {% data variables.product.prodname_copilot_short %}. For example, daily active users (DAU) tells you how many unique users interacted with {% data variables.product.prodname_copilot_short %} on a given day. Ideally, you'll see a consistent upward trend in these metrics during rollout. {% data variables.copilot.copilot_code-review_short %} adoption is tracked separately, with distinct active and passive user counts. Active users manually requested a review or applied a suggestion; passive users had {% data variables.copilot.copilot_code-review_short %} automatically assigned to review their pull request. When a user has both signals in the same period, they are counted as active only.
 
 **Engagement** measures describe how deeply developers use {% data variables.product.prodname_copilot_short %} once they’ve adopted it. Key engagement metrics show not only frequency of use but also breadth across features. For example, average chat requests per active user measures how often users open and interact with {% data variables.copilot.copilot_chat_short %}. You'd want to see regular and increasing chat use across languages and IDEs.
 
@@ -129,7 +126,8 @@ These metrics can be used together to answer key questions about your teams' usa
 | Which features deliver the most value? | Requests per chat mode, agent adoption |
 | Do developers trust {% data variables.product.prodname_copilot_short %}’s output? | Acceptance rate trends |
 | Are enablement efforts working? | Growth in adoption and engagement after training or communication campaigns |
-| Is {% data variables.product.prodname_copilot_short %} influencing delivery speed or PR throughput? | Pull request merge counts and median time to merge |
+| Is {% data variables.product.prodname_copilot_short %} influencing delivery speed or pull request throughput? | Pull request merge counts and median time to merge |
+| How is {% data variables.copilot.copilot_code-review_short %} being adopted? | Active versus passive code review user counts |
 
 Look for patterns across these signals rather than focusing on any single number. For example, a steady DAU paired with a rising acceptance rate indicates growing trust and value.
 
@@ -140,3 +138,4 @@ Now that you understand what each {% data variables.product.prodname_copilot_sho
 * To view adoption and usage trends across your enterprise and organizations, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/view-usage-and-adoption).
 * To analyze how code is being generated by users and agents, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/view-code-generation).
 * To access {% data variables.product.prodname_copilot_short %} usage metrics programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
+* To construct team-level metrics by aggregating per-user records, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).

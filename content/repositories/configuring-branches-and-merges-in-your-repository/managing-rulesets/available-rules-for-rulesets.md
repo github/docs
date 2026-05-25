@@ -10,6 +10,8 @@ permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 shortTitle: Available rules
 redirect_from:
   - /actions/sharing-automations/required-workflows
+category:
+  - Manage branches and protect code
 ---
 
 You can create branch or tag rulesets to control how users can interact with selected branches and tags in a repository. {% ifversion push-rulesets %}You can also create push rulesets to block pushes to a private or internal repository and that repository's entire fork network.{% endif %}
@@ -136,9 +138,9 @@ Optionally, you can require a merge type of merge, squash, or rebase. This means
 
 #### Required reviewers
 
-Optionally, you can require review or approval from specific teams when a pull request changes certain files or directories. You can specify up to 15 different teams, and for each team you can require a certain number of approvals from team members.
+Optionally, you can require review or approval from specific teams when a pull request changes certain files or directories. You can specify up to 15 different teams, and for each team you can require a certain number of approvals from team members. For an approval from a team member to count, the team must have write permissions (or higher) for the repository.
 
-The **Reviewer** dropdown allows you to select any team which is in scope where the rule is being defined. 
+The **Reviewer** dropdown allows you to select any team which is in scope where the rule is being defined.
 
 * **Organization-wide rules**: The team must belong to the organization.
 * **Repository-level rules**: The team must belong to the organization that owns the repository.

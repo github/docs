@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /rest/overview/openapi-description
   - /rest/overview/about-the-openapi-description-for-the-rest-api
+category:
+  - Learn about the REST API
 ---
 
 ## About OpenAPI

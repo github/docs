@@ -8,6 +8,8 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private
   - /account-and-profile/how-tos/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private
 contentType: how-tos
+category:
+  - Customize your profile
 ---
 
 ## Changing your profile's privacy settings
@@ -19,5 +21,5 @@ contentType: how-tos
 
 ## Next steps
 
-* For more information about private profiles, see [AUTOTITLE](/account-and-profile/concepts/about-your-profile#private-profiles).
+* For more information about private profiles, see [AUTOTITLE](/account-and-profile/concepts/personal-profile#private-profiles).
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference#limitations-of-private-profiles).

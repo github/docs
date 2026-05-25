@@ -1,13 +1,16 @@
 import path from 'path'
 import fs from 'fs'
 import crypto from 'crypto'
+import zlib from 'zlib'
 
 import { fetchWithRetry } from './fetch-utils'
 import statsd from '@/observability/lib/statsd'
 
-// The only reason this is exported is for the sake of the unit tests'
-// ability to test in-memory miss after purging this with a mutation
-export const cache = new Map<string, unknown>()
+// Store compressed Buffers instead of parsed JSON objects.
+// Redirect JSON files are 5-10 MB each when parsed but compress
+// to ~1-2 MB with deflate. We decompress on each access (~1 ms)
+// which is negligible compared to the memory savings.
+export const cache = new Map<string, Buffer>()
 
 const inProd = process.env.NODE_ENV === 'production'
 
@@ -18,6 +21,16 @@ interface GetRemoteJSONConfig {
   timeout?: {
     response?: number
   }
+}
+
+function compressStringToCache(cacheKey: string, jsonString: string): void {
+  cache.set(cacheKey, zlib.deflateSync(Buffer.from(jsonString)))
+}
+
+function decompressFromCache(cacheKey: string): unknown {
+  const compressed = cache.get(cacheKey)
+  if (!compressed) return undefined
+  return JSON.parse(zlib.inflateSync(compressed).toString())
 }
 
 // Wrapper on `got()` that is able to both cache in memory and on disk.
@@ -60,8 +73,10 @@ export default async function getRemoteJSON(
       // It might exist on disk, but it could be empty
       if (body) {
         try {
-          // It might be corrupted JSON.
-          cache.set(cacheKey, JSON.parse(body))
+          // Validate JSON, then compress the raw string directly
+          // instead of parse → stringify → compress
+          JSON.parse(body)
+          compressStringToCache(cacheKey, body)
           fromCache = 'disk'
           foundOnDisk = true
         } catch (error) {
@@ -107,7 +122,9 @@ export default async function getRemoteJSON(
       }
 
       const body = await res.text()
-      cache.set(cacheKey, JSON.parse(body))
+      // Validate JSON, then compress raw string directly
+      JSON.parse(body)
+      compressStringToCache(cacheKey, body)
 
       // Only write to disk for testing and local review.
       // In production, we never write to disk. Only in-memory.
@@ -119,5 +136,5 @@ export default async function getRemoteJSON(
   }
   const tags = [`from_cache:${fromCache}`]
   statsd.increment('middleware.get_remote_json', 1, tags)
-  return cache.get(cacheKey)
+  return decompressFromCache(cacheKey)
 }

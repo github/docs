@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Access organization settings
+category:
+  - Set up your organization
 ---
 {% ifversion fpt or ghec %}
 

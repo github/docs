@@ -1,7 +1,7 @@
 ---
 title: Communicating with Docker service containers
 shortTitle: Use Docker service containers
-intro: 'Learn how to use Docker service containers to connect databases, web services, memory caches, and other tools to your workflow.'
+intro: Learn how to use Docker service containers to connect databases, web services, memory caches, and other tools to your workflow.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
@@ -15,7 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: tutorials
+category:
+  - Build and test code
 ---
 
 ## Communicating with Docker service containers
@@ -147,6 +149,43 @@ jobs:
 ```
 
 {% endraw %}
+
+{% ifversion fpt or ghec %}
+
+## Customizing service container entrypoints and commands
+
+By default, service containers run with the entrypoint and command defined in the Docker image. You can override these using the `entrypoint` and `command` keys. This is useful when you need to pass flags to a service (such as a database) or swap the image entrypoint entirely, without building a custom wrapper image.
+
+The `command` key overrides the image's default command (`CMD`). Most scenarios only need `command`—the image already has the right entrypoint, you just need to pass flags:
+
+```yaml copy
+services:
+  mysql:
+    image: mysql:8
+    command: --sql_mode=STRICT_TRANS_TABLES --max_allowed_packet=512M
+    env:
+      MYSQL_ROOT_PASSWORD: test
+    ports:
+      - 3306:3306
+```
+
+The `entrypoint` key overrides the image's `ENTRYPOINT`. You can combine it with `command` to pass arguments to the custom entrypoint:
+
+```yaml copy
+services:
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.17
+    entrypoint: etcd
+    command: >-
+      --listen-client-urls http://0.0.0.0:2379
+      --advertise-client-urls http://0.0.0.0:2379
+    ports:
+      - 2379:2379
+```
+
+The naming and behavior match Docker Compose. For more information, see [`jobs.<job_id>.services.<service_id>.command`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idservicesservice_idcommand) and [`jobs.<job_id>.services.<service_id>.entrypoint`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idservicesservice_identrypoint).
+
+{% endif %}
 
 ## Further reading
 

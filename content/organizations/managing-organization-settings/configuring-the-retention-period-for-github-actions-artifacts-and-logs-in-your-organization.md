@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Configure retention period
+category:
+  - Configure organization features
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting workflows
 shortTitle: Troubleshoot workflows
-intro: 'You can use the tools in {% data variables.product.prodname_actions %} to debug your workflows.'
+intro: You can use the tools in {% data variables.product.prodname_actions %} to debug your workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,9 @@ redirect_from:
   - /actions/how-tos/troubleshooting-workflows
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/using-copilot-to-troubleshoot-workflows
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows
+category:
+  - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -138,6 +141,14 @@ We recommend using unique label names for larger and self-hosted runners. If a l
 If you use self-hosted runners, you can view their activity and diagnose common issues.
 
 For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot).
+
+{% ifversion fpt or ghec %}
+
+### Runner IP addresses flagged by security scanners
+
+{% data reusables.actions.runner-ip-reputation %}
+
+{% endif %}
 
 ## Networking troubleshooting suggestions
 

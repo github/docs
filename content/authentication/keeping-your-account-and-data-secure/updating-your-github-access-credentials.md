@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Update access credentials
+category:
+  - Manage access credentials
 ---
 {% ifversion ghec %}
 

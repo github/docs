@@ -9,6 +9,7 @@ children:
   - /about-date-fields
   - /about-single-select-fields
   - /about-iteration-fields
+  - /about-issue-fields
   - /about-parent-issue-and-sub-issue-progress-fields
   - /about-pull-request-fields
   - /about-the-issue-type-field

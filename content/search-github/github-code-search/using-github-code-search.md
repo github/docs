@@ -4,6 +4,8 @@ intro: "You can use suggestions, completions and saved searches in the upgraded 
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
+category:
+  - Search for code
 ---
 
 ## About using {% data variables.product.prodname_dotcom %} code search

@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Contribute to open source
+category:
+  - Explore and contribute
 ---
 
 In this article, you'll learn how to contribute to an open source project by working through an example. We'll guide you through making a contribution to the `github/docs` repository: familiarizing yourself with the repository, finding an area to contribute, making and submitting a pull request, and working with maintainers to get your changes accepted.

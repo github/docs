@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Check out a PR locally
+category:
+  - Review pull requests
 ---
 
 > [!NOTE]

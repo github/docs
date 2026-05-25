@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Using the activity view
+category:
+  - Track repository activity
 ---
 
 ## About the activity view

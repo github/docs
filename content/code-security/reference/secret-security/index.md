@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
 contentType: reference
 children:
   - /understanding-github-secret-types

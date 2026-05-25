@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 permissions: Organization owners can create rulesets at the organization level.
 shortTitle: Create rulesets
+category:
+  - Set repository policies
 ---
 
 ## Introduction

@@ -25,4 +25,6 @@ children:
   - /amazon-elastic-container-service
   - /google-kubernetes-engine
   - /sign-xcode-applications
+contentType: how-tos
 ---
+

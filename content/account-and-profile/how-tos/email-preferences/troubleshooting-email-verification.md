@@ -9,6 +9,8 @@ shortTitle: Troubleshoot email verification
 contentType: how-tos
 redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/troubleshooting-email-verification
+category:
+  - Manage your email
 ---
 
 ## Unable to send verification email

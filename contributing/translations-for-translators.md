@@ -8,7 +8,6 @@ We only translate:
 - `/data/reusables`
 - `/data/variables` - **except** `/data/variables/product.yml`
 - `/data/glossaries/external.yml`
-- `/data/product-examples`
 
 ## Translation guidelines
 

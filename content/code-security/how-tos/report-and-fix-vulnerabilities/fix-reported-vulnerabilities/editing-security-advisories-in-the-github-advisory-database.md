@@ -13,13 +13,9 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Alerts
-  - Dependabot
-  - Vulnerabilities
-  - CVEs
 shortTitle: Edit Advisory Database
+category:
+  - Report and disclose vulnerabilities
 ---
 
 {% ifversion ghes %}

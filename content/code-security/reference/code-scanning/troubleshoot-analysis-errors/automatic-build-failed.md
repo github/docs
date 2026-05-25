@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/automatic-build-failed
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/automatic-build-failed
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}

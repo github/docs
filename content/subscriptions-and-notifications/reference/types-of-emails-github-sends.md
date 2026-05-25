@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 shortTitle: Emails from GitHub
 contentType: reference
+category:
+  - Understand notifications
 ---
 ## Notification emails
 

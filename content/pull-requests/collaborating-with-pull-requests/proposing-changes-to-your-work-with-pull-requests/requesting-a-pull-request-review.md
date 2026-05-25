@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Request a PR review
+category:
+  - Create pull requests
 ---
 
 Repositories belong to a personal account (a single individual owner) or an organization account (a shared account with numerous collaborators or maintainers). For more information, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts). Owners and collaborators on a repository owned by a personal account can assign pull request reviews. Organization members with triage permissions can also assign a reviewer for a pull request.

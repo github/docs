@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Best practices
+category:
+  - Learn about the REST API
 ---
 
 {% ifversion ghes %}

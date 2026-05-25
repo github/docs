@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: SSH key fingerprints
+category:
+  - Connect with SSH
 ---
 These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:
 

@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 shortTitle: Team maintainers
 permissions: Organization owners can promote team members to team maintainers.
+category:
+  - Organize teams
 ---
 
 ## About team maintainers

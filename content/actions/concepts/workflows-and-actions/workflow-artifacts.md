@@ -1,11 +1,13 @@
 ---
 title: Workflow artifacts
-intro: 'Learn about storing and sharing data as artifacts of {% data variables.product.prodname_actions %} workflows.'
+intro: Learn about storing and sharing data as artifacts of {% data variables.product.prodname_actions %} workflows.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
+category:
+  - Write workflows
 ---
 
 ## About workflow artifacts

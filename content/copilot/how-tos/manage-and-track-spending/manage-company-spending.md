@@ -17,6 +17,12 @@ category:
   - Manage Copilot for a team
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 When you're adopting {% data variables.product.prodname_copilot %} in an enterprise, you will want to set budgets and track spending to ensure your rollout is sustainable. {% data variables.product.github %} offers billing tools to help you visualize your spending patterns, receive alerts when you reach budget thresholds, and optimize your license usage.
 
 ## Understanding who can grant licenses

@@ -6,17 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
-  - Dependency graph
-  - Alerts
-  - Vulnerabilities
 contentType: reference
 children:
+  - /automatic-dependency-submission
   - /dependabot-options-reference
   - /dependabot-alerts-filters
   - /supported-ecosystems-and-manifests-for-dependency-scope
@@ -27,6 +19,8 @@ children:
   - /dependabot-on-actions
   - /criteria-for-preset-rules
   - /troubleshoot-dependabot
+  - /java-package-metadata-dependabot
+
 redirect_from:
   - /code-security/dependabot/ecosystems-supported-by-dependabot
 ---

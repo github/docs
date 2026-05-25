@@ -13,7 +13,6 @@ children:
   - /customizing-dependabot-security-prs
   - /controlling-dependencies-updated
   - /configuring-the-dependency-review-action
-  - /optimizing-java-packages-dependabot
   - /configuring-notifications-for-dependabot-alerts
   - /configuring-access-to-private-registries-for-dependabot
   - /removing-dependabot-access-to-public-registries

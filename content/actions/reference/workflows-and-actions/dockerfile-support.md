@@ -1,7 +1,7 @@
 ---
 title: Dockerfile support for GitHub Actions
 shortTitle: Dockerfile support
-intro: 'When creating a `Dockerfile` for a Docker container action, you should be aware of how some Docker instructions interact with GitHub Actions and an action''s metadata file.'
+intro: When creating a `Dockerfile` for a Docker container action, you should be aware of how some Docker instructions interact with GitHub Actions and an action's metadata file.
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
   - /actions/creating-actions/dockerfile-support-for-github-actions
@@ -11,7 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: reference
+contentType: reference
+category:
+  - Write workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

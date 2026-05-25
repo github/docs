@@ -9,6 +9,8 @@ product: 'Microsoft Cloud Solution Provider (CSP) partners setting up {% data va
 redirect_from:
   - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-an-enterprise-account-as-a-microsoft-csp-partner
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 ## Prerequisites

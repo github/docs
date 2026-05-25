@@ -1,3 +1,8 @@
+// IMPORTANT: OTel tracing MUST be the first import. It patches Node.js
+// built-ins (http, etc.) at load time via auto-instrumentation.
+// Moving this after any framework import will silently break tracing.
+import '@/observability/lib/tracing'
+
 import http from 'http'
 
 import tcpPortUsed from 'tcp-port-used'
@@ -5,12 +10,16 @@ import dotenv from 'dotenv'
 
 import { checkNodeVersion } from './lib/check-node-version'
 import '../observability/lib/handle-exceptions'
+import { startRuntimeMetrics } from '@/observability/lib/runtime-metrics'
 import createApp from './lib/app'
 import warmServer from './lib/warm-server'
+import { createLogger } from '@/observability/logger'
 
 dotenv.config()
 
 checkNodeVersion()
+
+const logger = createLogger(import.meta.url)
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
@@ -27,11 +36,11 @@ async function checkPortAvailability() {
   // Check that the development server is not already running
   const portInUse = await tcpPortUsed.check(port)
   if (portInUse) {
-    console.log(`\n\n\nPort ${port} is not available. You may already have a server running.`)
-    console.log(
-      `Try running \`npx kill-port ${port}\` to shut down all your running node processes.\n\n\n`,
+    logger.error('Port is not available. You may already have a server running.', { port })
+    logger.error(
+      `Try running \`npx kill-port ${port}\` to shut down all your running node processes.`,
     )
-    console.log('\x07') // system 'beep' sound
+    logger.info('\x07') // system 'beep' sound
     process.exit(1)
   }
 }
@@ -52,7 +61,42 @@ async function startServer() {
   // Workaround for https://github.com/expressjs/express/issues/1101
   const server = http.createServer(app)
 
+  startRuntimeMetrics()
+
+  process.once('SIGTERM', () => {
+    logger.info('Received SIGTERM, beginning graceful shutdown', { pid: process.pid, port })
+
+    // Force-close idle keep-alive sockets so server.close() doesn't hang
+    // waiting for them to disconnect naturally.
+    try {
+      server.closeIdleConnections()
+    } catch (err) {
+      logger.warn('closeIdleConnections failed (server may not be running)', { error: err })
+    }
+
+    server.close(() => {
+      logger.info('HTTP server closed')
+    })
+
+    // If in-flight requests haven't drained within 25s, force exit.
+    // Kubernetes sends SIGKILL at terminationGracePeriodSeconds (60s),
+    // but the deploy controller may time out before that if an old pod
+    // stays in "Terminating" state too long. The preStop hook sleeps 5s,
+    // so 25s here keeps total shutdown well under the 60s grace period.
+    setTimeout(() => {
+      logger.warn('Graceful shutdown timed out, forcing exit')
+      try {
+        server.closeAllConnections()
+      } catch (err) {
+        logger.warn('closeAllConnections failed (server may not be running)', { error: err })
+      }
+      process.exit(0)
+    }, 25_000).unref()
+  })
+
   return server
-    .listen(port, () => console.log(`app running on http://localhost:${port}`))
+    .listen(port, () =>
+      logger.info('Server started', { port, pid: process.pid, nodeEnv: process.env.NODE_ENV }),
+    )
     .on('error', () => server.close())
 }

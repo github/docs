@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 shortTitle: Azure sub connection
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 ## Message: "Need admin approval"

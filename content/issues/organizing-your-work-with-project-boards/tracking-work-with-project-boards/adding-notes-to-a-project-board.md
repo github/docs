@@ -10,6 +10,8 @@ versions:
   feature: projects-v1
 shortTitle: 'Add notes to {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+category:
+  - Use project boards (classic)
 ---
 {% data reusables.projects.project_boards_old %}
 

@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Check for existing SSH key
+category:
+  - Connect with SSH
 ---
 
 ## About SSH keys

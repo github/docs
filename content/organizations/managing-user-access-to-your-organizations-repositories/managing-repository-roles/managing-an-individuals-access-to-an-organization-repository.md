@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: Manage individual access
 permissions: People with admin access to a repository can manage access to the repository.
+category:
+  - Control repository access
 ---
 
 ## About access to organization repositories

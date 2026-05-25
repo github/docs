@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 shortTitle: Unlink your email
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 > [!WARNING]

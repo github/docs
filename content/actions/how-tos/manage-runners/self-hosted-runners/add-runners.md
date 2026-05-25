@@ -1,7 +1,7 @@
 ---
 title: Adding self-hosted runners
 shortTitle: Add runners
-intro: 'You can add a self-hosted runner to a repository, an organization, or an enterprise.'
+intro: You can add a self-hosted runner to a repository, an organization, or an enterprise.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/adding-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
@@ -13,6 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up runners
+contentType: how-tos
 ---
 
 > [!WARNING]

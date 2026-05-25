@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Remove billing manager
+category:
+  - Assign roles and permissions
 ---
 
 > [!NOTE]

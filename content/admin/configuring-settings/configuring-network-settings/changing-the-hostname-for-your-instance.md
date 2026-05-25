@@ -1,16 +1,14 @@
 ---
 title: Changing the hostname for your instance
 shortTitle: Change hostname
-intro: 'If you want to change the hostname for an existing {% data variables.product.prodname_ghe_server %} instance, you must restore the settings and data to a new instance.'
+intro: If you want to change the hostname for an existing {% data variables.product.prodname_ghe_server %} instance, you must restore the settings and data to a new instance.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
 redirect_from:
   - /admin/configuration/configuring-network-settings/changing-the-hostname-for-your-instance
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About changes to the hostname for {% data variables.product.prodname_ghe_server %}

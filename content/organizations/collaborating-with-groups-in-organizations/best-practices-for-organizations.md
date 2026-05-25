@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up your organization
 ---
 
 ## Assign multiple owners

@@ -7,15 +7,12 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 shortTitle: Monitor alerts
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts
+category:
+  - Protect your secrets
 ---
 
 When {% data variables.product.prodname_secret_scanning %} detects a potential secret leak in your repository, staying informed about these alerts is crucial for maintaining your code's security. {% data variables.product.github %} provides multiple notification channels to ensure you and your team are promptly alerted when secrets are found. You can customize how and when you receive these notifications based on your role and preferences.
@@ -24,7 +21,7 @@ You can also audit responses to {% data variables.product.prodname_secret_scanni
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
-In addition to displaying an alert in the **Security** tab of the repository, {% data variables.product.github %} can also send email notifications for alerts. These notifications are different for incremental scans and historical scans.
+In addition to displaying an alert in the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository, {% data variables.product.github %} can also send email notifications for alerts. These notifications are different for incremental scans and historical scans.
 
 ### Incremental scans
 

@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Learn about the REST API
 ---
 Issue events are triggered by activity in issues and pull requests and are available in the REST API for [Issue events](/rest/issues/events) and [Timeline events](/rest/issues/timeline). Each event type specifies whether the event is available in the REST API for issue events or timeline events.
 

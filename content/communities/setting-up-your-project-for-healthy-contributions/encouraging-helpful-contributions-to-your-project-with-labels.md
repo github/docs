@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Encourage contributions
+category:
+  - Set up your project for contributions
 ---
 
 You can apply the `good first issue` label to issues in your public repository so that people can find them when searching by labels. For more information about searching by labels, see [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-by-label).

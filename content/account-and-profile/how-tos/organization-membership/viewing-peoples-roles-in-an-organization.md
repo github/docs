@@ -16,6 +16,8 @@ versions:
   ghec: '*'
 shortTitle: View organization members
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 
 {% ifversion ghes or ghec %}

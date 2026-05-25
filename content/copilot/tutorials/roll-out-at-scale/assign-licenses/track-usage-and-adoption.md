@@ -18,6 +18,8 @@ redirect_from:
 allowTitleToDifferFromFilename: true
 category:
   - Copilot usage metrics
+  - Roll Copilot out at scale
+  - Track Copilot usage
   - Measure success
 ---
 

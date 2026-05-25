@@ -20,6 +20,8 @@ versions:
   ghec: '*'
 shortTitle: Remove a collaborator
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 
 ## Removing collaborator permissions from a person contributing to a repository

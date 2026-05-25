@@ -702,6 +702,172 @@
     "docs_reference_titles": "Managing your payment and billing information"
   },
   {
+    "action": "billing.cost_center_create",
+    "description": "A cost center was created for a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "billing.cost_center_delete",
+    "description": "A cost center was deleted from a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "billing.cost_center_resource_added",
+    "description": "A resource was added to a cost center for a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "resource_id",
+      "resource_type",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "billing.cost_center_resource_removed",
+    "description": "A resource was removed from a cost center for a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "resource_id",
+      "resource_type",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "billing.cost_center_update",
+    "description": "A cost center was updated for a business or organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "billing_customer.azure_subscription_linked",
     "description": "Azure subscription has been linked on this account.",
     "docs_reference_links": "N/A",
@@ -1085,7 +1251,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.disabled_for_new_repos",
@@ -1117,7 +1283,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.disabled_for_new_user_namespace_repos",
@@ -1150,7 +1316,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.enabled",
@@ -1182,7 +1348,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.enabled_for_new_repos",
@@ -1214,7 +1380,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.enabled_for_new_user_namespace_repos",
@@ -1247,7 +1413,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business.advanced_security_metered_usage_lock",
@@ -1411,7 +1577,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.user_namespace_repos_enabled",
@@ -1444,7 +1610,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business.audit_log_export",
@@ -2111,6 +2277,74 @@
       "created_at"
     ],
     "docs_reference_titles": "Deleting an enterprise account"
+  },
+  {
+    "action": "business.delete_custom_image",
+    "description": "A custom image was deleted for an enterprise.",
+    "docs_reference_links": "/actions/how-tos/manage-runners/larger-runners/use-custom-images",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/actions/how-tos/manage-runners/larger-runners/use-custom-images"
+  },
+  {
+    "action": "business.delete_custom_image_version",
+    "description": "A custom image version was deleted for an enterprise.",
+    "docs_reference_links": "/actions/how-tos/manage-runners/larger-runners/use-custom-images",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "name",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/actions/how-tos/manage-runners/larger-runners/use-custom-images"
   },
   {
     "action": "business_dependabot_alerts.disable",
@@ -3769,7 +4003,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features"
   },
   {
     "action": "business_secret_scanning_automatic_validity_checks.enabled",
@@ -3801,7 +4035,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features"
   },
   {
     "action": "business_secret_scanning_custom_pattern.create",
@@ -4022,7 +4256,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning.disabled_for_new_repos",
@@ -4054,7 +4288,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning.enable",
@@ -4086,7 +4320,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning.enabled_for_new_repos",
@@ -4118,7 +4352,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_generic_secrets.disabled",
@@ -4280,7 +4514,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection_custom_message.enable",
@@ -4312,7 +4546,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection_custom_message.update",
@@ -4344,7 +4578,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection.disable",
@@ -4376,7 +4610,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection.disabled_for_new_repos",
@@ -4408,7 +4642,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection.enable",
@@ -4440,7 +4674,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection.enabled_for_new_repos",
@@ -4472,7 +4706,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection_pattern_configuration.push_protection_setting_changed",
@@ -4506,7 +4740,7 @@
       "secret_type_display_name",
       "created_at"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business_secret_scanning_push_protection_pattern_configuration.updated",
@@ -4537,7 +4771,7 @@
       "user_agent",
       "created_at"
     ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+    "docs_reference_titles": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business.secret_scanning_repo_admin_settings_policy_update",
@@ -13836,6 +14070,70 @@
     ]
   },
   {
+    "action": "org.code_scanning_scan_inactive_repos_disabled",
+    "description": "Scanning inactive repositories was disabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "org.code_scanning_scan_inactive_repos_enabled",
+    "description": "Scanning inactive repositories was enabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "business_id",
+      "hashed_token",
+      "org",
+      "org_id",
+      "programmatic_access_type",
+      "repo",
+      "repo_id",
+      "repository",
+      "repository_id",
+      "request_access_security_header",
+      "request_id",
+      "token_id",
+      "token_scopes",
+      "user",
+      "user_id",
+      "user_agent",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale",
@@ -18836,7 +19134,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.create",
@@ -18873,7 +19171,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.destroy",
@@ -18909,7 +19207,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.revoke",
@@ -18943,7 +19241,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.update",
@@ -18982,7 +19280,7 @@
       "actor_is_bot",
       "old_base_role"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_wide_project_base_role.update",
@@ -28943,7 +29241,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {
@@ -29067,7 +29366,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {
@@ -29155,7 +29455,8 @@
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
       "security_configuration_secret_protection_sku_enabled",
-      "security_configuration_dependabot_delegated_alert_dismissal"
+      "security_configuration_dependabot_delegated_alert_dismissal",
+      "security_configuration_secret_scanning_extended_metadata"
     ]
   },
   {

@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Add a new SSH key
+category:
+  - Connect with SSH
 ---
 
 ## About addition of SSH keys to your account

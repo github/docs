@@ -4,8 +4,6 @@ intro: Create a codespace to get started with developing your project inside a d
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 children:
   - /developing-in-a-codespace
   - /creating-a-codespace-for-a-repository

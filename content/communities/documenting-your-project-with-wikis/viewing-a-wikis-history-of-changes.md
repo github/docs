@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: View a history of changes
+category:
+  - Document your project with wikis
 ---
 
 ## Viewing wiki history

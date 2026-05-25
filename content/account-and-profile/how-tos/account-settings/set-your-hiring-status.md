@@ -16,6 +16,8 @@ versions:
   ghec: '*'
 shortTitle: Set your hiring status
 contentType: how-tos
+category:
+  - Customize your profile
 ---
 
 {% data reusables.user-settings.access_settings %}

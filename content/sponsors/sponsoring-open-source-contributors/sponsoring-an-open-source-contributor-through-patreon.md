@@ -1,12 +1,14 @@
 ---
 title: Sponsoring an open source contributor through Patreon
-intro: 'You can make payments through Patreon on {% data variables.product.prodname_dotcom %} to a developer or organization who designs, creates, or maintains open source projects you depend on.'
+intro: You can make payments through Patreon on {% data variables.product.prodname_dotcom %} to a developer or organization who designs, creates, or maintains open source projects you depend on.
 versions:
   fpt: '*'
   ghec: '*'
 permissions: '{% data reusables.sponsors.sponsorship-permissions %}'
-type: how_to
 shortTitle: Sponsor through Patreon
+contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 ## About sponsoring through Patreon

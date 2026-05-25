@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Set collaborator policy
+category:
+  - Control repository access
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Classify with topics
+category:
+  - Customize and configure a repository
 ---
 
 ## About topics

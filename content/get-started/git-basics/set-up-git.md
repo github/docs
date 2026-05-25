@@ -19,6 +19,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up Git
 ---
 ## Using Git
 

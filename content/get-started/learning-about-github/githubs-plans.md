@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Explore GitHub plans and features
 ---
 ## About {% data variables.product.prodname_dotcom %}'s plans
 

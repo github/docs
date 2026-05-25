@@ -6,14 +6,12 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: '{% data reusables.permissions.dependency-graph-export-sbom %}'
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 shortTitle: Export dependencies as SBOM
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 You can export the current state of the dependency graph for your repository as a software bill of materials (SBOM) using the industry standard [SPDX](https://spdx.github.io/spdx-spec/v2.3/) format.

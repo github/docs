@@ -1,5 +1,4 @@
 import fs from 'fs'
-import path from 'path'
 
 import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
@@ -83,8 +82,8 @@ async function updateFile(
 
   // Since this function can process both `.md` and `.yml` files,
   // when treating a `.md` file, the `data` from `frontmatter(rawContent)`
-  // is easy. But when dealing a file like `data/learning-tracks/foo.yml`
-  // then the `frontmatter(rawContent).data` always becomes `{}`.
+  // is easy. But when dealing a `.yml` file,
+  // the `frontmatter(rawContent).data` always becomes `{}`.
   // And since the Yaml file might contain arrays of internal linked
   // pathnames, we have to re-read it fully.
   if (file.endsWith('.yml')) {
@@ -110,20 +109,6 @@ async function updateFile(
   const HAS_LINKS: Record<string, any> = {
     featuredLinks: ['gettingStarted', 'startHere', 'guideCards', 'popular'],
     introLinks: ANY,
-    includeGuides: IS_ARRAY,
-  }
-
-  if (
-    file.split(path.sep).includes('data') &&
-    file.split(path.sep).includes('learning-tracks') &&
-    file.endsWith('.yml')
-  ) {
-    // data/learning-tracks/**/*.yml files are different because the keys
-    // are arbitrary but what they might all have in common is a key
-    // there called `guides`
-    for (const key of Object.keys(data)) {
-      HAS_LINKS[key] = ['guides']
-    }
   }
 
   for (const [key, seek] of Object.entries(HAS_LINKS)) {

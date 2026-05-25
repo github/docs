@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Verifying devices on sign in
+category:
+  - Manage access credentials
 ---
 
 ## About device verification

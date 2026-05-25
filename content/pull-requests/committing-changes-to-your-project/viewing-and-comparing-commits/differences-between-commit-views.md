@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Commit views
+category:
+  - Commit changes
 ---
 On {% data variables.product.github %}, you can see the commit history of a repository by:
 

@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 shortTitle: Remove a member
 permissions: Organization owners can remove members from an organization.
+category:
+  - Manage members
 ---
 
 ## 1. Understand the effects of removing a member

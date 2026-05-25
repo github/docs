@@ -1,10 +1,10 @@
 ---
 title: About enterprise billing
-intro: 'Understand billing for {% data variables.product.prodname_ghe_cloud %}.'
+intro: Understand billing for {% data variables.product.prodname_ghe_cloud %}.
 versions:
   ghec: '*'
-type: overview
 shortTitle: Billing
+contentType: concepts
 ---
 
 ## About billing for your enterprise

@@ -10,9 +10,21 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+layout: journey-landing
+journeyTracks:
+  - id: 'sign_commits_with_gpg'
+    title: 'Sign your commits with GPG'
+    description: 'Set up GPG commit signing so others can verify that your commits come from a trusted source.'
+    guides:
+      - href: '/authentication/managing-commit-signature-verification/about-commit-signature-verification'
+      - href: '/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys'
+      - href: '/authentication/managing-commit-signature-verification/generating-a-new-gpg-key'
+      - href: '/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account'
+      - href: '/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key'
+      - href: '/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key'
+      - href: '/authentication/managing-commit-signature-verification/signing-commits'
 children:
   - /about-commit-signature-verification
-  - /displaying-verification-statuses-for-all-of-your-commits
   - /checking-for-existing-gpg-keys
   - /generating-a-new-gpg-key
   - /adding-a-gpg-key-to-your-github-account
@@ -20,5 +32,6 @@ children:
   - /associating-an-email-with-your-gpg-key
   - /signing-commits
   - /signing-tags
+  - /displaying-verification-statuses-for-all-of-your-commits
 shortTitle: Verify commit signatures
 ---

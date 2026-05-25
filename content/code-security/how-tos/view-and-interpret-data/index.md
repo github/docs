@@ -6,14 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
-  - Dependencies
-  - Dependabot
 contentType: how-tos
 children:
   - /analyze-organization-data

@@ -7,7 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
+contentType: concepts
+category:
+  - Understand sponsorships
 ---
 
 ## About {% data variables.product.prodname_sponsors %}

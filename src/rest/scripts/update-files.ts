@@ -21,6 +21,7 @@ import { allVersions } from '@/versions/lib/all-versions'
 import { syncWebhookData } from '../../webhooks/scripts/sync'
 import { syncGitHubAppsData } from '../../github-apps/scripts/sync'
 import { syncRestRedirects } from './utils/get-redirects'
+import { syncChangelogs } from './utils/sync-changelogs'
 import { MODELS_GATEWAY_ROOT, injectModelsSchema } from './utils/inject-models-schema'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -130,6 +131,7 @@ async function main() {
   if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
     await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory, injectModelsSchema)
+    await syncChangelogs(sourceRepoDirectory, VERSION_NAMES)
   }
 
   if (pipelines.includes('webhooks')) {

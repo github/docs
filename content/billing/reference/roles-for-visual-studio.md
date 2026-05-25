@@ -8,6 +8,8 @@ versions:
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: reference
+category:
+  - Manage enterprise licenses
 ---
 
 {% data variables.visual_studio.prodname_vss_ghe %} is a combined offering and knowledge of roles in both systems is useful.

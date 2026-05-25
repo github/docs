@@ -36,7 +36,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
          <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-VS2026-Readme.md">windows-2025-vs2026</a></code> ({% data variables.release-phases.public_preview %}),
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-VS2026-Readme.md">windows-2025-vs2026</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
       </td>
     </tr>
@@ -58,7 +58,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td>arm64</td>
       <td>
-        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-windows-11-image.md">windows-11-arm</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>
       </td>
     </tr>
     <tr>
@@ -148,7 +148,7 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
       <td>14 GB</td>
       <td> arm64 </td>
       <td>
-        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-windows-11-image.md">windows-11-arm</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>
       </td>
     </tr>
     <tr>

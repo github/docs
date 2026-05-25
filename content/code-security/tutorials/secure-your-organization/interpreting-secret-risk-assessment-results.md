@@ -6,13 +6,11 @@ permissions: Organization owners, security managers, and users with the **admin*
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-risk-assessment
-topics:
-  - Secret Protection
-  - Organizations
-  - Security
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results
+category:
+  - Secure at scale
 ---
 
 ## Introduction
@@ -93,6 +91,4 @@ Finally, look for the following indicators, which may require additional prevent
 * **Repeated secret types**: Suggests specific workflows or teams need targeted intervention
 * **Common secret categories**: May point to particular CI/CD processes requiring security improvements
 
-## Next steps
-
-For stronger secret security and additional insights, {% data variables.product.github %} recommends enabling {% data variables.product.prodname_GH_secret_protection %} for all of your repositories. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets).
+{% data reusables.security.start-ghas-trial %}

@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Block from your account
+category:
+  - Block users and report abuse
 ---
 
 ## About blocking users

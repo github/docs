@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage app and API access
 ---
 
 ## About programmatic access

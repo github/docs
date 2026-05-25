@@ -1,17 +1,19 @@
 ---
 title: Quickstart for repositories
-type: quick_start
 redirect_from:
   - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
   - /get-started/quickstart/create-a-repo
-intro: 'Learn how to create a new repository and commit your first change in 5 minutes.'
+intro: Learn how to create a new repository and commit your first change in 5 minutes.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+contentType: get-started
+category:
+  - Create and set up a repository
 ---
 ## Create a repository
 

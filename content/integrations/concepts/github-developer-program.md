@@ -1,6 +1,6 @@
 ---
 title: GitHub Developer Program
-intro: 'If you build tools that integrate with GitHub, you can join the GitHub Developer Program.'
+intro: If you build tools that integrate with GitHub, you can join the GitHub Developer Program.
 redirect_from:
   - /program
   - /developers/overview/github-developer-program
@@ -11,6 +11,7 @@ versions:
 category:
   - Learn about integrations
   - Build integrations
+contentType: concepts
 ---
 
 Building an application that integrates with {% data variables.product.github %}? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register).
@@ -18,10 +19,6 @@ Building an application that integrates with {% data variables.product.github %}
 ## Scratch an itch
 
 Build your own tools that seamlessly integrate with {% data variables.product.github %} APIs. For more information, see [AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api).
-
-## Take on the enterprise
-
-Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 ## Have an integration that works with GitHub?
 

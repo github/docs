@@ -9,6 +9,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Manage SAML access
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About SAML access to your organization

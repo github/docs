@@ -13,11 +13,10 @@ describe('footer', () => {
       expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
 
-    test('leads to support on 404 pages', async () => {
-      // Important to use the prefix /en/ on the failing URL or else
-      // it will render a very basic plain text 404 response.
-      const $: CheerioAPI = await getDOM('/en/delicious-snacks/donuts.php', { allow404: true })
-      expect($('a#support').attr('href')).toBe('https://support.github.com')
+    test('renders minimal 404 page', async () => {
+      // 404 pages now render a minimal HTML response without the full layout
+      const $ = await getDOM('/en/delicious-snacks/donuts.php', { allow404: true })
+      expect($('p').text()).toContain('Page not found.')
     })
   })
 

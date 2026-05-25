@@ -20,6 +20,7 @@ import rewriteImgSources from './rewrite-asset-urls'
 import rewriteAssetImgTags from './rewrite-asset-img-tags'
 import useEnglishHeadings from './use-english-headings'
 import headingLinks from './heading-links'
+import collectMiniToc from './collect-mini-toc'
 import rewriteTheadThScope from './rewrite-thead-th-scope'
 import rewriteEmptyTableRows from './rewrite-empty-table-rows'
 import rewriteForRowheaders from './rewrite-for-rowheaders'
@@ -31,6 +32,7 @@ import alerts from './alerts'
 import removeHtmlComments from 'remark-remove-comments'
 import remarkStringify from 'remark-stringify'
 import type { Context, UnifiedProcessor } from '@/content-render/types'
+import type { CollectedHeading } from '@/frame/lib/get-mini-toc-items'
 
 export function createProcessor(context: Context): UnifiedProcessor {
   return (
@@ -74,6 +76,9 @@ export function createProcessor(context: Context): UnifiedProcessor {
         },
       })
       .use(raw)
+      .use(collectMiniToc, {
+        collectInto: context.collectMiniToc as CollectedHeading[] | undefined,
+      })
       .use(wrapProceduralImages)
       .use(rewriteEmptyTableRows)
       .use(rewriteTheadThScope)

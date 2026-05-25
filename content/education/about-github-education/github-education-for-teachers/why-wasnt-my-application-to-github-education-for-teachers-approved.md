@@ -14,6 +14,8 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Application not approved
+category:
+  - Apply for GitHub Education
 ---
 
 ## Unclear proof of affiliation documents

@@ -12,6 +12,8 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-your-tab-size-rendering-preference
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-your-tab-size-rendering-preference
 contentType: how-tos
+category:
+  - Configure account settings
 ---
 
 If you feel that tabbed indentation in code rendered on {% data variables.product.github %} takes up too much, or too little space, you can change this in your settings.

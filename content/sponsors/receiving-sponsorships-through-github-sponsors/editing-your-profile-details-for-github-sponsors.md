@@ -8,8 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Edit profile details
+contentType: how-tos
+category:
+  - Set up to receive sponsorships
 ---
 
 ## About sponsor profiles

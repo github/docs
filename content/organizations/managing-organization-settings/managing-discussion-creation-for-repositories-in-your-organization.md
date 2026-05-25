@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage repository discussions
+category:
+  - Configure organization features
 ---
 
 

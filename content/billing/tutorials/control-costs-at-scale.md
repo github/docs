@@ -10,6 +10,8 @@ product: '{% data reusables.billing.cta-ghec-cost-centers %}'
 contentType: tutorials
 audience:
   - driver
+category:
+  - Track spending and control costs
 ---
 
 Cost centers help you track and control {% data variables.product.github %} costs by mapping them to your company's financial structure.
@@ -130,7 +132,7 @@ In your terminal, run the following command, replacing `ENTERPRISE` with the slu
 ```shell copy
 gh api \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers
 ```
 
@@ -172,7 +174,7 @@ In your terminal, run the following command, replacing `ENTERPRISE` and `NAME` w
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers \
    -f 'name=NAME'
 ```
@@ -198,7 +200,7 @@ In your terminal, run the following command, replacing `COST_CENTER_ID` with the
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/cost-centers/COST_CENTER_ID/resource \
   --input - <<< '{
   "users": [
@@ -242,7 +244,7 @@ In your terminal, run the following command, replacing `ENTERPRISE`, `COST_CENTE
 gh api \
   --method POST \
   -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   /enterprises/ENTERPRISE/settings/billing/budgets \
   -f budget_type='SkuPricing' \
   -f budget_product_sku='copilot_premium_request' \

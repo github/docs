@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage, move, and archive a repository
 ---
 
 ## About repository archival

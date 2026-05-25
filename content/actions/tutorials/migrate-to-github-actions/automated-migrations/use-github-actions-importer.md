@@ -1,7 +1,7 @@
 ---
 title: Automating migration with GitHub Actions Importer
 shortTitle: Use GitHub Actions Importer
-intro: 'Use {% data variables.product.prodname_actions_importer %} to plan and automate your migration to {% data variables.product.prodname_actions %}.'
+intro: Use {% data variables.product.prodname_actions_importer %} to plan and automate your migration to {% data variables.product.prodname_actions %}.
 redirect_from:
   - /actions/migrating-to-github-actions/automating-migration-with-github-actions-importer
   - /actions/migrating-to-github-actions/automated-migrations/automating-migration-with-github-actions-importer
@@ -12,7 +12,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: tutorials
+category:
+  - Migrate to GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -6,7 +6,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Customize project views and insights
 ---
 
 ## About the board layout

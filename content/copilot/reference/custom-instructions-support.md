@@ -36,7 +36,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
       </td>
     </tr>
     <tr>
-      <td>{% data variables.copilot.copilot_coding_agent %}</td>
+      <td>{% data variables.copilot.copilot_cloud_agent %}</td>
       <td>
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
           {% data reusables.copilot.ci-support-repository %}
@@ -80,7 +80,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
       </td>
     </tr>
     <tr>
-      <td>{% data variables.copilot.copilot_coding_agent %}</td>
+      <td>{% data variables.copilot.copilot_cloud_agent %}</td>
       <td>
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
           {% data reusables.copilot.ci-support-repository %}
@@ -152,7 +152,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
       </td>
     </tr>
     <tr>
-      <td>{% data variables.copilot.copilot_coding_agent %}</td>
+      <td>{% data variables.copilot.copilot_cloud_agent %}</td>
       <td>
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
           {% data reusables.copilot.ci-support-repository %}
@@ -192,7 +192,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
       </td>
     </tr>
     <tr>
-      <td>{% data variables.copilot.copilot_coding_agent %}</td>
+      <td>{% data variables.copilot.copilot_cloud_agent %}</td>
       <td>
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
           {% data reusables.copilot.ci-support-repository %}
@@ -232,7 +232,7 @@ WRITING NOTE: The following tables have been written using HTML rather than Mark
       </td>
     </tr>
     <tr>
-      <td>{% data variables.copilot.copilot_coding_agent %}</td>
+      <td>{% data variables.copilot.copilot_cloud_agent %}</td>
       <td>
         <ul style="list-style: none; padding-left: 1.5em; margin-left: 0;">
           {% data reusables.copilot.ci-support-repository %}

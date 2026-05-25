@@ -3,15 +3,18 @@ title: About enabling security features at scale
 shortTitle: Organization security
 intro: You can quickly secure your organization at scale with {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %}.
 versions:
-  feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale
+  - /code-security/concepts/security-at-scale/about-security-configurations
+  - /admin/managing-code-security/securing-your-enterprise/about-security-configurations
+  - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories
+  - /code-security/concepts/security-at-scale/choosing-a-security-configuration-for-your-repositories
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 ## About securing your organization
@@ -36,26 +39,21 @@ For more information on purchasing {% data variables.product.prodname_GH_cs_or_s
 
 {% data reusables.security-configurations.define-security-configurations %}
 
-{% ifversion security-configurations-cloud %}
-
-There are two types of {% data variables.product.prodname_security_configuration %}:
-
-* **The {% data variables.product.prodname_github_security_configuration %}**, which is a collection of enablement settings created and managed by subject matter experts at {% data variables.product.company_short %}
-* **{% data variables.product.prodname_custom_security_configurations_caps %}**, which are configurations you can create and edit yourself, allowing you to meet your specific security needs
-
-For more detailed information on {% data variables.product.prodname_security_configurations %}, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-configurations).
-
-{% elsif security-configurations-ghes-only %}
-
+{% ifversion security-configurations-ghes-only %}
 {% data reusables.security-configurations.custom-configuration-intro-ghes %}
 
 To learn how to create {% data variables.product.prodname_custom_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-
 {% endif %}
+
+### After you apply a configuration
+
+When you apply a {% data variables.product.prodname_security_configuration %} to repositories, each repository enters a managed relationship with that configuration. That relationship can change over time. For example, if a repository admin overrides a security setting on an unenforced configuration, if an organization or enterprise admin detaches the configuration, if enforcement is enabled, or if the initial attachment fails. Each change is reflected in the repository's configuration status.
+
+For the full list of configuration statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
 
 ## About {% data variables.product.prodname_global_settings %}
 
-While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization{% ifversion ghes < 3.16 %}, as well as grant a team permission to manage security alerts and settings across your organization{% endif %}.
+While {% data variables.product.prodname_security_configurations %} determine repository-level security settings, {% data variables.product.prodname_global_settings %} determine your organization-level security settings, which are then inherited by all repositories. With {% data variables.product.prodname_global_settings %}, you can customize how security features analyze your organization.
 
 {% ifversion org-private-registry %}
 
@@ -75,12 +73,4 @@ If your organization uses {% data variables.product.prodname_microsoft_defender 
 
 ## Next steps
 
-{% ifversion security-configurations-cloud %}
-
-To determine which {% data variables.product.prodname_security_configurations %} are right for the repositories in your organization, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories).
-
-{% elsif security-configurations-ghes-only %}
-
 To get started with creating a {% data variables.product.prodname_security_configuration %} for your organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-
-{% endif %}

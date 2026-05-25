@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Create issue and pull request templates
 ---
 
 {% data reusables.community.issue-forms-beta %}

@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/server-error
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/server-error
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

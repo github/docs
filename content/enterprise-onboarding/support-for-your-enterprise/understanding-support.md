@@ -1,11 +1,11 @@
 ---
-title: 'Understanding enterprise support'
+title: Understanding enterprise support
 shortTitle: Understand enterprise support
-intro: 'Explore the various {% data variables.contact.github_support %} offerings available to you.'
+intro: Explore the various {% data variables.contact.github_support %} offerings available to you.
 versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
-type: overview
+contentType: concepts
 ---
 
 ## About {% data variables.contact.github_support %}

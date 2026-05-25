@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: SSH key audit
+category:
+  - Troubleshoot authentication issues
 ---
 When using an unverified key to perform Git operations, you will be prompted to perform an audit of your SSH keys.
 

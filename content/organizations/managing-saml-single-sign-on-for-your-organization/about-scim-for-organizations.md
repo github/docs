@@ -7,6 +7,8 @@ redirect_from:
   - /organizations/managing-saml-single-sign-on-for-your-organization/about-scim
 versions:
   ghec: '*'
+category:
+  - Configure SAML single sign-on
 ---
 
 >[!IMPORTANT] This article describes the SCIM integration for managing membership of organizations, available to **enterprises that use personal accounts on {% data variables.product.prodname_dotcom_the_website %}**. If you're looking for the SCIM integration for provisioning user accounts for **{% data variables.product.prodname_emus %}** or **{% data variables.product.prodname_ghe_server %}**, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users) or [AUTOTITLE](/enterprise-server@latest/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes).

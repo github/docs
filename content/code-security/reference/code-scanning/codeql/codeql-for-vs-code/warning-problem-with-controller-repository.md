@@ -3,10 +3,6 @@ title: Problem with controller repository
 shortTitle: Troubleshoot controller repository
 versions:
   feature: codeql-vs-code-mrva
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: If you see this warning, update your controller repository to a private repository.
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -14,6 +10,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code/warning-problem-with-controller-repository
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-codeql-for-vs-code/warning-problem-with-controller-repository
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this warning

@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Manage pending changes
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 {% data reusables.billing.enhanced-billing-platform-personal-accounts %}

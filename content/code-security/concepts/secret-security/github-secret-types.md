@@ -5,13 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Dependabot
-  - Actions
-  - Codespaces
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 {% data variables.product.github %} secrets are used to securely store sensitive information like API keys, tokens, and passwords in repositories.

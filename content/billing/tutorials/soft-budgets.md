@@ -10,6 +10,8 @@ contentType: tutorials
 audience:
   - driver
 allowTitleToDifferFromFilename: true
+category:
+  - Track spending and control costs
 ---
 
 ## About soft budgets

@@ -8,6 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
   - /education/manage-coursework-with-github-classroom/use-autograding
+category:
+  - Track assignment progress
 ---
 ## About autograding
 

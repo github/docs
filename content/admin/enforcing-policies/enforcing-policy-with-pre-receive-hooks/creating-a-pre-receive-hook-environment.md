@@ -1,6 +1,6 @@
 ---
 title: Creating a pre-receive hook environment
-intro: 'To execute pre-receive hooks, use either the default pre-receive environment, or create a custom environment.'
+intro: To execute pre-receive hooks, use either the default pre-receive environment, or create a custom environment.
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-environment
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
@@ -8,12 +8,10 @@ redirect_from:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Pre-receive hooks
 shortTitle: Pre-receive hook environments
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 A pre-receive environment for {% data variables.product.prodname_ghe_server %} is a Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) environment. Because pre-receive hooks execute on every push event, they should be fast and lightweight. The environment needed for such checks will typically be minimal.
 

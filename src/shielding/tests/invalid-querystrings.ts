@@ -101,6 +101,15 @@ describe('invalid query strings', () => {
     expect(res.body).not.toContain('<script>')
     expect(res.body).not.toContain('alert')
   })
+
+  test('redirect from unrecognized query strings does not produce open redirect', async () => {
+    // This is the exact PoC from the bug bounty report.
+    // With enough unrecognized query keys, the middleware redirects
+    // using req.path. res.safeRedirect normalizes // to / so the
+    // Location header can never be a protocol-relative URL.
+    const res = await get('//evil.com?a=1&b=2&c=3')
+    expect(res.headers.location).not.toMatch(/^\/\//)
+  })
 })
 
 function randomCharacters(length: number) {

@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Manage your email
 ---
 
 ## Email verification restrictions

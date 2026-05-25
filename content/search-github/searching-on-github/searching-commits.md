@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Get started with search
 ---
 You can search for commits globally across all of {% data variables.product.github %}, or search for commits within a particular repository or organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 

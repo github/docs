@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 shortTitle: GitHub Marketplace apps
 contentType: concepts
+category:
+  - Pay third parties and manage client accounts
 ---
 
 {% data variables.product.prodname_marketplace %} includes apps with free and paid pricing plans. After you purchase and install an app, you can upgrade, downgrade, or cancel **at any time**. This article explains the billing model, that is, what happens when you start, trial, change, or cancel a paid app subscription.

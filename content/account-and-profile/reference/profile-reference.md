@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 shortTitle: Profile reference
 contentType: reference
+category:
+  - Customize your profile
 ---
 
 ## Visibility of profile information

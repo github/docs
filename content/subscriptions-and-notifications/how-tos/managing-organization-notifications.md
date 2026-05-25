@@ -6,6 +6,9 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Manage organization notifications
+contentType: how-tos
+category:
+  - Set up and customize delivery
 ---
 
 ## Organization alerts notification options

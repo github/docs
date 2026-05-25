@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/creating-tool-switchers-in-articles
+category:
+  - Write and format content
 ---
 
 ## About tool switchers

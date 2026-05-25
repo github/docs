@@ -7,15 +7,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/sarif-output
   - /code-security/codeql-cli/codeql-cli-reference/sarif-output
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/sarif-output
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 ## About SARIF output

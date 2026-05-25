@@ -21,6 +21,7 @@ children:
   - /custom-properties
   - /custom-properties-for-orgs
   - /custom-roles
+  - /issue-fields
   - /issue-types
   - /members
   - /network-configurations

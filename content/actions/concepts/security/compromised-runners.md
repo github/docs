@@ -1,12 +1,15 @@
 ---
 title: Compromised runners
-intro: 'Understand the security risks associated with compromised {% data variables.product.prodname_actions %} runners.'
+intro: Understand the security risks associated with compromised {% data variables.product.prodname_actions %} runners.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 redirect_from:
   - /actions/concepts/security/compromised-runner
+category:
+  - Secure your workflows
+contentType: concepts
 ---
 
 ## Potential impact of a compromised runner

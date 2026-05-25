@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: Publish & install with Actions
 layout: inline
+category:
+  - Publish and manage packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

@@ -3,11 +3,6 @@ title: Upload fails because {% data variables.product.prodname_GH_code_security 
 shortTitle: '{% data variables.product.prodname_GH_code_security %} disabled'
 allowTitleToDifferFromFilename: true
 intro: You can only upload SARIF results to {% ifversion fpt or ghec %}private or internal {% endif %}repositories where {% data variables.product.prodname_GH_code_security %} is enabled.
-topics:
-  - Code scanning
-  - Errors
-  - SARIF
-  - Troubleshooting
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif-uploads/ghas-required
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads/ghas-required
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About this error

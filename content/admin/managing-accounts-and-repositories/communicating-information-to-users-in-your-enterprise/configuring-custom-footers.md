@@ -1,17 +1,16 @@
 ---
 title: Configuring custom footers
-intro: 'You can give users easy access to enterprise-specific links by adding custom footers.'
+intro: You can give users easy access to enterprise-specific links by adding custom footers.
 permissions: Enterprise owners can configure a custom footer.
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
 shortTitle: Configure custom footers
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-custom-footers
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About custom footers for your enterprise

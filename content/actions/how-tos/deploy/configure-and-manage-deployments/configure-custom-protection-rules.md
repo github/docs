@@ -1,7 +1,7 @@
 ---
 title: Configuring custom deployment protection rules
 shortTitle: Configure custom protection rules
-intro: 'Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.'
+intro: Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.
 product: '{% data reusables.actions.custom-deployment-protection-rules-availability %}'
 versions:
   fpt: '*'
@@ -11,6 +11,9 @@ redirect_from:
   - /actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/configuring-custom-deployment-protection-rules
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/configuring-custom-deployment-protection-rules
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 {% data reusables.actions.custom-deployment-protection-rules-beta-note %}
@@ -37,7 +40,6 @@ The following is a list of official partner implementations for deployment prote
 * Honeycomb: you can define thresholds to reject or approve deployments based on data you are sending to Honeycomb. For more information, see [the Honeycomb app](https://github.com/apps/honeycomb-io) in the {% data variables.product.prodname_marketplace %}.
 * New Relic: for more information, see [the New Relic app](https://github.com/apps/new-relic-gate) in the {% data variables.product.prodname_marketplace %}.
 * NCM NodeSource: for more information, see [the NCM NodeSource app](https://github.com/apps/ncm-nodesource) in the {% data variables.product.prodname_marketplace %}.
-* Sentry: for more information, see [the Sentry Deployment Gate app](https://github.com/apps/sentry-deployment-gate) in the {% data variables.product.prodname_marketplace %}.
 * ServiceNow: for more information, see [GitHub integration with DevOps Change Velocity](https://www.servicenow.com/docs/bundle/utah-devops/page/product/enterprise-dev-ops/concept/github-integration-dev-ops.html) in the ServiceNow documentation.
 
 ## Prerequisites

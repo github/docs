@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Set up runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -29,6 +31,10 @@ The proxy environment variables are read when the runner application starts, so 
 On Windows machines, the proxy environment variable names are case-insensitive. On Linux and macOS machines, we recommend that you use all lowercase environment variables. If you have an environment variable in both lowercase and uppercase on Linux or macOS, for example `https_proxy` and `HTTPS_PROXY`, the self-hosted runner application uses the lowercase environment variable.
 
 {% data reusables.actions.self-hosted-runner-ports-protocols %}
+
+> [!WARNING]
+> Self-hosted runners do not support using IP addresses in the `no_proxy` environment variable. If your {% data variables.product.prodname_ghe_server %} instance uses an IP address and you configure `no_proxy` to bypass the proxy for that address, the runner will still fail to connect.
+> If your {% data variables.product.prodname_ghe_server %} instance is accessed using an IP address and the connection must bypass the proxy, the runner will fail to connect, even if that IP address is listed in `no_proxy`.
 
 ### Example configurations
 

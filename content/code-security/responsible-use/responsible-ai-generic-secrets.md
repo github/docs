@@ -7,11 +7,6 @@ product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-fe
 versions:
   feature: secret-scanning-ai-generic-secret-detection
   fpt: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
-  - AI
-  - Copilot
 redirect_from:
   - /code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning
@@ -19,6 +14,8 @@ redirect_from:
   - /code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets
   - /code-security/secret-scanning/copilot-secret-scanning
 contentType: rai
+category:
+  - Protect your secrets
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
@@ -31,7 +28,7 @@ contentType: rai
 
 {% data variables.product.prodname_GH_secret_protection %} users can already receive {% data variables.secret-scanning.alerts %} for partner or custom patterns found in their source code, but unstructured secrets are not easily discoverable. {% data variables.secret-scanning.copilot-secret-scanning %} uses large language models (LLMs) to identify this type of secret.
 
-When a password is detected, an alert is displayed in the "Generic" list of {% data variables.product.prodname_secret_scanning %} alerts (under the **Security** tab of the repository, organization, or enterprise), so that maintainers and security managers can review the alert and, where necessary, remove the credential or implement a fix.
+When a password is detected, an alert is displayed in the "Generic" list of {% data variables.product.prodname_secret_scanning %} alerts (under the **{% data variables.product.prodname_security_and_quality_tab %}** tab of the repository, organization, or enterprise), so that maintainers and security managers can review the alert and, where necessary, remove the credential or implement a fix.
 
 {% data reusables.rai.secret-scanning.generic-secret-detection-policy-note %} The feature must then be enabled for repositories and organizations.
 

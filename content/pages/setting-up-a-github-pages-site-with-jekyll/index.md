@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 children:
   - /about-github-pages-and-jekyll
   - /creating-a-github-pages-site-with-jekyll

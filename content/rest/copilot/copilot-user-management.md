@@ -10,6 +10,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/copilot/copilot-for-business
   - /rest/copilot/copilot-business
+category:
+  - Use Copilot and AI services
 ---
 
 > [!NOTE] These endpoints are in {% data variables.release-phases.public_preview %} and subject to change.

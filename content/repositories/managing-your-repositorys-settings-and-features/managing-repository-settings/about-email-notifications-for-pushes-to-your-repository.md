@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Email notifications for pushes
+category:
+  - Customize and configure a repository
 ---
 {% data reusables.notifications.outbound_email_tip %}
 

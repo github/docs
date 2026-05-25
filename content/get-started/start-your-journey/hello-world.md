@@ -1,13 +1,15 @@
 ---
 title: Hello World
-intro: 'Follow this Hello World exercise to learn {% data variables.product.github %}''s pull request workflow.'
+intro: Follow this Hello World exercise to learn {% data variables.product.github %}'s pull request workflow.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
 redirect_from:
   - /get-started/quickstart/hello-world
+category:
+  - Explore and contribute
+contentType: get-started
 ---
 
 ## Introduction

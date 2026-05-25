@@ -2,10 +2,6 @@
 title: Cannot enable CodeQL in a private repository
 intro: '{% data variables.product.prodname_GH_code_security %} must be enabled in order to use {% data variables.product.prodname_code_scanning %} on private repositories.'
 allowTitleToDifferFromFilename: true
-topics:
-  - Code scanning
-  - Errors
-  - Troubleshooting
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,6 +10,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/cannot-enable-codeql-in-a-private-repository
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/cannot-enable-codeql-in-a-private-repository
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 {% ifversion fpt %}

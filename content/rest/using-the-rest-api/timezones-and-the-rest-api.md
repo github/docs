@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Learn about the REST API
 ---
 
 Some requests that create new data, such as creating a new commit, allow you to provide timezone information when specifying or generating timestamps.

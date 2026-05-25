@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Set up GitHub Desktop
 ---
 ## About authentication
 

@@ -7,6 +7,8 @@ versions:
 contentType: how-tos
 category:
   - Configure Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Authentication errors
@@ -100,7 +102,7 @@ The token was revoked, has expired, or was created without the required permissi
 
 ### Fix
 
-Review the token's status and permissions on {% data variables.product.prodname_dotcom %}. The token must have the **Copilot Requests** permission. Generate a new token with the required permissions if necessary.  
+Review the token's status and permissions on {% data variables.product.prodname_dotcom %}. The token must be a {% data variables.product.pat_v2 %} owned by your **personal account** (not an organization) with the **{% data variables.product.prodname_copilot_short %} Requests** permission. Generate a new token with the required permissions if necessary.  
 
 ## {% data variables.product.pat_classic_caps %} rejected
 
@@ -169,10 +171,10 @@ On Linux, use the system keyring or store credentials in plaintext.
    command -v secret-tool
    ```
 
-1. If `secret-tool` is not found or the search command returns no results, install `libsecret` and its dependencies.
+1. If `secret-tool` is not found or the search command returns no results, install `libsecret` and its dependencies. For example, on Debian and Ubuntu you could use the following command."
 
    ```bash copy
-   sudo apt sudo apt list libsecret-1-0 libsecret-1-dev libsecret-common gnome-keyring gnome-keyring-pkcs11 seahorse
+   sudo apt install libsecret-1-0 gnome-keyring seahorse
    ```
 
 1. Once `secret-tool` is installed, search the keyring for a saved credential:

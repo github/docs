@@ -5,9 +5,6 @@ allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: Introduction
 redirect_from:
   - /admin/advanced-security/overview-of-github-advanced-security-deployment
@@ -16,6 +13,8 @@ redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise
   - /code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## About these articles

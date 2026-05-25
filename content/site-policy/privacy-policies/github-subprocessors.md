@@ -8,6 +8,8 @@ redirect_from:
   - /site-policy/privacy-policies/github-subprocessors-and-cookies
 versions:
   fpt: '*'
+category:
+  - Review privacy and security policies
 ---
 
 GitHub defines customer data as all data provided by the customer to GitHub through their use of GitHub services. Some customer data is personal data as defined under GDPR.
@@ -43,6 +45,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | OpenAI                        | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Oracle America, Inc.          | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Pusher                        | Building and managing real-time infrastructure for web and mobile applications | United States                                     | United States      |
+| Tines Automation Inc.         | Security management                                                            | United States                                     | United States      |
 | Twilio     (SendGrid)         | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
 | xAI                           | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Zendesk                       | Customer support ticketing system                                              | United States                                     | United States      |

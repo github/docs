@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 shortTitle: Downgrade sponsorship
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 **When you downgrade a sponsorship, the change will become effective on your next billing date**. {% data reusables.sponsors.no-refunds %}

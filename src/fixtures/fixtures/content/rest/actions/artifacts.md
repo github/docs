@@ -5,8 +5,6 @@ shortTitle: Artifacts
 intro: >-
   Use the REST API to interact with artifacts in {% data
   variables.product.prodname_actions %}.
-topics:
-  - API
 versions:
   fpt: '*'
   ghec: '*'

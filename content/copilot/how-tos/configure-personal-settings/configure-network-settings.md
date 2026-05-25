@@ -10,7 +10,7 @@ redirect_from:
   - /copilot/how-tos/personal-settings/configuring-network-settings-for-github-copilot
   - /copilot/how-tos/personal-settings/configure-network-settings
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -32,7 +32,7 @@ You can configure an HTTP proxy for {% data variables.product.prodname_copilot_s
 1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
 1. Select **Manual proxy configuration**, and then select **HTTP**.
 1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
-1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, in the left sidebar, click **Tools**, click **Server Certificates**, then select or deselect **Accept non-trusted certificates automatically**.
+1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, in the left sidebar, click **Appearance & Behavior**, click **System Settings**, click **Server Certificates**, then select or deselect **Accept non-trusted certificates automatically**.
 
    > [!WARNING] Ignoring certificate errors can cause security issues and is not recommended.
 
@@ -105,8 +105,8 @@ If you need to authenticate to a proxy, you can try one of the below:
 ### Overriding the default SPN in JetBrains IDEs
 
 1. In your JetBrains IDE, click the **File** menu (Windows) or the name of the application in the menu bar (macOS), then click **Settings**.
-1. In the left sidebar, click **Languages & Frameworks**, then click **{% data variables.product.prodname_copilot %}**.
-1. In the "Advanced" section, in the "Override Kerberos Proxy Service Principal Name" field, type the SPN for your proxy service.
+{% data reusables.copilot.jetbrains-tools %}, then click **Network**.
+1. In the "Override Kerberos Proxy Service Principal Name" field, type the SPN for your proxy service.
 
 {% endjetbrains %}
 

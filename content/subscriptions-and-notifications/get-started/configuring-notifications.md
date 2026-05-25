@@ -1,6 +1,6 @@
 ---
 title: Configuring notifications
-intro: 'Choose the type of activity on {% data variables.product.prodname_dotcom %} that you want to receive notifications for and how you want these updates delivered.'
+intro: Choose the type of activity on {% data variables.product.prodname_dotcom %} that you want to receive notifications for and how you want these updates delivered.
 redirect_from:
   - /articles/about-web-notifications
   - /format-of-notification-emails
@@ -21,6 +21,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+contentType: get-started
+category:
+  - Set up and customize delivery
 ---
 
 ## Notification delivery options

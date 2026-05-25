@@ -1,0 +1,1 @@
+> [!IMPORTANT] Starting June 1, 2026, {% data variables.product.github %} is moving {% data variables.product.prodname_copilot_short %} from request-based billing to usage-based billing. For more information, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).

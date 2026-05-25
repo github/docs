@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Scheduled reminders
+category:
+  - Organize teams
 ---
 
 ## About scheduled reminders for teams

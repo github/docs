@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Associate email with GPG key
+category:
+  - Sign your commits
 ---
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% data variables.location.product_location %}, then you can begin signing commits and signing tags.

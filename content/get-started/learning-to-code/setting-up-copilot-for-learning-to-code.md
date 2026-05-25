@@ -4,6 +4,8 @@ intro: 'Configure {% data variables.product.prodname_copilot_short %} to help yo
 versions:
   fpt: '*'
 shortTitle: Set up Copilot for learning
+category:
+  - Learn to code
 ---
 
 ## Can {% data variables.product.prodname_copilot_short %} help me learn to code?

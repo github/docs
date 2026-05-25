@@ -1,6 +1,6 @@
 ---
 title: Verifying or approving a domain for your organization
-intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization''s identity.{% ifversion ghec or ghes %} You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.{% endif %}'
+intro: You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization's identity.{% ifversion ghec or ghes %} You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.{% endif %}
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -11,8 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 shortTitle: Verify or approve a domain
+contentType: how-tos
+category:
+  - Set up your organization
 ---
 
 ## About domain verification

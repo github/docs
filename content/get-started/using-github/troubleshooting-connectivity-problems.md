@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Connectivity problems
+category:
+  - Set up your account on GitHub
 ---
 Most often, connection problems occur because a firewall, proxy server, corporate network, or other network is configured in a way that blocks {% data variables.product.prodname_dotcom %}.
 

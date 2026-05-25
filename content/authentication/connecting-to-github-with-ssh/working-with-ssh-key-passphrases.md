@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: SSH key passphrases
+category:
+  - Connect with SSH
 ---
 
 ## About passphrases for SSH keys

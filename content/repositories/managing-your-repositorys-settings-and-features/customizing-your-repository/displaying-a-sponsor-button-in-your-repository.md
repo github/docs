@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Display a sponsor button
+category:
+  - Customize and configure a repository
 ---
 ## About FUNDING files
 

@@ -16,8 +16,6 @@ const isDevMode: boolean = process.env.NODE_ENV !== 'production'
 type getGeneralSearchResultsParams = {
   indexName: string
   searchParams: ComputedSearchQueryParamsMap['generalSearch']
-  topics?: string[]
-  includeTopics?: boolean
 }
 
 // Query Elasticsearch for general search results
@@ -38,15 +36,8 @@ export async function getGeneralSearchResults(
       debug,
       sort,
     },
-    topics,
-    includeTopics,
   } = args
 
-  const usePrefixSearch = autocomplete
-
-  if (topics && !Array.isArray(topics)) {
-    throw new Error("'topics' has to be an array")
-  }
   if (include) {
     if (!Array.isArray(include)) {
       throw new Error("'include' has to be an array")
@@ -64,6 +55,7 @@ export async function getGeneralSearchResults(
     }
   }
   const t0 = Date.now()
+  const usePrefixSearch = autocomplete
   const client = getElasticsearchClient()
   const from = size * (page - 1)
 
@@ -81,21 +73,6 @@ export async function getGeneralSearchResults(
       // This allows filtering by toplevel later.
       minimum_should_match: 1,
     },
-  }
-
-  const topicsArray = Array.isArray(topics) ? topics : topics ? [topics] : []
-  const topicsFilter = topicsArray.map((topic) => {
-    return {
-      term: {
-        // Remember, 'topics' is a keyword field, meaning you need
-        // to filter by "Webhooks", not "webhooks"
-        topics: topic,
-      },
-    }
-  })
-  if (topicsFilter.length) {
-    matchQuery.bool.filter = matchQuery.bool.filter || []
-    matchQuery.bool.filter.push(...topicsFilter)
   }
 
   const toplevelArray = toplevel || []
@@ -130,10 +107,6 @@ export async function getGeneralSearchResults(
     // stored in Elasticsearch to here if it's not going to be needed
     // anyway.
     _source_includes: ['title', 'url', 'breadcrumbs', 'popularity', 'toplevel'],
-  }
-
-  if (includeTopics && Array.isArray(searchQuery._source_includes)) {
-    searchQuery._source_includes?.push('topics')
   }
 
   for (const key of ['intro', 'headings'] as const) {
@@ -185,7 +158,6 @@ export async function getGeneralSearchResults(
   const hits = getHits(hitsAll.hits, {
     indexName,
     debug,
-    includeTopics,
     highlightFields,
     include,
   })
@@ -441,14 +413,13 @@ function getMatchQueries(
 interface GetHitsOptions {
   indexName: string
   debug?: boolean
-  includeTopics?: boolean
   highlightFields: string[]
   include: AdditionalIncludes[]
 }
 
 function getHits(
   hits: estypes.SearchHit<any>[],
-  { indexName, debug = false, includeTopics = false, highlightFields, include }: GetHitsOptions,
+  { indexName, debug = false, highlightFields, include }: GetHitsOptions,
 ): GeneralSearchHit[] {
   return hits.map((hit) => {
     // Return `hit.highlights[...]` based on the highlight fields requested.
@@ -470,9 +441,6 @@ function getHits(
       title: hit._source.title,
       breadcrumbs: hit._source.breadcrumbs,
       highlights: hitHighlights,
-    }
-    if (includeTopics) {
-      result.topics = hit._source.topics || []
     }
     if (debug) {
       result.score = hit._score ?? 0.0

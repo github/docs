@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: About PR reviews
+category:
+  - Review pull requests
 ---
 
 Pull request reviews are one of the primary ways people collaborate on {% data variables.product.github %}. Reviewers can comment on changes, suggest improvements, and approve or request changes before code is merged. This collaborative process enables teams to ensure code quality and share knowledge.

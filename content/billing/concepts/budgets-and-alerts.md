@@ -5,6 +5,8 @@ shortTitle: Budgets and alerts
 versions:
   feature: enhanced-billing-platform
 contentType: concepts
+category:
+  - Track spending and control costs
 ---
 
 Budgets and alerts allow you to track spending on metered products for your enterprise, organizations, cost centers (enterprise only), and repositories. Budgets and alerts are not available for pre-paid volume licenses.

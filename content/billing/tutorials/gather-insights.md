@@ -3,16 +3,18 @@ title: Gathering insights on your spending
 intro: 'Get insights into the usage of your {% data variables.enterprise.enterprise_or_org %} members.'
 versions:
   feature: enhanced-billing-platform
+permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/gathering-insights-on-your-spending
   - /billing/using-the-new-billing-platform/gathering-insights-on-your-spending
   - /billing/managing-your-billing/gathering-insights-on-your-spending
-product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Gather insights
 contentType: tutorials
+category:
+  - Track spending and control costs
 ---
 
-The new billing platform provides you with the tools to:
+The billing platform provides you with the tools to:
 
 * **Get insights** into usage trends to understand how your resources are being used.
 * **Search and filter usage** by repository, product, or SKU, and group data accordingly.

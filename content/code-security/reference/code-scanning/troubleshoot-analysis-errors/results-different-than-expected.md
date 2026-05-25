@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/results-different-than-expected
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/results-different-than-expected
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 If your {% data variables.product.prodname_code_scanning %} results are different than you expected, you may have both default and advanced setup configured for your repository. When you enable default setup, this disables the existing {% data variables.product.prodname_codeql %} workflow file and blocks any {% data variables.product.prodname_codeql %} API analysis from uploading results.

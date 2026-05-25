@@ -18,14 +18,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Dependabot version updates
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}

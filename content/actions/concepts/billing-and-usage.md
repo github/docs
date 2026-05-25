@@ -1,6 +1,6 @@
 ---
-title: 'Billing and usage'
-intro: 'There are usage limits for {% data variables.product.prodname_actions %} workflows. Usage charges apply to repositories that go beyond the amount of free minutes and storage for a repository.'
+title: Billing and usage
+intro: There are usage limits for {% data variables.product.prodname_actions %} workflows. Usage charges apply to repositories that go beyond the amount of free minutes and storage for a repository.
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
   - /actions/reference/usage-limits-billing-and-administration
@@ -11,6 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Administer GitHub Actions
+contentType: concepts
 ---
 
 ## About billing for {% data variables.product.prodname_actions %}

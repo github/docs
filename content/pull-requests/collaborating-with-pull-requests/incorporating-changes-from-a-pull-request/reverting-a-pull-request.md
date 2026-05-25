@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Merge and close pull requests
 ---
 ## About reverting a pull request
 

@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Share and reuse content
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.saved_replies %}

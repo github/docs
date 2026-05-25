@@ -16,7 +16,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: reference
+category:
+  - Write workflows
 ---
 
 ## `cache` action usage

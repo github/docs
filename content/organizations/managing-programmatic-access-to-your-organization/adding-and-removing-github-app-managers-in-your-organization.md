@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: GitHub App managers
+category:
+  - Manage app and API access
 ---
 
 ## About {% data variables.product.prodname_github_app %} managers

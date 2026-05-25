@@ -8,6 +8,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-replit
   - /education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-replit-with-github-classroom
+category:
+  - Integrate GitHub Classroom with an IDE
 ---
 ## What’s changing with Repl.it integration
 

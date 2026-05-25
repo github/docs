@@ -1,6 +1,6 @@
 ---
 title: '{% data variables.product.prodname_project_v1_caps %} permissions for an organization'
-intro: 'Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize who has read, write, and admin permissions to your organization’s {% data variables.projects.projects_v1_boards %}.'
+intro: "Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize who has read, write, and admin permissions to your organization's {% data variables.projects.projects_v1_boards %}."
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
@@ -8,6 +8,8 @@ versions:
   feature: projects-v1
 shortTitle: '{% data variables.product.prodname_project_v1_caps %} permissions'
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 {% data reusables.projects.project_boards_old %}

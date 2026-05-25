@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Migration to Container registry
+category:
+  - Work with a package registry
 ---
 
 {% data reusables.package_registry.container-registry-ghes-beta %}

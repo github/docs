@@ -5,6 +5,8 @@ permissions: Organization owners.
 versions:
   feature: deploy-keys-enterprise-org-policy
 shortTitle: Restrict deploy keys
+category:
+  - Set repository policies
 ---
 
 You can choose whether members can create deploy keys for repositories in your organization.

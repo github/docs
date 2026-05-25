@@ -16,6 +16,8 @@ versions:
   ghec: '*'
 shortTitle: Merge multiple accounts
 contentType: how-tos
+category:
+  - Change or close your account
 ---
 
 {% ifversion ghec %}

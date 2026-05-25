@@ -8,6 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: View blocked users in org
+category:
+  - Block users and report abuse
 ---
 
 

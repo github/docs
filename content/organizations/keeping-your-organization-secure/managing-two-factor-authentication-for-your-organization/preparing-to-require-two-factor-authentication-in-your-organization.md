@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Prepare to require 2FA
+category:
+  - Manage authentication methods
 ---
 {% ifversion fpt or ghec %}
 When requiring two-factor authentication in your organization, consider if you also want to enforce usage of only secure methods among your users (secure 2FA methods are passkeys, security keys, authenticator apps, and the GitHub mobile app).

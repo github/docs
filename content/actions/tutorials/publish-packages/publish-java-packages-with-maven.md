@@ -1,7 +1,7 @@
 ---
 title: Publishing Java packages with Maven
 shortTitle: Publish Java packages with Maven
-intro: 'In this tutorial, you''ll learn how to use Maven to publish Java packages to a registry as part of your continuous integration (CI) workflow.'
+intro: In this tutorial, you'll learn how to use Maven to publish Java packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
   - /actions/guides/publishing-java-packages-with-maven
@@ -13,7 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Build and test code
 ---
 
 ## Introduction

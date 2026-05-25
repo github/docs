@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Unrestrict {% data variables.product.prodname_oauth_apps %}
+category:
+  - Manage app and API access
 ---
 
 > [!WARNING]

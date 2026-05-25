@@ -1,13 +1,15 @@
 ---
 title: Renaming custom fields
-intro: 'Learn about renaming existing custom fields in your {% data variables.projects.project_v2 %}.'
+intro: Learn about renaming existing custom fields in your {% data variables.projects.project_v2 %}.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/renaming-fields
+contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 {% data reusables.projects.project-settings %}

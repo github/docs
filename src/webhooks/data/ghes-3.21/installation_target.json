@@ -1,0 +1,291 @@
+{
+  "renamed": {
+    "descriptionHtml": "<p>Somebody renamed the user or organization account that a GitHub App is installed on.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to the user or organization account that a GitHub App is installed on. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/developers/apps/getting-started-with-apps/about-apps#about-github-apps\">About apps</a>.\" For information about the APIs to manage GitHub Apps, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#app\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/apps\">Apps</a>\" in the REST API documentation.</p>",
+    "bodyParameters": [
+      {
+        "type": "object",
+        "name": "account",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "archived_at",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "avatar_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": ""
+          },
+          {
+            "type": "null",
+            "name": "description",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "events_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "followers",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "followers_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "following",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "following_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gists_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "gravatar_id",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "has_organization_projects",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "has_repository_projects",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "hooks_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "is_verified",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "issues_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "login",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "members_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "organizations_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "public_gists",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "public_members_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "public_repos",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "received_events_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "repos_url",
+            "description": ""
+          },
+          {
+            "type": "boolean",
+            "name": "site_admin",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "slug",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "starred_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "subscriptions_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "type",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": ""
+          },
+          {
+            "type": "null",
+            "name": "website_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "user_view_type",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "renamed"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "login",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "from",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "slug",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "from",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "target_type",
+        "description": "",
+        "isRequired": true
+      }
+    ],
+    "availability": [
+      "app"
+    ],
+    "action": "renamed",
+    "category": "installation_target"
+  }
+}

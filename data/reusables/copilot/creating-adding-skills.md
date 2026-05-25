@@ -1,16 +1,14 @@
 ## Creating and adding a skill
 
-To create an agent skill you write a `SKILL.md` file and, optionally, other resources, such as supplementary Markdown files, or scripts, which you reference in the `SKILL.md` instructions.
+To create an agent skill, you write a `SKILL.md` file and, optionally, other resources, such as supplementary Markdown files, or scripts, which you reference in the `SKILL.md` instructions.
 
-To add a skill, you save the `SKILL.md` file, and any subsidiary resources, to a location where {% data variables.product.prodname_copilot_short %} knows to look for skills. This can be within a repository, or within your home directory.
+1. If you haven't already done so, create a `skills` directory in one of the following locations. This is where you will locate your skill, and any others you may want to create in the future.
 
-1. Create a `skills` directory to store your skill and any others you may want to create in the future.
+    For **project skills**, specific to a single repository, create a `.github/skills`, `.claude/skills`, or `.agents/skills` directory in your repository.
 
-    For **project skills**, specific to a single repository, store your skill under `.github/skills` or `.claude/skills`.
+    For **personal skills**, shared across projects, create a `~/.copilot/skills` or `~/.agents/skills` directory in your local home directory.
 
-    For **personal skills**, shared across projects, store your skill under `~/.copilot/skills` or `~/.claude/skills`.
-
-1. Create a subdirectory for your new skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`).
+1. Within the `skills` directory, create a subdirectory for your new skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`).
 
    Skill subdirectory names should be lowercase and use hyphens for spaces.
 
@@ -27,9 +25,9 @@ To add a skill, you save the `SKILL.md` file, and any subsidiary resources, to a
      * **license** (optional): A description of the license that applies to this skill.
    * A Markdown body, with the instructions, examples and guidelines for {% data variables.product.prodname_copilot_short %} to follow.
 
-1. Optionally, add scripts, examples or other resources to your skill's directory. 
+1. Optionally, add scripts, examples or other resources to your skill's directory.
 
-   For example, if you were writing a skill for converting images between different formats, you might include a script for converting SVG images to PNG. The skill instructions should tell {% data variables.product.prodname_copilot_short %} when, and how, to use these resources.
+   For more information, see "[Enabling a skill to run a script](#enabling-a-skill-to-run-a-script)."
 
 ### Example `SKILL.md` file
 
@@ -51,3 +49,56 @@ To debug failing {% data variables.product.prodname_actions %} workflows in a pu
 4. Try to reproduce the failure yourself in your own environment.
 5. Fix the failing build. If you were able to reproduce the failure yourself, make sure it is fixed before committing your changes.
 ```
+
+### Enabling a skill to run a script
+
+When a skill is invoked, {% data variables.product.prodname_copilot_short %} automatically discovers all of the files in the skill's directory and makes them available alongside the skill's instructions. This means you can include scripts or other resources in the skill directory and reference them in your `SKILL.md` instructions.
+
+To create a skill that runs a script:
+
+1. **Add the script to your skill's directory.** For example, a skill for converting SVG images to PNG might have the following structure.
+
+   ```text
+   .github/skills/image-convert/
+   ├── SKILL.md
+   └── convert-svg-to-png.sh
+   ```
+
+1. **Optionally pre-approve the tools the skill needs.** In your `SKILL.md` frontmatter, you can use the `allowed-tools` field to list the tools {% data variables.product.prodname_copilot_short %} may use without asking for confirmation each time. If a tool is not listed in the `allowed-tools` field, {% data variables.product.prodname_copilot_short %} will prompt you for permission before using it.
+
+   ```markdown
+   ---
+   name: image-convert
+   description: Converts SVG images to PNG format. Use when asked to convert SVG files.
+   allowed-tools: shell
+   ---
+   ```
+
+   > [!WARNING]
+   > Only pre-approve the `shell` or `bash` tools if you have reviewed this skill and any referenced scripts, and you fully trust their source. Pre-approving `shell` or `bash` removes the confirmation step for running terminal commands and can allow attacker-controlled skills or prompt injections to execute arbitrary commands in your environment. When in doubt, omit `shell` and `bash` from `allowed-tools` so that {% data variables.product.prodname_copilot_short %} must ask for your explicit confirmation before running terminal commands.
+
+1. **Write instructions that tell {% data variables.product.prodname_copilot_short %} how to use the script.** In the Markdown body of `SKILL.md`, describe when and how to run the script.
+
+   ```markdown
+   When asked to convert an SVG to PNG, run the `convert-svg-to-png.sh` script
+   from this skill's base directory, passing the input SVG file path as the
+   first argument.
+   ```
+
+## Adding a skill that someone else has created
+
+In addition to creating your own skills, you can also add skills that other people have created.
+
+> [!TIP]
+> You can also use `gh skill` in {% data variables.product.prodname_cli %} to search for, install, update, and publish agent skills. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills#managing-skills-with-github-cli).
+
+1. Download a skill directory (that is, a directory containing a SKILL.md file and, optionally, other files and subdirectories).
+
+   For example, download a skill from the Awesome {% data variables.product.prodname_copilot %} repository: https://awesome-copilot.github.com/skills/.
+
+1. If you downloaded a `.zip` file, unzip this.
+1. Move the skill directory to the required location:
+
+   * For **project skills**, specific to a single repository: `.github/skills`, `.claude/skills`, or `.agents/skills` in your repository.
+
+   * For **personal skills**, shared across projects: `~/.copilot/skills` or `~/.agents/skills` in your local home directory.

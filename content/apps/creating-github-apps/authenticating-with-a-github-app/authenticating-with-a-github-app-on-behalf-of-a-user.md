@@ -13,8 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
+category:
+  - Authenticate with a GitHub App
 ---
 
 Your app can make API requests on behalf of a user. API requests made by an app on behalf of a user will be attributed to that user. For example, if your app posts a comment on behalf of a user, the {% data variables.product.company_short %} UI will show the user's avatar photo along with the app's identicon badge as the author of the issue.

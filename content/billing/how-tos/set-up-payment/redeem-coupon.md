@@ -15,9 +15,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-product: 'Personal, organization, and enterprise account owners<br>Organization and enterprise billing managers'
+permissions: 'Personal account users, organization owners and billing managers, and enterprise owners and billing managers'
 shortTitle: Redeem coupon
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 ## Prerequisites

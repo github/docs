@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: Backup email address
 contentType: how-tos
+category:
+  - Manage your email
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.emails %}

@@ -22,6 +22,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage branches and protect code
 ---
 
 ## About branch protection rules

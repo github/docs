@@ -9,14 +9,11 @@ audience:
 contentType: tutorials
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale
+category:
+  - Secure at scale
 ---
 
 ## Launching your first campaign

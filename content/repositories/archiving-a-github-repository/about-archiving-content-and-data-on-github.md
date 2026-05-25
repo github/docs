@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Archive content & data
+category:
+  - Manage, move, and archive a repository
 ---
 ## Persistence of public repositories
 

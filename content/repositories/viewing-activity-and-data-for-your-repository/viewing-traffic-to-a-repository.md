@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: View repository traffic
+category:
+  - Track repository activity
 ---
 
 You can navigate to referring sites, excluding search engines and {% data variables.product.github %} itself, from the links the specific paths were referred from. The popular content links to the specific content that generated traffic.

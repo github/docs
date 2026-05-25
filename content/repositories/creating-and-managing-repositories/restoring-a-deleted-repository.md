@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Restore deleted repository
+category:
+  - Manage, move, and archive a repository
 ---
 
 {% ifversion ghes %}

@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Quality
 contentType: reference
 children:
   - /metrics-and-ratings

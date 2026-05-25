@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Team profile picture
+category:
+  - Organize teams
 ---
 Unless you set a profile picture for a team, the team profile picture will match the organization's profile picture.
 

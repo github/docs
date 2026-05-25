@@ -10,6 +10,9 @@ redirect_from:
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners
   - /actions/concepts/runners/about-private-networking-with-github-hosted-runners
   - /actions/concepts/runners/private-networking-with-github-hosted-runners
+category:
+  - Set up runners
+contentType: concepts
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

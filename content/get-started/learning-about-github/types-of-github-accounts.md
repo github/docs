@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About accounts

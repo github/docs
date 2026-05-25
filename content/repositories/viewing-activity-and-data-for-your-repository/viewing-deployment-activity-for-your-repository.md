@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: View deployment activity
+category:
+  - Track repository activity
 ---
 
 > [!NOTE]

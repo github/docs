@@ -7,6 +7,8 @@ versions:
 product: Enterprise accounts using Microsoft Entra ID as their identity provider, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)
 shortTitle: Azure DevOps licenses
 contentType: concepts
+category:
+  - Manage enterprise licenses
 ---
 
 {% data variables.product.prodname_ghe_cloud %} customers can use Azure DevOps without additional costs per user. For customers using Microsoft Entra, users can sign in with the same credentials on {% data variables.product.github %} and Azure DevOps.

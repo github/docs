@@ -8,6 +8,8 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts
 contentType: how-tos
+category:
+  - Change or close your account
 ---
 
 ## Contributing to multiple accounts using HTTPS and {% data variables.product.pat_generic %}s

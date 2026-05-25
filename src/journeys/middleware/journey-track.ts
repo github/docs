@@ -1,7 +1,26 @@
 import type { Response, NextFunction } from 'express'
-import type { ExtendedRequest, Context } from '@/types'
+import type { ExtendedRequest, Context, Page } from '@/types'
 
-import { resolveJourneyTracks, resolveJourneyContext } from '../lib/journey-path-resolver'
+import {
+  resolveJourneyTracks,
+  resolveJourneyContext,
+  JourneyTrack,
+} from '../lib/journey-path-resolver'
+
+type JourneyTrackData = {
+  id: string
+  title: string
+  description?: string
+  guides: Array<{
+    href: string
+    alternativeNextStep?: string
+  }>
+}
+
+type PageWithJourneys = Page & {
+  journeyTracks?: JourneyTrackData[]
+  resolvedJourneyTracks?: JourneyTrack[]
+}
 
 export default async function journeyTrack(
   req: ExtendedRequest & { context: Context },
@@ -14,15 +33,14 @@ export default async function journeyTrack(
   if (!req.context.page) return next()
 
   try {
+    const page = req.context.page as PageWithJourneys
+
     // If this page has journey tracks defined, resolve them for the landing page
-    if ((req.context.page as any).journeyTracks) {
-      const resolvedTracks = await resolveJourneyTracks(
-        (req.context.page as any).journeyTracks,
-        req.context,
-      )
+    if (page.journeyTracks) {
+      const resolvedTracks = await resolveJourneyTracks(page.journeyTracks, req.context)
 
       // Store resolved tracks on the page context for later use in getServerSideProps
-      ;(req.context.page as any).resolvedJourneyTracks = resolvedTracks
+      page.resolvedJourneyTracks = resolvedTracks
     }
 
     // Always try to resolve journey context (for navigation on guide articles)

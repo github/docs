@@ -12,9 +12,9 @@ contentType: concepts
 
 ## Introduction
 
-You can use third-party coding agents alongside {% data variables.copilot.copilot_coding_agent %} to work asynchronously on your development tasks. You can assign an existing issue or give a prompt to an agent, which will work on the required changes and create a pull request. When the agent finishes, it will request a review from you, and you can leave pull request comments to ask the agent to iterate.
+You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %} to work asynchronously on your development tasks. You can assign an existing issue or give a prompt to an agent, which will work on the required changes and create a pull request. When the agent finishes, it will request a review from you, and you can leave pull request comments to ask the agent to iterate.
 
-Coding agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_coding_agent %}. To learn more about how you can use coding agents, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent).
+Coding agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. To learn more about how you can use coding agents, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
 ### Where you can use coding agents
 
@@ -31,10 +31,12 @@ You can kick off tasks with coding agents in the following locations:
 > [!NOTE]
 > {% data reusables.gated-features.third-party-agents %}
 
-Before you can assign tasks to coding agents, they must be enabled.
+Before you can assign tasks to coding agents on {% data variables.product.github %}, they must be enabled in your account policies.
 
 * For **{% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} subscribers**, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories).
 * For **{% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} subscribers**, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+
+These policies do not apply to **local** agents in {% data variables.product.prodname_vscode %}. To configure agent settings in {% data variables.product.prodname_vscode %}, see [Types of agents](https://code.visualstudio.com/docs/copilot/agents/overview#_types-of-agents) in the {% data variables.product.prodname_vscode %} documentation. To adjust enterprise agent settings in {% data variables.product.prodname_vscode %}, see [Enable or disable the use of agents](https://code.visualstudio.com/docs/enterprise/ai-settings#_enable-or-disable-the-use-of-agents) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Supported coding agents
 
@@ -43,6 +45,24 @@ The following third-party agents are supported on {% data variables.product.gith
 * [{% data variables.product.prodname_anthropic_claude %}](/copilot/concepts/agents/anthropic-claude)
 * [{% data variables.product.prodname_openai_codex %}](/copilot/concepts/agents/openai-codex)
 
+## AI models for third-party agents
+
+When starting a task with a third-party agent, you can select the AI model used by the agent. You may find that different models perform better, or provide more useful responses, depending on the type of task. For help deciding which model to use, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
+
+You can also select **Auto**, which allows {% data variables.copilot.copilot_auto_model_selection %} to choose the best available model on your behalf. For more information, see [AUTOTITLE](/copilot/concepts/auto-model-selection).
+
+The following models are available for each agent:
+
+### {% data variables.product.prodname_openai_codex %}
+
+* Auto
+{% data reusables.copilot.openai-codex-agent-models %}
+
+### {% data variables.product.prodname_anthropic_claude %}
+
+* Auto
+{% data reusables.copilot.anthropic-claude-agent-models %}
+
 ## Usage costs
 
 Coding agents consume **{% data variables.product.prodname_actions %} minutes** and **{% data variables.product.prodname_copilot %} premium requests**. Each agent **session** consumes one premium request.
@@ -50,6 +70,15 @@ Coding agents consume **{% data variables.product.prodname_actions %} minutes** 
 Within your monthly usage allowance for {% data variables.product.prodname_actions %} and premium requests, you can ask agents to work on coding tasks without incurring any additional costs.
 
 For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+
+## Partner agents
+
+When enabling partner agents in your user or organization {% data variables.copilot.copilot_cloud_agent %} settings, a {% data variables.product.prodname_github_app %} will be installed for the corresponding agent.
+
+* **Allow Claude coding agent** will install `anthropic code agent`
+* **Allow Codex coding agent** will install `openai code agent`
+
+Actions taken by these {% data variables.product.prodname_github_apps %} will be visible in your audit log, but the {% data variables.product.prodname_github_apps %} themselves will not be visible in your account's list of {% data variables.product.prodname_github_app %} installations.
 
 ## Next steps
 

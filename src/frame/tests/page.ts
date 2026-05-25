@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 
 import { load } from 'cheerio'
-import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
+import { beforeAll, describe, expect, test } from 'vitest'
 
 import Page, { FrontmatterErrorsError } from '@/frame/lib/page'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -263,37 +263,6 @@ describe('Page class', () => {
     })
   })
 
-  describe('videos', () => {
-    let page: Page | undefined
-
-    beforeEach(async () => {
-      page = await Page.init({
-        relativePath: 'article-with-videos.md',
-        basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
-        languageCode: 'en',
-      })
-    })
-
-    test('includes videos specified in the featuredLinks frontmatter', async () => {
-      expect((page as any)!.featuredLinks.videos).toStrictEqual([
-        {
-          title: 'codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-        {
-          title: 'more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-        {
-          title: 'even more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
-        },
-      ])
-
-      expect((page as any)!.featuredLinks.videosHeading).toBe('Custom Videos heading')
-    })
-  })
-
   describe('introLinks', () => {
     test('includes the links specified in the introLinks frontmatter', async () => {
       const page = await Page.init({
@@ -464,7 +433,7 @@ describe('catches errors thrown in Page class', () => {
   })
 
   describe('versioning optional attributes', () => {
-    test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
+    test("re-rendering set appropriate 'product', 'permissions'", async () => {
       const page = await Page.init({
         relativePath: 'page-with-optional-attributes.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),

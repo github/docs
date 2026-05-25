@@ -18,6 +18,8 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces
   - /billing/managing-billing-for-your-products/about-billing-for-github-codespaces
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 ## How use of {% data variables.product.prodname_github_codespaces %} is measured
@@ -32,6 +34,11 @@ In addition, any prebuilt codespaces are generated using actions minutes, see [A
 ### Compute time
 
 The compute time for a codespace is the length of time for which that codespace is active. Total use of compute time for each processor type is calculated by summing the time used by all codespaces billable to a particular account. These totals are reported to the billing service every hour, and are billed monthly.
+
+* **Compute time:** Your included compute hours reset to the full amount at the start of each billing cycle. Compute usage is charged to the account that owns the codespace.
+* **Storage:** Storage charges accumulate throughout the month based on hourly usage. Your accrued storage charges reset to zero at the start of each billing cycle.
+
+For more information about billing cycles, see [AUTOTITLE](/billing/concepts/billing-cycles).
 
 ### Storage volume for codespaces
 

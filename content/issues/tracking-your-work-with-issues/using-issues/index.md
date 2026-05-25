@@ -18,4 +18,6 @@ children:
   - /linking-a-pull-request-to-an-issue
   - /about-slash-commands
   - /managing-issue-types-in-an-organization
+  - /managing-issue-fields-in-your-organization
+  - /adding-and-managing-issue-fields
 ---

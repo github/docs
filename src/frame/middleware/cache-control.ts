@@ -1,5 +1,8 @@
 import type { Response } from 'express'
 
+import { createLogger } from '@/observability/logger'
+const logger = createLogger(import.meta.url)
+
 interface CacheControlOptions {
   key?: string
   public_?: boolean
@@ -42,7 +45,7 @@ function cacheControlFactory(
     .join(', ')
   return (res: Response) => {
     if (process.env.NODE_ENV !== 'production' && res.hasHeader('set-cookie') && maxAge) {
-      console.warn(
+      logger.warn(
         "You can't set a >0 cache-control header AND set-cookie or else the CDN will never respect the cache-control.",
       )
     }
@@ -84,20 +87,26 @@ export function defaultCacheControl(res: Response): void {
   defaultBrowserCacheControl(res)
 }
 
+// Vary on content type for pages that support content negotiation (HTML vs markdown)
+export function contentTypeCacheControl(res: Response): void {
+  defaultCacheControl(res)
+  res.append('vary', 'accept')
+}
+
 // Vary on language when needed
 // x-user-language is a custom request header derived from req.cookie:user_language
 // accept-language is truncated to one of our available languages
 // https://bit.ly/3u5UeRN
 export function languageCacheControl(res: Response): void {
   defaultCacheControl(res)
-  res.set('vary', 'accept-language, x-user-language')
+  res.append('vary', 'accept-language, x-user-language')
 }
 
 // Vary on both language and version for homepage redirects
 // x-user-version is a custom request header derived from req.cookie:user_version
 export function languageAndVersionCacheControl(res: Response): void {
   defaultCacheControl(res)
-  res.set('vary', 'accept-language, x-user-language, x-user-version')
+  res.append('vary', 'accept-language, x-user-language, x-user-version')
 }
 
 // Long cache control for versioned assets: images, CSS, JS...

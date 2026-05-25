@@ -1,12 +1,10 @@
 ---
 title: Landing without Carousels
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Testing
 ---
 
 # Landing without Carousels

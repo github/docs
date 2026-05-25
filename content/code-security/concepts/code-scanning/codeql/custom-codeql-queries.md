@@ -7,11 +7,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## What are custom {% data variables.product.prodname_codeql %} queries?

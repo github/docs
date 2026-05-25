@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage releases
+category:
+  - Release software
 ---
 ## About release management
 

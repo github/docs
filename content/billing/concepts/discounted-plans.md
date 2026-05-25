@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Discounted plans
 contentType: concepts
+category:
+  - Get started with billing
 ---
 
 > [!TIP]

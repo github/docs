@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Set up GitHub Desktop
 ---
 ## Part 1: Installing {% data variables.product.prodname_desktop %}
 

@@ -122,11 +122,46 @@ describe('Webhooks transformer', () => {
     const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
 
-    // NOTE: The current webhook source data does not include payloadExample fields,
-    // so this section won't appear in the output. The transformer code (lines 115-120)
-    // is ready to display payload examples if/when they are added to the source data.
-    // For now, we just verify the transformer doesn't crash on missing examples.
+    // Payload examples are deliberately omitted from the article API output to save space.
+    // The property tables describe the payload structure instead.
+    expect(res.body).not.toContain('### Webhook payload example')
+    expect(res.body).not.toMatch(/```json/)
+  })
+
+  test('common parameters are extracted into a shared section', async () => {
+    const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
     expect(res.statusCode).toBe(200)
+
+    // Should have a common parameters section at the top
+    expect(res.body).toContain('## Common payload parameters')
+    expect(res.body).toContain('Most webhook events include these standard parameters')
+
+    // Common params like 'sender' and 'repository' should appear in the common section
+    // (they're in 60%+ of webhook events)
+    const commonSection = res.body.split('## Common payload parameters')[1]?.split('\n## ')[0] || ''
+    expect(commonSection).toContain('`sender`')
+    expect(commonSection).toContain('`repository`')
+  })
+
+  test('common parameters are not repeated in individual webhook sections', async () => {
+    const res = await get(makeURL('/en/webhooks/webhook-events-and-payloads'))
+    expect(res.statusCode).toBe(200)
+
+    // Find individual webhook sections after the common section
+    const sections = res.body.split('\n## ')
+    const webhookSections = sections.filter(
+      (s: string) => !s.startsWith('Common payload parameters') && !s.startsWith(sections[0]), // skip content before first ##
+    )
+
+    // In individual webhook parameter tables, common params should not appear
+    for (const section of webhookSections.slice(0, 3)) {
+      // If the section has a parameter table
+      if (section.includes('#### Webhook payload object parameters')) {
+        const tableContent = section.split('#### Webhook payload object parameters')[1] || ''
+        // 'sender' should NOT appear in individual tables
+        expect(tableContent).not.toMatch(/\|\s*`sender`\s*\|/)
+      }
+    }
   })
 
   test('Non-webhooks pages are not transformed', async () => {

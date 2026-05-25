@@ -7,6 +7,8 @@ redirect_from:
   - /site-policy/github-terms/github-community-forum-code-of-conduct
 versions:
   fpt: '*'
+category:
+  - Review product and program terms
 ---
 
 ## Overview and Purpose

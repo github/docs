@@ -14,6 +14,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 ## About your personal account on {% data variables.product.prodname_dotcom %}

@@ -1,21 +1,20 @@
 ---
 title: Uploading storage and deployment data to the {% data variables.product.virtual_registry %}
-intro: "Associate packages and builds in your organization with storage and deployment data."
+intro: Associate packages and builds in your organization with storage and deployment data.
 versions:
   feature: virtual-registry
-topics:
-  - Vulnerabilities
-  - Dependencies
-contentType: concepts
-product: 'Organization accounts on any plan'
-permissions: 'Anyone with write access to an organization-owned repository'
+contentType: how-tos
+product: Organization accounts on any plan
+permissions: Anyone with write access to an organization-owned repository
 shortTitle: Upload linked artifacts
+category:
+  - Secure your dependencies
 ---
 
 The {% data variables.product.virtual_registry %} includes storage records and deployment records for artifacts that you build in your organization. Metadata for each artifact is provided by your organization using one of the following methods:
 
 * A workflow containing one of {% data variables.product.company_short %}'s actions for **artifact attestations**
-* An integration with the **JFrog Artifactory** or **Microsoft Defender for Cloud**
+* An integration with **Dynatrace**, **JFrog Artifactory**, or **{% data variables.product.prodname_microsoft_defender %}**
 * A custom script using the **artifact metadata REST API**
 
 The available methods depend on whether you are uploading a storage record or a deployment record. For more information about record types, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts#which-metadata-is-included).
@@ -48,7 +47,20 @@ For artifacts that do not need to be attested and are not stored on JFrog, you c
 
 ## Uploading a deployment record
 
-If you store artifacts in **{% data variables.product.prodname_mdc_definition %}**, you can use an integration to automatically sync data to the {% data variables.product.virtual_registry %}. Otherwise, you must set up a custom integration with the **REST API**.
+If you monitor deployed workloads with Dynatrace or {% data variables.product.prodname_mdc_definition %}, you can use an integration to automatically sync deployment data to the {% data variables.product.virtual_registry %}. Otherwise, you must set up a custom integration with the REST API.
+
+### Using the Dynatrace integration
+
+You can configure Dynatrace to send deployment records to {% data variables.product.github %} for container images running in your Dynatrace-monitored Kubernetes environments. Dynatrace maps deployed images to your repositories, then reports runtime context.
+
+In addition, deployment records from Dynatrace can include runtime risk context, such as:
+
+* Public internet exposure
+* Sensitive data access
+
+You can use this context in organization-level alert filtering and in security campaigns to prioritize remediation for alerts that affect internet-exposed or sensitive-data workloads.
+
+For setup instructions, see [{% data variables.product.prodname_GHAS %} security integration - Get Started](https://docs.dynatrace.com/docs/secure/threat-observability/security-events-ingest/ingest-github-advanced-security#credentials--github-app-based-authentication) in the Dynatrace documentation.
 
 ### Using the Microsoft Defender for Cloud integration
 
@@ -80,7 +92,7 @@ You can upload data to the {% data variables.product.virtual_registry %} in the 
 
 In the following example, we build and publish a Docker image, then use the `{% raw %}${{ steps.push.outputs.digest }}{% endraw %}` output in the next step to generate a provenance attestation.
 
-The `attest-build-provenance` action automatically uploads a storage record to the {% data variables.product.virtual_registry %} when `push-to-registry: true` is set and the workflow includes the `artifact-metadata: write` permission.
+The `attest` action automatically uploads a storage record to the {% data variables.product.virtual_registry %} when `push-to-registry: true` is set and the workflow includes the `artifact-metadata: write` permission.
 
 ``` yaml
 {% raw %}
@@ -111,7 +123,7 @@ jobs:
             ${{ env.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest@v4
         with:
           subject-name: ${{ env.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.push.outputs.digest }}

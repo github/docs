@@ -13,12 +13,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - API
-  - Secret scanning
-  - Secret Protection
 shortTitle: Partner program
 contentType: tutorials
+category:
+  - Protect your secrets
 ---
 
 {% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories and public npm packages. Repository administrators and organization owners can also enable {% data variables.product.prodname_secret_scanning %} on private repositories. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.

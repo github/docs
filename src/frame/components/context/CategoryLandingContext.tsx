@@ -1,7 +1,6 @@
 import { createContext, useContext } from 'react'
-import { LearningTrack } from './ArticleContext'
-import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
-import type { TocItem } from '@/landings/types'
+import { getFeaturedLinksFromReq } from '@/landings/lib/featured-links'
+import type { RawTocItem, TocItem, FeaturedLink } from '@/landings/types'
 import { mapRawTocItemToTocItem } from '@/landings/types'
 import type { SpotlightItem } from '@/types'
 
@@ -14,9 +13,9 @@ export type CategoryLandingContextT = {
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
   renderedPage: string
-  currentLearningTrack?: LearningTrack
   currentLayout: string
   spotlight?: SpotlightItem[]
+  filters?: Array<'category' | 'surface' | 'complexity'>
 }
 
 export const CategoryLandingContext = createContext<CategoryLandingContextT | null>(null)
@@ -33,20 +32,44 @@ export const useCategoryLandingContext = (): CategoryLandingContextT => {
   return context
 }
 
-export const getCategoryLandingContextFromRequest = (req: any): CategoryLandingContextT => {
+// Request type for context extraction — uses Record<string, unknown> for the page
+// because the Page type doesn't include all runtime-computed properties.
+interface ContextRequest {
+  context: {
+    page: Record<string, unknown> & { title: string; intro: string }
+    genericTocFlat?: unknown[]
+    genericTocNested?: unknown[]
+    renderedPage?: string
+    currentLayoutName?: string
+    featuredLinks?: Record<string, unknown[]>
+    [key: string]: unknown
+  }
+  [key: string]: unknown
+}
+
+export const getCategoryLandingContextFromRequest = (
+  req: ContextRequest,
+): CategoryLandingContextT => {
+  const spotlight = req.context.page.spotlight as SpotlightItem[] | undefined
+  const filters = req.context.page.filters as
+    | Array<'category' | 'surface' | 'complexity'>
+    | undefined
+
   return {
     title: req.context.page.title,
-    productCallout: req.context.page.product || '',
-    permissions: req.context.page.permissions || '',
+    productCallout: (req.context.page.product as string) || '',
+    permissions: (req.context.page.permissions as string) || '',
     intro: req.context.page.intro,
-    tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map(
-      mapRawTocItemToTocItem,
-    ),
+    tocItems: (
+      (req.context.genericTocFlat || req.context.genericTocNested || []) as RawTocItem[]
+    ).map(mapRawTocItemToTocItem),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),
-    renderedPage: req.context.renderedPage,
-    currentLearningTrack: req.context.currentLearningTrack,
-    currentLayout: req.context.currentLayoutName,
-    spotlight: req.context.page.spotlight,
+    renderedPage: (req.context.renderedPage as string) || '',
+    currentLayout: req.context.currentLayoutName || '',
+    // `getServerSideProps` cannot serialize `undefined`, so only include these
+    // when they are actually defined on the page frontmatter.
+    ...(spotlight !== undefined && { spotlight }),
+    ...(filters !== undefined && { filters }),
   }
 }

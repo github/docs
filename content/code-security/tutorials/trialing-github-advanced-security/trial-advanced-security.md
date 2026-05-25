@@ -6,18 +6,16 @@ product: '{% data reusables.gated-features.ghas-trial %}'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.15'
+  ghes: '*'
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
   - /billing/how-tos/products/trial-advanced-security
   - /code-security/trialing-github-advanced-security/trial-advanced-security
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Trial Advanced Security
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## Prerequisites
