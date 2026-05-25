@@ -1,15 +1,15 @@
 ---
-title: Plans for GitHub Copilot
-intro: 'Learn about the available plans for {% data variables.product.prodname_copilot_short %}.'
-versions:
+Title: Plans for GitHub Copilot
+Intro: 'Learn about the available plans for {% data variables.product.prodname_copilot_short %}.'
+Versions:
   feature: copilot
-shortTitle: Plans
-redirect_from:
+ShortTitle: Plans
+Redirect_from:
   - /copilot/about-github-copilot/subscription-plans-for-github-copilot
   - /copilot/about-github-copilot/plans-for-github-copilot
   - /copilot/get-started/plans-for-github-copilot
-contentType: get-started
-category: 
+ContentType: get-started
+Category: 
   - Learn about Copilot
 ---
 
