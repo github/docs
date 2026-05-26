@@ -186,7 +186,6 @@ export default [
       'src/links/**/*.{ts,js}',
       'src/metrics/**/*.{ts,js}',
       'src/observability/lib/handle-package-not-found.ts',
-      'src/rest/**/*.{ts,js}',
       'src/search/**/*.{ts,js}',
       'src/shielding/**/*.{ts,js}',
     ],
@@ -203,6 +202,8 @@ export default [
       'src/workflows/**/*.{ts,js}',
       'src/content-linter/**/*.{ts,js}',
       '**/*.{tsx,jsx}',
+      // CLI help script — chalk-colored terminal output, not application logging
+      'src/rest/docs.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
