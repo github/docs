@@ -185,7 +185,7 @@ export default [
       'src/languages/**/*.{ts,js}',
       'src/links/**/*.{ts,js}',
       'src/metrics/**/*.{ts,js}',
-      'src/observability/**/*.{ts,js}',
+      'src/observability/lib/handle-package-not-found.ts',
       'src/rest/**/*.{ts,js}',
       'src/search/**/*.{ts,js}',
       'src/shielding/**/*.{ts,js}',

@@ -29783,6 +29783,13 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the IssueFieldDate object.</p>",
           "type": "ID!",
@@ -29886,6 +29893,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -30037,6 +30051,13 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the IssueFieldSingleSelect object.</p>",
           "type": "ID!",
@@ -30088,11 +30109,25 @@
           "href": "/graphql/reference/enums#issuefieldsingleselectoptioncolor"
         },
         {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "description",
           "description": "<p>The option's plain-text description.</p>",
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -30226,6 +30261,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -78815,6 +78857,13 @@
           "type": "String",
           "id": "string",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "name",
