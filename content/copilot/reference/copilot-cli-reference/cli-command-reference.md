@@ -156,8 +156,10 @@ Sessions already open in another window float to the top in all non-relevance so
 | <kbd>Ctrl</kbd>+<kbd>K</kbd>        | Delete from cursor to end of the line. If the cursor is at the end of the line, delete the line break. |
 | <kbd>Ctrl</kbd>+<kbd>U</kbd>        | Delete from cursor to beginning of the line. |
 | <kbd>Ctrl</kbd>+<kbd>W</kbd>        | Delete the previous word.                    |
-| <kbd>Home</kbd>                     | Move to the start of the text.               |
-| <kbd>End</kbd>                      | Move to the end of the text.                 |
+| <kbd>Home</kbd>                     | Move to the start of the current visual line.               |
+| <kbd>End</kbd>                      | Move to the end of the current visual line.                 |
+| <kbd>Ctrl</kbd>+<kbd>Home</kbd>     | Move to the start of the text.                              |
+| <kbd>Ctrl</kbd>+<kbd>End</kbd>      | Move to the end of the text.                                |
 | <kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> (Windows/Linux)<br><kbd>Option</kbd>+<kbd>←</kbd>/<kbd>→</kbd> (Mac) | Move the cursor by a word.             |
 | <kbd>↑</kbd>/<kbd>↓</kbd>           | Navigate the command history.                |
 | <kbd>Tab</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> | Accept the current inline completion suggestion. |
@@ -174,7 +176,9 @@ Sessions already open in another window float to the top in all non-relevance so
 | `/chronicle <standup\|tips\|improve\|reindex>`      | Session history tools and insights. {% data reusables.copilot.experimental %} |
 | `/clear [PROMPT]`, `/new [PROMPT]`, `/reset [PROMPT]` | Start a new conversation. |
 | `/clikit [COMPONENT]`                               | Preview CLI business components (for example, quota info). |
-| `/compact`                                          | Summarize the conversation history to reduce context window usage. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#compaction). |
+| `/collect-debug-logs [file\|gist] [PATH]`           | Collect debug logs to an archive file or {% data variables.product.github %} gist. |
+| `/diagnose [PROMPT]`                                | Analyze the current session log and optionally prompt the agent with a question about diagnostics. |
+| `/compact [FOCUS-INSTRUCTIONS]`                     | Summarize the conversation history to reduce context window usage. Optionally provide focus instructions to steer the summary—for example, `/compact focus on the auth module`. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#compaction). |
 | `/context`                                          | Show the context window token usage and visualization. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/context-management#checking-your-context-usage). |
 | `/copy`                                             | Copy the last response to the clipboard. |
 | `/cwd`, `/cd [PATH]`                                | Change the working directory or display the current directory. |
@@ -183,6 +187,7 @@ Sessions already open in another window float to the top in all non-relevance so
 | `/downgrade <VERSION>`                              | Download and restart into a specific CLI version. Available for team accounts. |
 | `/env`                                              | Show loaded environment details (instructions, MCP servers, skills, agents, plugins, LSPs, extensions). |
 | `/exit`, `/quit`                                    | Exit the CLI. |
+| `/extensions [manage\|mode]`, `/extension`          | Manage CLI extensions. |
 | `/experimental [on\|off\|show]`                     | Toggle, set, or show experimental features. |
 | `/feedback`, `/bug`                                 | Provide feedback about the CLI. |
 | `/fleet [PROMPT]`                                   | Enable parallel subagent execution of parts of a task. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet). |
@@ -197,6 +202,7 @@ Sessions already open in another window float to the top in all non-relevance so
 | `/lsp [show\|test\|reload\|help] [SERVER-NAME]`     | Manage the language server configuration. |
 | `/mcp [show\|add\|edit\|delete\|disable\|enable\|auth\|reload] [SERVER-NAME]` | Manage the MCP server configuration. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers#managing-mcp-servers). |
 | `/model`, `/models [MODEL]`                         | Select the AI model you want to use. |
+| `/permissions [show\|reset]`                        | View or clear in-memory tool and path approvals for the current session. |
 | `/plan [PROMPT]`                                    | Create an implementation plan before coding. |
 | `/plugin [marketplace\|install\|uninstall\|update\|list] [ARGS...]` | Manage plugins and plugin marketplaces. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins). |
 | `/pr [view\|create\|fix\|auto]`                     | Manage pull requests for the current branch. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests). |
@@ -207,6 +213,7 @@ Sessions already open in another window float to the top in all non-relevance so
 | `/restart`                                          | Restart the CLI, preserving the current session. |
 | `/resume [SESSION-ID]`, `/continue [SESSION-ID]`    | Switch to a different session by choosing from a list (optionally specify a session ID). |
 | `/review [PROMPT]`                                  | Run the code review agent to analyze changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review). |
+| `/sandbox [enable\|disable]`                        | Configure shell command sandboxing. |
 | `/search [QUERY]`, `/find [QUERY]`                  | Search the conversation timeline. {% data reusables.copilot.experimental %} |
 | `/session [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`, `/sessions [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`  | Show session information and manage sessions. Subcommands: `info`, `checkpoints`, `files`, `plan`, `rename`, `cleanup`, `prune`, `delete`, `delete-all`. |
 | `/share [file\|html\|gist] [session\|research] [PATH]`, `/export [file\|html\|gist] [session\|research] [PATH]` | Share the session to a Markdown file, interactive HTML file, or {% data variables.product.github %} gist. |
@@ -215,6 +222,7 @@ Sessions already open in another window float to the top in all non-relevance so
 | `/tasks`                                            | View and manage tasks (subagents and shell commands). |
 | `/terminal-setup`      | Configure the terminal for multiline input support (<kbd>Shift</kbd>+<kbd>Enter</kbd> and <kbd>Ctrl</kbd>+<kbd>Enter</kbd>). |
 | `/theme [default\|dim\|high-contrast\|colorblind]`   | View or set the color mode. |
+| `/tuikit [colors\|icons\|select\|tabbar]`           | Preview TUIkit design-system components and color tokens. |
 | `/undo`, `/rewind`                                  | Rewind the last turn and revert file changes. |
 | `/update`, `/upgrade`                               | Update the CLI to the latest version. |
 | `/usage`                                            | Display session usage metrics and statistics. |
@@ -243,6 +251,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--banner`, `--no-banner`          | Show or hide the startup banner. |
 | `--bash-env`                       | Enable `BASH_ENV` support for bash shells. |
 | `--connect[=SESSION-ID]`           | Connect directly to a remote session (optionally specify a session ID or task ID). Conflicts with `--resume` and `--continue`. |
+| `--config-dir=DIRECTORY`           | This option for setting the configuration directory is deprecated. Use the `COPILOT_HOME` environment variable instead. | <!-- markdownlint-disable-line GHD046 -->
 | `--continue`                       | Resume the most recent session in the current working directory, falling back to the globally most recent session. |
 | `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-url=URL ...`               | Deny access to specific URLs or domains, takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
@@ -283,7 +292,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--secret-env-vars=VAR ...`        | Redact an environment variable from shell and MCP server environments (can be used multiple times). For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted from output by default. |
 | `--share=PATH`                     | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
-| `--stream=MODE`                    | Enable or disable streaming mode (mode choices: `on` or `off`). |
+| `--stream=MODE`                    | Enable or disable streaming mode, which displays {% data variables.product.prodname_copilot_short %}'s response progressively as it is generated rather than waiting for the full response to arrive (mode choices: `on` or `off`, default: `on`).
 | `-v`, `--version`                  | Show version information. |
 | `--yolo`                           | Enable all permissions (equivalent to `--allow-all`). |
 
