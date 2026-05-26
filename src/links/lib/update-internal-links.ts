@@ -6,6 +6,7 @@ import { toMarkdown } from 'mdast-util-to-markdown'
 import yaml from 'js-yaml'
 import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
+import { createLogger } from '@/observability/logger'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import {
   getPathWithLanguage,
@@ -19,6 +20,8 @@ import { loadUnversionedTree, loadPages, loadPageMap } from '@/frame/lib/page-da
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
+
+const logger = createLogger(import.meta.url)
 
 // That magical string that can be turned into the actual title when
 // we, at runtime, render out the links
@@ -55,7 +58,7 @@ export async function updateInternalLinks(files: string[], options = {}) {
         ...(await updateFile(file, context, opts)),
       })
     } catch (err) {
-      console.warn(`The file it tried to process on exception was: ${file}`)
+      logger.warn('File processing failed', { file })
       throw err
     }
   }
@@ -149,7 +152,7 @@ async function updateFile(
       // bubble up to the CLI. And the CLI will mention which file it
       // was processing when it failed. But we have a valuable piece of
       // information here about which frontmatter key it was that failed.
-      console.warn(`The frontmatter key it processed and failed was '${key}'`)
+      logger.warn('Frontmatter key processing failed', { key })
       throw error
     }
   }
@@ -281,9 +284,10 @@ async function updateFile(
         newContent = newContent.replace(asMarkdown, newAsMarkdown)
       }
     } else if (opts.verbose) {
-      console.warn(
-        `Unable to find link as Markdown ('${asMarkdown}') in the source content (${file})`,
-      )
+      logger.warn('Unable to find link as Markdown in the source content', {
+        asMarkdown,
+        file,
+      })
     }
   })
 
@@ -394,7 +398,7 @@ function getNewFrontmatterLinkList(
   const better = []
   for (const entry of list) {
     if (/{%\s*else\s*%}/.test(entry)) {
-      console.warn(`Skipping frontmatter link with {% else %} in it: ${entry}. (file: ${file})`)
+      logger.warn('Skipping frontmatter link with {% else %} in it', { entry, file })
       better.push(entry)
       continue
     }
@@ -419,7 +423,7 @@ function getNewFrontmatterLinkList(
         if (opts.strict) {
           throw new Error(msg)
         }
-        console.warn(`WARNING: ${msg}`)
+        logger.warn(msg, { file, pure, lineNumber })
         better.push(entry)
       } else {
         // Perhaps it just redirected to a specific version
@@ -512,7 +516,7 @@ function getNewHref(
     if (opts.strict) {
       throw new Error(msg)
     } else {
-      console.warn(`WARNING: ${msg}`)
+      logger.warn(msg, { file, href: newHref })
       return
     }
   }
@@ -530,7 +534,7 @@ function getNewHref(
       if (opts.strict) {
         throw new Error(msg)
       } else {
-        console.warn(`WARNING: ${msg}`)
+        logger.warn(msg, { file, href })
         return
       }
     }
@@ -569,7 +573,7 @@ function getNewHref(
       if (opts.strict) {
         throw new Error(msg)
       } else {
-        console.warn(msg)
+        logger.warn(msg, { file })
         return
       }
     } else if (withoutLanguage.startsWith('/enterprise-server@latest')) {
