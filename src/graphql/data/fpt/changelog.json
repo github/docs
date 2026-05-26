@@ -3,6 +3,25 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>fullDatabaseId</code> was added to interface <code>IssueFieldCommon</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldDate</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldNumber</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldSingleSelect</code></p>",
+          "<p>Field <code>databaseId</code> was added to object type <code>IssueFieldSingleSelectOption</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldSingleSelectOption</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldText</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-05-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],

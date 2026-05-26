@@ -21154,6 +21154,11 @@ interface IssueFieldCommon @docsCategory(name: "issues") {
   description: String
 
   """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
   The issue field's name.
   """
   name: String!
@@ -21249,6 +21254,11 @@ type IssueFieldDate implements IssueFieldCommon & Node @docsCategory(name: "issu
   description: String
 
   """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
   The Node ID of the IssueFieldDate object
   """
   id: ID!
@@ -21302,6 +21312,11 @@ type IssueFieldNumber implements IssueFieldCommon & Node @docsCategory(name: "is
   The issue field's description.
   """
   description: String
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the IssueFieldNumber object
@@ -21414,6 +21429,11 @@ type IssueFieldSingleSelect implements IssueFieldCommon & Node @docsCategory(nam
   description: String
 
   """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
   The Node ID of the IssueFieldSingleSelect object
   """
   id: ID!
@@ -21444,9 +21464,19 @@ type IssueFieldSingleSelectOption implements Node @docsCategory(name: "issues") 
   color: IssueFieldSingleSelectOptionColor!
 
   """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+
+  """
   The option's plain-text description.
   """
   description: String
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the IssueFieldSingleSelectOption object
@@ -21592,6 +21622,11 @@ type IssueFieldText implements IssueFieldCommon & Node @docsCategory(name: "issu
   The issue field's description.
   """
   description: String
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the IssueFieldText object
