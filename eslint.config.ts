@@ -186,7 +186,6 @@ export default [
       'src/metrics/**/*.{ts,js}',
       'src/observability/lib/handle-package-not-found.ts',
       'src/search/**/*.{ts,js}',
-      'src/shielding/**/*.{ts,js}',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
