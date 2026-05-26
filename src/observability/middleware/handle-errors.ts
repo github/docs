@@ -6,6 +6,7 @@ import { minimumNotFoundHtml } from '@/frame/lib/constants'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
 import statsd from '@/observability/lib/statsd'
+import { toError } from '@/observability/lib/to-error'
 import { ExtendedRequest } from '@/types'
 import { createLogger } from '@/observability/logger'
 
@@ -86,7 +87,7 @@ async function handleError(
       setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
     }
   } else if (DEBUG_MIDDLEWARE_TESTS) {
-    console.warn('An error occurred in some middleware handler', error)
+    logger.warn('An error occurred in some middleware handler', { error })
   }
 
   try {
@@ -147,7 +148,9 @@ async function handleError(
       await logException(error, req)
     }
   } catch (handlingError) {
-    console.error('An error occurred in the error handling middleware!', handlingError)
+    logger.error('An error occurred in the error handling middleware', {
+      error: toError(handlingError),
+    })
     next(handlingError)
     return
   }
