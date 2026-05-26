@@ -181,12 +181,9 @@ export default [
       'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
-      'src/languages/**/*.{ts,js}',
-      'src/links/**/*.{ts,js}',
       'src/metrics/**/*.{ts,js}',
       'src/observability/lib/handle-package-not-found.ts',
       'src/search/**/*.{ts,js}',
-      'src/shielding/**/*.{ts,js}',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
@@ -201,6 +198,8 @@ export default [
       'src/workflows/**/*.{ts,js}',
       'src/content-linter/**/*.{ts,js}',
       '**/*.{tsx,jsx}',
+      // Client-side module that cannot use the server-only structured logger
+      'src/languages/lib/translation-utils.ts',
       // CLI help script — chalk-colored terminal output, not application logging
       'src/rest/docs.ts',
     ],
