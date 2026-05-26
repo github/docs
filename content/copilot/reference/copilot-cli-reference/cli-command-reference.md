@@ -219,7 +219,6 @@ Sessions already open in another window float to the top in all non-relevance so
 | `/share [file\|html\|gist] [session\|research] [PATH]`, `/export [file\|html\|gist] [session\|research] [PATH]` | Share the session to a Markdown file, interactive HTML file, or {% data variables.product.github %} gist. |
 | `/skills [list\|info\|add\|remove\|reload] [ARGS...]`   | Manage skills for enhanced capabilities. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills). |
 | `/statusline`, `/footer`                            | Configure which items appear in the status line. |
-| `/streamer-mode`, `/on-air`                         | Toggle streamer mode, which hides preview model names and quota details. Useful when demonstrating {% data variables.copilot.copilot_cli_short %} or screen sharing. |
 | `/tasks`                                            | View and manage tasks (subagents and shell commands). |
 | `/terminal-setup`      | Configure the terminal for multiline input support (<kbd>Shift</kbd>+<kbd>Enter</kbd> and <kbd>Ctrl</kbd>+<kbd>Enter</kbd>). |
 | `/theme [default\|dim\|high-contrast\|colorblind]`   | View or set the color mode. |
@@ -293,7 +292,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--secret-env-vars=VAR ...`        | Redact an environment variable from shell and MCP server environments (can be used multiple times). For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted from output by default. |
 | `--share=PATH`                     | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
-| `--stream=MODE`                    | Enable or disable streaming mode (mode choices: `on` or `off`). |
+| `--stream=MODE`                    | Enable or disable streaming mode, which displays {% data variables.product.prodname_copilot_short %}'s response progressively as it is generated rather than waiting for the full response to arrive (mode choices: `on` or `off`, default: `on`).
 | `-v`, `--version`                  | Show version information. |
 | `--yolo`                           | Enable all permissions (equivalent to `--allow-all`). |
 
