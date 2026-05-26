@@ -3,6 +3,7 @@ import fs from 'fs'
 import type { GetServerSidePropsContext } from 'next'
 
 import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
+import { createLogger } from '@/observability/logger'
 import { getOpenApiVersion } from '@/versions/lib/all-versions'
 import { categoriesWithoutSubcategories } from '../../rest/lib/index'
 import type { Context, ExtendedRequest } from '@/types'
@@ -15,7 +16,7 @@ interface AppsConfig {
 // are expected to provide the concrete shape via the generic parameter.
 type AppsData = Record<string, unknown>
 
-const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
+const logger = createLogger(import.meta.url)
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const githubAppsData = new Map<string, Map<string, AppsData>>()
 
@@ -33,11 +34,7 @@ export async function getAppsData<T extends AppsData = AppsData>(
   docsVersion: string,
   apiVersion?: string,
 ): Promise<T> {
-  if (DEBUG) {
-    console.log(
-      `[DEBUG] getAppsData: ROOT=${process.env.ROOT || '(not set)'}, path=${ENABLED_APPS_DIR}`,
-    )
-  }
+  logger.debug('getAppsData', { root: process.env.ROOT || '(not set)', path: ENABLED_APPS_DIR })
 
   const pageTypeMap = githubAppsData.get(pageType)!
   const filename = `${pageType}.json`
