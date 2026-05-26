@@ -55,6 +55,10 @@ Model multipliers and costs are subject to change.
 | {{ entry.model }} | {{ entry.current_multiplier }} | {{ entry.new_multiplier }} |
 | {% endfor %} |
 
+### Model multiplier for {% data variables.copilot.copilot_code-review_short %}
+
+Starting June 1, 2026, {% data variables.copilot.copilot_code-review_short %} will have a model multiplier of 13. This means each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests will be reduced by 13.
+
 ## Next steps
 
 * To understand more about how usage-based billing works, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).
