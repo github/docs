@@ -180,13 +180,11 @@ export default [
       'src/dev-toc/**/*.{ts,js}',
       'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
-      'src/github-apps/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
       'src/languages/**/*.{ts,js}',
       'src/links/**/*.{ts,js}',
       'src/metrics/**/*.{ts,js}',
       'src/observability/lib/handle-package-not-found.ts',
-      'src/rest/**/*.{ts,js}',
       'src/search/**/*.{ts,js}',
       'src/shielding/**/*.{ts,js}',
     ],
@@ -203,6 +201,8 @@ export default [
       'src/workflows/**/*.{ts,js}',
       'src/content-linter/**/*.{ts,js}',
       '**/*.{tsx,jsx}',
+      // CLI help script — chalk-colored terminal output, not application logging
+      'src/rest/docs.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
