@@ -114,8 +114,11 @@ RUN npm run warmup-remotejson
 # --------------------------------------
 FROM build AS precompute_stage
 
-# Generate precomputed page info
-RUN npm run precompute-pageinfo -- --max-versions 2
+# Generate precomputed page info. Only English + free-pro-team@latest
+# permalinks are cached; cache misses for older versions and translated
+# pages fall through to runtime compute (which is cheap and Fastly-cached
+# per pathname after the first hit).
+RUN npm run precompute-pageinfo -- --max-versions 1
 
 # -------------------------------------------------
 # PRODUCTION STAGE: What will run on the containers

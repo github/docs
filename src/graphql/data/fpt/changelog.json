@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'LOW_QUALITY<code>was added to enum</code>ReportedContentClassifiers'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-05-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>fullDatabaseId</code> was added to interface <code>IssueFieldCommon</code></p>",
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldDate</code></p>",
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldNumber</code></p>",

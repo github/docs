@@ -374,7 +374,7 @@ REDACTED_TOOL_ARGS="$(echo "$TOOL_ARGS_RAW" | \
   sed -E 's/ghp_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
   sed -E 's/gho_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
   sed -E 's/ghu_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
-  sed -E 's/ghs_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
+  sed -E 's/ghs_[A-Za-z0-9\._\-]{20,}/[REDACTED_TOKEN]/g' | \
   sed -E 's/Bearer [A-Za-z0-9_\-\.]+/Bearer [REDACTED]/g' | \
   sed -E 's/--password[= ][^ ]+/--password=[REDACTED]/g' | \
   sed -E 's/--token[= ][^ ]+/--token=[REDACTED]/g')"
@@ -416,7 +416,7 @@ deny() {
     sed -E 's/ghp_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
     sed -E 's/gho_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
     sed -E 's/ghu_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
-    sed -E 's/ghs_[A-Za-z0-9]{20,}/[REDACTED_TOKEN]/g' | \
+    sed -E 's/ghs_[A-Za-z0-9\.\-_]{20,}/[REDACTED_TOKEN]/g' | \
     sed -E 's/Bearer [A-Za-z0-9_\-\.]+/Bearer [REDACTED]/g' | \
     sed -E 's/--password[= ][^ ]+/--password=[REDACTED]/g' | \
     sed -E 's/--token[= ][^ ]+/--token=[REDACTED]/g')"

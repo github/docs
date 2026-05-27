@@ -2688,7 +2688,7 @@ union BranchActorAllowanceActor @docsCategory(name: "branches") = App | Team | U
 """
 Parameters to be used for the branch_name_pattern rule
 """
-type BranchNamePatternParameters {
+type BranchNamePatternParameters @docsCategory(name: "branches") {
   """
   How this rule appears when configuring it.
   """
@@ -2713,7 +2713,7 @@ type BranchNamePatternParameters {
 """
 Parameters to be used for the branch_name_pattern rule
 """
-input BranchNamePatternParametersInput {
+input BranchNamePatternParametersInput @docsCategory(name: "branches") {
   """
   How this rule appears when configuring it.
   """
@@ -5741,7 +5741,7 @@ input CommitAuthor @docsCategory(name: "commits") {
 """
 Parameters to be used for the commit_author_email_pattern rule
 """
-type CommitAuthorEmailPatternParameters {
+type CommitAuthorEmailPatternParameters @docsCategory(name: "commits") {
   """
   How this rule appears when configuring it.
   """
@@ -5766,7 +5766,7 @@ type CommitAuthorEmailPatternParameters {
 """
 Parameters to be used for the commit_author_email_pattern rule
 """
-input CommitAuthorEmailPatternParametersInput {
+input CommitAuthorEmailPatternParametersInput @docsCategory(name: "commits") {
   """
   How this rule appears when configuring it.
   """
@@ -6265,7 +6265,7 @@ input CommitMessage @docsCategory(name: "commits") {
 """
 Parameters to be used for the commit_message_pattern rule
 """
-type CommitMessagePatternParameters {
+type CommitMessagePatternParameters @docsCategory(name: "commits") {
   """
   How this rule appears when configuring it.
   """
@@ -6290,7 +6290,7 @@ type CommitMessagePatternParameters {
 """
 Parameters to be used for the commit_message_pattern rule
 """
-input CommitMessagePatternParametersInput {
+input CommitMessagePatternParametersInput @docsCategory(name: "commits") {
   """
   How this rule appears when configuring it.
   """
@@ -6355,7 +6355,7 @@ input CommittableBranch @docsCategory(name: "git") {
 """
 Parameters to be used for the committer_email_pattern rule
 """
-type CommitterEmailPatternParameters {
+type CommitterEmailPatternParameters @docsCategory(name: "commits") {
   """
   How this rule appears when configuring it.
   """
@@ -6380,7 +6380,7 @@ type CommitterEmailPatternParameters {
 """
 Parameters to be used for the committer_email_pattern rule
 """
-input CommitterEmailPatternParametersInput {
+input CommitterEmailPatternParametersInput @docsCategory(name: "commits") {
   """
   How this rule appears when configuring it.
   """
@@ -7457,7 +7457,7 @@ Request Copilot code review for new pull requests automatically if the author
 has access to Copilot code review and their premium requests quota has not
 reached the limit.
 """
-type CopilotCodeReviewParameters {
+type CopilotCodeReviewParameters @docsCategory(name: "pulls") {
   """
   Copilot automatically reviews draft pull requests before they are marked as ready for review.
   """
@@ -7474,7 +7474,7 @@ Request Copilot code review for new pull requests automatically if the author
 has access to Copilot code review and their premium requests quota has not
 reached the limit.
 """
-input CopilotCodeReviewParametersInput {
+input CopilotCodeReviewParametersInput @docsCategory(name: "pulls") {
   """
   Copilot automatically reviews draft pull requests before they are marked as ready for review.
   """
@@ -17935,7 +17935,7 @@ input FileDeletion @docsCategory(name: "git") {
 """
 Prevent commits that include files with specified file extensions from being pushed to the commit graph.
 """
-type FileExtensionRestrictionParameters {
+type FileExtensionRestrictionParameters @docsCategory(name: "repos") {
   """
   The file extensions that are restricted from being pushed to the commit graph.
   """
@@ -17945,7 +17945,7 @@ type FileExtensionRestrictionParameters {
 """
 Prevent commits that include files with specified file extensions from being pushed to the commit graph.
 """
-input FileExtensionRestrictionParametersInput {
+input FileExtensionRestrictionParametersInput @docsCategory(name: "repos") {
   """
   The file extensions that are restricted from being pushed to the commit graph.
   """
@@ -17956,7 +17956,7 @@ input FileExtensionRestrictionParametersInput {
 Prevent commits that include changes in specified file and folder paths from
 being pushed to the commit graph. This includes absolute paths that contain file names.
 """
-type FilePathRestrictionParameters {
+type FilePathRestrictionParameters @docsCategory(name: "repos") {
   """
   The file paths that are restricted from being pushed to the commit graph.
   """
@@ -17967,7 +17967,7 @@ type FilePathRestrictionParameters {
 Prevent commits that include changes in specified file and folder paths from
 being pushed to the commit graph. This includes absolute paths that contain file names.
 """
-input FilePathRestrictionParametersInput {
+input FilePathRestrictionParametersInput @docsCategory(name: "repos") {
   """
   The file paths that are restricted from being pushed to the commit graph.
   """
@@ -24275,7 +24275,7 @@ type MarketplaceListingEdge {
 """
 Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.
 """
-type MaxFilePathLengthParameters {
+type MaxFilePathLengthParameters @docsCategory(name: "repos") {
   """
   The maximum amount of characters allowed in file paths.
   """
@@ -24285,7 +24285,7 @@ type MaxFilePathLengthParameters {
 """
 Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.
 """
-input MaxFilePathLengthParametersInput {
+input MaxFilePathLengthParametersInput @docsCategory(name: "repos") {
   """
   The maximum amount of characters allowed in file paths.
   """
@@ -24295,7 +24295,7 @@ input MaxFilePathLengthParametersInput {
 """
 Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.
 """
-type MaxFileSizeParameters {
+type MaxFileSizeParameters @docsCategory(name: "repos") {
   """
   The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
   """
@@ -24305,7 +24305,7 @@ type MaxFileSizeParameters {
 """
 Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.
 """
-input MaxFileSizeParametersInput {
+input MaxFileSizeParametersInput @docsCategory(name: "repos") {
   """
   The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
   """
@@ -24375,7 +24375,8 @@ interface MemberStatusable @docsCategory(name: "users") {
 """
 Audit log entry for a members_can_delete_repos.clear event.
 """
-type MembersCanDeleteReposClearAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData {
+type MembersCanDeleteReposClearAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData
+  @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -25269,7 +25270,7 @@ group must pass all required checks to merge. When set to HEADGREEN, only the
 commit at the head of the merge group, i.e. the commit containing changes from
 all of the PRs in the group, must pass its required checks to merge.
 """
-enum MergeQueueGroupingStrategy {
+enum MergeQueueGroupingStrategy @docsCategory(name: "pulls") {
   """
   The merge commit created by merge queue for each PR in the group must pass all required checks to merge
   """
@@ -25284,7 +25285,7 @@ enum MergeQueueGroupingStrategy {
 """
 Method to use when merging changes from queued pull requests.
 """
-enum MergeQueueMergeMethod {
+enum MergeQueueMergeMethod @docsCategory(name: "pulls") {
   """
   Merge commit
   """
@@ -25319,7 +25320,7 @@ enum MergeQueueMergingStrategy @docsCategory(name: "pulls") {
 """
 Merges must be performed via a merge queue.
 """
-type MergeQueueParameters {
+type MergeQueueParameters @docsCategory(name: "pulls") {
   """
   Maximum time for a required status check to report a conclusion. After this
   much time has elapsed, checks that have not reported a conclusion will be
@@ -25366,7 +25367,7 @@ type MergeQueueParameters {
 """
 Merges must be performed via a merge queue.
 """
-input MergeQueueParametersInput {
+input MergeQueueParametersInput @docsCategory(name: "pulls") {
   """
   Maximum time for a required status check to report a conclusion. After this
   much time has elapsed, checks that have not reported a conclusion will be
@@ -36546,7 +36547,7 @@ enum OrganizationOrderField @docsCategory(name: "orgs") {
 """
 Parameters to be used for the organization_property condition
 """
-type OrganizationPropertyConditionTarget {
+type OrganizationPropertyConditionTarget @docsCategory(name: "orgs") {
   """
   Array of organization properties that must not match.
   """
@@ -36561,7 +36562,7 @@ type OrganizationPropertyConditionTarget {
 """
 Parameters to be used for the organization_property condition
 """
-input OrganizationPropertyConditionTargetInput {
+input OrganizationPropertyConditionTargetInput @docsCategory(name: "orgs") {
   """
   Array of organization properties that must not match.
   """
@@ -36576,7 +36577,7 @@ input OrganizationPropertyConditionTargetInput {
 """
 A property that must match
 """
-type OrganizationPropertyTargetDefinition {
+type OrganizationPropertyTargetDefinition @docsCategory(name: "orgs") {
   """
   The name of the property
   """
@@ -36591,7 +36592,7 @@ type OrganizationPropertyTargetDefinition {
 """
 A property that must match
 """
-input OrganizationPropertyTargetDefinitionInput {
+input OrganizationPropertyTargetDefinitionInput @docsCategory(name: "orgs") {
   """
   The name of the property
   """
@@ -42417,7 +42418,7 @@ type PromoteRepositoryCustomPropertyPayload {
 """
 A property that must match
 """
-type PropertyTargetDefinition {
+type PropertyTargetDefinition @docsCategory(name: "repos") {
   """
   The name of the property
   """
@@ -42437,7 +42438,7 @@ type PropertyTargetDefinition {
 """
 A property that must match
 """
-input PropertyTargetDefinitionInput {
+input PropertyTargetDefinitionInput @docsCategory(name: "repos") {
   """
   The name of the property
   """
@@ -44077,7 +44078,7 @@ enum PullRequestOrderField @docsCategory(name: "pulls") {
 """
 Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.
 """
-type PullRequestParameters {
+type PullRequestParameters @docsCategory(name: "pulls") {
   """
   Array of allowed merge methods. Allowed values include `merge`, `squash`, and
   `rebase`. At least one option must be enabled.
@@ -44120,7 +44121,7 @@ type PullRequestParameters {
 """
 Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.
 """
-input PullRequestParametersInput {
+input PullRequestParametersInput @docsCategory(name: "pulls") {
   """
   Array of allowed merge methods. Allowed values include `merge`, `squash`, and
   `rebase`. At least one option must be enabled.
@@ -47227,7 +47228,7 @@ type RefEdge {
 """
 Parameters to be used for the ref_name condition
 """
-type RefNameConditionTarget {
+type RefNameConditionTarget @docsCategory(name: "branches") {
   """
   Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
   """
@@ -47244,7 +47245,7 @@ type RefNameConditionTarget {
 """
 Parameters to be used for the ref_name condition
 """
-input RefNameConditionTargetInput {
+input RefNameConditionTargetInput @docsCategory(name: "branches") {
   """
   Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
   """
@@ -52220,6 +52221,11 @@ enum ReportedContentClassifiers @docsCategory(name: "meta") {
   DUPLICATE
 
   """
+  A low quality piece of content
+  """
+  LOW_QUALITY
+
+  """
   An irrelevant piece of content
   """
   OFF_TOPIC
@@ -54645,7 +54651,7 @@ type RepositoryEdge {
 """
 Parameters to be used for the repository_id condition
 """
-type RepositoryIdConditionTarget {
+type RepositoryIdConditionTarget @docsCategory(name: "repos") {
   """
   One of these repo IDs must match the repo.
   """
@@ -54655,7 +54661,7 @@ type RepositoryIdConditionTarget {
 """
 Parameters to be used for the repository_id condition
 """
-input RepositoryIdConditionTargetInput {
+input RepositoryIdConditionTargetInput @docsCategory(name: "repos") {
   """
   One of these repo IDs must match the repo.
   """
@@ -55221,7 +55227,7 @@ enum RepositoryMigrationOrderField @docsCategory(name: "migrations") {
 """
 Parameters to be used for the repository_name condition
 """
-type RepositoryNameConditionTarget {
+type RepositoryNameConditionTarget @docsCategory(name: "repos") {
   """
   Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
   """
@@ -55242,7 +55248,7 @@ type RepositoryNameConditionTarget {
 """
 Parameters to be used for the repository_name condition
 """
-input RepositoryNameConditionTargetInput {
+input RepositoryNameConditionTargetInput @docsCategory(name: "repos") {
   """
   Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
   """
@@ -55521,7 +55527,7 @@ enum RepositoryPrivacy @docsCategory(name: "repos") {
 """
 Parameters to be used for the repository_property condition
 """
-type RepositoryPropertyConditionTarget {
+type RepositoryPropertyConditionTarget @docsCategory(name: "repos") {
   """
   Array of repository properties that must not match.
   """
@@ -55536,7 +55542,7 @@ type RepositoryPropertyConditionTarget {
 """
 Parameters to be used for the repository_property condition
 """
-input RepositoryPropertyConditionTargetInput {
+input RepositoryPropertyConditionTargetInput @docsCategory(name: "repos") {
   """
   Array of repository properties that must not match.
   """
@@ -55576,7 +55582,7 @@ type RepositoryRule implements Node @docsCategory(name: "repos") {
 """
 Set of conditions that determine if a ruleset will evaluate
 """
-type RepositoryRuleConditions {
+type RepositoryRuleConditions @docsCategory(name: "repos") {
   """
   Configuration for the organization_property condition
   """
@@ -55606,7 +55612,7 @@ type RepositoryRuleConditions {
 """
 Specifies the conditions required for a ruleset to evaluate
 """
-input RepositoryRuleConditionsInput {
+input RepositoryRuleConditionsInput @docsCategory(name: "repos") {
   """
   Configuration for the organization_property condition
   """
@@ -56326,7 +56332,8 @@ enum RepositoryVisibility @docsCategory(name: "repos") {
 """
 Audit log entry for a repository_visibility_change.disable event.
 """
-type RepositoryVisibilityChangeDisableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData {
+type RepositoryVisibilityChangeDisableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData
+  @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -56487,7 +56494,8 @@ type RepositoryVisibilityChangeDisableAuditEntry implements AuditEntry & Enterpr
 """
 Audit log entry for a repository_visibility_change.enable event.
 """
-type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData {
+type RepositoryVisibilityChangeEnableAuditEntry implements AuditEntry & EnterpriseAuditEntryData & Node & OrganizationAuditEntryData
+  @docsCategory(name: "enterprise-admin") {
   """
   The action name
   """
@@ -57113,7 +57121,7 @@ interface RequirableByPullRequest @docsCategory(name: "pulls") {
 """
 Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.
 """
-type RequiredDeploymentsParameters {
+type RequiredDeploymentsParameters @docsCategory(name: "deployments") {
   """
   The environments that must be successfully deployed to before branches can be merged.
   """
@@ -57123,7 +57131,7 @@ type RequiredDeploymentsParameters {
 """
 Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.
 """
-input RequiredDeploymentsParametersInput {
+input RequiredDeploymentsParametersInput @docsCategory(name: "deployments") {
   """
   The environments that must be successfully deployed to before branches can be merged.
   """
@@ -57133,7 +57141,7 @@ input RequiredDeploymentsParametersInput {
 """
 A reviewing team, and file patterns describing which files they must approve changes to.
 """
-type RequiredReviewerConfiguration {
+type RequiredReviewerConfiguration @docsCategory(name: "pulls") {
   """
   Array of file patterns. Pull requests which change matching files must be
   approved by the specified team. File patterns use fnmatch syntax.
@@ -57155,7 +57163,7 @@ type RequiredReviewerConfiguration {
 """
 A reviewing team, and file patterns describing which files they must approve changes to.
 """
-input RequiredReviewerConfigurationInput {
+input RequiredReviewerConfigurationInput @docsCategory(name: "pulls") {
   """
   Array of file patterns. Pull requests which change matching files must be
   approved by the specified team. File patterns use fnmatch syntax.
@@ -57210,7 +57218,7 @@ input RequiredStatusCheckInput @docsCategory(name: "branches") {
 Choose which status checks must pass before the ref is updated. When enabled,
 commits must first be pushed to another ref where the checks pass.
 """
-type RequiredStatusChecksParameters {
+type RequiredStatusChecksParameters @docsCategory(name: "branches") {
   """
   Allow repositories and branches to be created if a check would otherwise prohibit it.
   """
@@ -57233,7 +57241,7 @@ type RequiredStatusChecksParameters {
 Choose which status checks must pass before the ref is updated. When enabled,
 commits must first be pushed to another ref where the checks pass.
 """
-input RequiredStatusChecksParametersInput {
+input RequiredStatusChecksParametersInput @docsCategory(name: "branches") {
   """
   Allow repositories and branches to be created if a check would otherwise prohibit it.
   """
@@ -62482,7 +62490,7 @@ type Status implements Node @docsCategory(name: "commits") {
 """
 Required status check
 """
-type StatusCheckConfiguration {
+type StatusCheckConfiguration @docsCategory(name: "commits") {
   """
   The status check context name that must be present on the commit.
   """
@@ -62497,7 +62505,7 @@ type StatusCheckConfiguration {
 """
 Required status check
 """
-input StatusCheckConfigurationInput {
+input StatusCheckConfigurationInput @docsCategory(name: "commits") {
   """
   The status check context name that must be present on the commit.
   """
@@ -63192,7 +63200,7 @@ type Tag implements GitObject & Node @docsCategory(name: "git") {
 """
 Parameters to be used for the tag_name_pattern rule
 """
-type TagNamePatternParameters {
+type TagNamePatternParameters @docsCategory(name: "repos") {
   """
   How this rule appears when configuring it.
   """
@@ -63217,7 +63225,7 @@ type TagNamePatternParameters {
 """
 Parameters to be used for the tag_name_pattern rule
 """
-input TagNamePatternParametersInput {
+input TagNamePatternParametersInput @docsCategory(name: "repos") {
   """
   How this rule appears when configuring it.
   """
@@ -68180,7 +68188,7 @@ type UpdateOrganizationWebCommitSignoffSettingPayload {
 """
 Only allow users with bypass permission to update matching refs.
 """
-type UpdateParameters {
+type UpdateParameters @docsCategory(name: "repos") {
   """
   Branch can pull changes from its upstream repository
   """
@@ -68190,7 +68198,7 @@ type UpdateParameters {
 """
 Only allow users with bypass permission to update matching refs.
 """
-input UpdateParametersInput {
+input UpdateParametersInput @docsCategory(name: "repos") {
   """
   Branch can pull changes from its upstream repository
   """
@@ -72182,7 +72190,7 @@ type Workflow implements Node & UniformResourceLocatable @docsCategory(name: "ac
 """
 A workflow that must run for this rule to pass
 """
-type WorkflowFileReference {
+type WorkflowFileReference @docsCategory(name: "actions") {
   """
   The path to the workflow file
   """
@@ -72207,7 +72215,7 @@ type WorkflowFileReference {
 """
 A workflow that must run for this rule to pass
 """
-input WorkflowFileReferenceInput {
+input WorkflowFileReferenceInput @docsCategory(name: "actions") {
   """
   The path to the workflow file
   """
@@ -72487,7 +72495,7 @@ enum WorkflowState @docsCategory(name: "actions") {
 """
 Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
 """
-type WorkflowsParameters {
+type WorkflowsParameters @docsCategory(name: "actions") {
   """
   Allow repositories and branches to be created if a check would otherwise prohibit it.
   """
@@ -72502,7 +72510,7 @@ type WorkflowsParameters {
 """
 Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
 """
-input WorkflowsParametersInput {
+input WorkflowsParametersInput @docsCategory(name: "actions") {
   """
   Allow repositories and branches to be created if a check would otherwise prohibit it.
   """
