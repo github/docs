@@ -153,7 +153,9 @@ You can instead use {% data variables.product.prodname_actions %} and the {% dat
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 name: Dependabot auto-merge
-on: pull_request
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: write
