@@ -24,7 +24,7 @@ redirect_from:
   - /copilot/how-tos/administer/manage-for-organization/manage-policies
 shortTitle: Manage policies
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -70,6 +70,8 @@ If your organization has a {% data variables.copilot.copilot_business_short %} o
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-default-models)
+* [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models)
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)
 * [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise)

@@ -5,10 +5,12 @@ intro: Explore the capabilities you can add to your {% data variables.copilot.co
 versions:
   feature: copilot
 children:
+  - /agent-loop
   - /working-with-hooks
   - /custom-agents
   - /image-input
   - /mcp-servers
+  - /remote-sessions
   - /session-persistence
   - /custom-skills
   - /steering-and-queueing

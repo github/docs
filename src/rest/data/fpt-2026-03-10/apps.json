@@ -1832,6 +1832,7 @@
                         "type": "string",
                         "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                         "enum": [
+                          "read",
                           "write"
                         ]
                       },
@@ -2793,6 +2794,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -3561,6 +3563,7 @@
               "name": "organization_copilot_seat_management",
               "description": "<p>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</p>",
               "enum": [
+                "read",
                 "write"
               ]
             },
@@ -4197,6 +4200,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -5551,6 +5555,7 @@
               "name": "organization_copilot_seat_management",
               "description": "<p>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</p>",
               "enum": [
+                "read",
                 "write"
               ]
             },
@@ -6325,6 +6330,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
@@ -7676,6 +7682,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -8647,6 +8654,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -9616,6 +9624,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -10141,7 +10150,11 @@
                   },
                   "forks": 1,
                   "open_issues": 1,
-                  "watchers": 1
+                  "watchers": 1,
+                  "custom_properties": {
+                    "environment": "production",
+                    "service": "web"
+                  }
                 }
               ]
             },
@@ -10819,6 +10832,16 @@
                           "created_at",
                           "updated_at"
                         ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "custom_properties": {
+                            "type": "object",
+                            "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values. Present for org repos only.",
+                            "additionalProperties": true
+                          }
+                        }
                       }
                     ]
                   }
@@ -11565,6 +11588,7 @@
                             "type": "string",
                             "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                             "enum": [
+                              "read",
                               "write"
                             ]
                           },
@@ -12802,6 +12826,16 @@
                           "created_at",
                           "updated_at"
                         ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "custom_properties": {
+                            "type": "object",
+                            "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values. Present for org repos only.",
+                            "additionalProperties": true
+                          }
+                        }
                       }
                     ]
                   }
@@ -16022,6 +16056,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
@@ -16965,6 +17000,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
