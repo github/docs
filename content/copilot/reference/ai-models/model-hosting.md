@@ -43,7 +43,6 @@ All input requests and output responses processed by {% data variables.product.p
 Used for:
 
 * {% data variables.copilot.copilot_raptor_mini %}
-* {% data variables.copilot.copilot_goldeneye %}
 
 These models are deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
 
