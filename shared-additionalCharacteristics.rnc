@@ -1,0 +1,22 @@
+default namespace =
+  "http://purl.oclc.org/ooxml/officeDocument/characteristics"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace shrdChr =
+  "http://purl.oclc.org/ooxml/officeDocument/characteristics"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+shrdChr_CT_AdditionalCharacteristics =
+  element characteristic { shrdChr_CT_Characteristic }*
+shrdChr_CT_Characteristic =
+  attribute name { xsd:string },
+  attribute relation { shrdChr_ST_Relation },
+  attribute val { xsd:string },
+  attribute vocabulary { xsd:anyURI }?
+shrdChr_ST_Relation =
+  string "ge" | string "le" | string "gt" | string "lt" | string "eq"
+shrdChr_additionalCharacteristics =
+  element additionalCharacteristics {
+    shrdChr_CT_AdditionalCharacteristics
+  }

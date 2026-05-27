@@ -1,0 +1,13 @@
+namespace o = "urn:schemas-microsoft-com:office:office"
+default namespace sl = "http://purl.oclc.org/ooxml/schemaLibrary/main"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+sl_CT_Schema =
+  attribute sl:uri { xsd:string }?,
+  attribute sl:manifestLocation { xsd:string }?,
+  attribute sl:schemaLocation { xsd:string }?,
+  attribute sl:schemaLanguage { xsd:token }?
+sl_CT_SchemaLibrary = element schema { sl_CT_Schema }*
+sl_schemaLibrary = element schemaLibrary { sl_CT_SchemaLibrary }

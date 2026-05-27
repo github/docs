@@ -1,0 +1,2 @@
+anyElement = element * { anyAttribute*, text?, anyElement* }
+anyAttribute = attribute * { text }
