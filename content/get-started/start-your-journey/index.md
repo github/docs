@@ -32,3 +32,5 @@ journeyTracks:
       - href: '/get-started/start-your-journey/uploading-a-project-to-github'
       - href: '/get-started/start-your-journey/git-and-github-learning-resources'
 ---
+
+<img width="1538" height="464" alt="actions-runners-disabled" src="https://github.com/user-attachments/assets/d6ae4fd5-e4ee-41c8-8433-860424625152" />
