@@ -80,9 +80,8 @@ jobs:
       id: idtoken
       with:
         script: |
-          const coredemo = require('@actions/core')
-          let id_token = await coredemo.getIDToken()
-          coredemo.setOutput('id_token', id_token)
+          let id_token = await core.getIDToken()
+          core.setOutput('id_token', id_token)
 ```
 
 ### Requesting the JWT using environment variables
