@@ -624,9 +624,6 @@ containerMode:
   type: "kubernetes-novolume"
 ```
 
->[!NOTE]
->When using `kubernetes-novolume` mode, the container must run as `root` to support lifecycle hook operations.
-
 #### Troubleshooting Kubernetes mode
 
 When Kubernetes mode is enabled, workflows that are not configured with a container job will fail with an error similar to:

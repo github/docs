@@ -40,12 +40,21 @@ const EMPTY = Symbol('EMPTY')
 
 const pageList = await loadPages(undefined, ['en'])
 
+const SDK_DOCS_PATH = 'content/copilot/how-tos/copilot-sdk/'
+
 function getChangedContentFiles() {
   const deleted = new Set(getDeletedContentFiles())
-  return getContentFiles(process.env.CHANGED_FILES).filter((f) => !deleted.has(f))
+  return getContentFiles(process.env.CHANGED_FILES).filter(
+    (f) => !deleted.has(f) && !f.startsWith(SDK_DOCS_PATH),
+  )
 }
 function getDeletedContentFiles() {
-  return getContentFiles(process.env.DELETED_FILES)
+  return getContentFiles(process.env.DELETED_FILES).filter((file) => {
+    // Auto-generated SDK docs are managed by the sync-sdk-docs pipeline,
+    // which deletes and recreates pages when the source repo restructures.
+    // These deletions are expected and don't need redirects.
+    return !file.startsWith(SDK_DOCS_PATH)
+  })
 }
 
 function getContentFiles(spaceSeparatedList: string | undefined): string[] {

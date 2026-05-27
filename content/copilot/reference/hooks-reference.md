@@ -88,19 +88,21 @@ Command hooks run shell scripts and are supported on all hook types.
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `bash` | string | One of `bash`, `powershell`, or `command` | Shell command for Unix. |
-| `command` | string | One of `bash`, `powershell`, or `command` | Cross-platform fallback used when neither `bash` nor `powershell` is set for the current platform. |
+| `command` | string | One of `bash`, `powershell`, or `command` | Cross-platform fallback. Copied to both `bash` and `powershell` when those fields are absent; explicit `bash` or `powershell` entries take precedence on their respective platforms. |
 | `cwd` | string | No | Working directory for the command (relative to repository root or absolute). |
 | `env` | object | No | Environment variables to set (supports variable expansion). |
 | `powershell` | string | One of `bash`, `powershell`, or `command` | Shell command for Windows. |
+| `timeout` | number | No | Alias for `timeoutSec`, in seconds. Used only when `timeoutSec` is absent; `timeoutSec` takes precedence when both are present. |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
-| `type` | `"command"` | Yes | Must be `"command"`. |
+| `type` | `"command"` | No | Hook type. Defaults to `"command"` when omitted. |
 
 ### HTTP hooks
 
 HTTP hooks send the input payload as a JSON `POST` to a URL.
 
 > [!NOTE]
-> **Cloud agent only.** Outbound network from the sandbox is restricted by the cloud agent firewall, so `url` must target an allow-listed host.
+> * By default, only `https://` URLs are allowed. Non-TLS `http://` requests are rejected, except for `http://localhost`, `http://127.*`, and `http://[::1]` when `COPILOT_HOOK_ALLOW_LOCALHOST=1` is set.
+> * **Cloud agent only.** Outbound network from the sandbox is restricted by the cloud agent firewall, so `url` must target an allow-listed host.
 
 ```json
 {
@@ -123,6 +125,7 @@ HTTP hooks send the input payload as a JSON `POST` to a URL.
 |-------|------|----------|-------------|
 | `allowedEnvVars` | string[] | No | Environment variable names that may be expanded inside `headers` values. When set, `url` must use `https://`. |
 | `headers` | object | No | Request headers to include. |
+| `timeout` | number | No | Alias for `timeoutSec`, in seconds. Used only when `timeoutSec` is absent; `timeoutSec` takes precedence when both are present. |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
 | `type` | `"http"` | Yes | Must be `"http"`. |
 | `url` | string | Yes | Target URL. Must use `http:` or `https:`. For `preToolUse` and `permissionRequest`, must use `https://` because the response can grant tool permissions. |
@@ -381,6 +384,9 @@ When configured with the PascalCase event name `PreToolUse`, the payload uses sn
 ```
 
 ### `subagentStart`
+
+> [!NOTE]
+> The built-in `general-purpose` agent does not emit `subagentStart` or `subagentStop` events.
 
 **Input:**
 

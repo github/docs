@@ -78,7 +78,7 @@ For Python and Go, which do not currently support passing extra CLI arguments, r
 
    ```typescript copy
    const client = new CopilotClient({
-     githubToken: process.env.GITHUB_TOKEN,
+     gitHubToken: process.env.GITHUB_TOKEN,
    });
    ```
 

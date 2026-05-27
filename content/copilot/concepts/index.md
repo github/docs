@@ -13,15 +13,14 @@ children:
   - /prompting
   - /context
   - /tools
-  - /auto-model-selection
+  - /models
   - /usage-limits
   - /billing
   - /about-enterprise-accounts-for-copilot-business
   - /policies
   - /mcp-management
-  - /fedramp-models
   - /network-settings
-  - /fallback-and-lts-models
   - /preparing-for-new-features-and-models
 contentType: concepts
 ---
+

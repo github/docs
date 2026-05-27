@@ -161,6 +161,17 @@ export default [
     },
   },
 
+  // Client-side files that run in the browser where the server-only logger is unavailable
+  {
+    files: [
+      'src/search/components/hooks/useAISearchAutocomplete.ts',
+      'src/search/components/hooks/useAISearchLocalStorageCache.ts',
+    ],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
   // Disable custom logger rule for logger implementation itself
   {
     files: ['src/observability/logger/**/*.{ts,js}'],
@@ -180,15 +191,9 @@ export default [
       'src/dev-toc/**/*.{ts,js}',
       'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
-      'src/github-apps/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
-      'src/languages/**/*.{ts,js}',
-      'src/links/**/*.{ts,js}',
       'src/metrics/**/*.{ts,js}',
-      'src/observability/**/*.{ts,js}',
-      'src/rest/**/*.{ts,js}',
-      'src/search/**/*.{ts,js}',
-      'src/shielding/**/*.{ts,js}',
+      'src/observability/lib/handle-package-not-found.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
@@ -203,6 +208,10 @@ export default [
       'src/workflows/**/*.{ts,js}',
       'src/content-linter/**/*.{ts,js}',
       '**/*.{tsx,jsx}',
+      // Client-side module that cannot use the server-only structured logger
+      'src/languages/lib/translation-utils.ts',
+      // CLI help script — chalk-colored terminal output, not application logging
+      'src/rest/docs.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',

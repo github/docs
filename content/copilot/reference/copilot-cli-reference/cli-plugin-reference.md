@@ -25,7 +25,9 @@ You can use the following commands in the terminal to manage plugins for {% data
 | `copilot plugin install SPECIFICATION`         | Install a plugin. See [Plugin specification for `install` command](#plugin-specification-for-install-command) below. |
 | `copilot plugin uninstall NAME`                | Remove a plugin |
 | `copilot plugin list`                          | List installed plugins |
-| `copilot plugin update NAME`                   | Update a plugin |
+| `copilot plugin update NAME`                   | Update a named plugin. Use `--all` to update all installed plugins at once. |
+| `copilot plugin enable NAME`                   | Enable a previously disabled plugin |
+| `copilot plugin disable NAME`                  | Disable a plugin without uninstalling it |
 | `copilot plugin marketplace add SPECIFICATION` | Register a marketplace |
 | `copilot plugin marketplace list`              | List registered marketplaces |
 | `copilot plugin marketplace browse NAME`       | Browse marketplace plugins |
@@ -149,6 +151,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 | Hooks configuration  | `hooks.json` or `hooks/hooks.json` |
 | MCP configuration    | `.mcp.json`, `.github/mcp.json` |
 | LSP configuration    | `lsp.json` or `.github/lsp.json` |
+| Plugin data          | `${COPILOT_PLUGIN_DATA}` (also available as `${CLAUDE_PLUGIN_DATA}`). Points to a persistent, writable directory unique to each installed plugin. Use this for plugin-specific runtime data instead of paths inside the installed-plugins cache directory. |
 
 ## Loading order and precedence
 

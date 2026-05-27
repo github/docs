@@ -54,6 +54,18 @@ Code quality results should always be interpreted in the context of your reposit
 
 To learn more about the metrics and how the ratings are calculated, see [AUTOTITLE](/code-security/code-quality/reference/metrics-and-ratings).
 
+## Viewing code coverage on pull requests
+
+After code coverage is configured for your repository, the `{% data variables.code-quality.pr_commenter %}` posts a coverage summary comment on each pull request. The comment includes:
+
+* **Branch-vs-default-branch comparison:** The aggregate coverage percentage for the pull request branch and the default branch (for example, "65% on pull request branch, 44% on default branch").
+* **Most impacted files:** The 10 files with the largest coverage changes between the default branch and the pull request branch. This list may include files not directly modified in the pull request. New or modified files are ranked above deleted files. Within each group, files are sorted by the absolute change in line coverage weighted by the number of lines in the file, with coverage magnitude and then filename as tiebreakers.
+* **Per-file breakdown:** An expandable section listing each file with its coverage percentage and delta value. A positive delta means the file gained coverage on this branch. A negative delta indicates coverage decreased, which may signal untested code paths introduced by the change.
+
+Use the coverage summary to identify files with low or declining coverage and prioritize review attention on untested changes.
+
+For more information about how the coverage percentage is calculated, see [AUTOTITLE](/code-security/reference/code-quality/metrics-and-ratings#code-coverage).
+
 ## Next steps
 
 * Remediate quality findings in your default branch and improve the maintainability and reliability rating for your repository. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-your-codebase).
