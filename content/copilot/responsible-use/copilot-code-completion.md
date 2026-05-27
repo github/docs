@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how to use {% data variables.product.prodname_copilot_short %} inline suggestions responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion
   - /copilot/responsible-use-of-github-copilot-features/copilot-code-completion

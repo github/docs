@@ -4,8 +4,6 @@ shortTitle: Azure billing
 intro: 'Learn how metered billing for {% data variables.product.prodname_copilot %} works when you are connected to an Azure subscription, including billing cycles, invoicing, and usage tracking.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 allowTitleToDifferFromFilename: true

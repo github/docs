@@ -12,23 +12,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Write and format content
 ---
-
-{% ifversion ghes %}
-
-> [!WARNING]
-> When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.landing_page_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository, or if private mode is enabled. To keep sensitive media files private, serve them from a private network or server that requires authentication.
-
-{% endif %}
-
-{% ifversion fpt or ghec %}
 
 > [!NOTE]
 > For public repositories, uploaded files can be accessed without authentication. In the case of private and internal repositories, only people with access to the repository can view the uploaded files.
-
-{% endif %}
 
 To attach a file to an issue or pull request conversation, drag and drop it into the comment box.
 Alternatively, you can click {% octicon "paperclip" aria-label="Attach files" %} below the issue comment box to browse, select, and add a file from your computer.

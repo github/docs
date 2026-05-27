@@ -26,8 +26,7 @@ describe('graphql json files', () => {
   for (const version of graphqlVersions) {
     const schemaJsonPerVersion = readJsonFile(
       `${GRAPHQL_DATA_DIR}/${version}/schema.json`,
-    ) as Record<string, Array<{ kind: string; name: string }>>
-    // all graphql types are arrays except for queries
+    ) as Record<string, Array<{ name: string }>>
     for (const type of graphqlTypes) {
       test(`${version} schemas object validation for ${type}`, () => {
         for (const typeObj of schemaJsonPerVersion[type]) {
@@ -42,9 +41,7 @@ describe('graphql json files', () => {
 
           let formattedErrors: any = errors // Can be either raw errors array or formatted string
           if (!isValid) {
-            formattedErrors = `kind: ${typeObj.kind}, name: ${typeObj.name}: ${formatAjvErrors(
-              errors || [],
-            )}`
+            formattedErrors = `name: ${typeObj.name}: ${formatAjvErrors(errors || [])}`
           }
 
           expect(isValid, formattedErrors).toBe(true)

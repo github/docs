@@ -10,11 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Discussions
-  - Fundamentals
 children:
   - /about-collaborative-development-models
   - /helping-others-review-your-changes

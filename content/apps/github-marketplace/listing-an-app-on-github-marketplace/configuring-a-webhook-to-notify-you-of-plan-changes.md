@@ -13,9 +13,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 shortTitle: Webhooks for plan changes
+category:
+  - Manage payments for your Marketplace app
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

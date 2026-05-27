@@ -68,3 +68,10 @@ export interface Redirects {
 export interface PopularPages {
   [key: string]: number
 }
+
+export interface FailedPage {
+  url?: string
+  relativePath?: string
+  error: string
+  errorType: string
+}

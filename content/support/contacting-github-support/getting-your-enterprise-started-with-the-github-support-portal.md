@@ -5,11 +5,10 @@ shortTitle: Get started for enterprises
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
-  - Support
 redirect_from:
   - /support/contacting-github-support/getting-started-with-the-github-support-portal
+category:
+  - Contact GitHub
 ---
 
 ## About the {% data variables.contact.enterprise_portal %} for enterprises

@@ -6,11 +6,10 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Unavailable identity provider
 permissions: Organization owners can use a recovery code to bypass SAML SSO.
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About recovery codes

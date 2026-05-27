@@ -1,4 +1,4 @@
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import { describe, expect, test } from 'vitest'
 
 import { renderContent } from '@/content-render/index'
@@ -32,7 +32,7 @@ describe('renderContent', () => {
 1. item three`)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
     expect($('ol').length).toBe(1)
     expect($('ol > li').length).toBe(3)
   })
@@ -43,7 +43,7 @@ describe('renderContent', () => {
 - <a>item</a>`)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
     expect($('ul p').length).toBe(0)
   })
 
@@ -69,7 +69,7 @@ describe('renderContent', () => {
 |<kbd>g</kbd> <kbd>i</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
     `)
     const html = await renderContent(template)
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
     expect(
       $.html().includes('&quot;<a href="/articles/about-issues">About issues</a>.&quot;'),
     ).toBeTruthy()
@@ -82,7 +82,7 @@ describe('renderContent', () => {
 | Python | \`requirements.txt\`, \`pipfile.lock\`
     `)
     const html = await renderContent(template)
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
     expect(
       $.html().includes('<code>requirements.txt</code>, <code>pipfile.lock</code>'),
     ).toBeTruthy()
@@ -95,7 +95,7 @@ describe('renderContent', () => {
 | <code>user:<em>USERNAME</em></code> | [**user:defunkt ubuntu**](https://github.com/search?q=user%3Adefunkt+ubuntu&type=Issues) matches issues with the word "ubuntu" from repositories owned by @defunkt.
     `)
     const html = await renderContent(template)
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
     expect($.html().includes('<code>user:<em>USERNAME</em></code>')).toBeTruthy()
   })
 
@@ -110,7 +110,7 @@ describe('renderContent', () => {
 1. This is another list item.
     `)
     const html = await renderContent(template)
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
     expect($('ol').length).toBe(1)
     expect($.html().includes('<span class="hljs-meta prompt_"># </span')).toBeTruthy()
     expect($.html().includes('some comment here')).toBeTruthy()
@@ -131,7 +131,7 @@ describe('renderContent', () => {
 ##### This is a level 5
 `)
     const html = await renderContent(template)
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
 
     for (const level of [1, 2, 3, 4, 5]) {
       expect(
@@ -147,7 +147,7 @@ const example = true
 \`\`\`\`
     `)
     let html = await renderContent(template)
-    let $ = cheerio.load(html, { xmlMode: true })
+    let $ = load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-js">')).toBeTruthy()
     expect($.html().includes('<span class="hljs-keyword">const</span>')).toBeTruthy()
 
@@ -157,7 +157,7 @@ const example = true
 \`\`\`\`
     `)
     html = await renderContent(template)
-    $ = cheerio.load(html, { xmlMode: true })
+    $ = load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-erb">')).toBeTruthy()
     expect($.html().includes('<span class="hljs-variable">@articles</span>')).toBeTruthy()
 
@@ -167,7 +167,7 @@ POST / HTTP/2
 \`\`\`\`
     `)
     html = await renderContent(template)
-    $ = cheerio.load(html, { xmlMode: true })
+    $ = load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-http">')).toBeTruthy()
     expect($.html().includes('<span class="hljs-keyword">POST</span>')).toBeTruthy()
 
@@ -180,7 +180,7 @@ plugins {
 \`\`\`\`
     `)
     html = await renderContent(template)
-    $ = cheerio.load(html, { xmlMode: true })
+    $ = load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-groovy">')).toBeTruthy()
     expect(
       $.html().includes('<span class="hljs-string">&apos;maven-publish&apos;</span>'),
@@ -192,7 +192,7 @@ FROM alpine:3.10
 \`\`\`\`
     `)
     html = await renderContent(template)
-    $ = cheerio.load(html, { xmlMode: true })
+    $ = load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-Dockerfile">')).toBeTruthy()
     expect($.html().includes('<span class="hljs-keyword">FROM</span>')).toBeTruthy()
 
@@ -202,7 +202,7 @@ $resourceGroupName = "octocat-testgroup"
 \`\`\`\`
     `)
     html = await renderContent(template)
-    $ = cheerio.load(html, { xmlMode: true })
+    $ = load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-Powershell">')).toBeTruthy()
     expect(
       $.html().includes('<span class="hljs-variable">&#x24;resourceGroupName</span>'),
@@ -216,7 +216,7 @@ var a = 1
 \`\`\`
     `)
     const html = await renderContent(template)
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
     expect($.html().includes('var a = 1')).toBeTruthy()
   })
 
@@ -238,7 +238,7 @@ var a = 1
 \`\`\`
     `)
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
     const el = $('button.js-btn-copy')
     expect(el.data('clipboard')).toBe(2967273189)
     // Generates a murmurhash based ID that matches a <pre>
@@ -250,7 +250,7 @@ var a = 1
 > This is a note with a [link](https://example.com)
     `)
     const html = await renderContent(template, { alertTitles: { NOTE: 'Note' } })
-    const $ = cheerio.load(html)
+    const $ = load(html)
     const alertEl = $('.ghd-alert')
     expect(alertEl.length).toBe(1)
     expect(alertEl.attr('data-container')).toBe('alert')

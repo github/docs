@@ -13,8 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
+category:
+  - Learn about the REST API
 ---
 
 ## About {% data variables.product.company_short %}'s APIs

@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Profile
 contentType: reference
+category:
+  - Track your contributions
 ---
 
 ## What counts as a contribution

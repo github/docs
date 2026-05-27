@@ -1,18 +1,19 @@
 ---
 title: Managing your subscriptions
-intro: 'To help you manage your notifications efficiently, there are several ways to unsubscribe.'
+intro: To help you manage your notifications efficiently, there are several ways to unsubscribe.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions
   - /github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions
   - /account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions
   - /subscriptions-and-notifications/managing-subscriptions-for-activity-on-github/managing-your-subscriptions
 shortTitle: Manage your subscriptions
+contentType: how-tos
+category:
+  - Manage subscriptions and triage your inbox
 ---
 To help you understand your subscriptions and decide whether to unsubscribe, see [AUTOTITLE](/subscriptions-and-notifications/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions).
 

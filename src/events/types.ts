@@ -37,10 +37,12 @@ export type EventProps = {
     page_document_type: string
     page_type: string
     content_type: string
+    docs_team_metrics?: string
     status: number
     is_logged_in: boolean
     dotcom_user: string
     is_staff: boolean
+    octo_client_id?: string
     os: string
     os_version: string
     browser: string

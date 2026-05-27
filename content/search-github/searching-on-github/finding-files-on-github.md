@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
+category:
+  - Get started with search
 ---
 
 > [!TIP]

@@ -13,6 +13,7 @@ import hljsCurl from 'highlightjs-curl'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import useClipboard from '@/rest/components/useClipboard'
+import { CODE_SAMPLE_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 import {
   getShellExample,
   getGHExample,
@@ -114,14 +115,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
 
   const handleLanguageSelection = (languageKey: CodeSampleKeys) => {
     setSelectedLanguage(languageKey)
-    Cookies.set('codeSampleLanguagePreferred', languageKey)
+    Cookies.set(CODE_SAMPLE_LANGUAGE_COOKIE_NAME, languageKey)
   }
 
   // Change the language based on cookies
   useEffect(() => {
     // If the user previously selected a language preference and the language
     // is available in this component set it as the selected language
-    const cookieValue = Cookies.get('codeSampleLanguagePreferred')
+    const cookieValue = Cookies.get(CODE_SAMPLE_LANGUAGE_COOKIE_NAME)
     const preferredCodeLanguage = languageSelectOptions.find((item) => item === cookieValue)
     if (cookieValue && preferredCodeLanguage) {
       setSelectedLanguage(cookieValue as CodeSampleKeys)

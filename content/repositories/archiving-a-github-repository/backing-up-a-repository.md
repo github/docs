@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Manage, move, and archive a repository
 ---
 
 You may want to take backups of repositories for archiving or disaster recovery purposes.

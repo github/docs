@@ -1,4 +1,5 @@
 import { TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getLiquidTokens, conditionalTags, getPositionData } from '../helpers/liquid-utils'
@@ -12,21 +13,35 @@ import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
   For example, the following would be flagged:
   {% if "foo" %}
   {% ifversion "bar" %}
+
+  Quoted strings used as operands in comparisons are valid and not flagged:
+  {% if entry.provider == "openai" %}
 */
+
+const comparisonOperators = new Set(['==', '!=', '<>', '<', '>', '<=', '>=', 'contains'])
+
 export const liquidQuotedConditionalArg: Rule = {
   names: ['GHD016', 'liquid-quoted-conditional-arg'],
   description: 'Liquid conditional tags should not quote the conditional argument',
   tags: ['liquid', 'format'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
-    // Using 'any' type for tokens as getLiquidTokens returns tokens from liquid-utils.ts which lacks type definitions
     const tokens = getLiquidTokens(content)
-      .filter((token: any) => token.kind === TokenKind.Tag)
-      .filter((token: any) => conditionalTags.includes(token.name))
-      .filter((token: any) => {
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
+      .filter((token) => conditionalTags.includes(token.name))
+      .filter((token) => {
         const tokensArray = token.args.split(/\s+/g)
-        // Using 'any' for args as they come from the untyped liquid token structure
-        if (tokensArray.some((arg: any) => isStringQuoted(arg))) return true
+        if (
+          tokensArray.some((arg, index) => {
+            if (!isStringQuoted(arg)) return false
+            // A quoted string is valid as an operand of a comparison operator
+            const prev = index > 0 ? tokensArray[index - 1] : ''
+            const next = index < tokensArray.length - 1 ? tokensArray[index + 1] : ''
+            if (comparisonOperators.has(prev) || comparisonOperators.has(next)) return false
+            return true
+          })
+        )
+          return true
         return false
       })
 

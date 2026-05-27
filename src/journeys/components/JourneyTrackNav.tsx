@@ -8,7 +8,7 @@ type Props = {
 
 export function JourneyTrackNav({ context }: Props) {
   const { t } = useTranslation('journey_track_nav')
-  const { prevGuide, nextGuide, trackTitle, currentGuideIndex, numberOfGuides } = context
+  const { prevGuide, nextGuide, nextTrackFirstGuide } = context
 
   return (
     <div
@@ -18,32 +18,48 @@ export function JourneyTrackNav({ context }: Props) {
       <span className="f5 d-flex flex-column">
         {prevGuide && (
           <>
-            <span className="color-fg-default">{t('prev_article')}</span>
-            <Link href={prevGuide.href} className="text-bold color-fg">
+            <span className="color-fg-default" aria-hidden="true">
+              {t('prev_article')}
+            </span>
+            <Link
+              href={prevGuide.href}
+              className="text-bold color-fg"
+              aria-label={`${t('prev_article')}: ${prevGuide.title}`}
+            >
               {prevGuide.title}
             </Link>
           </>
         )}
       </span>
 
-      <span className="f5 d-flex flex-column flex-items-center">
-        <span className="color-fg-muted">{trackTitle}</span>
-        <span className="color-fg-muted">
-          {t('current_progress')
-            .replace('{n}', `${numberOfGuides}`)
-            .replace('{i}', `${currentGuideIndex + 1}`)}
-        </span>
-      </span>
-
       <span className="f5 d-flex flex-column flex-items-end">
-        {nextGuide && (
+        {nextGuide ? (
           <>
-            <span className="color-fg-default">{t('next_article')}</span>
-            <Link href={nextGuide.href} className="text-bold color-fg text-right">
+            <span className="color-fg-default" aria-hidden="true">
+              {t('next_article')}
+            </span>
+            <Link
+              href={nextGuide.href}
+              className="text-bold color-fg text-right"
+              aria-label={`${t('next_article')}: ${nextGuide.title}`}
+            >
               {nextGuide.title}
             </Link>
           </>
-        )}
+        ) : nextTrackFirstGuide ? (
+          <>
+            <span className="color-fg-default" aria-hidden="true">
+              {t('next_article')}
+            </span>
+            <Link
+              href={nextTrackFirstGuide.href}
+              className="text-bold color-fg text-right"
+              aria-label={`${t('next_article')}: ${nextTrackFirstGuide.trackTitle}`}
+            >
+              {nextTrackFirstGuide.trackTitle}
+            </Link>
+          </>
+        ) : null}
       </span>
     </div>
   )

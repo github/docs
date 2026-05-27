@@ -4,12 +4,11 @@ intro: 'Learn how roles allow you to control people''s access to your enterprise
 versions:
   feature: enterprise-custom-roles
 shortTitle: Roles
-topics:
-  - Enterprise
-  - Fundamentals
 redirect_from:
   - /admin/overview/about-roles
 contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.about-roles %}

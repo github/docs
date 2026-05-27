@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Review audit log
+category:
+  - Secure and monitor your organization
 ---
 
 ## Accessing the audit log
@@ -174,6 +173,12 @@ You can identify all events that were performed by a specific access token. For 
 {% data reusables.audit_log.export-log %}
 
 {% data reusables.audit_log.git-events-export-limited %}
+
+### Export limits
+
+{% data reusables.audit_log.audit-log-org-export-limit %}
+
+### Exported log keys and values
 
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}

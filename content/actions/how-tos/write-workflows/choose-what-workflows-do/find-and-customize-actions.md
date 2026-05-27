@@ -15,9 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Fundamentals
+contentType: how-tos
+category:
+  - Write workflows
 ---
 
 {% data reusables.actions.enterprise-marketplace-actions %}

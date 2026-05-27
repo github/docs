@@ -4,8 +4,6 @@ shortTitle: Copilot Spaces
 intro: 'Learn how to use GitHub Copilot Spaces responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: rai
 category: 
   - Responsible use

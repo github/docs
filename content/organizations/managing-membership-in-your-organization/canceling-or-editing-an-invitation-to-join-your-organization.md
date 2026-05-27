@@ -7,10 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Cancel or edit invitation
+category:
+  - Manage members
 ---
 
 {% data reusables.profile.access_org %}

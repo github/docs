@@ -1,1 +1,0 @@
-The free {% data variables.product.prodname_secret_risk_assessment %} scans _only the code_ in your organization, including the code in archived repositories. You can extend the surface being scanned to cover content in pull requests, issues, wikis, and {% data variables.product.prodname_discussions %} with **{% data variables.product.prodname_GH_secret_protection %}**.

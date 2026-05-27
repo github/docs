@@ -6,7 +6,7 @@ import { useMainContext } from '@/frame/components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { Picker } from '@/tools/components/Picker'
 import { useTranslation } from '@/languages/components/useTranslation'
-import { API_VERSION_COOKIE_NAME } from '@/rest/components/RestRedirect'
+import { API_VERSION_COOKIE_NAME } from '@/frame/lib/constants'
 import { apiVersionPath } from '@/rest/lib/config'
 
 const API_VERSION_SUFFIX = ' (latest)'

@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Triage and organize issues
 ---
 When you [create a milestone](/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests), you can [associate it with issues and pull requests](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests).
 

@@ -1,0 +1,1923 @@
+{
+  "created": {
+    "descriptionHtml": "<p>A comment on a discussion was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a comment on a discussion. For more information about discussions, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/discussions\">GitHub Discussions</a>.\" For information about the API to manage discussions, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#discussion\">the GraphQL documentation</a>.</p>\n<p>For activity relating to a discussion as opposed to comments on a discussion, use the <code>discussion</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Discussions\" repository permission.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg></p>\n<p>\nWebhook events for GitHub Discussions are currently in public preview and subject to change.</p>\n</div>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "comment",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "discussion",
+        "description": "<p>A Discussion in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "active_lock_reason",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "answer_chosen_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "answer_chosen_by",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "answer_html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "author_association",
+            "description": "<p>How the author is associated with the repository.</p>",
+            "enum": [
+              "COLLABORATOR",
+              "CONTRIBUTOR",
+              "FIRST_TIMER",
+              "FIRST_TIME_CONTRIBUTOR",
+              "MANNEQUIN",
+              "MEMBER",
+              "NONE",
+              "OWNER"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "category",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "created_at",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "emoji",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "is_answerable",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "repository_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "slug",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "updated_at",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "comments",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "locked",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "number",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "reactions",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "+1",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "-1",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "confused",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "eyes",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "heart",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "hooray",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "laugh",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "rocket",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "total_count",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "repository_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "state",
+            "description": "<p>The current state of the discussion.\n<code>converting</code> means that the discussion is being converted from an issue.\n<code>transferring</code> means that the discussion is being transferred from another repository.</p>",
+            "isRequired": true,
+            "enum": [
+              "open",
+              "closed",
+              "locked",
+              "converting",
+              "transferring"
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "state_reason",
+            "description": "<p>The reason for the current state</p>",
+            "isRequired": true,
+            "enum": [
+              "resolved",
+              "outdated",
+              "duplicate",
+              "reopened",
+              null
+            ]
+          },
+          {
+            "type": "string",
+            "name": "timeline_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "title",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "user",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "array of objects",
+            "name": "labels",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "<p>Unique identifier for the label.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "<p>URL for the label</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The name of the label.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "<p>Optional description of the label, such as its purpose.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "color",
+                "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "default",
+                "description": "<p>Whether this label comes by default in a new repository.</p>",
+                "isRequired": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "discussion_comment"
+  },
+  "deleted": {
+    "descriptionHtml": "<p>A comment on a discussion was deleted.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a comment on a discussion. For more information about discussions, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/discussions\">GitHub Discussions</a>.\" For information about the API to manage discussions, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#discussion\">the GraphQL documentation</a>.</p>\n<p>For activity relating to a discussion as opposed to comments on a discussion, use the <code>discussion</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Discussions\" repository permission.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg></p>\n<p>\nWebhook events for GitHub Discussions are currently in public preview and subject to change.</p>\n</div>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "deleted"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "comment",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "discussion",
+        "description": "<p>A Discussion in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "active_lock_reason",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "answer_chosen_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "answer_chosen_by",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "answer_html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "author_association",
+            "description": "<p>How the author is associated with the repository.</p>",
+            "enum": [
+              "COLLABORATOR",
+              "CONTRIBUTOR",
+              "FIRST_TIMER",
+              "FIRST_TIME_CONTRIBUTOR",
+              "MANNEQUIN",
+              "MEMBER",
+              "NONE",
+              "OWNER"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "category",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "created_at",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "emoji",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "is_answerable",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "repository_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "slug",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "updated_at",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "comments",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "locked",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "number",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "reactions",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "+1",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "-1",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "confused",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "eyes",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "heart",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "hooray",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "laugh",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "rocket",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "total_count",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "repository_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "state",
+            "description": "<p>The current state of the discussion.\n<code>converting</code> means that the discussion is being converted from an issue.\n<code>transferring</code> means that the discussion is being transferred from another repository.</p>",
+            "isRequired": true,
+            "enum": [
+              "open",
+              "closed",
+              "locked",
+              "converting",
+              "transferring"
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "state_reason",
+            "description": "<p>The reason for the current state</p>",
+            "isRequired": true,
+            "enum": [
+              "resolved",
+              "outdated",
+              "duplicate",
+              "reopened",
+              null
+            ]
+          },
+          {
+            "type": "string",
+            "name": "timeline_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "title",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "user",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "array of objects",
+            "name": "labels",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "<p>Unique identifier for the label.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "<p>URL for the label</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The name of the label.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "<p>Optional description of the label, such as its purpose.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "color",
+                "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "default",
+                "description": "<p>Whether this label comes by default in a new repository.</p>",
+                "isRequired": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "deleted",
+    "category": "discussion_comment"
+  },
+  "edited": {
+    "descriptionHtml": "<p>A comment on a discussion was edited.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to a comment on a discussion. For more information about discussions, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/discussions\">GitHub Discussions</a>.\" For information about the API to manage discussions, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#discussion\">the GraphQL documentation</a>.</p>\n<p>For activity relating to a discussion as opposed to comments on a discussion, use the <code>discussion</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Discussions\" repository permission.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg></p>\n<p>\nWebhook events for GitHub Discussions are currently in public preview and subject to change.</p>\n</div>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "edited"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "changes",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object",
+            "name": "body",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "from",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "comment",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "discussion",
+        "description": "<p>A Discussion in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string or null",
+            "name": "active_lock_reason",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string or null",
+            "name": "answer_chosen_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "answer_chosen_by",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "answer_html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "author_association",
+            "description": "<p>How the author is associated with the repository.</p>",
+            "enum": [
+              "COLLABORATOR",
+              "CONTRIBUTOR",
+              "FIRST_TIMER",
+              "FIRST_TIME_CONTRIBUTOR",
+              "MANNEQUIN",
+              "MEMBER",
+              "NONE",
+              "OWNER"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "category",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "created_at",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "emoji",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "is_answerable",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "repository_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "slug",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "updated_at",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "integer",
+            "name": "comments",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "locked",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "number",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object",
+            "name": "reactions",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "+1",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "-1",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "confused",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "eyes",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "heart",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "hooray",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "laugh",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "rocket",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "total_count",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "repository_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "state",
+            "description": "<p>The current state of the discussion.\n<code>converting</code> means that the discussion is being converted from an issue.\n<code>transferring</code> means that the discussion is being transferred from another repository.</p>",
+            "isRequired": true,
+            "enum": [
+              "open",
+              "closed",
+              "locked",
+              "converting",
+              "transferring"
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "state_reason",
+            "description": "<p>The reason for the current state</p>",
+            "isRequired": true,
+            "enum": [
+              "resolved",
+              "outdated",
+              "duplicate",
+              "reopened",
+              null
+            ]
+          },
+          {
+            "type": "string",
+            "name": "timeline_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "title",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "user",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "array of objects",
+            "name": "labels",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "<p>Unique identifier for the label.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "<p>URL for the label</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The name of the label.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "<p>Optional description of the label, such as its purpose.</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "color",
+                "description": "<p>6-character hex code, without the leading #, identifying the color</p>",
+                "isRequired": true
+              },
+              {
+                "type": "boolean",
+                "name": "default",
+                "description": "<p>Whether this label comes by default in a new repository.</p>",
+                "isRequired": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "edited",
+    "category": "discussion_comment"
+  }
+}

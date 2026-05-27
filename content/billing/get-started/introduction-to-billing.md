@@ -9,13 +9,11 @@ redirect_from:
   - /billing/using-the-new-billing-platform/about-the-new-billing-platform
   - /billing/using-the-new-billing-platform/getting-started-with-the-new-billing-platform
   - /billing/managing-your-billing/about-the-new-billing-platform
-topics:
-  - Billing
-  - Personal account
-  - Enterprise
-  - Team
+  - /billing/reference/previous-billing-platform-endpoints
 shortTitle: Introduction to billing
 contentType: get-started
+category:
+  - Get started with billing
 ---
 
 ## Key functionalities
@@ -61,4 +59,4 @@ For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/managing-
 
 * [AUTOTITLE](/billing/how-tos/products/view-product-use)
 * [AUTOTITLE](/billing/tutorials/set-up-budgets)
-* [AUTOTITLE](/billing/tutorials/use-cost-centers)
+* [AUTOTITLE](/billing/tutorials/control-costs-at-scale)

@@ -16,6 +16,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Work with Git
 ---
 ## About remote repositories
 

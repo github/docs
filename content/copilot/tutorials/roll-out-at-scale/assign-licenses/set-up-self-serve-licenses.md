@@ -4,8 +4,6 @@ shortTitle: Set up self-serve licenses
 intro: Learn how users can request a license and receive access immediately.
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/setting-up-a-self-serve-process-for-github-copilot-licenses
   - /copilot/rolling-out-github-copilot-at-scale/assigning-licenses/setting-up-a-self-serve-process-for-github-copilot-licenses

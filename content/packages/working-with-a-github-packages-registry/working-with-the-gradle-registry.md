@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Gradle registry
+category:
+  - Work with a package registry
 ---
 
 {% ifversion ghec %}

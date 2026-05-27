@@ -1,4 +1,5 @@
 import { TokenKind } from 'liquidjs'
+import type { TopLevelToken } from 'liquidjs'
 
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 import { addFixErrorDetail } from '../helpers/utils'
@@ -36,7 +37,10 @@ export const liquidTagWhitespace: Rule = {
       (token: LiquidToken) => token.kind === TokenKind.Tag,
     )
     for (const token of tokens) {
-      const { lineNumber, column, length } = getPositionData(token, params.lines)
+      const { lineNumber, column, length } = getPositionData(
+        token as unknown as TopLevelToken,
+        params.lines,
+      )
 
       const range = [column, length]
       const tag = params.lines[lineNumber - 1].slice(column - 1, column - 1 + length)

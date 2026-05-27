@@ -21,6 +21,7 @@ import { allVersions } from '@/versions/lib/all-versions'
 import { syncWebhookData } from '../../webhooks/scripts/sync'
 import { syncGitHubAppsData } from '../../github-apps/scripts/sync'
 import { syncRestRedirects } from './utils/get-redirects'
+import { syncChangelogs } from './utils/sync-changelogs'
 import { MODELS_GATEWAY_ROOT, injectModelsSchema } from './utils/inject-models-schema'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -114,10 +115,7 @@ async function main() {
   // so that we don't spend time generating data files for them.
   if (sourceRepos.includes(REST_API_DESCRIPTION_ROOT)) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
-    // TODO: After migrating all-version.ts to TypeScript, we can remove the type assertion
-    const currentOpenApiVersions = Object.values(allVersions).map(
-      (elem) => (elem as any).openApiVersionName,
-    )
+    const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
 
     for (const schema of derefDir) {
       // if the schema does not start with a current version name, delete it
@@ -133,6 +131,7 @@ async function main() {
   if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
     await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory, injectModelsSchema)
+    await syncChangelogs(sourceRepoDirectory, VERSION_NAMES)
   }
 
   if (pipelines.includes('webhooks')) {

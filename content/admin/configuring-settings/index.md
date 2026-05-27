@@ -10,8 +10,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /configuring-user-applications-for-your-enterprise
   - /hardening-security-for-your-enterprise

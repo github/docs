@@ -204,7 +204,7 @@ describe('toLogfmt', () => {
     })
 
     it('should handle circular references gracefully by treating them as strings', () => {
-      const obj: any = { name: 'test' }
+      const obj: Record<string, unknown> = { name: 'test' }
       obj.self = obj
 
       // The circular reference should be converted to a string representation

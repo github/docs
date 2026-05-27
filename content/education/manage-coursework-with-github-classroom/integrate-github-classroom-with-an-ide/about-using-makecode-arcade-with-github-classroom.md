@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-makecode
   - /education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom
+category:
+  - Integrate GitHub Classroom with an IDE
 ---
 ## About MakeCode Arcade
 

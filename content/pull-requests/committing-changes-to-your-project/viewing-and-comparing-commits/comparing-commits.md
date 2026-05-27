@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Commit changes
 ---
 To compare different versions of your repository, append `/compare` to your repository's path.
 

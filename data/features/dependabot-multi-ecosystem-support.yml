@@ -1,0 +1,6 @@
+# Reference: #18591
+# Single pull request for all Dependabot Updates (multi-ecosystem support
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.21'

@@ -4,13 +4,16 @@ shortTitle: License changes
 intro: 'Learn how changes to {% data variables.product.prodname_copilot %} licenses affect billing and user access for organizations, enterprises, and personal accounts.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 allowTitleToDifferFromFilename: true
 contentType: reference
 ---
+
+> [!IMPORTANT]
+> **Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans are temporarily paused. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded, downgraded, or canceled. If you hit unexpected limits or these changes just don’t work for you, you can cancel your Pro or Pro+ subscription and receive a refund for the time remaining on your current subscription before May 20.
+> 1. To cancel and receive a refund for the time remaining, go to your [Billing settings](https://github.com/settings/billing/licensing).
+> 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel and refund subscription**.
 
 {% data variables.product.prodname_copilot_short %} follows the same billing rules as other license-based products on {% data variables.product.company_short %}.
 For the general concepts, see:
@@ -29,11 +32,8 @@ This article focuses on how those rules apply specifically to {% data variables.
 
 What you need to know about the following actions:
 
-* **Upgrading:** If you move from a monthly to a yearly plan, the change is **immediate**. You are charged a prorated amount for the new plan.
-* **Downgrading/canceling:**
-  * **Monthly plan:** Access remains until the end of the current cycle. **No refund for unused time**.
-  * **Yearly plan:** Access remains until the end of the annual term already paid for.
-* **Switching plans:** Proration applies when switching between monthly and yearly, and the new plan starts **right away**.
+* **Upgrading:** If you upgrade your plan (for example, from {% data variables.copilot.copilot_pro_short %} to {% data variables.copilot.copilot_pro_plus_short %}), the change is **immediate**. You are charged a prorated amount for the new plan.
+* **Downgrading/canceling:** Access remains until the end of the current billing cycle. **No refund for unused time**.
 
 ## Organizations
 

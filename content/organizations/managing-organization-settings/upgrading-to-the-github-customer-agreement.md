@@ -8,10 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Upgrade to Corporate ToS
+category:
+  - Set up your organization
 ---
 
 The Standard Terms of Service is an agreement between {% data variables.product.prodname_dotcom %} and you as an individual. To enter into an agreement with {% data variables.product.prodname_dotcom %} on behalf of an entity, such as a company, non-profit, or group, organization owners can upgrade to the {% data variables.product.company_short %} Customer Agreement.
@@ -24,6 +23,9 @@ You can upgrade to the {% data variables.product.company_short %} Customer Agree
 1. Select **Yes, I want to sign these terms on behalf of my business.**
 1. In the text field, type the name of the company, non-profit, or group that owns the organization account. This is the entity that will enter into an agreement with {% data variables.product.prodname_dotcom %}.
 1. To agree to the {% data variables.product.company_short %} Customer Agreement on behalf of your entity, click **Accept terms**.
+
+> [!NOTE]
+> When you upgrade or switch your enterprise plan, your existing payment method is not carried forward. If you do not add a new payment method before your next billing cycle, active paid subscriptions—including {% data variables.product.prodname_sponsors %} sponsorships—are automatically cancelled. To avoid disruption, add a payment method immediately after upgrading.
 
 ## Further reading
 

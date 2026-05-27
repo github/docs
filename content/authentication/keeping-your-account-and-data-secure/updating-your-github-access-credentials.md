@@ -11,10 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Update access credentials
+category:
+  - Manage access credentials
 ---
 {% ifversion ghec %}
 

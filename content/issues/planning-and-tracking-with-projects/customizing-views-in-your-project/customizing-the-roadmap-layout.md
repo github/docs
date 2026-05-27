@@ -6,9 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Projects
+contentType: tutorials
+category:
+  - Customize project views and insights
 ---
 
 ## About the roadmap layout

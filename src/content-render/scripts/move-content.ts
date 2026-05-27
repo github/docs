@@ -28,7 +28,6 @@ import { execFileSync } from 'child_process'
 import { program } from 'commander'
 import chalk from 'chalk'
 import walk from 'walk-sync'
-import yaml from 'js-yaml'
 import escapeStringRegexp from 'escape-string-regexp'
 
 import fm from '@/frame/lib/frontmatter'
@@ -51,7 +50,6 @@ interface PositionInfo {
 // This is so you can optionally run it again the test fixtures root.
 const ROOT = process.env.ROOT || '.'
 const CONTENT_ROOT = path.resolve(path.join(ROOT, 'content'))
-const DATA_ROOT = path.resolve(path.join(ROOT, 'data'))
 
 const REDIRECT_FROM_KEY = 'redirect_from'
 const CHILDREN_KEY = 'children'
@@ -501,7 +499,7 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
   // frontmatter key.
   // See comment in the first loop above for why we're looping over the files
   // two times.
-  for (const [oldPath, newPath, oldHref, newHref] of files) {
+  for (const [oldPath, newPath, oldHref] of files) {
     const fileContent = fs.readFileSync(newPath, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
     if (!data) continue
@@ -520,14 +518,6 @@ function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
 
     if (updateParent) {
       addToChildren(newPath, removeFromChildren(oldPath, opts), opts)
-    }
-
-    // Perhaps this was mentioned in a 'guide' in a learning track
-    for (const filePath of findInLearningTracks(oldHref)) {
-      changeLearningTracks(filePath, oldHref, newHref)
-      if (verbose) {
-        console.log(`Updated learning tracks in ${filePath}`)
-      }
     }
   }
 
@@ -563,7 +553,7 @@ function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
   const { verbose, git: useGit } = opts
 
   // First undo any edits to the file
-  for (const [oldPath, newPath, oldHref, newHref] of files) {
+  for (const [oldPath, newPath, oldHref] of files) {
     const fileContent = fs.readFileSync(newPath, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
     if (!data) continue
@@ -583,14 +573,6 @@ function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
     if (updateParent) {
       addToChildren(newPath, removeFromChildren(oldPath, opts), opts)
     }
-
-    // Perhaps this was mentioned in a 'guide' in a learning track
-    for (const filePath of findInLearningTracks(newHref)) {
-      changeLearningTracks(filePath, newHref, oldHref)
-      if (verbose) {
-        console.log(`Updated learning tracks in ${filePath}`)
-      }
-    }
   }
   if (useGit) {
     const cmd = ['commit', '-a', '-m', `unset ${REDIRECT_FROM_KEY} on ${files.length} files`]
@@ -599,40 +581,6 @@ function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions)
       console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   }
-}
-
-function findInLearningTracks(href: string) {
-  const allFiles: string[] = walk(path.join(DATA_ROOT, 'learning-tracks'), {
-    globs: ['*.yml'],
-    includeBasePath: true,
-    directories: false,
-  })
-  const found: string[] = []
-  for (const filePath of allFiles) {
-    const tracks = yaml.load(fs.readFileSync(filePath, 'utf-8')) as Record<
-      string,
-      { guides?: string[] }
-    >
-
-    if (
-      Object.values(tracks).find((track) => {
-        const guides = track.guides || []
-        return guides.includes(href)
-      })
-    ) {
-      found.push(filePath)
-    }
-  }
-  return found
-}
-
-function changeLearningTracks(filePath: string, oldHref: string, newHref: string) {
-  // Can't deserialize and serialize the Yaml because it would lose
-  // formatting and comments. So regex replace it.
-  const regex = new RegExp(`- ${oldHref}$`, 'gm')
-  const oldContent = fs.readFileSync(filePath, 'utf-8')
-  const newContent = oldContent.replace(regex, `- ${newHref}`)
-  fs.writeFileSync(filePath, newContent, 'utf-8')
 }
 
 function changeHomepageLinks(oldHref: string, newHref: string, verbose: boolean) {

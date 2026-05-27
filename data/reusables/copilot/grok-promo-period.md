@@ -1,1 +1,0 @@
-> [!Important] Complimentary access to {% data variables.copilot.copilot_grok_code %} is continuing past the previously announced end time. A new end date has not been set. We may update or conclude this promotion at any time. [Regular pricing](/copilot/reference/ai-models/supported-models#model-multipliers) applies after the extension ends.

@@ -1,6 +1,6 @@
 import { program } from 'commander'
 import fs from 'fs'
-import coreLib from '@actions/core'
+import * as coreLib from '@actions/core'
 
 import github from '@/workflows/github'
 import { getEnvInputs } from '@/workflows/get-env-inputs'

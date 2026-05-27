@@ -44,7 +44,7 @@ export default function languageCodeRedirects(
     const [code, pattern] = matched
     if (code && pattern) {
       defaultCacheControl(res)
-      return res.redirect(301, req.path.replace(pattern, `/${code}`))
+      return res.safeRedirect(301, req.path.replace(pattern, `/${code}`))
     }
   }
   return next()

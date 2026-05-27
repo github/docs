@@ -6,16 +6,19 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Projects
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-date-fields
+contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 You can filter for date values using the `YYYY-MM-DD` format, for example: `date:2022-07-01`. You can also use operators, such as `>`, `>=`, `<`, `<=`, and `..`. For example, `date:>2022-07-01` and `date:2022-07-01..2022-07-31`. You can also provide `@today` to represent the current day in your filter. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
 
 If your project makes use of date fields, you can use the roadmap layout to view items on a timeline. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout).
+
+> [!NOTE]
+> Date fields do not currently support default values.
 
 ## Adding a date field
 

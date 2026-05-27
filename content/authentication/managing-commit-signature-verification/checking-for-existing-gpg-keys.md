@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Existing GPG keys
+category:
+  - Sign your commits
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 

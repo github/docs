@@ -6,6 +6,8 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Build with AI models
 ---
 
 Prompts can be stored as files directly within {% data variables.product.github %} repositories. This unlocks the ability to view your prompts in an organized UI, share them with non-technical stakeholders, and run seamless iterations and comparisons on adjustments to models and prompts.

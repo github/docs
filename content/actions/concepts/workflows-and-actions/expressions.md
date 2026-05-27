@@ -1,14 +1,13 @@
 ---
 title: Expressions
-intro: 'You can evaluate expressions in workflows and actions.'
+intro: You can evaluate expressions in workflows and actions.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Actions
-  - Workflows
+contentType: concepts
+category:
+  - Write workflows
 ---
 
 ## About expressions

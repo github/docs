@@ -1,7 +1,7 @@
 ---
 title: Creating an issue
-intro: 'Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow.'
-permissions: 'People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}'
+intro: Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow.
+permissions: People with read access can create an issue in a repository where issues are enabled. {% data reusables.enterprise-accounts.emu-permission-repo %}
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-an-issue
   - /articles/creating-an-issue
@@ -23,12 +23,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Project management
 shortTitle: Create an issue
-type: how_to
+contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
@@ -46,6 +44,7 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 
    ![Screenshot of the template chooser for an issue. Below the template choices, a link, labeled "Open a blank issue," is outlined in dark orange.](/assets/images/help/issues/blank-issue-link.png)
 {% data reusables.repositories.type-issue-title-and-description %}
+   To cross-reference a related discussion, paste the discussion's URL into the issue description.
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 

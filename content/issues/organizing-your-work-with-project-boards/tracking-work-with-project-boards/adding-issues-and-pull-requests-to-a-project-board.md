@@ -8,10 +8,10 @@ redirect_from:
   - /github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: 'Add issues & PRs to {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
+category:
+  - Use project boards (classic)
 ---
 {% data reusables.projects.project_boards_old %}
 

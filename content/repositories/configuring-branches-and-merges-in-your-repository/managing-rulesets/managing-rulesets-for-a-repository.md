@@ -7,9 +7,9 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
-topics:
-  - Repositories
 shortTitle: Manage a ruleset
+category:
+  - Manage branches and protect code
 ---
 
 After creating a ruleset, you can still make changes to it. For example, you can add rules to better protect your branches or tags, or you can {% ifversion repo-rules-enterprise %}switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repository{% else %}temporarily disable a ruleset to troubleshoot any unintended effects on the contributor experience for your repository{% endif %}.
@@ -112,6 +112,29 @@ You can view insights for rulesets to see how rulesets are affecting a repositor
 {% data reusables.repositories.rulesets-view-rule-runs %}
 {%- ifversion repo-rules-merge-queue %}
 1. Optionally, review merge queue details for corresponding pull requests in the same merge group.
+
+{% endif %}
+
+{% ifversion rule-insights-dashboard %}
+
+### Rule insights dashboard
+
+> [!NOTE]
+> The rule insights dashboard is in {% data variables.release-phases.public_preview %} and subject to change. It is available for {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans.
+
+The rule insights dashboard gives you a visual, high-level summary of rule evaluation activity for your repository, including:
+
+- **Successes, failures, and bypasses over time**: A chart showing trends in rule evaluation results, helping you spot spikes in blocked pushes or unusual patterns.
+- **Top bypassers**: A list of the most active bypassers for your rulesets.
+
+Each chart links back to the rule insights page with filters prefilled, so you can quickly drill into specific statuses, bypassers, or time ranges.
+
+To view the dashboard:
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. In the left sidebar, under "Code and automation," click **Rules**, then click **Insights**.
+1. At the top of the "Rule Insights" page, view the dashboard charts for an overview of rule evaluation activity.
 
 {% endif %}
 

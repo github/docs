@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /actions-runner-pricing
   - /azure-billing
@@ -25,4 +23,3 @@ children:
   - /supported-payment-methods
 contentType: reference
 ---
-

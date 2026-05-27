@@ -109,7 +109,7 @@ describe('developer redirects', () => {
       const fixtures = readJsonFile(FIXTURES[label as keyof typeof FIXTURES])
       // Don't use a `Promise.all()` because it's actually slower
       // because of all the eventloop context switching.
-      for (let [oldPath, newPath] of Object.entries(fixtures)) {
+      for (let [oldPath, newPath] of Object.entries(fixtures as Record<string, string>)) {
         // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
         // We make an exception to always redirect versionless paths to the latest version.
         newPath = (newPath as string).replace(

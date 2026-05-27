@@ -1,4 +1,6 @@
-import type { NextFunction } from 'express'
+import type { Request, Response, NextFunction } from 'express'
+
+import { ExtendedRequest } from '@/types'
 
 // Fastly provides a Soft Purge feature that allows you to mark content as outdated (stale) instead of permanently
 // purging and thereby deleting it from Fastly's caches. Objects invalidated with Soft Purge will be treated as
@@ -16,8 +18,7 @@ export const SURROGATE_ENUMS = {
   MANUAL: 'manual-purge',
 }
 
-// Using 'any' type for res parameter to maintain compatibility with Express Response objects
-export function setFastlySurrogateKey(res: any, enumKey: string, isCustomKey = false) {
+export function setFastlySurrogateKey(res: Response, enumKey: string, isCustomKey = false) {
   if (process.env.NODE_ENV !== 'production') {
     if (!isCustomKey && !Object.values(SURROGATE_ENUMS).includes(enumKey)) {
       throw new Error(
@@ -30,16 +31,16 @@ export function setFastlySurrogateKey(res: any, enumKey: string, isCustomKey = f
   res.set(KEY, enumKey)
 }
 
-// Using 'any' type for req and res parameters to maintain backward compatibility with test mock objects
-// that don't fully implement ExtendedRequest and Response interfaces
-export function setDefaultFastlySurrogateKey(req: any, res: any, next: NextFunction) {
+export function setDefaultFastlySurrogateKey(req: Request, res: Response, next: NextFunction) {
   res.set(KEY, `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey()}`)
   return next()
 }
 
-// Using 'any' type for req and res parameters to maintain backward compatibility with test mock objects
-// that don't fully implement ExtendedRequest and Response interfaces
-export function setLanguageFastlySurrogateKey(req: any, res: any, next: NextFunction) {
+export function setLanguageFastlySurrogateKey(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   res.set(KEY, `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(req.language)}`)
   return next()
 }

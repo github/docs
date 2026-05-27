@@ -1,4 +1,6 @@
 import { GetServerSideProps } from 'next'
+import type { ExtendedRequest } from '@/types'
+import type { ServerResponse } from 'http'
 
 import { MainContextT, MainContext, getMainContext } from '@/frame/components/context/MainContext'
 import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
@@ -14,10 +16,18 @@ type Props = {
   mainContext: MainContextT
   schema: ChangelogItemT[]
   automatedPageContext: AutomatedPageContextT
+  years: number[]
+  currentYear: number
 }
 
-export default function GraphqlChangelog({ mainContext, schema, automatedPageContext }: Props) {
-  const content = <Changelog changelogItems={schema} />
+export default function GraphqlChangelog({
+  mainContext,
+  schema,
+  automatedPageContext,
+  years,
+  currentYear,
+}: Props) {
+  const content = <Changelog changelogItems={schema} years={years} currentYear={currentYear} />
   return (
     <MainContext.Provider value={mainContext}>
       <AutomatedPageContext.Provider value={automatedPageContext}>
@@ -28,34 +38,41 @@ export default function GraphqlChangelog({ mainContext, schema, automatedPageCon
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getGraphqlChangelog } = await import('@/graphql/lib/index')
+  const { getGraphqlChangelogByYear, getGraphqlChangelogYears } =
+    await import('@/graphql/lib/index')
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
 
-  const req = context.req as any
-  const res = context.res as any
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as ServerResponse
   const currentVersion = context.query.versionId as string
-  const schema = getGraphqlChangelog(currentVersion) as ChangelogItemT[]
+  const years = getGraphqlChangelogYears(currentVersion)
+  const currentYear = years[0]
+  const schema = getGraphqlChangelogByYear(currentVersion, currentYear) as ChangelogItemT[]
   if (!schema) throw new Error('No graphql free-pro-team changelog schema found.')
-  // Gets the miniTocItems in the article context. At this point it will only
-  // include miniTocItems that exist in Markdown pages in
-  // content/graphql/reference/*
+
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   const titles = schema.map((item) => `Schema changes for ${item.date}`)
-  const changelogMiniTocItems = await getAutomatedPageMiniTocItems(titles, req.context.context, 2)
-  // Update the existing context to include the miniTocItems from GraphQL
+  const changelogMiniTocItems = await getAutomatedPageMiniTocItems(titles, req.context!, 2)
   automatedPageContext.miniTocItems.push(...changelogMiniTocItems)
 
-  // All groups in the schema have a change.changes array of strings that are
-  // all the HTML output from a Markdown conversion. E.g.
-  // `<p>Field filename was added to object type <code>IssueTemplate</code></p>`
-  // Change these to just be the inside of the <p> tag.
-  // `Field filename was added to object type <code>IssueTemplate</code>`
-  // This makes the serialized state data smaller and it makes it possible
-  // to render it as...
-  //
-  //    <li>Field filename was added to object type <code>IssueTemplate</code></li>
-  //
-  // ...without the additional <p>.
+  stripParagraphWrappers(schema)
+
+  return {
+    props: {
+      mainContext: await getMainContext(req, res),
+      automatedPageContext,
+      schema,
+      years,
+      currentYear,
+    },
+  }
+}
+
+/**
+ * Strip wrapping `<p>` tags from HTML change descriptions to allow
+ * rendering as `<li>` content without nested block elements.
+ */
+export function stripParagraphWrappers(schema: ChangelogItemT[]) {
   for (const item of schema) {
     for (const group of [item.schemaChanges, item.previewChanges, item.upcomingChanges]) {
       for (const change of group) {
@@ -65,13 +82,5 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         })
       }
     }
-  }
-
-  return {
-    props: {
-      mainContext: await getMainContext(req, res),
-      automatedPageContext,
-      schema,
-    },
   }
 }

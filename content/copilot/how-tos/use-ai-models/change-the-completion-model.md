@@ -4,14 +4,12 @@ shortTitle: Change the completion model
 intro: 'Learn how to change the default LLM for {% data variables.product.prodname_copilot_short %} inline suggestions to a different model.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion
   - /copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-code-completion
   - /copilot/how-tos/ai-models/change-the-completion-model
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -76,9 +74,9 @@ For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggest
 
 ## Changing the AI model for inline suggestions
 
-1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
-1. In the popup menu, click **Edit Model for Completion**.
-1. In the settings dialog box for "Languages & Frameworks > {% data variables.product.prodname_copilot %}," click the dropdown menu for **Model for completions** and select the model you want to use.
+1. In your JetBrains IDE, click the **File** menu (Windows) or the name of the application in the menu bar (macOS), then click **Settings**.
+{% data reusables.copilot.jetbrains-tools %}, then click **Completions**.
+1. Click the dropdown menu for **Model for completions** and select the model you want to use.
 1. Click **OK**.
 
 {% endjetbrains %}

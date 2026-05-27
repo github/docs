@@ -12,8 +12,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 children:
   - /orgs
   - /source-imports

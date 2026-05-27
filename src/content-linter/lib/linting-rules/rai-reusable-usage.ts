@@ -1,5 +1,6 @@
 import { addError } from 'markdownlint-rule-helpers'
 import { TokenKind } from 'liquidjs'
+import type { TopLevelToken } from 'liquidjs'
 import path from 'path'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -7,9 +8,8 @@ import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 
 interface Frontmatter {
-  type?: string
-  // Allow any additional frontmatter properties since we only care about 'type'
-  [key: string]: any
+  contentType?: string
+  [key: string]: unknown
 }
 
 interface LiquidToken {
@@ -45,7 +45,10 @@ export const raiReusableUsage: Rule = {
       if (dataDirectoryReference.startsWith('reusables.rai')) continue
 
       const lines = params.lines
-      const { lineNumber, column, length } = getPositionData(token, lines)
+      const { lineNumber, column, length } = getPositionData(
+        token as unknown as TopLevelToken,
+        lines,
+      )
       addError(
         onError,
         lineNumber,
@@ -72,5 +75,5 @@ function isFileRai(params: RuleParams): boolean {
   }
 
   const fm: Frontmatter = (getFrontmatter(params.frontMatterLines) as Frontmatter) || {}
-  return fm.type === 'rai'
+  return fm.contentType === 'rai'
 }

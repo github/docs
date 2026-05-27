@@ -6,11 +6,10 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-project-board
 versions:
   feature: projects-v1
-topics:
-  - Organizations
-  - Teams
 shortTitle: Remove outside collaborator
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 {% data reusables.projects.project_boards_old %}

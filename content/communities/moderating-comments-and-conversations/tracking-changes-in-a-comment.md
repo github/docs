@@ -8,9 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Track comment changes
+category:
+  - Moderate comments and conversations
 ---
 
 ## Viewing a comment's edit history details

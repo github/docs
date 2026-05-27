@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Set repo management policy
+category:
+  - Set repository policies
 ---
 
 Owners can set permissions for deleting or transferring repositories in an organization.

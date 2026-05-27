@@ -1,0 +1,5 @@
+# The virtual registry or "Linked artifacts" page. Ref: 20118
+
+versions:
+  fpt: '*'
+  ghec: '*'

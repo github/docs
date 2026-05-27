@@ -2,8 +2,6 @@
 title: Using GitHub Copilot to explore issues and discussions
 shortTitle: Explore issues and discussions
 intro: '{% data variables.copilot.copilot_chat %} can help you quickly gain context of lengthy discussions and issues.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:
@@ -23,9 +21,10 @@ The quality of {% data variables.copilot.copilot_chat_short %}'s responses may b
 ## Exploring issues and discussions
 
 1. Navigate to an issue or discussion on {% data variables.product.github %}.
-{% data reusables.copilot.open-chat-panel %}
-{% data reusables.copilot.chat-previous-conversation %}
-1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the prompt box, type a question and press <kbd>Enter</kbd>.
+1. In the top right corner, click the {% data variables.product.prodname_copilot_short %} icon (**{% octicon "copilot" aria-label="Copilot icon" %}**) to open {% data variables.copilot.copilot_chat_short %}.
+
+    ️{% data variables.product.prodname_copilot_short %} will automatically load the content of the issue or discussion as context for your questions.
+1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 

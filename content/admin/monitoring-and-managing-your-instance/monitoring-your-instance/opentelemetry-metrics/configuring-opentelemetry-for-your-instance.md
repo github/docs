@@ -1,21 +1,21 @@
 ---
 title: Configuring OpenTelemetry for your instance
-intro: 'Learn how to configure OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance for enhanced monitoring and observability.'
+intro: Learn how to configure OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance for enhanced monitoring and observability.
 versions:
   feature: ghes-opentelemetry
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
-type: how_to
 shortTitle: Configure OpenTelemetry
+contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}
 
+{% ifversion ghes = 3.18 %}
+
 {% data reusables.enterprise.opentelemetry-preview %}
+
+{% endif %}
 
 ## Prerequisites
 
@@ -24,6 +24,12 @@ shortTitle: Configure OpenTelemetry
 * SSH access to your {% data variables.product.prodname_ghe_server %} appliance
 
 ## Enabling OpenTelemetry metrics
+
+{% ifversion ghes > 3.18 %}
+
+OpenTelemetry metrics are enabled by default for **new installations** of {% data variables.product.prodname_ghe_server %} 3.19 and later. Upgrades to {% data variables.product.prodname_ghe_server %} 3.19 will still have `collectd` metrics enabled by default, but you can choose to switch to OpenTelemetry metrics.
+
+{% else %}
 
 OpenTelemetry metrics are disabled by default. You can enable them through the {% data variables.enterprise.management_console %} or command line.
 
@@ -46,6 +52,8 @@ OpenTelemetry metrics are disabled by default. You can enable them through the {
     ```
 
 {% data reusables.enterprise.apply-configuration %}
+
+{% endif %}
 
 ## Performance considerations
 
@@ -157,5 +165,6 @@ sudo journalctl -u victoriametrics -f
 
 ## Next steps
 
-* To enable advanced monitoring dashboards, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/enable-advanced-dashboards)
+* To enable advanced monitoring dashboards, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/advanced-dashboards)
+* Exploring OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/using-grafana-to-analyze-opentelemetry-metrics).
 * To set up external monitoring, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/setting-up-external-monitoring-with-opentelemetry).

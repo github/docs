@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Understand the GitHub approach to docs
 ---
 
 ## About {% data variables.product.github %}'s documentation fundamentals

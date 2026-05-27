@@ -4,6 +4,8 @@ intro: You can grant individual students and groups extensions to allow them mor
 versions:
   fpt: '*'
 shortTitle: Extend deadline
+category:
+  - Create and manage assignments
 ---
 
 ## About extending assignment deadlines

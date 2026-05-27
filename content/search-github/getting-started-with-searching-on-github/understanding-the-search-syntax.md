@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 shortTitle: Understand search syntax
+category:
+  - Get started with search
 ---
 
 {% ifversion code-search-upgrade %}

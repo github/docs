@@ -69,3 +69,26 @@ Slack: `#docs-engineering`
 Repo: `github/docs-engineering`
 
 If you have a question about the audit log events pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the audit log events pipeline, you can open an issue in the `github/docs-engineering` repository.
+
+## Ownership & On-call
+
+### Ownership
+- **Team**: Docs Engineering
+- **Source data**: github/audit-log-allowlists
+
+### On-call procedures
+If the audit log pipeline fails:
+1. Check workflow logs in `.github/workflows/sync-audit-logs.yml`
+2. Verify access to `github/audit-log-allowlists` repo
+3. Check for schema changes in source data
+4. Escalate to #docs-engineering if stuck
+
+### Monitoring
+- Daily workflow runs automatically
+- PRs created with `audit-log-pipeline` label when updates detected
+- Failures visible in GitHub Actions
+
+We are not expecting significant investment here. We will support updates to audit log data as we receive them.
+- Automate version detection
+- Add event usage analytics
+- Create event category visualizations

@@ -12,13 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Travis CI
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from Travis CI
+contentType: tutorials
+category:
+  - Migrate to GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

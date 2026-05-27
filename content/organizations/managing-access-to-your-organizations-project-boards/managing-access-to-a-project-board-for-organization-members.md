@@ -6,11 +6,10 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
 versions:
   feature: projects-v1
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage access for members
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 {% data reusables.projects.project_boards_old %}

@@ -1,6 +1,6 @@
 ---
 title: Auditing users across your enterprise
-intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the last 180 days. The audit log includes details such as who performed the action, what the action was, and when the action was performed.'
+intro: The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the last 180 days. The audit log includes details such as who performed the action, what the action was, and when the action was performed.
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -9,14 +9,10 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Organizations
-  - Security
-  - User account
 shortTitle: Audit users
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 ## Accessing the audit log
 

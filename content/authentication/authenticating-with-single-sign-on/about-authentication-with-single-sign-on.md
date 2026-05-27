@@ -8,9 +8,9 @@ redirect_from:
   - /authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on
 versions:
   ghec: '*'
-topics:
-  - SSO
 shortTitle: Single sign-on
+category:
+  - Learn about authentication
 ---
 ## About authentication with SSO
 

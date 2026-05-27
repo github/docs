@@ -23,9 +23,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: GitHub Pages & Jekyll
+category:
+  - Learn about GitHub Pages
 ---
 
 {% data reusables.pages.actions-is-preferred %}

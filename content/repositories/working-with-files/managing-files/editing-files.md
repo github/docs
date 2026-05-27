@@ -13,9 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Edit files
+category:
+  - Work with files
 ---
 
 ## Editing files in your repository

@@ -1,0 +1,81 @@
+{
+  "default": {
+    "descriptionHtml": "",
+    "summaryHtml": "<p>This event occurs when a Git branch or tag is created.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Contents\" repository permission.</p>\n<p><strong>Notes</strong>:</p>\n<ul>\n<li>This event will not occur when more than three tags are created at once.</li>\n<li>Payloads are capped at 25 MB. If an event generates a larger payload, GitHub will not deliver a payload for that webhook event. This may happen, for example, if many branches or tags are pushed at once. We suggest monitoring your payload size to ensure delivery.</li>\n</ul>",
+    "bodyParameters": [
+      {
+        "type": "string or null",
+        "name": "description",
+        "description": "<p>The repository's current description.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "master_branch",
+        "description": "<p>The name of the repository's default branch (usually <code>main</code>).</p>",
+        "isRequired": true
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "string",
+        "name": "pusher_type",
+        "description": "<p>The pusher type for the event. Can be either <code>user</code> or a deploy key.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "ref",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.21/rest/git/refs#get-a-reference\"><code>git ref</code></a> resource.</p>",
+        "isRequired": true
+      },
+      {
+        "type": "string",
+        "name": "ref_type",
+        "description": "<p>The type of Git ref object created in the repository.</p>",
+        "isRequired": true,
+        "enum": [
+          "tag",
+          "branch"
+        ]
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "default",
+    "category": "create"
+  }
+}

@@ -6,11 +6,10 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/adding-an-outside-collaborator-to-a-project-board-in-your-organization
 versions:
   feature: projects-v1
-topics:
-  - Organizations
-  - Teams
 shortTitle: Add a collaborator
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 {% data reusables.projects.project_boards_old %}

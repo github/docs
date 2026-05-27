@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Organized data with tables
+category:
+  - Write and format content
 ---
 ## Creating a table
 

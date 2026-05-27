@@ -2,6 +2,7 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
 import { allTools } from '@/tools/lib/all-tools'
+import { codeLanguages } from '@/code-tabs/lib/languages'
 import { contentTypesEnum } from '@/frame/lib/frontmatter'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$'
@@ -106,6 +107,11 @@ const context = {
       description: 'Optional content type from the content frontmatter (EDI content models).',
       enum: contentTypesEnum,
     },
+    docs_team_metrics: {
+      type: 'string',
+      description:
+        'Optional comma-separated list of docsTeamMetrics frontmatter values for internal analytics filtering.',
+    },
     status: {
       type: 'number',
       description: 'The HTTP response status code of the main page HTML.',
@@ -123,6 +129,11 @@ const context = {
     is_staff: {
       type: 'boolean',
       description: 'The cookie value of staffonly',
+    },
+    octo_client_id: {
+      type: 'string',
+      description:
+        'The _octo cookie client ID for cross-subdomain tracking with github.com analytics.',
     },
 
     // Device information
@@ -258,29 +269,29 @@ const exit = {
     exit_render_duration: {
       type: 'number',
       description: 'How long the server took to render the page content, in seconds.',
-      minimum: 0.001,
+      minimum: 0,
     },
     exit_first_paint: {
       type: 'number',
-      minimum: 0.001,
+      minimum: 0,
       description:
         'The duration until `first-contentful-paint`, in seconds. Informs CSS performance.',
     },
     exit_dom_interactive: {
       type: 'number',
-      minimum: 0.001,
+      minimum: 0,
       description:
         'The duration until `PerformanceNavigationTiming.domInteractive`, in seconds. Informs JavaScript loading performance.',
     },
     exit_dom_complete: {
       type: 'number',
-      minimum: 0.001,
+      minimum: 0,
       description:
         'The duration until `PerformanceNavigationTiming.domComplete`, in seconds. Informs JavaScript execution performance.',
     },
     exit_visit_duration: {
       type: 'number',
-      minimum: 0.001,
+      minimum: 0,
       description:
         'The duration of exit.timestamp - page.timestamp, in seconds. Informs bounce rate.',
     },
@@ -357,6 +368,7 @@ const link = {
         'toc',
         'footer',
         'static',
+        'markdown-source-menu',
       ],
       description: 'The part of the page where the user clicked the link.',
     },
@@ -568,7 +580,7 @@ const clipboard = {
     clipboard_operation: {
       type: 'string',
       description: 'Which clipboard operation the user is performing.',
-      enum: ['copy', 'paste', 'cut'],
+      enum: ['copy', 'paste', 'cut', 'share'],
     },
     clipboard_target: {
       type: 'string',
@@ -602,29 +614,34 @@ const preference = {
     },
     preference_name: {
       type: 'string',
-      enum: ['application', 'color_mode', 'os', 'code_display'],
-      description: 'The preference name, such as os, application, or color_mode',
+      enum: ['application', 'color_mode', 'os', 'code_display', 'code_language'],
+      description: 'The preference name, such as os, application, color_mode, or code_language',
     },
     preference_value: {
       type: 'string',
       enum: [
-        // application
-        ...Object.keys(allTools),
-        // color_mode
-        'dark',
-        'light',
-        'auto',
-        'auto:dark',
-        'auto:light',
-        // os
-        'linux',
-        'mac',
-        'windows',
-        // code_display
-        'beside',
-        'inline',
+        ...new Set([
+          // application
+          ...Object.keys(allTools),
+          // color_mode
+          'dark',
+          'light',
+          'auto',
+          'auto:dark',
+          'auto:light',
+          // os
+          'linux',
+          'mac',
+          'windows',
+          // code_display
+          'beside',
+          'inline',
+          // code_language (may overlap with allTools, e.g. 'javascript')
+          ...Object.keys(codeLanguages),
+        ]),
       ],
-      description: 'The application, color_mode, os, or code_display selected by the user.',
+      description:
+        'The application, color_mode, os, code_display, or code_language selected by the user.',
     },
   },
 }

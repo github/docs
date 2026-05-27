@@ -9,11 +9,10 @@ category:
   - Path-specific
   - Repository
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Advanced
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

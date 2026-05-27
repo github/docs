@@ -9,6 +9,8 @@ versions:
 shortTitle: Manage discussions
 redirect_from:
   - /discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository
+category:
+  - Manage and moderate discussions
 ---
 
 

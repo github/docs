@@ -16,7 +16,10 @@ children:
   - /oidc-in-google-cloud-platform
   - /oidc-in-hashicorp-vault
   - /oidc-in-jfrog
+  - /oidc-in-octopus-deploy
   - /oidc-in-pypi
   - /oidc-in-cloud-providers
   - /oidc-with-reusable-workflows
+contentType: how-tos
 ---
+

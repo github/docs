@@ -4,11 +4,8 @@ shortTitle: Manage your account
 intro: 'Learn how to manage your {% data variables.product.prodname_copilot_short %} account.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /get-started-with-a-copilot-plan
-  - /get-free-access-to-copilot-pro
   - /view-and-change-your-copilot-plan
   - /disable-copilot-free
   - /manage-policies
@@ -21,3 +18,8 @@ redirect_from:
 contentType: how-tos
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cfi %}
+
+<!-- end expires 2026-06-01 -->

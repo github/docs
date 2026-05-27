@@ -6,10 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/overview/rate-limits-for-the-rest-api
+category:
+  - Learn about the REST API
 ---
 
 {% ifversion ghes %}

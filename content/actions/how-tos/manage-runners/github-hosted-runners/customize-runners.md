@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Workflows
 shortTitle: Customize runners
 redirect_from:
   - /actions/using-github-hosted-runners/customizing-github-hosted-runners
@@ -15,6 +12,9 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/customizing-github-hosted-runners
+contentType: how-tos
+category:
+  - Set up runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

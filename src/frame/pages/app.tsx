@@ -17,7 +17,8 @@ import {
 } from '@/languages/components/LanguagesContext'
 import { useTheme } from '@/color-schemes/components/useTheme'
 import { SharedUIContextProvider } from '@/frame/components/context/SharedUIContext'
-import { CTAPopoverProvider } from '@/frame/components/context/CTAContext'
+import { ClientSideHashFocus } from '@/frame/components/ClientSideHashFocus'
+import type { ExtendedRequest } from '@/types'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
@@ -144,9 +145,8 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
       >
         <LanguagesContext.Provider value={languagesContext}>
           <SharedUIContextProvider>
-            <CTAPopoverProvider>
-              <Component {...pageProps} />
-            </CTAPopoverProvider>
+            <ClientSideHashFocus />
+            <Component {...pageProps} />
           </SharedUIContextProvider>
         </LanguagesContext.Provider>
       </ThemeProvider>
@@ -158,7 +158,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
-  const req: any = ctx.req
+  const req = ctx.req as unknown as ExtendedRequest
 
   // Have to define the type manually here because `req.context.languages`
   // comes from Node JS and is not type-aware.
@@ -188,11 +188,14 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-  const stagingName = req.headers['x-ong-external-url']?.match(/staging-(\w+)\./)?.[1]
+  const headerValue = req.headers['x-ong-external-url']
+  const stagingName = (typeof headerValue === 'string' ? headerValue : headerValue?.[0])?.match(
+    /staging-(\w+)\./,
+  )?.[1]
   return {
     ...appProps,
     languagesContext,
-    stagingName: stagingNames.has(stagingName) ? stagingName : undefined,
+    stagingName: stagingName && stagingNames.has(stagingName) ? stagingName : undefined,
   }
 }
 

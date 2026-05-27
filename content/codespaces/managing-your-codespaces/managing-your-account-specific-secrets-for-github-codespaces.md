@@ -1,7 +1,7 @@
 ---
 title: Managing your account-specific secrets for GitHub Codespaces
 shortTitle: Codespaces secrets
-intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
+intro: You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,12 +10,9 @@ redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
   - /codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces
-type: how_to
-topics:
-  - Codespaces
-  - Developer
-  - Security
-  - Secret store
+contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## About secrets for {% data variables.product.prodname_github_codespaces %}

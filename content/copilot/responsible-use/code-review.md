@@ -4,8 +4,6 @@ shortTitle: Code review
 intro: 'Learn how to use {% data variables.copilot.copilot_code-review %} safely and responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /early-access/copilot/code-review/responsible-use-of-copilot-code-review
   - /early-access/copilot/code-reviews/responsible-use-of-copilot-code-review

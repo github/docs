@@ -27,10 +27,11 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo with full history
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Check out repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          fetch-depth: 0
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          fetch-depth: 2
 
       - name: Checkout PR for manual dispatch
         if: ${{ github.event_name == 'workflow_dispatch' }}
@@ -48,27 +49,25 @@ jobs:
 
       - name: Get changed content files
         id: changed_files
-        uses: ./.github/actions/get-changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: 'content/**/*.md'
-          # For workflow_dispatch, compare against main
-          base: ${{ github.event_name == 'workflow_dispatch' && 'main' || '' }}
 
       - name: Disable Next.js telemetry
         run: npx next telemetry disable
 
       - name: Start server in the background
-        if: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        if: steps.changed_files.outputs.any_modified == 'true'
         run: npm start > /tmp/stdout.log 2> /tmp/stderr.log &
 
       - name: Run readability analysis
-        if: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        if: steps.changed_files.outputs.any_modified == 'true'
         env:
-          CHANGED_FILES: ${{ steps.changed_files.outputs.filtered_changed_files }}
+          CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
         run: npm run readability-report
 
       - name: Find existing readability comment
-        if: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        if: steps.changed_files.outputs.any_modified == 'true'
         uses: peter-evans/find-comment@b30e6a3c0ed37e7c023ccd3f1db5c6c0b0c23aad
         id: findComment
         with:
@@ -77,7 +76,7 @@ jobs:
           body-includes: '<!-- READABILITY_REPORT -->'
 
       - name: Read readability report
-        if: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        if: steps.changed_files.outputs.any_modified == 'true'
         id: read_report
         run: |
           if [ -f "readability-report.md" ]; then
@@ -89,7 +88,7 @@ jobs:
           fi
 
       - name: Create or update readability comment
-        if: ${{ steps.changed_files.outputs.filtered_changed_files && steps.read_report.outputs.report }}
+        if: steps.changed_files.outputs.any_modified == 'true' && steps.read_report.outputs.report
         uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}

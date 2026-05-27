@@ -14,8 +14,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /best-practices-for-user-security
   - /create-enterprise-teams

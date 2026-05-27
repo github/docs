@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Update enterprise release dates from github/enterprise-releases
+ */
 // [start-readme]
 //
 // This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json

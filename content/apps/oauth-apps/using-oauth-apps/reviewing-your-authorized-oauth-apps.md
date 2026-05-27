@@ -12,10 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Review OAuth apps
+category:
+  - Install and authorize apps
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.access_applications %}

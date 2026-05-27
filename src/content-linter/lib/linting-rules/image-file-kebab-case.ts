@@ -18,7 +18,7 @@ export const imageFileKebabCase = {
           suggestedFileName,
           imageFileName,
           [token.line.indexOf(imageFileName) + 1, imageFileName.length],
-          null, // Todo add fix
+          null,
         )
       }
     })

@@ -5,8 +5,6 @@ intro: 'You can connect to {% data variables.product.prodname_copilot %} through
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Copilot
 redirect_from:
   - /copilot/concepts/network-settings-for-github-copilot
 contentType: concepts

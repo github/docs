@@ -19,8 +19,8 @@ redirect_from:
   - /admin/enterprise-support/receiving-help-from-github-support/submitting-a-ticket
   - /articles/submitting-a-ticket
   - /github/working-with-github-support/submitting-a-ticket
-topics:
-  - Support
+category:
+  - Contact GitHub
 ---
 
 ## About support tickets
@@ -61,6 +61,7 @@ After you create your ticket, you can view your ticket and the responses from {%
 * Copy exact wording of all error messages related to your issue.
 * Determine if there is an existing ticket number in any ongoing communications with {% data variables.contact.github_support %}.
 * Include relevant logs and attach any screenshots that demonstrate the issue.
+  * When providing screenshots, ensure the full URL is visible in the address bar. This helps {% data variables.contact.github_support %} locate the relevant information more quickly. Be sure to redact any sensitive information.
 
 {% ifversion ghes %}
 
@@ -77,13 +78,15 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 ## Creating a support ticket{% ifversion ghes %} using the {% data variables.contact.enterprise_portal %}{% endif %}
 
-> [!NOTE]
-> Before you submit a ticket, you have the option of using {% data variables.copilot.copilot_in_support %} to receive an immediate response to your question. If {% data variables.copilot.copilot_in_support %} is unable to resolve your issue, you can continue submitting your ticket. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
+Before you submit a ticket, you have the option of using {% data variables.copilot.copilot_in_support %} to receive an immediate response to your question. If {% data variables.copilot.copilot_in_support %} is unable to resolve your issue, you can continue submitting your ticket. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
+
+> [!IMPORTANT]
+> If your enterprise uses {% data variables.enterprise.data_residency_short %}, you must sign in with your {% data variables.enterprise.data_residency_site %} account when creating a support ticket about your data-resident enterprise. Otherwise, you will be asked to open a new ticket using your {% data variables.enterprise.data_residency_site %} account.
 
 1. Navigate to the {% data variables.contact.contact_landing_page_portal %} and choose one of the following options:
 
    * To sign in with your {% data variables.product.github %} account, click **Sign in with {% data variables.product.github %}**.
-   * If your organization uses {% data variables.enterprise.data_residency_short %} or {% data variables.enterprise.prodname_managed_users %} (accounts ending in `.ghe`):
+   * If your enterprise uses {% data variables.enterprise.data_residency_short %} (you will use a domain like `{% data variables.enterprise.data_residency_example_domain %}`):
       1. In the sign-in dialog, click **Sign in to your .ghe account**.
       1. Enter your enterprise or tenant name (provided by your administrator) and continue.
       1. Complete the SAML authentication process as prompted. This will sign you in to your .ghe enterprise-managed account.

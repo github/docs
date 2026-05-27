@@ -14,10 +14,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Delete your account
 contentType: how-tos
+category:
+  - Change or close your account
 ---
 
 {% ifversion ghec %}

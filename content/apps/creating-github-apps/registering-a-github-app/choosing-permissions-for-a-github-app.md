@@ -15,8 +15,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
+category:
+  - Register and configure a GitHub App
 ---
 
 ## About {% data variables.product.prodname_github_app %} permissions

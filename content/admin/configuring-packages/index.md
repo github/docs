@@ -7,8 +7,6 @@ redirect_from:
   - /admin/packages
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /getting-started-with-github-packages-for-your-enterprise
   - /enabling-github-packages-with-aws

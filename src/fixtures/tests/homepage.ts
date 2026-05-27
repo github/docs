@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { get, getDOM } from '@/tests/helpers/e2etest'
 
 describe('home page', () => {
   test('landing area', async () => {
-    const $: cheerio.Root = await getDOM('/')
+    const $: CheerioAPI = await getDOM('/')
     const container = $('#landing')
     expect(container.length).toBe(1)
     expect(container.find('h1').text()).toBe('GitHub Docs')
@@ -13,10 +13,10 @@ describe('home page', () => {
   })
 
   test('product groups can use Liquid', async () => {
-    const $: cheerio.Root = await getDOM('/')
+    const $: CheerioAPI = await getDOM('/')
     const main = $('[data-testid="product"]')
     const links = main.find('a[href*="/"]')
-    const hrefs = links.map((i: number, link: any) => $(link)).get()
+    const hrefs = links.map((_, link) => $(link)).get()
     let externalLinks = 0
     for (const href of hrefs) {
       if (!href.attr('href')?.startsWith('https://')) {

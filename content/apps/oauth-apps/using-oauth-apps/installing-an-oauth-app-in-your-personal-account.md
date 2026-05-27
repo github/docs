@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Install app personal account
+category:
+  - Build and manage OAuth apps
 ---
 
 ## About installing {% data variables.product.prodname_oauth_apps %} in your personal account

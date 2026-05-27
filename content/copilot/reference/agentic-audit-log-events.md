@@ -5,9 +5,9 @@ intro: 'Understand the structure of audit log events for agents in your enterpri
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
+category:
+  - Learn about Copilot
 ---
 
 You can apply the `actor:Copilot` filter to your enterprise audit log to view agentic activity over the last 180 days. The following key fields can help you interpret agentic events:

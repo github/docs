@@ -38,7 +38,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 
 interface ReadabilityMetrics {
@@ -219,7 +219,7 @@ async function analyzeFile(filePath: string): Promise<PageReadability | null> {
 
     // Parse HTML and extract content
     const body = await response.text()
-    const $ = cheerio.load(body)
+    const $ = load(body)
 
     // Get page title
     const title = $('h1').first().text().trim() || $('title').text().trim() || 'Untitled'

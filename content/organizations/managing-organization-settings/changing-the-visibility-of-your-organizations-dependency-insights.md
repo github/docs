@@ -6,10 +6,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Change insight visibility
+category:
+  - Configure organization features
 ---
 
 Organization owners can set limitations for viewing organization dependency insights. All members of an organization can view organization dependency insights by default.

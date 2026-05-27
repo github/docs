@@ -1,7 +1,7 @@
 ---
 title: Reusing automations
 shortTitle: Reuse automations
-intro: 'Create modular automations that you can share and reuse across {% data variables.product.prodname_actions %} workflows.'
+intro: Create modular automations that you can share and reuse across {% data variables.product.prodname_actions %} workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,6 +20,7 @@ children:
   - /share-across-private-repositories
   - /share-with-your-organization
   - /share-with-your-enterprise
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

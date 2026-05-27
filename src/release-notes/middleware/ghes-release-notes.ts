@@ -34,7 +34,7 @@ export default async function ghesReleaseNotesContext(
   // Otherwise, 404.
   if (!Object.keys(ghesReleaseNotes).includes(requestedRelease.replace(/\./, '-'))) {
     return all.includes(requestedRelease)
-      ? res.redirect(`https://enterprise.github.com/releases/${requestedRelease}.0/notes`)
+      ? res.safeRedirect(`https://enterprise.github.com/releases/${requestedRelease}.0/notes`)
       : next()
   }
 

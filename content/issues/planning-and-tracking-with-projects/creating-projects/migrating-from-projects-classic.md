@@ -1,14 +1,14 @@
 ---
-title: 'Migrating from {% data variables.product.prodname_projects_v1 %}'
-intro: 'You can migrate your {% data variables.projects.projects_v1_board %} to the new {% data variables.product.prodname_projects_v2 %} experience.'
+title: Migrating from {% data variables.product.prodname_projects_v1 %}
+intro: You can migrate your {% data variables.projects.projects_v1_board %} to the new {% data variables.product.prodname_projects_v2 %} experience.
 versions:
   feature: projects-v2-migration
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/migrating-your-project
-type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
+contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 > [!NOTE]

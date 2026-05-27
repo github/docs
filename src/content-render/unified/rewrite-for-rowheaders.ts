@@ -1,19 +1,8 @@
 import { visitParents } from 'unist-util-visit-parents'
+import type { Element, Root } from 'hast'
 
-interface ElementNode {
-  type: 'element'
-  tagName: string
-  properties: {
-    // Properties can have any value type (strings, booleans, arrays, etc.)
-    [key: string]: any
-  }
+interface ScopedElement extends Element {
   _scoped?: boolean
-}
-
-interface AncestorNode {
-  properties?: {
-    className?: string[]
-  }
 }
 
 /**
@@ -49,32 +38,28 @@ interface AncestorNode {
  *
  * */
 
-function matcher(node: any): node is ElementNode {
-  return node.type === 'element' && node.tagName === 'td' && !('scope' in node.properties)
-}
-
-function insideRowheaders(ancestors: AncestorNode[]): boolean {
-  return ancestors.some(
-    (node: AncestorNode) =>
-      node.properties &&
-      node.properties.className &&
-      node.properties.className.includes('rowheaders'),
-  )
-}
-
-// ancestors is an array of hast nodes without proper TypeScript definitions
-function visitor(node: ElementNode, ancestors: any[]): void {
-  if (insideRowheaders(ancestors)) {
-    const tr = ancestors.at(-1) as ElementNode
-    if (!tr._scoped) {
-      tr._scoped = true
-      node.properties.scope = 'row'
-      node.tagName = 'th'
-    }
-  }
-}
-
-// tree is a hast root node without proper TypeScript definitions
 export default function rewriteForRowheaders() {
-  return (tree: any) => visitParents(tree, matcher, visitor)
+  return (tree: Root) =>
+    visitParents(tree, 'element', (node, ancestors) => {
+      const el = node as Element
+      if (el.tagName !== 'td' || 'scope' in el.properties) return
+
+      const insideRowheaders = ancestors.some((ancestor) => {
+        const ancestorEl = ancestor as Partial<Element>
+        return (
+          ancestorEl.properties &&
+          Array.isArray(ancestorEl.properties.className) &&
+          ancestorEl.properties.className.includes('rowheaders')
+        )
+      })
+
+      if (insideRowheaders) {
+        const tr = ancestors.at(-1) as ScopedElement
+        if (!tr._scoped) {
+          tr._scoped = true
+          el.properties.scope = 'row'
+          el.tagName = 'th'
+        }
+      }
+    })
 }

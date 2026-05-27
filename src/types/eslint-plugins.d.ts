@@ -55,3 +55,11 @@ declare module 'eslint-plugin-no-only-tests' {
 
   export default plugin
 }
+
+declare module 'eslint-plugin-custom-rules' {
+  import type { ESLint } from 'eslint'
+
+  const plugin: ESLint.Plugin
+
+  export default plugin
+}

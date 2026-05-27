@@ -53,6 +53,10 @@ prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
 prodname_bbs2gh_cli_short: BBS2GH extension
 prodname_ghos: GitHub-owned blob storage
 
+## Enterprise Live Migrations
+prodname_elm: Enterprise Live Migrations
+prodname_elm_short: ELM
+
 # GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
@@ -96,7 +100,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% elsif ghes < 3.19 %}2.21.4{% endif %}
+  {% ifversion ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% elsif ghes < 3.19 %}2.21.4{% elsif ghes < 3.20 %}2.22.4{% elsif ghes < 3.21 %}2.23.9{% elsif ghes < 3.22 %}2.24.3{% endif %}
 codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -149,7 +153,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% elsif ghes < 3.19 %}2.324.0{% endif %}
+  {% ifversion ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% elsif ghes < 3.19 %}2.324.0{% elsif ghes < 3.20 %}2.328.0{% elsif ghes < 3.21 %}2.330.0{% elsif ghes < 3.22 %}2.331.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -173,6 +177,7 @@ prodname_container_registries: 'Container registries'
 prodname_docker_registry_namespace: '{% ifversion fpt or ghec %}`docker.pkg.github.com`{% elsif ghes %}<code>docker.<em>HOSTNAME</em></code>{% endif %}'
 prodname_container_registry_namespace: '{% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes %}<code>containers.<em>HOSTNAME</em></code>{% endif %}'
 prodname_npm_registry: 'npm registry'
+virtual_registry: 'linked artifacts page'
 
 # GitHub Insights
 prodname_insights: 'GitHub Insights'
@@ -210,8 +215,8 @@ prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Adv
 prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
 prodname_cs_or_sp: '{% ifversion ghas-products %}Secret Protection or Code Security{% else %}Advanced Security{% endif %}'
 prodname_cs_and_sp: '{% ifversion ghas-products %}Secret Protection and Code Security{% else %}Advanced Security{% endif %}'
-UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif ghes > 3.15 %}Code security{% else %}Code security and analysis{% endif %}'
-UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif ghes > 3.14 %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% else %}Code security and analysis{% endif %}'
+UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}Code security{% else %}Code security and analysis{% endif %}'
 UI_code_security_scanning: '{% ifversion ghas-products %}Code Security{% else %}Code scanning{% endif %}'
 UI_secret_protection_scanning: '{% ifversion ghas-products %}Secret Protection{% else %}Secret scanning{% endif %}'
 
@@ -223,8 +228,17 @@ prodname_advanced_security: 'Advanced Security'
 prodname_secret_risk_assessment: 'secret risk assessment'
 prodname_secret_risk_assessment_caps: 'Secret risk assessment'
 
+## Code security risk assessment
+prodname_code_security_risk_assessment: 'code security risk assessment'
+prodname_code_security_risk_assessment_caps: 'Code security risk assessment'
+
 ## Azure DevOps
 prodname_ghas_azdo: 'GitHub Advanced Security for Azure DevOps'
+
+## Microsoft Defender for Cloud integration with GitHub Code Security
+prodname_microsoft_defender: 'Microsoft Defender for Cloud'
+prodname_mdc_definition: 'Microsoft Defender for Cloud (MDC)'
+prodname_mdc: 'MDC'
 
 # Codespaces
 prodname_codespaces: 'Codespaces'
@@ -243,8 +257,8 @@ prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 # GitHub Support plans
 standard_support_plan: 'Standard plan'
 premium_support_plan: 'Premium plan'
-premium_plus_support_plan: 'Premium Plus plan / GitHub Engineering Direct'
-microsoft_premium_plus_support_plan: 'GitHub Engineering Direct'
+premium_plus_support_plan: 'Premium Plus plan'
+microsoft_premium_plus_support_plan: 'Mission Critical Services for GitHub plan'
 support_ticket_priority_urgent: 'Urgent'
 support_ticket_priority_high: 'High'
 support_ticket_priority_normal: 'Normal'
@@ -263,6 +277,7 @@ prodname_security_advisories: 'GitHub Security Advisories'
 prodname_advisory_database: 'GitHub Advisory Database'
 
 # Security configurations and organization-level security settings
+prodname_security_and_quality_tab: '{% octicon "shield" aria-hidden="true" aria-label="shield" %} {% ifversion security-and-quality-tab %}Security and quality{% else %}Security{% endif %}'
 prodname_security_configurations: 'security configurations'
 prodname_security_configurations_caps: 'Security configurations'
 prodname_security_configuration: 'security configuration'
@@ -296,6 +311,10 @@ prodname_vs_marketplace_shortname: 'VS Code Marketplace'
 # GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot alerts'
+prodname_dependabot_malware_alerts: 'Dependabot malware alerts'
+prodname_dependabot_malware_alerts_short: 'malware alerts'
+prodname_dependabot_malware_alert_short: 'malware alert'
+prodname_dependabot_malware_alerts_short_caps: 'Malware alerts'
 prodname_dependabot_security_updates: 'Dependabot security updates'
 prodname_dependabot_version_updates: 'Dependabot version updates'
 prodname_dependabot_updates: 'Dependabot updates'
@@ -312,6 +331,12 @@ prodname_copilot_short: 'Copilot'
 prodname_pru: 'premium request'
 prodname_prus: 'premium requests'
 prodname_prus_caps: 'Premium requests'
+
+# GitHub AI Credits (replacing premium requests for billing)
+prodname_ai_credits: 'GitHub AI Credits'
+prodname_ai_credits_short: 'AI credits'
+prodname_ai_credit_singular: 'AI credit'
+prodname_ai_credits_value: '$0.01 USD'
 
 # GitHub Spark
 prodname_spark: 'GitHub Spark'
@@ -373,3 +398,6 @@ graphql_url: >-
 
 # OpenAI Codex
 prodname_openai_codex: 'OpenAI Codex'
+
+# Anthropic Claude
+prodname_anthropic_claude: 'Anthropic Claude'

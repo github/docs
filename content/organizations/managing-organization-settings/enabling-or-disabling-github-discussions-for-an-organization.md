@@ -6,9 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
 shortTitle: Organization discussions
+category:
+  - Configure organization features
 ---
 
 ## About organization discussions

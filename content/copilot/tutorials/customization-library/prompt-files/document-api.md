@@ -7,11 +7,10 @@ category:
   - Prompt files
   - Development workflows
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Advanced
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 
@@ -23,7 +22,7 @@ This prompt file generates OpenAPI 3.0 specifications for REST API endpoints by 
 
 ```text copy
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Generate OpenAPI 3.0 specification for API endpoints'
 ---
 
