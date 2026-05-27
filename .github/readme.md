@@ -11,7 +11,7 @@ as published by the Free Software Foundation.
 
 ************************************************** **********************
 
-To get the latest release of OpenVPN, go to:https://Edgarruiz8585@openvpn.net a
+To get the latest release of OpenVPN, go to:https://edgarruiz8585@openvpn.net a https:)//github.com/Edgarruiz8585
 
         https://openvpn.net/community-downloads/
 
