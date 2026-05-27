@@ -1,0 +1,113 @@
+default namespace =
+  "http://purl.oclc.org/ooxml/officeDocument/bibliography"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace shrdBib =
+  "http://purl.oclc.org/ooxml/officeDocument/bibliography"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+shrdBib_ST_SourceType =
+  "ArticleInAPeriodical"
+  | "Book"
+  | "BookSection"
+  | "JournalArticle"
+  | "ConferenceProceedings"
+  | "Report"
+  | "SoundRecording"
+  | "Performance"
+  | "Art"
+  | "DocumentFromInternetSite"
+  | "InternetSite"
+  | "Film"
+  | "Interview"
+  | "Patent"
+  | "ElectronicSource"
+  | "Case"
+  | "Misc"
+shrdBib_CT_NameListType = element Person { shrdBib_CT_PersonType }+
+shrdBib_CT_PersonType =
+  element Last { s_ST_String }*,
+  element First { s_ST_String }*,
+  element Middle { s_ST_String }*
+shrdBib_CT_NameType = element NameList { shrdBib_CT_NameListType }
+shrdBib_CT_NameOrCorporateType =
+  (element NameList { shrdBib_CT_NameListType }
+   | element Corporate { s_ST_String })?
+shrdBib_CT_AuthorType =
+  (element Artist { shrdBib_CT_NameType }
+   | element Author { shrdBib_CT_NameOrCorporateType }
+   | element BookAuthor { shrdBib_CT_NameType }
+   | element Compiler { shrdBib_CT_NameType }
+   | element Composer { shrdBib_CT_NameType }
+   | element Conductor { shrdBib_CT_NameType }
+   | element Counsel { shrdBib_CT_NameType }
+   | element Director { shrdBib_CT_NameType }
+   | element Editor { shrdBib_CT_NameType }
+   | element Interviewee { shrdBib_CT_NameType }
+   | element Interviewer { shrdBib_CT_NameType }
+   | element Inventor { shrdBib_CT_NameType }
+   | element Performer { shrdBib_CT_NameOrCorporateType }
+   | element ProducerName { shrdBib_CT_NameType }
+   | element Translator { shrdBib_CT_NameType }
+   | element Writer { shrdBib_CT_NameType })*
+shrdBib_CT_SourceType =
+  (element AbbreviatedCaseNumber { s_ST_String }
+   | element AlbumTitle { s_ST_String }
+   | element Author { shrdBib_CT_AuthorType }
+   | element BookTitle { s_ST_String }
+   | element Broadcaster { s_ST_String }
+   | element BroadcastTitle { s_ST_String }
+   | element CaseNumber { s_ST_String }
+   | element ChapterNumber { s_ST_String }
+   | element City { s_ST_String }
+   | element Comments { s_ST_String }
+   | element ConferenceName { s_ST_String }
+   | element CountryRegion { s_ST_String }
+   | element Court { s_ST_String }
+   | element Day { s_ST_String }
+   | element DayAccessed { s_ST_String }
+   | element Department { s_ST_String }
+   | element Distributor { s_ST_String }
+   | element Edition { s_ST_String }
+   | element Guid { s_ST_String }
+   | element Institution { s_ST_String }
+   | element InternetSiteTitle { s_ST_String }
+   | element Issue { s_ST_String }
+   | element JournalName { s_ST_String }
+   | element LCID { s_ST_Lang }
+   | element Medium { s_ST_String }
+   | element Month { s_ST_String }
+   | element MonthAccessed { s_ST_String }
+   | element NumberVolumes { s_ST_String }
+   | element Pages { s_ST_String }
+   | element PatentNumber { s_ST_String }
+   | element PeriodicalTitle { s_ST_String }
+   | element ProductionCompany { s_ST_String }
+   | element PublicationTitle { s_ST_String }
+   | element Publisher { s_ST_String }
+   | element RecordingNumber { s_ST_String }
+   | element RefOrder { s_ST_String }
+   | element Reporter { s_ST_String }
+   | element SourceType { shrdBib_ST_SourceType }
+   | element ShortTitle { s_ST_String }
+   | element StandardNumber { s_ST_String }
+   | element StateProvince { s_ST_String }
+   | element Station { s_ST_String }
+   | element Tag { s_ST_String }
+   | element Theater { s_ST_String }
+   | element ThesisType { s_ST_String }
+   | element Title { s_ST_String }
+   | element Type { s_ST_String }
+   | element URL { s_ST_String }
+   | element Version { s_ST_String }
+   | element Volume { s_ST_String }
+   | element Year { s_ST_String }
+   | element YearAccessed { s_ST_String })*
+shrdBib_Sources = element Sources { shrdBib_CT_Sources }
+shrdBib_CT_Sources =
+  attribute SelectedStyle { s_ST_String }?,
+  attribute StyleName { s_ST_String }?,
+  attribute URI { s_ST_String }?,
+  element Source { shrdBib_CT_SourceType }*

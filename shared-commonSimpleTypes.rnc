@@ -1,0 +1,75 @@
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+s_ST_Lang = xsd:string
+s_ST_HexColorRGB = xsd:hexBinary { length = "3" }
+s_ST_Panose = xsd:hexBinary { length = "10" }
+s_ST_CalendarType =
+  string "gregorian"
+  | string "gregorianUs"
+  | string "gregorianMeFrench"
+  | string "gregorianArabic"
+  | string "hijri"
+  | string "hebrew"
+  | string "taiwan"
+  | string "japan"
+  | string "thai"
+  | string "korea"
+  | string "saka"
+  | string "gregorianXlitEnglish"
+  | string "gregorianXlitFrench"
+  | string "none"
+s_ST_Guid =
+  xsd:token {
+    pattern =
+      "\{[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}\}"
+  }
+s_ST_OnOff = xsd:boolean
+s_ST_String = xsd:string
+s_ST_XmlName = xsd:NCName { minLength = "1" maxLength = "255" }
+s_ST_UnsignedDecimalNumber = xsd:unsignedLong
+s_ST_TwipsMeasure =
+  s_ST_UnsignedDecimalNumber | s_ST_PositiveUniversalMeasure
+s_ST_VerticalAlignRun =
+  string "baseline" | string "superscript" | string "subscript"
+s_ST_Xstring = xsd:string
+s_ST_XAlign =
+  string "left"
+  | string "center"
+  | string "right"
+  | string "inside"
+  | string "outside"
+s_ST_YAlign =
+  string "inline"
+  | string "top"
+  | string "center"
+  | string "bottom"
+  | string "inside"
+  | string "outside"
+s_ST_ConformanceClass = string "strict" | string "transitional"
+s_ST_UniversalMeasure =
+  xsd:string { pattern = "-?[0-9]+(\.[0-9]+)?(mm|cm|in|pt|pc|pi)" }
+s_ST_PositiveUniversalMeasure =
+  xsd:string {
+    pattern = "-?[0-9]+(\.[0-9]+)?(mm|cm|in|pt|pc|pi)"
+    pattern = "[0-9]+(\.[0-9]+)?(mm|cm|in|pt|pc|pi)"
+  }
+s_ST_Percentage = xsd:string { pattern = "-?[0-9]+(\.[0-9]+)?%" }
+s_ST_FixedPercentage =
+  xsd:string {
+    pattern = "-?[0-9]+(\.[0-9]+)?%"
+    pattern = "-?((100)|([0-9][0-9]?))(\.[0-9][0-9]?)?%"
+  }
+s_ST_PositivePercentage =
+  xsd:string {
+    pattern = "-?[0-9]+(\.[0-9]+)?%"
+    pattern = "[0-9]+(\.[0-9]+)?%"
+  }
+s_ST_PositiveFixedPercentage =
+  xsd:string {
+    pattern = "-?[0-9]+(\.[0-9]+)?%"
+    pattern = "((100)|([0-9][0-9]?))(\.[0-9][0-9]?)?%"
+  }

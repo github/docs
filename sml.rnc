@@ -1,0 +1,4641 @@
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+default namespace sml = "http://purl.oclc.org/ooxml/spreadsheetml/main"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+namespace xdr =
+  "http://purl.oclc.org/ooxml/drawingml/spreadsheetDrawing"
+
+sml_CT_AutoFilter =
+  attribute ref { sml_ST_Ref }?,
+  element filterColumn { sml_CT_FilterColumn }*,
+  element sortState { sml_CT_SortState }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_FilterColumn =
+  attribute colId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute hiddenButton { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showButton { xsd:boolean }?,
+  (element filters { sml_CT_Filters }?
+   | element top10 { sml_CT_Top10 }?
+   | element customFilters { sml_CT_CustomFilters }?
+   | element dynamicFilter { sml_CT_DynamicFilter }?
+   | element colorFilter { sml_CT_ColorFilter }?
+   | element iconFilter { sml_CT_IconFilter }?
+   | element extLst { sml_CT_ExtensionList }?)?
+sml_CT_Filters =
+  
+  ## default value: false
+  attribute blank { xsd:boolean }?,
+  
+  ## default value: none
+  attribute calendarType { s_ST_CalendarType }?,
+  element filter { sml_CT_Filter }*,
+  element dateGroupItem { sml_CT_DateGroupItem }*
+sml_CT_Filter = attribute val { s_ST_Xstring }?
+sml_CT_CustomFilters =
+  
+  ## default value: false
+  attribute and { xsd:boolean }?,
+  element customFilter { sml_CT_CustomFilter }+
+sml_CT_CustomFilter =
+  
+  ## default value: equal
+  attribute operator { sml_ST_FilterOperator }?,
+  attribute val { s_ST_Xstring }?
+sml_CT_Top10 =
+  
+  ## default value: true
+  attribute top { xsd:boolean }?,
+  
+  ## default value: false
+  attribute percent { xsd:boolean }?,
+  attribute val { xsd:double },
+  attribute filterVal { xsd:double }?
+sml_CT_ColorFilter =
+  attribute dxfId { sml_ST_DxfId }?,
+  
+  ## default value: true
+  attribute cellColor { xsd:boolean }?
+sml_CT_IconFilter =
+  attribute iconSet { sml_ST_IconSetType },
+  attribute iconId { xsd:unsignedInt }?
+sml_ST_FilterOperator =
+  string "equal"
+  | string "lessThan"
+  | string "lessThanOrEqual"
+  | string "notEqual"
+  | string "greaterThanOrEqual"
+  | string "greaterThan"
+sml_CT_DynamicFilter =
+  attribute type { sml_ST_DynamicFilterType },
+  attribute val { xsd:double }?,
+  attribute valIso { xsd:dateTime }?,
+  attribute maxValIso { xsd:dateTime }?
+sml_ST_DynamicFilterType =
+  string "null"
+  | string "aboveAverage"
+  | string "belowAverage"
+  | string "tomorrow"
+  | string "today"
+  | string "yesterday"
+  | string "nextWeek"
+  | string "thisWeek"
+  | string "lastWeek"
+  | string "nextMonth"
+  | string "thisMonth"
+  | string "lastMonth"
+  | string "nextQuarter"
+  | string "thisQuarter"
+  | string "lastQuarter"
+  | string "nextYear"
+  | string "thisYear"
+  | string "lastYear"
+  | string "yearToDate"
+  | string "Q1"
+  | string "Q2"
+  | string "Q3"
+  | string "Q4"
+  | string "M1"
+  | string "M2"
+  | string "M3"
+  | string "M4"
+  | string "M5"
+  | string "M6"
+  | string "M7"
+  | string "M8"
+  | string "M9"
+  | string "M10"
+  | string "M11"
+  | string "M12"
+sml_ST_IconSetType =
+  string "3Arrows"
+  | string "3ArrowsGray"
+  | string "3Flags"
+  | string "3TrafficLights1"
+  | string "3TrafficLights2"
+  | string "3Signs"
+  | string "3Symbols"
+  | string "3Symbols2"
+  | string "4Arrows"
+  | string "4ArrowsGray"
+  | string "4RedToBlack"
+  | string "4Rating"
+  | string "4TrafficLights"
+  | string "5Arrows"
+  | string "5ArrowsGray"
+  | string "5Rating"
+  | string "5Quarters"
+sml_CT_SortState =
+  
+  ## default value: false
+  attribute columnSort { xsd:boolean }?,
+  
+  ## default value: false
+  attribute caseSensitive { xsd:boolean }?,
+  
+  ## default value: none
+  attribute sortMethod { sml_ST_SortMethod }?,
+  attribute ref { sml_ST_Ref },
+  element sortCondition { sml_CT_SortCondition }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_SortCondition =
+  
+  ## default value: false
+  attribute descending { xsd:boolean }?,
+  
+  ## default value: value
+  attribute sortBy { sml_ST_SortBy }?,
+  attribute ref { sml_ST_Ref },
+  attribute customList { s_ST_Xstring }?,
+  attribute dxfId { sml_ST_DxfId }?,
+  
+  ## default value: 3Arrows
+  attribute iconSet { sml_ST_IconSetType }?,
+  attribute iconId { xsd:unsignedInt }?
+sml_ST_SortBy =
+  string "value"
+  | string "cellColor"
+  | string "fontColor"
+  | string "icon"
+sml_ST_SortMethod = string "stroke" | string "pinYin" | string "none"
+sml_CT_DateGroupItem =
+  attribute year { xsd:unsignedShort },
+  attribute month { xsd:unsignedShort }?,
+  attribute day { xsd:unsignedShort }?,
+  attribute hour { xsd:unsignedShort }?,
+  attribute minute { xsd:unsignedShort }?,
+  attribute second { xsd:unsignedShort }?,
+  attribute dateTimeGrouping { sml_ST_DateTimeGrouping }
+sml_ST_DateTimeGrouping =
+  string "year"
+  | string "month"
+  | string "day"
+  | string "hour"
+  | string "minute"
+  | string "second"
+sml_ST_CellRef = xsd:string
+sml_ST_Ref = xsd:string
+sml_ST_RefA = xsd:string
+sml_ST_Sqref = list { sml_ST_Ref* }
+sml_ST_Formula = s_ST_Xstring
+sml_ST_UnsignedIntHex = xsd:hexBinary { length = "4" }
+sml_CT_XStringElement = attribute v { s_ST_Xstring }
+sml_CT_Extension =
+  attribute uri { xsd:token }?,
+  sml_CT_Extension_any
+sml_CT_Extension_any =
+  element * - (o:* | v:* | w10:* | x:*) {
+    anyAttribute*,
+    mixed { anyElement* }
+  }
+sml_CT_ObjectAnchor =
+  
+  ## default value: false
+  attribute moveWithCells { xsd:boolean }?,
+  
+  ## default value: false
+  attribute sizeWithCells { xsd:boolean }?,
+  xdr_from,
+  xdr_to
+sml_EG_ExtensionList = element ext { sml_CT_Extension }*
+sml_CT_ExtensionList = sml_EG_ExtensionList?
+sml_calcChain = element calcChain { sml_CT_CalcChain }
+sml_CT_CalcChain =
+  element c { sml_CT_CalcCell }+,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_CalcCell =
+  attribute r { sml_ST_CellRef },
+  
+  ## default value: 0
+  attribute i { xsd:int }?,
+  
+  ## default value: false
+  attribute s { xsd:boolean }?,
+  
+  ## default value: false
+  attribute l { xsd:boolean }?,
+  
+  ## default value: false
+  attribute t { xsd:boolean }?,
+  
+  ## default value: false
+  attribute a { xsd:boolean }?
+sml_comments = element comments { sml_CT_Comments }
+sml_CT_Comments =
+  element authors { sml_CT_Authors },
+  element commentList { sml_CT_CommentList },
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Authors = element author { s_ST_Xstring }*
+sml_CT_CommentList = element comment { sml_CT_Comment }*
+sml_CT_Comment =
+  attribute ref { sml_ST_Ref },
+  attribute authorId { xsd:unsignedInt },
+  attribute guid { s_ST_Guid }?,
+  attribute shapeId { xsd:unsignedInt }?,
+  element text { sml_CT_Rst },
+  element commentPr { sml_CT_CommentPr }?
+sml_CT_CommentPr =
+  
+  ## default value: true
+  attribute locked { xsd:boolean }?,
+  
+  ## default value: true
+  attribute defaultSize { xsd:boolean }?,
+  
+  ## default value: true
+  attribute print { xsd:boolean }?,
+  
+  ## default value: false
+  attribute disabled { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoFill { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoLine { xsd:boolean }?,
+  attribute altText { s_ST_Xstring }?,
+  
+  ## default value: left
+  attribute textHAlign { sml_ST_TextHAlign }?,
+  
+  ## default value: top
+  attribute textVAlign { sml_ST_TextVAlign }?,
+  
+  ## default value: true
+  attribute lockText { xsd:boolean }?,
+  
+  ## default value: false
+  attribute justLastX { xsd:boolean }?,
+  
+  ## default value: false
+  attribute autoScale { xsd:boolean }?,
+
+  element anchor { sml_CT_ObjectAnchor }
+sml_ST_TextHAlign =
+  string "left"
+  | string "center"
+  | string "right"
+  | string "justify"
+  | string "distributed"
+sml_ST_TextVAlign =
+  string "top"
+  | string "center"
+  | string "bottom"
+  | string "justify"
+  | string "distributed"
+sml_MapInfo = element MapInfo { sml_CT_MapInfo }
+sml_CT_MapInfo =
+  attribute SelectionNamespaces { xsd:string },
+  element Schema { sml_CT_Schema }+,
+  element Map { sml_CT_Map }+
+sml_CT_Schema =
+  mixed {
+    attribute ID { xsd:string },
+    attribute SchemaRef { xsd:string }?,
+    attribute Namespace { xsd:string }?,
+    attribute SchemaLanguage { xsd:token }?,
+    sml_CT_Schema_any
+  }
+sml_CT_Schema_any =
+  element * - (o:* | v:* | w10:* | x:*) {
+    anyAttribute*,
+    mixed { anyElement* }
+  }
+sml_CT_Map =
+  attribute ID { xsd:unsignedInt },
+  attribute Name { xsd:string },
+  attribute RootElement { xsd:string },
+  attribute SchemaID { xsd:string },
+  attribute ShowImportExportValidationErrors { xsd:boolean },
+  attribute AutoFit { xsd:boolean },
+  attribute Append { xsd:boolean },
+  attribute PreserveSortAFLayout { xsd:boolean },
+  attribute PreserveFormat { xsd:boolean },
+  element DataBinding { sml_CT_DataBinding }?
+sml_CT_DataBinding =
+  attribute DataBindingName { xsd:string }?,
+  attribute FileBinding { xsd:boolean }?,
+  attribute ConnectionID { xsd:unsignedInt }?,
+  attribute FileBindingName { xsd:string }?,
+  attribute DataBindingLoadMode { xsd:unsignedInt },
+  sml_CT_DataBinding_any
+sml_CT_DataBinding_any =
+  element * - (o:* | v:* | w10:* | x:*) {
+    anyAttribute*,
+    mixed { anyElement* }
+  }
+sml_connections = element connections { sml_CT_Connections }
+sml_CT_Connections = element connection { sml_CT_Connection }+
+sml_CT_Connection =
+  attribute id { xsd:unsignedInt },
+  attribute sourceFile { s_ST_Xstring }?,
+  attribute odcFile { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute keepAlive { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute interval { xsd:unsignedInt }?,
+  attribute name { s_ST_Xstring }?,
+  attribute description { s_ST_Xstring }?,
+  attribute type { xsd:unsignedInt }?,
+  
+  ## default value: 1
+  attribute reconnectionMethod { xsd:unsignedInt }?,
+  attribute refreshedVersion { xsd:unsignedByte },
+  
+  ## default value: 0
+  attribute minRefreshableVersion { xsd:unsignedByte }?,
+  
+  ## default value: false
+  attribute savePassword { xsd:boolean }?,
+  
+  ## default value: false
+  attribute new { xsd:boolean }?,
+  
+  ## default value: false
+  attribute deleted { xsd:boolean }?,
+  
+  ## default value: false
+  attribute onlyUseConnectionFile { xsd:boolean }?,
+  
+  ## default value: false
+  attribute background { xsd:boolean }?,
+  
+  ## default value: false
+  attribute refreshOnLoad { xsd:boolean }?,
+  
+  ## default value: false
+  attribute saveData { xsd:boolean }?,
+  
+  ## default value: integrated
+  attribute credentials { sml_ST_CredMethod }?,
+  attribute singleSignOnId { s_ST_Xstring }?,
+  element dbPr { sml_CT_DbPr }?,
+  element olapPr { sml_CT_OlapPr }?,
+  element webPr { sml_CT_WebPr }?,
+  element textPr { sml_CT_TextPr }?,
+  element parameters { sml_CT_Parameters }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_CredMethod =
+  string "integrated"
+  | string "none"
+  | string "stored"
+  | string "prompt"
+sml_CT_DbPr =
+  attribute connection { s_ST_Xstring },
+  attribute command { s_ST_Xstring }?,
+  attribute serverCommand { s_ST_Xstring }?,
+  
+  ## default value: 2
+  attribute commandType { xsd:unsignedInt }?
+sml_CT_OlapPr =
+  
+  ## default value: false
+  attribute local { xsd:boolean }?,
+  attribute localConnection { s_ST_Xstring }?,
+  
+  ## default value: true
+  attribute localRefresh { xsd:boolean }?,
+  
+  ## default value: false
+  attribute sendLocale { xsd:boolean }?,
+  attribute rowDrillCount { xsd:unsignedInt }?,
+  
+  ## default value: true
+  attribute serverFill { xsd:boolean }?,
+  
+  ## default value: true
+  attribute serverNumberFormat { xsd:boolean }?,
+  
+  ## default value: true
+  attribute serverFont { xsd:boolean }?,
+  
+  ## default value: true
+  attribute serverFontColor { xsd:boolean }?
+sml_CT_WebPr =
+  
+  ## default value: false
+  attribute xml { xsd:boolean }?,
+  
+  ## default value: false
+  attribute sourceData { xsd:boolean }?,
+  
+  ## default value: false
+  attribute parsePre { xsd:boolean }?,
+  
+  ## default value: false
+  attribute consecutive { xsd:boolean }?,
+  
+  ## default value: false
+  attribute firstRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute xl97 { xsd:boolean }?,
+  
+  ## default value: false
+  attribute textDates { xsd:boolean }?,
+  
+  ## default value: false
+  attribute xl2000 { xsd:boolean }?,
+  attribute url { s_ST_Xstring }?,
+  attribute post { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute htmlTables { xsd:boolean }?,
+  
+  ## default value: none
+  attribute htmlFormat { sml_ST_HtmlFmt }?,
+  attribute editPage { s_ST_Xstring }?,
+  element tables { sml_CT_Tables }?
+sml_ST_HtmlFmt = string "none" | string "rtf" | string "all"
+sml_CT_Parameters =
+  attribute count { xsd:unsignedInt }?,
+  element parameter { sml_CT_Parameter }+
+sml_CT_Parameter =
+  attribute name { s_ST_Xstring }?,
+  
+  ## default value: 0
+  attribute sqlType { xsd:int }?,
+  
+  ## default value: prompt
+  attribute parameterType { sml_ST_ParameterType }?,
+  
+  ## default value: false
+  attribute refreshOnChange { xsd:boolean }?,
+  attribute prompt { s_ST_Xstring }?,
+  attribute boolean { xsd:boolean }?,
+  attribute double { xsd:double }?,
+  attribute integer { xsd:int }?,
+  attribute string { s_ST_Xstring }?,
+  attribute cell { s_ST_Xstring }?
+sml_ST_ParameterType = string "prompt" | string "value" | string "cell"
+sml_CT_Tables =
+  attribute count { xsd:unsignedInt }?,
+  (element m { sml_CT_TableMissing }
+   | element s { sml_CT_XStringElement }
+   | element x { sml_CT_Index })+
+sml_CT_TableMissing = empty
+sml_CT_TextPr =
+  
+  ## default value: true
+  attribute prompt { xsd:boolean }?,
+  
+  ## default value: win
+  attribute fileType { sml_ST_FileType }?,
+  attribute characterSet { xsd:string }?,
+  
+  ## default value: 1
+  attribute firstRow { xsd:unsignedInt }?,
+  attribute sourceFile { s_ST_Xstring }?,
+  
+  ## default value: true
+  attribute delimited { xsd:boolean }?,
+  
+  ## default value: .
+  attribute decimal { s_ST_Xstring }?,
+  
+  ## default value: ,
+  attribute thousands { s_ST_Xstring }?,
+  
+  ## default value: true
+  attribute tab { xsd:boolean }?,
+  
+  ## default value: false
+  attribute space { xsd:boolean }?,
+  
+  ## default value: false
+  attribute comma { xsd:boolean }?,
+  
+  ## default value: false
+  attribute semicolon { xsd:boolean }?,
+  
+  ## default value: false
+  attribute consecutive { xsd:boolean }?,
+  
+  ## default value: doubleQuote
+  attribute qualifier { sml_ST_Qualifier }?,
+  attribute delimiter { s_ST_Xstring }?,
+  element textFields { sml_CT_TextFields }?
+sml_ST_FileType =
+  string "mac"
+  | string "win"
+  | string "dos"
+  | string "lin"
+  | string "other"
+sml_ST_Qualifier =
+  string "doubleQuote" | string "singleQuote" | string "none"
+sml_CT_TextFields =
+  
+  ## default value: 1
+  attribute count { xsd:unsignedInt }?,
+  element textField { sml_CT_TextField }+
+sml_CT_TextField =
+  
+  ## default value: general
+  attribute type { sml_ST_ExternalConnectionType }?,
+  
+  ## default value: 0
+  attribute position { xsd:unsignedInt }?
+sml_ST_ExternalConnectionType =
+  string "general"
+  | string "text"
+  | string "MDY"
+  | string "DMY"
+  | string "YMD"
+  | string "MYD"
+  | string "DYM"
+  | string "YDM"
+  | string "skip"
+  | string "EMD"
+sml_pivotCacheDefinition =
+  element pivotCacheDefinition { sml_CT_PivotCacheDefinition }
+sml_pivotCacheRecords =
+  element pivotCacheRecords { sml_CT_PivotCacheRecords }
+sml_pivotTableDefinition =
+  element pivotTableDefinition { sml_CT_pivotTableDefinition }
+sml_CT_PivotCacheDefinition =
+  r_id?,
+  
+  ## default value: false
+  attribute invalid { xsd:boolean }?,
+  
+  ## default value: true
+  attribute saveData { xsd:boolean }?,
+  
+  ## default value: false
+  attribute refreshOnLoad { xsd:boolean }?,
+  
+  ## default value: false
+  attribute optimizeMemory { xsd:boolean }?,
+  
+  ## default value: true
+  attribute enableRefresh { xsd:boolean }?,
+  attribute refreshedBy { s_ST_Xstring }?,
+  attribute refreshedDateIso { xsd:dateTime }?,
+  
+  ## default value: false
+  attribute backgroundQuery { xsd:boolean }?,
+  attribute missingItemsLimit { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute createdVersion { xsd:unsignedByte }?,
+  
+  ## default value: 0
+  attribute refreshedVersion { xsd:unsignedByte }?,
+  
+  ## default value: 0
+  attribute minRefreshableVersion { xsd:unsignedByte }?,
+  attribute recordCount { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute upgradeOnRefresh { xsd:boolean }?,
+  
+  ## default value: false
+  attribute tupleCache { xsd:boolean }?,
+  
+  ## default value: false
+  attribute supportSubquery { xsd:boolean }?,
+  
+  ## default value: false
+  attribute supportAdvancedDrill { xsd:boolean }?,
+  element cacheSource { sml_CT_CacheSource },
+  element cacheFields { sml_CT_CacheFields },
+  element cacheHierarchies { sml_CT_CacheHierarchies }?,
+  element kpis { sml_CT_PCDKPIs }?,
+  element tupleCache { sml_CT_TupleCache }?,
+  element calculatedItems { sml_CT_CalculatedItems }?,
+  element calculatedMembers { sml_CT_CalculatedMembers }?,
+  element dimensions { sml_CT_Dimensions }?,
+  element measureGroups { sml_CT_MeasureGroups }?,
+  element maps { sml_CT_MeasureDimensionMaps }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_CacheFields =
+  attribute count { xsd:unsignedInt }?,
+  element cacheField { sml_CT_CacheField }*
+sml_CT_CacheField =
+  attribute name { s_ST_Xstring },
+  attribute caption { s_ST_Xstring }?,
+  attribute propertyName { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute serverField { xsd:boolean }?,
+  
+  ## default value: true
+  attribute uniqueList { xsd:boolean }?,
+  attribute numFmtId { sml_ST_NumFmtId }?,
+  attribute formula { s_ST_Xstring }?,
+  
+  ## default value: 0
+  attribute sqlType { xsd:int }?,
+  
+  ## default value: 0
+  attribute hierarchy { xsd:int }?,
+  
+  ## default value: 0
+  attribute level { xsd:unsignedInt }?,
+  
+  ## default value: true
+  attribute databaseField { xsd:boolean }?,
+  attribute mappingCount { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute memberPropertyField { xsd:boolean }?,
+  element sharedItems { sml_CT_SharedItems }?,
+  element fieldGroup { sml_CT_FieldGroup }?,
+  element mpMap { sml_CT_X }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_CacheSource =
+  attribute type { sml_ST_SourceType },
+  
+  ## default value: 0
+  attribute connectionId { xsd:unsignedInt }?,
+  (element worksheetSource { sml_CT_WorksheetSource }
+   | element consolidation { sml_CT_Consolidation }
+   | element extLst { sml_CT_ExtensionList }?)?
+sml_ST_SourceType =
+  string "worksheet"
+  | string "external"
+  | string "consolidation"
+  | string "scenario"
+sml_CT_WorksheetSource =
+  attribute ref { sml_ST_Ref }?,
+  attribute name { s_ST_Xstring }?,
+  attribute sheet { s_ST_Xstring }?,
+  r_id?
+sml_CT_Consolidation =
+  
+  ## default value: true
+  attribute autoPage { xsd:boolean }?,
+  element pages { sml_CT_Pages }?,
+  element rangeSets { sml_CT_RangeSets }
+sml_CT_Pages =
+  attribute count { xsd:unsignedInt }?,
+  element page { sml_CT_PCDSCPage }+
+sml_CT_PCDSCPage =
+  attribute count { xsd:unsignedInt }?,
+  element pageItem { sml_CT_PageItem }*
+sml_CT_PageItem = attribute name { s_ST_Xstring }
+sml_CT_RangeSets =
+  attribute count { xsd:unsignedInt }?,
+  element rangeSet { sml_CT_RangeSet }+
+sml_CT_RangeSet =
+  attribute i1 { xsd:unsignedInt }?,
+  attribute i2 { xsd:unsignedInt }?,
+  attribute i3 { xsd:unsignedInt }?,
+  attribute i4 { xsd:unsignedInt }?,
+  attribute ref { sml_ST_Ref }?,
+  attribute name { s_ST_Xstring }?,
+  attribute sheet { s_ST_Xstring }?,
+  r_id?
+sml_CT_SharedItems =
+  
+  ## default value: true
+  attribute containsSemiMixedTypes { xsd:boolean }?,
+  
+  ## default value: true
+  attribute containsNonDate { xsd:boolean }?,
+  
+  ## default value: false
+  attribute containsDate { xsd:boolean }?,
+  
+  ## default value: true
+  attribute containsString { xsd:boolean }?,
+  
+  ## default value: false
+  attribute containsBlank { xsd:boolean }?,
+  
+  ## default value: false
+  attribute containsMixedTypes { xsd:boolean }?,
+  
+  ## default value: false
+  attribute containsNumber { xsd:boolean }?,
+  
+  ## default value: false
+  attribute containsInteger { xsd:boolean }?,
+  attribute minValue { xsd:double }?,
+  attribute maxValue { xsd:double }?,
+  attribute minDate { xsd:dateTime }?,
+  attribute maxDate { xsd:dateTime }?,
+  attribute count { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute longText { xsd:boolean }?,
+  (element m { sml_CT_Missing }
+   | element n { sml_CT_Number }
+   | element b { sml_CT_Boolean }
+   | element e { sml_CT_Error }
+   | element s { sml_CT_String }
+   | element d { sml_CT_DateTime })*
+sml_CT_Missing =
+  attribute u { xsd:boolean }?,
+  attribute f { xsd:boolean }?,
+  attribute c { s_ST_Xstring }?,
+  attribute cp { xsd:unsignedInt }?,
+  attribute in { xsd:unsignedInt }?,
+  attribute bc { sml_ST_UnsignedIntHex }?,
+  attribute fc { sml_ST_UnsignedIntHex }?,
+  
+  ## default value: false
+  attribute i { xsd:boolean }?,
+  
+  ## default value: false
+  attribute un { xsd:boolean }?,
+  
+  ## default value: false
+  attribute st { xsd:boolean }?,
+  
+  ## default value: false
+  attribute b { xsd:boolean }?,
+  element tpls { sml_CT_Tuples }*,
+  element x { sml_CT_X }*
+sml_CT_Number =
+  attribute v { xsd:double },
+  attribute u { xsd:boolean }?,
+  attribute f { xsd:boolean }?,
+  attribute c { s_ST_Xstring }?,
+  attribute cp { xsd:unsignedInt }?,
+  attribute in { xsd:unsignedInt }?,
+  attribute bc { sml_ST_UnsignedIntHex }?,
+  attribute fc { sml_ST_UnsignedIntHex }?,
+  
+  ## default value: false
+  attribute i { xsd:boolean }?,
+  
+  ## default value: false
+  attribute un { xsd:boolean }?,
+  
+  ## default value: false
+  attribute st { xsd:boolean }?,
+  
+  ## default value: false
+  attribute b { xsd:boolean }?,
+  element tpls { sml_CT_Tuples }*,
+  element x { sml_CT_X }*
+sml_CT_Boolean =
+  attribute v { xsd:boolean },
+  attribute u { xsd:boolean }?,
+  attribute f { xsd:boolean }?,
+  attribute c { s_ST_Xstring }?,
+  attribute cp { xsd:unsignedInt }?,
+  element x { sml_CT_X }*
+sml_CT_Error =
+  attribute v { s_ST_Xstring },
+  attribute u { xsd:boolean }?,
+  attribute f { xsd:boolean }?,
+  attribute c { s_ST_Xstring }?,
+  attribute cp { xsd:unsignedInt }?,
+  attribute in { xsd:unsignedInt }?,
+  attribute bc { sml_ST_UnsignedIntHex }?,
+  attribute fc { sml_ST_UnsignedIntHex }?,
+  
+  ## default value: false
+  attribute i { xsd:boolean }?,
+  
+  ## default value: false
+  attribute un { xsd:boolean }?,
+  
+  ## default value: false
+  attribute st { xsd:boolean }?,
+  
+  ## default value: false
+  attribute b { xsd:boolean }?,
+  element tpls { sml_CT_Tuples }?,
+  element x { sml_CT_X }*
+sml_CT_String =
+  attribute v { s_ST_Xstring },
+  attribute u { xsd:boolean }?,
+  attribute f { xsd:boolean }?,
+  attribute c { s_ST_Xstring }?,
+  attribute cp { xsd:unsignedInt }?,
+  attribute in { xsd:unsignedInt }?,
+  attribute bc { sml_ST_UnsignedIntHex }?,
+  attribute fc { sml_ST_UnsignedIntHex }?,
+  
+  ## default value: false
+  attribute i { xsd:boolean }?,
+  
+  ## default value: false
+  attribute un { xsd:boolean }?,
+  
+  ## default value: false
+  attribute st { xsd:boolean }?,
+  
+  ## default value: false
+  attribute b { xsd:boolean }?,
+  element tpls { sml_CT_Tuples }*,
+  element x { sml_CT_X }*
+sml_CT_DateTime =
+  attribute v { xsd:dateTime },
+  attribute u { xsd:boolean }?,
+  attribute f { xsd:boolean }?,
+  attribute c { s_ST_Xstring }?,
+  attribute cp { xsd:unsignedInt }?,
+  element x { sml_CT_X }*
+sml_CT_FieldGroup =
+  attribute par { xsd:unsignedInt }?,
+  attribute base { xsd:unsignedInt }?,
+  element rangePr { sml_CT_RangePr }?,
+  element discretePr { sml_CT_DiscretePr }?,
+  element groupItems { sml_CT_GroupItems }?
+sml_CT_RangePr =
+  
+  ## default value: true
+  attribute autoStart { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoEnd { xsd:boolean }?,
+  
+  ## default value: range
+  attribute groupBy { sml_ST_GroupBy }?,
+  attribute startNum { xsd:double }?,
+  attribute endNum { xsd:double }?,
+  attribute startDate { xsd:dateTime }?,
+  attribute endDate { xsd:dateTime }?,
+  
+  ## default value: 1
+  attribute groupInterval { xsd:double }?
+sml_ST_GroupBy =
+  string "range"
+  | string "seconds"
+  | string "minutes"
+  | string "hours"
+  | string "days"
+  | string "months"
+  | string "quarters"
+  | string "years"
+sml_CT_DiscretePr =
+  attribute count { xsd:unsignedInt }?,
+  element x { sml_CT_Index }+
+sml_CT_GroupItems =
+  attribute count { xsd:unsignedInt }?,
+  (element m { sml_CT_Missing }
+   | element n { sml_CT_Number }
+   | element b { sml_CT_Boolean }
+   | element e { sml_CT_Error }
+   | element s { sml_CT_String }
+   | element d { sml_CT_DateTime })+
+sml_CT_PivotCacheRecords =
+  attribute count { xsd:unsignedInt }?,
+  element r { sml_CT_Record }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Record =
+  (element m { sml_CT_Missing }
+   | element n { sml_CT_Number }
+   | element b { sml_CT_Boolean }
+   | element e { sml_CT_Error }
+   | element s { sml_CT_String }
+   | element d { sml_CT_DateTime }
+   | element x { sml_CT_Index })+
+sml_CT_PCDKPIs =
+  attribute count { xsd:unsignedInt }?,
+  element kpi { sml_CT_PCDKPI }*
+sml_CT_PCDKPI =
+  attribute uniqueName { s_ST_Xstring },
+  attribute caption { s_ST_Xstring }?,
+  attribute displayFolder { s_ST_Xstring }?,
+  attribute measureGroup { s_ST_Xstring }?,
+  attribute parent { s_ST_Xstring }?,
+  attribute value { s_ST_Xstring },
+  attribute goal { s_ST_Xstring }?,
+  attribute status { s_ST_Xstring }?,
+  attribute trend { s_ST_Xstring }?,
+  attribute weight { s_ST_Xstring }?,
+  attribute time { s_ST_Xstring }?
+sml_CT_CacheHierarchies =
+  attribute count { xsd:unsignedInt }?,
+  element cacheHierarchy { sml_CT_CacheHierarchy }*
+sml_CT_CacheHierarchy =
+  attribute uniqueName { s_ST_Xstring },
+  attribute caption { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute measure { xsd:boolean }?,
+  
+  ## default value: false
+  attribute set { xsd:boolean }?,
+  attribute parentSet { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute iconSet { xsd:int }?,
+  
+  ## default value: false
+  attribute attribute { xsd:boolean }?,
+  
+  ## default value: false
+  attribute time { xsd:boolean }?,
+  
+  ## default value: false
+  attribute keyAttribute { xsd:boolean }?,
+  attribute defaultMemberUniqueName { s_ST_Xstring }?,
+  attribute allUniqueName { s_ST_Xstring }?,
+  attribute allCaption { s_ST_Xstring }?,
+  attribute dimensionUniqueName { s_ST_Xstring }?,
+  attribute displayFolder { s_ST_Xstring }?,
+  attribute measureGroup { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute measures { xsd:boolean }?,
+  attribute count { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute oneField { xsd:boolean }?,
+  attribute memberValueDatatype { xsd:unsignedShort }?,
+  attribute unbalanced { xsd:boolean }?,
+  attribute unbalancedGroup { xsd:boolean }?,
+  
+  ## default value: false
+  attribute hidden { xsd:boolean }?,
+  element fieldsUsage { sml_CT_FieldsUsage }?,
+  element groupLevels { sml_CT_GroupLevels }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_FieldsUsage =
+  attribute count { xsd:unsignedInt }?,
+  element fieldUsage { sml_CT_FieldUsage }*
+sml_CT_FieldUsage = attribute x { xsd:int }
+sml_CT_GroupLevels =
+  attribute count { xsd:unsignedInt }?,
+  element groupLevel { sml_CT_GroupLevel }+
+sml_CT_GroupLevel =
+  attribute uniqueName { s_ST_Xstring },
+  attribute caption { s_ST_Xstring },
+  
+  ## default value: false
+  attribute user { xsd:boolean }?,
+  
+  ## default value: false
+  attribute customRollUp { xsd:boolean }?,
+  element groups { sml_CT_Groups }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Groups =
+  attribute count { xsd:unsignedInt }?,
+  element group { sml_CT_LevelGroup }+
+sml_CT_LevelGroup =
+  attribute name { s_ST_Xstring },
+  attribute uniqueName { s_ST_Xstring },
+  attribute caption { s_ST_Xstring },
+  attribute uniqueParent { s_ST_Xstring }?,
+  attribute id { xsd:int }?,
+  element groupMembers { sml_CT_GroupMembers }
+sml_CT_GroupMembers =
+  attribute count { xsd:unsignedInt }?,
+  element groupMember { sml_CT_GroupMember }+
+sml_CT_GroupMember =
+  attribute uniqueName { s_ST_Xstring },
+  
+  ## default value: false
+  attribute group { xsd:boolean }?
+sml_CT_TupleCache =
+  element entries { sml_CT_PCDSDTCEntries }?,
+  element sets { sml_CT_Sets }?,
+  element queryCache { sml_CT_QueryCache }?,
+  element serverFormats { sml_CT_ServerFormats }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_ServerFormat =
+  attribute culture { s_ST_Xstring }?,
+  attribute format { s_ST_Xstring }?
+sml_CT_ServerFormats =
+  attribute count { xsd:unsignedInt }?,
+  element serverFormat { sml_CT_ServerFormat }*
+sml_CT_PCDSDTCEntries =
+  attribute count { xsd:unsignedInt }?,
+  (element m { sml_CT_Missing }
+   | element n { sml_CT_Number }
+   | element e { sml_CT_Error }
+   | element s { sml_CT_String })+
+sml_CT_Tuples =
+  attribute c { xsd:unsignedInt }?,
+  element tpl { sml_CT_Tuple }+
+sml_CT_Tuple =
+  attribute fld { xsd:unsignedInt }?,
+  attribute hier { xsd:unsignedInt }?,
+  attribute item { xsd:unsignedInt }
+sml_CT_Sets =
+  attribute count { xsd:unsignedInt }?,
+  element set { sml_CT_Set }+
+sml_CT_Set =
+  attribute count { xsd:unsignedInt }?,
+  attribute maxRank { xsd:int },
+  attribute setDefinition { s_ST_Xstring },
+  
+  ## default value: none
+  attribute sortType { sml_ST_SortType }?,
+  
+  ## default value: false
+  attribute queryFailed { xsd:boolean }?,
+  element tpls { sml_CT_Tuples }*,
+  element sortByTuple { sml_CT_Tuples }?
+sml_ST_SortType =
+  string "none"
+  | string "ascending"
+  | string "descending"
+  | string "ascendingAlpha"
+  | string "descendingAlpha"
+  | string "ascendingNatural"
+  | string "descendingNatural"
+sml_CT_QueryCache =
+  attribute count { xsd:unsignedInt }?,
+  element query { sml_CT_Query }+
+sml_CT_Query =
+  attribute mdx { s_ST_Xstring },
+  element tpls { sml_CT_Tuples }?
+sml_CT_CalculatedItems =
+  attribute count { xsd:unsignedInt }?,
+  element calculatedItem { sml_CT_CalculatedItem }+
+sml_CT_CalculatedItem =
+  attribute field { xsd:unsignedInt }?,
+  attribute formula { s_ST_Xstring }?,
+  element pivotArea { sml_CT_PivotArea },
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_CalculatedMembers =
+  attribute count { xsd:unsignedInt }?,
+  element calculatedMember { sml_CT_CalculatedMember }+
+sml_CT_CalculatedMember =
+  attribute name { s_ST_Xstring },
+  attribute mdx { s_ST_Xstring },
+  attribute memberName { s_ST_Xstring }?,
+  attribute hierarchy { s_ST_Xstring }?,
+  attribute parent { s_ST_Xstring }?,
+  
+  ## default value: 0
+  attribute solveOrder { xsd:int }?,
+  
+  ## default value: false
+  attribute set { xsd:boolean }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_pivotTableDefinition =
+  attribute name { s_ST_Xstring },
+  attribute cacheId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute dataOnRows { xsd:boolean }?,
+  attribute dataPosition { xsd:unsignedInt }?,
+  sml_AG_AutoFormat,
+  attribute dataCaption { s_ST_Xstring },
+  attribute grandTotalCaption { s_ST_Xstring }?,
+  attribute errorCaption { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute showError { xsd:boolean }?,
+  attribute missingCaption { s_ST_Xstring }?,
+  
+  ## default value: true
+  attribute showMissing { xsd:boolean }?,
+  attribute pageStyle { s_ST_Xstring }?,
+  attribute pivotTableStyle { s_ST_Xstring }?,
+  attribute vacatedStyle { s_ST_Xstring }?,
+  attribute tag { s_ST_Xstring }?,
+  
+  ## default value: 0
+  attribute updatedVersion { xsd:unsignedByte }?,
+  
+  ## default value: 0
+  attribute minRefreshableVersion { xsd:unsignedByte }?,
+  
+  ## default value: false
+  attribute asteriskTotals { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showItems { xsd:boolean }?,
+  
+  ## default value: false
+  attribute editData { xsd:boolean }?,
+  
+  ## default value: false
+  attribute disableFieldList { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showCalcMbrs { xsd:boolean }?,
+  
+  ## default value: true
+  attribute visualTotals { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showMultipleLabel { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showDataDropDown { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showDrill { xsd:boolean }?,
+  
+  ## default value: false
+  attribute printDrill { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showMemberPropertyTips { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showDataTips { xsd:boolean }?,
+  
+  ## default value: true
+  attribute enableWizard { xsd:boolean }?,
+  
+  ## default value: true
+  attribute enableDrill { xsd:boolean }?,
+  
+  ## default value: true
+  attribute enableFieldProperties { xsd:boolean }?,
+  
+  ## default value: true
+  attribute preserveFormatting { xsd:boolean }?,
+  
+  ## default value: false
+  attribute useAutoFormatting { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute pageWrap { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute pageOverThenDown { xsd:boolean }?,
+  
+  ## default value: false
+  attribute subtotalHiddenItems { xsd:boolean }?,
+  
+  ## default value: true
+  attribute rowGrandTotals { xsd:boolean }?,
+  
+  ## default value: true
+  attribute colGrandTotals { xsd:boolean }?,
+  
+  ## default value: false
+  attribute fieldPrintTitles { xsd:boolean }?,
+  
+  ## default value: false
+  attribute itemPrintTitles { xsd:boolean }?,
+  
+  ## default value: false
+  attribute mergeItem { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showDropZones { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute createdVersion { xsd:unsignedByte }?,
+  
+  ## default value: 1
+  attribute indent { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute showEmptyRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showEmptyCol { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showHeaders { xsd:boolean }?,
+  
+  ## default value: true
+  attribute compact { xsd:boolean }?,
+  
+  ## default value: false
+  attribute outline { xsd:boolean }?,
+  
+  ## default value: false
+  attribute outlineData { xsd:boolean }?,
+  
+  ## default value: true
+  attribute compactData { xsd:boolean }?,
+  
+  ## default value: false
+  attribute published { xsd:boolean }?,
+  
+  ## default value: false
+  attribute gridDropZones { xsd:boolean }?,
+  
+  ## default value: true
+  attribute immersive { xsd:boolean }?,
+  
+  ## default value: true
+  attribute multipleFieldFilters { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute chartFormat { xsd:unsignedInt }?,
+  attribute rowHeaderCaption { s_ST_Xstring }?,
+  attribute colHeaderCaption { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute fieldListSortAscending { xsd:boolean }?,
+  
+  ## default value: false
+  attribute mdxSubqueries { xsd:boolean }?,
+  
+  ## default value: true
+  attribute customListSort { xsd:boolean }?,
+  element location { sml_CT_Location },
+  element pivotFields { sml_CT_PivotFields }?,
+  element rowFields { sml_CT_RowFields }?,
+  element rowItems { sml_CT_rowItems }?,
+  element colFields { sml_CT_ColFields }?,
+  element colItems { sml_CT_colItems }?,
+  element pageFields { sml_CT_PageFields }?,
+  element dataFields { sml_CT_DataFields }?,
+  element formats { sml_CT_Formats }?,
+  element conditionalFormats { sml_CT_ConditionalFormats }?,
+  element chartFormats { sml_CT_ChartFormats }?,
+  element pivotHierarchies { sml_CT_PivotHierarchies }?,
+  element pivotTableStyleInfo { sml_CT_PivotTableStyle }?,
+  element filters { sml_CT_PivotFilters }?,
+  element rowHierarchiesUsage { sml_CT_RowHierarchiesUsage }?,
+  element colHierarchiesUsage { sml_CT_ColHierarchiesUsage }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Location =
+  attribute ref { sml_ST_Ref },
+  attribute firstHeaderRow { xsd:unsignedInt },
+  attribute firstDataRow { xsd:unsignedInt },
+  attribute firstDataCol { xsd:unsignedInt },
+  
+  ## default value: 0
+  attribute rowPageCount { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute colPageCount { xsd:unsignedInt }?
+sml_CT_PivotFields =
+  attribute count { xsd:unsignedInt }?,
+  element pivotField { sml_CT_PivotField }+
+sml_CT_PivotField =
+  attribute name { s_ST_Xstring }?,
+  attribute axis { sml_ST_Axis }?,
+  
+  ## default value: false
+  attribute dataField { xsd:boolean }?,
+  attribute subtotalCaption { s_ST_Xstring }?,
+  
+  ## default value: true
+  attribute showDropDowns { xsd:boolean }?,
+  
+  ## default value: false
+  attribute hiddenLevel { xsd:boolean }?,
+  attribute uniqueMemberProperty { s_ST_Xstring }?,
+  
+  ## default value: true
+  attribute compact { xsd:boolean }?,
+  
+  ## default value: false
+  attribute allDrilled { xsd:boolean }?,
+  attribute numFmtId { sml_ST_NumFmtId }?,
+  
+  ## default value: true
+  attribute outline { xsd:boolean }?,
+  
+  ## default value: true
+  attribute subtotalTop { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragToRow { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragToCol { xsd:boolean }?,
+  
+  ## default value: false
+  attribute multipleItemSelectionAllowed { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragToPage { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragToData { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragOff { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showAll { xsd:boolean }?,
+  
+  ## default value: false
+  attribute insertBlankRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute serverField { xsd:boolean }?,
+  
+  ## default value: false
+  attribute insertPageBreak { xsd:boolean }?,
+  
+  ## default value: false
+  attribute autoShow { xsd:boolean }?,
+  
+  ## default value: true
+  attribute topAutoShow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute hideNewItems { xsd:boolean }?,
+  
+  ## default value: false
+  attribute measureFilter { xsd:boolean }?,
+  
+  ## default value: false
+  attribute includeNewItemsInFilter { xsd:boolean }?,
+  
+  ## default value: 10
+  attribute itemPageCount { xsd:unsignedInt }?,
+  
+  ## default value: manual
+  attribute sortType { sml_ST_FieldSortType }?,
+  attribute dataSourceSort { xsd:boolean }?,
+  
+  ## default value: false
+  attribute nonAutoSortDefault { xsd:boolean }?,
+  attribute rankBy { xsd:unsignedInt }?,
+  
+  ## default value: true
+  attribute defaultSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute sumSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute countASubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute avgSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute maxSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute minSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute productSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute countSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute stdDevSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute stdDevPSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute varSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute varPSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showPropCell { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showPropTip { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showPropAsCaption { xsd:boolean }?,
+  
+  ## default value: false
+  attribute defaultAttributeDrillState { xsd:boolean }?,
+  element items { sml_CT_Items }?,
+  element autoSortScope { sml_CT_AutoSortScope }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_AutoSortScope = element pivotArea { sml_CT_PivotArea }
+sml_CT_Items =
+  attribute count { xsd:unsignedInt }?,
+  element item { sml_CT_Item }+
+sml_CT_Item =
+  attribute n { s_ST_Xstring }?,
+  
+  ## default value: data
+  attribute t { sml_ST_ItemType }?,
+  
+  ## default value: false
+  attribute h { xsd:boolean }?,
+  
+  ## default value: false
+  attribute s { xsd:boolean }?,
+  
+  ## default value: true
+  attribute sd { xsd:boolean }?,
+  
+  ## default value: false
+  attribute f { xsd:boolean }?,
+  
+  ## default value: false
+  attribute m { xsd:boolean }?,
+  
+  ## default value: false
+  attribute c { xsd:boolean }?,
+  attribute x { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute d { xsd:boolean }?,
+  
+  ## default value: true
+  attribute e { xsd:boolean }?
+sml_CT_PageFields =
+  attribute count { xsd:unsignedInt }?,
+  element pageField { sml_CT_PageField }+
+sml_CT_PageField =
+  attribute fld { xsd:int },
+  attribute item { xsd:unsignedInt }?,
+  attribute hier { xsd:int }?,
+  attribute name { s_ST_Xstring }?,
+  attribute cap { s_ST_Xstring }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_DataFields =
+  attribute count { xsd:unsignedInt }?,
+  element dataField { sml_CT_DataField }+
+sml_CT_DataField =
+  attribute name { s_ST_Xstring }?,
+  attribute fld { xsd:unsignedInt },
+  
+  ## default value: sum
+  attribute subtotal { sml_ST_DataConsolidateFunction }?,
+  
+  ## default value: normal
+  attribute showDataAs { sml_ST_ShowDataAs }?,
+  
+  ## default value: -1
+  attribute baseField { xsd:int }?,
+  
+  ## default value: 1048832
+  attribute baseItem { xsd:unsignedInt }?,
+  attribute numFmtId { sml_ST_NumFmtId }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_rowItems =
+  attribute count { xsd:unsignedInt }?,
+  element i { sml_CT_I }+
+sml_CT_colItems =
+  attribute count { xsd:unsignedInt }?,
+  element i { sml_CT_I }+
+sml_CT_I =
+  
+  ## default value: data
+  attribute t { sml_ST_ItemType }?,
+  
+  ## default value: 0
+  attribute r { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute i { xsd:unsignedInt }?,
+  element x { sml_CT_X }*
+sml_CT_X =
+  
+  ## default value: 0
+  attribute v { xsd:int }?
+sml_CT_RowFields =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element field { sml_CT_Field }+
+sml_CT_ColFields =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element field { sml_CT_Field }+
+sml_CT_Field = attribute x { xsd:int }
+sml_CT_Formats =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element format { sml_CT_Format }+
+sml_CT_Format =
+  
+  ## default value: formatting
+  attribute action { sml_ST_FormatAction }?,
+  attribute dxfId { sml_ST_DxfId }?,
+  element pivotArea { sml_CT_PivotArea },
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_ConditionalFormats =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element conditionalFormat { sml_CT_ConditionalFormat }+
+sml_CT_ConditionalFormat =
+  
+  ## default value: selection
+  attribute scope { sml_ST_Scope }?,
+  
+  ## default value: none
+  attribute type { sml_ST_Type }?,
+  attribute priority { xsd:unsignedInt },
+  element pivotAreas { sml_CT_PivotAreas },
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_PivotAreas =
+  attribute count { xsd:unsignedInt }?,
+  element pivotArea { sml_CT_PivotArea }*
+sml_ST_Scope = string "selection" | string "data" | string "field"
+sml_ST_Type =
+  string "none" | string "all" | string "row" | string "column"
+sml_CT_ChartFormats =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element chartFormat { sml_CT_ChartFormat }+
+sml_CT_ChartFormat =
+  attribute chart { xsd:unsignedInt },
+  attribute format { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute series { xsd:boolean }?,
+  element pivotArea { sml_CT_PivotArea }
+sml_CT_PivotHierarchies =
+  attribute count { xsd:unsignedInt }?,
+  element pivotHierarchy { sml_CT_PivotHierarchy }+
+sml_CT_PivotHierarchy =
+  
+  ## default value: false
+  attribute outline { xsd:boolean }?,
+  
+  ## default value: false
+  attribute multipleItemSelectionAllowed { xsd:boolean }?,
+  
+  ## default value: false
+  attribute subtotalTop { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showInFieldList { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragToRow { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragToCol { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragToPage { xsd:boolean }?,
+  
+  ## default value: false
+  attribute dragToData { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dragOff { xsd:boolean }?,
+  
+  ## default value: false
+  attribute includeNewItemsInFilter { xsd:boolean }?,
+  attribute caption { s_ST_Xstring }?,
+  element mps { sml_CT_MemberProperties }?,
+  element members { sml_CT_Members }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_RowHierarchiesUsage =
+  attribute count { xsd:unsignedInt }?,
+  element rowHierarchyUsage { sml_CT_HierarchyUsage }+
+sml_CT_ColHierarchiesUsage =
+  attribute count { xsd:unsignedInt }?,
+  element colHierarchyUsage { sml_CT_HierarchyUsage }+
+sml_CT_HierarchyUsage = attribute hierarchyUsage { xsd:int }
+sml_CT_MemberProperties =
+  attribute count { xsd:unsignedInt }?,
+  element mp { sml_CT_MemberProperty }+
+sml_CT_MemberProperty =
+  attribute name { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute showCell { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showTip { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showAsCaption { xsd:boolean }?,
+  attribute nameLen { xsd:unsignedInt }?,
+  attribute pPos { xsd:unsignedInt }?,
+  attribute pLen { xsd:unsignedInt }?,
+  attribute level { xsd:unsignedInt }?,
+  attribute field { xsd:unsignedInt }
+sml_CT_Members =
+  attribute count { xsd:unsignedInt }?,
+  attribute level { xsd:unsignedInt }?,
+  element member { sml_CT_Member }+
+sml_CT_Member = attribute name { s_ST_Xstring }
+sml_CT_Dimensions =
+  attribute count { xsd:unsignedInt }?,
+  element dimension { sml_CT_PivotDimension }*
+sml_CT_PivotDimension =
+  
+  ## default value: false
+  attribute measure { xsd:boolean }?,
+  attribute name { s_ST_Xstring },
+  attribute uniqueName { s_ST_Xstring },
+  attribute caption { s_ST_Xstring }
+sml_CT_MeasureGroups =
+  attribute count { xsd:unsignedInt }?,
+  element measureGroup { sml_CT_MeasureGroup }*
+sml_CT_MeasureDimensionMaps =
+  attribute count { xsd:unsignedInt }?,
+  element map { sml_CT_MeasureDimensionMap }*
+sml_CT_MeasureGroup =
+  attribute name { s_ST_Xstring },
+  attribute caption { s_ST_Xstring }
+sml_CT_MeasureDimensionMap =
+  attribute measureGroup { xsd:unsignedInt }?,
+  attribute dimension { xsd:unsignedInt }?
+sml_CT_PivotTableStyle =
+  attribute name { xsd:string }?,
+  attribute showRowHeaders { xsd:boolean }?,
+  attribute showColHeaders { xsd:boolean }?,
+  attribute showRowStripes { xsd:boolean }?,
+  attribute showColStripes { xsd:boolean }?,
+  attribute showLastColumn { xsd:boolean }?
+sml_CT_PivotFilters =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element filter { sml_CT_PivotFilter }*
+sml_CT_PivotFilter =
+  attribute fld { xsd:unsignedInt },
+  attribute mpFld { xsd:unsignedInt }?,
+  attribute type { sml_ST_PivotFilterType },
+  
+  ## default value: 0
+  attribute evalOrder { xsd:int }?,
+  attribute id { xsd:unsignedInt },
+  attribute iMeasureHier { xsd:unsignedInt }?,
+  attribute iMeasureFld { xsd:unsignedInt }?,
+  attribute name { s_ST_Xstring }?,
+  attribute description { s_ST_Xstring }?,
+  attribute stringValue1 { s_ST_Xstring }?,
+  attribute stringValue2 { s_ST_Xstring }?,
+  element autoFilter { sml_CT_AutoFilter },
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_ShowDataAs =
+  string "normal"
+  | string "difference"
+  | string "percent"
+  | string "percentDiff"
+  | string "runTotal"
+  | string "percentOfRow"
+  | string "percentOfCol"
+  | string "percentOfTotal"
+  | string "index"
+sml_ST_ItemType =
+  string "data"
+  | string "default"
+  | string "sum"
+  | string "countA"
+  | string "avg"
+  | string "max"
+  | string "min"
+  | string "product"
+  | string "count"
+  | string "stdDev"
+  | string "stdDevP"
+  | string "var"
+  | string "varP"
+  | string "grand"
+  | string "blank"
+sml_ST_FormatAction =
+  string "blank"
+  | string "formatting"
+  | string "drill"
+  | string "formula"
+sml_ST_FieldSortType =
+  string "manual" | string "ascending" | string "descending"
+sml_ST_PivotFilterType =
+  string "unknown"
+  | string "count"
+  | string "percent"
+  | string "sum"
+  | string "captionEqual"
+  | string "captionNotEqual"
+  | string "captionBeginsWith"
+  | string "captionNotBeginsWith"
+  | string "captionEndsWith"
+  | string "captionNotEndsWith"
+  | string "captionContains"
+  | string "captionNotContains"
+  | string "captionGreaterThan"
+  | string "captionGreaterThanOrEqual"
+  | string "captionLessThan"
+  | string "captionLessThanOrEqual"
+  | string "captionBetween"
+  | string "captionNotBetween"
+  | string "valueEqual"
+  | string "valueNotEqual"
+  | string "valueGreaterThan"
+  | string "valueGreaterThanOrEqual"
+  | string "valueLessThan"
+  | string "valueLessThanOrEqual"
+  | string "valueBetween"
+  | string "valueNotBetween"
+  | string "dateEqual"
+  | string "dateNotEqual"
+  | string "dateOlderThan"
+  | string "dateOlderThanOrEqual"
+  | string "dateNewerThan"
+  | string "dateNewerThanOrEqual"
+  | string "dateBetween"
+  | string "dateNotBetween"
+  | string "tomorrow"
+  | string "today"
+  | string "yesterday"
+  | string "nextWeek"
+  | string "thisWeek"
+  | string "lastWeek"
+  | string "nextMonth"
+  | string "thisMonth"
+  | string "lastMonth"
+  | string "nextQuarter"
+  | string "thisQuarter"
+  | string "lastQuarter"
+  | string "nextYear"
+  | string "thisYear"
+  | string "lastYear"
+  | string "yearToDate"
+  | string "Q1"
+  | string "Q2"
+  | string "Q3"
+  | string "Q4"
+  | string "M1"
+  | string "M2"
+  | string "M3"
+  | string "M4"
+  | string "M5"
+  | string "M6"
+  | string "M7"
+  | string "M8"
+  | string "M9"
+  | string "M10"
+  | string "M11"
+  | string "M12"
+sml_CT_PivotArea =
+  attribute field { xsd:int }?,
+  
+  ## default value: normal
+  attribute type { sml_ST_PivotAreaType }?,
+  
+  ## default value: true
+  attribute dataOnly { xsd:boolean }?,
+  
+  ## default value: false
+  attribute labelOnly { xsd:boolean }?,
+  
+  ## default value: false
+  attribute grandRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute grandCol { xsd:boolean }?,
+  
+  ## default value: false
+  attribute cacheIndex { xsd:boolean }?,
+  
+  ## default value: true
+  attribute outline { xsd:boolean }?,
+  attribute offset { sml_ST_Ref }?,
+  
+  ## default value: false
+  attribute collapsedLevelsAreSubtotals { xsd:boolean }?,
+  attribute axis { sml_ST_Axis }?,
+  attribute fieldPosition { xsd:unsignedInt }?,
+  element references { sml_CT_PivotAreaReferences }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_PivotAreaType =
+  string "none"
+  | string "normal"
+  | string "data"
+  | string "all"
+  | string "origin"
+  | string "button"
+  | string "topEnd"
+sml_CT_PivotAreaReferences =
+  attribute count { xsd:unsignedInt }?,
+  element reference { sml_CT_PivotAreaReference }+
+sml_CT_PivotAreaReference =
+  attribute field { xsd:unsignedInt }?,
+  attribute count { xsd:unsignedInt }?,
+  
+  ## default value: true
+  attribute selected { xsd:boolean }?,
+  
+  ## default value: false
+  attribute byPosition { xsd:boolean }?,
+  
+  ## default value: false
+  attribute relative { xsd:boolean }?,
+  
+  ## default value: false
+  attribute defaultSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute sumSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute countASubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute avgSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute maxSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute minSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute productSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute countSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute stdDevSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute stdDevPSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute varSubtotal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute varPSubtotal { xsd:boolean }?,
+  element x { sml_CT_Index }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Index = attribute v { xsd:unsignedInt }
+sml_ST_Axis =
+  string "axisRow"
+  | string "axisCol"
+  | string "axisPage"
+  | string "axisValues"
+sml_queryTable = element queryTable { sml_CT_QueryTable }
+sml_CT_QueryTable =
+  attribute name { s_ST_Xstring },
+  
+  ## default value: true
+  attribute headers { xsd:boolean }?,
+  
+  ## default value: false
+  attribute rowNumbers { xsd:boolean }?,
+  
+  ## default value: false
+  attribute disableRefresh { xsd:boolean }?,
+  
+  ## default value: true
+  attribute backgroundRefresh { xsd:boolean }?,
+  
+  ## default value: false
+  attribute firstBackgroundRefresh { xsd:boolean }?,
+  
+  ## default value: false
+  attribute refreshOnLoad { xsd:boolean }?,
+  
+  ## default value: insertDelete
+  attribute growShrinkType { sml_ST_GrowShrinkType }?,
+  
+  ## default value: false
+  attribute fillFormulas { xsd:boolean }?,
+  
+  ## default value: false
+  attribute removeDataOnSave { xsd:boolean }?,
+  
+  ## default value: false
+  attribute disableEdit { xsd:boolean }?,
+  
+  ## default value: true
+  attribute preserveFormatting { xsd:boolean }?,
+  
+  ## default value: true
+  attribute adjustColumnWidth { xsd:boolean }?,
+  
+  ## default value: false
+  attribute intermediate { xsd:boolean }?,
+  attribute connectionId { xsd:unsignedInt },
+  sml_AG_AutoFormat,
+  element queryTableRefresh { sml_CT_QueryTableRefresh }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_QueryTableRefresh =
+  
+  ## default value: true
+  attribute preserveSortFilterLayout { xsd:boolean }?,
+  
+  ## default value: false
+  attribute fieldIdWrapped { xsd:boolean }?,
+  
+  ## default value: true
+  attribute headersInLastRefresh { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute minimumVersion { xsd:unsignedByte }?,
+  
+  ## default value: 1
+  attribute nextId { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute unboundColumnsLeft { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute unboundColumnsRight { xsd:unsignedInt }?,
+  element queryTableFields { sml_CT_QueryTableFields },
+  element queryTableDeletedFields { sml_CT_QueryTableDeletedFields }?,
+  element sortState { sml_CT_SortState }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_QueryTableDeletedFields =
+  attribute count { xsd:unsignedInt }?,
+  element deletedField { sml_CT_DeletedField }+
+sml_CT_DeletedField = attribute name { s_ST_Xstring }
+sml_CT_QueryTableFields =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element queryTableField { sml_CT_QueryTableField }*
+sml_CT_QueryTableField =
+  attribute id { xsd:unsignedInt },
+  attribute name { s_ST_Xstring }?,
+  
+  ## default value: true
+  attribute dataBound { xsd:boolean }?,
+  
+  ## default value: false
+  attribute rowNumbers { xsd:boolean }?,
+  
+  ## default value: false
+  attribute fillFormulas { xsd:boolean }?,
+  
+  ## default value: false
+  attribute clipped { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute tableColumnId { xsd:unsignedInt }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_GrowShrinkType =
+  string "insertDelete" | string "insertClear" | string "overwriteClear"
+sml_sst = element sst { sml_CT_Sst }
+sml_CT_Sst =
+  attribute count { xsd:unsignedInt }?,
+  attribute uniqueCount { xsd:unsignedInt }?,
+  element si { sml_CT_Rst }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_PhoneticType =
+  string "halfwidthKatakana"
+  | string "fullwidthKatakana"
+  | string "Hiragana"
+  | string "noConversion"
+sml_ST_PhoneticAlignment =
+  string "noControl"
+  | string "left"
+  | string "center"
+  | string "distributed"
+sml_CT_PhoneticRun =
+  attribute sb { xsd:unsignedInt },
+  attribute eb { xsd:unsignedInt },
+  element t { s_ST_Xstring }
+sml_CT_RElt =
+  element rPr { sml_CT_RPrElt }?,
+  element t { s_ST_Xstring }
+sml_CT_RPrElt =
+  (element rFont { sml_CT_FontName }?
+   | element charset { sml_CT_IntProperty }?
+   | element family { sml_CT_IntProperty }?
+   | element b { sml_CT_BooleanProperty }?
+   | element i { sml_CT_BooleanProperty }?
+   | element strike { sml_CT_BooleanProperty }?
+   | element outline { sml_CT_BooleanProperty }?
+   | element shadow { sml_CT_BooleanProperty }?
+   | element condense { sml_CT_BooleanProperty }?
+   | element extend { sml_CT_BooleanProperty }?
+   | element color { sml_CT_Color }?
+   | element sz { sml_CT_FontSize }?
+   | element u { sml_CT_UnderlineProperty }?
+   | element vertAlign { sml_CT_VerticalAlignFontProperty }?
+   | element scheme { sml_CT_FontScheme }?)+
+sml_CT_Rst =
+  element t { s_ST_Xstring }?,
+  element r { sml_CT_RElt }*,
+  element rPh { sml_CT_PhoneticRun }*,
+  element phoneticPr { sml_CT_PhoneticPr }?
+sml_CT_PhoneticPr =
+  attribute fontId { sml_ST_FontId },
+  
+  ## default value: fullwidthKatakana
+  attribute type { sml_ST_PhoneticType }?,
+  
+  ## default value: left
+  attribute alignment { sml_ST_PhoneticAlignment }?
+sml_headers = element headers { sml_CT_RevisionHeaders }
+sml_revisions = element revisions { sml_CT_Revisions }
+sml_CT_RevisionHeaders =
+  attribute guid { s_ST_Guid },
+  attribute lastGuid { s_ST_Guid }?,
+  
+  ## default value: true
+  attribute shared { xsd:boolean }?,
+  
+  ## default value: false
+  attribute diskRevisions { xsd:boolean }?,
+  
+  ## default value: true
+  attribute history { xsd:boolean }?,
+  
+  ## default value: true
+  attribute trackRevisions { xsd:boolean }?,
+  
+  ## default value: false
+  attribute exclusive { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute revisionId { xsd:unsignedInt }?,
+  
+  ## default value: 1
+  attribute version { xsd:int }?,
+  
+  ## default value: true
+  attribute keepChangeHistory { xsd:boolean }?,
+  
+  ## default value: false
+  attribute protected { xsd:boolean }?,
+  
+  ## default value: 30
+  attribute preserveHistory { xsd:unsignedInt }?,
+  element header { sml_CT_RevisionHeader }+
+sml_CT_Revisions =
+  (element rrc { sml_CT_RevisionRowColumn }*
+   | element rm { sml_CT_RevisionMove }*
+   | element rcv { sml_CT_RevisionCustomView }*
+   | element rsnm { sml_CT_RevisionSheetRename }*
+   | element ris { sml_CT_RevisionInsertSheet }*
+   | element rcc { sml_CT_RevisionCellChange }*
+   | element rfmt { sml_CT_RevisionFormatting }*
+   | element raf { sml_CT_RevisionAutoFormatting }*
+   | element rdn { sml_CT_RevisionDefinedName }*
+   | element rcmt { sml_CT_RevisionComment }*
+   | element rqt { sml_CT_RevisionQueryTableField }*
+   | element rcft { sml_CT_RevisionConflict }*)+
+sml_AG_RevData =
+  attribute rId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute ua { xsd:boolean }?,
+  
+  ## default value: false
+  attribute ra { xsd:boolean }?
+sml_CT_RevisionHeader =
+  attribute guid { s_ST_Guid },
+  attribute dateTime { xsd:dateTime },
+  attribute maxSheetId { xsd:unsignedInt },
+  attribute userName { s_ST_Xstring },
+  r_id,
+  attribute minRId { xsd:unsignedInt }?,
+  attribute maxRId { xsd:unsignedInt }?,
+  element sheetIdMap { sml_CT_SheetIdMap },
+  element reviewedList { sml_CT_ReviewedRevisions }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_SheetIdMap =
+  attribute count { xsd:unsignedInt }?,
+  element sheetId { sml_CT_SheetId }+
+sml_CT_SheetId = attribute val { xsd:unsignedInt }
+sml_CT_ReviewedRevisions =
+  attribute count { xsd:unsignedInt }?,
+  element reviewed { sml_CT_Reviewed }+
+sml_CT_Reviewed = attribute rId { xsd:unsignedInt }
+sml_CT_UndoInfo =
+  attribute index { xsd:unsignedInt },
+  attribute exp { sml_ST_FormulaExpression },
+  
+  ## default value: false
+  attribute ref3D { xsd:boolean }?,
+  
+  ## default value: false
+  attribute array { xsd:boolean }?,
+  
+  ## default value: false
+  attribute v { xsd:boolean }?,
+  
+  ## default value: false
+  attribute nf { xsd:boolean }?,
+  
+  ## default value: false
+  attribute cs { xsd:boolean }?,
+  attribute dr { sml_ST_RefA },
+  attribute dn { s_ST_Xstring }?,
+  attribute r { sml_ST_CellRef }?,
+  attribute sId { xsd:unsignedInt }?
+sml_CT_RevisionRowColumn =
+  sml_AG_RevData,
+  attribute sId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute eol { xsd:boolean }?,
+  attribute ref { sml_ST_Ref },
+  attribute action { sml_ST_rwColActionType },
+  
+  ## default value: false
+  attribute edge { xsd:boolean }?,
+  (element undo { sml_CT_UndoInfo }*
+   | element rcc { sml_CT_RevisionCellChange }*
+   | element rfmt { sml_CT_RevisionFormatting }*)*
+sml_CT_RevisionMove =
+  sml_AG_RevData,
+  attribute sheetId { xsd:unsignedInt },
+  attribute source { sml_ST_Ref },
+  attribute destination { sml_ST_Ref },
+  
+  ## default value: 0
+  attribute sourceSheetId { xsd:unsignedInt }?,
+  (element undo { sml_CT_UndoInfo }*
+   | element rcc { sml_CT_RevisionCellChange }*
+   | element rfmt { sml_CT_RevisionFormatting }*)*
+sml_CT_RevisionCustomView =
+  attribute guid { s_ST_Guid },
+  attribute action { sml_ST_RevisionAction }
+sml_CT_RevisionSheetRename =
+  sml_AG_RevData,
+  attribute sheetId { xsd:unsignedInt },
+  attribute oldName { s_ST_Xstring },
+  attribute newName { s_ST_Xstring },
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_RevisionInsertSheet =
+  sml_AG_RevData,
+  attribute sheetId { xsd:unsignedInt },
+  attribute name { s_ST_Xstring },
+  attribute sheetPosition { xsd:unsignedInt }
+sml_CT_RevisionCellChange =
+  sml_AG_RevData,
+  attribute sId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute odxf { xsd:boolean }?,
+  
+  ## default value: false
+  attribute xfDxf { xsd:boolean }?,
+  
+  ## default value: false
+  attribute s { xsd:boolean }?,
+  
+  ## default value: false
+  attribute dxf { xsd:boolean }?,
+  attribute numFmtId { sml_ST_NumFmtId }?,
+  
+  ## default value: false
+  attribute quotePrefix { xsd:boolean }?,
+  
+  ## default value: false
+  attribute oldQuotePrefix { xsd:boolean }?,
+  
+  ## default value: false
+  attribute ph { xsd:boolean }?,
+  
+  ## default value: false
+  attribute oldPh { xsd:boolean }?,
+  
+  ## default value: false
+  attribute endOfListFormulaUpdate { xsd:boolean }?,
+  element oc { sml_CT_Cell }?,
+  element nc { sml_CT_Cell },
+  element odxf { sml_CT_Dxf }?,
+  element ndxf { sml_CT_Dxf }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_RevisionFormatting =
+  attribute sheetId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute xfDxf { xsd:boolean }?,
+  
+  ## default value: false
+  attribute s { xsd:boolean }?,
+  attribute sqref { sml_ST_Sqref },
+  attribute start { xsd:unsignedInt }?,
+  attribute length { xsd:unsignedInt }?,
+  element dxf { sml_CT_Dxf }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_RevisionAutoFormatting =
+  attribute sheetId { xsd:unsignedInt },
+  sml_AG_AutoFormat,
+  attribute ref { sml_ST_Ref }
+sml_CT_RevisionComment =
+  attribute sheetId { xsd:unsignedInt },
+  attribute cell { sml_ST_CellRef },
+  attribute guid { s_ST_Guid },
+  
+  ## default value: add
+  attribute action { sml_ST_RevisionAction }?,
+  
+  ## default value: false
+  attribute alwaysShow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute old { xsd:boolean }?,
+  
+  ## default value: false
+  attribute hiddenRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute hiddenColumn { xsd:boolean }?,
+  attribute author { s_ST_Xstring },
+  
+  ## default value: 0
+  attribute oldLength { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute newLength { xsd:unsignedInt }?
+sml_CT_RevisionDefinedName =
+  sml_AG_RevData,
+  attribute localSheetId { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute customView { xsd:boolean }?,
+  attribute name { s_ST_Xstring },
+  
+  ## default value: false
+  attribute function { xsd:boolean }?,
+  
+  ## default value: false
+  attribute oldFunction { xsd:boolean }?,
+  attribute functionGroupId { xsd:unsignedByte }?,
+  attribute oldFunctionGroupId { xsd:unsignedByte }?,
+  attribute shortcutKey { xsd:unsignedByte }?,
+  attribute oldShortcutKey { xsd:unsignedByte }?,
+  
+  ## default value: false
+  attribute hidden { xsd:boolean }?,
+  
+  ## default value: false
+  attribute oldHidden { xsd:boolean }?,
+  attribute customMenu { s_ST_Xstring }?,
+  attribute oldCustomMenu { s_ST_Xstring }?,
+  attribute description { s_ST_Xstring }?,
+  attribute oldDescription { s_ST_Xstring }?,
+  attribute help { s_ST_Xstring }?,
+  attribute oldHelp { s_ST_Xstring }?,
+  attribute statusBar { s_ST_Xstring }?,
+  attribute oldStatusBar { s_ST_Xstring }?,
+  attribute comment { s_ST_Xstring }?,
+  attribute oldComment { s_ST_Xstring }?,
+  element formula { sml_ST_Formula }?,
+  element oldFormula { sml_ST_Formula }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_RevisionConflict =
+  sml_AG_RevData,
+  attribute sheetId { xsd:unsignedInt }?
+sml_CT_RevisionQueryTableField =
+  attribute sheetId { xsd:unsignedInt },
+  attribute ref { sml_ST_Ref },
+  attribute fieldId { xsd:unsignedInt }
+sml_ST_rwColActionType =
+  string "insertRow"
+  | string "deleteRow"
+  | string "insertCol"
+  | string "deleteCol"
+sml_ST_RevisionAction = string "add" | string "delete"
+sml_ST_FormulaExpression =
+  string "ref"
+  | string "refError"
+  | string "area"
+  | string "areaError"
+  | string "computedArea"
+sml_users = element users { sml_CT_Users }
+sml_CT_Users =
+  attribute count { xsd:unsignedInt }?,
+  element userInfo { sml_CT_SharedUser }*
+sml_CT_SharedUser =
+  attribute guid { s_ST_Guid },
+  attribute name { s_ST_Xstring },
+  attribute id { xsd:int },
+  attribute dateTime { xsd:dateTime },
+  element extLst { sml_CT_ExtensionList }?
+sml_worksheet = element worksheet { sml_CT_Worksheet }
+sml_chartsheet = element chartsheet { sml_CT_Chartsheet }
+sml_dialogsheet = element dialogsheet { sml_CT_Dialogsheet }
+sml_CT_Macrosheet =
+  element sheetPr { sml_CT_SheetPr }?,
+  element dimension { sml_CT_SheetDimension }?,
+  element sheetViews { sml_CT_SheetViews }?,
+  element sheetFormatPr { sml_CT_SheetFormatPr }?,
+  element cols { sml_CT_Cols }*,
+  element sheetData { sml_CT_SheetData },
+  element sheetProtection { sml_CT_SheetProtection }?,
+  element autoFilter { sml_CT_AutoFilter }?,
+  element sortState { sml_CT_SortState }?,
+  element dataConsolidate { sml_CT_DataConsolidate }?,
+  element customSheetViews { sml_CT_CustomSheetViews }?,
+  element phoneticPr { sml_CT_PhoneticPr }?,
+  element conditionalFormatting { sml_CT_ConditionalFormatting }*,
+  element printOptions { sml_CT_PrintOptions }?,
+  element pageMargins { sml_CT_PageMargins }?,
+  element pageSetup { sml_CT_PageSetup }?,
+  element headerFooter { sml_CT_HeaderFooter }?,
+  element rowBreaks { sml_CT_PageBreak }?,
+  element colBreaks { sml_CT_PageBreak }?,
+  element customProperties { sml_CT_CustomProperties }?,
+  element drawing { sml_CT_Drawing }?,
+  element drawingHF { sml_CT_DrawingHF }?,
+  element picture { sml_CT_SheetBackgroundPicture }?,
+  element oleObjects { sml_CT_OleObjects }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Dialogsheet =
+  element sheetPr { sml_CT_SheetPr }?,
+  element sheetViews { sml_CT_SheetViews }?,
+  element sheetFormatPr { sml_CT_SheetFormatPr }?,
+  element sheetProtection { sml_CT_SheetProtection }?,
+  element customSheetViews { sml_CT_CustomSheetViews }?,
+  element printOptions { sml_CT_PrintOptions }?,
+  element pageMargins { sml_CT_PageMargins }?,
+  element pageSetup { sml_CT_PageSetup }?,
+  element headerFooter { sml_CT_HeaderFooter }?,
+  element drawing { sml_CT_Drawing }?,
+  element drawingHF { sml_CT_DrawingHF }?,
+  element oleObjects { sml_CT_OleObjects }?,
+  element controls { sml_CT_Controls }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Worksheet =
+  element sheetPr { sml_CT_SheetPr }?,
+  element dimension { sml_CT_SheetDimension }?,
+  element sheetViews { sml_CT_SheetViews }?,
+  element sheetFormatPr { sml_CT_SheetFormatPr }?,
+  element cols { sml_CT_Cols }*,
+  element sheetData { sml_CT_SheetData },
+  element sheetCalcPr { sml_CT_SheetCalcPr }?,
+  element sheetProtection { sml_CT_SheetProtection }?,
+  element protectedRanges { sml_CT_ProtectedRanges }?,
+  element scenarios { sml_CT_Scenarios }?,
+  element autoFilter { sml_CT_AutoFilter }?,
+  element sortState { sml_CT_SortState }?,
+  element dataConsolidate { sml_CT_DataConsolidate }?,
+  element customSheetViews { sml_CT_CustomSheetViews }?,
+  element mergeCells { sml_CT_MergeCells }?,
+  element phoneticPr { sml_CT_PhoneticPr }?,
+  element conditionalFormatting { sml_CT_ConditionalFormatting }*,
+  element dataValidations { sml_CT_DataValidations }?,
+  element hyperlinks { sml_CT_Hyperlinks }?,
+  element printOptions { sml_CT_PrintOptions }?,
+  element pageMargins { sml_CT_PageMargins }?,
+  element pageSetup { sml_CT_PageSetup }?,
+  element headerFooter { sml_CT_HeaderFooter }?,
+  element rowBreaks { sml_CT_PageBreak }?,
+  element colBreaks { sml_CT_PageBreak }?,
+  element customProperties { sml_CT_CustomProperties }?,
+  element cellWatches { sml_CT_CellWatches }?,
+  element ignoredErrors { sml_CT_IgnoredErrors }?,
+  element smartTags { sml_CT_SmartTags }?,
+  element drawing { sml_CT_Drawing }?,
+  element drawingHF { sml_CT_DrawingHF }?,
+  element picture { sml_CT_SheetBackgroundPicture }?,
+  element oleObjects { sml_CT_OleObjects }?,
+  element controls { sml_CT_Controls }?,
+  element webPublishItems { sml_CT_WebPublishItems }?,
+  element tableParts { sml_CT_TableParts }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_SheetData = element row { sml_CT_Row }*
+sml_CT_SheetCalcPr =
+  
+  ## default value: false
+  attribute fullCalcOnLoad { xsd:boolean }?
+sml_CT_SheetFormatPr =
+  
+  ## default value: 8
+  attribute baseColWidth { xsd:unsignedInt }?,
+  attribute defaultColWidth { xsd:double }?,
+  attribute defaultRowHeight { xsd:double },
+  
+  ## default value: false
+  attribute customHeight { xsd:boolean }?,
+  
+  ## default value: false
+  attribute zeroHeight { xsd:boolean }?,
+  
+  ## default value: false
+  attribute thickTop { xsd:boolean }?,
+  
+  ## default value: false
+  attribute thickBottom { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute outlineLevelRow { xsd:unsignedByte }?,
+  
+  ## default value: 0
+  attribute outlineLevelCol { xsd:unsignedByte }?
+sml_CT_Cols = element col { sml_CT_Col }+
+sml_CT_Col =
+  attribute min { xsd:unsignedInt },
+  attribute max { xsd:unsignedInt },
+  attribute width { xsd:double }?,
+  
+  ## default value: 0
+  attribute style { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute hidden { xsd:boolean }?,
+  
+  ## default value: false
+  attribute bestFit { xsd:boolean }?,
+  
+  ## default value: false
+  attribute customWidth { xsd:boolean }?,
+  
+  ## default value: false
+  attribute phonetic { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute outlineLevel { xsd:unsignedByte }?,
+  
+  ## default value: false
+  attribute collapsed { xsd:boolean }?
+sml_ST_CellSpan = xsd:string
+sml_ST_CellSpans = list { sml_ST_CellSpan* }
+sml_CT_Row =
+  attribute r { xsd:unsignedInt }?,
+  attribute spans { sml_ST_CellSpans }?,
+  
+  ## default value: 0
+  attribute s { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute customFormat { xsd:boolean }?,
+  attribute ht { xsd:double }?,
+  
+  ## default value: false
+  attribute hidden { xsd:boolean }?,
+  
+  ## default value: false
+  attribute customHeight { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute outlineLevel { xsd:unsignedByte }?,
+  
+  ## default value: false
+  attribute collapsed { xsd:boolean }?,
+  
+  ## default value: false
+  attribute thickTop { xsd:boolean }?,
+  
+  ## default value: false
+  attribute thickBot { xsd:boolean }?,
+  
+  ## default value: false
+  attribute ph { xsd:boolean }?,
+  element c { sml_CT_Cell }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Cell =
+  attribute r { sml_ST_CellRef }?,
+  
+  ## default value: 0
+  attribute s { xsd:unsignedInt }?,
+  
+  ## default value: n
+  attribute t { sml_ST_CellType }?,
+  
+  ## default value: 0
+  attribute cm { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute vm { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute ph { xsd:boolean }?,
+  element f { sml_CT_CellFormula }?,
+  element v { s_ST_Xstring }?,
+  element is { sml_CT_Rst }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_CellType =
+  string "b"
+  | string "d"
+  | string "n"
+  | string "e"
+  | string "s"
+  | string "str"
+  | string "inlineStr"
+sml_ST_CellFormulaType =
+  string "normal"
+  | string "array"
+  | string "dataTable"
+  | string "shared"
+sml_CT_SheetPr =
+  
+  ## default value: false
+  attribute syncHorizontal { xsd:boolean }?,
+  
+  ## default value: false
+  attribute syncVertical { xsd:boolean }?,
+  attribute syncRef { sml_ST_Ref }?,
+  
+  ## default value: false
+  attribute transitionEvaluation { xsd:boolean }?,
+  
+  ## default value: false
+  attribute transitionEntry { xsd:boolean }?,
+  
+  ## default value: true
+  attribute published { xsd:boolean }?,
+  attribute codeName { xsd:string }?,
+  
+  ## default value: false
+  attribute filterMode { xsd:boolean }?,
+  
+  ## default value: true
+  attribute enableFormatConditionsCalculation { xsd:boolean }?,
+  element tabColor { sml_CT_Color }?,
+  element outlinePr { sml_CT_OutlinePr }?,
+  element pageSetUpPr { sml_CT_PageSetUpPr }?
+sml_CT_SheetDimension = attribute ref { sml_ST_Ref }
+sml_CT_SheetViews =
+  element sheetView { sml_CT_SheetView }+,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_SheetView =
+  
+  ## default value: false
+  attribute windowProtection { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showFormulas { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showGridLines { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showRowColHeaders { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showZeros { xsd:boolean }?,
+  
+  ## default value: false
+  attribute rightToLeft { xsd:boolean }?,
+  
+  ## default value: false
+  attribute tabSelected { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showRuler { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showOutlineSymbols { xsd:boolean }?,
+  
+  ## default value: true
+  attribute defaultGridColor { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showWhiteSpace { xsd:boolean }?,
+  
+  ## default value: normal
+  attribute view { sml_ST_SheetViewType }?,
+  attribute topLeftCell { sml_ST_CellRef }?,
+  
+  ## default value: 64
+  attribute colorId { xsd:unsignedInt }?,
+  
+  ## default value: 100
+  attribute zoomScale { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute zoomScaleNormal { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute zoomScaleSheetLayoutView { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute zoomScalePageLayoutView { xsd:unsignedInt }?,
+  attribute workbookViewId { xsd:unsignedInt },
+  element pane { sml_CT_Pane }?,
+  element selection { sml_CT_Selection }*,
+  element pivotSelection { sml_CT_PivotSelection }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Pane =
+  
+  ## default value: 0
+  attribute xSplit { xsd:double }?,
+  
+  ## default value: 0
+  attribute ySplit { xsd:double }?,
+  attribute topLeftCell { sml_ST_CellRef }?,
+  
+  ## default value: topLeft
+  attribute activePane { sml_ST_Pane }?,
+  
+  ## default value: split
+  attribute state { sml_ST_PaneState }?
+sml_CT_PivotSelection =
+  
+  ## default value: topLeft
+  attribute pane { sml_ST_Pane }?,
+  
+  ## default value: false
+  attribute showHeader { xsd:boolean }?,
+  
+  ## default value: false
+  attribute label { xsd:boolean }?,
+  
+  ## default value: false
+  attribute data { xsd:boolean }?,
+  
+  ## default value: false
+  attribute extendable { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  attribute axis { sml_ST_Axis }?,
+  
+  ## default value: 0
+  attribute dimension { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute start { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute min { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute max { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute activeRow { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute activeCol { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute previousRow { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute previousCol { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute click { xsd:unsignedInt }?,
+  r_id?,
+  element pivotArea { sml_CT_PivotArea }
+sml_CT_Selection =
+  
+  ## default value: topLeft
+  attribute pane { sml_ST_Pane }?,
+  attribute activeCell { sml_ST_CellRef }?,
+  
+  ## default value: 0
+  attribute activeCellId { xsd:unsignedInt }?,
+  
+  ## default value: A1
+  attribute sqref { sml_ST_Sqref }?
+sml_ST_Pane =
+  string "bottomRight"
+  | string "topRight"
+  | string "bottomLeft"
+  | string "topLeft"
+sml_CT_PageBreak =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute manualBreakCount { xsd:unsignedInt }?,
+  element brk { sml_CT_Break }*
+sml_CT_Break =
+  
+  ## default value: 0
+  attribute id { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute min { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute max { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute man { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pt { xsd:boolean }?
+sml_ST_SheetViewType =
+  string "normal" | string "pageBreakPreview" | string "pageLayout"
+sml_CT_OutlinePr =
+  
+  ## default value: false
+  attribute applyStyles { xsd:boolean }?,
+  
+  ## default value: true
+  attribute summaryBelow { xsd:boolean }?,
+  
+  ## default value: true
+  attribute summaryRight { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showOutlineSymbols { xsd:boolean }?
+sml_CT_PageSetUpPr =
+  
+  ## default value: true
+  attribute autoPageBreaks { xsd:boolean }?,
+  
+  ## default value: false
+  attribute fitToPage { xsd:boolean }?
+sml_CT_DataConsolidate =
+  
+  ## default value: sum
+  attribute function { sml_ST_DataConsolidateFunction }?,
+  
+  ## default value: false
+  attribute startLabels { xsd:boolean }?,
+  
+  ## default value: false
+  attribute topLabels { xsd:boolean }?,
+  
+  ## default value: false
+  attribute link { xsd:boolean }?,
+  element dataRefs { sml_CT_DataRefs }?
+sml_ST_DataConsolidateFunction =
+  string "average"
+  | string "count"
+  | string "countNums"
+  | string "max"
+  | string "min"
+  | string "product"
+  | string "stdDev"
+  | string "stdDevp"
+  | string "sum"
+  | string "var"
+  | string "varp"
+sml_CT_DataRefs =
+  attribute count { xsd:unsignedInt }?,
+  element dataRef { sml_CT_DataRef }*
+sml_CT_DataRef =
+  attribute ref { sml_ST_Ref }?,
+  attribute name { s_ST_Xstring }?,
+  attribute sheet { s_ST_Xstring }?,
+  r_id?
+sml_CT_MergeCells =
+  attribute count { xsd:unsignedInt }?,
+  element mergeCell { sml_CT_MergeCell }+
+sml_CT_MergeCell = attribute ref { sml_ST_Ref }
+sml_CT_SmartTags = element cellSmartTags { sml_CT_CellSmartTags }+
+sml_CT_CellSmartTags =
+  attribute r { sml_ST_CellRef },
+  element cellSmartTag { sml_CT_CellSmartTag }+
+sml_CT_CellSmartTag =
+  attribute type { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute deleted { xsd:boolean }?,
+  
+  ## default value: false
+  attribute xmlBased { xsd:boolean }?,
+  element cellSmartTagPr { sml_CT_CellSmartTagPr }*
+sml_CT_CellSmartTagPr =
+  attribute key { s_ST_Xstring },
+  attribute val { s_ST_Xstring }
+sml_CT_Drawing = r_id
+sml_CT_DrawingHF =
+  r_id,
+  attribute lho { xsd:unsignedInt }?,
+  attribute lhe { xsd:unsignedInt }?,
+  attribute lhf { xsd:unsignedInt }?,
+  attribute cho { xsd:unsignedInt }?,
+  attribute che { xsd:unsignedInt }?,
+  attribute chf { xsd:unsignedInt }?,
+  attribute rho { xsd:unsignedInt }?,
+  attribute rhe { xsd:unsignedInt }?,
+  attribute rhf { xsd:unsignedInt }?,
+  attribute lfo { xsd:unsignedInt }?,
+  attribute lfe { xsd:unsignedInt }?,
+  attribute lff { xsd:unsignedInt }?,
+  attribute cfo { xsd:unsignedInt }?,
+  attribute cfe { xsd:unsignedInt }?,
+  attribute cff { xsd:unsignedInt }?,
+  attribute rfo { xsd:unsignedInt }?,
+  attribute rfe { xsd:unsignedInt }?,
+  attribute rff { xsd:unsignedInt }?
+sml_CT_CustomSheetViews =
+  element customSheetView { sml_CT_CustomSheetView }+
+sml_CT_CustomSheetView =
+  attribute guid { s_ST_Guid },
+  
+  ## default value: 100
+  attribute scale { xsd:unsignedInt }?,
+  
+  ## default value: 64
+  attribute colorId { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute showPageBreaks { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showFormulas { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showGridLines { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showRowCol { xsd:boolean }?,
+  
+  ## default value: true
+  attribute outlineSymbols { xsd:boolean }?,
+  
+  ## default value: true
+  attribute zeroValues { xsd:boolean }?,
+  
+  ## default value: false
+  attribute fitToPage { xsd:boolean }?,
+  
+  ## default value: false
+  attribute printArea { xsd:boolean }?,
+  
+  ## default value: false
+  attribute filter { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showAutoFilter { xsd:boolean }?,
+  
+  ## default value: false
+  attribute hiddenRows { xsd:boolean }?,
+  
+  ## default value: false
+  attribute hiddenColumns { xsd:boolean }?,
+  
+  ## default value: visible
+  attribute state { sml_ST_SheetState }?,
+  
+  ## default value: false
+  attribute filterUnique { xsd:boolean }?,
+  
+  ## default value: normal
+  attribute view { sml_ST_SheetViewType }?,
+  
+  ## default value: true
+  attribute showRuler { xsd:boolean }?,
+  attribute topLeftCell { sml_ST_CellRef }?,
+  element pane { sml_CT_Pane }?,
+  element selection { sml_CT_Selection }?,
+  element rowBreaks { sml_CT_PageBreak }?,
+  element colBreaks { sml_CT_PageBreak }?,
+  element pageMargins { sml_CT_PageMargins }?,
+  element printOptions { sml_CT_PrintOptions }?,
+  element pageSetup { sml_CT_PageSetup }?,
+  element headerFooter { sml_CT_HeaderFooter }?,
+  element autoFilter { sml_CT_AutoFilter }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_DataValidations =
+  
+  ## default value: false
+  attribute disablePrompts { xsd:boolean }?,
+  attribute xWindow { xsd:unsignedInt }?,
+  attribute yWindow { xsd:unsignedInt }?,
+  attribute count { xsd:unsignedInt }?,
+  element dataValidation { sml_CT_DataValidation }+
+sml_CT_DataValidation =
+  
+  ## default value: none
+  attribute type { sml_ST_DataValidationType }?,
+  
+  ## default value: stop
+  attribute errorStyle { sml_ST_DataValidationErrorStyle }?,
+  
+  ## default value: noControl
+  attribute imeMode { sml_ST_DataValidationImeMode }?,
+  
+  ## default value: between
+  attribute operator { sml_ST_DataValidationOperator }?,
+  
+  ## default value: false
+  attribute allowBlank { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showDropDown { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showInputMessage { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showErrorMessage { xsd:boolean }?,
+  attribute errorTitle { s_ST_Xstring }?,
+  attribute error { s_ST_Xstring }?,
+  attribute promptTitle { s_ST_Xstring }?,
+  attribute prompt { s_ST_Xstring }?,
+  attribute sqref { sml_ST_Sqref },
+  element formula1 { sml_ST_Formula }?,
+  element formula2 { sml_ST_Formula }?
+sml_ST_DataValidationType =
+  string "none"
+  | string "whole"
+  | string "decimal"
+  | string "list"
+  | string "date"
+  | string "time"
+  | string "textLength"
+  | string "custom"
+sml_ST_DataValidationOperator =
+  string "between"
+  | string "notBetween"
+  | string "equal"
+  | string "notEqual"
+  | string "lessThan"
+  | string "lessThanOrEqual"
+  | string "greaterThan"
+  | string "greaterThanOrEqual"
+sml_ST_DataValidationErrorStyle =
+  string "stop" | string "warning" | string "information"
+sml_ST_DataValidationImeMode =
+  string "noControl"
+  | string "off"
+  | string "on"
+  | string "disabled"
+  | string "hiragana"
+  | string "fullKatakana"
+  | string "halfKatakana"
+  | string "fullAlpha"
+  | string "halfAlpha"
+  | string "fullHangul"
+  | string "halfHangul"
+sml_ST_CfType =
+  string "expression"
+  | string "cellIs"
+  | string "colorScale"
+  | string "dataBar"
+  | string "iconSet"
+  | string "top10"
+  | string "uniqueValues"
+  | string "duplicateValues"
+  | string "containsText"
+  | string "notContainsText"
+  | string "beginsWith"
+  | string "endsWith"
+  | string "containsBlanks"
+  | string "notContainsBlanks"
+  | string "containsErrors"
+  | string "notContainsErrors"
+  | string "timePeriod"
+  | string "aboveAverage"
+sml_ST_TimePeriod =
+  string "today"
+  | string "yesterday"
+  | string "tomorrow"
+  | string "last7Days"
+  | string "thisMonth"
+  | string "lastMonth"
+  | string "nextMonth"
+  | string "thisWeek"
+  | string "lastWeek"
+  | string "nextWeek"
+sml_ST_ConditionalFormattingOperator =
+  string "lessThan"
+  | string "lessThanOrEqual"
+  | string "equal"
+  | string "notEqual"
+  | string "greaterThanOrEqual"
+  | string "greaterThan"
+  | string "between"
+  | string "notBetween"
+  | string "containsText"
+  | string "notContains"
+  | string "beginsWith"
+  | string "endsWith"
+sml_ST_CfvoType =
+  string "num"
+  | string "percent"
+  | string "max"
+  | string "min"
+  | string "formula"
+  | string "percentile"
+sml_CT_ConditionalFormatting =
+  
+  ## default value: false
+  attribute pivot { xsd:boolean }?,
+  attribute sqref { sml_ST_Sqref }?,
+  element cfRule { sml_CT_CfRule }+,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_CfRule =
+  attribute type { sml_ST_CfType }?,
+  attribute dxfId { sml_ST_DxfId }?,
+  attribute priority { xsd:int },
+  
+  ## default value: false
+  attribute stopIfTrue { xsd:boolean }?,
+  
+  ## default value: true
+  attribute aboveAverage { xsd:boolean }?,
+  
+  ## default value: false
+  attribute percent { xsd:boolean }?,
+  
+  ## default value: false
+  attribute bottom { xsd:boolean }?,
+  attribute operator { sml_ST_ConditionalFormattingOperator }?,
+  attribute text { xsd:string }?,
+  attribute timePeriod { sml_ST_TimePeriod }?,
+  attribute rank { xsd:unsignedInt }?,
+  attribute stdDev { xsd:int }?,
+  
+  ## default value: false
+  attribute equalAverage { xsd:boolean }?,
+  element formula { sml_ST_Formula }*,
+  element colorScale { sml_CT_ColorScale }?,
+  element dataBar { sml_CT_DataBar }?,
+  element iconSet { sml_CT_IconSet }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Hyperlinks = element hyperlink { sml_CT_Hyperlink }+
+sml_CT_Hyperlink =
+  attribute ref { sml_ST_Ref },
+  r_id?,
+  attribute location { s_ST_Xstring }?,
+  attribute tooltip { s_ST_Xstring }?,
+  attribute display { s_ST_Xstring }?
+sml_CT_CellFormula =
+  sml_ST_Formula,
+  
+  ## default value: normal
+  attribute t { sml_ST_CellFormulaType }?,
+  
+  ## default value: false
+  attribute aca { xsd:boolean }?,
+  attribute ref { sml_ST_Ref }?,
+  
+  ## default value: false
+  attribute dt2D { xsd:boolean }?,
+  
+  ## default value: false
+  attribute dtr { xsd:boolean }?,
+  
+  ## default value: false
+  attribute del1 { xsd:boolean }?,
+  
+  ## default value: false
+  attribute del2 { xsd:boolean }?,
+  attribute r1 { sml_ST_CellRef }?,
+  attribute r2 { sml_ST_CellRef }?,
+  
+  ## default value: false
+  attribute ca { xsd:boolean }?,
+  attribute si { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute bx { xsd:boolean }?
+sml_CT_ColorScale =
+  element cfvo { sml_CT_Cfvo }+,
+  element color { sml_CT_Color }+
+sml_CT_DataBar =
+  
+  ## default value: 10
+  attribute minLength { xsd:unsignedInt }?,
+  
+  ## default value: 90
+  attribute maxLength { xsd:unsignedInt }?,
+  
+  ## default value: true
+  attribute showValue { xsd:boolean }?,
+  element cfvo { sml_CT_Cfvo }+,
+  element color { sml_CT_Color }
+sml_CT_IconSet =
+  
+  ## default value: 3TrafficLights1
+  attribute iconSet { sml_ST_IconSetType }?,
+  
+  ## default value: true
+  attribute showValue { xsd:boolean }?,
+  
+  ## default value: true
+  attribute percent { xsd:boolean }?,
+  
+  ## default value: false
+  attribute reverse { xsd:boolean }?,
+  element cfvo { sml_CT_Cfvo }+
+sml_CT_Cfvo =
+  attribute type { sml_ST_CfvoType },
+  attribute val { s_ST_Xstring }?,
+  
+  ## default value: true
+  attribute gte { xsd:boolean }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_PageMargins =
+  attribute left { xsd:double },
+  attribute right { xsd:double },
+  attribute top { xsd:double },
+  attribute bottom { xsd:double },
+  attribute header { xsd:double },
+  attribute footer { xsd:double }
+sml_CT_PrintOptions =
+  
+  ## default value: false
+  attribute horizontalCentered { xsd:boolean }?,
+  
+  ## default value: false
+  attribute verticalCentered { xsd:boolean }?,
+  
+  ## default value: false
+  attribute headings { xsd:boolean }?,
+  
+  ## default value: false
+  attribute gridLines { xsd:boolean }?,
+  
+  ## default value: true
+  attribute gridLinesSet { xsd:boolean }?
+sml_CT_PageSetup =
+  
+  ## default value: 1
+  attribute paperSize { xsd:unsignedInt }?,
+  attribute paperHeight { s_ST_PositiveUniversalMeasure }?,
+  attribute paperWidth { s_ST_PositiveUniversalMeasure }?,
+  
+  ## default value: 100
+  attribute scale { xsd:unsignedInt }?,
+  
+  ## default value: 1
+  attribute firstPageNumber { xsd:unsignedInt }?,
+  
+  ## default value: 1
+  attribute fitToWidth { xsd:unsignedInt }?,
+  
+  ## default value: 1
+  attribute fitToHeight { xsd:unsignedInt }?,
+  
+  ## default value: downThenOver
+  attribute pageOrder { sml_ST_PageOrder }?,
+  
+  ## default value: default
+  attribute orientation { sml_ST_Orientation }?,
+  
+  ## default value: true
+  attribute usePrinterDefaults { xsd:boolean }?,
+  
+  ## default value: false
+  attribute blackAndWhite { xsd:boolean }?,
+  
+  ## default value: false
+  attribute draft { xsd:boolean }?,
+  
+  ## default value: none
+  attribute cellComments { sml_ST_CellComments }?,
+  
+  ## default value: false
+  attribute useFirstPageNumber { xsd:boolean }?,
+  
+  ## default value: displayed
+  attribute errors { sml_ST_PrintError }?,
+  
+  ## default value: 600
+  attribute horizontalDpi { xsd:unsignedInt }?,
+  
+  ## default value: 600
+  attribute verticalDpi { xsd:unsignedInt }?,
+  
+  ## default value: 1
+  attribute copies { xsd:unsignedInt }?,
+  r_id?
+sml_ST_PageOrder = string "downThenOver" | string "overThenDown"
+sml_ST_Orientation =
+  string "default" | string "portrait" | string "landscape"
+sml_ST_CellComments =
+  string "none" | string "asDisplayed" | string "atEnd"
+sml_CT_HeaderFooter =
+  
+  ## default value: false
+  attribute differentOddEven { xsd:boolean }?,
+  
+  ## default value: false
+  attribute differentFirst { xsd:boolean }?,
+  
+  ## default value: true
+  attribute scaleWithDoc { xsd:boolean }?,
+  
+  ## default value: true
+  attribute alignWithMargins { xsd:boolean }?,
+  element oddHeader { s_ST_Xstring }?,
+  element oddFooter { s_ST_Xstring }?,
+  element evenHeader { s_ST_Xstring }?,
+  element evenFooter { s_ST_Xstring }?,
+  element firstHeader { s_ST_Xstring }?,
+  element firstFooter { s_ST_Xstring }?
+sml_ST_PrintError =
+  string "displayed" | string "blank" | string "dash" | string "NA"
+sml_CT_Scenarios =
+  attribute current { xsd:unsignedInt }?,
+  attribute show { xsd:unsignedInt }?,
+  attribute sqref { sml_ST_Sqref }?,
+  element scenario { sml_CT_Scenario }+
+sml_CT_SheetProtection =
+  attribute algorithmName { s_ST_Xstring }?,
+  attribute hashValue { xsd:base64Binary }?,
+  attribute saltValue { xsd:base64Binary }?,
+  attribute spinCount { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute sheet { xsd:boolean }?,
+  
+  ## default value: false
+  attribute objects { xsd:boolean }?,
+  
+  ## default value: false
+  attribute scenarios { xsd:boolean }?,
+  
+  ## default value: true
+  attribute formatCells { xsd:boolean }?,
+  
+  ## default value: true
+  attribute formatColumns { xsd:boolean }?,
+  
+  ## default value: true
+  attribute formatRows { xsd:boolean }?,
+  
+  ## default value: true
+  attribute insertColumns { xsd:boolean }?,
+  
+  ## default value: true
+  attribute insertRows { xsd:boolean }?,
+  
+  ## default value: true
+  attribute insertHyperlinks { xsd:boolean }?,
+  
+  ## default value: true
+  attribute deleteColumns { xsd:boolean }?,
+  
+  ## default value: true
+  attribute deleteRows { xsd:boolean }?,
+  
+  ## default value: false
+  attribute selectLockedCells { xsd:boolean }?,
+  
+  ## default value: true
+  attribute sort { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoFilter { xsd:boolean }?,
+  
+  ## default value: true
+  attribute pivotTables { xsd:boolean }?,
+  
+  ## default value: false
+  attribute selectUnlockedCells { xsd:boolean }?
+sml_CT_ProtectedRanges =
+  element protectedRange { sml_CT_ProtectedRange }+
+sml_CT_ProtectedRange =
+  attribute sqref { sml_ST_Sqref },
+  attribute name { s_ST_Xstring },
+  attribute algorithmName { s_ST_Xstring }?,
+  attribute hashValue { xsd:base64Binary }?,
+  attribute saltValue { xsd:base64Binary }?,
+  attribute spinCount { xsd:unsignedInt }?,
+  element securityDescriptor { xsd:string }*
+sml_CT_Scenario =
+  attribute name { s_ST_Xstring },
+  
+  ## default value: false
+  attribute locked { xsd:boolean }?,
+  
+  ## default value: false
+  attribute hidden { xsd:boolean }?,
+  attribute count { xsd:unsignedInt }?,
+  attribute user { s_ST_Xstring }?,
+  attribute comment { s_ST_Xstring }?,
+  element inputCells { sml_CT_InputCells }+
+sml_CT_InputCells =
+  attribute r { sml_ST_CellRef },
+  
+  ## default value: false
+  attribute deleted { xsd:boolean }?,
+  
+  ## default value: false
+  attribute undone { xsd:boolean }?,
+  attribute val { s_ST_Xstring },
+  attribute numFmtId { sml_ST_NumFmtId }?
+sml_CT_CellWatches = element cellWatch { sml_CT_CellWatch }+
+sml_CT_CellWatch = attribute r { sml_ST_CellRef }
+sml_CT_Chartsheet =
+  element sheetPr { sml_CT_ChartsheetPr }?,
+  element sheetViews { sml_CT_ChartsheetViews },
+  element sheetProtection { sml_CT_ChartsheetProtection }?,
+  element customSheetViews { sml_CT_CustomChartsheetViews }?,
+  element pageMargins { sml_CT_PageMargins }?,
+  element pageSetup { sml_CT_CsPageSetup }?,
+  element headerFooter { sml_CT_HeaderFooter }?,
+  element drawing { sml_CT_Drawing },
+  element drawingHF { sml_CT_DrawingHF }?,
+  element picture { sml_CT_SheetBackgroundPicture }?,
+  element webPublishItems { sml_CT_WebPublishItems }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_ChartsheetPr =
+  
+  ## default value: true
+  attribute published { xsd:boolean }?,
+  attribute codeName { xsd:string }?,
+  element tabColor { sml_CT_Color }?
+sml_CT_ChartsheetViews =
+  element sheetView { sml_CT_ChartsheetView }+,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_ChartsheetView =
+  
+  ## default value: false
+  attribute tabSelected { xsd:boolean }?,
+  
+  ## default value: 100
+  attribute zoomScale { xsd:unsignedInt }?,
+  attribute workbookViewId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute zoomToFit { xsd:boolean }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_ChartsheetProtection =
+  attribute algorithmName { s_ST_Xstring }?,
+  attribute hashValue { xsd:base64Binary }?,
+  attribute saltValue { xsd:base64Binary }?,
+  attribute spinCount { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute content { xsd:boolean }?,
+  
+  ## default value: false
+  attribute objects { xsd:boolean }?
+sml_CT_CsPageSetup =
+  
+  ## default value: 1
+  attribute paperSize { xsd:unsignedInt }?,
+  attribute paperHeight { s_ST_PositiveUniversalMeasure }?,
+  attribute paperWidth { s_ST_PositiveUniversalMeasure }?,
+  
+  ## default value: 1
+  attribute firstPageNumber { xsd:unsignedInt }?,
+  
+  ## default value: default
+  attribute orientation { sml_ST_Orientation }?,
+  
+  ## default value: true
+  attribute usePrinterDefaults { xsd:boolean }?,
+  
+  ## default value: false
+  attribute blackAndWhite { xsd:boolean }?,
+  
+  ## default value: false
+  attribute draft { xsd:boolean }?,
+  
+  ## default value: false
+  attribute useFirstPageNumber { xsd:boolean }?,
+  
+  ## default value: 600
+  attribute horizontalDpi { xsd:unsignedInt }?,
+  
+  ## default value: 600
+  attribute verticalDpi { xsd:unsignedInt }?,
+  
+  ## default value: 1
+  attribute copies { xsd:unsignedInt }?,
+  r_id?
+sml_CT_CustomChartsheetViews =
+  element customSheetView { sml_CT_CustomChartsheetView }*
+sml_CT_CustomChartsheetView =
+  attribute guid { s_ST_Guid },
+  
+  ## default value: 100
+  attribute scale { xsd:unsignedInt }?,
+  
+  ## default value: visible
+  attribute state { sml_ST_SheetState }?,
+  
+  ## default value: false
+  attribute zoomToFit { xsd:boolean }?,
+  element pageMargins { sml_CT_PageMargins }?,
+  element pageSetup { sml_CT_CsPageSetup }?,
+  element headerFooter { sml_CT_HeaderFooter }?
+sml_CT_CustomProperties = element customPr { sml_CT_CustomProperty }+
+sml_CT_CustomProperty =
+  attribute name { s_ST_Xstring },
+  r_id
+sml_CT_OleObjects = element oleObject { sml_CT_OleObject }+
+sml_CT_OleObject =
+  attribute progId { xsd:string }?,
+  
+  ## default value: DVASPECT_CONTENT
+  attribute dvAspect { sml_ST_DvAspect }?,
+  attribute link { s_ST_Xstring }?,
+  attribute oleUpdate { sml_ST_OleUpdate }?,
+  
+  ## default value: false
+  attribute autoLoad { xsd:boolean }?,
+  attribute shapeId { xsd:unsignedInt },
+  r_id?,
+  element objectPr { sml_CT_ObjectPr }?
+sml_CT_ObjectPr =
+  
+  ## default value: true
+  attribute locked { xsd:boolean }?,
+  
+  ## default value: true
+  attribute defaultSize { xsd:boolean }?,
+  
+  ## default value: true
+  attribute print { xsd:boolean }?,
+  
+  ## default value: false
+  attribute disabled { xsd:boolean }?,
+  
+  ## default value: false
+  attribute uiObject { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoFill { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoLine { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoPict { xsd:boolean }?,
+  attribute macro { sml_ST_Formula }?,
+  attribute altText { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute dde { xsd:boolean }?,
+  r_id?,
+  element anchor { sml_CT_ObjectAnchor }
+sml_ST_DvAspect = string "DVASPECT_CONTENT" | string "DVASPECT_ICON"
+sml_ST_OleUpdate = string "OLEUPDATE_ALWAYS" | string "OLEUPDATE_ONCALL"
+sml_CT_WebPublishItems =
+  attribute count { xsd:unsignedInt }?,
+  element webPublishItem { sml_CT_WebPublishItem }+
+sml_CT_WebPublishItem =
+  attribute id { xsd:unsignedInt },
+  attribute divId { s_ST_Xstring },
+  attribute sourceType { sml_ST_WebSourceType },
+  attribute sourceRef { sml_ST_Ref }?,
+  attribute sourceObject { s_ST_Xstring }?,
+  attribute destinationFile { s_ST_Xstring },
+  attribute title { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute autoRepublish { xsd:boolean }?
+sml_CT_Controls = element control { sml_CT_Control }+
+sml_CT_Control =
+  attribute shapeId { xsd:unsignedInt },
+  r_id,
+  attribute name { xsd:string }?,
+  element controlPr { sml_CT_ControlPr }?
+sml_CT_ControlPr =
+  
+  ## default value: true
+  attribute locked { xsd:boolean }?,
+  
+  ## default value: true
+  attribute defaultSize { xsd:boolean }?,
+  
+  ## default value: true
+  attribute print { xsd:boolean }?,
+  
+  ## default value: false
+  attribute disabled { xsd:boolean }?,
+  
+  ## default value: false
+  attribute recalcAlways { xsd:boolean }?,
+  
+  ## default value: false
+  attribute uiObject { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoFill { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoLine { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoPict { xsd:boolean }?,
+  attribute macro { sml_ST_Formula }?,
+  attribute altText { s_ST_Xstring }?,
+  attribute linkedCell { sml_ST_Formula }?,
+  attribute listFillRange { sml_ST_Formula }?,
+  
+  ## default value: pict
+  attribute cf { s_ST_Xstring }?,
+  r_id?,
+  element anchor { sml_CT_ObjectAnchor }
+sml_ST_WebSourceType =
+  string "sheet"
+  | string "printArea"
+  | string "autoFilter"
+  | string "range"
+  | string "chart"
+  | string "pivotTable"
+  | string "query"
+  | string "label"
+sml_CT_IgnoredErrors =
+  element ignoredError { sml_CT_IgnoredError }+,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_IgnoredError =
+  attribute sqref { sml_ST_Sqref },
+  
+  ## default value: false
+  attribute evalError { xsd:boolean }?,
+  
+  ## default value: false
+  attribute twoDigitTextYear { xsd:boolean }?,
+  
+  ## default value: false
+  attribute numberStoredAsText { xsd:boolean }?,
+  
+  ## default value: false
+  attribute formula { xsd:boolean }?,
+  
+  ## default value: false
+  attribute formulaRange { xsd:boolean }?,
+  
+  ## default value: false
+  attribute unlockedFormula { xsd:boolean }?,
+  
+  ## default value: false
+  attribute emptyCellReference { xsd:boolean }?,
+  
+  ## default value: false
+  attribute listDataValidation { xsd:boolean }?,
+  
+  ## default value: false
+  attribute calculatedColumn { xsd:boolean }?
+sml_ST_PaneState =
+  string "split" | string "frozen" | string "frozenSplit"
+sml_CT_TableParts =
+  attribute count { xsd:unsignedInt }?,
+  element tablePart { sml_CT_TablePart }*
+sml_CT_TablePart = r_id
+sml_metadata = element metadata { sml_CT_Metadata }
+sml_CT_Metadata =
+  element metadataTypes { sml_CT_MetadataTypes }?,
+  element metadataStrings { sml_CT_MetadataStrings }?,
+  element mdxMetadata { sml_CT_MdxMetadata }?,
+  element futureMetadata { sml_CT_FutureMetadata }*,
+  element cellMetadata { sml_CT_MetadataBlocks }?,
+  element valueMetadata { sml_CT_MetadataBlocks }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_MetadataTypes =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element metadataType { sml_CT_MetadataType }+
+sml_CT_MetadataType =
+  attribute name { s_ST_Xstring },
+  attribute minSupportedVersion { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute ghostRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute ghostCol { xsd:boolean }?,
+  
+  ## default value: false
+  attribute edit { xsd:boolean }?,
+  
+  ## default value: false
+  attribute delete { xsd:boolean }?,
+  
+  ## default value: false
+  attribute copy { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteAll { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteFormulas { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteValues { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteFormats { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteComments { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteDataValidation { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteBorders { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteColWidths { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pasteNumberFormats { xsd:boolean }?,
+  
+  ## default value: false
+  attribute merge { xsd:boolean }?,
+  
+  ## default value: false
+  attribute splitFirst { xsd:boolean }?,
+  
+  ## default value: false
+  attribute splitAll { xsd:boolean }?,
+  
+  ## default value: false
+  attribute rowColShift { xsd:boolean }?,
+  
+  ## default value: false
+  attribute clearAll { xsd:boolean }?,
+  
+  ## default value: false
+  attribute clearFormats { xsd:boolean }?,
+  
+  ## default value: false
+  attribute clearContents { xsd:boolean }?,
+  
+  ## default value: false
+  attribute clearComments { xsd:boolean }?,
+  
+  ## default value: false
+  attribute assign { xsd:boolean }?,
+  
+  ## default value: false
+  attribute coerce { xsd:boolean }?,
+  
+  ## default value: false
+  attribute adjust { xsd:boolean }?,
+  
+  ## default value: false
+  attribute cellMeta { xsd:boolean }?
+sml_CT_MetadataBlocks =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element bk { sml_CT_MetadataBlock }+
+sml_CT_MetadataBlock = element rc { sml_CT_MetadataRecord }+
+sml_CT_MetadataRecord =
+  attribute t { xsd:unsignedInt },
+  attribute v { xsd:unsignedInt }
+sml_CT_FutureMetadata =
+  attribute name { s_ST_Xstring },
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element bk { sml_CT_FutureMetadataBlock }*,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_FutureMetadataBlock = element extLst { sml_CT_ExtensionList }?
+sml_CT_MdxMetadata =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element mdx { sml_CT_Mdx }+
+sml_CT_Mdx =
+  attribute n { xsd:unsignedInt },
+  attribute f { sml_ST_MdxFunctionType },
+  (element t { sml_CT_MdxTuple }
+   | element ms { sml_CT_MdxSet }
+   | element p { sml_CT_MdxMemeberProp }
+   | element k { sml_CT_MdxKPI })
+sml_ST_MdxFunctionType =
+  string "m"
+  | string "v"
+  | string "s"
+  | string "c"
+  | string "r"
+  | string "p"
+  | string "k"
+sml_CT_MdxTuple =
+  
+  ## default value: 0
+  attribute c { xsd:unsignedInt }?,
+  attribute ct { s_ST_Xstring }?,
+  attribute si { xsd:unsignedInt }?,
+  attribute fi { xsd:unsignedInt }?,
+  attribute bc { sml_ST_UnsignedIntHex }?,
+  attribute fc { sml_ST_UnsignedIntHex }?,
+  
+  ## default value: false
+  attribute i { xsd:boolean }?,
+  
+  ## default value: false
+  attribute u { xsd:boolean }?,
+  
+  ## default value: false
+  attribute st { xsd:boolean }?,
+  
+  ## default value: false
+  attribute b { xsd:boolean }?,
+  element n { sml_CT_MetadataStringIndex }*
+sml_CT_MdxSet =
+  attribute ns { xsd:unsignedInt },
+  
+  ## default value: 0
+  attribute c { xsd:unsignedInt }?,
+  
+  ## default value: u
+  attribute o { sml_ST_MdxSetOrder }?,
+  element n { sml_CT_MetadataStringIndex }*
+sml_ST_MdxSetOrder =
+  string "u"
+  | string "a"
+  | string "d"
+  | string "aa"
+  | string "ad"
+  | string "na"
+  | string "nd"
+sml_CT_MdxMemeberProp =
+  attribute n { xsd:unsignedInt },
+  attribute np { xsd:unsignedInt }
+sml_CT_MdxKPI =
+  attribute n { xsd:unsignedInt },
+  attribute np { xsd:unsignedInt },
+  attribute p { sml_ST_MdxKPIProperty }
+sml_ST_MdxKPIProperty =
+  string "v"
+  | string "g"
+  | string "s"
+  | string "t"
+  | string "w"
+  | string "m"
+sml_CT_MetadataStringIndex =
+  attribute x { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute s { xsd:boolean }?
+sml_CT_MetadataStrings =
+  
+  ## default value: 0
+  attribute count { xsd:unsignedInt }?,
+  element s { sml_CT_XStringElement }+
+sml_singleXmlCells = element singleXmlCells { sml_CT_SingleXmlCells }
+sml_CT_SingleXmlCells = element singleXmlCell { sml_CT_SingleXmlCell }+
+sml_CT_SingleXmlCell =
+  attribute id { xsd:unsignedInt },
+  attribute r { sml_ST_CellRef },
+  attribute connectionId { xsd:unsignedInt },
+  element xmlCellPr { sml_CT_XmlCellPr },
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_XmlCellPr =
+  attribute id { xsd:unsignedInt },
+  attribute uniqueName { s_ST_Xstring }?,
+  element xmlPr { sml_CT_XmlPr },
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_XmlPr =
+  attribute mapId { xsd:unsignedInt },
+  attribute xpath { s_ST_Xstring },
+  attribute xmlDataType { sml_ST_XmlDataType },
+  element extLst { sml_CT_ExtensionList }?
+sml_styleSheet = element styleSheet { sml_CT_Stylesheet }
+sml_CT_Stylesheet =
+  element numFmts { sml_CT_NumFmts }?,
+  element fonts { sml_CT_Fonts }?,
+  element fills { sml_CT_Fills }?,
+  element borders { sml_CT_Borders }?,
+  element cellStyleXfs { sml_CT_CellStyleXfs }?,
+  element cellXfs { sml_CT_CellXfs }?,
+  element cellStyles { sml_CT_CellStyles }?,
+  element dxfs { sml_CT_Dxfs }?,
+  element tableStyles { sml_CT_TableStyles }?,
+  element colors { sml_CT_Colors }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_CellAlignment =
+  attribute horizontal { sml_ST_HorizontalAlignment }?,
+  
+  ## default value: bottom
+  attribute vertical { sml_ST_VerticalAlignment }?,
+  attribute textRotation { sml_ST_TextRotation }?,
+  attribute wrapText { xsd:boolean }?,
+  attribute indent { xsd:unsignedInt }?,
+  attribute relativeIndent { xsd:int }?,
+  attribute justifyLastLine { xsd:boolean }?,
+  attribute shrinkToFit { xsd:boolean }?,
+  attribute readingOrder { xsd:unsignedInt }?
+sml_ST_TextRotation = 
+  xsd:nonNegativeInteger { maxInclusive = "180"} | xsd:nonNegativeInteger "255"
+sml_ST_BorderStyle =
+  string "none"
+  | string "thin"
+  | string "medium"
+  | string "dashed"
+  | string "dotted"
+  | string "thick"
+  | string "double"
+  | string "hair"
+  | string "mediumDashed"
+  | string "dashDot"
+  | string "mediumDashDot"
+  | string "dashDotDot"
+  | string "mediumDashDotDot"
+  | string "slantDashDot"
+sml_CT_Borders =
+  attribute count { xsd:unsignedInt }?,
+  element border { sml_CT_Border }*
+sml_CT_Border =
+  attribute diagonalUp { xsd:boolean }?,
+  attribute diagonalDown { xsd:boolean }?,
+  
+  ## default value: true
+  attribute outline { xsd:boolean }?,
+  element start { sml_CT_BorderPr }?,
+  element end { sml_CT_BorderPr }?,
+  element top { sml_CT_BorderPr }?,
+  element bottom { sml_CT_BorderPr }?,
+  element diagonal { sml_CT_BorderPr }?,
+  element vertical { sml_CT_BorderPr }?,
+  element horizontal { sml_CT_BorderPr }?
+sml_CT_BorderPr =
+  
+  ## default value: none
+  attribute style { sml_ST_BorderStyle }?,
+  element color { sml_CT_Color }?
+sml_CT_CellProtection =
+  attribute locked { xsd:boolean }?,
+  attribute hidden { xsd:boolean }?
+sml_CT_Fonts =
+  attribute count { xsd:unsignedInt }?,
+  element font { sml_CT_Font }*
+sml_CT_Fills =
+  attribute count { xsd:unsignedInt }?,
+  element fill { sml_CT_Fill }*
+sml_CT_Fill =
+  element patternFill { sml_CT_PatternFill }?
+  | element gradientFill { sml_CT_GradientFill }?
+sml_CT_PatternFill =
+  attribute patternType { sml_ST_PatternType }?,
+  element fgColor { sml_CT_Color }?,
+  element bgColor { sml_CT_Color }?
+sml_CT_Color =
+  attribute auto { xsd:boolean }?,
+  attribute indexed { xsd:unsignedInt }?,
+  attribute rgb { sml_ST_UnsignedIntHex }?,
+  attribute theme { xsd:unsignedInt }?,
+  
+  ## default value: 0.0
+  attribute tint { xsd:double }?
+sml_ST_PatternType =
+  string "none"
+  | string "solid"
+  | string "mediumGray"
+  | string "darkGray"
+  | string "lightGray"
+  | string "darkHorizontal"
+  | string "darkVertical"
+  | string "darkDown"
+  | string "darkUp"
+  | string "darkGrid"
+  | string "darkTrellis"
+  | string "lightHorizontal"
+  | string "lightVertical"
+  | string "lightDown"
+  | string "lightUp"
+  | string "lightGrid"
+  | string "lightTrellis"
+  | string "gray125"
+  | string "gray0625"
+sml_CT_GradientFill =
+  
+  ## default value: linear
+  attribute type { sml_ST_GradientType }?,
+  
+  ## default value: 0
+  attribute degree { xsd:double }?,
+  
+  ## default value: 0
+  attribute left { xsd:double }?,
+  
+  ## default value: 0
+  attribute right { xsd:double }?,
+  
+  ## default value: 0
+  attribute top { xsd:double }?,
+  
+  ## default value: 0
+  attribute bottom { xsd:double }?,
+  element stop { sml_CT_GradientStop }*
+sml_CT_GradientStop =
+  attribute position { xsd:double },
+  element color { sml_CT_Color }
+sml_ST_GradientType = string "linear" | string "path"
+sml_ST_HorizontalAlignment =
+  string "general"
+  | string "left"
+  | string "center"
+  | string "right"
+  | string "fill"
+  | string "justify"
+  | string "centerContinuous"
+  | string "distributed"
+sml_ST_VerticalAlignment =
+  string "top"
+  | string "center"
+  | string "bottom"
+  | string "justify"
+  | string "distributed"
+sml_CT_NumFmts =
+  attribute count { xsd:unsignedInt }?,
+  element numFmt { sml_CT_NumFmt }*
+sml_CT_NumFmt =
+  attribute numFmtId { sml_ST_NumFmtId },
+  attribute formatCode { s_ST_Xstring }
+sml_CT_CellStyleXfs =
+  attribute count { xsd:unsignedInt }?,
+  element xf { sml_CT_Xf }+
+sml_CT_CellXfs =
+  attribute count { xsd:unsignedInt }?,
+  element xf { sml_CT_Xf }+
+sml_CT_Xf =
+  attribute numFmtId { sml_ST_NumFmtId }?,
+  attribute fontId { sml_ST_FontId }?,
+  attribute fillId { sml_ST_FillId }?,
+  attribute borderId { sml_ST_BorderId }?,
+  attribute xfId { sml_ST_CellStyleXfId }?,
+  
+  ## default value: false
+  attribute quotePrefix { xsd:boolean }?,
+  
+  ## default value: false
+  attribute pivotButton { xsd:boolean }?,
+  attribute applyNumberFormat { xsd:boolean }?,
+  attribute applyFont { xsd:boolean }?,
+  attribute applyFill { xsd:boolean }?,
+  attribute applyBorder { xsd:boolean }?,
+  attribute applyAlignment { xsd:boolean }?,
+  attribute applyProtection { xsd:boolean }?,
+  element alignment { sml_CT_CellAlignment }?,
+  element protection { sml_CT_CellProtection }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_CellStyles =
+  attribute count { xsd:unsignedInt }?,
+  element cellStyle { sml_CT_CellStyle }+
+sml_CT_CellStyle =
+  attribute name { s_ST_Xstring }?,
+  attribute xfId { sml_ST_CellStyleXfId },
+  attribute builtinId { xsd:unsignedInt }?,
+  attribute iLevel { xsd:unsignedInt }?,
+  attribute hidden { xsd:boolean }?,
+  attribute customBuiltin { xsd:boolean }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_Dxfs =
+  attribute count { xsd:unsignedInt }?,
+  element dxf { sml_CT_Dxf }*
+sml_CT_Dxf =
+  element font { sml_CT_Font }?,
+  element numFmt { sml_CT_NumFmt }?,
+  element fill { sml_CT_Fill }?,
+  element alignment { sml_CT_CellAlignment }?,
+  element border { sml_CT_Border }?,
+  element protection { sml_CT_CellProtection }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_NumFmtId = xsd:unsignedInt
+sml_ST_FontId = xsd:unsignedInt
+sml_ST_FillId = xsd:unsignedInt
+sml_ST_BorderId = xsd:unsignedInt
+sml_ST_CellStyleXfId = xsd:unsignedInt
+sml_ST_DxfId = xsd:unsignedInt
+sml_CT_Colors =
+  element indexedColors { sml_CT_IndexedColors }?,
+  element mruColors { sml_CT_MRUColors }?
+sml_CT_IndexedColors = element rgbColor { sml_CT_RgbColor }+
+sml_CT_MRUColors = element color { sml_CT_Color }+
+sml_CT_RgbColor = attribute rgb { sml_ST_UnsignedIntHex }?
+sml_CT_TableStyles =
+  attribute count { xsd:unsignedInt }?,
+  attribute defaultTableStyle { xsd:string }?,
+  attribute defaultPivotStyle { xsd:string }?,
+  element tableStyle { sml_CT_TableStyle }*
+sml_CT_TableStyle =
+  attribute name { xsd:string },
+  
+  ## default value: true
+  attribute pivot { xsd:boolean }?,
+  
+  ## default value: true
+  attribute table { xsd:boolean }?,
+  attribute count { xsd:unsignedInt }?,
+  element tableStyleElement { sml_CT_TableStyleElement }*
+sml_CT_TableStyleElement =
+  attribute type { sml_ST_TableStyleType },
+  
+  ## default value: 1
+  attribute size { xsd:unsignedInt }?,
+  attribute dxfId { sml_ST_DxfId }?
+sml_ST_TableStyleType =
+  string "wholeTable"
+  | string "headerRow"
+  | string "totalRow"
+  | string "firstColumn"
+  | string "lastColumn"
+  | string "firstRowStripe"
+  | string "secondRowStripe"
+  | string "firstColumnStripe"
+  | string "secondColumnStripe"
+  | string "firstHeaderCell"
+  | string "lastHeaderCell"
+  | string "firstTotalCell"
+  | string "lastTotalCell"
+  | string "firstSubtotalColumn"
+  | string "secondSubtotalColumn"
+  | string "thirdSubtotalColumn"
+  | string "firstSubtotalRow"
+  | string "secondSubtotalRow"
+  | string "thirdSubtotalRow"
+  | string "blankRow"
+  | string "firstColumnSubheading"
+  | string "secondColumnSubheading"
+  | string "thirdColumnSubheading"
+  | string "firstRowSubheading"
+  | string "secondRowSubheading"
+  | string "thirdRowSubheading"
+  | string "pageFieldLabels"
+  | string "pageFieldValues"
+sml_CT_BooleanProperty =
+  
+  ## default value: true
+  attribute val { xsd:boolean }?
+sml_CT_FontSize = attribute val { xsd:double }
+sml_CT_IntProperty = attribute val { xsd:int }
+sml_CT_FontName = attribute val { s_ST_Xstring }
+sml_CT_VerticalAlignFontProperty =
+  attribute val { s_ST_VerticalAlignRun }
+sml_CT_FontScheme = attribute val { sml_ST_FontScheme }
+sml_ST_FontScheme = string "none" | string "major" | string "minor"
+sml_CT_UnderlineProperty =
+  
+  ## default value: single
+  attribute val { sml_ST_UnderlineValues }?
+sml_ST_UnderlineValues =
+  string "single"
+  | string "double"
+  | string "singleAccounting"
+  | string "doubleAccounting"
+  | string "none"
+sml_CT_FontFamily = attribute val { sml_ST_FontFamily }
+sml_ST_FontFamily =
+  xsd:integer { minInclusive = "0" maxInclusive = "14" }
+sml_CT_Font =
+  (element name { sml_CT_FontName }?
+   | element charset { sml_CT_IntProperty }?
+   | element family { sml_CT_FontFamily }?
+   | element b { sml_CT_BooleanProperty }?
+   | element i { sml_CT_BooleanProperty }?
+   | element strike { sml_CT_BooleanProperty }?
+   | element outline { sml_CT_BooleanProperty }?
+   | element shadow { sml_CT_BooleanProperty }?
+   | element condense { sml_CT_BooleanProperty }?
+   | element extend { sml_CT_BooleanProperty }?
+   | element color { sml_CT_Color }?
+   | element sz { sml_CT_FontSize }?
+   | element u { sml_CT_UnderlineProperty }?
+   | element vertAlign { sml_CT_VerticalAlignFontProperty }?
+   | element scheme { sml_CT_FontScheme }?)+
+sml_AG_AutoFormat =
+  attribute autoFormatId { xsd:unsignedInt }?,
+  attribute applyNumberFormats { xsd:boolean }?,
+  attribute applyBorderFormats { xsd:boolean }?,
+  attribute applyFontFormats { xsd:boolean }?,
+  attribute applyPatternFormats { xsd:boolean }?,
+  attribute applyAlignmentFormats { xsd:boolean }?,
+  attribute applyWidthHeightFormats { xsd:boolean }?
+sml_externalLink = element externalLink { sml_CT_ExternalLink }
+sml_CT_ExternalLink =
+  (element externalBook { sml_CT_ExternalBook }?
+   | element ddeLink { sml_CT_DdeLink }?
+   | element oleLink { sml_CT_OleLink }?),
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_ExternalBook =
+  r_id,
+  element sheetNames { sml_CT_ExternalSheetNames }?,
+  element definedNames { sml_CT_ExternalDefinedNames }?,
+  element sheetDataSet { sml_CT_ExternalSheetDataSet }?
+sml_CT_ExternalSheetNames =
+  element sheetName { sml_CT_ExternalSheetName }+
+sml_CT_ExternalSheetName = attribute val { s_ST_Xstring }?
+sml_CT_ExternalDefinedNames =
+  element definedName { sml_CT_ExternalDefinedName }*
+sml_CT_ExternalDefinedName =
+  attribute name { s_ST_Xstring },
+  attribute refersTo { s_ST_Xstring }?,
+  attribute sheetId { xsd:unsignedInt }?
+sml_CT_ExternalSheetDataSet =
+  element sheetData { sml_CT_ExternalSheetData }+
+sml_CT_ExternalSheetData =
+  attribute sheetId { xsd:unsignedInt },
+  
+  ## default value: false
+  attribute refreshError { xsd:boolean }?,
+  element row { sml_CT_ExternalRow }*
+sml_CT_ExternalRow =
+  attribute r { xsd:unsignedInt },
+  element cell { sml_CT_ExternalCell }*
+sml_CT_ExternalCell =
+  attribute r { sml_ST_CellRef }?,
+  
+  ## default value: n
+  attribute t { sml_ST_CellType }?,
+  
+  ## default value: 0
+  attribute vm { xsd:unsignedInt }?,
+  element v { s_ST_Xstring }?
+sml_CT_DdeLink =
+  attribute ddeService { s_ST_Xstring },
+  attribute ddeTopic { s_ST_Xstring },
+  element ddeItems { sml_CT_DdeItems }?
+sml_CT_DdeItems = element ddeItem { sml_CT_DdeItem }*
+sml_CT_DdeItem =
+  
+  ## default value: 0
+  attribute name { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute ole { xsd:boolean }?,
+  
+  ## default value: false
+  attribute advise { xsd:boolean }?,
+  
+  ## default value: false
+  attribute preferPic { xsd:boolean }?,
+  element values { sml_CT_DdeValues }?
+sml_CT_DdeValues =
+  
+  ## default value: 1
+  attribute rows { xsd:unsignedInt }?,
+  
+  ## default value: 1
+  attribute cols { xsd:unsignedInt }?,
+  element value { sml_CT_DdeValue }+
+sml_CT_DdeValue =
+  
+  ## default value: n
+  attribute t { sml_ST_DdeValueType }?,
+  element val { s_ST_Xstring }
+sml_ST_DdeValueType =
+  string "nil" | string "b" | string "n" | string "e" | string "str"
+sml_CT_OleLink =
+  r_id,
+  attribute progId { s_ST_Xstring },
+  element oleItems { sml_CT_OleItems }?
+sml_CT_OleItems = element oleItem { sml_CT_OleItem }*
+sml_CT_OleItem =
+  attribute name { s_ST_Xstring },
+  
+  ## default value: false
+  attribute icon { xsd:boolean }?,
+  
+  ## default value: false
+  attribute advise { xsd:boolean }?,
+  
+  ## default value: false
+  attribute preferPic { xsd:boolean }?
+sml_table = element table { sml_CT_Table }
+sml_CT_Table =
+  attribute id { xsd:unsignedInt },
+  attribute name { s_ST_Xstring }?,
+  attribute displayName { s_ST_Xstring },
+  attribute comment { s_ST_Xstring }?,
+  attribute ref { sml_ST_Ref },
+  
+  ## default value: worksheet
+  attribute tableType { sml_ST_TableType }?,
+  
+  ## default value: 1
+  attribute headerRowCount { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute insertRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute insertRowShift { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute totalsRowCount { xsd:unsignedInt }?,
+  
+  ## default value: true
+  attribute totalsRowShown { xsd:boolean }?,
+  
+  ## default value: false
+  attribute published { xsd:boolean }?,
+  attribute headerRowDxfId { sml_ST_DxfId }?,
+  attribute dataDxfId { sml_ST_DxfId }?,
+  attribute totalsRowDxfId { sml_ST_DxfId }?,
+  attribute headerRowBorderDxfId { sml_ST_DxfId }?,
+  attribute tableBorderDxfId { sml_ST_DxfId }?,
+  attribute totalsRowBorderDxfId { sml_ST_DxfId }?,
+  attribute headerRowCellStyle { s_ST_Xstring }?,
+  attribute dataCellStyle { s_ST_Xstring }?,
+  attribute totalsRowCellStyle { s_ST_Xstring }?,
+  attribute connectionId { xsd:unsignedInt }?,
+  element autoFilter { sml_CT_AutoFilter }?,
+  element sortState { sml_CT_SortState }?,
+  element tableColumns { sml_CT_TableColumns },
+  element tableStyleInfo { sml_CT_TableStyleInfo }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_TableType =
+  string "worksheet" | string "xml" | string "queryTable"
+sml_CT_TableStyleInfo =
+  attribute name { s_ST_Xstring }?,
+  attribute showFirstColumn { xsd:boolean }?,
+  attribute showLastColumn { xsd:boolean }?,
+  attribute showRowStripes { xsd:boolean }?,
+  attribute showColumnStripes { xsd:boolean }?
+sml_CT_TableColumns =
+  attribute count { xsd:unsignedInt }?,
+  element tableColumn { sml_CT_TableColumn }+
+sml_CT_TableColumn =
+  attribute id { xsd:unsignedInt },
+  attribute uniqueName { s_ST_Xstring }?,
+  attribute name { s_ST_Xstring },
+  
+  ## default value: none
+  attribute totalsRowFunction { sml_ST_TotalsRowFunction }?,
+  attribute totalsRowLabel { s_ST_Xstring }?,
+  attribute queryTableFieldId { xsd:unsignedInt }?,
+  attribute headerRowDxfId { sml_ST_DxfId }?,
+  attribute dataDxfId { sml_ST_DxfId }?,
+  attribute totalsRowDxfId { sml_ST_DxfId }?,
+  attribute headerRowCellStyle { s_ST_Xstring }?,
+  attribute dataCellStyle { s_ST_Xstring }?,
+  attribute totalsRowCellStyle { s_ST_Xstring }?,
+  element calculatedColumnFormula { sml_CT_TableFormula }?,
+  element totalsRowFormula { sml_CT_TableFormula }?,
+  element xmlColumnPr { sml_CT_XmlColumnPr }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_TableFormula =
+  sml_ST_Formula,
+  
+  ## default value: false
+  attribute array { xsd:boolean }?
+sml_ST_TotalsRowFunction =
+  string "none"
+  | string "sum"
+  | string "min"
+  | string "max"
+  | string "average"
+  | string "count"
+  | string "countNums"
+  | string "stdDev"
+  | string "var"
+  | string "custom"
+sml_CT_XmlColumnPr =
+  attribute mapId { xsd:unsignedInt },
+  attribute xpath { s_ST_Xstring },
+  
+  ## default value: false
+  attribute denormalized { xsd:boolean }?,
+  attribute xmlDataType { sml_ST_XmlDataType },
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_XmlDataType = xsd:string
+sml_volTypes = element volTypes { sml_CT_VolTypes }
+sml_CT_VolTypes =
+  element volType { sml_CT_VolType }+,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_VolType =
+  attribute type { sml_ST_VolDepType },
+  element main { sml_CT_VolMain }+
+sml_CT_VolMain =
+  attribute first { s_ST_Xstring },
+  element tp { sml_CT_VolTopic }+
+sml_CT_VolTopic =
+  
+  ## default value: n
+  attribute t { sml_ST_VolValueType }?,
+  element v { s_ST_Xstring },
+  element stp { s_ST_Xstring }*,
+  element tr { sml_CT_VolTopicRef }+
+sml_CT_VolTopicRef =
+  attribute r { sml_ST_CellRef },
+  attribute s { xsd:unsignedInt }
+sml_ST_VolDepType = string "realTimeData" | string "olapFunctions"
+sml_ST_VolValueType = string "b" | string "n" | string "e" | string "s"
+sml_workbook = element workbook { sml_CT_Workbook }
+sml_CT_Workbook =
+  attribute conformance { s_ST_ConformanceClass }?,
+  element fileVersion { sml_CT_FileVersion }?,
+  element fileSharing { sml_CT_FileSharing }?,
+  element workbookPr { sml_CT_WorkbookPr }?,
+  element workbookProtection { sml_CT_WorkbookProtection }?,
+  element bookViews { sml_CT_BookViews }?,
+  element sheets { sml_CT_Sheets },
+  element functionGroups { sml_CT_FunctionGroups }?,
+  element externalReferences { sml_CT_ExternalReferences }?,
+  element definedNames { sml_CT_DefinedNames }?,
+  element calcPr { sml_CT_CalcPr }?,
+  element oleSize { sml_CT_OleSize }?,
+  element customWorkbookViews { sml_CT_CustomWorkbookViews }?,
+  element pivotCaches { sml_CT_PivotCaches }?,
+  element smartTagPr { sml_CT_SmartTagPr }?,
+  element smartTagTypes { sml_CT_SmartTagTypes }?,
+  element webPublishing { sml_CT_WebPublishing }?,
+  element fileRecoveryPr { sml_CT_FileRecoveryPr }*,
+  element webPublishObjects { sml_CT_WebPublishObjects }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_CT_FileVersion =
+  attribute appName { xsd:string }?,
+  attribute lastEdited { xsd:string }?,
+  attribute lowestEdited { xsd:string }?,
+  attribute rupBuild { xsd:string }?,
+  attribute codeName { s_ST_Guid }?
+sml_CT_BookViews = element workbookView { sml_CT_BookView }+
+sml_CT_BookView =
+  
+  ## default value: visible
+  attribute visibility { sml_ST_Visibility }?,
+  
+  ## default value: false
+  attribute minimized { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showHorizontalScroll { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showVerticalScroll { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showSheetTabs { xsd:boolean }?,
+  attribute xWindow { xsd:int }?,
+  attribute yWindow { xsd:int }?,
+  attribute windowWidth { xsd:unsignedInt }?,
+  attribute windowHeight { xsd:unsignedInt }?,
+  
+  ## default value: 600
+  attribute tabRatio { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute firstSheet { xsd:unsignedInt }?,
+  
+  ## default value: 0
+  attribute activeTab { xsd:unsignedInt }?,
+  
+  ## default value: true
+  attribute autoFilterDateGrouping { xsd:boolean }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_Visibility =
+  string "visible" | string "hidden" | string "veryHidden"
+sml_CT_CustomWorkbookViews =
+  element customWorkbookView { sml_CT_CustomWorkbookView }+
+sml_CT_CustomWorkbookView =
+  attribute name { s_ST_Xstring },
+  attribute guid { s_ST_Guid },
+  
+  ## default value: false
+  attribute autoUpdate { xsd:boolean }?,
+  attribute mergeInterval { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute changesSavedWin { xsd:boolean }?,
+  
+  ## default value: false
+  attribute onlySync { xsd:boolean }?,
+  
+  ## default value: false
+  attribute personalView { xsd:boolean }?,
+  
+  ## default value: true
+  attribute includePrintSettings { xsd:boolean }?,
+  
+  ## default value: true
+  attribute includeHiddenRowCol { xsd:boolean }?,
+  
+  ## default value: false
+  attribute maximized { xsd:boolean }?,
+  
+  ## default value: false
+  attribute minimized { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showHorizontalScroll { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showVerticalScroll { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showSheetTabs { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute xWindow { xsd:int }?,
+  
+  ## default value: 0
+  attribute yWindow { xsd:int }?,
+  attribute windowWidth { xsd:unsignedInt },
+  attribute windowHeight { xsd:unsignedInt },
+  
+  ## default value: 600
+  attribute tabRatio { xsd:unsignedInt }?,
+  attribute activeSheetId { xsd:unsignedInt },
+  
+  ## default value: true
+  attribute showFormulaBar { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showStatusbar { xsd:boolean }?,
+  
+  ## default value: commIndicator
+  attribute showComments { sml_ST_Comments }?,
+  
+  ## default value: all
+  attribute showObjects { sml_ST_Objects }?,
+  element extLst { sml_CT_ExtensionList }?
+sml_ST_Comments =
+  string "commNone"
+  | string "commIndicator"
+  | string "commIndAndComment"
+sml_ST_Objects = string "all" | string "placeholders" | string "none"
+sml_CT_Sheets = element sheet { sml_CT_Sheet }+
+sml_CT_Sheet =
+  attribute name { s_ST_Xstring },
+  attribute sheetId { xsd:unsignedInt },
+  
+  ## default value: visible
+  attribute state { sml_ST_SheetState }?,
+  r_id
+sml_ST_SheetState =
+  string "visible" | string "hidden" | string "veryHidden"
+sml_CT_WorkbookPr =
+  
+  ## default value: false
+  attribute date1904 { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dateCompatibility { xsd:boolean }?,
+  
+  ## default value: all
+  attribute showObjects { sml_ST_Objects }?,
+  
+  ## default value: true
+  attribute showBorderUnselectedTables { xsd:boolean }?,
+  
+  ## default value: false
+  attribute filterPrivacy { xsd:boolean }?,
+  
+  ## default value: false
+  attribute promptedSolutions { xsd:boolean }?,
+  
+  ## default value: true
+  attribute showInkAnnotation { xsd:boolean }?,
+  
+  ## default value: false
+  attribute backupFile { xsd:boolean }?,
+  
+  ## default value: true
+  attribute saveExternalLinkValues { xsd:boolean }?,
+  
+  ## default value: userSet
+  attribute updateLinks { sml_ST_UpdateLinks }?,
+  attribute codeName { xsd:string }?,
+  
+  ## default value: false
+  attribute hidePivotFieldList { xsd:boolean }?,
+  
+  ## default value: false
+  attribute showPivotChartFilter { xsd:boolean }?,
+  
+  ## default value: false
+  attribute allowRefreshQuery { xsd:boolean }?,
+  
+  ## default value: false
+  attribute publishItems { xsd:boolean }?,
+  
+  ## default value: false
+  attribute checkCompatibility { xsd:boolean }?,
+  
+  ## default value: true
+  attribute autoCompressPictures { xsd:boolean }?,
+  
+  ## default value: false
+  attribute refreshAllConnections { xsd:boolean }?,
+  attribute defaultThemeVersion { xsd:unsignedInt }?
+sml_ST_UpdateLinks = string "userSet" | string "never" | string "always"
+sml_CT_SmartTagPr =
+  
+  ## default value: false
+  attribute embed { xsd:boolean }?,
+  
+  ## default value: all
+  attribute show { sml_ST_SmartTagShow }?
+sml_ST_SmartTagShow =
+  string "all" | string "none" | string "noIndicator"
+sml_CT_SmartTagTypes = element smartTagType { sml_CT_SmartTagType }*
+sml_CT_SmartTagType =
+  attribute namespaceUri { s_ST_Xstring }?,
+  attribute name { s_ST_Xstring }?,
+  attribute url { s_ST_Xstring }?
+sml_CT_FileRecoveryPr =
+  
+  ## default value: true
+  attribute autoRecover { xsd:boolean }?,
+  
+  ## default value: false
+  attribute crashSave { xsd:boolean }?,
+  
+  ## default value: false
+  attribute dataExtractLoad { xsd:boolean }?,
+  
+  ## default value: false
+  attribute repairLoad { xsd:boolean }?
+sml_CT_CalcPr =
+  attribute calcId { xsd:unsignedInt }?,
+  
+  ## default value: auto
+  attribute calcMode { sml_ST_CalcMode }?,
+  
+  ## default value: false
+  attribute fullCalcOnLoad { xsd:boolean }?,
+  
+  ## default value: A1
+  attribute refMode { sml_ST_RefMode }?,
+  
+  ## default value: false
+  attribute iterate { xsd:boolean }?,
+  
+  ## default value: 100
+  attribute iterateCount { xsd:unsignedInt }?,
+  
+  ## default value: 0.001
+  attribute iterateDelta { xsd:double }?,
+  
+  ## default value: true
+  attribute fullPrecision { xsd:boolean }?,
+  
+  ## default value: true
+  attribute calcCompleted { xsd:boolean }?,
+  
+  ## default value: true
+  attribute calcOnSave { xsd:boolean }?,
+  
+  ## default value: true
+  attribute concurrentCalc { xsd:boolean }?,
+  attribute concurrentManualCount { xsd:unsignedInt }?,
+  attribute forceFullCalc { xsd:boolean }?
+sml_ST_CalcMode = string "manual" | string "auto" | string "autoNoTable"
+sml_ST_RefMode = string "A1" | string "R1C1"
+sml_CT_DefinedNames = element definedName { sml_CT_DefinedName }*
+sml_CT_DefinedName =
+  sml_ST_Formula,
+  attribute name { s_ST_Xstring },
+  attribute comment { s_ST_Xstring }?,
+  attribute customMenu { s_ST_Xstring }?,
+  attribute description { s_ST_Xstring }?,
+  attribute help { s_ST_Xstring }?,
+  attribute statusBar { s_ST_Xstring }?,
+  attribute localSheetId { xsd:unsignedInt }?,
+  
+  ## default value: false
+  attribute hidden { xsd:boolean }?,
+  
+  ## default value: false
+  attribute function { xsd:boolean }?,
+  
+  ## default value: false
+  attribute vbProcedure { xsd:boolean }?,
+  
+  ## default value: false
+  attribute xlm { xsd:boolean }?,
+  attribute functionGroupId { xsd:unsignedInt }?,
+  attribute shortcutKey { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute publishToServer { xsd:boolean }?,
+  
+  ## default value: false
+  attribute workbookParameter { xsd:boolean }?
+sml_CT_ExternalReferences =
+  element externalReference { sml_CT_ExternalReference }+
+sml_CT_ExternalReference = r_id
+sml_CT_SheetBackgroundPicture = r_id
+sml_CT_PivotCaches = element pivotCache { sml_CT_PivotCache }+
+sml_CT_PivotCache =
+  attribute cacheId { xsd:unsignedInt },
+  r_id
+sml_CT_FileSharing =
+  
+  ## default value: false
+  attribute readOnlyRecommended { xsd:boolean }?,
+  attribute userName { s_ST_Xstring }?,
+  attribute algorithmName { s_ST_Xstring }?,
+  attribute hashValue { xsd:base64Binary }?,
+  attribute saltValue { xsd:base64Binary }?,
+  attribute spinCount { xsd:unsignedInt }?
+sml_CT_OleSize = attribute ref { sml_ST_Ref }
+sml_CT_WorkbookProtection =
+  
+  ## default value: false
+  attribute lockStructure { xsd:boolean }?,
+  
+  ## default value: false
+  attribute lockWindows { xsd:boolean }?,
+  
+  ## default value: false
+  attribute lockRevision { xsd:boolean }?,
+  attribute revisionsAlgorithmName { s_ST_Xstring }?,
+  attribute revisionsHashValue { xsd:base64Binary }?,
+  attribute revisionsSaltValue { xsd:base64Binary }?,
+  attribute revisionsSpinCount { xsd:unsignedInt }?,
+  attribute workbookAlgorithmName { s_ST_Xstring }?,
+  attribute workbookHashValue { xsd:base64Binary }?,
+  attribute workbookSaltValue { xsd:base64Binary }?,
+  attribute workbookSpinCount { xsd:unsignedInt }?
+sml_CT_WebPublishing =
+  
+  ## default value: true
+  attribute css { xsd:boolean }?,
+  
+  ## default value: true
+  attribute thicket { xsd:boolean }?,
+  
+  ## default value: true
+  attribute longFileNames { xsd:boolean }?,
+  
+  ## default value: false
+  attribute vml { xsd:boolean }?,
+  
+  ## default value: false
+  attribute allowPng { xsd:boolean }?,
+  
+  ## default value: 800x600
+  attribute targetScreenSize { sml_ST_TargetScreenSize }?,
+  
+  ## default value: 96
+  attribute dpi { xsd:unsignedInt }?,
+  attribute characterSet { xsd:string }?
+sml_ST_TargetScreenSize =
+  string "544x376"
+  | string "640x480"
+  | string "720x512"
+  | string "800x600"
+  | string "1024x768"
+  | string "1152x882"
+  | string "1152x900"
+  | string "1280x1024"
+  | string "1600x1200"
+  | string "1800x1440"
+  | string "1920x1200"
+sml_CT_FunctionGroups =
+  
+  ## default value: 16
+  attribute builtInGroupCount { xsd:unsignedInt }?,
+  element functionGroup { sml_CT_FunctionGroup }*
+sml_CT_FunctionGroup = attribute name { s_ST_Xstring }?
+sml_CT_WebPublishObjects =
+  attribute count { xsd:unsignedInt }?,
+  element webPublishObject { sml_CT_WebPublishObject }+
+sml_CT_WebPublishObject =
+  attribute id { xsd:unsignedInt },
+  attribute divId { s_ST_Xstring },
+  attribute sourceObject { s_ST_Xstring }?,
+  attribute destinationFile { s_ST_Xstring },
+  attribute title { s_ST_Xstring }?,
+  
+  ## default value: false
+  attribute autoRepublish { xsd:boolean }?

@@ -1,0 +1,746 @@
+const definitions = {}
+module.exports = definitions
+
+const Definition = require('./definition.js')
+
+const ciInfo = require('ci-info')
+const querystring = require('querystring')
+const { join } = require('path')
+
+const isWindows = process.platform === 'win32'
+
+// used by cafile flattening to flatOptions.ca
+const fs = require('fs')
+const maybeReadFile = file => {
+  try {
+    return fs.readFileSync(file, 'utf8')
+  } catch (er) {
+    if (er.code !== 'ENOENT') {
+      throw er
+    }
+    return null
+  }
+}
+
+const buildOmitList = obj => {
+  const include = obj.include || []
+  const omit = obj.omit || []
+
+  const only = obj.only
+  if (/^prod(uction)?$/.test(only) || obj.production) {
+    omit.push('dev')
+  } else if (obj.production === false) {
+    include.push('dev')
+  }
+
+  if (/^dev/.test(obj.also)) {
+    include.push('dev')
+  }
+
+  if (obj.dev) {
+    include.push('dev')
+  }
+
+  if (obj.optional === false) {
+    omit.push('optional')
+  } else if (obj.optional === true) {
+    include.push('optional')
+  }
+
+  obj.omit = [...new Set(omit)].filter(type => !include.includes(type))
+  obj.include = [...new Set(include)]
+
+  if (obj.omit.includes('dev')) {
+    process.env.NODE_ENV = 'production'
+  }
+
+  return obj.omit
+}
+
+const editor = process.env.EDITOR ||
+  process.env.VISUAL ||
+  (isWindows ? `${process.env.SYSTEMROOT}\\notepad.exe` : 'vi')
+
+const shell = isWindows ? process.env.ComSpec || 'cmd'
+  : process.env.SHELL || 'sh'
+
+const { networkInterfaces } = require('os')
+const getLocalAddresses = () => {
+  try {
+    return Object.values(networkInterfaces()).map(
+      int => int.map(({ address }) => address)
+    ).reduce((set, addrs) => set.concat(addrs), [null])
+  } catch (e) {
+    return [null]
+  }
+}
+
+const unicode = /UTF-?8$/i.test(
+  process.env.LC_ALL ||
+  process.env.LC_CTYPE ||
+  process.env.LANG
+)
+
+// use LOCALAPPDATA on Windows, if set
+// https://github.com/npm/cli/pull/899
+const cacheRoot = (isWindows && process.env.LOCALAPPDATA) || '~'
+const cacheExtra = isWindows ? 'npm-cache' : '.npm'
+const cache = `${cacheRoot}/${cacheExtra}`
+
+// TODO: refactor these type definitions so that they are less
+// weird to pull out of the config module.
+// TODO: use better type definition/validation API, nopt's is so weird.
+const {
+  semver: { type: semver },
+  Umask: { type: Umask },
+  url: { type: url },
+  path: { type: path },
+} = require('../type-defs.js')
+
+const define = (key, def) => {
+  /* istanbul ignore if - this should never happen, prevents mistakes below */
+  if (definitions[key]) {
+    throw new Error(`defining key more than once: ${key}`)
+  }
+  definitions[key] = new Definition(key, def)
+}
+
+// basic flattening function, just copy it over camelCase
+const flatten = (key, obj, flatOptions) => {
+  const camel = key.replace(/-([a-z])/g, (_0, _1) => _1.toUpperCase())
+  flatOptions[camel] = obj[key]
+}
+
+// TODO:
+// Instead of having each definition provide a flatten method,
+// provide the (?list of?) flat option field(s?) that it impacts.
+// When that config is set, we mark the relevant flatOption fields
+// dirty.  Then, a getter for that field defines how we actually
+// set it.
+//
+// So, `save-dev`, `save-optional`, `save-prod`, et al would indicate
+// that they affect the `saveType` flat option.  Then the config.flat
+// object has a `get saveType () { ... }` that looks at the "real"
+// config settings from files etc and returns the appropriate value.
+//
+// Getters will also (maybe?) give us a hook to audit flat option
+// usage, so we can document and group these more appropriately.
+//
+// This will be a problem with cases where we currently do:
+// const opts = { ...npm.flatOptions, foo: 'bar' }, but we can maybe
+// instead do `npm.config.set('foo', 'bar')` prior to passing the
+// config object down where it needs to go.
+//
+// This way, when we go hunting for "where does saveType come from anyway!?"
+// while fixing some Arborist bug, we won't have to hunt through too
+// many places.
+
+// Define all config keys we know about
+
+define('_auth', {
+  default: null,
+  type: [null, String],
+  description: `
+    A basic-auth string to use when authenticating against the npm registry.
+    This will ONLY be used to authenticate against the npm registry.  For other
+    registries you will need to scope it like "//other-registry.tld/:_auth"
+
+    Warning: This should generally not be set via a command-line option.  It
+    is safer to use a registry-provided authentication bearer token stored in
+    the ~/.npmrc file by running \`npm login\`.
+  `,
+  flatten,
+})
+
+define('access', {
+  default: null,
+  defaultDescription: `
+    'public' for new packages, existing packages it will not change the current level
+  `,
+  type: [null, 'restricted', 'public'],
+  description: `
+    If you do not want your scoped package to be publicly viewable (and
+    installable) set \`--access=restricted\`.
+
+    Unscoped packages can not be set to \`restricted\`.
+
+    Note: This defaults to not changing the current access level for existing
+    packages.  Specifying a value of \`restricted\` or \`public\` during
+    publish will change the access for an existing package the same way that
+    \`npm access set status\` would.
+  `,
+  flatten,
+})
+
+define('all', {
+  default: false,
+  type: Boolean,
+  short: 'a',
+  description: `
+    When running \`npm outdated\` and \`npm ls\`, setting \`--all\` will show
+    all outdated or installed packages, rather than only those directly
+    depended upon by the current project.
+  `,
+  flatten,
+})
+
+define('allow-same-version', {
+  default: false,
+  type: Boolean,
+  description: `
+    Prevents throwing an error when \`npm version\` is used to set the new
+    version to the same value as the current version.
+  `,
+  flatten,
+})
+
+define('also', {
+  default: null,
+  type: [null, 'dev', 'development'],
+  description: `
+    When set to \`dev\` or \`development\`, this is an alias for
+    \`--include=dev\`.
+  `,
+  deprecated: 'Please use --include=dev instead.',
+  flatten (key, obj, flatOptions) {
+    definitions.omit.flatten('omit', obj, flatOptions)
+  },
+})
+
+define('audit', {
+  default: true,
+  type: Boolean,
+  description: `
+    When "true" submit audit reports alongside the current npm command to the
+    default registry and all registries configured for scopes.  See the
+    documentation for [\`npm audit\`](/commands/npm-audit) for details on what
+    is submitted.
+  `,
+  flatten,
+})
+
+define('audit-level', {
+  default: null,
+  type: [null, 'info', 'low', 'moderate', 'high', 'critical', 'none'],
+  description: `
+    The minimum level of vulnerability for \`npm audit\` to exit with
+    a non-zero exit code.
+  `,
+  flatten,
+})
+
+define('auth-type', {
+  default: 'web',
+  type: ['legacy', 'web'],
+  description: `
+    What authentication strategy to use with \`login\`.
+    Note that if an \`otp\` config is given, this value will always be set to \`legacy\`.
+  `,
+  flatten,
+})
+
+define('before', {
+  default: null,
+  type: [null, Date],
+  description: `
+    If passed to \`npm install\`, will rebuild the npm tree such that only
+    versions that were available **on or before** the \`--before\` time get
+    installed.  If there's no versions available for the current set of
+    direct dependencies, the command will error.
+
+    If the requested version is a \`dist-tag\` and the given tag does not
+    pass the \`--before\` filter, the most recent version less than or equal
+    to that tag will be used. For example, \`foo@latest\` might install
+    \`foo@1.2\` even though \`latest\` is \`2.0\`.
+  `,
+  flatten,
+})
+
+define('bin-links', {
+  default: true,
+  type: Boolean,
+  description: `
+    Tells npm to create symlinks (or \`.cmd\` shims on Windows) for package
+    executables.
+
+    Set to false to have it not do this.  This can be used to work around the
+    fact that some file systems don't support symlinks, even on ostensibly
+    Unix systems.
+  `,
+  flatten,
+})
+
+define('browser', {
+  default: null,
+  defaultDescription: `
+    OS X: \`"open"\`, Windows: \`"start"\`, Others: \`"xdg-open"\`
+  `,
+  type: [null, Boolean, String],
+  description: `
+    The browser that is called by npm commands to open websites.
+
+    Set to \`false\` to suppress browser behavior and instead print urls to
+    terminal.
+
+    Set to \`true\` to use default system URL opener.
+  `,
+  flatten,
+})
+
+define('ca', {
+  default: null,
+  type: [null, String, Array],
+  description: `
+    The Certificate Authority signing certificate that is trusted for SSL
+    connections to the registry. Values should be in PEM format (Windows
+    calls it "Base-64 encoded X.509 (.CER)") with newlines replaced by the
+    string "\\n". For example:
+
+    \`\`\`ini
+    ca="-----BEGIN CERTIFICATE-----\\nXXXX\\nXXXX\\n-----END CERTIFICATE-----"
+    \`\`\`
+
+    Set to \`null\` to only allow "known" registrars, or to a specific CA
+    cert to trust only that specific signing authority.
+
+    Multiple CAs can be trusted by specifying an array of certificates:
+
+    \`\`\`ini
+    ca[]="..."
+    ca[]="..."
+    \`\`\`
+
+    See also the \`strict-ssl\` config.
+  `,
+  flatten,
+})
+
+define('cache', {
+  default: cache,
+  defaultDescription: `
+    Windows: \`%LocalAppData%\\npm-cache\`, Posix: \`~/.npm\`
+  `,
+  type: path,
+  description: `
+    The location of npm's cache directory.
+  `,
+  flatten (key, obj, flatOptions) {
+    flatOptions.cache = join(obj.cache, '_cacache')
+    flatOptions.npxCache = join(obj.cache, '_npx')
+    flatOptions.tufCache = join(obj.cache, '_tuf')
+  },
+})
+
+define('cache-max', {
+  default: Infinity,
+  type: Number,
+  description: `
+    \`--cache-max=0\` is an alias for \`--prefer-online\`
+  `,
+  deprecated: `
+    This option has been deprecated in favor of \`--prefer-online\`
+  `,
+  flatten (key, obj, flatOptions) {
+    if (obj[key] <= 0) {
+      flatOptions.preferOnline = true
+    }
+  },
+})
+
+define('cache-min', {
+  default: 0,
+  type: Number,
+  description: `
+    \`--cache-min=9999 (or bigger)\` is an alias for \`--prefer-offline\`.
+  `,
+  deprecated: `
+    This option has been deprecated in favor of \`--prefer-offline\`.
+  `,
+  flatten (key, obj, flatOptions) {
+    if (obj[key] >= 9999) {
+      flatOptions.preferOffline = true
+    }
+  },
+})
+
+define('cafile', {
+  default: null,
+  type: path,
+  description: `
+    A path to a file containing one or multiple Certificate Authority signing
+    certificates. Similar to the \`ca\` setting, but allows for multiple
+    CA's, as well as for the CA information to be stored in a file on disk.
+  `,
+  flatten (key, obj, flatOptions) {
+    // always set to null in defaults
+    if (!obj.cafile) {
+      return
+    }
+
+    const raw = maybeReadFile(obj.cafile)
+    if (!raw) {
+      return
+    }
+
+    const delim = '-----END CERTIFICATE-----'
+    flatOptions.ca = raw.replace(/\r\n/g, '\n').split(delim)
+      .filter(section => section.trim())
+      .map(section => section.trimLeft() + delim)
+  },
+})
+
+define('call', {
+  default: '',
+  type: String,
+  short: 'c',
+  description: `
+    Optional companion option for \`npm exec\`, \`npx\` that allows for
+    specifying a custom command to be run along with the installed packages.
+
+    \`\`\`bash
+    npm exec --package yo --package generator-node --call "yo node"
+    \`\`\`
+  `,
+  flatten,
+})
+
+define('cert', {
+  default: null,
+  type: [null, String],
+  description: `
+    A client certificate to pass when accessing the registry.  Values should
+    be in PEM format (Windows calls it "Base-64 encoded X.509 (.CER)") with
+    newlines replaced by the string "\\n". For example:
+
+    \`\`\`ini
+    cert="-----BEGIN CERTIFICATE-----\\nXXXX\\nXXXX\\n-----END CERTIFICATE-----"
+    \`\`\`
+
+    It is _not_ the path to a certificate file, though you can set a registry-scoped
+    "certfile" path like "//other-registry.tld/:certfile=/path/to/cert.pem".
+  `,
+  deprecated: `
+    \`key\` and \`cert\` are no longer used for most registry operations.
+    Use registry scoped \`keyfile\` and \`certfile\` instead.
+    Example:
+    //other-registry.tld/:keyfile=/path/to/key.pem
+    //other-registry.tld/:certfile=/path/to/cert.crt
+  `,
+  flatten,
+})
+
+define('cidr', {
+  default: null,
+  type: [null, String, Array],
+  description: `
+    This is a list of CIDR address to be used when configuring limited access
+    tokens with the \`npm token create\` command.
+  `,
+  flatten,
+})
+
+// This should never be directly used, the flattened value is the derived value
+// and is sent to other modules, and is also exposed as `npm.color` for use
+// inside npm itself.
+define('color', {
+  default: !process.env.NO_COLOR || process.env.NO_COLOR === '0',
+  usage: '--color|--no-color|--color always',
+  defaultDescription: `
+    true unless the NO_COLOR environ is set to something other than '0'
+  `,
+  type: ['always', Boolean],
+  description: `
+    If false, never shows colors.  If \`"always"\` then always shows colors.
+    If true, then only prints color codes for tty file descriptors.
+  `,
+  flatten (key, obj, flatOptions) {
+    flatOptions.color = !obj.color ? false
+      : obj.color === 'always' ? true
+      : !!process.stdout.isTTY
+    flatOptions.logColor = !obj.color ? false
+      : obj.color === 'always' ? true
+      : !!process.stderr.isTTY
+  },
+})
+
+define('commit-hooks', {
+  default: true,
+  type: Boolean,
+  description: `
+    Run git commit hooks when using the \`npm version\` command.
+  `,
+  flatten,
+})
+
+define('cpu', {
+  default: null,
+  type: [null, String],
+  description: `
+    Override CPU architecture of native modules to install.
+    Acceptable values are same as \`cpu\` field of package.json,
+    which comes from \`process.arch\`.
+  `,
+  flatten,
+})
+
+define('os', {
+  default: null,
+  type: [null, String],
+  description: `
+    Override OS of native modules to install.
+    Acceptable values are same as \`os\` field of package.json,
+    which comes from \`process.platform\`.
+  `,
+  flatten,
+})
+
+define('depth', {
+  default: null,
+  defaultDescription: `
+    \`Infinity\` if \`--all\` is set, otherwise \`1\`
+  `,
+  type: [null, Number],
+  description: `
+    The depth to go when recursing packages for \`npm ls\`.
+
+    If not set, \`npm ls\` will show only the immediate dependencies of the
+    root project.  If \`--all\` is set, then npm will show all dependencies
+    by default.
+  `,
+  flatten,
+})
+
+define('description', {
+  default: true,
+  type: Boolean,
+  usage: '--no-description',
+  description: `
+    Show the description in \`npm search\`
+  `,
+  flatten (key, obj, flatOptions) {
+    flatOptions.search = flatOptions.search || { limit: 20 }
+    flatOptions.search[key] = obj[key]
+  },
+})
+
+define('dev', {
+  default: false,
+  type: Boolean,
+  description: `
+    Alias for \`--include=dev\`.
+  `,
+  deprecated: 'Please use --include=dev instead.',
+  flatten (key, obj, flatOptions) {
+    definitions.omit.flatten('omit', obj, flatOptions)
+  },
+})
+
+define('diff', {
+  default: [],
+  hint: '<package-spec>',
+  type: [String, Array],
+  description: `
+    Define arguments to compare in \`npm diff\`.
+  `,
+  flatten,
+})
+
+define('diff-ignore-all-space', {
+  default: false,
+  type: Boolean,
+  description: `
+    Ignore whitespace when comparing lines in \`npm diff\`.
+  `,
+  flatten,
+})
+
+define('diff-name-only', {
+  default: false,
+  type: Boolean,
+  description: `
+    Prints only filenames when using \`npm diff\`.
+  `,
+  flatten,
+})
+
+define('diff-no-prefix', {
+  default: false,
+  type: Boolean,
+  description: `
+    Do not show any source or destination prefix in \`npm diff\` output.
+
+    Note: this causes \`npm diff\` to ignore the \`--diff-src-prefix\` and
+    \`--diff-dst-prefix\` configs.
+  `,
+  flatten,
+})
+
+define('diff-dst-prefix', {
+  default: 'b/',
+  hint: '<path>',
+  type: String,
+  description: `
+    Destination prefix to be used in \`npm diff\` output.
+  `,
+  flatten,
+})
+
+define('diff-src-prefix', {
+  default: 'a/',
+  hint: '<path>',
+  type: String,
+  description: `
+    Source prefix to be used in \`npm diff\` output.
+  `,
+  flatten,
+})
+
+define('diff-text', {
+  default: false,
+  type: Boolean,
+  description: `
+    Treat all files as text in \`npm diff\`.
+  `,
+  flatten,
+})
+
+define('diff-unified', {
+  default: 3,
+  type: Number,
+  description: `
+    The number of lines of context to print in \`npm diff\`.
+  `,
+  flatten,
+})
+
+define('dry-run', {
+  default: false,
+  type: Boolean,
+  description: `
+    Indicates that you don't want npm to make any changes and that it should
+    only report what it would have done.  This can be passed into any of the
+    commands that modify your local installation, eg, \`install\`,
+    \`update\`, \`dedupe\`, \`uninstall\`, as well as \`pack\` and
+    \`publish\`.
+
+    Note: This is NOT honored by other network related commands, eg
+    \`dist-tags\`, \`owner\`, etc.
+  `,
+  flatten,
+})
+
+define('editor', {
+  default: editor,
+  defaultDescription: `
+    The EDITOR or VISUAL environment variables, or '%SYSTEMROOT%\\notepad.exe' on Windows,
+    or 'vi' on Unix systems
+  `,
+  type: String,
+  description: `
+    The command to run for \`npm edit\` and \`npm config edit\`.
+  `,
+  flatten,
+})
+
+define('engine-strict', {
+  default: false,
+  type: Boolean,
+  description: `
+    If set to true, then npm will stubbornly refuse to install (or even
+    consider installing) any package that claims to not be compatible with
+    the current Node.js version.
+
+    This can be overridden by setting the \`--force\` flag.
+  `,
+  flatten,
+})
+
+define('fetch-retries', {
+  default: 2,
+  type: Number,
+  description: `
+    The "retries" config for the \`retry\` module to use when fetching
+    packages from the registry.
+
+    npm will retry idempotent read requests to the registry in the case
+    of network failures or 5xx HTTP errors.
+  `,
+  flatten (key, obj, flatOptions) {
+    flatOptions.retry = flatOptions.retry || {}
+    flatOptions.retry.retries = obj[key]
+  },
+})
+
+define('fetch-retry-factor', {
+  default: 10,
+  type: Number,
+  description: `
+    The "factor" config for the \`retry\` module to use when fetching
+    packages.
+  `,
+  flatten (key, obj, flatOptions) {
+    flatOptions.retry = flatOptions.retry || {}
+    flatOptions.retry.factor = obj[key]
+  },
+})
+
+define('fetch-retry-maxtimeout', {
+  default: 60000,
+  defaultDescription: '60000 (1 minute)',
+  type: Number,
+  description: `
+    The "maxTimeout" config for the \`retry\` module to use when fetching
+    packages.
+  `,
+  flatten (key, obj, flatOptions) {
+    flatOptions.retry = flatOptions.retry || {}
+    flatOptions.retry.maxTimeout = obj[key]
+  },
+})
+
+define('fetch-retry-mintimeout', {
+  default: 10000,
+  defaultDescription: '10000 (10 seconds)',
+  type: Number,
+  description: `
+    The "minTimeout" config for the \`retry\` module to use when fetching
+    packages.
+  `,
+  flatten (key, obj, flatOptions) {
+    flatOptions.retry = flatOptions.retry || {}
+    flatOptions.retry.minTimeout = obj[key]
+  },
+})
+
+define('fetch-timeout', {
+  default: 5 * 60 * 1000,
+  defaultDescription: `${5 * 60 * 1000} (5 minutes)`,
+  type: Number,
+  description: `
+    The maximum amount of time to wait for HTTP requests to complete.
+  `,
+  flatten (key, obj, flatOptions) {
+    flatOptions.timeout = obj[key]
+  },
+})
+
+define('force', {
+  default: false,
+  type: Boolean,
+  short: 'f',
+  description: `
+    Removes various protections against unfortunate side effects, common
+    mistakes, unnecessary performance degradation, and malicious input.
+
+    * Allow clobbering non-npm files in global installs.
+    * Allow the \`npm version\` command to work on an unclean git repository.
+    * Allow deleting the cache folder with \`npm cache clean\`.
+    * Allow installing packages that have an \`engines\` declaration
+      requiring a different version of npm.
+    * Allow installing packages that have an \`engines\` declaration
+      requiring a different version of \`node\`, even if \`--engine-strict\`
+      is enabled.
+    * Allow \`npm audit fix\` to install modules outside your stated
+      dependency range (including SemVer-major changes).
+    * Allow unpublishing all versions of a published package.
+    * Allow conflicting peerDependencies t

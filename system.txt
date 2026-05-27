@@ -1,0 +1,4 @@
+2026-04-27T05:30:05.9750000Z Evaluating comment-on-pr.if
+2026-04-27T05:30:05.9750000Z Evaluating: (success() && (((github.repository == 'github/docs-internal') && (github.event.pull_request.merged == true) && (github.event.pull_request.base.ref == 'main'))))
+2026-04-27T05:30:05.9750000Z Expanded: (true && (('Edgarruiz8585/docs' == 'github/docs-internal') && (github.event.pull_request.merged == true) && (github.event.pull_request.base.ref == 'main')))
+2026-04-27T05:30:05.9750000Z Result: false

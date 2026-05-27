@@ -1,0 +1,5 @@
+xml_lang = attribute xml:lang { xsd:language | xsd:string "" }
+xml_space = attribute xml:space { "default" | "preserve" }
+xml_base = attribute xml:base { xsd:anyURI }
+xml_id = attribute xml:id { xsd:ID }
+xml_specialAttrs = xml_base?, xml_lang?, xml_space?, xml_id?
