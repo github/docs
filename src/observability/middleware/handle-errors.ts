@@ -5,7 +5,6 @@ import { nextApp } from '@/frame/middleware/next'
 import { minimumNotFoundHtml } from '@/frame/lib/constants'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
-import statsd from '@/observability/lib/statsd'
 import { toError } from '@/observability/lib/to-error'
 import { ExtendedRequest } from '@/types'
 import { createLogger } from '@/observability/logger'
@@ -43,33 +42,12 @@ async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   }
 }
 
-function timedOut(req: ExtendedRequest) {
-  // The `req.pagePath` can come later so it's not guaranteed to always
-  // be present. It's added by the `handle-next-data-path.ts` middleware
-  // we translates those "cryptic" `/_next/data/...` URLs from
-  // client-side routing.
-  const incrementTags = [`path:${req.pagePath || req.path}`]
-  if (req.context?.currentCategory) {
-    incrementTags.push(`product:${req.context.currentCategory}`)
-  }
-  statsd.increment('middleware.timeout', 1, incrementTags)
-  logger.warn('Request timed out', {
-    path: req.pagePath || req.path,
-    method: req.method,
-  })
-}
-
 async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  // Potentially set by the `connect-timeout` middleware.
-  if (req.timedout) {
-    timedOut(req)
-  }
-
   const responseDone = res.headersSent || req.aborted
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
