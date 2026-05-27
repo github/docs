@@ -321,10 +321,6 @@ jobs:
         with:
           node-version-file: 'package.json'
 
-      - name: Install Copilot CLI
-        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
-        run: npm install -g @github/copilot@prerelease
-
       - name: Prepare prompts for LLM
         if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
         id: prepare_prompts
