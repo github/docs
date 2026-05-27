@@ -161,6 +161,17 @@ export default [
     },
   },
 
+  // Client-side files that run in the browser where the server-only logger is unavailable
+  {
+    files: [
+      'src/search/components/hooks/useAISearchAutocomplete.ts',
+      'src/search/components/hooks/useAISearchLocalStorageCache.ts',
+    ],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
   // Disable custom logger rule for logger implementation itself
   {
     files: ['src/observability/logger/**/*.{ts,js}'],
@@ -183,7 +194,6 @@ export default [
       'src/journeys/**/*.{ts,js}',
       'src/metrics/**/*.{ts,js}',
       'src/observability/lib/handle-package-not-found.ts',
-      'src/search/**/*.{ts,js}',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
