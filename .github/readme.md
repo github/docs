@@ -1,3 +1,5 @@
+2022-01-01 12:00:00 User/192.0.2.22:12345 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+2022-01-01 12:00:00 User/192.0.2.22:12345 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
 
 
 OpenVPN -- A Secure tunneling daemon
