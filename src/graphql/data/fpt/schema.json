@@ -11191,6 +11191,7 @@
       "id": "branchnamepatternparameters",
       "href": "/graphql/reference/objects#branchnamepatternparameters",
       "description": "<p>Parameters to be used for the branch_name_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -14147,6 +14148,7 @@
       "id": "commitauthoremailpatternparameters",
       "href": "/graphql/reference/objects#commitauthoremailpatternparameters",
       "description": "<p>Parameters to be used for the commit_author_email_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -14889,6 +14891,7 @@
       "id": "commitmessagepatternparameters",
       "href": "/graphql/reference/objects#commitmessagepatternparameters",
       "description": "<p>Parameters to be used for the commit_message_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -14925,6 +14928,7 @@
       "id": "committeremailpatternparameters",
       "href": "/graphql/reference/objects#committeremailpatternparameters",
       "description": "<p>Parameters to be used for the committer_email_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -16327,6 +16331,7 @@
       "id": "copilotcodereviewparameters",
       "href": "/graphql/reference/objects#copilotcodereviewparameters",
       "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "reviewDraftPullRequests",
@@ -25800,6 +25805,7 @@
       "id": "fileextensionrestrictionparameters",
       "href": "/graphql/reference/objects#fileextensionrestrictionparameters",
       "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "restrictedFileExtensions",
@@ -25815,6 +25821,7 @@
       "id": "filepathrestrictionparameters",
       "href": "/graphql/reference/objects#filepathrestrictionparameters",
       "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "restrictedFilePaths",
@@ -32699,6 +32706,7 @@
       "id": "maxfilepathlengthparameters",
       "href": "/graphql/reference/objects#maxfilepathlengthparameters",
       "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "maxFilePathLength",
@@ -32714,6 +32722,7 @@
       "id": "maxfilesizeparameters",
       "href": "/graphql/reference/objects#maxfilesizeparameters",
       "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "maxFileSize",
@@ -32773,6 +32782,7 @@
       "id": "memberscandeletereposclearauditentry",
       "href": "/graphql/reference/objects#memberscandeletereposclearauditentry",
       "description": "<p>Audit log entry for a members_can_delete_repos.clear event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -33771,6 +33781,7 @@
       "id": "mergequeueparameters",
       "href": "/graphql/reference/objects#mergequeueparameters",
       "description": "<p>Merges must be performed via a merge queue.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "checkResponseTimeoutMinutes",
@@ -44018,6 +44029,7 @@
       "id": "organizationpropertyconditiontarget",
       "href": "/graphql/reference/objects#organizationpropertyconditiontarget",
       "description": "<p>Parameters to be used for the organization_property condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "exclude",
@@ -44040,6 +44052,7 @@
       "id": "organizationpropertytargetdefinition",
       "href": "/graphql/reference/objects#organizationpropertytargetdefinition",
       "description": "<p>A property that must match.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -50270,6 +50283,7 @@
       "id": "propertytargetdefinition",
       "href": "/graphql/reference/objects#propertytargetdefinition",
       "description": "<p>A property that must match.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -52791,6 +52805,7 @@
       "id": "pullrequestparameters",
       "href": "/graphql/reference/objects#pullrequestparameters",
       "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "allowedMergeMethods",
@@ -55563,6 +55578,7 @@
       "id": "refnameconditiontarget",
       "href": "/graphql/reference/objects#refnameconditiontarget",
       "description": "<p>Parameters to be used for the ref_name condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "exclude",
@@ -64651,6 +64667,7 @@
       "id": "repositoryidconditiontarget",
       "href": "/graphql/reference/objects#repositoryidconditiontarget",
       "description": "<p>Parameters to be used for the repository_id condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "repositoryIds",
@@ -64975,6 +64992,7 @@
       "id": "repositorynameconditiontarget",
       "href": "/graphql/reference/objects#repositorynameconditiontarget",
       "description": "<p>Parameters to be used for the repository_name condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "exclude",
@@ -65048,6 +65066,7 @@
       "id": "repositorypropertyconditiontarget",
       "href": "/graphql/reference/objects#repositorypropertyconditiontarget",
       "description": "<p>Parameters to be used for the repository_property condition.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "exclude",
@@ -65114,6 +65133,7 @@
       "id": "repositoryruleconditions",
       "href": "/graphql/reference/objects#repositoryruleconditions",
       "description": "<p>Set of conditions that determine if a ruleset will evaluate.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "organizationProperty",
@@ -65702,6 +65722,7 @@
       "id": "repositoryvisibilitychangedisableauditentry",
       "href": "/graphql/reference/objects#repositoryvisibilitychangedisableauditentry",
       "description": "<p>Audit log entry for a repository_visibility_change.disable event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -65913,6 +65934,7 @@
       "id": "repositoryvisibilitychangeenableauditentry",
       "href": "/graphql/reference/objects#repositoryvisibilitychangeenableauditentry",
       "description": "<p>Audit log entry for a repository_visibility_change.enable event.</p>",
+      "isDeprecated": false,
       "implements": [
         {
           "name": "AuditEntry",
@@ -66394,6 +66416,7 @@
       "id": "requireddeploymentsparameters",
       "href": "/graphql/reference/objects#requireddeploymentsparameters",
       "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -66409,6 +66432,7 @@
       "id": "requiredreviewerconfiguration",
       "href": "/graphql/reference/objects#requiredreviewerconfiguration",
       "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "filePatterns",
@@ -66461,6 +66485,7 @@
       "id": "requiredstatuschecksparameters",
       "href": "/graphql/reference/objects#requiredstatuschecksparameters",
       "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "doNotEnforceOnCreate",
@@ -69500,6 +69525,7 @@
       "id": "statuscheckconfiguration",
       "href": "/graphql/reference/objects#statuscheckconfiguration",
       "description": "<p>Required status check.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "context",
@@ -70374,6 +70400,7 @@
       "id": "tagnamepatternparameters",
       "href": "/graphql/reference/objects#tagnamepatternparameters",
       "description": "<p>Parameters to be used for the tag_name_pattern rule.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "name",
@@ -73532,6 +73559,7 @@
       "id": "updateparameters",
       "href": "/graphql/reference/objects#updateparameters",
       "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "updateAllowsFetchAndMerge",
@@ -77663,6 +77691,7 @@
       "id": "workflowfilereference",
       "href": "/graphql/reference/objects#workflowfilereference",
       "description": "<p>A workflow that must run for this rule to pass.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "path",
@@ -78029,6 +78058,7 @@
       "id": "workflowsparameters",
       "href": "/graphql/reference/objects#workflowsparameters",
       "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "doNotEnforceOnCreate",
@@ -84085,6 +84115,7 @@
       "id": "mergequeuegroupingstrategy",
       "href": "/graphql/reference/enums#mergequeuegroupingstrategy",
       "description": "<p>When set to ALLGREEN, the merge commit created by merge queue for each PR in the\ngroup must pass all required checks to merge. When set to HEADGREEN, only the\ncommit at the head of the merge group, i.e. the commit containing changes from\nall of the PRs in the group, must pass its required checks to merge.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "ALLGREEN",
@@ -84101,6 +84132,7 @@
       "id": "mergequeuemergemethod",
       "href": "/graphql/reference/enums#mergequeuemergemethod",
       "description": "<p>Method to use when merging changes from queued pull requests.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -86417,6 +86449,10 @@
         {
           "name": "DUPLICATE",
           "description": "<p>A duplicated piece of content.</p>"
+        },
+        {
+          "name": "LOW_QUALITY",
+          "description": "<p>A low quality piece of content.</p>"
         },
         {
           "name": "OFF_TOPIC",
@@ -92661,6 +92697,7 @@
       "id": "branchnamepatternparametersinput",
       "href": "/graphql/reference/input-objects#branchnamepatternparametersinput",
       "description": "<p>Parameters to be used for the branch_name_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -93497,6 +93534,7 @@
       "id": "commitauthoremailpatternparametersinput",
       "href": "/graphql/reference/input-objects#commitauthoremailpatternparametersinput",
       "description": "<p>Parameters to be used for the commit_author_email_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -93579,6 +93617,7 @@
       "id": "commitmessagepatternparametersinput",
       "href": "/graphql/reference/input-objects#commitmessagepatternparametersinput",
       "description": "<p>Parameters to be used for the commit_message_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -93645,6 +93684,7 @@
       "id": "committeremailpatternparametersinput",
       "href": "/graphql/reference/input-objects#committeremailpatternparametersinput",
       "description": "<p>Parameters to be used for the committer_email_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -93796,6 +93836,7 @@
       "id": "copilotcodereviewparametersinput",
       "href": "/graphql/reference/input-objects#copilotcodereviewparametersinput",
       "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "reviewDraftPullRequests",
@@ -97308,6 +97349,7 @@
       "id": "fileextensionrestrictionparametersinput",
       "href": "/graphql/reference/input-objects#fileextensionrestrictionparametersinput",
       "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "restrictedFileExtensions",
@@ -97323,6 +97365,7 @@
       "id": "filepathrestrictionparametersinput",
       "href": "/graphql/reference/input-objects#filepathrestrictionparametersinput",
       "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "restrictedFilePaths",
@@ -98201,6 +98244,7 @@
       "id": "maxfilepathlengthparametersinput",
       "href": "/graphql/reference/input-objects#maxfilepathlengthparametersinput",
       "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "maxFilePathLength",
@@ -98216,6 +98260,7 @@
       "id": "maxfilesizeparametersinput",
       "href": "/graphql/reference/input-objects#maxfilesizeparametersinput",
       "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "maxFileSize",
@@ -98340,6 +98385,7 @@
       "id": "mergequeueparametersinput",
       "href": "/graphql/reference/input-objects#mergequeueparametersinput",
       "description": "<p>Merges must be performed via a merge queue.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "checkResponseTimeoutMinutes",
@@ -98566,6 +98612,7 @@
       "id": "organizationpropertyconditiontargetinput",
       "href": "/graphql/reference/input-objects#organizationpropertyconditiontargetinput",
       "description": "<p>Parameters to be used for the organization_property condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "exclude",
@@ -98588,6 +98635,7 @@
       "id": "organizationpropertytargetdefinitioninput",
       "href": "/graphql/reference/input-objects#organizationpropertytargetdefinitioninput",
       "description": "<p>A property that must match.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -99227,6 +99275,7 @@
       "id": "propertytargetdefinitioninput",
       "href": "/graphql/reference/input-objects#propertytargetdefinitioninput",
       "description": "<p>A property that must match.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -99302,6 +99351,7 @@
       "id": "pullrequestparametersinput",
       "href": "/graphql/reference/input-objects#pullrequestparametersinput",
       "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "allowedMergeMethods",
@@ -99382,6 +99432,7 @@
       "id": "refnameconditiontargetinput",
       "href": "/graphql/reference/input-objects#refnameconditiontargetinput",
       "description": "<p>Parameters to be used for the ref_name condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "exclude",
@@ -100090,6 +100141,7 @@
       "id": "repositoryidconditiontargetinput",
       "href": "/graphql/reference/input-objects#repositoryidconditiontargetinput",
       "description": "<p>Parameters to be used for the repository_id condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "repositoryIds",
@@ -100151,6 +100203,7 @@
       "id": "repositorynameconditiontargetinput",
       "href": "/graphql/reference/input-objects#repositorynameconditiontargetinput",
       "description": "<p>Parameters to be used for the repository_name condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "exclude",
@@ -100203,6 +100256,7 @@
       "id": "repositorypropertyconditiontargetinput",
       "href": "/graphql/reference/input-objects#repositorypropertyconditiontargetinput",
       "description": "<p>Parameters to be used for the repository_property condition.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "exclude",
@@ -100225,6 +100279,7 @@
       "id": "repositoryruleconditionsinput",
       "href": "/graphql/reference/input-objects#repositoryruleconditionsinput",
       "description": "<p>Specifies the conditions required for a ruleset to evaluate.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "organizationProperty",
@@ -100532,6 +100587,7 @@
       "id": "requireddeploymentsparametersinput",
       "href": "/graphql/reference/input-objects#requireddeploymentsparametersinput",
       "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -100547,6 +100603,7 @@
       "id": "requiredreviewerconfigurationinput",
       "href": "/graphql/reference/input-objects#requiredreviewerconfigurationinput",
       "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "filePatterns",
@@ -100599,6 +100656,7 @@
       "id": "requiredstatuschecksparametersinput",
       "href": "/graphql/reference/input-objects#requiredstatuschecksparametersinput",
       "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "doNotEnforceOnCreate",
@@ -101593,6 +101651,7 @@
       "id": "statuscheckconfigurationinput",
       "href": "/graphql/reference/input-objects#statuscheckconfigurationinput",
       "description": "<p>Required status check.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "context",
@@ -101660,6 +101719,7 @@
       "id": "tagnamepatternparametersinput",
       "href": "/graphql/reference/input-objects#tagnamepatternparametersinput",
       "description": "<p>Parameters to be used for the tag_name_pattern rule.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "name",
@@ -103894,6 +103954,7 @@
       "id": "updateparametersinput",
       "href": "/graphql/reference/input-objects#updateparametersinput",
       "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "updateAllowsFetchAndMerge",
@@ -105278,6 +105339,7 @@
       "id": "workflowfilereferenceinput",
       "href": "/graphql/reference/input-objects#workflowfilereferenceinput",
       "description": "<p>A workflow that must run for this rule to pass.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "path",
@@ -105337,6 +105399,7 @@
       "id": "workflowsparametersinput",
       "href": "/graphql/reference/input-objects#workflowsparametersinput",
       "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "doNotEnforceOnCreate",
