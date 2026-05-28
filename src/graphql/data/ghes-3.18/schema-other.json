@@ -1,0 +1,2532 @@
+{
+  "queries": [
+    {
+      "name": "id",
+      "type": "ID!",
+      "id": "id",
+      "href": "/graphql/reference/other#scalar-id",
+      "description": "<p>ID of the object.</p>",
+      "args": [],
+      "category": "other"
+    },
+    {
+      "name": "relay",
+      "type": "Query!",
+      "id": "query",
+      "href": "/graphql/reference/other#object-query",
+      "description": "<p>Workaround for re-exposing the root query object. (Refer to\n<a href=\"https://github.com/facebook/relay/issues/112\">https://github.com/facebook/relay/issues/112</a> for more information.).</p>",
+      "args": [],
+      "category": "other"
+    }
+  ],
+  "mutations": [
+    {
+      "name": "addEnterpriseAdmin",
+      "id": "addenterpriseadmin",
+      "href": "/graphql/reference/other#mutation-addenterpriseadmin",
+      "description": "<p>Adds an administrator to the global enterprise account.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseAdminInput!",
+          "id": "addenterpriseadmininput",
+          "href": "/graphql/reference/other#input-object-addenterpriseadmininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "admin",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user",
+          "description": "<p>The user who was added as an administrator.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/enterprise-admin#object-enterprise",
+          "description": "<p>The updated enterprise.</p>"
+        },
+        {
+          "name": "role",
+          "type": "EnterpriseAdministratorRole",
+          "id": "enterpriseadministratorrole",
+          "href": "/graphql/reference/enterprise-admin#enum-enterpriseadministratorrole",
+          "description": "<p>The role of the administrator.</p>"
+        },
+        {
+          "name": "viewer",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user",
+          "description": "<p>The viewer performing the mutation.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "createTeamDiscussion",
+      "id": "createteamdiscussion",
+      "href": "/graphql/reference/other#mutation-createteamdiscussion",
+      "description": "<p>Creates a new team discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateTeamDiscussionInput!",
+          "id": "createteamdiscussioninput",
+          "href": "/graphql/reference/other#input-object-createteamdiscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "teamDiscussion",
+          "type": "TeamDiscussion",
+          "id": "teamdiscussion",
+          "href": "/graphql/reference/other#object-teamdiscussion",
+          "description": "<p>The new discussion.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "createTeamDiscussionComment",
+      "id": "createteamdiscussioncomment",
+      "href": "/graphql/reference/other#mutation-createteamdiscussioncomment",
+      "description": "<p>Creates a new team discussion comment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateTeamDiscussionCommentInput!",
+          "id": "createteamdiscussioncommentinput",
+          "href": "/graphql/reference/other#input-object-createteamdiscussioncommentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "teamDiscussionComment",
+          "type": "TeamDiscussionComment",
+          "id": "teamdiscussioncomment",
+          "href": "/graphql/reference/other#object-teamdiscussioncomment",
+          "description": "<p>The new comment.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "deleteTeamDiscussion",
+      "id": "deleteteamdiscussion",
+      "href": "/graphql/reference/other#mutation-deleteteamdiscussion",
+      "description": "<p>Deletes a team discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteTeamDiscussionInput!",
+          "id": "deleteteamdiscussioninput",
+          "href": "/graphql/reference/other#input-object-deleteteamdiscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "deleteTeamDiscussionComment",
+      "id": "deleteteamdiscussioncomment",
+      "href": "/graphql/reference/other#mutation-deleteteamdiscussioncomment",
+      "description": "<p>Deletes a team discussion comment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteTeamDiscussionCommentInput!",
+          "id": "deleteteamdiscussioncommentinput",
+          "href": "/graphql/reference/other#input-object-deleteteamdiscussioncommentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "updateEnterpriseTeamDiscussionsSetting",
+      "id": "updateenterpriseteamdiscussionssetting",
+      "href": "/graphql/reference/other#mutation-updateenterpriseteamdiscussionssetting",
+      "description": "<p>Sets whether team discussions are enabled for an enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateEnterpriseTeamDiscussionsSettingInput!",
+          "id": "updateenterpriseteamdiscussionssettinginput",
+          "href": "/graphql/reference/other#input-object-updateenterpriseteamdiscussionssettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/enterprise-admin#object-enterprise",
+          "description": "<p>The enterprise with the updated team discussions setting.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A message confirming the result of updating the team discussions setting.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "updateTeamDiscussion",
+      "id": "updateteamdiscussion",
+      "href": "/graphql/reference/other#mutation-updateteamdiscussion",
+      "description": "<p>Updates a team discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateTeamDiscussionInput!",
+          "id": "updateteamdiscussioninput",
+          "href": "/graphql/reference/other#input-object-updateteamdiscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "teamDiscussion",
+          "type": "TeamDiscussion",
+          "id": "teamdiscussion",
+          "href": "/graphql/reference/other#object-teamdiscussion",
+          "description": "<p>The updated discussion.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "updateTeamDiscussionComment",
+      "id": "updateteamdiscussioncomment",
+      "href": "/graphql/reference/other#mutation-updateteamdiscussioncomment",
+      "description": "<p>Updates a discussion comment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateTeamDiscussionCommentInput!",
+          "id": "updateteamdiscussioncommentinput",
+          "href": "/graphql/reference/other#input-object-updateteamdiscussioncommentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "teamDiscussionComment",
+          "type": "TeamDiscussionComment",
+          "id": "teamdiscussioncomment",
+          "href": "/graphql/reference/other#object-teamdiscussioncomment",
+          "description": "<p>The updated comment.</p>"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "objects": [
+    {
+      "name": "PageInfo",
+      "id": "pageinfo",
+      "href": "/graphql/reference/other#object-pageinfo",
+      "description": "<p>Information about pagination in a connection.</p>",
+      "fields": [
+        {
+          "name": "endCursor",
+          "description": "<p>When paginating forwards, the cursor to continue.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "hasNextPage",
+          "description": "<p>When paginating forwards, are there more items?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "hasPreviousPage",
+          "description": "<p>When paginating backwards, are there more items?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "startCursor",
+          "description": "<p>When paginating backwards, the cursor to continue.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussion",
+      "id": "teamdiscussion",
+      "href": "/graphql/reference/other#object-teamdiscussion",
+      "description": "<p>A team discussion.</p>",
+      "implements": [
+        {
+          "name": "Comment",
+          "id": "comment",
+          "href": "/graphql/reference/issues#interface-comment"
+        },
+        {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/issues#interface-deletable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Reactable",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable"
+        },
+        {
+          "name": "Subscribable",
+          "id": "subscribable",
+          "href": "/graphql/reference/activity#interface-subscribable"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        },
+        {
+          "name": "Updatable",
+          "id": "updatable",
+          "href": "/graphql/reference/issues#interface-updatable"
+        },
+        {
+          "name": "UpdatableComment",
+          "id": "updatablecomment",
+          "href": "/graphql/reference/issues#interface-updatablecomment"
+        }
+      ],
+      "fields": [
+        {
+          "name": "author",
+          "description": "<p>The actor who authored the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "authorAssociation",
+          "description": "<p>Author's association with the discussion's team.</p>",
+          "type": "CommentAuthorAssociation!",
+          "id": "commentauthorassociation",
+          "href": "/graphql/reference/issues#enum-commentauthorassociation",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "body",
+          "description": "<p>The body as Markdown.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The body rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "bodyText",
+          "description": "<p>The body rendered to text.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyVersion",
+          "description": "<p>Identifies the discussion body hash.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "comments",
+          "description": "<p>A list of comments on this discussion.</p>",
+          "type": "TeamDiscussionCommentConnection!",
+          "id": "teamdiscussioncommentconnection",
+          "href": "/graphql/reference/other#object-teamdiscussioncommentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "fromComment",
+              "description": "<p>When provided, filters the connection such that results begin with the comment with this number.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for connection.</p>",
+              "type": {
+                "name": "TeamDiscussionCommentOrder",
+                "id": "teamdiscussioncommentorder",
+                "href": "/graphql/reference/other#input-object-teamdiscussioncommentorder"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "commentsResourcePath",
+          "description": "<p>The HTTP path for discussion comments.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "commentsUrl",
+          "description": "<p>The HTTP URL for discussion comments.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "createdViaEmail",
+          "description": "<p>Check if this comment was created via an email reply.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "editor",
+          "description": "<p>The actor who edited the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamDiscussion object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "includesCreatedEdit",
+          "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "isPinned",
+          "description": "<p>Whether or not the discussion is pinned.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not the discussion is only visible to team members and organization owners.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "lastEditedAt",
+          "description": "<p>The moment the editor made the last edit.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "number",
+          "description": "<p>Identifies the discussion within its team.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "publishedAt",
+          "description": "<p>Identifies when the comment was published at.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "reactionGroups",
+          "description": "<p>A list of reactions grouped by content left on the subject.</p>",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup"
+        },
+        {
+          "name": "reactions",
+          "description": "<p>A list of Reactions left on the Issue.</p>",
+          "type": "ReactionConnection!",
+          "id": "reactionconnection",
+          "href": "/graphql/reference/reactions#object-reactionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "content",
+              "description": "<p>Allows filtering Reactions by emoji.</p>",
+              "type": {
+                "name": "ReactionContent",
+                "id": "reactioncontent",
+                "href": "/graphql/reference/reactions#enum-reactioncontent"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Allows specifying the order in which reactions are returned.</p>",
+              "type": {
+                "name": "ReactionOrder",
+                "id": "reactionorder",
+                "href": "/graphql/reference/reactions#input-object-reactionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this discussion.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "team",
+          "description": "<p>The team that defines the context of this discussion.</p>",
+          "type": "Team!",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "title",
+          "description": "<p>The title of the discussion.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this discussion.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "userContentEdits",
+          "description": "<p>A list of edits to this content.</p>",
+          "type": "UserContentEditConnection",
+          "id": "usercontenteditconnection",
+          "href": "/graphql/reference/users#object-usercontenteditconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanPin",
+          "description": "<p>Whether or not the current viewer can pin this discussion.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "viewerCanReact",
+          "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanSubscribe",
+          "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdate",
+          "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCannotUpdateReasons",
+          "description": "<p>Reasons why the current viewer can not update this comment.</p>",
+          "type": "[CommentCannotUpdateReason!]!",
+          "id": "commentcannotupdatereason",
+          "href": "/graphql/reference/issues#enum-commentcannotupdatereason"
+        },
+        {
+          "name": "viewerDidAuthor",
+          "description": "<p>Did the viewer author this comment.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerSubscription",
+          "description": "<p>Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.</p>",
+          "type": "SubscriptionState",
+          "id": "subscriptionstate",
+          "href": "/graphql/reference/activity#enum-subscriptionstate"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionComment",
+      "id": "teamdiscussioncomment",
+      "href": "/graphql/reference/other#object-teamdiscussioncomment",
+      "description": "<p>A comment on a team discussion.</p>",
+      "implements": [
+        {
+          "name": "Comment",
+          "id": "comment",
+          "href": "/graphql/reference/issues#interface-comment"
+        },
+        {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/issues#interface-deletable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Reactable",
+          "id": "reactable",
+          "href": "/graphql/reference/reactions#interface-reactable"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/meta#interface-uniformresourcelocatable"
+        },
+        {
+          "name": "Updatable",
+          "id": "updatable",
+          "href": "/graphql/reference/issues#interface-updatable"
+        },
+        {
+          "name": "UpdatableComment",
+          "id": "updatablecomment",
+          "href": "/graphql/reference/issues#interface-updatablecomment"
+        }
+      ],
+      "fields": [
+        {
+          "name": "author",
+          "description": "<p>The actor who authored the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "authorAssociation",
+          "description": "<p>Author's association with the comment's team.</p>",
+          "type": "CommentAuthorAssociation!",
+          "id": "commentauthorassociation",
+          "href": "/graphql/reference/issues#enum-commentauthorassociation",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "body",
+          "description": "<p>The body as Markdown.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The body rendered to HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "href": "/graphql/reference/other#scalar-html"
+        },
+        {
+          "name": "bodyText",
+          "description": "<p>The body rendered to text.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyVersion",
+          "description": "<p>The current version of the body content.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "createdViaEmail",
+          "description": "<p>Check if this comment was created via an email reply.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "discussion",
+          "description": "<p>The discussion this comment is about.</p>",
+          "type": "TeamDiscussion!",
+          "id": "teamdiscussion",
+          "href": "/graphql/reference/other#object-teamdiscussion",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "editor",
+          "description": "<p>The actor who edited the comment.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "href": "/graphql/reference/users#interface-actor"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamDiscussionComment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "includesCreatedEdit",
+          "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "lastEditedAt",
+          "description": "<p>The moment the editor made the last edit.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "number",
+          "description": "<p>Identifies the comment number.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "publishedAt",
+          "description": "<p>Identifies when the comment was published at.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "reactionGroups",
+          "description": "<p>A list of reactions grouped by content left on the subject.</p>",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "href": "/graphql/reference/reactions#object-reactiongroup"
+        },
+        {
+          "name": "reactions",
+          "description": "<p>A list of Reactions left on the Issue.</p>",
+          "type": "ReactionConnection!",
+          "id": "reactionconnection",
+          "href": "/graphql/reference/reactions#object-reactionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "content",
+              "description": "<p>Allows filtering Reactions by emoji.</p>",
+              "type": {
+                "name": "ReactionContent",
+                "id": "reactioncontent",
+                "href": "/graphql/reference/reactions#enum-reactioncontent"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Allows specifying the order in which reactions are returned.</p>",
+              "type": {
+                "name": "ReactionOrder",
+                "id": "reactionorder",
+                "href": "/graphql/reference/reactions#input-object-reactionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this comment.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this comment.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "userContentEdits",
+          "description": "<p>A list of edits to this content.</p>",
+          "type": "UserContentEditConnection",
+          "id": "usercontenteditconnection",
+          "href": "/graphql/reference/users#object-usercontenteditconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanReact",
+          "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanUpdate",
+          "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCannotUpdateReasons",
+          "description": "<p>Reasons why the current viewer can not update this comment.</p>",
+          "type": "[CommentCannotUpdateReason!]!",
+          "id": "commentcannotupdatereason",
+          "href": "/graphql/reference/issues#enum-commentcannotupdatereason"
+        },
+        {
+          "name": "viewerDidAuthor",
+          "description": "<p>Did the viewer author this comment.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionCommentConnection",
+      "id": "teamdiscussioncommentconnection",
+      "href": "/graphql/reference/other#object-teamdiscussioncommentconnection",
+      "description": "<p>The connection type for TeamDiscussionComment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[TeamDiscussionCommentEdge]",
+          "id": "teamdiscussioncommentedge",
+          "href": "/graphql/reference/other#object-teamdiscussioncommentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[TeamDiscussionComment]",
+          "id": "teamdiscussioncomment",
+          "href": "/graphql/reference/other#object-teamdiscussioncomment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionCommentEdge",
+      "id": "teamdiscussioncommentedge",
+      "href": "/graphql/reference/other#object-teamdiscussioncommentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "TeamDiscussionComment",
+          "id": "teamdiscussioncomment",
+          "href": "/graphql/reference/other#object-teamdiscussioncomment"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionConnection",
+      "id": "teamdiscussionconnection",
+      "href": "/graphql/reference/other#object-teamdiscussionconnection",
+      "description": "<p>The connection type for TeamDiscussion.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[TeamDiscussionEdge]",
+          "id": "teamdiscussionedge",
+          "href": "/graphql/reference/other#object-teamdiscussionedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[TeamDiscussion]",
+          "id": "teamdiscussion",
+          "href": "/graphql/reference/other#object-teamdiscussion"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionEdge",
+      "id": "teamdiscussionedge",
+      "href": "/graphql/reference/other#object-teamdiscussionedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "TeamDiscussion",
+          "id": "teamdiscussion",
+          "href": "/graphql/reference/other#object-teamdiscussion"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "enums": [
+    {
+      "name": "IssueTimelineItemsItemType",
+      "id": "issuetimelineitemsitemtype",
+      "href": "/graphql/reference/other#enum-issuetimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "PullRequestTimelineItemsItemType",
+      "id": "pullrequesttimelineitemsitemtype",
+      "href": "/graphql/reference/other#enum-pullrequesttimelineitemsitemtype",
+      "description": "<p>The possible item types found in a timeline.</p>",
+      "values": [
+        {
+          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ADDED_TO_PROJECT_EVENT",
+          "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "ASSIGNED_EVENT",
+          "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_FAILED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_failed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT",
+          "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_DISABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_REBASE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_SQUASH_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_CHANGED_EVENT",
+          "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>base_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "BASE_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "CLOSED_EVENT",
+          "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "COMMENT_DELETED_EVENT",
+          "description": "<p>Represents a<code>comment_deleted</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONNECTED_EVENT",
+          "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
+          "description": "<p>Represents a<code>converted_note_to_issue</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_TO_DISCUSSION_EVENT",
+          "description": "<p>Represents a<code>converted_to_discussion</code>event on a given issue.</p>"
+        },
+        {
+          "name": "CONVERT_TO_DRAFT_EVENT",
+          "description": "<p>Represents a<code>convert_to_draft</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "CROSS_REFERENCED_EVENT",
+          "description": "<p>Represents a mention made by one issue or pull request to another.</p>"
+        },
+        {
+          "name": "DEMILESTONED_EVENT",
+          "description": "<p>Represents a<code>demilestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "DEPLOYED_EVENT",
+          "description": "<p>Represents a<code>deployed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DEPLOYMENT_ENVIRONMENT_CHANGED_EVENT",
+          "description": "<p>Represents a<code>deployment_environment_changed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "DISCONNECTED_EVENT",
+          "description": "<p>Represents a<code>disconnected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_DELETED_EVENT",
+          "description": "<p>Represents a<code>head_ref_deleted</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_FORCE_PUSHED_EVENT",
+          "description": "<p>Represents a<code>head_ref_force_pushed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "HEAD_REF_RESTORED_EVENT",
+          "description": "<p>Represents a<code>head_ref_restored</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT",
+          "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "LABELED_EVENT",
+          "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "LOCKED_EVENT",
+          "description": "<p>Represents a<code>locked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents a<code>marked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MENTIONED_EVENT",
+          "description": "<p>Represents a<code>mentioned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MERGED_EVENT",
+          "description": "<p>Represents a<code>merged</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "MILESTONED_EVENT",
+          "description": "<p>Represents a<code>milestoned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "MOVED_COLUMNS_IN_PROJECT_EVENT",
+          "description": "<p>Represents a<code>moved_columns_in_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PARENT_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>parent_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "PINNED_EVENT",
+          "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT",
+          "description": "<p>Represents a Git commit part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_COMMIT_COMMENT_THREAD",
+          "description": "<p>Represents a commit comment thread part of a pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW",
+          "description": "<p>A review object for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVIEW_THREAD",
+          "description": "<p>A threaded list of comments for a given pull request.</p>"
+        },
+        {
+          "name": "PULL_REQUEST_REVISION_MARKER",
+          "description": "<p>Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.</p>"
+        },
+        {
+          "name": "READY_FOR_REVIEW_EVENT",
+          "description": "<p>Represents a<code>ready_for_review</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REFERENCED_EVENT",
+          "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_EVENT",
+          "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "RENAMED_TITLE_EVENT",
+          "description": "<p>Represents a<code>renamed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REOPENED_EVENT",
+          "description": "<p>Represents a<code>reopened</code>event on any <code>Closable</code>.</p>"
+        },
+        {
+          "name": "REVIEW_DISMISSED_EVENT",
+          "description": "<p>Represents a<code>review_dismissed</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUESTED_EVENT",
+          "description": "<p>Represents an<code>review_requested</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "REVIEW_REQUEST_REMOVED_EVENT",
+          "description": "<p>Represents an<code>review_request_removed</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_EVENT",
+          "description": "<p>Represents a<code>subscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_ADDED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "SUB_ISSUE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>sub_issue_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "TRANSFERRED_EVENT",
+          "description": "<p>Represents a<code>transferred</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNASSIGNED_EVENT",
+          "description": "<p>Represents an<code>unassigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "UNLABELED_EVENT",
+          "description": "<p>Represents an<code>unlabeled</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNLOCKED_EVENT",
+          "description": "<p>Represents an<code>unlocked</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNMARKED_AS_DUPLICATE_EVENT",
+          "description": "<p>Represents an<code>unmarked_as_duplicate</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNPINNED_EVENT",
+          "description": "<p>Represents an<code>unpinned</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBED_EVENT",
+          "description": "<p>Represents an<code>unsubscribed</code>event on a given <code>Subscribable</code>.</p>"
+        },
+        {
+          "name": "USER_BLOCKED_EVENT",
+          "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "RepositoryRuleType",
+      "id": "repositoryruletype",
+      "href": "/graphql/reference/other#enum-repositoryruletype",
+      "description": "<p>The rule types supported in rulesets.</p>",
+      "values": [
+        {
+          "name": "AUTHORIZATION",
+          "description": "<p>Authorization.</p>"
+        },
+        {
+          "name": "BRANCH_NAME_PATTERN",
+          "description": "<p>Branch name pattern.</p>"
+        },
+        {
+          "name": "CODE_SCANNING",
+          "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>"
+        },
+        {
+          "name": "COMMITTER_EMAIL_PATTERN",
+          "description": "<p>Committer email pattern.</p>"
+        },
+        {
+          "name": "COMMIT_AUTHOR_EMAIL_PATTERN",
+          "description": "<p>Commit author email pattern.</p>"
+        },
+        {
+          "name": "COMMIT_MESSAGE_PATTERN",
+          "description": "<p>Commit message pattern.</p>"
+        },
+        {
+          "name": "CREATION",
+          "description": "<p>Only allow users with bypass permission to create matching refs.</p>"
+        },
+        {
+          "name": "DELETION",
+          "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
+        },
+        {
+          "name": "FILE_EXTENSION_RESTRICTION",
+          "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "FILE_PATH_RESTRICTION",
+          "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>"
+        },
+        {
+          "name": "LOCK_BRANCH",
+          "description": "<p>Branch is read-only. Users cannot push to the branch.</p>"
+        },
+        {
+          "name": "MAX_FILE_PATH_LENGTH",
+          "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "MAX_FILE_SIZE",
+          "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>"
+        },
+        {
+          "name": "MAX_REF_UPDATES",
+          "description": "<p>Max ref updates.</p>"
+        },
+        {
+          "name": "MERGE_QUEUE",
+          "description": "<p>Merges must be performed via a merge queue.</p>"
+        },
+        {
+          "name": "MERGE_QUEUE_LOCKED_REF",
+          "description": "<p>Merge queue locked ref.</p>"
+        },
+        {
+          "name": "NON_FAST_FORWARD",
+          "description": "<p>Prevent users with push access from force pushing to refs.</p>"
+        },
+        {
+          "name": "PULL_REQUEST",
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>"
+        },
+        {
+          "name": "REQUIRED_DEPLOYMENTS",
+          "description": "<p>Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.</p>"
+        },
+        {
+          "name": "REQUIRED_LINEAR_HISTORY",
+          "description": "<p>Prevent merge commits from being pushed to matching refs.</p>"
+        },
+        {
+          "name": "REQUIRED_REVIEW_THREAD_RESOLUTION",
+          "description": "<p>When enabled, all conversations on code must be resolved before a pull request\ncan be merged into a branch that matches this rule.</p>"
+        },
+        {
+          "name": "REQUIRED_SIGNATURES",
+          "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
+        },
+        {
+          "name": "REQUIRED_STATUS_CHECKS",
+          "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>"
+        },
+        {
+          "name": "REQUIRED_WORKFLOW_STATUS_CHECKS",
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull\nrequest and required workflow checks to pass before they can be merged.</p>"
+        },
+        {
+          "name": "SECRET_SCANNING",
+          "description": "<p>Secret scanning.</p>"
+        },
+        {
+          "name": "TAG",
+          "description": "<p>Tag.</p>"
+        },
+        {
+          "name": "TAG_NAME_PATTERN",
+          "description": "<p>Tag name pattern.</p>"
+        },
+        {
+          "name": "UPDATE",
+          "description": "<p>Only allow users with bypass permission to update matching refs.</p>"
+        },
+        {
+          "name": "WORKFLOWS",
+          "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>"
+        },
+        {
+          "name": "WORKFLOW_UPDATES",
+          "description": "<p>Workflow files cannot be modified.</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionCommentOrderField",
+      "id": "teamdiscussioncommentorderfield",
+      "href": "/graphql/reference/other#enum-teamdiscussioncommentorderfield",
+      "description": "<p>Properties by which team discussion comment connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "NUMBER",
+          "description": "<p>Allows sequential ordering of team discussion comments (which is equivalent to chronological ordering).</p>"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionOrderField",
+      "id": "teamdiscussionorderfield",
+      "href": "/graphql/reference/other#enum-teamdiscussionorderfield",
+      "description": "<p>Properties by which team discussion connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Allows chronological ordering of team discussions.</p>"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "unions": [
+    {
+      "name": "BotOrUser",
+      "id": "botoruser",
+      "href": "/graphql/reference/other#union-botoruser",
+      "description": "<p>Used when either Bot or User are accepted.</p>",
+      "possibleTypes": [
+        {
+          "name": "Bot",
+          "id": "bot",
+          "href": "/graphql/reference/apps#object-bot"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "RuleParameters",
+      "id": "ruleparameters",
+      "href": "/graphql/reference/other#union-ruleparameters",
+      "description": "<p>Types which can be parameters for <code>RepositoryRule</code> objects.</p>",
+      "possibleTypes": [
+        {
+          "name": "BranchNamePatternParameters",
+          "id": "branchnamepatternparameters",
+          "href": "/graphql/reference/branches#object-branchnamepatternparameters"
+        },
+        {
+          "name": "CodeScanningParameters",
+          "id": "codescanningparameters",
+          "href": "/graphql/reference/repos#object-codescanningparameters"
+        },
+        {
+          "name": "CommitAuthorEmailPatternParameters",
+          "id": "commitauthoremailpatternparameters",
+          "href": "/graphql/reference/commits#object-commitauthoremailpatternparameters"
+        },
+        {
+          "name": "CommitMessagePatternParameters",
+          "id": "commitmessagepatternparameters",
+          "href": "/graphql/reference/commits#object-commitmessagepatternparameters"
+        },
+        {
+          "name": "CommitterEmailPatternParameters",
+          "id": "committeremailpatternparameters",
+          "href": "/graphql/reference/commits#object-committeremailpatternparameters"
+        },
+        {
+          "name": "FileExtensionRestrictionParameters",
+          "id": "fileextensionrestrictionparameters",
+          "href": "/graphql/reference/repos#object-fileextensionrestrictionparameters"
+        },
+        {
+          "name": "FilePathRestrictionParameters",
+          "id": "filepathrestrictionparameters",
+          "href": "/graphql/reference/repos#object-filepathrestrictionparameters"
+        },
+        {
+          "name": "MaxFilePathLengthParameters",
+          "id": "maxfilepathlengthparameters",
+          "href": "/graphql/reference/repos#object-maxfilepathlengthparameters"
+        },
+        {
+          "name": "MaxFileSizeParameters",
+          "id": "maxfilesizeparameters",
+          "href": "/graphql/reference/repos#object-maxfilesizeparameters"
+        },
+        {
+          "name": "MergeQueueParameters",
+          "id": "mergequeueparameters",
+          "href": "/graphql/reference/pulls#object-mergequeueparameters"
+        },
+        {
+          "name": "PullRequestParameters",
+          "id": "pullrequestparameters",
+          "href": "/graphql/reference/pulls#object-pullrequestparameters"
+        },
+        {
+          "name": "RequiredDeploymentsParameters",
+          "id": "requireddeploymentsparameters",
+          "href": "/graphql/reference/deployments#object-requireddeploymentsparameters"
+        },
+        {
+          "name": "RequiredStatusChecksParameters",
+          "id": "requiredstatuschecksparameters",
+          "href": "/graphql/reference/branches#object-requiredstatuschecksparameters"
+        },
+        {
+          "name": "TagNamePatternParameters",
+          "id": "tagnamepatternparameters",
+          "href": "/graphql/reference/repos#object-tagnamepatternparameters"
+        },
+        {
+          "name": "UpdateParameters",
+          "id": "updateparameters",
+          "href": "/graphql/reference/repos#object-updateparameters"
+        },
+        {
+          "name": "WorkflowsParameters",
+          "id": "workflowsparameters",
+          "href": "/graphql/reference/actions#object-workflowsparameters"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "AddEnterpriseAdminInput",
+      "id": "addenterpriseadmininput",
+      "href": "/graphql/reference/other#input-object-addenterpriseadmininput",
+      "description": "<p>Autogenerated input type of AddEnterpriseAdmin.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise account to which the administrator should be added.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "login",
+          "description": "<p>The login of the user to add as an administrator.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "CreateTeamDiscussionCommentInput",
+      "id": "createteamdiscussioncommentinput",
+      "href": "/graphql/reference/other#input-object-createteamdiscussioncommentinput",
+      "description": "<p>Autogenerated input type of CreateTeamDiscussionComment.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The content of the comment. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>body</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "discussionId",
+          "description": "<p>The ID of the discussion to which the comment belongs. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>discussionId</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "CreateTeamDiscussionInput",
+      "id": "createteamdiscussioninput",
+      "href": "/graphql/reference/other#input-object-createteamdiscussioninput",
+      "description": "<p>Autogenerated input type of CreateTeamDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The content of the discussion. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>body</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "private",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization owners. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The ID of the team to which the discussion belongs. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>teamId</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "ID",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "title",
+          "description": "<p>The title of the discussion. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>title</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "DeleteTeamDiscussionCommentInput",
+      "id": "deleteteamdiscussioncommentinput",
+      "href": "/graphql/reference/other#input-object-deleteteamdiscussioncommentinput",
+      "description": "<p>Autogenerated input type of DeleteTeamDiscussionComment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the comment to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "DeleteTeamDiscussionInput",
+      "id": "deleteteamdiscussioninput",
+      "href": "/graphql/reference/other#input-object-deleteteamdiscussioninput",
+      "description": "<p>Autogenerated input type of DeleteTeamDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The discussion ID to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "RuleParametersInput",
+      "id": "ruleparametersinput",
+      "href": "/graphql/reference/other#input-object-ruleparametersinput",
+      "description": "<p>Specifies the parameters for a <code>RepositoryRule</code> object. Only one of the fields should be specified.</p>",
+      "inputFields": [
+        {
+          "name": "branchNamePattern",
+          "description": "<p>Parameters used for the <code>branch_name_pattern</code> rule type.</p>",
+          "type": "BranchNamePatternParametersInput",
+          "id": "branchnamepatternparametersinput",
+          "href": "/graphql/reference/branches#input-object-branchnamepatternparametersinput"
+        },
+        {
+          "name": "codeScanning",
+          "description": "<p>Parameters used for the <code>code_scanning</code> rule type.</p>",
+          "type": "CodeScanningParametersInput",
+          "id": "codescanningparametersinput",
+          "href": "/graphql/reference/repos#input-object-codescanningparametersinput"
+        },
+        {
+          "name": "commitAuthorEmailPattern",
+          "description": "<p>Parameters used for the <code>commit_author_email_pattern</code> rule type.</p>",
+          "type": "CommitAuthorEmailPatternParametersInput",
+          "id": "commitauthoremailpatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-commitauthoremailpatternparametersinput"
+        },
+        {
+          "name": "commitMessagePattern",
+          "description": "<p>Parameters used for the <code>commit_message_pattern</code> rule type.</p>",
+          "type": "CommitMessagePatternParametersInput",
+          "id": "commitmessagepatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-commitmessagepatternparametersinput"
+        },
+        {
+          "name": "committerEmailPattern",
+          "description": "<p>Parameters used for the <code>committer_email_pattern</code> rule type.</p>",
+          "type": "CommitterEmailPatternParametersInput",
+          "id": "committeremailpatternparametersinput",
+          "href": "/graphql/reference/commits#input-object-committeremailpatternparametersinput"
+        },
+        {
+          "name": "fileExtensionRestriction",
+          "description": "<p>Parameters used for the <code>file_extension_restriction</code> rule type.</p>",
+          "type": "FileExtensionRestrictionParametersInput",
+          "id": "fileextensionrestrictionparametersinput",
+          "href": "/graphql/reference/repos#input-object-fileextensionrestrictionparametersinput"
+        },
+        {
+          "name": "filePathRestriction",
+          "description": "<p>Parameters used for the <code>file_path_restriction</code> rule type.</p>",
+          "type": "FilePathRestrictionParametersInput",
+          "id": "filepathrestrictionparametersinput",
+          "href": "/graphql/reference/repos#input-object-filepathrestrictionparametersinput"
+        },
+        {
+          "name": "maxFilePathLength",
+          "description": "<p>Parameters used for the <code>max_file_path_length</code> rule type.</p>",
+          "type": "MaxFilePathLengthParametersInput",
+          "id": "maxfilepathlengthparametersinput",
+          "href": "/graphql/reference/repos#input-object-maxfilepathlengthparametersinput"
+        },
+        {
+          "name": "maxFileSize",
+          "description": "<p>Parameters used for the <code>max_file_size</code> rule type.</p>",
+          "type": "MaxFileSizeParametersInput",
+          "id": "maxfilesizeparametersinput",
+          "href": "/graphql/reference/repos#input-object-maxfilesizeparametersinput"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>Parameters used for the <code>merge_queue</code> rule type.</p>",
+          "type": "MergeQueueParametersInput",
+          "id": "mergequeueparametersinput",
+          "href": "/graphql/reference/pulls#input-object-mergequeueparametersinput"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>Parameters used for the <code>pull_request</code> rule type.</p>",
+          "type": "PullRequestParametersInput",
+          "id": "pullrequestparametersinput",
+          "href": "/graphql/reference/pulls#input-object-pullrequestparametersinput"
+        },
+        {
+          "name": "requiredDeployments",
+          "description": "<p>Parameters used for the <code>required_deployments</code> rule type.</p>",
+          "type": "RequiredDeploymentsParametersInput",
+          "id": "requireddeploymentsparametersinput",
+          "href": "/graphql/reference/deployments#input-object-requireddeploymentsparametersinput"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>Parameters used for the <code>required_status_checks</code> rule type.</p>",
+          "type": "RequiredStatusChecksParametersInput",
+          "id": "requiredstatuschecksparametersinput",
+          "href": "/graphql/reference/branches#input-object-requiredstatuschecksparametersinput"
+        },
+        {
+          "name": "tagNamePattern",
+          "description": "<p>Parameters used for the <code>tag_name_pattern</code> rule type.</p>",
+          "type": "TagNamePatternParametersInput",
+          "id": "tagnamepatternparametersinput",
+          "href": "/graphql/reference/repos#input-object-tagnamepatternparametersinput"
+        },
+        {
+          "name": "update",
+          "description": "<p>Parameters used for the <code>update</code> rule type.</p>",
+          "type": "UpdateParametersInput",
+          "id": "updateparametersinput",
+          "href": "/graphql/reference/repos#input-object-updateparametersinput"
+        },
+        {
+          "name": "workflows",
+          "description": "<p>Parameters used for the <code>workflows</code> rule type.</p>",
+          "type": "WorkflowsParametersInput",
+          "id": "workflowsparametersinput",
+          "href": "/graphql/reference/actions#input-object-workflowsparametersinput"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionCommentOrder",
+      "id": "teamdiscussioncommentorder",
+      "href": "/graphql/reference/other#input-object-teamdiscussioncommentorder",
+      "description": "<p>Ways in which team discussion comment connections can be ordered.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order nodes.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order nodes.</p>",
+          "type": "TeamDiscussionCommentOrderField!",
+          "id": "teamdiscussioncommentorderfield",
+          "href": "/graphql/reference/other#enum-teamdiscussioncommentorderfield"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "TeamDiscussionOrder",
+      "id": "teamdiscussionorder",
+      "href": "/graphql/reference/other#input-object-teamdiscussionorder",
+      "description": "<p>Ways in which team discussion connections can be ordered.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order nodes.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order nodes.</p>",
+          "type": "TeamDiscussionOrderField!",
+          "id": "teamdiscussionorderfield",
+          "href": "/graphql/reference/other#enum-teamdiscussionorderfield"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "UpdateEnterpriseTeamDiscussionsSettingInput",
+      "id": "updateenterpriseteamdiscussionssettinginput",
+      "href": "/graphql/reference/other#input-object-updateenterpriseteamdiscussionssettinginput",
+      "description": "<p>Autogenerated input type of UpdateEnterpriseTeamDiscussionsSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise on which to set the team discussions setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the team discussions setting on the enterprise.</p>",
+          "type": "EnterpriseEnabledDisabledSettingValue!",
+          "id": "enterpriseenableddisabledsettingvalue",
+          "href": "/graphql/reference/enterprise-admin#enum-enterpriseenableddisabledsettingvalue"
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "UpdateTeamDiscussionCommentInput",
+      "id": "updateteamdiscussioncommentinput",
+      "href": "/graphql/reference/other#input-object-updateteamdiscussioncommentinput",
+      "description": "<p>Autogenerated input type of UpdateTeamDiscussionComment.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The updated text of the comment.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyVersion",
+          "description": "<p>The current version of the body content.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the comment to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "other"
+    },
+    {
+      "name": "UpdateTeamDiscussionInput",
+      "id": "updateteamdiscussioninput",
+      "href": "/graphql/reference/other#input-object-updateteamdiscussioninput",
+      "description": "<p>Autogenerated input type of UpdateTeamDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The updated text of the discussion.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "bodyVersion",
+          "description": "<p>The current version of the body content. If provided, this update operation\nwill be rejected if the given version does not match the latest version on the server.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the discussion to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "pinned",
+          "description": "<p>If provided, sets the pinned state of the updated discussion.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "title",
+          "description": "<p>The updated title of the discussion.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "other"
+    }
+  ],
+  "scalars": [
+    {
+      "name": "Base64String",
+      "id": "base64string",
+      "href": "/graphql/reference/other#scalar-base64string",
+      "description": "<p>A (potentially binary) string encoded using base64.</p>",
+      "category": "other"
+    },
+    {
+      "name": "BigInt",
+      "id": "bigint",
+      "href": "/graphql/reference/other#scalar-bigint",
+      "description": "<p>Represents non-fractional signed whole numeric values. Since the value may\nexceed the size of a 32-bit integer, it's encoded as a string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "Boolean",
+      "description": "<p>Represents <code>true</code> or <code>false</code> values.</p>",
+      "id": "boolean",
+      "href": "/graphql/reference/other#other-other-other-other-other-scalar-boolean",
+      "category": "other"
+    },
+    {
+      "name": "Date",
+      "id": "date",
+      "href": "/graphql/reference/other#scalar-date",
+      "description": "<p>An ISO-8601 encoded date string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "DateTime",
+      "id": "datetime",
+      "href": "/graphql/reference/other#scalar-datetime",
+      "description": "<p>An ISO-8601 encoded UTC date string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "Float",
+      "description": "<p>Represents signed double-precision fractional values as specified by <a href=\"https://en.wikipedia.org/wiki/IEEE_floating_point\">IEEE 754</a>.</p>",
+      "id": "float",
+      "href": "/graphql/reference/other#other-other-other-other-other-scalar-float",
+      "category": "other"
+    },
+    {
+      "name": "GitObjectID",
+      "id": "gitobjectid",
+      "href": "/graphql/reference/other#scalar-gitobjectid",
+      "description": "<p>A Git object ID.</p>",
+      "category": "other"
+    },
+    {
+      "name": "GitRefname",
+      "id": "gitrefname",
+      "href": "/graphql/reference/other#scalar-gitrefname",
+      "description": "<p>A fully qualified reference name (e.g. <code>refs/heads/master</code>).</p>",
+      "category": "other"
+    },
+    {
+      "name": "GitSSHRemote",
+      "id": "gitsshremote",
+      "href": "/graphql/reference/other#scalar-gitsshremote",
+      "description": "<p>Git SSH string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "GitTimestamp",
+      "id": "gittimestamp",
+      "href": "/graphql/reference/other#scalar-gittimestamp",
+      "description": "<p>An ISO-8601 encoded date string. Unlike the DateTime type, GitTimestamp is not converted in UTC.</p>",
+      "category": "other"
+    },
+    {
+      "name": "HTML",
+      "id": "html",
+      "href": "/graphql/reference/other#scalar-html",
+      "description": "<p>A string containing HTML code.</p>",
+      "category": "other"
+    },
+    {
+      "name": "ID",
+      "description": "<p>Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as <code>\"VXNlci0xMA==\"</code>) or integer (such as <code>4</code>) input value will be accepted as an ID.</p>",
+      "id": "id",
+      "href": "/graphql/reference/other#other-other-other-other-other-scalar-id",
+      "category": "other"
+    },
+    {
+      "name": "Int",
+      "description": "<p>Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>",
+      "id": "int",
+      "href": "/graphql/reference/other#other-other-other-other-other-scalar-int",
+      "category": "other"
+    },
+    {
+      "name": "PreciseDateTime",
+      "id": "precisedatetime",
+      "href": "/graphql/reference/other#scalar-precisedatetime",
+      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precision.</p>",
+      "category": "other"
+    },
+    {
+      "name": "String",
+      "description": "<p>Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.</p>",
+      "id": "string",
+      "href": "/graphql/reference/other#other-other-other-other-other-scalar-string",
+      "category": "other"
+    },
+    {
+      "name": "URI",
+      "id": "uri",
+      "href": "/graphql/reference/other#scalar-uri",
+      "description": "<p>An RFC 3986, RFC 3987, and RFC 6570 (level 4) compliant URI string.</p>",
+      "category": "other"
+    },
+    {
+      "name": "X509Certificate",
+      "id": "x509certificate",
+      "href": "/graphql/reference/other#scalar-x509certificate",
+      "description": "<p>A valid x509 certificate string.</p>",
+      "category": "other"
+    }
+  ]
+}
