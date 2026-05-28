@@ -56,6 +56,8 @@ The content of public `README.md` will appear on your organization's public prof
 
 ## Adding a member-only organization profile README
 
+>[!NOTE] Private organization profiles must have "Private" visibility, not "Internal".
+
 The content of a member-only `README.md` will be displayed in the member view of your organization's profile.
 
 1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`.
