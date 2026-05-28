@@ -15,7 +15,7 @@ By setting a monthly budget, you can monitor your spending and receive notificat
 
 ## Stopping usage
 
-For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_enterprise %}, setting a budget does not prevent usage over the budget amount but does provide alerts.
+For most license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_enterprise %}, setting a budget does not prevent usage over the budget amount but does provide alerts. {% data variables.product.prodname_GHAS %} SKUs are an exception to this, as they can be set to stop usage when the budget amount is reached. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#hard-budgets-for-github-advanced-security-skus).
 
 For metered products such as {% data variables.product.prodname_actions %} or {% data variables.product.prodname_copilot %} premium requests, you can choose for budgets to prevent usage once the budget amount is reached.
 
