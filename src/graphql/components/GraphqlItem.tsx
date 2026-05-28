@@ -11,28 +11,28 @@ type Props = {
 }
 
 export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props) {
-  const lowerCaseName = item.name.toLowerCase()
+  const slug = item.name.toLowerCase()
+  const hasNotice = Boolean(item.preview || item.isDeprecated)
+
   return (
-    <div>
-      <HeadingLink
-        as={headingLevel === 2 ? 'h2' : headingLevel === 3 ? 'h3' : 'h6'}
-        slug={lowerCaseName}
-      >
+    <>
+      <HeadingLink as={headingLevel === 2 ? 'h2' : headingLevel === 3 ? 'h3' : 'h6'} slug={slug}>
         {item.name}
       </HeadingLink>
       <div
+        className="graphql-item-description"
         dangerouslySetInnerHTML={{
           __html: item.description,
         }}
       />
-      <div>
-        {item.preview && <Notice item={item} variant="preview" />}
-        {item.isDeprecated && <Notice item={item} variant="deprecation" />}
-      </div>
-      <div>
-        {heading && <h4 dangerouslySetInnerHTML={{ __html: heading }} />}
-        {children}
-      </div>
-    </div>
+      {hasNotice && (
+        <div>
+          {item.preview && <Notice item={item} variant="preview" />}
+          {item.isDeprecated && <Notice item={item} variant="deprecation" />}
+        </div>
+      )}
+      {heading && <h4 dangerouslySetInnerHTML={{ __html: heading }} />}
+      {children}
+    </>
   )
 }
