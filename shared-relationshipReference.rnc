@@ -1,0 +1,21 @@
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+r_ST_RelationshipId = xsd:string
+r_id = attribute r:id { r_ST_RelationshipId }
+r_embed = attribute r:embed { r_ST_RelationshipId }
+r_link = attribute r:link { r_ST_RelationshipId }
+r_dm = attribute r:dm { r_ST_RelationshipId }
+r_lo = attribute r:lo { r_ST_RelationshipId }
+r_qs = attribute r:qs { r_ST_RelationshipId }
+r_cs = attribute r:cs { r_ST_RelationshipId }
+r_blip = attribute r:blip { r_ST_RelationshipId }
+r_pict = attribute r:pict { r_ST_RelationshipId }
+r_href = attribute r:href { r_ST_RelationshipId }
+r_topLeft = attribute r:topLeft { r_ST_RelationshipId }
+r_topRight = attribute r:topRight { r_ST_RelationshipId }
+r_bottomLeft = attribute r:bottomLeft { r_ST_RelationshipId }
+r_bottomRight = attribute r:bottomRight { r_ST_RelationshipId }

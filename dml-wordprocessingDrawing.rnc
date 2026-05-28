@@ -1,0 +1,175 @@
+default namespace =
+  "http://purl.oclc.org/ooxml/drawingml/wordprocessingDrawing"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace dpct = "http://purl.oclc.org/ooxml/drawingml/picture"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w = "http://purl.oclc.org/ooxml/wordprocessingml/main"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace wp =
+  "http://purl.oclc.org/ooxml/drawingml/wordprocessingDrawing"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+wp_CT_EffectExtent =
+  attribute l { a_ST_Coordinate },
+  attribute t { a_ST_Coordinate },
+  attribute r { a_ST_Coordinate },
+  attribute b { a_ST_Coordinate }
+wp_ST_WrapDistance = xsd:unsignedInt
+wp_CT_Inline =
+  attribute distT { wp_ST_WrapDistance }?,
+  attribute distB { wp_ST_WrapDistance }?,
+  attribute distL { wp_ST_WrapDistance }?,
+  attribute distR { wp_ST_WrapDistance }?,
+  element extent { a_CT_PositiveSize2D },
+  element effectExtent { wp_CT_EffectExtent }?,
+  element docPr { a_CT_NonVisualDrawingProps },
+  element cNvGraphicFramePr { a_CT_NonVisualGraphicFrameProperties }?,
+  a_graphic
+wp_ST_WrapText = "bothSides" | "left" | "right" | "largest"
+wp_CT_WrapPath =
+  attribute edited { xsd:boolean }?,
+  element start { a_CT_Point2D },
+  element lineTo { a_CT_Point2D }+
+wp_CT_WrapNone = empty
+wp_CT_WrapSquare =
+  attribute wrapText { wp_ST_WrapText },
+  attribute distT { wp_ST_WrapDistance }?,
+  attribute distB { wp_ST_WrapDistance }?,
+  attribute distL { wp_ST_WrapDistance }?,
+  attribute distR { wp_ST_WrapDistance }?,
+  element effectExtent { wp_CT_EffectExtent }?
+wp_CT_WrapTight =
+  attribute wrapText { wp_ST_WrapText },
+  attribute distL { wp_ST_WrapDistance }?,
+  attribute distR { wp_ST_WrapDistance }?,
+  element wrapPolygon { wp_CT_WrapPath }
+wp_CT_WrapThrough =
+  attribute wrapText { wp_ST_WrapText },
+  attribute distL { wp_ST_WrapDistance }?,
+  attribute distR { wp_ST_WrapDistance }?,
+  element wrapPolygon { wp_CT_WrapPath }
+wp_CT_WrapTopBottom =
+  attribute distT { wp_ST_WrapDistance }?,
+  attribute distB { wp_ST_WrapDistance }?,
+  element effectExtent { wp_CT_EffectExtent }?
+wp_EG_WrapType =
+  element wrapNone { wp_CT_WrapNone }
+  | element wrapSquare { wp_CT_WrapSquare }
+  | element wrapTight { wp_CT_WrapTight }
+  | element wrapThrough { wp_CT_WrapThrough }
+  | element wrapTopAndBottom { wp_CT_WrapTopBottom }
+wp_ST_PositionOffset = xsd:int
+wp_ST_AlignH = "left" | "right" | "center" | "inside" | "outside"
+wp_ST_RelFromH =
+  "margin"
+  | "page"
+  | "column"
+  | "character"
+  | "leftMargin"
+  | "rightMargin"
+  | "insideMargin"
+  | "outsideMargin"
+wp_CT_PosH =
+  attribute relativeFrom { wp_ST_RelFromH },
+  (element align { wp_ST_AlignH }
+   | element posOffset { wp_ST_PositionOffset })
+wp_ST_AlignV = "top" | "bottom" | "center" | "inside" | "outside"
+wp_ST_RelFromV =
+  "margin"
+  | "page"
+  | "paragraph"
+  | "line"
+  | "topMargin"
+  | "bottomMargin"
+  | "insideMargin"
+  | "outsideMargin"
+wp_CT_PosV =
+  attribute relativeFrom { wp_ST_RelFromV },
+  (element align { wp_ST_AlignV }
+   | element posOffset { wp_ST_PositionOffset })
+wp_CT_Anchor =
+  attribute distT { wp_ST_WrapDistance }?,
+  attribute distB { wp_ST_WrapDistance }?,
+  attribute distL { wp_ST_WrapDistance }?,
+  attribute distR { wp_ST_WrapDistance }?,
+  attribute simplePos { xsd:boolean }?,
+  attribute relativeHeight { xsd:unsignedInt },
+  attribute behindDoc { xsd:boolean },
+  attribute locked { xsd:boolean },
+  attribute layoutInCell { xsd:boolean },
+  attribute hidden { xsd:boolean }?,
+  attribute allowOverlap { xsd:boolean },
+  element simplePos { a_CT_Point2D },
+  element positionH { wp_CT_PosH },
+  element positionV { wp_CT_PosV },
+  element extent { a_CT_PositiveSize2D },
+  element effectExtent { wp_CT_EffectExtent }?,
+  wp_EG_WrapType,
+  element docPr { a_CT_NonVisualDrawingProps },
+  element cNvGraphicFramePr { a_CT_NonVisualGraphicFrameProperties }?,
+  a_graphic
+wp_CT_TxbxContent = w_EG_BlockLevelElts+
+wp_CT_TextboxInfo =
+  
+  ## default value: 0
+  attribute id { xsd:unsignedShort }?,
+  element txbxContent { wp_CT_TxbxContent },
+  element extLst { a_CT_OfficeArtExtensionList }?
+wp_CT_LinkedTextboxInformation =
+  attribute id { xsd:unsignedShort },
+  attribute seq { xsd:unsignedShort },
+  element extLst { a_CT_OfficeArtExtensionList }?
+wp_CT_WordprocessingShape =
+  
+  ## default value: false
+  attribute normalEastAsianFlow { xsd:boolean }?,
+  element cNvPr { a_CT_NonVisualDrawingProps }?,
+  (element cNvSpPr { a_CT_NonVisualDrawingShapeProps }
+   | element cNvCnPr { a_CT_NonVisualConnectorProperties }),
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?,
+  element extLst { a_CT_OfficeArtExtensionList }?,
+  (element txbx { wp_CT_TextboxInfo }
+   | element linkedTxbx { wp_CT_LinkedTextboxInformation })?,
+  element bodyPr { a_CT_TextBodyProperties }
+wp_CT_GraphicFrame =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvFrPr { a_CT_NonVisualGraphicFrameProperties },
+  element xfrm { a_CT_Transform2D },
+  a_graphic,
+  element extLst { a_CT_OfficeArtExtensionList }?
+wp_CT_WordprocessingContentPartNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps }?,
+  element cNvContentPartPr { a_CT_NonVisualContentPartProperties }?
+wp_CT_WordprocessingContentPart =
+  attribute bwMode { a_ST_BlackWhiteMode }?,
+  r_id,
+  element nvContentPartPr { wp_CT_WordprocessingContentPartNonVisual }?,
+  element xfrm { a_CT_Transform2D }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+wp_CT_WordprocessingGroup =
+  element cNvPr { a_CT_NonVisualDrawingProps }?,
+  element cNvGrpSpPr { a_CT_NonVisualGroupDrawingShapeProps },
+  element grpSpPr { a_CT_GroupShapeProperties },
+  (wp_wsp
+   | element grpSp { wp_CT_WordprocessingGroup }
+   | element graphicFrame { wp_CT_GraphicFrame }
+   | dpct_pic
+   | element contentPart { wp_CT_WordprocessingContentPart })*,
+  element extLst { a_CT_OfficeArtExtensionList }?
+wp_CT_WordprocessingCanvas =
+  element bg { a_CT_BackgroundFormatting }?,
+  element whole { a_CT_WholeE2oFormatting }?,
+  (wp_wsp
+   | dpct_pic
+   | element contentPart { wp_CT_WordprocessingContentPart }
+   | wp_wgp
+   | element graphicFrame { wp_CT_GraphicFrame })*,
+  element extLst { a_CT_OfficeArtExtensionList }?
+wp_wpc = element wpc { wp_CT_WordprocessingCanvas }
+wp_wgp = element wgp { wp_CT_WordprocessingGroup }
+wp_wsp = element wsp { wp_CT_WordprocessingShape }
+wp_inline = element inline { wp_CT_Inline }
+wp_anchor = element anchor { wp_CT_Anchor }

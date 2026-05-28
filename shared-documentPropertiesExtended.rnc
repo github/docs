@@ -1,0 +1,43 @@
+default namespace =
+  "http://purl.oclc.org/ooxml/officeDocument/extendedProperties"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace shdDcEP =
+  "http://purl.oclc.org/ooxml/officeDocument/extendedProperties"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace vt =
+  "http://purl.oclc.org/ooxml/officeDocument/docPropsVTypes"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+shdDcEP_Properties = element Properties { shdDcEP_CT_Properties }
+shdDcEP_CT_Properties =
+  element Template { xsd:string }?
+  & element Manager { xsd:string }?
+  & element Company { xsd:string }?
+  & element Pages { xsd:int }?
+  & element Words { xsd:int }?
+  & element Characters { xsd:int }?
+  & element PresentationFormat { xsd:string }?
+  & element Lines { xsd:int }?
+  & element Paragraphs { xsd:int }?
+  & element Slides { xsd:int }?
+  & element Notes { xsd:int }?
+  & element TotalTime { xsd:int }?
+  & element HiddenSlides { xsd:int }?
+  & element MMClips { xsd:int }?
+  & element ScaleCrop { xsd:boolean }?
+  & element HeadingPairs { shdDcEP_CT_VectorVariant }?
+  & element TitlesOfParts { shdDcEP_CT_VectorLpstr }?
+  & element LinksUpToDate { xsd:boolean }?
+  & element CharactersWithSpaces { xsd:int }?
+  & element SharedDoc { xsd:boolean }?
+  & element HyperlinkBase { xsd:string }?
+  & element HLinks { shdDcEP_CT_VectorVariant }?
+  & element HyperlinksChanged { xsd:boolean }?
+  & element DigSig { shdDcEP_CT_DigSigBlob }?
+  & element Application { xsd:string }?
+  & element AppVersion { xsd:string }?
+  & element DocSecurity { xsd:int }?
+shdDcEP_CT_VectorVariant = vt_vector
+shdDcEP_CT_VectorLpstr = vt_vector
+shdDcEP_CT_DigSigBlob = vt_blob

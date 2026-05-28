@@ -1,0 +1,121 @@
+default namespace =
+  "http://purl.oclc.org/ooxml/drawingml/spreadsheetDrawing"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+namespace xdr =
+  "http://purl.oclc.org/ooxml/drawingml/spreadsheetDrawing"
+
+xdr_from = element from { xdr_CT_Marker }
+xdr_to = element to { xdr_CT_Marker }
+xdr_CT_AnchorClientData =
+  
+  ## default value: true
+  attribute fLocksWithSheet { xsd:boolean }?,
+  
+  ## default value: true
+  attribute fPrintsWithSheet { xsd:boolean }?
+xdr_CT_ShapeNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvSpPr { a_CT_NonVisualDrawingShapeProps }
+xdr_CT_Shape =
+  attribute macro { xsd:string }?,
+  attribute textlink { xsd:string }?,
+  
+  ## default value: true
+  attribute fLocksText { xsd:boolean }?,
+  
+  ## default value: false
+  attribute fPublished { xsd:boolean }?,
+  element nvSpPr { xdr_CT_ShapeNonVisual },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?,
+  element txBody { a_CT_TextBody }?
+xdr_CT_ConnectorNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvCxnSpPr { a_CT_NonVisualConnectorProperties }
+xdr_CT_Connector =
+  attribute macro { xsd:string }?,
+  
+  ## default value: false
+  attribute fPublished { xsd:boolean }?,
+  element nvCxnSpPr { xdr_CT_ConnectorNonVisual },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?
+xdr_CT_PictureNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvPicPr { a_CT_NonVisualPictureProperties }
+xdr_CT_Picture =
+  attribute macro { xsd:string }?,
+  
+  ## default value: false
+  attribute fPublished { xsd:boolean }?,
+  element nvPicPr { xdr_CT_PictureNonVisual },
+  element blipFill { a_CT_BlipFillProperties },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?
+xdr_CT_GraphicalObjectFrameNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvGraphicFramePr { a_CT_NonVisualGraphicFrameProperties }
+xdr_CT_GraphicalObjectFrame =
+  attribute macro { xsd:string }?,
+  
+  ## default value: false
+  attribute fPublished { xsd:boolean }?,
+  element nvGraphicFramePr { xdr_CT_GraphicalObjectFrameNonVisual },
+  element xfrm { a_CT_Transform2D },
+  a_graphic
+xdr_CT_GroupShapeNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvGrpSpPr { a_CT_NonVisualGroupDrawingShapeProps }
+xdr_CT_GroupShape =
+  element nvGrpSpPr { xdr_CT_GroupShapeNonVisual },
+  element grpSpPr { a_CT_GroupShapeProperties },
+  (element sp { xdr_CT_Shape }
+   | element grpSp { xdr_CT_GroupShape }
+   | element graphicFrame { xdr_CT_GraphicalObjectFrame }
+   | element cxnSp { xdr_CT_Connector }
+   | element pic { xdr_CT_Picture })*
+xdr_EG_ObjectChoices =
+  element sp { xdr_CT_Shape }
+  | element grpSp { xdr_CT_GroupShape }
+  | element graphicFrame { xdr_CT_GraphicalObjectFrame }
+  | element cxnSp { xdr_CT_Connector }
+  | element pic { xdr_CT_Picture }
+  | element contentPart { xdr_CT_Rel }
+xdr_CT_Rel = r_id
+xdr_ST_ColID = xsd:int { minInclusive = "0" }
+xdr_ST_RowID = xsd:int { minInclusive = "0" }
+xdr_CT_Marker =
+  element col { xdr_ST_ColID },
+  element colOff { a_ST_Coordinate },
+  element row { xdr_ST_RowID },
+  element rowOff { a_ST_Coordinate }
+xdr_ST_EditAs = "twoCell" | "oneCell" | "absolute"
+xdr_CT_TwoCellAnchor =
+  
+  ## default value: twoCell
+  attribute editAs { xdr_ST_EditAs }?,
+  element from { xdr_CT_Marker },
+  element to { xdr_CT_Marker },
+  xdr_EG_ObjectChoices,
+  element clientData { xdr_CT_AnchorClientData }
+xdr_CT_OneCellAnchor =
+  element from { xdr_CT_Marker },
+  element ext { a_CT_PositiveSize2D },
+  xdr_EG_ObjectChoices,
+  element clientData { xdr_CT_AnchorClientData }
+xdr_CT_AbsoluteAnchor =
+  element pos { a_CT_Point2D },
+  element ext { a_CT_PositiveSize2D },
+  xdr_EG_ObjectChoices,
+  element clientData { xdr_CT_AnchorClientData }
+xdr_EG_Anchor =
+  element twoCellAnchor { xdr_CT_TwoCellAnchor }
+  | element oneCellAnchor { xdr_CT_OneCellAnchor }
+  | element absoluteAnchor { xdr_CT_AbsoluteAnchor }
+xdr_CT_Drawing = xdr_EG_Anchor*
+xdr_wsDr = element wsDr { xdr_CT_Drawing }

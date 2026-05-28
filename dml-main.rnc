@@ -1,0 +1,2313 @@
+default namespace = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace r = "http://purl.oclc.org/ooxml/officeDocument/relationships"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+a_CT_AudioFile =
+  r_link,
+  attribute contentType { xsd:string }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_VideoFile =
+  r_link,
+  attribute contentType { xsd:string }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_QuickTimeFile =
+  r_link,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_AudioCDTime =
+  attribute track { xsd:unsignedByte },
+  
+  ## default value: 0
+  attribute time { xsd:unsignedInt }?
+a_CT_AudioCD =
+  element st { a_CT_AudioCDTime },
+  element end { a_CT_AudioCDTime },
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_EG_Media =
+  element audioCd { a_CT_AudioCD }
+  | element wavAudioFile { a_CT_EmbeddedWAVAudioFile }
+  | element audioFile { a_CT_AudioFile }
+  | element videoFile { a_CT_VideoFile }
+  | element quickTimeFile { a_CT_QuickTimeFile }
+a_videoFile = element videoFile { a_CT_VideoFile }
+a_ST_StyleMatrixColumnIndex = xsd:unsignedInt
+a_ST_FontCollectionIndex = "major" | "minor" | "none"
+a_ST_ColorSchemeIndex =
+  "dk1"
+  | "lt1"
+  | "dk2"
+  | "lt2"
+  | "accent1"
+  | "accent2"
+  | "accent3"
+  | "accent4"
+  | "accent5"
+  | "accent6"
+  | "hlink"
+  | "folHlink"
+a_CT_ColorScheme =
+  attribute name { xsd:string },
+  element dk1 { a_CT_Color },
+  element lt1 { a_CT_Color },
+  element dk2 { a_CT_Color },
+  element lt2 { a_CT_Color },
+  element accent1 { a_CT_Color },
+  element accent2 { a_CT_Color },
+  element accent3 { a_CT_Color },
+  element accent4 { a_CT_Color },
+  element accent5 { a_CT_Color },
+  element accent6 { a_CT_Color },
+  element hlink { a_CT_Color },
+  element folHlink { a_CT_Color },
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_CustomColor =
+  attribute name { xsd:string }?,
+  a_EG_ColorChoice
+a_CT_SupplementalFont =
+  attribute script { xsd:string },
+  attribute typeface { a_ST_TextTypeface }
+a_CT_CustomColorList = element custClr { a_CT_CustomColor }*
+a_CT_FontCollection =
+  element latin { a_CT_TextFont },
+  element ea { a_CT_TextFont },
+  element cs { a_CT_TextFont },
+  element font { a_CT_SupplementalFont }*,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_EffectStyleItem =
+  a_EG_EffectProperties,
+  element scene3d { a_CT_Scene3D }?,
+  element sp3d { a_CT_Shape3D }?
+a_CT_FontScheme =
+  attribute name { xsd:string },
+  element majorFont { a_CT_FontCollection },
+  element minorFont { a_CT_FontCollection },
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_FillStyleList = a_EG_FillProperties+
+a_CT_LineStyleList = element ln { a_CT_LineProperties }+
+a_CT_EffectStyleList = element effectStyle { a_CT_EffectStyleItem }+
+a_CT_BackgroundFillStyleList = a_EG_FillProperties+
+a_CT_StyleMatrix =
+  attribute name { xsd:string }?,
+  element fillStyleLst { a_CT_FillStyleList },
+  element lnStyleLst { a_CT_LineStyleList },
+  element effectStyleLst { a_CT_EffectStyleList },
+  element bgFillStyleLst { a_CT_BackgroundFillStyleList }
+a_CT_BaseStyles =
+  element clrScheme { a_CT_ColorScheme },
+  element fontScheme { a_CT_FontScheme },
+  element fmtScheme { a_CT_StyleMatrix },
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_OfficeArtExtension =
+  attribute uri { xsd:token },
+  a_CT_OfficeArtExtension_any*
+a_CT_OfficeArtExtension_any =
+  element * - (o:* | v:* | w10:* | x:*) {
+    anyAttribute*,
+    mixed { anyElement* }
+  }
+a_ST_Coordinate = a_ST_CoordinateUnqualified | s_ST_UniversalMeasure
+a_ST_CoordinateUnqualified =
+  xsd:long {
+    minInclusive = "-27273042329600"
+    maxInclusive = "27273042316900"
+  }
+a_ST_Coordinate32 = a_ST_Coordinate32Unqualified | s_ST_UniversalMeasure
+a_ST_Coordinate32Unqualified = xsd:int
+a_ST_PositiveCoordinate =
+  xsd:long { minInclusive = "0" maxInclusive = "27273042316900" }
+a_ST_PositiveCoordinate32 = xsd:int { minInclusive = "0" }
+a_ST_Angle = xsd:int
+a_CT_Angle = attribute val { a_ST_Angle }
+a_ST_FixedAngle =
+  xsd:int { minExclusive = "-5400000" maxExclusive = "5400000" }
+a_ST_PositiveFixedAngle =
+  xsd:int { minInclusive = "0" maxExclusive = "21600000" }
+a_CT_PositiveFixedAngle = attribute val { a_ST_PositiveFixedAngle }
+a_ST_Percentage = s_ST_Percentage
+a_CT_Percentage = attribute val { a_ST_Percentage }
+a_ST_PositivePercentage = s_ST_PositivePercentage
+a_CT_PositivePercentage = attribute val { a_ST_PositivePercentage }
+a_ST_FixedPercentage = s_ST_FixedPercentage
+a_CT_FixedPercentage = attribute val { a_ST_FixedPercentage }
+a_ST_PositiveFixedPercentage = s_ST_PositiveFixedPercentage
+a_CT_PositiveFixedPercentage =
+  attribute val { a_ST_PositiveFixedPercentage }
+a_CT_Ratio =
+  attribute n { xsd:long },
+  attribute d { xsd:long }
+a_CT_Point2D =
+  attribute x { a_ST_Coordinate },
+  attribute y { a_ST_Coordinate }
+a_CT_PositiveSize2D =
+  attribute cx { a_ST_PositiveCoordinate },
+  attribute cy { a_ST_PositiveCoordinate }
+a_CT_ComplementTransform = empty
+a_CT_InverseTransform = empty
+a_CT_GrayscaleTransform = empty
+a_CT_GammaTransform = empty
+a_CT_InverseGammaTransform = empty
+a_EG_ColorTransform =
+  element tint { a_CT_PositiveFixedPercentage }
+  | element shade { a_CT_PositiveFixedPercentage }
+  | element comp { a_CT_ComplementTransform }
+  | element inv { a_CT_InverseTransform }
+  | element gray { a_CT_GrayscaleTransform }
+  | element alpha { a_CT_PositiveFixedPercentage }
+  | element alphaOff { a_CT_FixedPercentage }
+  | element alphaMod { a_CT_PositivePercentage }
+  | element hue { a_CT_PositiveFixedAngle }
+  | element hueOff { a_CT_Angle }
+  | element hueMod { a_CT_PositivePercentage }
+  | element sat { a_CT_Percentage }
+  | element satOff { a_CT_Percentage }
+  | element satMod { a_CT_Percentage }
+  | element lum { a_CT_Percentage }
+  | element lumOff { a_CT_Percentage }
+  | element lumMod { a_CT_Percentage }
+  | element red { a_CT_Percentage }
+  | element redOff { a_CT_Percentage }
+  | element redMod { a_CT_Percentage }
+  | element green { a_CT_Percentage }
+  | element greenOff { a_CT_Percentage }
+  | element greenMod { a_CT_Percentage }
+  | element blue { a_CT_Percentage }
+  | element blueOff { a_CT_Percentage }
+  | element blueMod { a_CT_Percentage }
+  | element gamma { a_CT_GammaTransform }
+  | element invGamma { a_CT_InverseGammaTransform }
+a_CT_ScRgbColor =
+  attribute r { a_ST_Percentage },
+  attribute g { a_ST_Percentage },
+  attribute b { a_ST_Percentage },
+  a_EG_ColorTransform*
+a_CT_SRgbColor =
+  attribute val { s_ST_HexColorRGB },
+  a_EG_ColorTransform*
+a_CT_HslColor =
+  attribute hue { a_ST_PositiveFixedAngle },
+  attribute sat { a_ST_Percentage },
+  attribute lum { a_ST_Percentage },
+  a_EG_ColorTransform*
+a_ST_SystemColorVal =
+  "scrollBar"
+  | "background"
+  | "activeCaption"
+  | "inactiveCaption"
+  | "menu"
+  | "window"
+  | "windowFrame"
+  | "menuText"
+  | "windowText"
+  | "captionText"
+  | "activeBorder"
+  | "inactiveBorder"
+  | "appWorkspace"
+  | "highlight"
+  | "highlightText"
+  | "btnFace"
+  | "btnShadow"
+  | "grayText"
+  | "btnText"
+  | "inactiveCaptionText"
+  | "btnHighlight"
+  | "3dDkShadow"
+  | "3dLight"
+  | "infoText"
+  | "infoBk"
+  | "hotLight"
+  | "gradientActiveCaption"
+  | "gradientInactiveCaption"
+  | "menuHighlight"
+  | "menuBar"
+a_CT_SystemColor =
+  attribute val { a_ST_SystemColorVal },
+  attribute lastClr { s_ST_HexColorRGB }?,
+  a_EG_ColorTransform*
+a_ST_SchemeColorVal =
+  "bg1"
+  | "tx1"
+  | "bg2"
+  | "tx2"
+  | "accent1"
+  | "accent2"
+  | "accent3"
+  | "accent4"
+  | "accent5"
+  | "accent6"
+  | "hlink"
+  | "folHlink"
+  | "phClr"
+  | "dk1"
+  | "lt1"
+  | "dk2"
+  | "lt2"
+a_CT_SchemeColor =
+  attribute val { a_ST_SchemeColorVal },
+  a_EG_ColorTransform*
+a_ST_PresetColorVal =
+  "aliceBlue"
+  | "antiqueWhite"
+  | "aqua"
+  | "aquamarine"
+  | "azure"
+  | "beige"
+  | "bisque"
+  | "black"
+  | "blanchedAlmond"
+  | "blue"
+  | "blueViolet"
+  | "brown"
+  | "burlyWood"
+  | "cadetBlue"
+  | "chartreuse"
+  | "chocolate"
+  | "coral"
+  | "cornflowerBlue"
+  | "cornsilk"
+  | "crimson"
+  | "cyan"
+  | "darkBlue"
+  | "darkCyan"
+  | "darkGoldenrod"
+  | "darkGray"
+  | "darkGrey"
+  | "darkGreen"
+  | "darkKhaki"
+  | "darkMagenta"
+  | "darkOliveGreen"
+  | "darkOrange"
+  | "darkOrchid"
+  | "darkRed"
+  | "darkSalmon"
+  | "darkSeaGreen"
+  | "darkSlateBlue"
+  | "darkSlateGray"
+  | "darkSlateGrey"
+  | "darkTurquoise"
+  | "darkViolet"
+  | "dkBlue"
+  | "dkCyan"
+  | "dkGoldenrod"
+  | "dkGray"
+  | "dkGrey"
+  | "dkGreen"
+  | "dkKhaki"
+  | "dkMagenta"
+  | "dkOliveGreen"
+  | "dkOrange"
+  | "dkOrchid"
+  | "dkRed"
+  | "dkSalmon"
+  | "dkSeaGreen"
+  | "dkSlateBlue"
+  | "dkSlateGray"
+  | "dkSlateGrey"
+  | "dkTurquoise"
+  | "dkViolet"
+  | "deepPink"
+  | "deepSkyBlue"
+  | "dimGray"
+  | "dimGrey"
+  | "dodgerBlue"
+  | "firebrick"
+  | "floralWhite"
+  | "forestGreen"
+  | "fuchsia"
+  | "gainsboro"
+  | "ghostWhite"
+  | "gold"
+  | "goldenrod"
+  | "gray"
+  | "grey"
+  | "green"
+  | "greenYellow"
+  | "honeydew"
+  | "hotPink"
+  | "indianRed"
+  | "indigo"
+  | "ivory"
+  | "khaki"
+  | "lavender"
+  | "lavenderBlush"
+  | "lawnGreen"
+  | "lemonChiffon"
+  | "lightBlue"
+  | "lightCoral"
+  | "lightCyan"
+  | "lightGoldenrodYellow"
+  | "lightGray"
+  | "lightGrey"
+  | "lightGreen"
+  | "lightPink"
+  | "lightSalmon"
+  | "lightSeaGreen"
+  | "lightSkyBlue"
+  | "lightSlateGray"
+  | "lightSlateGrey"
+  | "lightSteelBlue"
+  | "lightYellow"
+  | "ltBlue"
+  | "ltCoral"
+  | "ltCyan"
+  | "ltGoldenrodYellow"
+  | "ltGray"
+  | "ltGrey"
+  | "ltGreen"
+  | "ltPink"
+  | "ltSalmon"
+  | "ltSeaGreen"
+  | "ltSkyBlue"
+  | "ltSlateGray"
+  | "ltSlateGrey"
+  | "ltSteelBlue"
+  | "ltYellow"
+  | "lime"
+  | "limeGreen"
+  | "linen"
+  | "magenta"
+  | "maroon"
+  | "medAquamarine"
+  | "medBlue"
+  | "medOrchid"
+  | "medPurple"
+  | "medSeaGreen"
+  | "medSlateBlue"
+  | "medSpringGreen"
+  | "medTurquoise"
+  | "medVioletRed"
+  | "mediumAquamarine"
+  | "mediumBlue"
+  | "mediumOrchid"
+  | "mediumPurple"
+  | "mediumSeaGreen"
+  | "mediumSlateBlue"
+  | "mediumSpringGreen"
+  | "mediumTurquoise"
+  | "mediumVioletRed"
+  | "midnightBlue"
+  | "mintCream"
+  | "mistyRose"
+  | "moccasin"
+  | "navajoWhite"
+  | "navy"
+  | "oldLace"
+  | "olive"
+  | "oliveDrab"
+  | "orange"
+  | "orangeRed"
+  | "orchid"
+  | "paleGoldenrod"
+  | "paleGreen"
+  | "paleTurquoise"
+  | "paleVioletRed"
+  | "papayaWhip"
+  | "peachPuff"
+  | "peru"
+  | "pink"
+  | "plum"
+  | "powderBlue"
+  | "purple"
+  | "red"
+  | "rosyBrown"
+  | "royalBlue"
+  | "saddleBrown"
+  | "salmon"
+  | "sandyBrown"
+  | "seaGreen"
+  | "seaShell"
+  | "sienna"
+  | "silver"
+  | "skyBlue"
+  | "slateBlue"
+  | "slateGray"
+  | "slateGrey"
+  | "snow"
+  | "springGreen"
+  | "steelBlue"
+  | "tan"
+  | "teal"
+  | "thistle"
+  | "tomato"
+  | "turquoise"
+  | "violet"
+  | "wheat"
+  | "white"
+  | "whiteSmoke"
+  | "yellow"
+  | "yellowGreen"
+a_CT_PresetColor =
+  attribute val { a_ST_PresetColorVal },
+  a_EG_ColorTransform*
+a_EG_OfficeArtExtensionList = element ext { a_CT_OfficeArtExtension }*
+a_CT_OfficeArtExtensionList = a_EG_OfficeArtExtensionList
+a_CT_Scale2D =
+  element sx { a_CT_Ratio },
+  element sy { a_CT_Ratio }
+a_CT_Transform2D =
+  
+  ## default value: 0
+  attribute rot { a_ST_Angle }?,
+  
+  ## default value: false
+  attribute flipH { xsd:boolean }?,
+  
+  ## default value: false
+  attribute flipV { xsd:boolean }?,
+  element off { a_CT_Point2D }?,
+  element ext { a_CT_PositiveSize2D }?
+a_CT_GroupTransform2D =
+  
+  ## default value: 0
+  attribute rot { a_ST_Angle }?,
+  
+  ## default value: false
+  attribute flipH { xsd:boolean }?,
+  
+  ## default value: false
+  attribute flipV { xsd:boolean }?,
+  element off { a_CT_Point2D }?,
+  element ext { a_CT_PositiveSize2D }?,
+  element chOff { a_CT_Point2D }?,
+  element chExt { a_CT_PositiveSize2D }?
+a_CT_Point3D =
+  attribute x { a_ST_Coordinate },
+  attribute y { a_ST_Coordinate },
+  attribute z { a_ST_Coordinate }
+a_CT_Vector3D =
+  attribute dx { a_ST_Coordinate },
+  attribute dy { a_ST_Coordinate },
+  attribute dz { a_ST_Coordinate }
+a_CT_SphereCoords =
+  attribute lat { a_ST_PositiveFixedAngle },
+  attribute lon { a_ST_PositiveFixedAngle },
+  attribute rev { a_ST_PositiveFixedAngle }
+a_CT_RelativeRect =
+  
+  ## default value: 0%
+  attribute l { a_ST_Percentage }?,
+  
+  ## default value: 0%
+  attribute t { a_ST_Percentage }?,
+  
+  ## default value: 0%
+  attribute r { a_ST_Percentage }?,
+  
+  ## default value: 0%
+  attribute b { a_ST_Percentage }?
+a_ST_RectAlignment =
+  "tl" | "t" | "tr" | "l" | "ctr" | "r" | "bl" | "b" | "br"
+a_EG_ColorChoice =
+  element scrgbClr { a_CT_ScRgbColor }
+  | element srgbClr { a_CT_SRgbColor }
+  | element hslClr { a_CT_HslColor }
+  | element sysClr { a_CT_SystemColor }
+  | element schemeClr { a_CT_SchemeColor }
+  | element prstClr { a_CT_PresetColor }
+a_CT_Color = a_EG_ColorChoice
+a_CT_ColorMRU = a_EG_ColorChoice*
+a_ST_BlackWhiteMode =
+  "clr"
+  | "auto"
+  | "gray"
+  | "ltGray"
+  | "invGray"
+  | "grayWhite"
+  | "blackGray"
+  | "blackWhite"
+  | "black"
+  | "white"
+  | "hidden"
+a_AG_Blob = r_embed?, r_link?
+a_CT_EmbeddedWAVAudioFile =
+  r_embed,
+  attribute name { xsd:string }?
+a_CT_Hyperlink =
+  r_id?,
+  attribute invalidUrl { xsd:string }?,
+  attribute action { xsd:string }?,
+  attribute tgtFrame { xsd:string }?,
+  attribute tooltip { xsd:string }?,
+  
+  ## default value: true
+  attribute history { xsd:boolean }?,
+  
+  ## default value: false
+  attribute highlightClick { xsd:boolean }?,
+  
+  ## default value: false
+  attribute endSnd { xsd:boolean }?,
+  element snd { a_CT_EmbeddedWAVAudioFile }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_ST_DrawingElementId = xsd:unsignedInt
+a_AG_Locking =
+  
+  ## default value: false
+  attribute noGrp { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noSelect { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noRot { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noChangeAspect { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noMove { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noResize { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noEditPoints { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noAdjustHandles { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noChangeArrowheads { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noChangeShapeType { xsd:boolean }?
+a_CT_ConnectorLocking =
+  a_AG_Locking,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_ShapeLocking =
+  a_AG_Locking,
+  
+  ## default value: false
+  attribute noTextEdit { xsd:boolean }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_PictureLocking =
+  a_AG_Locking,
+  
+  ## default value: false
+  attribute noCrop { xsd:boolean }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GroupLocking =
+  
+  ## default value: false
+  attribute noGrp { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noUngrp { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noSelect { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noRot { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noChangeAspect { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noMove { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noResize { xsd:boolean }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GraphicalObjectFrameLocking =
+  
+  ## default value: false
+  attribute noGrp { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noDrilldown { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noSelect { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noChangeAspect { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noMove { xsd:boolean }?,
+  
+  ## default value: false
+  attribute noResize { xsd:boolean }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_ContentPartLocking =
+  a_AG_Locking,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_NonVisualDrawingProps =
+  attribute id { a_ST_DrawingElementId },
+  attribute name { xsd:string },
+  attribute descr { xsd:string }?,
+  
+  ## default value: false
+  attribute hidden { xsd:boolean }?,
+  attribute title { xsd:string }?,
+  element hlinkClick { a_CT_Hyperlink }?,
+  element hlinkHover { a_CT_Hyperlink }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_NonVisualDrawingShapeProps =
+  
+  ## default value: false
+  attribute txBox { xsd:boolean }?,
+  element spLocks { a_CT_ShapeLocking }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_NonVisualConnectorProperties =
+  element cxnSpLocks { a_CT_ConnectorLocking }?,
+  element stCxn { a_CT_Connection }?,
+  element endCxn { a_CT_Connection }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_NonVisualPictureProperties =
+  
+  ## default value: true
+  attribute preferRelativeResize { xsd:boolean }?,
+  element picLocks { a_CT_PictureLocking }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_NonVisualGroupDrawingShapeProps =
+  element grpSpLocks { a_CT_GroupLocking }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_NonVisualGraphicFrameProperties =
+  element graphicFrameLocks { a_CT_GraphicalObjectFrameLocking }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_NonVisualContentPartProperties =
+  
+  ## default value: true
+  attribute isComment { xsd:boolean }?,
+  element cpLocks { a_CT_ContentPartLocking }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GraphicalObjectData =
+  attribute uri { xsd:token },
+  a_CT_GraphicalObjectData_any*
+a_CT_GraphicalObjectData_any =
+  element * - (o:* | v:* | w10:* | x:*) {
+    anyAttribute*,
+    mixed { anyElement* }
+  }
+a_CT_GraphicalObject = element graphicData { a_CT_GraphicalObjectData }
+a_graphic = element graphic { a_CT_GraphicalObject }
+a_ST_ChartBuildStep =
+  "category"
+  | "ptInCategory"
+  | "series"
+  | "ptInSeries"
+  | "allPts"
+  | "gridLegend"
+a_ST_DgmBuildStep = "sp" | "bg"
+a_CT_AnimationDgmElement =
+  
+  ## default value: {00000000-0000-0000-0000-000000000000}
+  attribute id { s_ST_Guid }?,
+  
+  ## default value: sp
+  attribute bldStep { a_ST_DgmBuildStep }?
+a_CT_AnimationChartElement =
+  
+  ## default value: -1
+  attribute seriesIdx { xsd:int }?,
+  
+  ## default value: -1
+  attribute categoryIdx { xsd:int }?,
+  attribute bldStep { a_ST_ChartBuildStep }
+a_CT_AnimationElementChoice =
+  element dgm { a_CT_AnimationDgmElement }
+  | element chart { a_CT_AnimationChartElement }
+a_ST_AnimationBuildType = "allAtOnce"
+a_ST_AnimationDgmOnlyBuildType = "one" | "lvlOne" | "lvlAtOnce"
+a_ST_AnimationDgmBuildType =
+  a_ST_AnimationBuildType | a_ST_AnimationDgmOnlyBuildType
+a_CT_AnimationDgmBuildProperties =
+  
+  ## default value: allAtOnce
+  attribute bld { a_ST_AnimationDgmBuildType }?,
+  
+  ## default value: false
+  attribute rev { xsd:boolean }?
+a_ST_AnimationChartOnlyBuildType =
+  "series" | "category" | "seriesEl" | "categoryEl"
+a_ST_AnimationChartBuildType =
+  a_ST_AnimationBuildType | a_ST_AnimationChartOnlyBuildType
+a_CT_AnimationChartBuildProperties =
+  
+  ## default value: allAtOnce
+  attribute bld { a_ST_AnimationChartBuildType }?,
+  
+  ## default value: true
+  attribute animBg { xsd:boolean }?
+a_CT_AnimationGraphicalObjectBuildProperties =
+  element bldDgm { a_CT_AnimationDgmBuildProperties }
+  | element bldChart { a_CT_AnimationChartBuildProperties }
+a_CT_BackgroundFormatting = a_EG_FillProperties?, a_EG_EffectProperties?
+a_CT_WholeE2oFormatting =
+  element ln { a_CT_LineProperties }?,
+  a_EG_EffectProperties?
+a_CT_GvmlUseShapeRectangle = empty
+a_CT_GvmlTextShape =
+  element txBody { a_CT_TextBody },
+  (element useSpRect { a_CT_GvmlUseShapeRectangle }
+   | element xfrm { a_CT_Transform2D }),
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GvmlShapeNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvSpPr { a_CT_NonVisualDrawingShapeProps }
+a_CT_GvmlShape =
+  element nvSpPr { a_CT_GvmlShapeNonVisual },
+  element spPr { a_CT_ShapeProperties },
+  element txSp { a_CT_GvmlTextShape }?,
+  element style { a_CT_ShapeStyle }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GvmlConnectorNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvCxnSpPr { a_CT_NonVisualConnectorProperties }
+a_CT_GvmlConnector =
+  element nvCxnSpPr { a_CT_GvmlConnectorNonVisual },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GvmlPictureNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvPicPr { a_CT_NonVisualPictureProperties }
+a_CT_GvmlPicture =
+  element nvPicPr { a_CT_GvmlPictureNonVisual },
+  element blipFill { a_CT_BlipFillProperties },
+  element spPr { a_CT_ShapeProperties },
+  element style { a_CT_ShapeStyle }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GvmlGraphicFrameNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvGraphicFramePr { a_CT_NonVisualGraphicFrameProperties }
+a_CT_GvmlGraphicalObjectFrame =
+  element nvGraphicFramePr { a_CT_GvmlGraphicFrameNonVisual },
+  a_graphic,
+  element xfrm { a_CT_Transform2D },
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GvmlGroupShapeNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvGrpSpPr { a_CT_NonVisualGroupDrawingShapeProps }
+a_CT_GvmlGroupShape =
+  element nvGrpSpPr { a_CT_GvmlGroupShapeNonVisual },
+  element grpSpPr { a_CT_GroupShapeProperties },
+  (element txSp { a_CT_GvmlTextShape }
+   | element sp { a_CT_GvmlShape }
+   | element cxnSp { a_CT_GvmlConnector }
+   | element pic { a_CT_GvmlPicture }
+   | element graphicFrame { a_CT_GvmlGraphicalObjectFrame }
+   | element grpSp { a_CT_GvmlGroupShape })*,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_ST_PresetCameraType =
+  "legacyObliqueTopLeft"
+  | "legacyObliqueTop"
+  | "legacyObliqueTopRight"
+  | "legacyObliqueLeft"
+  | "legacyObliqueFront"
+  | "legacyObliqueRight"
+  | "legacyObliqueBottomLeft"
+  | "legacyObliqueBottom"
+  | "legacyObliqueBottomRight"
+  | "legacyPerspectiveTopLeft"
+  | "legacyPerspectiveTop"
+  | "legacyPerspectiveTopRight"
+  | "legacyPerspectiveLeft"
+  | "legacyPerspectiveFront"
+  | "legacyPerspectiveRight"
+  | "legacyPerspectiveBottomLeft"
+  | "legacyPerspectiveBottom"
+  | "legacyPerspectiveBottomRight"
+  | "orthographicFront"
+  | "isometricTopUp"
+  | "isometricTopDown"
+  | "isometricBottomUp"
+  | "isometricBottomDown"
+  | "isometricLeftUp"
+  | "isometricLeftDown"
+  | "isometricRightUp"
+  | "isometricRightDown"
+  | "isometricOffAxis1Left"
+  | "isometricOffAxis1Right"
+  | "isometricOffAxis1Top"
+  | "isometricOffAxis2Left"
+  | "isometricOffAxis2Right"
+  | "isometricOffAxis2Top"
+  | "isometricOffAxis3Left"
+  | "isometricOffAxis3Right"
+  | "isometricOffAxis3Bottom"
+  | "isometricOffAxis4Left"
+  | "isometricOffAxis4Right"
+  | "isometricOffAxis4Bottom"
+  | "obliqueTopLeft"
+  | "obliqueTop"
+  | "obliqueTopRight"
+  | "obliqueLeft"
+  | "obliqueRight"
+  | "obliqueBottomLeft"
+  | "obliqueBottom"
+  | "obliqueBottomRight"
+  | "perspectiveFront"
+  | "perspectiveLeft"
+  | "perspectiveRight"
+  | "perspectiveAbove"
+  | "perspectiveBelow"
+  | "perspectiveAboveLeftFacing"
+  | "perspectiveAboveRightFacing"
+  | "perspectiveContrastingLeftFacing"
+  | "perspectiveContrastingRightFacing"
+  | "perspectiveHeroicLeftFacing"
+  | "perspectiveHeroicRightFacing"
+  | "perspectiveHeroicExtremeLeftFacing"
+  | "perspectiveHeroicExtremeRightFacing"
+  | "perspectiveRelaxed"
+  | "perspectiveRelaxedModerately"
+a_ST_FOVAngle = xsd:int { minInclusive = "0" maxInclusive = "10800000" }
+a_CT_Camera =
+  attribute prst { a_ST_PresetCameraType },
+  attribute fov { a_ST_FOVAngle }?,
+  
+  ## default value: 100%
+  attribute zoom { a_ST_PositivePercentage }?,
+  element rot { a_CT_SphereCoords }?
+a_ST_LightRigDirection =
+  "tl" | "t" | "tr" | "l" | "r" | "bl" | "b" | "br"
+a_ST_LightRigType =
+  "legacyFlat1"
+  | "legacyFlat2"
+  | "legacyFlat3"
+  | "legacyFlat4"
+  | "legacyNormal1"
+  | "legacyNormal2"
+  | "legacyNormal3"
+  | "legacyNormal4"
+  | "legacyHarsh1"
+  | "legacyHarsh2"
+  | "legacyHarsh3"
+  | "legacyHarsh4"
+  | "threePt"
+  | "balanced"
+  | "soft"
+  | "harsh"
+  | "flood"
+  | "contrasting"
+  | "morning"
+  | "sunrise"
+  | "sunset"
+  | "chilly"
+  | "freezing"
+  | "flat"
+  | "twoPt"
+  | "glow"
+  | "brightRoom"
+a_CT_LightRig =
+  attribute rig { a_ST_LightRigType },
+  attribute dir { a_ST_LightRigDirection },
+  element rot { a_CT_SphereCoords }?
+a_CT_Scene3D =
+  element camera { a_CT_Camera },
+  element lightRig { a_CT_LightRig },
+  element backdrop { a_CT_Backdrop }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_Backdrop =
+  element anchor { a_CT_Point3D },
+  element norm { a_CT_Vector3D },
+  element up { a_CT_Vector3D },
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_ST_BevelPresetType =
+  "relaxedInset"
+  | "circle"
+  | "slope"
+  | "cross"
+  | "angle"
+  | "softRound"
+  | "convex"
+  | "coolSlant"
+  | "divot"
+  | "riblet"
+  | "hardEdge"
+  | "artDeco"
+a_CT_Bevel =
+  
+  ## default value: 76200
+  attribute w { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 76200
+  attribute h { a_ST_PositiveCoordinate }?,
+  
+  ## default value: circle
+  attribute prst { a_ST_BevelPresetType }?
+a_ST_PresetMaterialType =
+  "legacyMatte"
+  | "legacyPlastic"
+  | "legacyMetal"
+  | "legacyWireframe"
+  | "matte"
+  | "plastic"
+  | "metal"
+  | "warmMatte"
+  | "translucentPowder"
+  | "powder"
+  | "dkEdge"
+  | "softEdge"
+  | "clear"
+  | "flat"
+  | "softmetal"
+a_CT_Shape3D =
+  
+  ## default value: 0
+  attribute z { a_ST_Coordinate }?,
+  
+  ## default value: 0
+  attribute extrusionH { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 0
+  attribute contourW { a_ST_PositiveCoordinate }?,
+  
+  ## default value: warmMatte
+  attribute prstMaterial { a_ST_PresetMaterialType }?,
+  element bevelT { a_CT_Bevel }?,
+  element bevelB { a_CT_Bevel }?,
+  element extrusionClr { a_CT_Color }?,
+  element contourClr { a_CT_Color }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_FlatText =
+  
+  ## default value: 0
+  attribute z { a_ST_Coordinate }?
+a_EG_Text3D =
+  element sp3d { a_CT_Shape3D }
+  | element flatTx { a_CT_FlatText }
+a_CT_AlphaBiLevelEffect =
+  attribute thresh { a_ST_PositiveFixedPercentage }
+a_CT_AlphaCeilingEffect = empty
+a_CT_AlphaFloorEffect = empty
+a_CT_AlphaInverseEffect = a_EG_ColorChoice?
+a_CT_AlphaModulateFixedEffect =
+  
+  ## default value: 100%
+  attribute amt { a_ST_PositivePercentage }?
+a_CT_AlphaOutsetEffect =
+  
+  ## default value: 0
+  attribute rad { a_ST_Coordinate }?
+a_CT_AlphaReplaceEffect = attribute a { a_ST_PositiveFixedPercentage }
+a_CT_BiLevelEffect = attribute thresh { a_ST_PositiveFixedPercentage }
+a_CT_BlurEffect =
+  
+  ## default value: 0
+  attribute rad { a_ST_PositiveCoordinate }?,
+  
+  ## default value: true
+  attribute grow { xsd:boolean }?
+a_CT_ColorChangeEffect =
+  
+  ## default value: true
+  attribute useA { xsd:boolean }?,
+  element clrFrom { a_CT_Color },
+  element clrTo { a_CT_Color }
+a_CT_ColorReplaceEffect = a_EG_ColorChoice
+a_CT_DuotoneEffect = a_EG_ColorChoice+
+a_CT_GlowEffect =
+  
+  ## default value: 0
+  attribute rad { a_ST_PositiveCoordinate }?,
+  a_EG_ColorChoice
+a_CT_GrayscaleEffect = empty
+a_CT_HSLEffect =
+  
+  ## default value: 0
+  attribute hue { a_ST_PositiveFixedAngle }?,
+  
+  ## default value: 0%
+  attribute sat { a_ST_FixedPercentage }?,
+  
+  ## default value: 0%
+  attribute lum { a_ST_FixedPercentage }?
+a_CT_InnerShadowEffect =
+  
+  ## default value: 0
+  attribute blurRad { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 0
+  attribute dist { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 0
+  attribute dir { a_ST_PositiveFixedAngle }?,
+  a_EG_ColorChoice
+a_CT_LuminanceEffect =
+  
+  ## default value: 0%
+  attribute bright { a_ST_FixedPercentage }?,
+  
+  ## default value: 0%
+  attribute contrast { a_ST_FixedPercentage }?
+a_CT_OuterShadowEffect =
+  
+  ## default value: 0
+  attribute blurRad { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 0
+  attribute dist { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 0
+  attribute dir { a_ST_PositiveFixedAngle }?,
+  
+  ## default value: 100%
+  attribute sx { a_ST_Percentage }?,
+  
+  ## default value: 100%
+  attribute sy { a_ST_Percentage }?,
+  
+  ## default value: 0
+  attribute kx { a_ST_FixedAngle }?,
+  
+  ## default value: 0
+  attribute ky { a_ST_FixedAngle }?,
+  
+  ## default value: b
+  attribute algn { a_ST_RectAlignment }?,
+  
+  ## default value: true
+  attribute rotWithShape { xsd:boolean }?,
+  a_EG_ColorChoice
+a_ST_PresetShadowVal =
+  "shdw1"
+  | "shdw2"
+  | "shdw3"
+  | "shdw4"
+  | "shdw5"
+  | "shdw6"
+  | "shdw7"
+  | "shdw8"
+  | "shdw9"
+  | "shdw10"
+  | "shdw11"
+  | "shdw12"
+  | "shdw13"
+  | "shdw14"
+  | "shdw15"
+  | "shdw16"
+  | "shdw17"
+  | "shdw18"
+  | "shdw19"
+  | "shdw20"
+a_CT_PresetShadowEffect =
+  attribute prst { a_ST_PresetShadowVal },
+  
+  ## default value: 0
+  attribute dist { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 0
+  attribute dir { a_ST_PositiveFixedAngle }?,
+  a_EG_ColorChoice
+a_CT_ReflectionEffect =
+  
+  ## default value: 0
+  attribute blurRad { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 100%
+  attribute stA { a_ST_PositiveFixedPercentage }?,
+  
+  ## default value: 0%
+  attribute stPos { a_ST_PositiveFixedPercentage }?,
+  
+  ## default value: 0%
+  attribute endA { a_ST_PositiveFixedPercentage }?,
+  
+  ## default value: 100%
+  attribute endPos { a_ST_PositiveFixedPercentage }?,
+  
+  ## default value: 0
+  attribute dist { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 0
+  attribute dir { a_ST_PositiveFixedAngle }?,
+  
+  ## default value: 5400000
+  attribute fadeDir { a_ST_PositiveFixedAngle }?,
+  
+  ## default value: 100%
+  attribute sx { a_ST_Percentage }?,
+  
+  ## default value: 100%
+  attribute sy { a_ST_Percentage }?,
+  
+  ## default value: 0
+  attribute kx { a_ST_FixedAngle }?,
+  
+  ## default value: 0
+  attribute ky { a_ST_FixedAngle }?,
+  
+  ## default value: b
+  attribute algn { a_ST_RectAlignment }?,
+  
+  ## default value: true
+  attribute rotWithShape { xsd:boolean }?
+a_CT_RelativeOffsetEffect =
+  
+  ## default value: 0%
+  attribute tx { a_ST_Percentage }?,
+  
+  ## default value: 0%
+  attribute ty { a_ST_Percentage }?
+a_CT_SoftEdgesEffect = attribute rad { a_ST_PositiveCoordinate }
+a_CT_TintEffect =
+  
+  ## default value: 0
+  attribute hue { a_ST_PositiveFixedAngle }?,
+  
+  ## default value: 0%
+  attribute amt { a_ST_FixedPercentage }?
+a_CT_TransformEffect =
+  
+  ## default value: 100%
+  attribute sx { a_ST_Percentage }?,
+  
+  ## default value: 100%
+  attribute sy { a_ST_Percentage }?,
+  
+  ## default value: 0
+  attribute kx { a_ST_FixedAngle }?,
+  
+  ## default value: 0
+  attribute ky { a_ST_FixedAngle }?,
+  
+  ## default value: 0
+  attribute tx { a_ST_Coordinate }?,
+  
+  ## default value: 0
+  attribute ty { a_ST_Coordinate }?
+a_CT_NoFillProperties = empty
+a_CT_SolidColorFillProperties = a_EG_ColorChoice?
+a_CT_LinearShadeProperties =
+  attribute ang { a_ST_PositiveFixedAngle }?,
+  attribute scaled { xsd:boolean }?
+a_ST_PathShadeType = "shape" | "circle" | "rect"
+a_CT_PathShadeProperties =
+  attribute path { a_ST_PathShadeType }?,
+  element fillToRect { a_CT_RelativeRect }?
+a_EG_ShadeProperties =
+  element lin { a_CT_LinearShadeProperties }
+  | element path { a_CT_PathShadeProperties }
+a_ST_TileFlipMode = "none" | "x" | "y" | "xy"
+a_CT_GradientStop =
+  attribute pos { a_ST_PositiveFixedPercentage },
+  a_EG_ColorChoice
+a_CT_GradientStopList = element gs { a_CT_GradientStop }+
+a_CT_GradientFillProperties =
+  
+  ## default value: none
+  attribute flip { a_ST_TileFlipMode }?,
+  attribute rotWithShape { xsd:boolean }?,
+  element gsLst { a_CT_GradientStopList }?,
+  a_EG_ShadeProperties?,
+  element tileRect { a_CT_RelativeRect }?
+a_CT_TileInfoProperties =
+  attribute tx { a_ST_Coordinate }?,
+  attribute ty { a_ST_Coordinate }?,
+  attribute sx { a_ST_Percentage }?,
+  attribute sy { a_ST_Percentage }?,
+  
+  ## default value: none
+  attribute flip { a_ST_TileFlipMode }?,
+  attribute algn { a_ST_RectAlignment }?
+a_CT_StretchInfoProperties = element fillRect { a_CT_RelativeRect }?
+a_EG_FillModeProperties =
+  element tile { a_CT_TileInfoProperties }
+  | element stretch { a_CT_StretchInfoProperties }
+a_ST_BlipCompression = "email" | "screen" | "print" | "hqprint" | "none"
+a_CT_Blip =
+  a_AG_Blob,
+  
+  ## default value: none
+  attribute cstate { a_ST_BlipCompression }?,
+  (element alphaBiLevel { a_CT_AlphaBiLevelEffect }
+   | element alphaCeiling { a_CT_AlphaCeilingEffect }
+   | element alphaFloor { a_CT_AlphaFloorEffect }
+   | element alphaInv { a_CT_AlphaInverseEffect }
+   | element alphaMod { a_CT_AlphaModulateEffect }
+   | element alphaModFix { a_CT_AlphaModulateFixedEffect }
+   | element alphaRepl { a_CT_AlphaReplaceEffect }
+   | element biLevel { a_CT_BiLevelEffect }
+   | element blur { a_CT_BlurEffect }
+   | element clrChange { a_CT_ColorChangeEffect }
+   | element clrRepl { a_CT_ColorReplaceEffect }
+   | element duotone { a_CT_DuotoneEffect }
+   | element fillOverlay { a_CT_FillOverlayEffect }
+   | element grayscl { a_CT_GrayscaleEffect }
+   | element hsl { a_CT_HSLEffect }
+   | element lum { a_CT_LuminanceEffect }
+   | element tint { a_CT_TintEffect })*,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_BlipFillProperties =
+  attribute dpi { xsd:unsignedInt }?,
+  attribute rotWithShape { xsd:boolean }?,
+  element blip { a_CT_Blip }?,
+  element srcRect { a_CT_RelativeRect }?,
+  a_EG_FillModeProperties?
+a_ST_PresetPatternVal =
+  "pct5"
+  | "pct10"
+  | "pct20"
+  | "pct25"
+  | "pct30"
+  | "pct40"
+  | "pct50"
+  | "pct60"
+  | "pct70"
+  | "pct75"
+  | "pct80"
+  | "pct90"
+  | "horz"
+  | "vert"
+  | "ltHorz"
+  | "ltVert"
+  | "dkHorz"
+  | "dkVert"
+  | "narHorz"
+  | "narVert"
+  | "dashHorz"
+  | "dashVert"
+  | "cross"
+  | "dnDiag"
+  | "upDiag"
+  | "ltDnDiag"
+  | "ltUpDiag"
+  | "dkDnDiag"
+  | "dkUpDiag"
+  | "wdDnDiag"
+  | "wdUpDiag"
+  | "dashDnDiag"
+  | "dashUpDiag"
+  | "diagCross"
+  | "smCheck"
+  | "lgCheck"
+  | "smGrid"
+  | "lgGrid"
+  | "dotGrid"
+  | "smConfetti"
+  | "lgConfetti"
+  | "horzBrick"
+  | "diagBrick"
+  | "solidDmnd"
+  | "openDmnd"
+  | "dotDmnd"
+  | "plaid"
+  | "sphere"
+  | "weave"
+  | "divot"
+  | "shingle"
+  | "wave"
+  | "trellis"
+  | "zigZag"
+a_CT_PatternFillProperties =
+  attribute prst { a_ST_PresetPatternVal }?,
+  element fgClr { a_CT_Color }?,
+  element bgClr { a_CT_Color }?
+a_CT_GroupFillProperties = empty
+a_EG_FillProperties =
+  element noFill { a_CT_NoFillProperties }
+  | element solidFill { a_CT_SolidColorFillProperties }
+  | element gradFill { a_CT_GradientFillProperties }
+  | element blipFill { a_CT_BlipFillProperties }
+  | element pattFill { a_CT_PatternFillProperties }
+  | element grpFill { a_CT_GroupFillProperties }
+a_CT_FillProperties = a_EG_FillProperties
+a_CT_FillEffect = a_EG_FillProperties
+a_ST_BlendMode = "over" | "mult" | "screen" | "darken" | "lighten"
+a_CT_FillOverlayEffect =
+  attribute blend { a_ST_BlendMode },
+  a_EG_FillProperties
+a_CT_EffectReference = attribute ref { xsd:token }
+a_EG_Effect =
+  element cont { a_CT_EffectContainer }
+  | element effect { a_CT_EffectReference }
+  | element alphaBiLevel { a_CT_AlphaBiLevelEffect }
+  | element alphaCeiling { a_CT_AlphaCeilingEffect }
+  | element alphaFloor { a_CT_AlphaFloorEffect }
+  | element alphaInv { a_CT_AlphaInverseEffect }
+  | element alphaMod { a_CT_AlphaModulateEffect }
+  | element alphaModFix { a_CT_AlphaModulateFixedEffect }
+  | element alphaOutset { a_CT_AlphaOutsetEffect }
+  | element alphaRepl { a_CT_AlphaReplaceEffect }
+  | element biLevel { a_CT_BiLevelEffect }
+  | element blend { a_CT_BlendEffect }
+  | element blur { a_CT_BlurEffect }
+  | element clrChange { a_CT_ColorChangeEffect }
+  | element clrRepl { a_CT_ColorReplaceEffect }
+  | element duotone { a_CT_DuotoneEffect }
+  | element fill { a_CT_FillEffect }
+  | element fillOverlay { a_CT_FillOverlayEffect }
+  | element glow { a_CT_GlowEffect }
+  | element grayscl { a_CT_GrayscaleEffect }
+  | element hsl { a_CT_HSLEffect }
+  | element innerShdw { a_CT_InnerShadowEffect }
+  | element lum { a_CT_LuminanceEffect }
+  | element outerShdw { a_CT_OuterShadowEffect }
+  | element prstShdw { a_CT_PresetShadowEffect }
+  | element reflection { a_CT_ReflectionEffect }
+  | element relOff { a_CT_RelativeOffsetEffect }
+  | element softEdge { a_CT_SoftEdgesEffect }
+  | element tint { a_CT_TintEffect }
+  | element xfrm { a_CT_TransformEffect }
+a_ST_EffectContainerType = "sib" | "tree"
+a_CT_EffectContainer =
+  
+  ## default value: sib
+  attribute type { a_ST_EffectContainerType }?,
+  attribute name { xsd:token }?,
+  a_EG_Effect*
+a_CT_AlphaModulateEffect = element cont { a_CT_EffectContainer }
+a_CT_BlendEffect =
+  attribute blend { a_ST_BlendMode },
+  element cont { a_CT_EffectContainer }
+a_CT_EffectList =
+  element blur { a_CT_BlurEffect }?,
+  element fillOverlay { a_CT_FillOverlayEffect }?,
+  element glow { a_CT_GlowEffect }?,
+  element innerShdw { a_CT_InnerShadowEffect }?,
+  element outerShdw { a_CT_OuterShadowEffect }?,
+  element prstShdw { a_CT_PresetShadowEffect }?,
+  element reflection { a_CT_ReflectionEffect }?,
+  element softEdge { a_CT_SoftEdgesEffect }?
+a_EG_EffectProperties =
+  element effectLst { a_CT_EffectList }
+  | element effectDag { a_CT_EffectContainer }
+a_CT_EffectProperties = a_EG_EffectProperties
+a_blip = element blip { a_CT_Blip }
+a_ST_ShapeType =
+  "line"
+  | "lineInv"
+  | "triangle"
+  | "rtTriangle"
+  | "rect"
+  | "diamond"
+  | "parallelogram"
+  | "trapezoid"
+  | "nonIsoscelesTrapezoid"
+  | "pentagon"
+  | "hexagon"
+  | "heptagon"
+  | "octagon"
+  | "decagon"
+  | "dodecagon"
+  | "star4"
+  | "star5"
+  | "star6"
+  | "star7"
+  | "star8"
+  | "star10"
+  | "star12"
+  | "star16"
+  | "star24"
+  | "star32"
+  | "roundRect"
+  | "round1Rect"
+  | "round2SameRect"
+  | "round2DiagRect"
+  | "snipRoundRect"
+  | "snip1Rect"
+  | "snip2SameRect"
+  | "snip2DiagRect"
+  | "plaque"
+  | "ellipse"
+  | "teardrop"
+  | "homePlate"
+  | "chevron"
+  | "pieWedge"
+  | "pie"
+  | "blockArc"
+  | "donut"
+  | "noSmoking"
+  | "rightArrow"
+  | "leftArrow"
+  | "upArrow"
+  | "downArrow"
+  | "stripedRightArrow"
+  | "notchedRightArrow"
+  | "bentUpArrow"
+  | "leftRightArrow"
+  | "upDownArrow"
+  | "leftUpArrow"
+  | "leftRightUpArrow"
+  | "quadArrow"
+  | "leftArrowCallout"
+  | "rightArrowCallout"
+  | "upArrowCallout"
+  | "downArrowCallout"
+  | "leftRightArrowCallout"
+  | "upDownArrowCallout"
+  | "quadArrowCallout"
+  | "bentArrow"
+  | "uturnArrow"
+  | "circularArrow"
+  | "leftCircularArrow"
+  | "leftRightCircularArrow"
+  | "curvedRightArrow"
+  | "curvedLeftArrow"
+  | "curvedUpArrow"
+  | "curvedDownArrow"
+  | "swooshArrow"
+  | "cube"
+  | "can"
+  | "lightningBolt"
+  | "heart"
+  | "sun"
+  | "moon"
+  | "smileyFace"
+  | "irregularSeal1"
+  | "irregularSeal2"
+  | "foldedCorner"
+  | "bevel"
+  | "frame"
+  | "halfFrame"
+  | "corner"
+  | "diagStripe"
+  | "chord"
+  | "arc"
+  | "leftBracket"
+  | "rightBracket"
+  | "leftBrace"
+  | "rightBrace"
+  | "bracketPair"
+  | "bracePair"
+  | "straightConnector1"
+  | "bentConnector2"
+  | "bentConnector3"
+  | "bentConnector4"
+  | "bentConnector5"
+  | "curvedConnector2"
+  | "curvedConnector3"
+  | "curvedConnector4"
+  | "curvedConnector5"
+  | "callout1"
+  | "callout2"
+  | "callout3"
+  | "accentCallout1"
+  | "accentCallout2"
+  | "accentCallout3"
+  | "borderCallout1"
+  | "borderCallout2"
+  | "borderCallout3"
+  | "accentBorderCallout1"
+  | "accentBorderCallout2"
+  | "accentBorderCallout3"
+  | "wedgeRectCallout"
+  | "wedgeRoundRectCallout"
+  | "wedgeEllipseCallout"
+  | "cloudCallout"
+  | "cloud"
+  | "ribbon"
+  | "ribbon2"
+  | "ellipseRibbon"
+  | "ellipseRibbon2"
+  | "leftRightRibbon"
+  | "verticalScroll"
+  | "horizontalScroll"
+  | "wave"
+  | "doubleWave"
+  | "plus"
+  | "flowChartProcess"
+  | "flowChartDecision"
+  | "flowChartInputOutput"
+  | "flowChartPredefinedProcess"
+  | "flowChartInternalStorage"
+  | "flowChartDocument"
+  | "flowChartMultidocument"
+  | "flowChartTerminator"
+  | "flowChartPreparation"
+  | "flowChartManualInput"
+  | "flowChartManualOperation"
+  | "flowChartConnector"
+  | "flowChartPunchedCard"
+  | "flowChartPunchedTape"
+  | "flowChartSummingJunction"
+  | "flowChartOr"
+  | "flowChartCollate"
+  | "flowChartSort"
+  | "flowChartExtract"
+  | "flowChartMerge"
+  | "flowChartOfflineStorage"
+  | "flowChartOnlineStorage"
+  | "flowChartMagneticTape"
+  | "flowChartMagneticDisk"
+  | "flowChartMagneticDrum"
+  | "flowChartDisplay"
+  | "flowChartDelay"
+  | "flowChartAlternateProcess"
+  | "flowChartOffpageConnector"
+  | "actionButtonBlank"
+  | "actionButtonHome"
+  | "actionButtonHelp"
+  | "actionButtonInformation"
+  | "actionButtonForwardNext"
+  | "actionButtonBackPrevious"
+  | "actionButtonEnd"
+  | "actionButtonBeginning"
+  | "actionButtonReturn"
+  | "actionButtonDocument"
+  | "actionButtonSound"
+  | "actionButtonMovie"
+  | "gear6"
+  | "gear9"
+  | "funnel"
+  | "mathPlus"
+  | "mathMinus"
+  | "mathMultiply"
+  | "mathDivide"
+  | "mathEqual"
+  | "mathNotEqual"
+  | "cornerTabs"
+  | "squareTabs"
+  | "plaqueTabs"
+  | "chartX"
+  | "chartStar"
+  | "chartPlus"
+a_ST_TextShapeType =
+  "textNoShape"
+  | "textPlain"
+  | "textStop"
+  | "textTriangle"
+  | "textTriangleInverted"
+  | "textChevron"
+  | "textChevronInverted"
+  | "textRingInside"
+  | "textRingOutside"
+  | "textArchUp"
+  | "textArchDown"
+  | "textCircle"
+  | "textButton"
+  | "textArchUpPour"
+  | "textArchDownPour"
+  | "textCirclePour"
+  | "textButtonPour"
+  | "textCurveUp"
+  | "textCurveDown"
+  | "textCanUp"
+  | "textCanDown"
+  | "textWave1"
+  | "textWave2"
+  | "textDoubleWave1"
+  | "textWave4"
+  | "textInflate"
+  | "textDeflate"
+  | "textInflateBottom"
+  | "textDeflateBottom"
+  | "textInflateTop"
+  | "textDeflateTop"
+  | "textDeflateInflate"
+  | "textDeflateInflateDeflate"
+  | "textFadeRight"
+  | "textFadeLeft"
+  | "textFadeUp"
+  | "textFadeDown"
+  | "textSlantUp"
+  | "textSlantDown"
+  | "textCascadeUp"
+  | "textCascadeDown"
+a_ST_GeomGuideName = xsd:token
+a_ST_GeomGuideFormula = xsd:string
+a_CT_GeomGuide =
+  attribute name { a_ST_GeomGuideName },
+  attribute fmla { a_ST_GeomGuideFormula }
+a_CT_GeomGuideList = element gd { a_CT_GeomGuide }*
+a_ST_AdjCoordinate = a_ST_Coordinate | a_ST_GeomGuideName
+a_ST_AdjAngle = a_ST_Angle | a_ST_GeomGuideName
+a_CT_AdjPoint2D =
+  attribute x { a_ST_AdjCoordinate },
+  attribute y { a_ST_AdjCoordinate }
+a_CT_GeomRect =
+  attribute l { a_ST_AdjCoordinate },
+  attribute t { a_ST_AdjCoordinate },
+  attribute r { a_ST_AdjCoordinate },
+  attribute b { a_ST_AdjCoordinate }
+a_CT_XYAdjustHandle =
+  attribute gdRefX { a_ST_GeomGuideName }?,
+  attribute minX { a_ST_AdjCoordinate }?,
+  attribute maxX { a_ST_AdjCoordinate }?,
+  attribute gdRefY { a_ST_GeomGuideName }?,
+  attribute minY { a_ST_AdjCoordinate }?,
+  attribute maxY { a_ST_AdjCoordinate }?,
+  element pos { a_CT_AdjPoint2D }
+a_CT_PolarAdjustHandle =
+  attribute gdRefR { a_ST_GeomGuideName }?,
+  attribute minR { a_ST_AdjCoordinate }?,
+  attribute maxR { a_ST_AdjCoordinate }?,
+  attribute gdRefAng { a_ST_GeomGuideName }?,
+  attribute minAng { a_ST_AdjAngle }?,
+  attribute maxAng { a_ST_AdjAngle }?,
+  element pos { a_CT_AdjPoint2D }
+a_CT_ConnectionSite =
+  attribute ang { a_ST_AdjAngle },
+  element pos { a_CT_AdjPoint2D }
+a_CT_AdjustHandleList =
+  (element ahXY { a_CT_XYAdjustHandle }
+   | element ahPolar { a_CT_PolarAdjustHandle })*
+a_CT_ConnectionSiteList = element cxn { a_CT_ConnectionSite }*
+a_CT_Connection =
+  attribute id { a_ST_DrawingElementId },
+  attribute idx { xsd:unsignedInt }
+a_CT_Path2DMoveTo = element pt { a_CT_AdjPoint2D }
+a_CT_Path2DLineTo = element pt { a_CT_AdjPoint2D }
+a_CT_Path2DArcTo =
+  attribute wR { a_ST_AdjCoordinate },
+  attribute hR { a_ST_AdjCoordinate },
+  attribute stAng { a_ST_AdjAngle },
+  attribute swAng { a_ST_AdjAngle }
+a_CT_Path2DQuadBezierTo = element pt { a_CT_AdjPoint2D }+
+a_CT_Path2DCubicBezierTo = element pt { a_CT_AdjPoint2D }+
+a_CT_Path2DClose = empty
+a_ST_PathFillMode =
+  "none" | "norm" | "lighten" | "lightenLess" | "darken" | "darkenLess"
+a_CT_Path2D =
+  
+  ## default value: 0
+  attribute w { a_ST_PositiveCoordinate }?,
+  
+  ## default value: 0
+  attribute h { a_ST_PositiveCoordinate }?,
+  
+  ## default value: norm
+  attribute fill { a_ST_PathFillMode }?,
+  
+  ## default value: true
+  attribute stroke { xsd:boolean }?,
+  
+  ## default value: true
+  attribute extrusionOk { xsd:boolean }?,
+  (element close { a_CT_Path2DClose }
+   | element moveTo { a_CT_Path2DMoveTo }
+   | element lnTo { a_CT_Path2DLineTo }
+   | element arcTo { a_CT_Path2DArcTo }
+   | element quadBezTo { a_CT_Path2DQuadBezierTo }
+   | element cubicBezTo { a_CT_Path2DCubicBezierTo })*
+a_CT_Path2DList = element path { a_CT_Path2D }*
+a_CT_PresetGeometry2D =
+  attribute prst { a_ST_ShapeType },
+  element avLst { a_CT_GeomGuideList }?
+a_CT_PresetTextShape =
+  attribute prst { a_ST_TextShapeType },
+  element avLst { a_CT_GeomGuideList }?
+a_CT_CustomGeometry2D =
+  element avLst { a_CT_GeomGuideList }?,
+  element gdLst { a_CT_GeomGuideList }?,
+  element ahLst { a_CT_AdjustHandleList }?,
+  element cxnLst { a_CT_ConnectionSiteList }?,
+  element rect { a_CT_GeomRect }?,
+  element pathLst { a_CT_Path2DList }
+a_EG_Geometry =
+  element custGeom { a_CT_CustomGeometry2D }
+  | element prstGeom { a_CT_PresetGeometry2D }
+a_EG_TextGeometry =
+  element custGeom { a_CT_CustomGeometry2D }
+  | element prstTxWarp { a_CT_PresetTextShape }
+a_ST_LineEndType =
+  "none" | "triangle" | "stealth" | "diamond" | "oval" | "arrow"
+a_ST_LineEndWidth = "sm" | "med" | "lg"
+a_ST_LineEndLength = "sm" | "med" | "lg"
+a_CT_LineEndProperties =
+  
+  ## default value: none
+  attribute type { a_ST_LineEndType }?,
+  attribute w { a_ST_LineEndWidth }?,
+  attribute len { a_ST_LineEndLength }?
+a_EG_LineFillProperties =
+  element noFill { a_CT_NoFillProperties }
+  | element solidFill { a_CT_SolidColorFillProperties }
+  | element gradFill { a_CT_GradientFillProperties }
+  | element pattFill { a_CT_PatternFillProperties }
+a_CT_LineJoinBevel = empty
+a_CT_LineJoinRound = empty
+a_CT_LineJoinMiterProperties =
+  attribute lim { a_ST_PositivePercentage }?
+a_EG_LineJoinProperties =
+  element round { a_CT_LineJoinRound }
+  | element bevel { a_CT_LineJoinBevel }
+  | element miter { a_CT_LineJoinMiterProperties }
+a_ST_PresetLineDashVal =
+  "solid"
+  | "dot"
+  | "dash"
+  | "lgDash"
+  | "dashDot"
+  | "lgDashDot"
+  | "lgDashDotDot"
+  | "sysDash"
+  | "sysDot"
+  | "sysDashDot"
+  | "sysDashDotDot"
+a_CT_PresetLineDashProperties =
+  attribute val { a_ST_PresetLineDashVal }?
+a_CT_DashStop =
+  attribute d { a_ST_PositivePercentage },
+  attribute sp { a_ST_PositivePercentage }
+a_CT_DashStopList = element ds { a_CT_DashStop }*
+a_EG_LineDashProperties =
+  element prstDash { a_CT_PresetLineDashProperties }
+  | element custDash { a_CT_DashStopList }
+a_ST_LineCap = "rnd" | "sq" | "flat"
+a_ST_LineWidth =
+  xsd:int { minInclusive = "0" maxInclusive = "20116800" }
+a_ST_PenAlignment = "ctr" | "in"
+a_ST_CompoundLine = "sng" | "dbl" | "thickThin" | "thinThick" | "tri"
+a_CT_LineProperties =
+  attribute w { a_ST_LineWidth }?,
+  attribute cap { a_ST_LineCap }?,
+  attribute cmpd { a_ST_CompoundLine }?,
+  attribute algn { a_ST_PenAlignment }?,
+  a_EG_LineFillProperties?,
+  a_EG_LineDashProperties?,
+  a_EG_LineJoinProperties?,
+  element headEnd { a_CT_LineEndProperties }?,
+  element tailEnd { a_CT_LineEndProperties }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_ST_ShapeID = xsd:token
+a_CT_ShapeProperties =
+  attribute bwMode { a_ST_BlackWhiteMode }?,
+  element xfrm { a_CT_Transform2D }?,
+  a_EG_Geometry?,
+  a_EG_FillProperties?,
+  element ln { a_CT_LineProperties }?,
+  a_EG_EffectProperties?,
+  element scene3d { a_CT_Scene3D }?,
+  element sp3d { a_CT_Shape3D }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_GroupShapeProperties =
+  attribute bwMode { a_ST_BlackWhiteMode }?,
+  element xfrm { a_CT_GroupTransform2D }?,
+  a_EG_FillProperties?,
+  a_EG_EffectProperties?,
+  element scene3d { a_CT_Scene3D }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_StyleMatrixReference =
+  attribute idx { a_ST_StyleMatrixColumnIndex },
+  a_EG_ColorChoice?
+a_CT_FontReference =
+  attribute idx { a_ST_FontCollectionIndex },
+  a_EG_ColorChoice?
+a_CT_ShapeStyle =
+  element lnRef { a_CT_StyleMatrixReference },
+  element fillRef { a_CT_StyleMatrixReference },
+  element effectRef { a_CT_StyleMatrixReference },
+  element fontRef { a_CT_FontReference }
+a_CT_DefaultShapeDefinition =
+  element spPr { a_CT_ShapeProperties },
+  element bodyPr { a_CT_TextBodyProperties },
+  element lstStyle { a_CT_TextListStyle },
+  element style { a_CT_ShapeStyle }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_ObjectStyleDefaults =
+  element spDef { a_CT_DefaultShapeDefinition }?,
+  element lnDef { a_CT_DefaultShapeDefinition }?,
+  element txDef { a_CT_DefaultShapeDefinition }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_EmptyElement = empty
+a_CT_ColorMapping =
+  attribute bg1 { a_ST_ColorSchemeIndex },
+  attribute tx1 { a_ST_ColorSchemeIndex },
+  attribute bg2 { a_ST_ColorSchemeIndex },
+  attribute tx2 { a_ST_ColorSchemeIndex },
+  attribute accent1 { a_ST_ColorSchemeIndex },
+  attribute accent2 { a_ST_ColorSchemeIndex },
+  attribute accent3 { a_ST_ColorSchemeIndex },
+  attribute accent4 { a_ST_ColorSchemeIndex },
+  attribute accent5 { a_ST_ColorSchemeIndex },
+  attribute accent6 { a_ST_ColorSchemeIndex },
+  attribute hlink { a_ST_ColorSchemeIndex },
+  attribute folHlink { a_ST_ColorSchemeIndex },
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_ColorMappingOverride =
+  element masterClrMapping { a_CT_EmptyElement }
+  | element overrideClrMapping { a_CT_ColorMapping }
+a_CT_ColorSchemeAndMapping =
+  element clrScheme { a_CT_ColorScheme },
+  element clrMap { a_CT_ColorMapping }?
+a_CT_ColorSchemeList =
+  element extraClrScheme { a_CT_ColorSchemeAndMapping }*
+a_CT_OfficeStyleSheet =
+  attribute name { xsd:string }?,
+  element themeElements { a_CT_BaseStyles },
+  element objectDefaults { a_CT_ObjectStyleDefaults }?,
+  element extraClrSchemeLst { a_CT_ColorSchemeList }?,
+  element custClrLst { a_CT_CustomColorList }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_BaseStylesOverride =
+  element clrScheme { a_CT_ColorScheme }?,
+  element fontScheme { a_CT_FontScheme }?,
+  element fmtScheme { a_CT_StyleMatrix }?
+a_CT_ClipboardStyleSheet =
+  element themeElements { a_CT_BaseStyles },
+  element clrMap { a_CT_ColorMapping }
+a_theme = element theme { a_CT_OfficeStyleSheet }
+a_themeOverride = element themeOverride { a_CT_BaseStylesOverride }
+a_themeManager = element themeManager { a_CT_EmptyElement }
+a_CT_TableCellProperties =
+  
+  ## default value: 91440
+  attribute marL { a_ST_Coordinate32 }?,
+  
+  ## default value: 91440
+  attribute marR { a_ST_Coordinate32 }?,
+  
+  ## default value: 45720
+  attribute marT { a_ST_Coordinate32 }?,
+  
+  ## default value: 45720
+  attribute marB { a_ST_Coordinate32 }?,
+  
+  ## default value: horz
+  attribute vert { a_ST_TextVerticalType }?,
+  
+  ## default value: t
+  attribute anchor { a_ST_TextAnchoringType }?,
+  
+  ## default value: false
+  attribute anchorCtr { xsd:boolean }?,
+  
+  ## default value: clip
+  attribute horzOverflow { a_ST_TextHorzOverflowType }?,
+  element lnL { a_CT_LineProperties }?,
+  element lnR { a_CT_LineProperties }?,
+  element lnT { a_CT_LineProperties }?,
+  element lnB { a_CT_LineProperties }?,
+  element lnTlToBr { a_CT_LineProperties }?,
+  element lnBlToTr { a_CT_LineProperties }?,
+  element cell3D { a_CT_Cell3D }?,
+  a_EG_FillProperties?,
+  element headers { a_CT_Headers }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_Headers = element header { xsd:string }*
+a_CT_TableCol =
+  attribute w { a_ST_Coordinate },
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_TableGrid = element gridCol { a_CT_TableCol }*
+a_CT_TableCell =
+  
+  ## default value: 1
+  attribute rowSpan { xsd:int }?,
+  
+  ## default value: 1
+  attribute gridSpan { xsd:int }?,
+  
+  ## default value: false
+  attribute hMerge { xsd:boolean }?,
+  
+  ## default value: false
+  attribute vMerge { xsd:boolean }?,
+  attribute id { xsd:string }?,
+  element txBody { a_CT_TextBody }?,
+  element tcPr { a_CT_TableCellProperties }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_TableRow =
+  attribute h { a_ST_Coordinate },
+  element tc { a_CT_TableCell }*,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_TableProperties =
+  
+  ## default value: false
+  attribute rtl { xsd:boolean }?,
+  
+  ## default value: false
+  attribute firstRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute firstCol { xsd:boolean }?,
+  
+  ## default value: false
+  attribute lastRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute lastCol { xsd:boolean }?,
+  
+  ## default value: false
+  attribute bandRow { xsd:boolean }?,
+  
+  ## default value: false
+  attribute bandCol { xsd:boolean }?,
+  a_EG_FillProperties?,
+  a_EG_EffectProperties?,
+  (element tableStyle { a_CT_TableStyle }
+   | element tableStyleId { s_ST_Guid })?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_Table =
+  element tblPr { a_CT_TableProperties }?,
+  element tblGrid { a_CT_TableGrid },
+  element tr { a_CT_TableRow }*
+a_tbl = element tbl { a_CT_Table }
+a_CT_Cell3D =
+  
+  ## default value: plastic
+  attribute prstMaterial { a_ST_PresetMaterialType }?,
+  element bevel { a_CT_Bevel },
+  element lightRig { a_CT_LightRig }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_EG_ThemeableFillStyle =
+  element fill { a_CT_FillProperties }
+  | element fillRef { a_CT_StyleMatrixReference }
+a_CT_ThemeableLineStyle =
+  element ln { a_CT_LineProperties }
+  | element lnRef { a_CT_StyleMatrixReference }
+a_EG_ThemeableEffectStyle =
+  element effect { a_CT_EffectProperties }
+  | element effectRef { a_CT_StyleMatrixReference }
+a_EG_ThemeableFontStyles =
+  element font { a_CT_FontCollection }
+  | element fontRef { a_CT_FontReference }
+a_ST_OnOffStyleType = "on" | "off" | "def"
+a_CT_TableStyleTextStyle =
+  
+  ## default value: def
+  attribute b { a_ST_OnOffStyleType }?,
+  
+  ## default value: def
+  attribute i { a_ST_OnOffStyleType }?,
+  a_EG_ThemeableFontStyles?,
+  a_EG_ColorChoice?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_TableCellBorderStyle =
+  element left { a_CT_ThemeableLineStyle }?,
+  element right { a_CT_ThemeableLineStyle }?,
+  element top { a_CT_ThemeableLineStyle }?,
+  element bottom { a_CT_ThemeableLineStyle }?,
+  element insideH { a_CT_ThemeableLineStyle }?,
+  element insideV { a_CT_ThemeableLineStyle }?,
+  element tl2br { a_CT_ThemeableLineStyle }?,
+  element tr2bl { a_CT_ThemeableLineStyle }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_TableBackgroundStyle =
+  a_EG_ThemeableFillStyle?, a_EG_ThemeableEffectStyle?
+a_CT_TableStyleCellStyle =
+  element tcBdr { a_CT_TableCellBorderStyle }?,
+  a_EG_ThemeableFillStyle?,
+  element cell3D { a_CT_Cell3D }?
+a_CT_TablePartStyle =
+  element tcTxStyle { a_CT_TableStyleTextStyle }?,
+  element tcStyle { a_CT_TableStyleCellStyle }?
+a_CT_TableStyle =
+  attribute styleId { s_ST_Guid },
+  attribute styleName { xsd:string },
+  element tblBg { a_CT_TableBackgroundStyle }?,
+  element wholeTbl { a_CT_TablePartStyle }?,
+  element band1H { a_CT_TablePartStyle }?,
+  element band2H { a_CT_TablePartStyle }?,
+  element band1V { a_CT_TablePartStyle }?,
+  element band2V { a_CT_TablePartStyle }?,
+  element lastCol { a_CT_TablePartStyle }?,
+  element firstCol { a_CT_TablePartStyle }?,
+  element lastRow { a_CT_TablePartStyle }?,
+  element seCell { a_CT_TablePartStyle }?,
+  element swCell { a_CT_TablePartStyle }?,
+  element firstRow { a_CT_TablePartStyle }?,
+  element neCell { a_CT_TablePartStyle }?,
+  element nwCell { a_CT_TablePartStyle }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_TableStyleList =
+  attribute def { s_ST_Guid },
+  element tblStyle { a_CT_TableStyle }*
+a_tblStyleLst = element tblStyleLst { a_CT_TableStyleList }
+a_CT_TextParagraph =
+  element pPr { a_CT_TextParagraphProperties }?,
+  a_EG_TextRun*,
+  element endParaRPr { a_CT_TextCharacterProperties }?
+a_ST_TextAnchoringType = "t" | "ctr" | "b" | "just" | "dist"
+a_ST_TextVertOverflowType = "overflow" | "ellipsis" | "clip"
+a_ST_TextHorzOverflowType = "overflow" | "clip"
+a_ST_TextVerticalType =
+  "horz"
+  | "vert"
+  | "vert270"
+  | "wordArtVert"
+  | "eaVert"
+  | "mongolianVert"
+  | "wordArtVertRtl"
+a_ST_TextWrappingType = "none" | "square"
+a_ST_TextColumnCount =
+  xsd:int { minInclusive = "1" maxInclusive = "16" }
+a_CT_TextListStyle =
+  element defPPr { a_CT_TextParagraphProperties }?,
+  element lvl1pPr { a_CT_TextParagraphProperties }?,
+  element lvl2pPr { a_CT_TextParagraphProperties }?,
+  element lvl3pPr { a_CT_TextParagraphProperties }?,
+  element lvl4pPr { a_CT_TextParagraphProperties }?,
+  element lvl5pPr { a_CT_TextParagraphProperties }?,
+  element lvl6pPr { a_CT_TextParagraphProperties }?,
+  element lvl7pPr { a_CT_TextParagraphProperties }?,
+  element lvl8pPr { a_CT_TextParagraphProperties }?,
+  element lvl9pPr { a_CT_TextParagraphProperties }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_ST_TextFontScalePercentOrPercentString = s_ST_Percentage
+a_CT_TextNormalAutofit =
+  
+  ## default value: 100%
+  attribute fontScale { a_ST_TextFontScalePercentOrPercentString }?,
+  
+  ## default value: 0%
+  attribute lnSpcReduction { a_ST_TextSpacingPercentOrPercentString }?
+a_CT_TextShapeAutofit = empty
+a_CT_TextNoAutofit = empty
+a_EG_TextAutofit =
+  element noAutofit { a_CT_TextNoAutofit }
+  | element normAutofit { a_CT_TextNormalAutofit }
+  | element spAutoFit { a_CT_TextShapeAutofit }
+a_CT_TextBodyProperties =
+  attribute rot { a_ST_Angle }?,
+  attribute spcFirstLastPara { xsd:boolean }?,
+  attribute vertOverflow { a_ST_TextVertOverflowType }?,
+  attribute horzOverflow { a_ST_TextHorzOverflowType }?,
+  attribute vert { a_ST_TextVerticalType }?,
+  attribute wrap { a_ST_TextWrappingType }?,
+  attribute lIns { a_ST_Coordinate32 }?,
+  attribute tIns { a_ST_Coordinate32 }?,
+  attribute rIns { a_ST_Coordinate32 }?,
+  attribute bIns { a_ST_Coordinate32 }?,
+  attribute numCol { a_ST_TextColumnCount }?,
+  attribute spcCol { a_ST_PositiveCoordinate32 }?,
+  attribute rtlCol { xsd:boolean }?,
+  attribute fromWordArt { xsd:boolean }?,
+  attribute anchor { a_ST_TextAnchoringType }?,
+  attribute anchorCtr { xsd:boolean }?,
+  attribute forceAA { xsd:boolean }?,
+  
+  ## default value: false
+  attribute upright { xsd:boolean }?,
+  attribute compatLnSpc { xsd:boolean }?,
+  element prstTxWarp { a_CT_PresetTextShape }?,
+  a_EG_TextAutofit?,
+  element scene3d { a_CT_Scene3D }?,
+  a_EG_Text3D?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_TextBody =
+  element bodyPr { a_CT_TextBodyProperties },
+  element lstStyle { a_CT_TextListStyle }?,
+  element p { a_CT_TextParagraph }+
+a_ST_TextBulletStartAtNum =
+  xsd:int { minInclusive = "1" maxInclusive = "32767" }
+a_ST_TextAutonumberScheme =
+  "alphaLcParenBoth"
+  | "alphaUcParenBoth"
+  | "alphaLcParenR"
+  | "alphaUcParenR"
+  | "alphaLcPeriod"
+  | "alphaUcPeriod"
+  | "arabicParenBoth"
+  | "arabicParenR"
+  | "arabicPeriod"
+  | "arabicPlain"
+  | "romanLcParenBoth"
+  | "romanUcParenBoth"
+  | "romanLcParenR"
+  | "romanUcParenR"
+  | "romanLcPeriod"
+  | "romanUcPeriod"
+  | "circleNumDbPlain"
+  | "circleNumWdBlackPlain"
+  | "circleNumWdWhitePlain"
+  | "arabicDbPeriod"
+  | "arabicDbPlain"
+  | "ea1ChsPeriod"
+  | "ea1ChsPlain"
+  | "ea1ChtPeriod"
+  | "ea1ChtPlain"
+  | "ea1JpnChsDbPeriod"
+  | "ea1JpnKorPlain"
+  | "ea1JpnKorPeriod"
+  | "arabic1Minus"
+  | "arabic2Minus"
+  | "hebrew2Minus"
+  | "thaiAlphaPeriod"
+  | "thaiAlphaParenR"
+  | "thaiAlphaParenBoth"
+  | "thaiNumPeriod"
+  | "thaiNumParenR"
+  | "thaiNumParenBoth"
+  | "hindiAlphaPeriod"
+  | "hindiNumPeriod"
+  | "hindiNumParenR"
+  | "hindiAlpha1Period"
+a_CT_TextBulletColorFollowText = empty
+a_EG_TextBulletColor =
+  element buClrTx { a_CT_TextBulletColorFollowText }
+  | element buClr { a_CT_Color }
+a_ST_TextBulletSize = a_ST_TextBulletSizePercent
+a_ST_TextBulletSizePercent =
+  xsd:string {
+    pattern = "0*((2[5-9])|([3-9][0-9])|([1-3][0-9][0-9])|400)%"
+  }
+a_CT_TextBulletSizeFollowText = empty
+a_CT_TextBulletSizePercent =
+  attribute val { a_ST_TextBulletSizePercent }
+a_CT_TextBulletSizePoint = attribute val { a_ST_TextFontSize }
+a_EG_TextBulletSize =
+  element buSzTx { a_CT_TextBulletSizeFollowText }
+  | element buSzPct { a_CT_TextBulletSizePercent }
+  | element buSzPts { a_CT_TextBulletSizePoint }
+a_CT_TextBulletTypefaceFollowText = empty
+a_EG_TextBulletTypeface =
+  element buFontTx { a_CT_TextBulletTypefaceFollowText }
+  | element buFont { a_CT_TextFont }
+a_CT_TextAutonumberBullet =
+  attribute type { a_ST_TextAutonumberScheme },
+  
+  ## default value: 1
+  attribute startAt { a_ST_TextBulletStartAtNum }?
+a_CT_TextCharBullet = attribute char { xsd:string }
+a_CT_TextBlipBullet = element blip { a_CT_Blip }
+a_CT_TextNoBullet = empty
+a_EG_TextBullet =
+  element buNone { a_CT_TextNoBullet }
+  | element buAutoNum { a_CT_TextAutonumberBullet }
+  | element buChar { a_CT_TextCharBullet }
+  | element buBlip { a_CT_TextBlipBullet }
+a_ST_TextPoint = a_ST_TextPointUnqualified | s_ST_UniversalMeasure
+a_ST_TextPointUnqualified =
+  xsd:int { minInclusive = "-400000" maxInclusive = "400000" }
+a_ST_TextNonNegativePoint =
+  xsd:int { minInclusive = "0" maxInclusive = "400000" }
+a_ST_TextFontSize =
+  xsd:int { minInclusive = "100" maxInclusive = "400000" }
+a_ST_TextTypeface = xsd:string
+a_ST_PitchFamily = 
+ xsd:byte "00" | xsd:byte "01" | xsd:byte "02" | xsd:byte "16" |
+ xsd:byte "17" | xsd:byte "18" | xsd:byte "32" | xsd:byte "33" |
+ xsd:byte "34" | xsd:byte "48" | xsd:byte "49" | xsd:byte "50" |
+ xsd:byte "64" | xsd:byte "65" | xsd:byte "66" | xsd:byte "80" |
+ xsd:byte "81" | xsd:byte "82"
+a_CT_TextFont =
+  attribute typeface { a_ST_TextTypeface },
+  attribute panose { s_ST_Panose }?,
+  
+  ## default value: 0
+  attribute pitchFamily { a_ST_PitchFamily }?,
+  
+  ## default value: 1
+  attribute charset { xsd:byte }?
+a_ST_TextUnderlineType =
+  "none"
+  | "words"
+  | "sng"
+  | "dbl"
+  | "heavy"
+  | "dotted"
+  | "dottedHeavy"
+  | "dash"
+  | "dashHeavy"
+  | "dashLong"
+  | "dashLongHeavy"
+  | "dotDash"
+  | "dotDashHeavy"
+  | "dotDotDash"
+  | "dotDotDashHeavy"
+  | "wavy"
+  | "wavyHeavy"
+  | "wavyDbl"
+a_CT_TextUnderlineLineFollowText = empty
+a_CT_TextUnderlineFillFollowText = empty
+a_CT_TextUnderlineFillGroupWrapper = a_EG_FillProperties
+a_EG_TextUnderlineLine =
+  element uLnTx { a_CT_TextUnderlineLineFollowText }
+  | element uLn { a_CT_LineProperties }?
+a_EG_TextUnderlineFill =
+  element uFillTx { a_CT_TextUnderlineFillFollowText }
+  | element uFill { a_CT_TextUnderlineFillGroupWrapper }
+a_ST_TextStrikeType = "noStrike" | "sngStrike" | "dblStrike"
+a_ST_TextCapsType = "none" | "small" | "all"
+a_CT_TextCharacterProperties =
+  attribute kumimoji { xsd:boolean }?,
+  attribute lang { s_ST_Lang }?,
+  attribute altLang { s_ST_Lang }?,
+  attribute sz { a_ST_TextFontSize }?,
+  attribute b { xsd:boolean }?,
+  attribute i { xsd:boolean }?,
+  attribute u { a_ST_TextUnderlineType }?,
+  attribute strike { a_ST_TextStrikeType }?,
+  attribute kern { a_ST_TextNonNegativePoint }?,
+  attribute cap { a_ST_TextCapsType }?,
+  attribute spc { a_ST_TextPoint }?,
+  attribute normalizeH { xsd:boolean }?,
+  attribute baseline { a_ST_Percentage }?,
+  attribute noProof { xsd:boolean }?,
+  
+  ## default value: true
+  attribute dirty { xsd:boolean }?,
+  
+  ## default value: false
+  attribute err { xsd:boolean }?,
+  
+  ## default value: true
+  attribute smtClean { xsd:boolean }?,
+  
+  ## default value: 0
+  attribute smtId { xsd:unsignedInt }?,
+  attribute bmk { xsd:string }?,
+  element ln { a_CT_LineProperties }?,
+  a_EG_FillProperties?,
+  a_EG_EffectProperties?,
+  element highlight { a_CT_Color }?,
+  a_EG_TextUnderlineLine?,
+  a_EG_TextUnderlineFill?,
+  element latin { a_CT_TextFont }?,
+  element ea { a_CT_TextFont }?,
+  element cs { a_CT_TextFont }?,
+  element sym { a_CT_TextFont }?,
+  element hlinkClick { a_CT_Hyperlink }?,
+  element hlinkMouseOver { a_CT_Hyperlink }?,
+  element rtl { a_CT_Boolean }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_Boolean =
+  
+  ## default value: 0
+  attribute val { s_ST_OnOff }?
+a_ST_TextSpacingPoint =
+  xsd:int { minInclusive = "0" maxInclusive = "158400" }
+a_ST_TextSpacingPercentOrPercentString = s_ST_Percentage
+a_CT_TextSpacingPercent =
+  attribute val { a_ST_TextSpacingPercentOrPercentString }
+a_CT_TextSpacingPoint = attribute val { a_ST_TextSpacingPoint }
+a_ST_TextMargin =
+  xsd:int { minInclusive = "0" maxInclusive = "51206400" }
+a_ST_TextIndent =
+  xsd:int { minInclusive = "-51206400" maxInclusive = "51206400" }
+a_ST_TextTabAlignType = "l" | "ctr" | "r" | "dec"
+a_CT_TextTabStop =
+  attribute pos { a_ST_Coordinate32 }?,
+  attribute algn { a_ST_TextTabAlignType }?
+a_CT_TextTabStopList = element tab { a_CT_TextTabStop }*
+a_CT_TextLineBreak = element rPr { a_CT_TextCharacterProperties }?
+a_CT_TextSpacing =
+  element spcPct { a_CT_TextSpacingPercent }
+  | element spcPts { a_CT_TextSpacingPoint }
+a_ST_TextAlignType =
+  "l" | "ctr" | "r" | "just" | "justLow" | "dist" | "thaiDist"
+a_ST_TextFontAlignType = "auto" | "t" | "ctr" | "base" | "b"
+a_ST_TextIndentLevelType =
+  xsd:int { minInclusive = "0" maxInclusive = "8" }
+a_CT_TextParagraphProperties =
+  attribute marL { a_ST_TextMargin }?,
+  attribute marR { a_ST_TextMargin }?,
+  attribute lvl { a_ST_TextIndentLevelType }?,
+  attribute indent { a_ST_TextIndent }?,
+  attribute algn { a_ST_TextAlignType }?,
+  attribute defTabSz { a_ST_Coordinate32 }?,
+  attribute rtl { xsd:boolean }?,
+  attribute eaLnBrk { xsd:boolean }?,
+  attribute fontAlgn { a_ST_TextFontAlignType }?,
+  attribute latinLnBrk { xsd:boolean }?,
+  attribute hangingPunct { xsd:boolean }?,
+  element lnSpc { a_CT_TextSpacing }?,
+  element spcBef { a_CT_TextSpacing }?,
+  element spcAft { a_CT_TextSpacing }?,
+  a_EG_TextBulletColor?,
+  a_EG_TextBulletSize?,
+  a_EG_TextBulletTypeface?,
+  a_EG_TextBullet?,
+  element tabLst { a_CT_TextTabStopList }?,
+  element defRPr { a_CT_TextCharacterProperties }?,
+  element extLst { a_CT_OfficeArtExtensionList }?
+a_CT_TextField =
+  attribute id { s_ST_Guid },
+  attribute type { xsd:string }?,
+  element rPr { a_CT_TextCharacterProperties }?,
+  element pPr { a_CT_TextParagraphProperties }?,
+  element t { xsd:string }?
+a_EG_TextRun =
+  element r { a_CT_RegularTextRun }
+  | element br { a_CT_TextLineBreak }
+  | element fld { a_CT_TextField }
+a_CT_RegularTextRun =
+  element rPr { a_CT_TextCharacterProperties }?,
+  element t { xsd:string }

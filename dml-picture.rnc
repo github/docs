@@ -1,0 +1,16 @@
+default namespace = "http://purl.oclc.org/ooxml/drawingml/picture"
+namespace a = "http://purl.oclc.org/ooxml/drawingml/main"
+namespace dpct = "http://purl.oclc.org/ooxml/drawingml/picture"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+dpct_CT_PictureNonVisual =
+  element cNvPr { a_CT_NonVisualDrawingProps },
+  element cNvPicPr { a_CT_NonVisualPictureProperties }
+dpct_CT_Picture =
+  element nvPicPr { dpct_CT_PictureNonVisual },
+  element blipFill { a_CT_BlipFillProperties },
+  element spPr { a_CT_ShapeProperties }
+dpct_pic = element pic { dpct_CT_Picture }

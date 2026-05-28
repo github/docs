@@ -1,0 +1,169 @@
+default namespace =
+  "http://purl.oclc.org/ooxml/officeDocument/docPropsVTypes"
+namespace o = "urn:schemas-microsoft-com:office:office"
+namespace s = "http://purl.oclc.org/ooxml/officeDocument/sharedTypes"
+namespace v = "urn:schemas-microsoft-com:vml"
+namespace vt =
+  "http://purl.oclc.org/ooxml/officeDocument/docPropsVTypes"
+namespace w10 = "urn:schemas-microsoft-com:office:word"
+namespace x = "urn:schemas-microsoft-com:office:excel"
+
+vt_ST_VectorBaseType =
+  string "variant"
+  | string "i1"
+  | string "i2"
+  | string "i4"
+  | string "i8"
+  | string "ui1"
+  | string "ui2"
+  | string "ui4"
+  | string "ui8"
+  | string "r4"
+  | string "r8"
+  | string "lpstr"
+  | string "lpwstr"
+  | string "bstr"
+  | string "date"
+  | string "filetime"
+  | string "bool"
+  | string "cy"
+  | string "error"
+  | string "clsid"
+vt_ST_ArrayBaseType =
+  string "variant"
+  | string "i1"
+  | string "i2"
+  | string "i4"
+  | string "int"
+  | string "ui1"
+  | string "ui2"
+  | string "ui4"
+  | string "uint"
+  | string "r4"
+  | string "r8"
+  | string "decimal"
+  | string "bstr"
+  | string "date"
+  | string "bool"
+  | string "cy"
+  | string "error"
+vt_ST_Cy = xsd:string { pattern = "\s*[0-9]*\.[0-9]{4}\s*" }
+vt_ST_Error = xsd:string { pattern = "\s*0x[0-9A-Za-z]{8}\s*" }
+vt_CT_Empty = empty
+vt_CT_Null = empty
+vt_CT_Vector =
+  attribute baseType { vt_ST_VectorBaseType },
+  attribute size { xsd:unsignedInt },
+  (vt_variant
+   | vt_i1
+   | vt_i2
+   | vt_i4
+   | vt_i8
+   | vt_ui1
+   | vt_ui2
+   | vt_ui4
+   | vt_ui8
+   | vt_r4
+   | vt_r8
+   | vt_lpstr
+   | vt_lpwstr
+   | vt_bstr
+   | vt_date
+   | vt_filetime
+   | vt_bool
+   | vt_cy
+   | vt_error
+   | vt_clsid)+
+vt_CT_Array =
+  attribute lBounds { xsd:int },
+  attribute uBounds { xsd:int },
+  attribute baseType { vt_ST_ArrayBaseType },
+  (vt_variant
+   | vt_i1
+   | vt_i2
+   | vt_i4
+   | vt_int
+   | vt_ui1
+   | vt_ui2
+   | vt_ui4
+   | vt_uint
+   | vt_r4
+   | vt_r8
+   | vt_decimal
+   | vt_bstr
+   | vt_date
+   | vt_bool
+   | vt_error
+   | vt_cy)+
+vt_CT_Variant =
+  vt_variant
+  | vt_vector
+  | vt_array
+  | vt_blob
+  | vt_oblob
+  | vt_empty
+  | vt_null
+  | vt_i1
+  | vt_i2
+  | vt_i4
+  | vt_i8
+  | vt_int
+  | vt_ui1
+  | vt_ui2
+  | vt_ui4
+  | vt_ui8
+  | vt_uint
+  | vt_r4
+  | vt_r8
+  | vt_decimal
+  | vt_lpstr
+  | vt_lpwstr
+  | vt_bstr
+  | vt_date
+  | vt_filetime
+  | vt_bool
+  | vt_cy
+  | vt_error
+  | vt_stream
+  | vt_ostream
+  | vt_storage
+  | vt_ostorage
+  | vt_vstream
+  | vt_clsid
+vt_CT_Vstream =
+  xsd:base64Binary,
+  attribute version { s_ST_Guid }?
+vt_variant = element variant { vt_CT_Variant }
+vt_vector = element vector { vt_CT_Vector }
+vt_array = element array { vt_CT_Array }
+vt_blob = element blob { xsd:base64Binary }
+vt_oblob = element oblob { xsd:base64Binary }
+vt_empty = element empty { vt_CT_Empty }
+vt_null = element null { vt_CT_Null }
+vt_i1 = element i1 { xsd:byte }
+vt_i2 = element i2 { xsd:short }
+vt_i4 = element i4 { xsd:int }
+vt_i8 = element i8 { xsd:long }
+vt_int = element int { xsd:int }
+vt_ui1 = element ui1 { xsd:unsignedByte }
+vt_ui2 = element ui2 { xsd:unsignedShort }
+vt_ui4 = element ui4 { xsd:unsignedInt }
+vt_ui8 = element ui8 { xsd:unsignedLong }
+vt_uint = element uint { xsd:unsignedInt }
+vt_r4 = element r4 { xsd:float }
+vt_r8 = element r8 { xsd:double }
+vt_decimal = element decimal { xsd:decimal }
+vt_lpstr = element lpstr { xsd:string }
+vt_lpwstr = element lpwstr { xsd:string }
+vt_bstr = element bstr { xsd:string }
+vt_date = element date { xsd:dateTime }
+vt_filetime = element filetime { xsd:dateTime }
+vt_bool = element bool { xsd:boolean }
+vt_cy = element cy { vt_ST_Cy }
+vt_error = element error { vt_ST_Error }
+vt_stream = element stream { xsd:base64Binary }
+vt_ostream = element ostream { xsd:base64Binary }
+vt_storage = element storage { xsd:base64Binary }
+vt_ostorage = element ostorage { xsd:base64Binary }
+vt_vstream = element vstream { vt_CT_Vstream }
+vt_clsid = element clsid { s_ST_Guid }

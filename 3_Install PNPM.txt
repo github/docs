@@ -1,0 +1,11 @@
+2024-02-20T05:05:49.3800340Z ##[group]Run npm install -g @pnpm/exe@8.14
+2024-02-20T05:05:49.3801010Z [36;1mnpm install -g @pnpm/exe@8.14[0m
+2024-02-20T05:05:49.3932560Z shell: /bin/bash -e {0}
+2024-02-20T05:05:49.3933040Z env:
+2024-02-20T05:05:49.3933480Z   CYPRESS_CACHE_FOLDER: /Users/runner/work/nx/nx/.cypress
+2024-02-20T05:05:49.3934090Z ##[endgroup]
+2024-02-20T05:05:53.2236680Z 
+2024-02-20T05:05:53.2237510Z added 2 packages in 3s
+2024-02-20T05:05:53.2237850Z 
+2024-02-20T05:05:53.2238440Z 2 packages are looking for funding
+2024-02-20T05:05:53.2239390Z   run `npm fund` for details
