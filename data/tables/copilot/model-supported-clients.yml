@@ -202,12 +202,3 @@
   eclipse: false
   xcode: false
   jetbrains: false
-
-- name: Goldeneye
-  dotcom: false
-  cli: false
-  vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false

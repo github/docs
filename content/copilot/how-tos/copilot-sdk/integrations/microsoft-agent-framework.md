@@ -24,7 +24,7 @@ The Microsoft Agent Framework is the unified successor to Semantic Kernel and Au
 | A2A protocol | Agent-to-Agent communication standard supported by the framework |
 
 > [!NOTE]
-> MAF integration packages are available for .NET and Python. For TypeScript and Go, use the {% data variables.copilot.copilot_sdk_short %} directly—the standard SDK APIs provide tool calling, streaming, and custom agents.
+> MAF integration packages are available for .NET and Python. For TypeScript, Go, and Java, use the {% data variables.copilot.copilot_sdk_short %} directly—the standard SDK APIs provide tool calling, streaming, and custom agents.
 
 ## Prerequisites
 
@@ -317,5 +317,7 @@ catch (AgentException ex)
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-sdk/sdk-getting-started)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-agents)
+* [AUTOTITLE](/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-skills)
 * [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/agents/providers/github-copilot)
 * [Blog: Build AI Agents with GitHub Copilot SDK and Microsoft Agent Framework](https://devblogs.microsoft.com/semantic-kernel/build-ai-agents-with-github-copilot-sdk-and-microsoft-agent-framework/)

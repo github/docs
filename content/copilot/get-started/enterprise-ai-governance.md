@@ -29,11 +29,13 @@ journeyTracks:
     title: 'Adopting agents'
     description: 'Roll out agentic features within secure guardrails.'
     guides:
+      - href: '/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents'
       - href: '/copilot/concepts/agents/enterprise-management'
       - href: '/copilot/tutorials/cloud-agent/build-guardrails'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/enable-copilot-cloud-agent'
       - href: '/copilot/tutorials/cloud-agent/give-access-to-resources'
       - href: '/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise'
       - href: '/copilot/tutorials/copilot-cli-hooks'
+      - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/enable-copilot-code-review'
       - href: '/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity'
 ---

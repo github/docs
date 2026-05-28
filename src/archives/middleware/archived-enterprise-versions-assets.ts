@@ -94,6 +94,9 @@ export default async function archivedEnterpriseVersionsAssets(
       {
         retries: 0,
         throwHttpErrors: true,
+        // Stay safely under MAX_REQUEST_TIMEOUT (10s) so the upstream
+        // can't push us past the request budget.
+        timeout: 8_000,
       },
     )
 

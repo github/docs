@@ -287,9 +287,11 @@ These two examples show how to calculate the total nodes in a call.
 
 If {% data variables.product.github %} takes more than 10 seconds to process an API request, {% data variables.product.github %} will terminate the request and you will receive a timeout response and a message reporting that "We couldn't respond to your request in time".
 
+When this happens, you may receive either a `502` or `504` status code. Both status codes indicate that your request timed out.
+
 {% data variables.product.github %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
-You can check the status of the GraphQL API at [githubstatus.com](https://www.githubstatus.com/) to determine whether the timeout is due to a problem with the API. You can also try to simplify your request or try your request later. For example, if you are requesting a large number of objects in a single request, you can try requesting fewer objects split over multiple queries.
+You can check the status of the GraphQL API at [githubstatus.com](https://www.githubstatus.com/) to determine whether the timeout is due to a problem with the API. You can also try to simplify your request or try your request later. For tips on improving query performance, see [Query optimization strategies](#query-optimization-strategies).
 
 If a timeout occurs for any of your API requests, additional points will be deducted from your primary rate limit for the next hour to protect the speed and reliability of the API.
 

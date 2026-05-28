@@ -77,7 +77,6 @@ Anthropic models include a cache write cost in addition to cached input.
 | {% endif %}{% endfor %} |
 
 [^7]: {% data variables.copilot.copilot_raptor_mini %} uses {% data variables.copilot.copilot_gpt_5_mini %} pricing.
-[^8]: {% data variables.copilot.copilot_goldeneye %} uses {% data variables.copilot.copilot_gpt_51_codex %} pricing.
 
 ## Code completions
 

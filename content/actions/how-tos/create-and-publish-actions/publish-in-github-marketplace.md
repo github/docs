@@ -32,7 +32,6 @@ Actions are published to {% data variables.product.prodname_marketplace %} immed
 * The action must be in a public repository.
 * Each repository must contain a single action metadata file (`action.yml` or `action.yaml`) at the root.
   * Repositories may include other actions metadata files in sub-folders, but they will not be automatically listed in the marketplace.
-* Each repository must _not_ contain any workflow files.
 * The `name` in the action's metadata file must be unique.
   * The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
   * The `name` cannot match a user or organization on {% data variables.product.prodname_dotcom %}, unless the user or organization owner is publishing the action. For example, only the {% data variables.product.prodname_dotcom %} organization can publish an action named `github`.

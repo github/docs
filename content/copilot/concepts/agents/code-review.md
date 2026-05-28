@@ -119,6 +119,9 @@ You can view the {% data variables.product.prodname_actions %} minutes associate
 
 ## Code review monthly quota
 
+> [!IMPORTANT]
+> Starting June 1, 2026, {% data variables.copilot.copilot_code-review_short %} will have a model multiplier of 13. This means each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests will be reduced by 13.
+
 Each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one.
 
 If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the pull request author's quota. If a review is manually requested by another user, the usage is applied to that user's quota instead.

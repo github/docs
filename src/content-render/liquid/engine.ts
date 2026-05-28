@@ -6,6 +6,7 @@ import Ifversion from './ifversion'
 import { Tool, tags as toolTags } from './tool'
 import { Spotlight, tags as spotlightTags } from './spotlight'
 import { Prompt } from './prompt'
+import { CodeTab, CodeTabs, tags as codeTabTags } from './codetabs'
 import IndentedDataReference from './indented-data-reference'
 
 type LiquidTagDef = Parameters<Liquid['registerTag']>[1]
@@ -15,6 +16,8 @@ const ifversionTag = Ifversion as unknown as LiquidTagDef
 const toolTag = Tool as unknown as LiquidTagDef
 const spotlightTag = Spotlight as unknown as LiquidTagDef
 const promptTag = Prompt as unknown as LiquidTagDef
+const codeTabsTag = CodeTabs as unknown as LiquidTagDef
+const codeTabTag = CodeTab as unknown as LiquidTagDef
 const indentedDataReferenceTag = IndentedDataReference as unknown as LiquidTagDef
 
 export const engine = new Liquid({
@@ -33,6 +36,10 @@ for (const tag of toolTags) {
 
 for (const tag in spotlightTags) {
   engine.registerTag(tag, spotlightTag)
+}
+
+for (const tag of codeTabTags) {
+  engine.registerTag(tag, tag === 'codetabs' ? codeTabsTag : codeTabTag)
 }
 
 engine.registerTag('prompt', promptTag)
