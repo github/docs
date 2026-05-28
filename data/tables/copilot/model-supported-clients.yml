@@ -106,7 +106,7 @@
 
 - name: Gemini 3.1 Pro
   dotcom: false
-  cli: false
+  cli: true
   vscode: true
   vs: true
   eclipse: true
@@ -115,7 +115,7 @@
 
 - name: Gemini 3.5 Flash
   dotcom: false
-  cli: false
+  cli: true
   vscode: true
   vs: true
   eclipse: true
