@@ -294,7 +294,11 @@ export const ArticleGrid = ({
           />
         ))}
         {filteredResults.length === 0 && (
-          <div className={styles.noArticlesContainer} data-testid="no-articles-message">
+          <div
+            role="status"
+            className={styles.noArticlesContainer}
+            data-testid="no-articles-message"
+          >
             <p className={styles.noArticlesText}>{t('article_grid.no_articles_found')}</p>
           </div>
         )}

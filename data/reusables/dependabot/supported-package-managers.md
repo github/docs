@@ -51,6 +51,9 @@ pipenv                      | `pip` | 2024.4.1 | {% octicon "check" aria-label="
 | {% ifversion dependabot-rust-toolchain-support %} |
 [Rust toolchain](#rust-toolchain) | `rust-toolchain` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable   | Not applicable   |
 | {% endif %} |
+| {% ifversion dependabot-sbt-support %} |
+[sbt](#sbt) | `sbt` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 [Swift](#swift)      | `swift`      | v5  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 [Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.13.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 | {% ifversion dependabot-uv-security-support %} |
@@ -223,6 +226,22 @@ Supported update patterns {% data variables.product.prodname_dependabot %} can u
 
 * Versioned toolchains such as `channel = "1.xx.yy"` and `channel = "1.xx"`.
 * Dated toolchains such as `channel = "nightly-YYYY-MM-DD"` and `channel = "beta-YYYY-MM-DD"`.
+
+{% endif %}
+
+{% ifversion dependabot-sbt-support %}
+
+### sbt
+
+{% data variables.product.prodname_dependabot %} supports updates to sbt dependency files. sbt resolves artifacts from Maven repositories and uses the same version ordering as Maven.
+
+The following manifest files are supported:
+
+* `build.sbt` (root): fetched as a required file.
+* `project/plugins.sbt`: fetched if present.
+* `project/build.properties`: fetched if present.
+* `project/*.scala`: all `.scala` files in the `project/` directory.
+* `{subdir}/build.sbt`: scans root-level subdirectories (excluding `project/`, `target/`, `.git`, `.github`).
 
 {% endif %}
 

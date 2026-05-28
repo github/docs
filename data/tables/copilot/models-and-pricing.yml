@@ -198,12 +198,3 @@
   cached_input: $0.025
   output: $2.00
   notes: Uses GPT-5 mini pricing
-
-- model: 'Goldeneye[^8]'
-  provider: github
-  release_status: Public preview
-  category: Powerful
-  input: $1.25
-  cached_input: $0.125
-  output: $10.00
-  notes: Uses GPT-5.1-Codex pricing
