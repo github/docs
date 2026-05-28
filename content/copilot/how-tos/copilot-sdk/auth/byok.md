@@ -9,6 +9,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/authenticate-copilot-sdk/bring-your-own-key
 contentType: how-tos
 ---
 

@@ -10,6 +10,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/use-copilot-sdk/working-with-hooks
 contentType: how-tos
 ---
 

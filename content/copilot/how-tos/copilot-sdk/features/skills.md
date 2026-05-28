@@ -8,6 +8,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-skills
 contentType: how-tos
 ---
 

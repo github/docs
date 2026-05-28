@@ -9,6 +9,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/use-copilot-sdk/streaming-events
 contentType: how-tos
 ---
 

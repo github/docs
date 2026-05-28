@@ -108,11 +108,11 @@ As the owner of an enterprise or organization account, or as a billing manager, 
    * To limit spending at a SKU-level, in "SKU-level budget" choose a Product and then a SKU, for example: {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_short %} Premium Request.
 To limit spending on premium requests across all features, enable "Bundled premium requests budget" or to limit spending for a specific feature, set a SKU-level budget for the feature (such as {% data variables.product.prodname_copilot_short %} premium requests, {% data variables.product.prodname_spark_short %} premium requests, or {% data variables.copilot.copilot_cloud_agent %} premium requests).
 1. Under "Budget scope", set the scope of spending for this budget.
-1. Under "Budget", set a budget amount.
+1. Under "Budget", set a budget amount or license count.
 
-   To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached**, if available.
+   To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached** or **Limit usage when budget limit is reached**, if available. **This option is available for metered products and for {% data variables.product.prodname_AS %} SKU-level budgets**. For {% data variables.product.prodname_AS %}, this option prevents new enablement on additional repositories. It doesn't disable {% data variables.product.prodname_AS %} on repositories where it is already active. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#hard-budgets-for-github-advanced-security-skus).
 
-   >[!IMPORTANT] If you do not select **Stop usage when budget limit is reached**, you will be notified by email if you exceed your budget, but usage **will not** be stopped.
+   >[!IMPORTANT] If you do not select one of these options, you will be notified by email if you exceed your budget, but usage **will not** be stopped.
 
 1. To receive an alert if your budget has reached 75%, 90% and 100% thresholds, select **Receive budget threshold alerts** under "Alerts". When the budget has reached the specific threshold, you will be notified via email and a banner on {% data variables.product.github %}. You may opt out at any time.
 

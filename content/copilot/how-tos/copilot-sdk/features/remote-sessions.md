@@ -9,6 +9,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/use-copilot-sdk/remote-sessions
 contentType: how-tos
 ---
 

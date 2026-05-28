@@ -4,6 +4,8 @@ intro: Configure and deploy the GitHub Copilot SDK for your use case.
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/set-up-copilot-sdk
 contentType: how-tos
 children:
   - /azure-managed-identity

@@ -4,6 +4,8 @@ intro: Detailed API reference for each session hook in the GitHub Copilot SDK.
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/use-hooks
 contentType: how-tos
 children:
   - /error-handling
