@@ -1,12 +1,15 @@
 ---
-title: Observability
-intro: Monitor and debug your GitHub Copilot SDK applications.
+title: Authentication
+intro: >-
+  Choose the authentication method that best fits your deployment scenario for
+  the GitHub Copilot SDK.
 versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
 children:
-  - /opentelemetry
+  - /authenticate
+  - /byok
 ---
 
 <!-- markdownlint-disable GHD046 GHD005 -->
