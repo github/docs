@@ -1,3 +1,4 @@
+````md
 ---
 title: Working with the npm registry
 intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
@@ -25,9 +26,9 @@ category:
 
 ## URL for the {% data variables.product.prodname_npm_registry %}
 
-If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to https://npm.pkg.github.com. Examples in this article use this URL.
+If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to `https://npm.pkg.github.com`. Examples in this article use this URL.
 
-If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace "https://npm.pkg.github.com" with `https://npm.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
+If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace `https://npm.pkg.github.com` with `https://npm.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
 
 {% endif %}
 
@@ -36,16 +37,22 @@ If you access {% data variables.product.github %} at another domain, such as `oc
 
 ## Limits for published npm versions
 
-If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
+If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may experience performance issues and request timeouts.
 
-In the future, to improve the performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
+To improve platform performance, {% data variables.product.prodname_dotcom %} may enforce a publishing limit of 1,000 versions per package in the future. Versions published before reaching this limit will remain available for download.
 
-If you reach this limit, consider deleting package versions or contacting support for help. When this limit is enforced, our documentation will be updated with a way to work around it. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) or [AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#contacting-support).
+If you reach this limit, consider deleting unused package versions or contacting support. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) or [AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#contacting-support).
+
 {% endif %}
 
 ## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
+
+Before publishing or installing packages from {% data variables.product.prodname_registry %}, you must authenticate npm using either:
+
+- A personal access token stored in a `~/.npmrc` file
+- The `npm login` command
 
 {% ifversion packages-npm-v2 %}
 
@@ -54,15 +61,31 @@ If you reach this limit, consider deleting package versions or contacting suppor
 This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 {% data reusables.package_registry.v2-actions-codespaces %}
+
 {% endif %}
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user `~/.npmrc` file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
+You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user `~/.npmrc` file to include your {% data variables.product.pat_v1 %}, or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
 
-To authenticate by adding your {% data variables.product.pat_v1 %} to your `~/.npmrc` file, edit the `~/.npmrc` file for your project to include the following line, replacing {% ifversion ghes %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new `~/.npmrc` file if one doesn't exist.
+### About the `.npmrc` file
+
+The `.npmrc` file stores npm configuration settings, including registry mappings and authentication tokens.
+
+You can configure authentication:
+
+- Globally using `~/.npmrc`
+- Per project using a local `.npmrc` file
+
+Using a project-level `.npmrc` file helps ensure packages are published to the correct registry.
+
+### Authenticating using a `~/.npmrc` file
+
+To authenticate by adding your {% data variables.product.pat_v1 %} to your `~/.npmrc` file, edit the file and include the following line, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`TOKEN` with your {% data variables.product.pat_generic %}.
+
+Create a new `~/.npmrc` file if one does not already exist.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -70,7 +93,7 @@ If your instance has subdomain isolation enabled:
 
 ```shell
 //{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}/:_authToken=TOKEN
-```
+````
 
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
@@ -81,11 +104,17 @@ If your instance has subdomain isolation disabled:
 
 {% endif %}
 
-To authenticate by logging in to npm, use the `npm login` command, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_v1 %}, and PUBLIC-EMAIL-ADDRESS with your email address.
+### Authenticating using `npm login`
 
-If you are using npm CLI version 9 or greater and are logging in or out of a private registry using the command line, you should use the `--auth-type=legacy` option to read in your authentication details from prompts instead of using the default login flow through a browser. For more information, see [`npm-login`](https://docs.npmjs.com/cli/v10/commands/npm-login).
+To authenticate using the command line, use the `npm login` command and replace:
 
-If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the namespace that hosts the package (the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository where the package is hosted{% endif %}) when you authenticate to {% data variables.product.prodname_registry %}.
+* `USERNAME` with your {% data variables.product.prodname_dotcom %} username
+* `TOKEN` with your {% data variables.product.pat_v1 %}
+* `PUBLIC-EMAIL-ADDRESS` with your email address
+
+If you are using npm CLI version 9 or greater and logging in to a private registry from the command line, use the `--auth-type=legacy` option to avoid the browser-based login flow. For more information, see [`npm-login`](https://docs.npmjs.com/cli/v10/commands/npm-login).
+
+If {% data variables.product.prodname_registry %} is not your default package registry and you want to use the `npm audit` command, we recommend using the `--scope` flag with the namespace that hosts the package.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -96,6 +125,7 @@ $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://{% ifversio
 
 > Username: USERNAME
 > Password: TOKEN
+> Email: PUBLIC-EMAIL-ADDRESS
 ```
 
 {% ifversion ghes %}
@@ -103,8 +133,10 @@ If your instance has subdomain isolation disabled:
 
 ```shell
 $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_registry/npm/
+
 > Username: USERNAME
 > Password: TOKEN
+> Email: PUBLIC-EMAIL-ADDRESS
 ```
 
 {% endif %}
@@ -112,143 +144,236 @@ $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_r
 ## Publishing a package
 
 > [!NOTE]
-{% ifversion packages-npm-v2 %}
+> {% ifversion packages-npm-v2 %}
 
-> * Package names and scopes must only use lowercase letters.
-> * The tarball for an npm version must be smaller than 256MB in size.
+> * Package names and scopes must use lowercase letters only.
+> * The tarball for an npm version must be smaller than 256MB.
 
 {% else %}
 
-> Package names and scopes must only use lowercase letters.
+> Package names and scopes must use lowercase letters only.
 
 {% endif %}
 
 {% ifversion packages-npm-v2 %}
-The {% data variables.product.prodname_registry %} registry stores npm packages within your organization or personal account, and allows you to associate a package with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
 
-{% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
+The {% data variables.product.prodname_registry %} registry stores npm packages within your organization or personal account and allows you to associate packages with repositories.
 
-You can connect a package to a repository as soon as the package is published by including a `repository` field in the `package.json` file. You can also use this method to connect multiple packages to the same repository. For more information, see [Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository).
+You can configure packages to inherit permissions from a repository or define granular permissions independently.
+
+{% data reusables.package_registry.publishing-user-scoped-packages %}
+
+For more information on linking a published package with a repository, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
+
 {% else %}
-By default, your package is published in the {% data variables.product.prodname_dotcom %} repository that you specify in the `name` field of the `package.json` file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `repository` field in the `package.json` file. For more information, see [Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository).
+
+By default, your package is published in the {% data variables.product.prodname_dotcom %} repository specified in the `name` field of the `package.json` file.
+
+For example, a package named `@my-org/test` will publish to the `my-org/test` repository.
+
 {% endif %}
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}
 
-You can set up the scope mapping for your project using either a local `.npmrc` file in the project or using the `publishConfig` option in the `package.json`. {% data variables.product.prodname_registry %} only supports scoped npm packages. Scoped packages have names with the format of `@NAMESPACE/PACKAGE-NAME`. Scoped packages always begin with an `@` symbol. You may need to update the name in your `package.json` to use the scoped name. For example, if you're the user `octocat` and your package is named `test`, you would assign the scoped package name as follows: `"name": "@octocat/test"`.
+{% data variables.product.prodname_registry %} supports scoped npm packages only.
 
-{% data reusables.package_registry.viewing-packages %}
+Scoped packages use the format:
+
+```shell
+@NAMESPACE/PACKAGE-NAME
+```
+
+For example:
+
+```json
+{
+  "name": "@octocat/test"
+}
+```
+
+### Example project structure
+
+```text
+my-package/
+├── .npmrc
+├── package.json
+├── README.md
+└── src/
+```
 
 ### Publishing a package using a local `.npmrc` file
 
-You can use an `.npmrc` file to configure the scope mapping for your project. In the `.npmrc` file, use the {% data variables.product.prodname_registry %} URL and account owner so {% data variables.product.prodname_registry %} knows where to route package requests. Using an `.npmrc` file prevents other developers from accidentally publishing the package to npmjs.org instead of {% data variables.product.prodname_registry %}.
+You can use a local `.npmrc` file to configure scope mapping for your project.
+
+Example `.npmrc` file:
+
+```shell
+@NAMESPACE:registry=https://npm.pkg.github.com
+```
+
+This configuration ensures packages under the specified namespace are published to {% data variables.product.prodname_registry %} instead of the public npm registry.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Verify the name of your package in your project's `package.json`. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing it to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your `package.json` should be `@my-org/test`.
+
+1. Verify the package name in your project's `package.json` file.
+
+   Example:
+
+   ```json
+   {
+     "name": "@my-org/test"
+   }
+   ```
+
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-### Publishing a package using `publishConfig` in the `package.json` file
+### Publishing a package using `publishConfig`
 
-You can use `publishConfig` element in the `package.json` file to specify the registry where you want the package published. For more information, see [publishConfig](https://docs.npmjs.com/files/package.json#publishconfig) in the npm documentation.
+You can define the target registry directly in `package.json` using `publishConfig`.
 
-1. Edit the `package.json` file for your package and include a `publishConfig` entry.
-   {% ifversion ghes %}
-   If your instance has subdomain isolation enabled:
-   {% endif %}
+For more information, see [publishConfig](https://docs.npmjs.com/files/package.json#publishconfig) in the npm documentation.
 
-   ```shell
-   "publishConfig": {
-     "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm. HOSTNAME/{% endif %}"
-   },
-   ```
+Example:
 
-   {% ifversion ghes %}
-   If your instance has subdomain isolation disabled:
+```json
+{
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
+```
 
-   ```shell
-   "publishConfig": {
-     "registry": "https://HOSTNAME/_registry/npm/"
-   },
-   ```
-
-   {% endif %}
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
 ## Publishing multiple packages to the same repository
 
-To publish multiple packages {% ifversion packages-npm-v2 %}and link them {% endif %}to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the `package.json` file for each package. For more information, see [Creating a package.json file](https://docs.npmjs.com/creating-a-package-json-file) and [Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules) in the npm documentation.
+To publish multiple packages {% ifversion packages-npm-v2 %}and link them {% endif %}to the same repository, include the repository URL in the `repository` field of each package's `package.json` file.
 
-To ensure the repository's URL is correct, replace `REPOSITORY` with the name of the repository containing the package you want to publish, and `OWNER` with the name of the personal account or organization on {% data variables.product.prodname_dotcom %} that owns the repository.
+Example:
 
-{% data variables.product.prodname_registry %} will match the repository based on the URL{% ifversion packages-npm-v2 %}{% else %}, instead of based on the package name{% endif %}.
-
-```shell
-"repository":"https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY",
+```json
+{
+  "repository": "https://github.com/OWNER/REPOSITORY"
+}
 ```
+
+{% data variables.product.prodname_registry %} matches repositories using the repository URL.
 
 ## Installing a package
 
-You can install packages from {% data variables.product.prodname_registry %} by adding the packages as dependencies in the `package.json` file for your project. For more information on using a `package.json` in your project, see [Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json) in the npm documentation.
+You can install packages from {% data variables.product.prodname_registry %} by adding them as dependencies in your project's `package.json` file.
 
-By default, you can add packages from one organization. For more information, see [Installing packages from other organizations](#installing-packages-from-other-organizations).
+Example:
 
-You also need to add the `.npmrc` file to your project so that all requests to install packages will go through {% data variables.product.prodname_registry %}. When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from _npmjs.org_. For more information, see [npm-scope](https://docs.npmjs.com/misc/scope) in the npm documentation.
+```json
+{
+  "dependencies": {
+    "@my-org/server": "1.0.0"
+  }
+}
+```
+
+You must also configure a `.npmrc` file so package requests are routed through {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Configure `package.json` in your project to use the package you are installing. To add your package dependencies to the `package.json` file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from _npmjs.com_, specify the full name, such as `@babel/core` or `lodash`. Replace `ORGANIZATION_NAME/PACKAGE_NAME` with your package dependency.
 
-   ```json
-   {
-     "name": "@my-org/server",
-     "version": "1.0.0",
-     "description": "Server app that uses the ORGANIZATION_NAME/PACKAGE_NAME package",
-     "main": "index.js",
-     "author": "",
-     "license": "MIT",
-     "dependencies": {
-       "ORGANIZATION_NAME/PACKAGE_NAME": "1.0.0"
-     }
-   }
-   ```
+Install dependencies:
 
-1. Install the package.
-
-   ```shell
-   npm install
-   ```
+```shell
+npm install
+```
 
 ### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your `.npmrc` file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
+By default, npm uses packages from a single organization scope.
 
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
+To use packages from multiple organizations or users, add multiple namespace mappings to your `.npmrc` file.
 
-```shell
-@NAMESPACE:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
-@NAMESPACE:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
-```
-
-{% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+Example:
 
 ```shell
-@NAMESPACE:registry=https://HOSTNAME/_registry/npm
-@NAMESPACE:registry=https://HOSTNAME/_registry/npm
+@ORG_ONE:registry=https://npm.pkg.github.com
+@ORG_TWO:registry=https://npm.pkg.github.com
 ```
 
-{% endif %}
+## Troubleshooting
+
+### `npm ERR! 403 Forbidden`
+
+This error commonly occurs when:
+
+* Your token does not have the required scopes
+* Authentication failed
+* You do not have permission to access the package
+
+Verify that your {% data variables.product.pat_v1 %} includes the required scopes:
+
+* `read:packages`
+* `write:packages`
+
+### `Package name must be lowercase`
+
+{% data variables.product.prodname_registry %} only supports lowercase package names and scopes.
+
+Invalid:
+
+```shell
+@MyOrg/TestPackage
+```
+
+Valid:
+
+```shell
+@myorg/testpackage
+```
+
+### `npm login` opens a browser or hangs
+
+If you are using npm CLI version 9 or later, use:
+
+```shell
+npm login --auth-type=legacy
+```
+
+### Package published to npmjs.org instead of {% data variables.product.prodname_registry %}
+
+This issue commonly occurs when:
+
+* The `.npmrc` file is missing
+* The registry is not configured correctly
+* `publishConfig` is not defined
+
+Verify that your project contains either:
+
+```shell
+@NAMESPACE:registry=https://npm.pkg.github.com
+```
+
+or:
+
+```json
+{
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
+```
 
 {% ifversion ghes %}
 
 ## Using the official npm registry
 
-{% data variables.product.prodname_registry %} allows you to access the official npm registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official npm registry](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+{% data variables.product.prodname_registry %} allows access to the official npm registry at `registry.npmjs.com` if enabled by your {% data variables.product.prodname_ghe_server %} administrator.
+
+For more information, see [Connecting to the official npm registry](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+
 {% endif %}
+
+```
+```
