@@ -22,6 +22,10 @@
   current_multiplier: '15'
   new_multiplier: '27'
 
+- model: 'Claude Opus 4.8'
+  current_multiplier: '15'
+  new_multiplier: '27'
+
 - model: 'Claude Sonnet 4.5'
   current_multiplier: '1'
   new_multiplier: '6'

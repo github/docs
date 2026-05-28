@@ -9,6 +9,7 @@ import { allVersions } from '@/versions/lib/all-versions'
 import processPreviews from './utils/process-previews'
 import processUpcomingChanges from './utils/process-upcoming-changes'
 import processSchemas from './utils/process-schemas'
+import { bucketSchemaByCategory, writeCategoryFiles } from './utils/bucket-by-category'
 import {
   prependDatedEntry,
   createChangelogEntry,
@@ -110,11 +111,54 @@ async function main() {
       ...preview,
       toggled_by: [preview.toggled_by].flat(),
     }))
-    const schemaJsonPerVersion = await processSchemas(latestSchema, previewsForSchema) // This is slow!
+    // Fallback category source for GHES versions that pre-date the upstream
+    // `@docsCategory` DSL (DSL landed on master 2026-05-07; GHES 3.16-3.21
+    // were cut at the 3.21 freeze 2026-03-19). Without this, every type on
+    // those versions gets bucketed as "other". GHES 3.22+ is expected to
+    // include the DSL natively so it's excluded from the fallback.
+    let fallbackCategoryMap: Record<string, Record<string, string>> | undefined
+    const ghesMatch = /^ghes-(\d+)\.(\d+)$/.exec(graphqlVersion)
+    if (ghesMatch) {
+      const major = Number(ghesMatch[1])
+      const minor = Number(ghesMatch[2])
+      if (major < 3 || (major === 3 && minor < 22)) {
+        try {
+          fallbackCategoryMap = JSON.parse(
+            await fs.readFile(path.join(graphqlStaticDir, 'fpt', 'category-map.json'), 'utf8'),
+          )
+          console.log(`Using fpt/category-map.json as @docsCategory fallback for ${graphqlVersion}`)
+        } catch {
+          // fpt hasn't been processed yet (shouldn't happen given iteration
+          // order, but stay defensive). Without it, ghes types fall to "other",
+          // so warn loudly rather than silently mis-bucketing the schema.
+          console.warn(
+            `No fpt/category-map.json available as @docsCategory fallback for ${graphqlVersion}; ` +
+              `every type without an explicit @docsCategory directive will be bucketed as "other". ` +
+              `This usually means sync was run for a single GHES version, or the iteration order of ` +
+              `allVersions changed so that fpt is no longer processed first.`,
+          )
+        }
+      }
+    }
+    const schemaJsonPerVersion = await processSchemas(
+      latestSchema,
+      previewsForSchema,
+      fallbackCategoryMap,
+    ) // This is slow!
+
+    // Keep writing the monolithic `schema.json` so the existing runtime
+    // loader continues to work. The per-category files are emitted alongside
+    // it so a follow-up PR can flip the loader over without coordinating a
+    // sync run.
     await updateStaticFile(
       schemaJsonPerVersion,
       path.join(graphqlStaticDir, graphqlVersion, 'schema.json'),
     )
+
+    // Split the schema by category so the runtime can lazily load only the
+    // bucket it needs for a given page request.
+    const perCategoryFiles = bucketSchemaByCategory(schemaJsonPerVersion)
+    await writeCategoryFiles(path.join(graphqlStaticDir, graphqlVersion), perCategoryFiles)
 
     // 4. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {

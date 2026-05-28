@@ -94,15 +94,16 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 {% rowheaders %}
 
 | Model                                                | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
-|------------------------------------------------------| --- | --- | --- | --- | --- |
-| {% data variables.copilot.copilot_gemini_3_flash %}  | `v1.115.0` and later | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gemini_31_pro %}   | `v1.115.0` and later | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gemini_35_flash %} | `v1.115.0` and later | `17.14.22` or `18.1.0` and later | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gpt_52_codex %}    | No minimum listed | `17.14.19` or `18.0.0` and later | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
-| {% data variables.copilot.copilot_gpt_53_codex %}    | `v1.104.1` and later | `17.14.19` and later | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
-| {% data variables.copilot.copilot_gpt_54 %}          | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_gpt_54_mini %}     | `v1.104.1` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_gpt_55 %}          | `v1.117` and later | `17.14.19` and later | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+|------------------------------------------------------|----------------------------------------------|------------------------------------------| --- | --- | --- |
+| {% data variables.copilot.copilot_gemini_3_flash %}  | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_31_pro %}   | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_35_flash %} | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gpt_52_codex %}    | No minimum listed                            | `17.14.19` or `18.0.0` and later         | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_53_codex %}    | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_54 %}          | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_54_mini %}     | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_55 %}          | `v1.117` and later                           | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_claude_opus_48 %}  | `v1.118` and later                           | `17.14.19` and later                     | TBD | TBD | TBD |
 
 {% endrowheaders %}
 
