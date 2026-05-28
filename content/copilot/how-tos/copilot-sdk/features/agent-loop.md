@@ -7,6 +7,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/use-copilot-sdk/agent-loop
 contentType: how-tos
 ---
 

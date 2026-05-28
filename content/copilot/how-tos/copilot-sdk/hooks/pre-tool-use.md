@@ -5,6 +5,8 @@ intro: 'The `onPreToolUse` hook is called **before** a tool executes. Use it to:
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/use-hooks/pre-tool-use
 contentType: how-tos
 ---
 

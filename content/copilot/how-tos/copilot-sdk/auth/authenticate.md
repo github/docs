@@ -8,6 +8,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/authenticate-copilot-sdk/authenticate-copilot-sdk
 contentType: how-tos
 ---
 

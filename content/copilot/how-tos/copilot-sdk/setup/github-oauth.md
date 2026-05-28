@@ -8,6 +8,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/set-up-copilot-sdk/github-oauth
 contentType: how-tos
 ---
 

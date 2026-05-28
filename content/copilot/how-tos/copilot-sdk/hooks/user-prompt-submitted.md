@@ -7,6 +7,8 @@ intro: >-
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /copilot/how-tos/copilot-sdk/use-hooks/user-prompt-submitted
 contentType: how-tos
 ---
 
