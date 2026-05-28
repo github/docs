@@ -175,7 +175,7 @@ To mitigate the risk of inaccurate code, you should carefully review and test th
 
 {% data variables.copilot.copilot_cloud_agent %} may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
-If this happens, {% data variables.product.prodname_copilot_short %} will show matches in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+If this happens, {% data variables.product.prodname_copilot_short %} will show matches in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 ### Legal and regulatory considerations
 

@@ -1,18 +1,26 @@
 ---
-title: Manage and track {% data variables.copilot.copilot_cloud_agent %} sessions
-shortTitle: Manage and track agents
-intro: 'Monitor your agent''s progress in real time, steer it with follow-up prompts, and stop or archive sessions.'
-product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+title: Managing agent sessions
+shortTitle: Manage agent sessions
+intro: 'Monitor an agent''s progress in real time, steer it with follow-up prompts, and stop or archive sessions.'
 versions:
   feature: copilot
 contentType: how-tos
+allowTitleToDifferFromFilename: true
 category:
   - Author and optimize with Copilot
 redirect_from:
   - /copilot/how-tos/use-copilot-agents/manage-agents
+  - /copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions
+  - /copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-the-copilot-coding-agent-logs
+  - /copilot/using-github-copilot/coding-agent/using-the-copilot-coding-agent-logs
+  - /copilot/how-tos/agents/copilot-coding-agent/using-the-copilot-coding-agent-logs
+  - /copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions
+  - /copilot/how-tos/agents/copilot-coding-agent/track-copilot-sessions
+  - /copilot/how-tos/agents/coding-agent/track-copilot-sessions
 ---
 
-Use the agents panel on {% data variables.product.github %} to start, monitor, and manage agent sessions across your repositories.
+Use the agents panel on {% data variables.product.github %} to monitor and manage agent sessions across your repositories.
 
 ## Monitor agent activity
 

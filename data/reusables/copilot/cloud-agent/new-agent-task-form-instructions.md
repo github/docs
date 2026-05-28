@@ -12,4 +12,4 @@
 
     {% data variables.product.prodname_copilot_short %} will start a new session, which will appear in the list below the prompt box. {% data variables.product.prodname_copilot_short %} will work on the task and push any code changes.
 
-    You can track {% data variables.product.prodname_copilot_short %}'s work and open a pull request in one click from the session logs. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+    You can track {% data variables.product.prodname_copilot_short %}'s work and open a pull request in one click from the session logs. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
