@@ -1,0 +1,6 @@
+# Reference: https://github.com/dependabot/dependabot-core/pull/15012
+# sbt support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.21'

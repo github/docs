@@ -17,6 +17,12 @@ category:
   - Manage Copilot for a team
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. If enabled, requests over the allowance are billed to your organization or enterprise. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/requests-in-github-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
 
 Premium request usage beyond the allowance is governed by two complementary control layers:
@@ -53,7 +59,7 @@ You can set the policy for an enterprise or a standalone organization.
 1. Check the budgets for your enterprise or organizations, and edit or delete any budgets that "stop usage when budget limit is reached" for the Premium Request SKU. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending#editing-or-deleting-a-budget).
 1. Premium request budget types:
    * **Bundled premium requests budget**: Manages all premium request SKUs together (recommended for most users)
-   * **Individual SKU budgets**: Set separate budgets for each AI tool ({% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_spark_short %}, {% data variables.copilot.copilot_coding_agent %})
+   * **Individual SKU budgets**: Set separate budgets for each AI tool ({% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_spark_short %}, {% data variables.copilot.copilot_cloud_agent %})
 
 Creating new budgets without deleting an existing budget does not override the existing budget. If **any** applicable budget with "Stop usage when budget limit is reached" enabled is exhausted, additional premium requests are blocked.
 

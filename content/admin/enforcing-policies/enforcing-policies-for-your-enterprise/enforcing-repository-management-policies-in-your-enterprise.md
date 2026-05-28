@@ -190,6 +190,19 @@ Across all organizations owned by your enterprise, you can allow members with ad
 1. Under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Repository issue deletion", select the dropdown menu and click a policy.
 
+{% ifversion repo-admin-branch-rename %}
+
+## Enforcing a policy for renaming protected branches
+
+By default, repository administrators can rename branches that are targeted by enterprise-level rules, provided the new branch name is still targeted by those rules. You can restrict this ability to enterprise owners only.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.repositories-tab %}
+1. Under "Repository branch renames", select the dropdown menu and click a policy.
+
+{% endif %}
+
 {% ifversion ghes %}
 
 ## Enforcing a policy for Git push limits

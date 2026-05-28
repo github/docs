@@ -115,6 +115,7 @@ The following are example schemas for the user-level and enterprise-level data r
     "pull_requests" : {
       "median_minutes_to_merge" : 2.5,
       "median_minutes_to_merge_copilot_authored" : 2.5,
+      "median_minutes_to_merge_copilot_reviewed" : 2.5,
       "total_applied_suggestions" : 1,
       "total_copilot_applied_suggestions" : 1,
       "total_copilot_suggestions" : 1,
@@ -122,6 +123,7 @@ The following are example schemas for the user-level and enterprise-level data r
       "total_created_by_copilot" : 1,
       "total_merged" : 2,
       "total_merged_created_by_copilot" : 1,
+      "total_merged_reviewed_by_copilot" : 1,
       "total_reviewed" : 1,
       "total_reviewed_by_copilot" : 1,
       "total_suggestions" : 1
@@ -199,6 +201,7 @@ The following are example schemas for the user-level and enterprise-level data r
       "total_created_by_copilot" : 0,
       "total_merged" : 0,
       "total_merged_created_by_copilot" : 0,
+      "total_merged_reviewed_by_copilot" : 0,
       "total_reviewed" : 1,
       "total_reviewed_by_copilot" : 0,
       "total_suggestions" : 1
@@ -245,4 +248,71 @@ The following are example schemas for the user-level and enterprise-level data r
   "day_partition" : "2025-10-01",
   "entity_id_partition" : 2
 } ]
+```
+
+The following user-teams report examples are returned by the `user-teams-1-day` endpoints and are intended to be joined with the per-user usage report on `user_id`, `day`, and the relevant entity id (`organization_id` for the organization scope, `enterprise_id` for the enterprise scope) to derive team-level metrics. For more guidance, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/team-level-metrics).
+
+> [!NOTE]
+> Teams with fewer than 5 seated {% data variables.product.prodname_copilot_short %} users are omitted from user-teams reports.
+
+## Organization user-teams schema example
+
+```json copy
+[
+  {
+    "user_id": 1001,
+    "user_login": "octocat",
+    "day": "2026-05-14",
+    "organization_id": "999",
+    "team_id": 42,
+    "slug": "frontend"
+  },
+  {
+    "user_id": 1001,
+    "user_login": "octocat",
+    "day": "2026-05-14",
+    "organization_id": "999",
+    "team_id": 43,
+    "slug": "backend"
+  },
+  {
+    "user_id": 1002,
+    "user_login": "hubot",
+    "day": "2026-05-14",
+    "organization_id": "999",
+    "team_id": 42,
+    "slug": "frontend"
+  }
+]
+```
+
+## Enterprise user-teams schema example
+
+```json copy
+[
+  {
+    "user_id": 1001,
+    "user_login": "octocat",
+    "day": "2026-05-14",
+    "enterprise_id": "1",
+    "team_id": 9001,
+    "slug": "eng-platform"
+  },
+  {
+    "user_id": 1001,
+    "user_login": "octocat",
+    "day": "2026-05-14",
+    "enterprise_id": "1",
+    "team_id": 7001,
+    "slug": "business-analytics"
+  },
+  {
+    "user_id": 1002,
+    "user_login": "hubot",
+    "day": "2026-05-14",
+    "enterprise_id": "1",
+    "team_id": 9001,
+    "slug": "eng-platform"
+  }
+]
 ```

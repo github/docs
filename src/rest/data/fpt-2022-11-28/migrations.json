@@ -40,17 +40,7 @@
           "description": "<p>Exclude attributes from the API response to improve performance</p>",
           "in": "query",
           "schema": {
-            "type": "array",
-            "items": {
-              "description": "Allowed values that can be passed to the exclude param.",
-              "enum": [
-                "repositories"
-              ],
-              "type": "string",
-              "examples": [
-                "repositories"
-              ]
-            }
+            "type": "array"
           }
         }
       ],
@@ -842,11 +832,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -2000,11 +1985,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -2331,17 +2311,7 @@
           "description": "<p>Exclude attributes from the API response to improve performance</p>",
           "in": "query",
           "schema": {
-            "type": "array",
-            "items": {
-              "description": "Allowed values that can be passed to the exclude param.",
-              "enum": [
-                "repositories"
-              ],
-              "type": "string",
-              "examples": [
-                "repositories"
-              ]
-            }
+            "type": "array"
           }
         }
       ],
@@ -3130,11 +3100,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -4169,9 +4134,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -4452,6 +4414,15 @@
                                     "TEAM",
                                     "ROLE"
                                   ]
+                                },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
                                 }
                               }
                             }
@@ -7216,11 +7187,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -8366,11 +8332,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -8696,10 +8657,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "array"
           },
           "description": ""
         }
@@ -9489,11 +9447,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -10518,9 +10471,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -10801,6 +10751,15 @@
                                     "TEAM",
                                     "ROLE"
                                   ]
+                                },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
                                 }
                               }
                             }

@@ -10,10 +10,13 @@ children:
   - /manage-enterprise-policies
   - /manage-agents
   - /manage-spark
+  - /manage-availability-of-default-models
   - /use-your-own-api-keys
+  - /review-audit-logs
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise
   - /copilot/how-tos/administer/enterprises
   - /copilot/how-tos/administer/manage-for-enterprise
 contentType: how-tos
 ---
+

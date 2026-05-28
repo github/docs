@@ -11,6 +11,8 @@ category:
   - Author and optimize with Copilot
 redirect_from:
   - /copilot/how-tos/copilot-cli/automate-with-actions
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 You can run {% data variables.copilot.copilot_cli %} in a {% data variables.product.prodname_actions %} workflow to automate AI-powered tasks as part of your CI/CD process. For example, you can summarize recent repository activity, generate reports, or scaffold project content. {% data variables.copilot.copilot_cli %} runs on the Actions runner like any other CLI tool, so you can install it during a job and invoke it from workflow steps.

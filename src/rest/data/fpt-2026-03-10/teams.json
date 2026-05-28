@@ -42,12 +42,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "enterprise",
               "organization"
-            ],
-            "default": "all"
+            ]
           }
         }
       ],
@@ -3273,9 +3273,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -3556,6 +3553,15 @@
                                     "TEAM",
                                     "ROLE"
                                   ]
+                                },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
                                 }
                               }
                             }
@@ -3794,7 +3800,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -7264,9 +7269,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -7547,6 +7549,15 @@
                                     "TEAM",
                                     "ROLE"
                                   ]
+                                },
+                                "mode": {
+                                  "type": "string",
+                                  "description": "The bypass mode for the reviewer",
+                                  "enum": [
+                                    "ALWAYS",
+                                    "EXEMPT"
+                                  ],
+                                  "default": "ALWAYS"
                                 }
                               }
                             }
@@ -7779,7 +7790,6 @@
               "has_projects": true,
               "has_wiki": true,
               "has_pages": false,
-              "has_downloads": true,
               "archived": false,
               "disabled": false,
               "visibility": "public",
@@ -9851,12 +9861,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "member",
               "maintainer",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -10688,12 +10698,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "member",
               "maintainer",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {

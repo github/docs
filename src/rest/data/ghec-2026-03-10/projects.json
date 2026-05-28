@@ -28,7 +28,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -37,7 +37,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -46,7 +46,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -1623,7 +1623,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1632,7 +1632,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -1641,7 +1641,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -3353,7 +3353,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -3362,7 +3362,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -3371,7 +3371,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -5483,7 +5483,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5492,7 +5492,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -5501,7 +5501,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7594,7 +7594,7 @@
         },
         {
           "name": "q",
-          "description": "<p>Search query to filter items, see <a href=\"https://docs.github.com/enterprise-cloud@latest//issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects\">Filtering projects</a> for more information.</p>",
+          "description": "<p>Search query to filter items, see <a href=\"https://docs.github.com/enterprise-cloud@latest/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects\">Filtering projects</a> for more information.</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7606,24 +7606,11 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</p>\n<p>Example: <code>fields[]=123&#x26;fields[]=456&#x26;fields[]=789</code> or <code>fields=123,456,789</code></p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7632,7 +7619,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -7641,7 +7628,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9529,7 +9516,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -10042,11 +10029,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -12807,11 +12789,6 @@
                                     "collaborators_only"
                                   ]
                                 },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
-                                },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
                                   "default": false,
@@ -13611,11 +13588,6 @@
                                     "all",
                                     "collaborators_only"
                                   ]
-                                },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
                                 },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
@@ -15468,7 +15440,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -15981,11 +15953,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -18746,11 +18713,6 @@
                                     "collaborators_only"
                                   ]
                                 },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
-                                },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
                                   "default": false,
@@ -19550,11 +19512,6 @@
                                     "all",
                                     "collaborators_only"
                                   ]
-                                },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
                                 },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
@@ -21407,7 +21364,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -21920,11 +21877,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -24685,11 +24637,6 @@
                                     "collaborators_only"
                                   ]
                                 },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
-                                },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
                                   "default": false,
@@ -25489,11 +25436,6 @@
                                     "all",
                                     "collaborators_only"
                                   ]
-                                },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
                                 },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
@@ -27348,7 +27290,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -27861,11 +27803,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -30626,11 +30563,6 @@
                                     "collaborators_only"
                                   ]
                                 },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
-                                },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
                                   "default": false,
@@ -31430,11 +31362,6 @@
                                     "all",
                                     "collaborators_only"
                                   ]
-                                },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
                                 },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
@@ -32505,20 +32432,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</p>\n<p>Example: fields[]=123&#x26;fields[]=456&#x26;fields[]=789 or fields=123,456,789</p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -38559,24 +38473,11 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the\ntitle field will be returned.</p>\n<p>Example: <code>fields[]=123&#x26;fields[]=456&#x26;fields[]=789</code> or <code>fields=123,456,789</code></p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -38585,7 +38486,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -38594,7 +38495,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -39629,7 +39530,7 @@
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -39638,7 +39539,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -39647,7 +39548,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -39656,7 +39557,7 @@
         },
         {
           "name": "q",
-          "description": "<p>Search query to filter items, see <a href=\"https://docs.github.com/enterprise-cloud@latest//issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects\">Filtering projects</a> for more information.</p>",
+          "description": "<p>Search query to filter items, see <a href=\"https://docs.github.com/enterprise-cloud@latest/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects\">Filtering projects</a> for more information.</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -39668,20 +39569,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</p>\n<p>Example: <code>fields[]=123&#x26;fields[]=456&#x26;fields[]=789</code> or <code>fields=123,456,789</code></p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -41559,7 +41447,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -42072,11 +41960,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -44837,11 +44720,6 @@
                                     "collaborators_only"
                                   ]
                                 },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
-                                },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
                                   "default": false,
@@ -45641,11 +45519,6 @@
                                     "all",
                                     "collaborators_only"
                                   ]
-                                },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
                                 },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
@@ -47498,7 +47371,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -48011,11 +47884,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -50776,11 +50644,6 @@
                                     "collaborators_only"
                                   ]
                                 },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
-                                },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
                                   "default": false,
@@ -51580,11 +51443,6 @@
                                     "all",
                                     "collaborators_only"
                                   ]
-                                },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
                                 },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
@@ -53437,7 +53295,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -53950,11 +53808,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -56715,11 +56568,6 @@
                                     "collaborators_only"
                                   ]
                                 },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
-                                },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
                                   "default": false,
@@ -57519,11 +57367,6 @@
                                     "all",
                                     "collaborators_only"
                                   ]
-                                },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
                                 },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
@@ -59378,7 +59221,7 @@
                         },
                         "type": {
                           "title": "Issue Type",
-                          "description": "The type of issue.",
+                          "description": "The type assigned to the issue. This is only present for issues in repositories where issue types are supported.",
                           "type": [
                             "object",
                             "null"
@@ -59891,11 +59734,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -62656,11 +62494,6 @@
                                     "collaborators_only"
                                   ]
                                 },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
-                                },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
                                   "default": false,
@@ -63460,11 +63293,6 @@
                                     "all",
                                     "collaborators_only"
                                   ]
-                                },
-                                "has_commit_comments": {
-                                  "description": "Whether commit comments are enabled.",
-                                  "default": true,
-                                  "type": "boolean"
                                 },
                                 "archived": {
                                   "description": "Whether the repository is archived.",
@@ -64530,20 +64358,7 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the title field will be returned.</p>\n<p>Example: fields[]=123&#x26;fields[]=456&#x26;fields[]=789 or fields=123,456,789</p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -70571,24 +70386,11 @@
           "description": "<p>Limit results to specific fields, by their IDs. If not specified, the\ntitle field will be returned.</p>\n<p>Example: <code>fields[]=123&#x26;fields[]=456&#x26;fields[]=789</code> or <code>fields=123,456,789</code></p>",
           "in": "query",
           "required": false,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "maxItems": 50,
-                "items": {
-                  "type": "string"
-                }
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "before",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results before this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -70597,7 +70399,7 @@
         },
         {
           "name": "after",
-          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>A cursor, as given in the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a>. If specified, the query only searches for results after this cursor. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "required": false,
           "schema": {
@@ -70606,7 +70408,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -71658,7 +71460,7 @@
         {
           "type": "string",
           "name": "filter",
-          "description": "<p>The filter query for the view. See <a href=\"https://docs.github.com/enterprise-cloud@latest//issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects\">Filtering projects</a> for more information.</p>"
+          "description": "<p>The filter query for the view. See <a href=\"https://docs.github.com/enterprise-cloud@latest/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects\">Filtering projects</a> for more information.</p>"
         },
         {
           "type": "array of integers",
@@ -72683,7 +72485,7 @@
         {
           "type": "string",
           "name": "filter",
-          "description": "<p>The filter query for the view. See <a href=\"https://docs.github.com/enterprise-cloud@latest//issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects\">Filtering projects</a> for more information.</p>"
+          "description": "<p>The filter query for the view. See <a href=\"https://docs.github.com/enterprise-cloud@latest/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects\">Filtering projects</a> for more information.</p>"
         },
         {
           "type": "array of integers",

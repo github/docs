@@ -10,6 +10,8 @@ contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page
   - Learn about Copilot CLI # Copilot CLI bespoke page
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 Plugins provide a way to distribute custom CLI functionality. You can use a plugin to add a preconfigured set of capabilities to {% data variables.copilot.copilot_cli_short %}.
@@ -56,6 +58,8 @@ Examples of marketplaces include:
 * [claudeforge-marketplace](https://github.com/claudeforge/marketplace)
 
 For more about adding marketplaces and installing plugins from them, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing).
+
+Enterprise administrators can also define plugin standards that apply across the enterprise, including specifying additional marketplaces and plugins that are automatically installed for all {% data variables.copilot.copilot_cli_short %} users. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards).
 
 ## Plugins compared with manual configuration
 

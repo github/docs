@@ -2111,6 +2111,14 @@
                               "write"
                             ]
                           },
+                          "code_quality": {
+                            "type": "string",
+                            "description": "The level of permission to grant the access token to view and manage code quality data.",
+                            "enum": [
+                              "read",
+                              "write"
+                            ]
+                          },
                           "codespaces": {
                             "type": "string",
                             "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces.",
@@ -2332,12 +2340,13 @@
                             "type": "string",
                             "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                             "enum": [
+                              "read",
                               "write"
                             ]
                           },
                           "organization_copilot_agent_settings": {
                             "type": "string",
-                            "description": "The level of permission to grant the access token to view and manage Copilot coding agent settings for an organization.",
+                            "description": "The level of permission to grant the access token to view and manage Copilot cloud agent settings for an organization.",
                             "enum": [
                               "read",
                               "write"
@@ -3183,13 +3192,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -3199,6 +3208,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "completed",
               "cancelled",
@@ -3208,8 +3218,7 @@
               "denied",
               "open",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -6404,12 +6413,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "2fa_disabled",
               "2fa_insecure",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -6419,12 +6428,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "admin",
               "member"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -9113,7 +9122,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the fine-grained permissions that can be used in custom organization roles for an organization. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To list the fine-grained permissions that can be used in custom repository roles for an organization, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/orgs/organization-roles#list-repository-fine-grained-permissions-for-an-organization\">List repository fine-grained permissions for an organization</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>read_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists the fine-grained permissions that can be used in custom organization roles for an organization. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To list the fine-grained permissions that can be used in custom repository roles for an organization, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/orgs/organization-roles#list-repository-fine-grained-permissions-for-an-organization\">List repository fine-grained permissions for an organization</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>View organization roles</strong> (<code>read_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -9205,7 +9214,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Lists the organization roles available in this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>read_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Lists the organization roles available in this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>View organization roles</strong> (<code>read_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -9572,7 +9581,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Creates a custom organization role that can be assigned to users and teams, granting them specific\npermissions over the organization and optionally across all repositories in the organization. For\nmore information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To include repository permissions in an organization role, you must also include the <code>base_role</code>\nfield, which is one of <code>read</code>, <code>write</code>, <code>triage</code>, <code>maintain</code>, or <code>admin</code> (or <code>none</code> if no base role is set). This base role provides a set of\nfine-grained permissions as well as implicit permissions - those that aren't exposed as fine-grained permissions\nand can only be granted through the base role (like \"reading a repo\").  If you include repository permissions, those\npermissions apply across all of the repositories in the organization. You do not have to include organization permissions\nin order to add repository permissions.</p>\n<p>See \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/orgs/custom-roles#list-repository-fine-grained-permissions-for-an-organization\">List repository permissions</a>\" for valid repository permissions.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>write_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates a custom organization role that can be assigned to users and teams, granting them specific\npermissions over the organization and optionally across all repositories in the organization. For\nmore information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To include repository permissions in an organization role, you must also include the <code>base_role</code>\nfield, which is one of <code>read</code>, <code>write</code>, <code>triage</code>, <code>maintain</code>, or <code>admin</code> (or <code>none</code> if no base role is set). This base role provides a set of\nfine-grained permissions as well as implicit permissions - those that aren't exposed as fine-grained permissions\nand can only be granted through the base role (like \"reading a repo\").  If you include repository permissions, those\npermissions apply across all of the repositories in the organization. You do not have to include organization permissions\nin order to add repository permissions.</p>\n<p>See \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/orgs/custom-roles#list-repository-fine-grained-permissions-for-an-organization\">List repository permissions</a>\" for valid repository permissions.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>Manage custom organization roles</strong> (<code>write_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10313,7 +10322,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets an organization role that is available to this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>read_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Gets an organization role that is available to this organization. For more information on organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles\">Using organization roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>View organization roles</strong> (<code>read_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10635,7 +10644,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Updates an existing custom organization role. Permission changes will apply to all assignees. For more information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>If the update would add repository permissions, the <code>base_role</code> must also be set to a value besides <code>none</code>, either\npreviously or as part of the update.\nIf the update sets the <code>base_role</code> field to <code>none</code>, you must also remove all of the repository\npermissions as well, otherwise the update will fail.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>write_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Updates an existing custom organization role. Permission changes will apply to all assignees. For more information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>If the update would add repository permissions, the <code>base_role</code> must also be set to a value besides <code>none</code>, either\npreviously or as part of the update.\nIf the update sets the <code>base_role</code> field to <code>none</code>, you must also remove all of the repository\npermissions as well, otherwise the update will fail.</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>Manage custom organization roles</strong> (<code>write_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -10936,7 +10945,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Deletes a custom organization role. For more information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>A user, or a user on a team, with the fine-grained permissions of <code>write_organization_custom_org_role</code> in the organization.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Deletes a custom organization role. For more information on custom organization roles, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles\">Managing people's access to your organization with roles</a>.\"</p>\n<p>To use this endpoint, the authenticated user must be one of:</p>\n<ul>\n<li>An administrator for the organization.</li>\n<li>An organization member (or a member of a team) assigned a custom organization role that includes the <strong>Manage custom organization roles</strong> (<code>write_organization_custom_org_role</code>) permission. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/permissions-of-custom-organization-roles#permissions-for-organization-access\">Permissions for organization access</a>.\"</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -11647,12 +11656,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "2fa_disabled",
               "2fa_insecure",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -12066,10 +12075,10 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created_at",
             "enum": [
               "created_at"
-            ],
-            "default": "created_at"
+            ]
           }
         },
         {
@@ -12079,11 +12088,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -12092,14 +12101,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "owner[]=octocat1,owner[]=octocat2"
-            ]
+            "type": "array"
           }
         },
         {
@@ -12108,10 +12110,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "Hello-World"
-            ]
+            "type": "string"
           }
         },
         {
@@ -12120,10 +12119,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "issues_read"
-            ]
+            "type": "string"
           }
         },
         {
@@ -12132,8 +12128,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -12142,8 +12137,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -12152,14 +12146,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 50,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "token_id[]=1,token_id[]=2"
-            ]
+            "type": "array"
           }
         }
       ],
@@ -12467,8 +12454,7 @@
           {
             "\"Personal access token requests\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -12572,8 +12558,7 @@
           {
             "\"Personal access token requests\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -12673,8 +12658,7 @@
           {
             "\"Personal access token requests\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -13217,9 +13201,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -13528,8 +13509,7 @@
           {
             "\"Personal access token requests\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -13574,10 +13554,10 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created_at",
             "enum": [
               "created_at"
-            ],
-            "default": "created_at"
+            ]
           }
         },
         {
@@ -13587,11 +13567,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -13600,14 +13580,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "owner[]=octocat1,owner[]=octocat2"
-            ]
+            "type": "array"
           }
         },
         {
@@ -13616,10 +13589,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "Hello-World"
-            ]
+            "type": "string"
           }
         },
         {
@@ -13628,10 +13598,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "issues_read"
-            ]
+            "type": "string"
           }
         },
         {
@@ -13640,8 +13607,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -13650,8 +13616,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -13660,14 +13625,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "array",
-            "maxItems": 50,
-            "items": {
-              "type": "string"
-            },
-            "examples": [
-              "token_id[]=1,token_id[]=2"
-            ]
+            "type": "array"
           }
         }
       ],
@@ -13966,8 +13924,7 @@
           {
             "\"Personal access tokens\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -14065,8 +14022,7 @@
           {
             "\"Personal access tokens\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -14159,8 +14115,7 @@
           {
             "\"Personal access tokens\" organization permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -14703,9 +14658,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -15014,8 +14966,7 @@
           {
             "\"Personal access tokens\" organization permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -15060,13 +15011,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -15083,13 +15034,13 @@
           "in": "query",
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "pass",
               "fail",
               "bypass",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -15536,10 +15487,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "branch,tag,push"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -16630,128 +16578,6 @@
                           }
                         },
                         {
-                          "title": "file_path_restriction",
-                          "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "enum": [
-                                "file_path_restriction"
-                              ]
-                            },
-                            "parameters": {
-                              "type": "object",
-                              "properties": {
-                                "restricted_file_paths": {
-                                  "type": "array",
-                                  "description": "The file paths that are restricted from being pushed to the commit graph.",
-                                  "items": {
-                                    "type": "string"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "restricted_file_paths"
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "title": "max_file_path_length",
-                          "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "enum": [
-                                "max_file_path_length"
-                              ]
-                            },
-                            "parameters": {
-                              "type": "object",
-                              "properties": {
-                                "max_file_path_length": {
-                                  "type": "integer",
-                                  "description": "The maximum amount of characters allowed in file paths.",
-                                  "minimum": 1,
-                                  "maximum": 32767
-                                }
-                              },
-                              "required": [
-                                "max_file_path_length"
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "title": "file_extension_restriction",
-                          "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "enum": [
-                                "file_extension_restriction"
-                              ]
-                            },
-                            "parameters": {
-                              "type": "object",
-                              "properties": {
-                                "restricted_file_extensions": {
-                                  "type": "array",
-                                  "description": "The file extensions that are restricted from being pushed to the commit graph.",
-                                  "items": {
-                                    "type": "string"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "restricted_file_extensions"
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "title": "max_file_size",
-                          "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
-                          "type": "object",
-                          "required": [
-                            "type"
-                          ],
-                          "properties": {
-                            "type": {
-                              "type": "string",
-                              "enum": [
-                                "max_file_size"
-                              ]
-                            },
-                            "parameters": {
-                              "type": "object",
-                              "properties": {
-                                "max_file_size": {
-                                  "type": "integer",
-                                  "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
-                                  "minimum": 1,
-                                  "maximum": 100
-                                }
-                              },
-                              "required": [
-                                "max_file_size"
-                              ]
-                            }
-                          }
-                        },
-                        {
                           "title": "workflows",
                           "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
                           "type": "object",
@@ -16901,6 +16727,128 @@
                                   "description": "Copilot automatically reviews each new push to the pull request."
                                 }
                               }
+                            }
+                          }
+                        },
+                        {
+                          "title": "file_path_restriction",
+                          "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "file_path_restriction"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "restricted_file_paths": {
+                                  "type": "array",
+                                  "description": "The file paths that are restricted from being pushed to the commit graph.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "restricted_file_paths"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "title": "max_file_path_length",
+                          "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "max_file_path_length"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "max_file_path_length": {
+                                  "type": "integer",
+                                  "description": "The maximum amount of characters allowed in file paths.",
+                                  "minimum": 1,
+                                  "maximum": 32767
+                                }
+                              },
+                              "required": [
+                                "max_file_path_length"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "title": "file_extension_restriction",
+                          "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "file_extension_restriction"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "restricted_file_extensions": {
+                                  "type": "array",
+                                  "description": "The file extensions that are restricted from being pushed to the commit graph.",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "restricted_file_extensions"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "title": "max_file_size",
+                          "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
+                          "type": "object",
+                          "required": [
+                            "type"
+                          ],
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "max_file_size"
+                              ]
+                            },
+                            "parameters": {
+                              "type": "object",
+                              "properties": {
+                                "max_file_size": {
+                                  "type": "integer",
+                                  "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
+                                  "minimum": 1,
+                                  "maximum": 100
+                                }
+                              },
+                              "required": [
+                                "max_file_size"
+                              ]
                             }
                           }
                         }
@@ -19188,128 +19136,6 @@
                         }
                       },
                       {
-                        "title": "file_path_restriction",
-                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_path_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_paths": {
-                                "type": "array",
-                                "description": "The file paths that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_paths"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_path_length",
-                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_path_length"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_path_length": {
-                                "type": "integer",
-                                "description": "The maximum amount of characters allowed in file paths.",
-                                "minimum": 1,
-                                "maximum": 32767
-                              }
-                            },
-                            "required": [
-                              "max_file_path_length"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "file_extension_restriction",
-                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_extension_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_extensions": {
-                                "type": "array",
-                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_extensions"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_size",
-                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_size"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_size": {
-                                "type": "integer",
-                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
-                                "minimum": 1,
-                                "maximum": 100
-                              }
-                            },
-                            "required": [
-                              "max_file_size"
-                            ]
-                          }
-                        }
-                      },
-                      {
                         "title": "workflows",
                         "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
                         "type": "object",
@@ -19459,6 +19285,128 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_path_restriction",
+                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_path_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_paths": {
+                                "type": "array",
+                                "description": "The file paths that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_paths"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_path_length",
+                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_path_length"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_path_length": {
+                                "type": "integer",
+                                "description": "The maximum amount of characters allowed in file paths.",
+                                "minimum": 1,
+                                "maximum": 32767
+                              }
+                            },
+                            "required": [
+                              "max_file_path_length"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_extension_restriction",
+                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_extension_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_extensions": {
+                                "type": "array",
+                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_extensions"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_size",
+                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_size"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_size": {
+                                "type": "integer",
+                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
+                                "minimum": 1,
+                                "maximum": 100
+                              }
+                            },
+                            "required": [
+                              "max_file_size"
+                            ]
                           }
                         }
                       }
@@ -20635,128 +20583,6 @@
                         }
                       },
                       {
-                        "title": "file_path_restriction",
-                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_path_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_paths": {
-                                "type": "array",
-                                "description": "The file paths that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_paths"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_path_length",
-                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_path_length"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_path_length": {
-                                "type": "integer",
-                                "description": "The maximum amount of characters allowed in file paths.",
-                                "minimum": 1,
-                                "maximum": 32767
-                              }
-                            },
-                            "required": [
-                              "max_file_path_length"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "file_extension_restriction",
-                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_extension_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_extensions": {
-                                "type": "array",
-                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_extensions"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_size",
-                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_size"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_size": {
-                                "type": "integer",
-                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
-                                "minimum": 1,
-                                "maximum": 100
-                              }
-                            },
-                            "required": [
-                              "max_file_size"
-                            ]
-                          }
-                        }
-                      },
-                      {
                         "title": "workflows",
                         "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
                         "type": "object",
@@ -20906,6 +20732,128 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_path_restriction",
+                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_path_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_paths": {
+                                "type": "array",
+                                "description": "The file paths that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_paths"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_path_length",
+                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_path_length"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_path_length": {
+                                "type": "integer",
+                                "description": "The maximum amount of characters allowed in file paths.",
+                                "minimum": 1,
+                                "maximum": 32767
+                              }
+                            },
+                            "required": [
+                              "max_file_path_length"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_extension_restriction",
+                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_extension_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_extensions": {
+                                "type": "array",
+                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_extensions"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_size",
+                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_size"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_size": {
+                                "type": "integer",
+                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
+                                "minimum": 1,
+                                "maximum": 100
+                              }
+                            },
+                            "required": [
+                              "max_file_size"
+                            ]
                           }
                         }
                       }
@@ -23190,128 +23138,6 @@
                         }
                       },
                       {
-                        "title": "file_path_restriction",
-                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_path_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_paths": {
-                                "type": "array",
-                                "description": "The file paths that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_paths"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_path_length",
-                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_path_length"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_path_length": {
-                                "type": "integer",
-                                "description": "The maximum amount of characters allowed in file paths.",
-                                "minimum": 1,
-                                "maximum": 32767
-                              }
-                            },
-                            "required": [
-                              "max_file_path_length"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "file_extension_restriction",
-                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_extension_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_extensions": {
-                                "type": "array",
-                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_extensions"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_size",
-                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_size"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_size": {
-                                "type": "integer",
-                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
-                                "minimum": 1,
-                                "maximum": 100
-                              }
-                            },
-                            "required": [
-                              "max_file_size"
-                            ]
-                          }
-                        }
-                      },
-                      {
                         "title": "workflows",
                         "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
                         "type": "object",
@@ -23461,6 +23287,128 @@
                                 "description": "Copilot automatically reviews each new push to the pull request."
                               }
                             }
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_path_restriction",
+                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_path_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_paths": {
+                                "type": "array",
+                                "description": "The file paths that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_paths"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_path_length",
+                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_path_length"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_path_length": {
+                                "type": "integer",
+                                "description": "The maximum amount of characters allowed in file paths.",
+                                "minimum": 1,
+                                "maximum": 32767
+                              }
+                            },
+                            "required": [
+                              "max_file_path_length"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_extension_restriction",
+                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_extension_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_extensions": {
+                                "type": "array",
+                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_extensions"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_size",
+                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_size"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_size": {
+                                "type": "integer",
+                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
+                                "minimum": 1,
+                                "maximum": 100
+                              }
+                            },
+                            "required": [
+                              "max_file_size"
+                            ]
                           }
                         }
                       }
@@ -25326,6 +25274,19 @@
           "required": false,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "status",
+          "description": "<p>Returns webhook deliveries filtered by delivery outcome classification based on <code>status_code</code> range. A <code>status</code> of <code>success</code> returns deliveries with a <code>status_code</code> in the 200-399 range (inclusive). A <code>status</code> of <code>failure</code> returns deliveries with a <code>status_code</code> in the 400-599 range (inclusive).</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "success",
+              "failure"
+            ]
           }
         }
       ],

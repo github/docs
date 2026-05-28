@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import { createLogger } from '@/observability/logger'
 import {
   firstVersionDeprecatedOnNewSite,
@@ -252,7 +252,7 @@ export default async function archivedEnterpriseVersions(
 
   const statsdTags = [`version:${requestedVersion}`]
   const startTime = Date.now()
-  const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy', [
+  const r = await statsd.asyncTimer(adaptForTimer(doGet), 'archive_enterprise_proxy', [
     ...statsdTags,
     `path:${req.path}`,
   ])()

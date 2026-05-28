@@ -21,7 +21,7 @@ category:
 
 ## Commit was made less than 24 hours ago
 
-After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
+After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/contribution-settings/viewing-commit-details-from-your-timeline).
 
 ## Your local Git commit email isn't connected to your account
 

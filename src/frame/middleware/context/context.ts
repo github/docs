@@ -83,6 +83,10 @@ export default async function contextualize(
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
   req.context.initialRestVersioningReleaseDate =
     allVersions[nonEnterpriseDefaultVersion].apiVersions[0]
+  // The default REST API version that requests use when no X-GitHub-Api-Version header is specified
+  // This is the oldest supported version (last in the sorted descending array)
+  const apiVersions = allVersions[nonEnterpriseDefaultVersion].apiVersions
+  req.context.defaultRestApiVersion = apiVersions[apiVersions.length - 1]
 
   const restDate = new Date(req.context.initialRestVersioningReleaseDate)
   req.context.initialRestVersioningReleaseDateLong = restDate.toUTCString().split(' 00:')[0]

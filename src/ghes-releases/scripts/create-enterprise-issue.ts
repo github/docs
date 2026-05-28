@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create release tracking issues for a new GHES version
+ */
 import { readFileSync } from 'fs'
 import { basename } from 'path'
 import { Liquid } from 'liquidjs'

@@ -2,6 +2,8 @@
 title: GitHub SIRT description RFC 2350
 versions:
   fpt: '*'
+category:
+  - Review privacy and security policies
 ---
 <!-- markdownlint-disable search-replace -->
 

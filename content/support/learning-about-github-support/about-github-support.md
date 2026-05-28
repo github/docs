@@ -57,7 +57,7 @@ For more information, see [AUTOTITLE](/support/learning-about-github-support/abo
 
 {% ifversion fpt or ghec %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.github %} on [{% data variables.product.github %} Status](https://githubstatus.com/). For more information, see [About GitHub status](#about-github-status).
+Before contacting {% data variables.contact.github_support %}, check [{% data variables.product.github %} Status](https://githubstatus.com/) for any active incidents affecting {% data variables.product.github %} services. For more information, see [About GitHub status](#about-github-status).
 
 {% endif %}
 
@@ -87,11 +87,13 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 {% data reusables.support.scope-of-support %}
 
+For security-related matters, all communication is handled in writing through support tickets. This includes incident notifications, account compromise investigations, and credential exposure. Written communication ensures responses are reviewed, fully documented, and auditable. Callback and screen share requests cannot be accommodated for these tickets.
+
 {% ifversion ghec or fpt %}
 
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.github %} services and view information about past incidents on {% data variables.product.github %}'s [Status page](https://githubstatus.com).
+You can check for any incidents currently affecting {% data variables.product.github %} services, including {% data variables.product.prodname_copilot %} model availability, and view information about past incidents on {% data variables.product.github %}'s [Status page](https://githubstatus.com).
 
 You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.github %}.
 
@@ -141,7 +143,7 @@ To learn more about training options, including customized trainings, see [{% da
 
 ### Support in English
 
-For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays. The standard response time is 24 hours.
+For standard non-urgent issues, we offer support in English 24 hours per day, 5 days per week, excluding weekends and national U.S. holidays.
 
 {% ifversion ghes %}
 For urgent issues, we are available 24 hours per day, 7 days per week, even during national U.S. holidays.

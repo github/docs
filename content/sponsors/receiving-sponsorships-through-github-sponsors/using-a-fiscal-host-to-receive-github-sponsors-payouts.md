@@ -25,7 +25,6 @@ When you sign up for a {% data variables.product.prodname_sponsors %} profile so
 * [Python Software Foundation](https://www.python.org/psf-landing/)
 * [Radiant Earth](https://radiant.earth/)
 * [Software in the Public Interest](https://www.spi-inc.org/)
-* [Software Underground](https://softwareunderground.org/)
 
 ## Choosing to use a fiscal host
 

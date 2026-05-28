@@ -42,7 +42,6 @@ jobs:
           - audit-logs
           - automated-pipelines
           # - bookmarklets
-          - changelogs
           # - code-scanning
           # - codeql-cli
           - color-schemes
@@ -58,7 +57,6 @@ jobs:
           - graphql
           - landings
           - languages
-          - learning-track
           # - links
           - observability
           # - open-source

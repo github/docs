@@ -1,10 +1,13 @@
 import type { Response, NextFunction } from 'express'
 
+import { createLogger } from '@/observability/logger'
 import { ExtendedRequest } from '@/types'
 import statsd from '@/observability/lib/statsd'
 import { allTools } from '@/tools/lib/all-tools'
 import { allPlatforms } from '@/tools/lib/all-platforms'
 import { defaultCacheControl } from '@/frame/middleware/cache-control'
+
+const logger = createLogger(import.meta.url)
 
 const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 
@@ -46,11 +49,11 @@ export default function handleInvalidQuerystringValues(
         const values = Array.isArray(queryValue) ? queryValue : [queryValue]
         if (values.some((val) => typeof val === 'string' && !validValues.includes(val))) {
           if (process.env.NODE_ENV === 'development') {
-            console.warn(
-              'Warning! Invalid query string *value* detected. %O is not one of %O',
-              query[key],
+            logger.warn('Invalid query string value detected', {
+              key,
+              value: query[key],
               validValues,
-            )
+            })
           }
           // Some value is not recognized. Redirect to the current URL
           // but with that query string key removed.

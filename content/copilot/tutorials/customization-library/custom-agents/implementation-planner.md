@@ -89,6 +89,6 @@ Adjust the detail level based on your needs - solo projects might need less form
     Create a detailed implementation plan for adding user authentication to our web app, including technical approach, phases, and risk assessment.
    ```
 
-The agent task will appear on the page below the text box. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+The agent task will appear on the page below the text box. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
 
 {% data reusables.copilot.custom-agents-further-reading %}

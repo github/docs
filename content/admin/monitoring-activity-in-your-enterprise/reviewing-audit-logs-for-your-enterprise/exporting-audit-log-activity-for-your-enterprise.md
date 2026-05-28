@@ -20,9 +20,15 @@ You can export Git events data by downloading a JSON file from your enterprise a
 
 {% data reusables.audit_log.git-events-export-limited %}
 
-{% data reusables.audit_log.exported-log-keys-and-values %}
+As an alternative to exporting log events, you can use the API to retrieve audit log events. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise).
 
-As an alternative to exporting log events, you can use the API to retrieve audit log events, or set up {% data variables.product.github %} to stream audit data as events are logged. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
+### Export limits
+
+{% data reusables.audit_log.audit-log-enterprise-export-limit %}
+
+### Exported log keys and values
+
+{% data reusables.audit_log.exported-log-keys-and-values %}
 
 ## Exporting audit log data
 

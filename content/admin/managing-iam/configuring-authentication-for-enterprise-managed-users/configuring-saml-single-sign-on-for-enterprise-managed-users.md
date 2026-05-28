@@ -27,6 +27,8 @@ With {% data variables.product.prodname_emus %}, access to your enterprise's res
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your IdP is unavailable.
 
+{% data reusables.enterprise-accounts.gov-cloud-idp-not-supported %}
+
 {% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 ## Prerequisites
@@ -88,7 +90,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
     | :- | :- | :- |
     | IdP Sign-On URL | Login URL, IdP URL | Application's URL on your IdP |
     | IdP Identifier URL | Issuer | IdP's identifier to service providers for SAML authentication |
-    | Signing certificate, Base64-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
+    | Signing certificate, PEM-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
 
 ### Configure your enterprise
 

@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 import { GetServerSideProps } from 'next'
+import type { Response } from 'express'
 import { useRouter } from 'next/router'
+
+import type { ExtendedRequest } from '@/types'
+import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
@@ -16,25 +20,12 @@ import {
 } from '@/frame/components/context/MainContext'
 
 import {
-  getProductLandingContextFromRequest,
-  ProductLandingContextT,
-  ProductLandingContext,
-} from '@/landings/components/ProductLandingContext'
-import {
-  getProductGuidesContextFromRequest,
-  ProductGuidesContextT,
-  ProductGuidesContext,
-} from '@/landings/components/ProductGuidesContext'
-
-import {
   getArticleContextFromRequest,
   ArticleContextT,
   ArticleContext,
 } from '@/frame/components/context/ArticleContext'
 import { ArticlePage } from '@/frame/components/article/ArticlePage'
 
-import { ProductLanding } from '@/landings/components/ProductLanding'
-import { ProductGuides } from '@/landings/components/ProductGuides'
 import { TocLanding } from '@/landings/components/TocLanding'
 import { CategoryLanding } from '@/landings/components/CategoryLanding'
 import {
@@ -64,8 +55,6 @@ function initiateArticleScripts() {
 
 type Props = {
   mainContext: MainContextT
-  productLandingContext?: ProductLandingContextT
-  productGuidesContext?: ProductGuidesContextT
   tocLandingContext?: TocLandingContextT
   articleContext?: ArticleContextT
   categoryLandingContext?: CategoryLandingContextT
@@ -75,8 +64,6 @@ type Props = {
 }
 const GlobalPage = ({
   mainContext,
-  productLandingContext,
-  productGuidesContext,
   tocLandingContext,
   articleContext,
   categoryLandingContext,
@@ -114,18 +101,6 @@ const GlobalPage = ({
         <JourneyLanding />
       </LandingContext.Provider>
     )
-  } else if (productLandingContext) {
-    content = (
-      <ProductLandingContext.Provider value={productLandingContext}>
-        <ProductLanding />
-      </ProductLandingContext.Provider>
-    )
-  } else if (productGuidesContext) {
-    content = (
-      <ProductGuidesContext.Provider value={productGuidesContext}>
-        <ProductGuides />
-      </ProductGuidesContext.Provider>
-    )
   } else if (categoryLandingContext) {
     content = (
       <CategoryLandingContext.Provider value={categoryLandingContext}>
@@ -161,8 +136,8 @@ const GlobalPage = ({
 export default GlobalPage
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const req = context.req as any
-  const res = context.res as any
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as Response
 
   const props: Props = {
     mainContext: await getMainContext(req, res),
@@ -180,37 +155,32 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
     // journey tracks are resolved in middleware and added to the request
     // so we need to add them to the journey context here
-    if ((req.context.page as any).resolvedJourneyTracks) {
-      props.journeyContext.journeyTracks = (req.context.page as any).resolvedJourneyTracks
+    const page = req.context?.page as { resolvedJourneyTracks?: JourneyTrack[] } | undefined
+    if (page?.resolvedJourneyTracks) {
+      props.journeyContext.journeyTracks = page.resolvedJourneyTracks
     }
 
     additionalUINamespaces.push('journey_landing', 'product_landing')
   } else if (currentLayoutName === 'discovery-landing') {
     props.discoveryContext = await getLandingContextFromRequest(req, 'discovery')
     additionalUINamespaces.push('product_landing', 'carousels')
-  } else if (currentLayoutName === 'product-landing') {
-    props.productLandingContext = await getProductLandingContextFromRequest(req)
-    additionalUINamespaces.push('product_landing')
-  } else if (currentLayoutName === 'product-guides') {
-    props.productGuidesContext = getProductGuidesContextFromRequest(req)
-    additionalUINamespaces.push('product_guides', 'product_landing')
   } else if (relativePath?.endsWith('index.md')) {
     if (currentLayoutName === 'category-landing') {
-      props.categoryLandingContext = getCategoryLandingContextFromRequest(req)
+      props.categoryLandingContext = getCategoryLandingContextFromRequest(
+        req as unknown as Parameters<typeof getCategoryLandingContextFromRequest>[0],
+      )
     } else {
-      props.tocLandingContext = getTocLandingContextFromRequest(req)
-      if (props.tocLandingContext.currentLearningTrack?.trackName) {
-        additionalUINamespaces.push('learning_track_nav')
-      }
+      props.tocLandingContext = getTocLandingContextFromRequest(
+        req as unknown as Parameters<typeof getTocLandingContextFromRequest>[0],
+      )
     }
   } else if (props.mainContext.page) {
     // All articles that might have hover cards needs this
     additionalUINamespaces.push('popovers')
 
-    props.articleContext = getArticleContextFromRequest(req)
-    if (props.articleContext.currentLearningTrack?.trackName) {
-      additionalUINamespaces.push('learning_track_nav')
-    }
+    props.articleContext = getArticleContextFromRequest(
+      req as unknown as Parameters<typeof getArticleContextFromRequest>[0],
+    )
     if (props.articleContext.currentJourneyTrack?.trackId) {
       additionalUINamespaces.push('journey_track_nav')
     }

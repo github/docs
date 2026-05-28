@@ -115,6 +115,7 @@ When a reusable workflow is triggered by a caller workflow, the `github` context
 
 Reference information to use when creating workflow templates for your organization.
 
+{% ifversion actions-nga %}
 ### Workflow template availability
 
 You can use templates in repositories that match or have more restricted visibility than the template repository.
@@ -132,6 +133,7 @@ Because public workflow templates require a public `.github` repository, they ar
 ### Granting access for private/internal repositories
 
 If you're using a private or internal `.github` repository, you need to grant Read access to users or teams who should be able to use the templates.
+{% endif %}
 
 ### The `$default-branch` placeholder
 

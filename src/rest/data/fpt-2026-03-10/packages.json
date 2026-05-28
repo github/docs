@@ -617,9 +617,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -900,6 +897,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -1680,9 +1686,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -1963,6 +1966,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -2077,8 +2089,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -2691,9 +2702,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "type": "boolean"
-                        },
                         "archived": {
                           "type": "boolean"
                         },
@@ -2974,6 +2982,15 @@
                                           "TEAM",
                                           "ROLE"
                                         ]
+                                      },
+                                      "mode": {
+                                        "type": "string",
+                                        "description": "The bypass mode for the reviewer",
+                                        "enum": [
+                                          "ALWAYS",
+                                          "EXEMPT"
+                                        ],
+                                        "default": "ALWAYS"
                                       }
                                     }
                                   }
@@ -3075,8 +3092,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3166,8 +3182,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3266,8 +3281,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3338,11 +3352,11 @@
           "description": "<p>The state of the package, either active or deleted.</p>",
           "schema": {
             "type": "string",
+            "default": "active",
             "enum": [
               "active",
               "deleted"
-            ],
-            "default": "active"
+            ]
           }
         }
       ],
@@ -3519,8 +3533,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3726,8 +3739,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3827,8 +3839,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -3928,8 +3939,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -4536,9 +4546,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -4819,6 +4826,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -5578,9 +5594,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -5861,6 +5874,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -5967,8 +5989,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -6638,9 +6659,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "type": "boolean"
-                        },
                         "archived": {
                           "type": "boolean"
                         },
@@ -6921,6 +6939,15 @@
                                           "TEAM",
                                           "ROLE"
                                         ]
+                                      },
+                                      "mode": {
+                                        "type": "string",
+                                        "description": "The bypass mode for the reviewer",
+                                        "enum": [
+                                          "ALWAYS",
+                                          "EXEMPT"
+                                        ],
+                                        "default": "ALWAYS"
                                       }
                                     }
                                   }
@@ -7022,8 +7049,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7103,8 +7129,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7193,8 +7218,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7256,11 +7280,11 @@
           "description": "<p>The state of the package, either active or deleted.</p>",
           "schema": {
             "type": "string",
+            "default": "active",
             "enum": [
               "active",
               "deleted"
-            ],
-            "default": "active"
+            ]
           }
         }
       ],
@@ -7444,8 +7468,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7641,8 +7664,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7732,8 +7754,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -7823,8 +7844,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -8444,9 +8464,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -8727,6 +8744,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -9507,9 +9533,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -9790,6 +9813,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -9904,8 +9936,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -10585,9 +10616,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "type": "boolean"
-                        },
                         "archived": {
                           "type": "boolean"
                         },
@@ -10868,6 +10896,15 @@
                                           "TEAM",
                                           "ROLE"
                                         ]
+                                      },
+                                      "mode": {
+                                        "type": "string",
+                                        "description": "The bypass mode for the reviewer",
+                                        "enum": [
+                                          "ALWAYS",
+                                          "EXEMPT"
+                                        ],
+                                        "default": "ALWAYS"
                                       }
                                     }
                                   }
@@ -10969,8 +11006,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11060,8 +11096,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11160,8 +11195,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11398,8 +11432,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11602,8 +11635,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11703,8 +11735,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     },
     {
@@ -11804,8 +11835,7 @@
         "serverToServer": true,
         "fineGrainedPat": false,
         "permissions": [],
-        "allowPermissionlessAccess": true,
-        "disabledForPatV2": true
+        "allowPermissionlessAccess": true
       }
     }
   ]

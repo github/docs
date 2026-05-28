@@ -42,13 +42,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "pushed",
               "full_name"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -576,9 +576,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "type": "boolean"
                   },
                   "archived": {
                     "type": "boolean"
@@ -1939,9 +1936,6 @@
                     "collaborators_only"
                   ]
                 },
-                "has_commit_comments": {
-                  "type": "boolean"
-                },
                 "archived": {
                   "type": "boolean"
                 },
@@ -2452,11 +2446,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -3372,11 +3361,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -4053,11 +4037,6 @@
                         "all",
                         "collaborators_only"
                       ]
-                    },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
                     },
                     "archived": {
                       "description": "Whether the repository is archived.",
@@ -5436,9 +5415,6 @@
                     "collaborators_only"
                   ]
                 },
-                "has_commit_comments": {
-                  "type": "boolean"
-                },
                 "archived": {
                   "type": "boolean"
                 },
@@ -5949,11 +5925,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -6869,11 +6840,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -7550,11 +7516,6 @@
                         "all",
                         "collaborators_only"
                       ]
-                    },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
                     },
                     "archived": {
                       "description": "Whether the repository is archived.",
@@ -9145,9 +9106,6 @@
                     "collaborators_only"
                   ]
                 },
-                "has_commit_comments": {
-                  "type": "boolean"
-                },
                 "archived": {
                   "type": "boolean"
                 },
@@ -9658,11 +9616,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -10578,11 +10531,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -11260,11 +11208,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -11841,11 +11784,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -14289,9 +14232,6 @@
                     "collaborators_only"
                   ]
                 },
-                "has_commit_comments": {
-                  "type": "boolean"
-                },
                 "archived": {
                   "type": "boolean"
                 },
@@ -14570,8 +14510,7 @@
           {
             "\"Administration\" repository permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -15717,9 +15656,6 @@
                     "collaborators_only"
                   ]
                 },
-                "has_commit_comments": {
-                  "type": "boolean"
-                },
                 "archived": {
                   "type": "boolean"
                 },
@@ -16230,11 +16166,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -17150,11 +17081,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -17832,11 +17758,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -18313,9 +18234,6 @@
             "enum": [
               "all",
               "public"
-            ],
-            "examples": [
-              "all"
             ]
           }
         }
@@ -18762,9 +18680,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -19071,12 +18986,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "public",
               "private"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -19096,14 +19011,14 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "all",
               "owner",
               "public",
               "private",
               "member"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -19113,13 +19028,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "full_name",
             "enum": [
               "created",
               "updated",
               "pushed",
               "full_name"
-            ],
-            "default": "full_name"
+            ]
           }
         },
         {
@@ -19159,8 +19074,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -19169,8 +19083,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         }
       ],
@@ -19767,11 +19680,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "description": "Whether commit comments are enabled.",
-                    "default": true,
-                    "type": "boolean"
                   },
                   "archived": {
                     "description": "Whether the repository is archived.",
@@ -21080,9 +20988,6 @@
                     "collaborators_only"
                   ]
                 },
-                "has_commit_comments": {
-                  "type": "boolean"
-                },
                 "archived": {
                   "type": "boolean"
                 },
@@ -21593,11 +21498,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -22513,11 +22413,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -23195,11 +23090,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -23693,12 +23583,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "owner",
             "enum": [
               "all",
               "owner",
               "member"
-            ],
-            "default": "owner"
+            ]
           }
         },
         {
@@ -23708,13 +23598,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "full_name",
             "enum": [
               "created",
               "updated",
               "pushed",
               "full_name"
-            ],
-            "default": "full_name"
+            ]
           }
         },
         {
@@ -24242,9 +24132,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "type": "boolean"
                   },
                   "archived": {
                     "type": "boolean"
@@ -29069,13 +28956,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "newest",
             "enum": [
               "newest",
               "oldest",
               "stargazers",
               "watchers"
-            ],
-            "default": "newest"
+            ]
           }
         },
         {
@@ -29587,9 +29474,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "type": "boolean"
                   },
                   "archived": {
                     "type": "boolean"
@@ -30813,9 +30697,6 @@
                     "collaborators_only"
                   ]
                 },
-                "has_commit_comments": {
-                  "type": "boolean"
-                },
                 "archived": {
                   "type": "boolean"
                 },
@@ -31326,11 +31207,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -32246,11 +32122,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -32928,11 +32799,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "description": "Whether commit comments are enabled.",
-                      "default": true,
-                      "type": "boolean"
-                    },
                     "archived": {
                       "description": "Whether the repository is archived.",
                       "default": false,
@@ -33567,13 +33433,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -33590,13 +33456,13 @@
           "in": "query",
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "pass",
               "fail",
               "bypass",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -35424,10 +35290,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "branch,tag,push"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -44224,6 +44087,19 @@
           "required": false,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "status",
+          "description": "<p>Returns webhook deliveries filtered by delivery outcome classification based on <code>status_code</code> range. A <code>status</code> of <code>success</code> returns deliveries with a <code>status_code</code> in the 200-399 range (inclusive). A <code>status</code> of <code>failure</code> returns deliveries with a <code>status_code</code> in the 400-599 range (inclusive).</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "success",
+              "failure"
+            ]
           }
         }
       ],

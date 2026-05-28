@@ -18,9 +18,9 @@ contentType: tutorials
 
 ## About {% data variables.copilot.custom_agents_short %}
 
-{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_coding_agent %} that maintain consistent expertise across entire workflows. Unlike custom instructions that apply broadly, or prompt files for one-time tasks, {% data variables.copilot.custom_agents_short %} are selected for specific tasks and maintain their configuration throughout the workflow.
+{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_cloud_agent %} that maintain consistent expertise across entire workflows. Unlike custom instructions that apply broadly, or prompt files for one-time tasks, {% data variables.copilot.custom_agents_short %} are selected for specific tasks and maintain their configuration throughout the workflow.
 
-For a more in-depth overview, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
+For a more in-depth overview, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
 
 ## Your first {% data variables.copilot.copilot_custom_agent_short %}
 
@@ -83,6 +83,6 @@ Test this agent by giving it a task to complete:
    Please review and improve our README.md file.
    ```
 
-The agent task will appear on the page below the text box. The agent will focus specifically on README improvements using its specialized knowledge, creating a pull request in your repository. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+The agent task will appear on the page below the text box. The agent will focus specifically on README improvements using its specialized knowledge, creating a pull request in your repository. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
 
 {% data reusables.copilot.custom-agents-further-reading %}

@@ -1,0 +1,2095 @@
+{
+  "created": {
+    "descriptionHtml": "<p>A deployment was created.</p>",
+    "summaryHtml": "<p>This event occurs when there is activity relating to deployments. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.21/actions/deployment/about-deployments\">About deployments</a>.\" For information about the APIs to manage deployments, see <a href=\"https://docs.github.com/enterprise-server@3.21/graphql/reference/objects#deployment\">the GraphQL API documentation</a> or \"<a href=\"https://docs.github.com/enterprise-server@3.21/rest/deployments/deployments\">Deployments</a>\" in the REST API documentation.</p>\n<p>For activity relating to deployment status, use the <code>deployment_status</code> event.</p>\n<p>To subscribe to this event, a GitHub App must have at least read-level access for the \"Deployments\" repository permission.</p>",
+    "bodyParameters": [
+      {
+        "type": "string",
+        "name": "action",
+        "description": "",
+        "isRequired": true,
+        "enum": [
+          "created"
+        ],
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "deployment",
+        "description": "<p>The <a href=\"https://docs.github.com/enterprise-server@3.21/rest/deployments/deployments#list-deployments\">deployment</a>.</p>",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "creator",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string or null",
+            "name": "description",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "environment",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "original_environment",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or string",
+            "name": "payload",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "object or null",
+            "name": "performed_via_github_app",
+            "description": "<p>GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.</p>",
+            "childParamsGroups": [
+              {
+                "type": "string or null",
+                "name": "created_at",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string or null",
+                "name": "description",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "array of strings",
+                "name": "events",
+                "description": "<p>The list of events for the GitHub app\nSupported values are: <code>branch_protection_rule</code>, <code>check_run</code>, <code>check_suite</code>, <code>code_scanning_alert</code>, <code>commit_comment</code>, <code>content_reference</code>, <code>create</code>, <code>delete</code>, <code>deployment</code>, <code>deployment_review</code>, <code>deployment_status</code>, <code>deploy_key</code>, <code>discussion</code>, <code>discussion_comment</code>, <code>fork</code>, <code>gollum</code>, <code>issues</code>, <code>issue_comment</code>, <code>label</code>, <code>member</code>, <code>membership</code>, <code>milestone</code>, <code>organization</code>, <code>org_block</code>, <code>page_build</code>, <code>project</code>, <code>project_card</code>, <code>project_column</code>, <code>public</code>, <code>pull_request</code>, <code>pull_request_review</code>, <code>pull_request_review_comment</code>, <code>push</code>, <code>registry_package</code>, <code>release</code>, <code>repository</code>, <code>repository_dispatch</code>, <code>secret_scanning_alert</code>, <code>star</code>, <code>status</code>, <code>team</code>, <code>team_add</code>, <code>watch</code>, <code>workflow_dispatch</code>, <code>workflow_run</code>, <code>workflow_job</code>, <code>pull_request_review_thread</code>, <code>merge_queue_entry</code>, <code>secret_scanning_alert_location</code>, <code>merge_group</code></p>"
+              },
+              {
+                "type": "string or null",
+                "name": "external_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer or null",
+                "name": "id",
+                "description": "<p>Unique identifier of the GitHub app</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": "<p>The name of the GitHub app</p>",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "object or null",
+                "name": "owner",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "avatar_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "deleted",
+                    "description": ""
+                  },
+                  {
+                    "type": "string or null",
+                    "name": "email",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "events_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "followers_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "following_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "gists_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "gravatar_id",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "login",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "string",
+                    "name": "name",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "organizations_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "received_events_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "repos_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "site_admin",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "subscriptions_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": "",
+                    "enum": [
+                      "Bot",
+                      "User",
+                      "Organization"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "user_view_type",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "permissions",
+                "description": "<p>The set of permissions for the GitHub app</p>",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "actions",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "administration",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "checks",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "content_references",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "contents",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "deployments",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "discussions",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "emails",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "environments",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "issues",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "keys",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "members",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "metadata",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "organization_administration",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "organization_hooks",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "organization_packages",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "organization_plan",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "organization_projects",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "organization_secrets",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "organization_self_hosted_runners",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "organization_user_blocking",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "packages",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "pages",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "pull_requests",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "repository_hooks",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "repository_projects",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "secret_scanning_alerts",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "secrets",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "security_events",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "security_scanning_alert",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "single_file",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "statuses",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "vulnerability_alerts",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "workflows",
+                    "description": "",
+                    "enum": [
+                      "read",
+                      "write"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "string",
+                "name": "slug",
+                "description": "<p>The slug name of the GitHub app</p>"
+              },
+              {
+                "type": "string or null",
+                "name": "updated_at",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "boolean",
+            "name": "production_environment",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "ref",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "repository_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "sha",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "statuses_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "task",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "boolean",
+            "name": "transient_environment",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "enterprise",
+        "description": "<p>An enterprise on GitHub. Webhook payloads contain the <code>enterprise</code> property when the webhook is configured\non an enterprise account or an organization that's part of an enterprise account. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/admin/overview/about-enterprise-accounts\">About enterprise accounts</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "installation",
+        "description": "<p>The GitHub App installation. Webhook payloads contain the <code>installation</code> property when the event is configured\nfor and sent to a GitHub App. For more information,\nsee \"<a href=\"https://docs.github.com/enterprise-server@3.21/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps\">Using webhooks with GitHub Apps</a>.\"</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "organization",
+        "description": "<p>A GitHub organization. Webhook payloads contain the <code>organization</code> property when the webhook is configured for an\norganization, or when the event occurs from activity in a repository owned by an organization.</p>",
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "repository",
+        "description": "<p>The repository on GitHub where the event occurred. Webhook payloads contain the <code>repository</code> property\nwhen the event occurs from activity in a repository.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object",
+        "name": "sender",
+        "description": "<p>A GitHub user.</p>",
+        "isRequired": true,
+        "childParamsGroups": []
+      },
+      {
+        "type": "object or null",
+        "name": "workflow",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "string",
+            "name": "badge_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "path",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "state",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          }
+        ]
+      },
+      {
+        "type": "object or null",
+        "name": "workflow_run",
+        "description": "",
+        "isRequired": true,
+        "childParamsGroups": [
+          {
+            "type": "object or null",
+            "name": "actor",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "artifacts_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "cancel_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "check_suite_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "check_suite_node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "check_suite_url",
+            "description": ""
+          },
+          {
+            "type": "string or null",
+            "name": "conclusion",
+            "description": "",
+            "isRequired": true,
+            "enum": [
+              "success",
+              "failure",
+              "neutral",
+              "cancelled",
+              "timed_out",
+              "action_required",
+              "stale",
+              null
+            ]
+          },
+          {
+            "type": "string",
+            "name": "created_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "display_title",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "event",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "head_branch",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "null",
+            "name": "head_commit",
+            "description": ""
+          },
+          {
+            "type": "object",
+            "name": "head_repository",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "archive_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "assignees_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "blobs_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "branches_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "collaborators_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "comments_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "commits_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "compare_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "contents_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "contributors_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "deployments_url",
+                "description": ""
+              },
+              {
+                "type": "null",
+                "name": "description",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "downloads_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "fork",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "forks_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "full_name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "git_commits_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "git_refs_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "git_tags_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "hooks_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "issue_comment_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "issue_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "issues_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "keys_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "labels_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "languages_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "merges_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "milestones_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "notifications_url",
+                "description": ""
+              },
+              {
+                "type": "object",
+                "name": "owner",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "avatar_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "events_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "followers_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "following_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "gists_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "gravatar_id",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "login",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "organizations_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "received_events_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "repos_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "site_admin",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "subscriptions_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "boolean",
+                "name": "private",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "pulls_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "releases_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "stargazers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "statuses_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscribers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscription_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "tags_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "teams_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "trees_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "head_sha",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "html_url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "jobs_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "logs_url",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "node_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "path",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "null",
+            "name": "previous_attempt_url",
+            "description": ""
+          },
+          {
+            "type": "array of objects",
+            "name": "pull_requests",
+            "description": "",
+            "isRequired": true,
+            "childParamsGroups": [
+              {
+                "type": "object",
+                "name": "base",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "ref",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "object",
+                    "name": "repo",
+                    "description": "",
+                    "isRequired": true,
+                    "childParamsGroups": [
+                      {
+                        "type": "integer",
+                        "name": "id",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "name",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "url",
+                        "description": "",
+                        "isRequired": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "sha",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "head",
+                "description": "",
+                "isRequired": true,
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "ref",
+                    "description": "",
+                    "isRequired": true
+                  },
+                  {
+                    "type": "object",
+                    "name": "repo",
+                    "description": "",
+                    "isRequired": true,
+                    "childParamsGroups": [
+                      {
+                        "type": "integer",
+                        "name": "id",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "name",
+                        "description": "",
+                        "isRequired": true
+                      },
+                      {
+                        "type": "string",
+                        "name": "url",
+                        "description": "",
+                        "isRequired": true
+                      }
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "name": "sha",
+                    "description": "",
+                    "isRequired": true
+                  }
+                ]
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "integer",
+                "name": "number",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "array of objects or null",
+            "name": "referenced_workflows",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "path",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "ref",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "sha",
+                "description": "",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "repository",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "archive_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "assignees_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "blobs_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "branches_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "collaborators_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "comments_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "commits_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "compare_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "contents_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "contributors_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "deployments_url",
+                "description": ""
+              },
+              {
+                "type": "null",
+                "name": "description",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "downloads_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "fork",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "forks_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "full_name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "git_commits_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "git_refs_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "git_tags_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "hooks_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "issue_comment_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "issue_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "issues_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "keys_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "labels_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "languages_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "merges_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "milestones_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "notifications_url",
+                "description": ""
+              },
+              {
+                "type": "object",
+                "name": "owner",
+                "description": "",
+                "childParamsGroups": [
+                  {
+                    "type": "string",
+                    "name": "avatar_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "events_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "followers_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "following_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "gists_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "gravatar_id",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "html_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "integer",
+                    "name": "id",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "login",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "node_id",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "organizations_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "received_events_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "repos_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "boolean",
+                    "name": "site_admin",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "starred_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "subscriptions_url",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "type",
+                    "description": ""
+                  },
+                  {
+                    "type": "string",
+                    "name": "url",
+                    "description": ""
+                  }
+                ]
+              },
+              {
+                "type": "boolean",
+                "name": "private",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "pulls_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "releases_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "stargazers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "statuses_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscribers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscription_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "tags_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "teams_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "trees_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "rerun_url",
+            "description": ""
+          },
+          {
+            "type": "integer",
+            "name": "run_attempt",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "run_number",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "run_started_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "status",
+            "description": "",
+            "isRequired": true,
+            "enum": [
+              "requested",
+              "in_progress",
+              "completed",
+              "queued",
+              "waiting",
+              "pending"
+            ]
+          },
+          {
+            "type": "object or null",
+            "name": "triggering_actor",
+            "description": "",
+            "childParamsGroups": [
+              {
+                "type": "string",
+                "name": "avatar_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "deleted",
+                "description": ""
+              },
+              {
+                "type": "string or null",
+                "name": "email",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "followers_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "following_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gists_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "gravatar_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "html_url",
+                "description": ""
+              },
+              {
+                "type": "integer",
+                "name": "id",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "login",
+                "description": "",
+                "isRequired": true
+              },
+              {
+                "type": "string",
+                "name": "name",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "node_id",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "organizations_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "received_events_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "repos_url",
+                "description": ""
+              },
+              {
+                "type": "boolean",
+                "name": "site_admin",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "starred_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "subscriptions_url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "type",
+                "description": "",
+                "enum": [
+                  "Bot",
+                  "User",
+                  "Organization"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "url",
+                "description": ""
+              },
+              {
+                "type": "string",
+                "name": "user_view_type",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "name": "updated_at",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "url",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "integer",
+            "name": "workflow_id",
+            "description": "",
+            "isRequired": true
+          },
+          {
+            "type": "string",
+            "name": "workflow_url",
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "availability": [
+      "repository",
+      "organization",
+      "app"
+    ],
+    "action": "created",
+    "category": "deployment"
+  }
+}

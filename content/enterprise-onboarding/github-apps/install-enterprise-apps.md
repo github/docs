@@ -11,4 +11,4 @@ contentType: how-tos
 
 ## Next steps
 
-Now that you're automating processes with {% data variables.product.prodname_github_apps %}, you can broaden your options for automation and CI/CD by introducing {% data variables.product.prodname_actions %} to your enterprise. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/about-github-actions-for-enterprises).
+Now that you're automating processes with {% data variables.product.prodname_github_apps %}, learn about {% data variables.contact.github_support %} so you can get help when you need it. See [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/understanding-support).

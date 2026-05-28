@@ -10,14 +10,6 @@ category:
   - Install and authorize apps
 ---
 
-{% ifversion ghes < 3.16 %}
-
-You cannot install third-party {% data variables.product.prodname_github_apps %} on organizations owned by your instance. If you want to use the functionality of a third-party {% data variables.product.prodname_github_app %}, you can contact the app developer about making the {% data variables.product.prodname_github_app %} available for {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server).
-
-For more information about installing {% data variables.product.prodname_github_apps %} that you own, see [AUTOTITLE](/apps/maintaining-github-apps/installing-your-own-github-app).
-
-{% else %}
-
 ## About installing {% data variables.product.prodname_github_apps %}
 
 {% ifversion fpt or ghec %}
@@ -75,4 +67,3 @@ During the installation process, the app owner will direct you to a {% data vari
 1. Review the permissions that the app is requesting. For more information about the REST API requests the {% data variables.product.prodname_github_app %} can make with those permissions, see [AUTOTITLE](/rest/overview/permissions-required-for-github-apps).
 1. Click **Install**, **Install and request**, or **Request**. The button that is presented depends on whether your organization owner must approve none, some, or all of the requested access for the app.{% ifversion enterprise-installed-apps %} Enterprise installations cannot be requested—the enterprise owner must install the app directly.{% endif %} For more information, see [Requirements to install a {% data variables.product.prodname_github_app %}](#requirements-to-install-a-github-app).
 
-{% endif %}

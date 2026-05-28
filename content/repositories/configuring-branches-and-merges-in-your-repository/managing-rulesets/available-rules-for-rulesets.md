@@ -138,9 +138,9 @@ Optionally, you can require a merge type of merge, squash, or rebase. This means
 
 #### Required reviewers
 
-Optionally, you can require review or approval from specific teams when a pull request changes certain files or directories. You can specify up to 15 different teams, and for each team you can require a certain number of approvals from team members.
+Optionally, you can require review or approval from specific teams when a pull request changes certain files or directories. You can specify up to 15 different teams, and for each team you can require a certain number of approvals from team members. For an approval from a team member to count, the team must have write permissions (or higher) for the repository.
 
-The **Reviewer** dropdown allows you to select any team which is in scope where the rule is being defined. 
+The **Reviewer** dropdown allows you to select any team which is in scope where the rule is being defined.
 
 * **Organization-wide rules**: The team must belong to the organization.
 * **Repository-level rules**: The team must belong to the organization that owns the repository.

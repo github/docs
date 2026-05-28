@@ -108,6 +108,35 @@ https://api.github.com/graphql
 1. To disable a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Disable**.
 1. To delete a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Delete**.
 
+### 5. Optionally, add a failover network to a network configuration
+
+{% data reusables.actions.azure-vnet-about-failover %}
+
+Before adding a failover network, ensure you have configured the Azure resources (VNET, subnet, network security group, and network settings resource) for the secondary subnet, following the same "Configuring your Azure resources" procedures above. The failover subnet can be in a different Azure region from your primary subnet.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the left sidebar, click **Hosted compute networking**.
+1. Click the edit icon ({% octicon "pencil" aria-label="Edit a network configuration" %}) next to the network configuration you want to add a failover network to. Then click **Edit configuration**.
+1. Click **Add failover network**.
+1. In the popup window, enter the network settings resource ID for your secondary (failover) Azure subnet.
+1. Click **Add Azure Virtual Network**.
+1. You will now see two subnets listed in the network configuration: the primary and the failover, labeled accordingly.
+
+### 6. Optionally, enable or disable the failover network
+
+After adding a failover network, you can enable it to route traffic through the secondary subnet, or disable it to return to the primary subnet.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the left sidebar, click **Hosted compute networking**.
+1. Click the edit icon ({% octicon "pencil" aria-label="Edit a network configuration" %}) next to the network configuration. Then click **Edit configuration**.
+1. To switch to the failover network, click **Enable failover VNET**. Runner traffic will be routed through the failover subnet.
+1. To switch back to the primary network, click **Disable failover VNET**. Runner traffic will return to the primary subnet.
+
+> [!NOTE]
+> If {% data variables.product.company_short %} enables failover automatically during a regional outage, you will be notified via audit log event and email. You must manually disable the failover to return to the primary subnet when the outage is resolved.
+
 ## Deleting a subnet
 
 {% data reusables.actions.azure-vnet-deleting-a-subnet %}

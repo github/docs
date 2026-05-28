@@ -33,12 +33,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -66,13 +66,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated",
               "popularity",
               "long-running"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -2010,11 +2010,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "default": true,
-                            "type": "boolean"
-                          },
                           "archived": {
                             "description": "Whether the repository is archived.",
                             "default": false,
@@ -2814,11 +2809,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "description": "Whether commit comments are enabled.",
-                            "default": true,
-                            "type": "boolean"
                           },
                           "archived": {
                             "description": "Whether the repository is archived.",
@@ -3692,27 +3682,6 @@
               "updated_at": "2011-01-26T19:01:12Z",
               "closed_at": "2011-01-26T19:01:12Z",
               "merged_at": "2011-01-26T19:01:12Z",
-              "merge_commit_sha": "e5bd3914e2e596debea16f433f57875b5b90bcd6",
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -5391,11 +5360,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -6188,11 +6152,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -7186,27 +7145,6 @@
               "updated_at": "2011-01-26T19:01:12Z",
               "closed_at": "2011-01-26T19:01:12Z",
               "merged_at": "2011-01-26T19:01:12Z",
-              "merge_commit_sha": "e5bd3914e2e596debea16f433f57875b5b90bcd6",
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -8885,11 +8823,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -9682,11 +9615,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -10733,27 +10661,6 @@
               "updated_at": "2011-01-26T19:01:12Z",
               "closed_at": "2011-01-26T19:01:12Z",
               "merged_at": "2011-01-26T19:01:12Z",
-              "merge_commit_sha": "e5bd3914e2e596debea16f433f57875b5b90bcd6",
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -12432,11 +12339,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -13229,11 +13131,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -15363,8 +15260,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -15899,8 +15795,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -16417,8 +16312,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -16941,8 +16835,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -17029,11 +16922,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -17055,8 +16948,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -18198,8 +18090,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         }
       ],
@@ -21141,11 +21032,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -21945,11 +21831,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -22804,27 +22685,6 @@
               "updated_at": "2011-01-26T19:01:12Z",
               "closed_at": "2011-01-26T19:01:12Z",
               "merged_at": "2011-01-26T19:01:12Z",
-              "merge_commit_sha": "e5bd3914e2e596debea16f433f57875b5b90bcd6",
-              "assignee": {
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/octocat",
-                "html_url": "https://github.com/octocat",
-                "followers_url": "https://api.github.com/users/octocat/followers",
-                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-                "organizations_url": "https://api.github.com/users/octocat/orgs",
-                "repos_url": "https://api.github.com/users/octocat/repos",
-                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/octocat/received_events",
-                "type": "User",
-                "site_admin": false
-              },
               "assignees": [
                 {
                   "login": "octocat",
@@ -24596,11 +24456,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -25400,11 +25255,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",

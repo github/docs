@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 contentType: concepts
 children:
+  - /best-practices-for-selecting-pilot-repositories
   - /about-enabling-security-features-at-scale
   - /about-security-overview
   - /about-security-campaigns

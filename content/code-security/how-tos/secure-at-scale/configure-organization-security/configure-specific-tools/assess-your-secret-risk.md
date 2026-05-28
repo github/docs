@@ -2,7 +2,7 @@
 title: Running the secret risk assessment for your organization
 shortTitle: Assess your secret risk
 intro: Determine your organization's exposure to leaked secrets by generating a {% data variables.product.prodname_secret_risk_assessment %} report.
-product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
+product: '{% data reusables.gated-features.secret-risk-assessment-report %} <br><a href="https://github.com/get_started?with=risk-assessment&ref_product=code-scanning&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Get started with security risk assessments</span> {% octicon "link-external" height:16 %}</a>'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 versions:
   feature: secret-risk-assessment
@@ -30,10 +30,9 @@ category:
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.security-overview.open-assessments-view %}
-1. Towards the top right side of the existing report, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-1. Select **Rerun scan**.
+1. Towards the top right side of the existing report, click **Rerun scan**.
 
-    {% data reusables.secret-risk-assessment.notification-report-ready %}
+{% data reusables.secret-risk-assessment.notification-report-ready %}
 
 ## Next steps
 

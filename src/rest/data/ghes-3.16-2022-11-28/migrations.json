@@ -40,17 +40,7 @@
           "description": "<p>Exclude attributes from the API response to improve performance</p>",
           "in": "query",
           "schema": {
-            "type": "array",
-            "items": {
-              "description": "Allowed values that can be passed to the exclude param.",
-              "enum": [
-                "repositories"
-              ],
-              "type": "string",
-              "examples": [
-                "repositories"
-              ]
-            }
+            "type": "array"
           }
         }
       ],
@@ -842,11 +832,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -2000,11 +1985,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -2331,17 +2311,7 @@
           "description": "<p>Exclude attributes from the API response to improve performance</p>",
           "in": "query",
           "schema": {
-            "type": "array",
-            "items": {
-              "description": "Allowed values that can be passed to the exclude param.",
-              "enum": [
-                "repositories"
-              ],
-              "type": "string",
-              "examples": [
-                "repositories"
-              ]
-            }
+            "type": "array"
           }
         }
       ],
@@ -3130,11 +3100,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -4165,9 +4130,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "type": "boolean"
                   },
                   "archived": {
                     "type": "boolean"
@@ -5265,11 +5227,6 @@
                             "all",
                             "collaborators_only"
                           ]
-                        },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
                         },
                         "archived": {
                           "description": "Whether the repository is archived.",
@@ -6416,11 +6373,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -7300,9 +7252,6 @@
                       "all",
                       "collaborators_only"
                     ]
-                  },
-                  "has_commit_comments": {
-                    "type": "boolean"
                   },
                   "archived": {
                     "type": "boolean"

@@ -82,7 +82,7 @@ Automatic dependency submission makes a best effort to cache package downloads b
 
 For Maven projects, automatic dependency submission runs an open source fork of the [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission). The fork allows {% data variables.product.github %} to stay in sync with the upstream repository plus maintain some changes that are only applicable to automatic submission. The fork's source is available at [advanced-security/maven-dependency-submission-action](https://github.com/advanced-security/maven-dependency-submission-action).
 
-If your repository's dependencies seem inaccurate, check that the timestamp of the last dependency graph build matches the last change to your `pom.xml` file. The timestamp is visible on the table of alerts in the repository's {% data variables.product.prodname_dependabot_alerts %} tab. Pushing a commit which updates `pom.xml` will trigger a new run of the Dependency Tree Submission action and force a rebuild of that repository's dependency graph.
+If your repository's dependencies seem inaccurate, check that the timestamp of the last dependency graph build matches the last change to your `pom.xml` file. The timestamp is visible on the table of alerts in the repository's {% data variables.product.prodname_dependabot %} tab. Pushing a commit which updates `pom.xml` will trigger a new run of the Dependency Tree Submission action and force a rebuild of that repository's dependency graph.
 
 ### Gradle projects
 
@@ -94,7 +94,9 @@ The .NET autosubmission action uses the open source [component-detection](https:
 
 ### Python projects
 
-Python uses the open source [component-detection](https://github.com/microsoft/component-detection/) project as its underlying graph generation engine. The autosubmission action for Python will only run if there is a `requirements.txt` file in the root directory of the repository. Python autosubmission does not currently support private packages; packages referenced in `requirements.txt` which are not publicly available will cause the autosubmission action to fail.
+Python repositories with the dependency graph enabled use {% data variables.product.prodname_dependabot %} graph jobs to generate dependency graphs. {% data variables.product.prodname_dependabot %} graph jobs take precedence over automatic dependency submissions, and the autosubmission workflow described below will no longer run for Python projects. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph-data#dependabot-graph-jobs).
+
+Automatic dependency submission for Python uses the open source [component-detection](https://github.com/microsoft/component-detection/) project as its underlying graph generation engine. The autosubmission action will only run if there is a `requirements.txt` file in the root directory of the repository. Python autosubmission does not currently support private packages; packages referenced in `requirements.txt` which are not publicly available will cause the autosubmission action to fail.
 
 > [!NOTE]
 > This action uses [actions/setup-python](https://github.com/actions/setup-python) to install Python. You must include a .python-version file in your repository to specify the Python version to be installed.

@@ -10,7 +10,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20260218-111945-g0ef8bb15f@sha256:03eb088f3581049afaf2984f917a3a9be7e5efc248049f4156cd83481579fb59 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20260505-222701-gb8f4d82d0@sha256:e5ee5190511450a452713144fb1dcd957535ec7c68705efa48b3d2cbb9871b0d AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -114,8 +114,11 @@ RUN npm run warmup-remotejson
 # --------------------------------------
 FROM build AS precompute_stage
 
-# Generate precomputed page info
-RUN npm run precompute-pageinfo -- --max-versions 2
+# Generate precomputed page info. Only English + free-pro-team@latest
+# permalinks are cached; cache misses for older versions and translated
+# pages fall through to runtime compute (which is cheap and Fastly-cached
+# per pathname after the first hit).
+RUN npm run precompute-pageinfo -- --max-versions 1
 
 # -------------------------------------------------
 # PRODUCTION STAGE: What will run on the containers

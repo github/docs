@@ -1,0 +1,1 @@
+Remediating the vulnerabilities or leaks identified by the risk assessment is easier with  {% data variables.product.prodname_GHAS %}. Eligible enterprise administrators can start a trial for their entire enterprise straight from the results page.

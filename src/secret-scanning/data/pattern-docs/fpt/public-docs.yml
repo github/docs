@@ -342,18 +342,6 @@
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Active Directory Application Secret
-  secretType: >-
-    azure_active_directory_application_id,
-    </br>azure_active_directory_application_secret
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
-- provider: Azure
-  supportedSecret: Azure Active Directory Application Secret
   secretType: azure_active_directory_application_secret
   isPublic: true
   isPrivateWithGhas: true
@@ -362,16 +350,6 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
-- provider: Azure
-  supportedSecret: Azure Active Directory User Credential
-  secretType: azure_active_directory_user_credential
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
 - provider: Azure
   supportedSecret: Azure AI Services Key
   secretType: azure_ai_services_key
@@ -558,7 +536,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -1003,16 +981,6 @@
   base64Supported: false
   isduplicate: false
 - provider: Azure
-  supportedSecret: Azure SQL Connection String
-  secretType: azure_sql_connection_string
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
-- provider: Azure
   supportedSecret: Azure SQL Internal Default CloudSA Key
   secretType: azure_sql_internal_default_cloudsa_key
   isPublic: true
@@ -1038,7 +1006,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -1109,16 +1077,6 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
-- provider: Azure
-  supportedSecret: Microsoft Corporate Network User Credential
-  secretType: microsoft_corporate_network_user_credential
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -1452,12 +1410,32 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
-- provider: CloudBees
-  supportedSecret: CloudBees CodeShip Credential
-  secretType: codeship_credential
+- provider: Cloudflare
+  supportedSecret: Cloudflare Account API Token
+  secretType: cloudflare_account_api_token
   isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudflare
+  supportedSecret: Cloudflare Global User API Key
+  secretType: cloudflare_global_user_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Cloudflare
+  supportedSecret: Cloudflare User API Token
+  secretType: cloudflare_user_api_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -1467,7 +1445,7 @@
   secretType: ccdb_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
@@ -1558,7 +1536,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -2022,6 +2000,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: Elastic
+  supportedSecret: Elastic Stack API Key
+  secretType: elastic_stack_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: true
+  isduplicate: true
 - provider: Facebook
   supportedSecret: Facebook Access Token
   secretType: facebook_access_token
@@ -2046,7 +2034,7 @@
   supportedSecret: Fieldguide API Token
   secretType: fieldguide_api_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -2067,7 +2055,7 @@
   secretType: figma_scim_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2117,7 +2105,7 @@
   secretType: flutterwave_test_api_secret_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
@@ -2222,6 +2210,116 @@
   hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: true
   isduplicate: true
+- provider: GitLab
+  supportedSecret: GitLab CI/CD Job Token
+  secretType: gitlab_ci_build_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Deploy Token
+  secretType: gitlab_deploy_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Feature Flag Client Token
+  secretType: gitlab_feature_flag_client_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Feed Token
+  secretType: gitlab_feed_token_v2
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Incoming Mail Token
+  secretType: gitlab_incoming_email_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Agent for Kubernetes Token
+  secretType: gitlab_kubernetes_agent_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab OAuth Application Secret
+  secretType: gitlab_oauth_app_secret
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Pipeline Trigger Token
+  secretType: gitlab_pipeline_trigger_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Runner Authentication Token
+  secretType: gitlab_runner_auth_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab Runner Registration Token
+  secretType: gitlab_runner_registration_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: GitLab
+  supportedSecret: GitLab SCIM Token
+  secretType: gitlab_scim_oauth_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: GoCardless
   supportedSecret: GoCardless Live Access Token
   secretType: gocardless_live_access_token
@@ -2291,7 +2389,7 @@
   secretType: google_gcp_api_key_bound_service_account
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2410,6 +2508,16 @@
   supportedSecret: GuardSquare Maven Token
   secretType: guardsquare_maven_token
   isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Hack Club
+  supportedSecret: Hack Club AI Key
+  secretType: hackclub_ai_api_key
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -2721,7 +2829,7 @@
   secretType: langsmith_license_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2731,14 +2839,14 @@
   secretType: langsmith_scim_bearer_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
 - provider: Lark
   supportedSecret: Lark APaaS Client Secret
-  secretType: lark_apaas_client_id, </br>lark_apaas_client_secret
+  secretType: lark_apaas_client_secret
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2748,7 +2856,7 @@
   isduplicate: false
 - provider: Lark
   supportedSecret: Lark Application Secret
-  secretType: lark_app_id, </br>lark_app_secret
+  secretType: lark_app_secret
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2768,7 +2876,7 @@
   isduplicate: false
 - provider: Lark
   supportedSecret: Lark Meego Plugin Secret
-  secretType: lark_meego_plugin_id, </br>lark_meego_plugin_secret
+  secretType: lark_meego_plugin_secret
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3431,7 +3539,7 @@
   secretType: openrouter_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
@@ -3441,7 +3549,7 @@
   secretType: openvsx_access_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3578,7 +3686,7 @@
   isduplicate: false
 - provider: Pinecone
   supportedSecret: Pinecone API Key
-  secretType: pinecone_api_key, </br>pinecone_environment
+  secretType: pinecone_api_key
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3770,7 +3878,7 @@
   supportedSecret: PostHog OAuth Access Token
   secretType: posthog_oauth_access_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -3780,8 +3888,8 @@
   supportedSecret: PostHog OAuth Refresh Token
   secretType: posthog_oauth_refresh_token
   isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3791,7 +3899,7 @@
   secretType: posthog_personal_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -4192,7 +4300,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4232,7 +4340,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4252,7 +4360,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4272,7 +4380,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4302,7 +4410,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: true
+  hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: true
@@ -4323,6 +4431,16 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Slack
+  supportedSecret: Slack Workflow Trigger URL
+  secretType: slack_workflow_trigger_url
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4531,7 +4649,7 @@
   secretType: supabase_personal_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -4792,6 +4910,16 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: VolcEngine
+  supportedSecret: VolcEngine Ark API Key
+  secretType: volcengine_ark_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

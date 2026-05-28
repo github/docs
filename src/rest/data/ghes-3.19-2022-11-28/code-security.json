@@ -1778,7 +1778,7 @@
           ]
         },
         {
-          "type": "object or null",
+          "type": "object",
           "name": "code_scanning_default_setup_options",
           "description": "<p>Feature options for code scanning default setup</p>",
           "childParamsGroups": [
@@ -1796,6 +1796,11 @@
               "type": "string or null",
               "name": "runner_label",
               "description": "<p>The label of the runner to use for code scanning default setup when runner_type is 'labeled'.</p>"
+            },
+            {
+              "type": "boolean or null",
+              "name": "allow_advanced",
+              "description": "<p>Whether to allow repos which use advanced setup</p>"
             }
           ]
         },
@@ -2469,8 +2474,8 @@
                   },
                   "code_scanning_delegated_alert_dismissal": "disabled",
                   "secret_scanning": "enabled",
-                  "secret_scanning_push_protection": "disabled",
-                  "secret_scanning_delegated_bypass": "disabled",
+                  "secret_scanning_push_protection": "enabled",
+                  "secret_scanning_delegated_bypass": "enabled",
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "enforcement": "enforced",
@@ -3370,11 +3375,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "global",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -3434,16 +3439,7 @@
                 "code_scanning_default_setup": "enabled",
                 "secret_scanning": "enabled",
                 "secret_scanning_push_protection": "enabled",
-                "secret_scanning_delegated_bypass": "enabled",
-                "secret_scanning_delegated_bypass_options": {
-                  "reviewers": [
-                    {
-                      "security_configuration_id": 17,
-                      "reviewer_id": 5678,
-                      "reviewer_type": "TEAM"
-                    }
-                  ]
-                },
+                "secret_scanning_delegated_bypass": "disabled",
                 "secret_scanning_validity_checks": "enabled",
                 "enforcement": "enforced",
                 "url": "https://api.github.com/orgs/octo-org/code-security/configurations/17",
@@ -4081,8 +4077,8 @@
               },
               "code_scanning_delegated_alert_dismissal": "disabled",
               "secret_scanning": "enabled",
-              "secret_scanning_push_protection": "disabled",
-              "secret_scanning_delegated_bypass": "disabled",
+              "secret_scanning_push_protection": "enabled",
+              "secret_scanning_delegated_bypass": "enabled",
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "enforcement": "enforced",
@@ -4784,7 +4780,8 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository IDs to detach from configurations. Up to 250 IDs can be provided.</p>"
+          "description": "<p>An array of repository IDs to detach from configurations. Up to 250 IDs can be provided.</p>",
+          "isRequired": true
         }
       ],
       "descriptionHTML": "<p>Detach code security configuration(s) from a set of repositories.\nRepositories will retain their settings but will no longer be associated with the configuration.</p>\n<p>The authenticated user must be an administrator or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
@@ -4906,8 +4903,8 @@
               },
               "code_scanning_delegated_alert_dismissal": "disabled",
               "secret_scanning": "enabled",
-              "secret_scanning_push_protection": "disabled",
-              "secret_scanning_delegated_bypass": "disabled",
+              "secret_scanning_push_protection": "enabled",
+              "secret_scanning_delegated_bypass": "enabled",
               "secret_scanning_validity_checks": "disabled",
               "secret_scanning_non_provider_patterns": "disabled",
               "enforcement": "enforced",
@@ -5314,7 +5311,7 @@
           ]
         },
         {
-          "type": "object or null",
+          "type": "object",
           "name": "code_scanning_default_setup_options",
           "description": "<p>Feature options for code scanning default setup</p>",
           "childParamsGroups": [
@@ -5332,6 +5329,11 @@
               "type": "string or null",
               "name": "runner_label",
               "description": "<p>The label of the runner to use for code scanning default setup when runner_type is 'labeled'.</p>"
+            },
+            {
+              "type": "boolean or null",
+              "name": "allow_advanced",
+              "description": "<p>Whether to allow repos which use advanced setup</p>"
             }
           ]
         },
@@ -6051,8 +6053,8 @@
                   },
                   "code_scanning_delegated_alert_dismissal": "disabled",
                   "secret_scanning": "enabled",
-                  "secret_scanning_push_protection": "disabled",
-                  "secret_scanning_delegated_bypass": "disabled",
+                  "secret_scanning_push_protection": "enabled",
+                  "secret_scanning_delegated_bypass": "enabled",
                   "secret_scanning_validity_checks": "disabled",
                   "secret_scanning_non_provider_patterns": "disabled",
                   "enforcement": "enforced",

@@ -1,11 +1,13 @@
 import type { Context, Page } from '@/types'
 import type { LinkData } from '@/article-api/transformers/types'
-import { renderLiquid } from '@/content-render/liquid/index'
 import { resolvePath } from './resolve-path'
+import { renderLiquid } from '@/content-render/liquid/index'
 
 interface PageWithChildren extends Page {
   children?: string[]
   category?: string[]
+  rawTitle: string
+  rawIntro?: string
 }
 
 interface TocItem extends LinkData {
@@ -27,18 +29,11 @@ export async function getAllTocItems(
   page: Page,
   context: Context,
   options: {
-    recurse?: boolean
-    renderIntros?: boolean
-    /** Use Liquid-only rendering for titles and intros instead of the full
-     *  Markdown/unified pipeline. Resolves {% data %} variables without
-     *  the cost of Markdown parsing, unified processing, and Cheerio unwrap. */
-    liquidOnly?: boolean
     /** Only recurse into children whose resolved path starts with this prefix.
      *  Prevents cross-product traversal (e.g. /en/rest listing /enterprise-admin). */
     basePath?: string
   } = {},
 ): Promise<TocItem[]> {
-  const { recurse = true, renderIntros = true, liquidOnly = false } = options
   const pageWithChildren = page as PageWithChildren
   const languageCode = page.languageCode || 'en'
 
@@ -75,40 +70,15 @@ export async function getAllTocItems(
       )
       const href = childPermalink ? childPermalink.href : childHref
 
-      let title: string
-      if (liquidOnly) {
-        const raw = childPage.shortTitle || childPage.title
-        try {
-          title = await renderLiquid(raw, context)
-        } catch {
-          // Fall back to raw frontmatter string if Liquid rendering fails
-          // (e.g. translation errors in non-English pages)
-          title = raw
-        }
-      } else {
-        title = await childPage.renderTitle(context, { unwrap: true })
-      }
-
-      let intro = ''
-      if (renderIntros && childPage.intro) {
-        if (liquidOnly) {
-          const rawIntro = childPage.rawIntro || childPage.intro
-          try {
-            intro = await renderLiquid(rawIntro, context)
-          } catch {
-            intro = rawIntro
-          }
-        } else {
-          intro = await childPage.renderProp('intro', context, { textOnly: true })
-        }
-      }
+      const title = await renderPropFast(childPage, 'title', context)
+      const intro = await renderPropFast(childPage, 'intro', context)
 
       const category = childPage.category || []
 
       // Only recurse if the child is within the same product section
       const withinSection = href.startsWith(basePath)
       const childTocItems =
-        recurse && withinSection && childPage.children && childPage.children.length > 0
+        withinSection && childPage.children && childPage.children.length > 0
           ? await getAllTocItems(childPage, context, { ...options, basePath })
           : []
 
@@ -164,4 +134,39 @@ export function flattenTocItems(
 
   recurse(tocItems)
   return result
+}
+
+/**
+ * Check whether a string contains markdown link syntax that would need
+ * processing by the unified pipeline (e.g. link rewriting, AUTOTITLE).
+ *
+ * Use this to short-circuit expensive rendering when the text is
+ * Liquid-only and contains no markdown that needs transformation.
+ */
+function hasMarkdownLinks(text: string): boolean {
+  return text.includes('[') && text.includes('](/')
+}
+
+const RAW_PROP_MAP = {
+  title: 'rawTitle',
+  intro: 'rawIntro',
+} as const
+
+/**
+ * Fast-path rendering for page properties. Renders Liquid only, skipping
+ * the full unified pipeline. Falls back to page.renderProp() when the
+ * Liquid output contains markdown links that need rewriting.
+ */
+async function renderPropFast(
+  page: PageWithChildren,
+  prop: keyof typeof RAW_PROP_MAP,
+  context: Context,
+): Promise<string> {
+  const raw = page[RAW_PROP_MAP[prop]]
+  if (!raw) return ''
+  const rendered = await renderLiquid(raw, context)
+  if (hasMarkdownLinks(rendered)) {
+    return page.renderProp(prop, context, { textOnly: true })
+  }
+  return rendered.trim()
 }

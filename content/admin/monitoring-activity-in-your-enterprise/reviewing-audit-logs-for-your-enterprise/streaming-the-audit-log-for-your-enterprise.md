@@ -14,7 +14,6 @@ category:
   - Monitor and audit your enterprise
 ---
 
-
 >[!NOTE] {% ifversion ghes %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
 ## About audit log streaming
@@ -114,8 +113,7 @@ From {% data variables.product.prodname_dotcom %}:
 1. Under "Authentication", click **Access keys**.{% endif %}
 1. Configure the stream settings.
 
-{% ifversion ghec or ghes > 3.14 %}
-    - Under "Region", select the bucket's region. For example, `us-east-1`.{% endif %}
+    - Under "Region", select the bucket's region. For example, `us-east-1`.
     - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
     - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
     - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.

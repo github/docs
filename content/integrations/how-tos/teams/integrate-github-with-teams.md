@@ -21,7 +21,7 @@ With the {% data variables.product.github %} integration for Teams, you can:
 * Use **commands** to take actions on {% data variables.product.github %}.
 * See **previews** when sharing links to {% data variables.product.github %} resources.
 {% ifversion fpt or ghec %}
-* Initiate a {% data variables.copilot.copilot_coding_agent %} session from Teams, using the context of a Teams thread.
+* Initiate a {% data variables.copilot.copilot_cloud_agent %} session from Teams, using the context of a Teams thread.
 {% endif %}
 
 {% data reusables.integrations.github-teams-permissions %}

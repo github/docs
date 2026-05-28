@@ -270,4 +270,6 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    
 {% data reusables.ssh.add-public-key-to-github %}
 
+## Further reading
 
+* [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/github-credential-types)

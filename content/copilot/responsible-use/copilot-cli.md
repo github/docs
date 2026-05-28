@@ -14,6 +14,8 @@ contentType: rai
 category:
   - Responsible use
   - Learn about Copilot CLI
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## About {% data variables.copilot.copilot_cli %}
@@ -103,9 +105,33 @@ By default, {% data variables.copilot.copilot_cli_short %}:
 * Will ask for permission before modifying files. Ensure that it is modifying the correct files before granting permission.
 * Will ask for permission before executing commands that may be dangerous. Review these commands carefully before giving it permission to run.
 
-You can grant {% data variables.copilot.copilot_cli_short %} specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool=[TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/cli-command-reference#command-line-options). Typically, when you use {% data variables.copilot.copilot_cli_short %} in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
+You can grant {% data variables.copilot.copilot_cli_short %} specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool=[TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#command-line-options). Typically, when you use {% data variables.copilot.copilot_cli_short %} in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
 
 For more information about security practices while using {% data variables.copilot.copilot_cli %}, see "Security considerations" in [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#security-considerations).
+
+## Data handling when using your own model provider
+
+When you configure {% data variables.copilot.copilot_cli_short %} to use your own model provider, your prompts, code context, and generated responses are sent directly to the provider you configure. They are not routed through {% data variables.product.github %}. You are responsible for reviewing and complying with the terms of service and data handling policies of your chosen provider.
+
+### Telemetry
+
+When you use your own model provider without offline mode, {% data variables.copilot.copilot_cli_short %} continues to send telemetry to {% data variables.product.github %} as usual. This telemetry does not include your prompts or code, but it does include usage metadata.
+
+If you enable offline mode by setting the `COPILOT_OFFLINE` environment variable to `true`, all telemetry is disabled. In offline mode, {% data variables.copilot.copilot_cli_short %} only makes network requests to your configured model provider.
+
+### Authentication and feature availability
+
+{% data variables.product.github %} authentication is not required when using your own model provider (BYOK). Without {% data variables.product.github %} authentication, the following features are unavailable:
+
+* `/delegate`, which hands off the session to {% data variables.product.github %}'s server-side {% data variables.product.prodname_copilot_short %}
+* The {% data variables.product.github %} MCP server
+* {% data variables.product.github %} Code Search
+
+In offline mode, web-based tools such as `web_fetch` and {% data variables.product.github %} Code Search are also disabled.
+
+### No fallback to {% data variables.product.github %}-hosted models
+
+If your model provider configuration is invalid, {% data variables.copilot.copilot_cli_short %} exits with an error. It does not fall back to {% data variables.product.github %}-hosted models. Common failures, such as connection refused, authentication errors, model not found, and timeouts, produce user-friendly messages with actionable guidance.
 
 ## Limitations of {% data variables.copilot.copilot_cli %}
 

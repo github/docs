@@ -2,6 +2,8 @@
 title: GitHub Secret Scanning Partner Program Agreement
 versions:
   fpt: '*'
+category:
+  - Review product and program terms
 ---
 <!-- markdownlint-disable search-replace -->
 

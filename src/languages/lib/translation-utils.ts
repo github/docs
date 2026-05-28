@@ -87,7 +87,7 @@ export function createTranslationFunctions(uiData: UIStrings, namespaces: string
         return {} as UIStrings
       }
     },
-    t: (strings: TemplateStringsArray | string, ...values: Array<any>) => {
+    t: (strings: TemplateStringsArray | string, ...values: Array<unknown>) => {
       const key = typeof strings === 'string' ? strings : String.raw(strings, ...values)
       // Provide specific fallbacks for common 404 page keys
       const commonFallbacks: Record<string, string> = {

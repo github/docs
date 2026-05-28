@@ -37,7 +37,7 @@ export function getSearchFromRequestParams<Type extends SearchTypes>(
       continue
     }
 
-    let value = req.query[key]
+    let value: unknown = req.query[key]
     if (!value || (typeof value === 'string' && !value.trim())) {
       if (default_ === undefined) {
         validationErrors.push({ error: `No truthy value for key '${key}'`, key })

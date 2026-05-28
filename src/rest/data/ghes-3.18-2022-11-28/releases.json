@@ -2062,6 +2062,10 @@
         {
           "httpStatusCode": "200",
           "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -3423,7 +3427,7 @@
             "false",
             "legacy"
           ],
-          "default": true
+          "default": "true"
         }
       ],
       "descriptionHTML": "<p>Users with push access to the repository can edit a release.</p>",
@@ -4024,6 +4028,10 @@
         "permissions": [
           {
             "\"Contents\" repository permissions": "write"
+          },
+          {
+            "\"Contents\" repository permissions": "write",
+            "\"Workflows\" repository permissions": "write"
           }
         ]
       }
@@ -4087,6 +4095,10 @@
         {
           "httpStatusCode": "204",
           "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],
@@ -4802,6 +4814,10 @@
         {
           "httpStatusCode": "204",
           "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
         }
       ],
       "previews": [],

@@ -970,9 +970,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -1253,6 +1250,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -2503,9 +2509,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -2786,6 +2789,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -3906,9 +3918,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -4189,6 +4198,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -4765,10 +4783,7 @@
           "description": "<p>The branch or commit to check for a default devcontainer path. If not specified, the default branch will be checked.</p>",
           "in": "query",
           "schema": {
-            "type": "string",
-            "examples": [
-              "main"
-            ]
+            "type": "string"
           }
         },
         {
@@ -4776,10 +4791,7 @@
           "description": "<p>An alternative IP for default location auto-detection, such as when proxying a request.</p>",
           "in": "query",
           "schema": {
-            "type": "string",
-            "examples": [
-              "1.2.3.4"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -5024,10 +5036,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "master"
-            ]
+            "type": "string"
           }
         },
         {
@@ -5036,10 +5045,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              ".devcontainer/example/devcontainer.json"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -5985,9 +5991,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -6268,6 +6271,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -7389,9 +7401,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -7672,6 +7681,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -9159,9 +9177,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -9442,6 +9457,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -10701,9 +10725,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -10984,6 +11005,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -12101,9 +12131,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -12384,6 +12411,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -13558,9 +13594,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -13841,6 +13874,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -15035,9 +15077,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -15318,6 +15357,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -17282,9 +17330,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -17795,11 +17840,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -18715,11 +18755,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -19397,11 +19432,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -19812,6 +19842,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -21004,9 +21043,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -21287,6 +21323,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -22473,9 +22518,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -22756,6 +22798,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -23173,10 +23224,7 @@
           "description": "<p>The location to check for available machines. Assigned by IP if not provided.</p>",
           "in": "query",
           "schema": {
-            "type": "string",
-            "examples": [
-              "WestUs2"
-            ]
+            "type": "string"
           }
         },
         {
@@ -23192,10 +23240,7 @@
           "description": "<p>The branch or commit to check for prebuild availability and devcontainer restrictions.</p>",
           "in": "query",
           "schema": {
-            "type": "string",
-            "examples": [
-              "main"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -24571,9 +24616,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -24854,6 +24896,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }
@@ -26306,9 +26357,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -26589,6 +26637,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -28367,9 +28424,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -28650,6 +28704,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -29947,9 +30010,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -30230,6 +30290,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -32283,9 +32352,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -32566,6 +32632,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }

@@ -17,6 +17,10 @@ export function ClientSideHashFocus() {
       }
     }
 
+    // Handle initial page load with a hash (e.g. direct link to
+    // docs.github.com/en/discussions#guides-2)
+    handleHashChange()
+
     window.addEventListener('hashchange', handleHashChange)
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])

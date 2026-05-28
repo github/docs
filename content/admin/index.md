@@ -1,7 +1,7 @@
 ---
 title: Enterprise administrator documentation
 shortTitle: Enterprise administrators
-intro: 'Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.prodname_enterprise %}.'
+intro: Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.prodname_enterprise %}.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise
@@ -64,8 +64,6 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
   - /admin/guides
-changelog:
-  label: enterprise
 layout: discovery-landing
 includedCategories:
   - Get started with GitHub Enterprise
@@ -110,7 +108,7 @@ children:
   - /managing-github-apps-for-your-enterprise
   - /managing-github-actions-for-your-enterprise
   - /configuring-packages
-  - /managing-code-security
   - /release-notes
   - /all-releases
 ---
+

@@ -27,7 +27,8 @@ After you disable SAML or OIDC authentication for your enterprise, the following
 If you later reconfigure authentication for the enterprise, external groups must be reprovisioned via SCIM, and {% data variables.enterprise.prodname_managed_users %} must be reprovisioned before users can sign in.
 
 > [!NOTE]
-> When a {% data variables.enterprise.prodname_managed_user %} is suspended, the user's avatar is permanently deleted. If you reprovision the user, the user will need to reupload their avatar.
+> * The authentication disabling process can require substantial time to complete for enterprises with a large number of members.
+> * Avatar data for {% data variables.enterprise.prodname_managed_users %} is permanently removed upon suspension. Reprovisioned users will need to reupload their avatar.
 
 If you want to migrate to a new identity provider (IdP) or tenant rather than disabling authentication entirely, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant).
 

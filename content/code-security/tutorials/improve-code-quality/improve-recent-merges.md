@@ -1,7 +1,7 @@
 ---
 title: Improving the quality of recently merged code with AI
 shortTitle: Improve recent merges
-intro: Explore {% data variables.product.prodname_code_quality %} findings for recently merged code and fix with {% data variables.copilot.copilot_autofix_short %} or delegate remediation work to {% data variables.copilot.copilot_coding_agent %}.
+intro: Explore {% data variables.product.prodname_code_quality %} findings for recently merged code and fix with {% data variables.copilot.copilot_autofix_short %} or delegate remediation work to {% data variables.copilot.copilot_cloud_agent %}.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -55,34 +55,34 @@ On the **{% data variables.code-quality.recent_suggestions %}** page, each file 
 
 ## 3. Delegate remediation work or open pull requests yourself
 
-You can open a pull request to apply the suggested autofixes to a file or delegate the remediation work to {% data variables.copilot.copilot_coding_agent %}. You need a {% data variables.product.prodname_copilot_short %} license to assign work to {% data variables.copilot.copilot_coding_agent %}.
+You can open a pull request to apply the suggested autofixes to a file or delegate the remediation work to {% data variables.copilot.copilot_cloud_agent %}. You need a {% data variables.product.prodname_copilot_short %} license to assign work to {% data variables.copilot.copilot_cloud_agent %}.
 <br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
-### Delegate work to {% data variables.copilot.copilot_coding_agent %}
+### Delegate work to {% data variables.copilot.copilot_cloud_agent %}
 
-You can ask {% data variables.copilot.copilot_coding_agent_short %} to open pull requests to make improvements to files using the suggested changes as a prompt. This is the best option if the suggested changes look good to you and you want to open a pull request that applies fixes to more than one file.
+You can ask {% data variables.copilot.copilot_cloud_agent_short %} to open pull requests to make improvements to files using the suggested changes as a prompt. This is the best option if the suggested changes look good to you and you want to open a pull request that applies fixes to more than one file.
 
 To delegate pull request creation:
 
 * **Multiple files:** Select the files you want to include, then click **Assign selected to {% data variables.product.prodname_copilot_short %}** in the header for the list of files.
 * **One file:** Click **Assign to {% data variables.product.prodname_copilot_short %}** for the file.
 
-There is a delay while the {% data variables.copilot.copilot_coding_agent_short %} sets up the work. When the pull request is open and work is in progress, a banner is displayed with a link to the pull request.
+There is a delay while the {% data variables.copilot.copilot_cloud_agent_short %} sets up the work. When the pull request is open and work is in progress, a banner is displayed with a link to the pull request.
 
-You can track {% data variables.copilot.copilot_coding_agent %}'s work:
+You can track {% data variables.copilot.copilot_cloud_agent %}'s work:
 
 * In the pull request, the summary is updated as work progresses.
-* Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) or session logs. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+* Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) or session logs. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
 
 ### Open your own pull requests
 
 You can open pull requests yourself to apply autofix suggestions. This is the best option if:
 
 * You want to work on the changes locally or in {% data variables.product.prodname_desktop %} before opening a pull request
-* You do not have access to {% data variables.copilot.copilot_coding_agent %}
+* You do not have access to {% data variables.copilot.copilot_cloud_agent %}
 
 > [!NOTE]
-> When you open a pull request yourself, you can only commit fixes to one file at a time. To fix multiple files at once, you must use {% data variables.copilot.copilot_coding_agent %}.
+> When you open a pull request yourself, you can only commit fixes to one file at a time. To fix multiple files at once, you must use {% data variables.copilot.copilot_cloud_agent %}.
 
 #### Opening a pull request
 
@@ -97,7 +97,7 @@ You can open pull requests yourself to apply autofix suggestions. This is the be
 
 ## 4. Provide pull request reviewers with context
 
-Providing context on why you are proposing changes to code is the best way to encourage team members to review your pull request. If you used {% data variables.copilot.copilot_coding_agent %}, the pull request summary already includes full details of the problems fixed by the pull request.
+Providing context on why you are proposing changes to code is the best way to encourage team members to review your pull request. If you used {% data variables.copilot.copilot_cloud_agent %}, the pull request summary already includes full details of the problems fixed by the pull request.
 
 If you opened the pull request directly from the {% data variables.product.prodname_code_quality %} view, the pull request summary links to the "{% data variables.code-quality.recent_suggestions %}" view. You may want to copy some of the explanations from the {% data variables.code-quality.recent_suggestions %} view into the pull request summary.
 
@@ -109,5 +109,5 @@ When you return to the "{% data variables.code-quality.recent_suggestions %}" vi
 
 ## Next steps
 
-* Learn more about how {% data variables.copilot.copilot_coding_agent %} can help expedite development tasks. See [AUTOTITLE](/copilot/tutorials/coding-agent/get-the-best-results).
+* Learn more about how {% data variables.copilot.copilot_cloud_agent %} can help expedite development tasks. See [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results).
 * Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).

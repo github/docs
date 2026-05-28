@@ -10,7 +10,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -19,7 +19,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -967,9 +967,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -1262,6 +1259,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -2509,9 +2515,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -2804,6 +2807,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -3921,9 +3933,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -4216,6 +4225,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -4618,7 +4636,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -4627,7 +4645,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -4792,10 +4810,7 @@
           "description": "<p>The branch or commit to check for a default devcontainer path. If not specified, the default branch will be checked.</p>",
           "in": "query",
           "schema": {
-            "type": "string",
-            "examples": [
-              "main"
-            ]
+            "type": "string"
           }
         },
         {
@@ -4803,10 +4818,7 @@
           "description": "<p>An alternative IP for default location auto-detection, such as when proxying a request.</p>",
           "in": "query",
           "schema": {
-            "type": "string",
-            "examples": [
-              "1.2.3.4"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -5051,10 +5063,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "master"
-            ]
+            "type": "string"
           }
         },
         {
@@ -5063,10 +5072,7 @@
           "in": "query",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              ".devcontainer/example/devcontainer.json"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -6009,9 +6015,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -6304,6 +6307,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -7422,9 +7434,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -7717,6 +7726,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -8115,7 +8133,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -8124,7 +8142,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -9201,9 +9219,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -9496,6 +9511,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -10752,9 +10776,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -11047,6 +11068,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -12161,9 +12191,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -12456,6 +12483,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -13627,9 +13663,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -13922,6 +13955,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -15113,9 +15155,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -15408,6 +15447,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -17369,9 +17417,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -17876,11 +17921,6 @@
                                 "all",
                                 "collaborators_only"
                               ]
-                            },
-                            "has_commit_comments": {
-                              "description": "Whether commit comments are enabled.",
-                              "default": true,
-                              "type": "boolean"
                             },
                             "archived": {
                               "description": "Whether the repository is archived.",
@@ -18777,11 +18817,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -19443,11 +19478,6 @@
                             "collaborators_only"
                           ]
                         },
-                        "has_commit_comments": {
-                          "description": "Whether commit comments are enabled.",
-                          "default": true,
-                          "type": "boolean"
-                        },
                         "archived": {
                           "description": "Whether the repository is archived.",
                           "default": false,
@@ -19860,6 +19890,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -21049,9 +21088,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -21344,6 +21380,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -22527,9 +22572,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -22822,6 +22864,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -23239,10 +23290,7 @@
           "description": "<p>The location to check for available machines. Assigned by IP if not provided.</p>",
           "in": "query",
           "schema": {
-            "type": "string",
-            "examples": [
-              "WestUs2"
-            ]
+            "type": "string"
           }
         },
         {
@@ -23258,10 +23306,7 @@
           "description": "<p>The branch or commit to check for prebuild availability and devcontainer restrictions.</p>",
           "in": "query",
           "schema": {
-            "type": "string",
-            "examples": [
-              "main"
-            ]
+            "type": "string"
           }
         }
       ],
@@ -23595,7 +23640,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -23604,7 +23649,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -23952,7 +23997,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#get-an-organization-public-key\">Get an organization public key</a> endpoint.</p>"
+          "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#get-an-organization-public-key\">Get an organization public key</a> endpoint.</p>"
         },
         {
           "type": "string",
@@ -23973,10 +24018,10 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository IDs that can access the organization secret. You can only provide a list of repository IDs when the <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#list-selected-repositories-for-an-organization-secret\">List selected repositories for an organization secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>"
+          "description": "<p>An array of repository IDs that can access the organization secret. You can only provide a list of repository IDs when the <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#list-selected-repositories-for-an-organization-secret\">List selected repositories for an organization secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates or updates an organization development environment secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates or updates an organization development environment secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -24161,7 +24206,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -24170,7 +24215,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -24634,9 +24679,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -24929,6 +24971,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }
@@ -25051,11 +25102,11 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can add and remove individual repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a> and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>",
+          "description": "<p>An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the <code>visibility</code> is set to <code>selected</code>. You can add and remove individual repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#set-selected-repositories-for-an-organization-secret\">Set selected repositories for an organization secret</a> and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#remove-selected-repository-from-an-organization-secret\">Remove selected repository from an organization secret</a> endpoints.</p>",
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Replaces all repositories for an organization development environment secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Replaces all repositories for an organization development environment secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -25141,7 +25192,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Adds a repository to an organization development environment secret when the <code>visibility</code> for repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#create-or-update-an-organization-secret\">Create or update an organization secret</a>.\nOAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Adds a repository to an organization development environment secret when the <code>visibility</code> for repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#create-or-update-an-organization-secret\">Create or update an organization secret</a>.\nOAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -25227,7 +25278,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Removes a repository from an organization development environment secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organization-secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Removes a repository from an organization development environment secret when the <code>visibility</code>\nfor repository access is set to <code>selected</code>. The visibility is set when you <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organization-secrets#create-or-update-an-organization-secret\">Create\nor update an organization secret</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -25288,7 +25339,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -25297,7 +25348,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -26378,9 +26429,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -26673,6 +26721,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -27190,7 +27247,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Codespaces for the specified users will be billed to the organization.</p>\n<p>To use this endpoint, the access settings for the organization must be set to <code>selected_members</code>.\nFor information on how to change this setting, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#manage-access-control-for-organization-codespaces\">Manage access control for organization codespaces</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Codespaces for the specified users will be billed to the organization.</p>\n<p>To use this endpoint, the access settings for the organization must be set to <code>selected_members</code>.\nFor information on how to change this setting, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organizations#manage-access-control-for-organization-codespaces\">Manage access control for organization codespaces</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -27277,7 +27334,7 @@
           "isRequired": true
         }
       ],
-      "descriptionHTML": "<p>Codespaces for the specified users will no longer be billed to the organization.</p>\n<p>To use this endpoint, the access settings for the organization must be set to <code>selected_members</code>.\nFor information on how to change this setting, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#manage-access-control-for-organization-codespaces\">Manage access control for organization codespaces</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Codespaces for the specified users will no longer be billed to the organization.</p>\n<p>To use this endpoint, the access settings for the organization must be set to <code>selected_members</code>.\nFor information on how to change this setting, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/organizations#manage-access-control-for-organization-codespaces\">Manage access control for organization codespaces</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -27348,7 +27405,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -27357,7 +27414,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -28448,9 +28505,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -28743,6 +28797,15 @@
                                             "TEAM",
                                             "ROLE"
                                           ]
+                                        },
+                                        "mode": {
+                                          "type": "string",
+                                          "description": "The bypass mode for the reviewer",
+                                          "enum": [
+                                            "ALWAYS",
+                                            "EXEMPT"
+                                          ],
+                                          "default": "ALWAYS"
                                         }
                                       }
                                     }
@@ -30037,9 +30100,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -30332,6 +30392,15 @@
                                       "TEAM",
                                       "ROLE"
                                     ]
+                                  },
+                                  "mode": {
+                                    "type": "string",
+                                    "description": "The bypass mode for the reviewer",
+                                    "enum": [
+                                      "ALWAYS",
+                                      "EXEMPT"
+                                    ],
+                                    "default": "ALWAYS"
                                   }
                                 }
                               }
@@ -30751,7 +30820,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -30760,7 +30829,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -31104,7 +31173,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/repository-secrets#get-a-repository-public-key\">Get a repository public key</a> endpoint.</p>"
+          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/repository-secrets#get-a-repository-public-key\">Get a repository public key</a> endpoint.</p>"
         },
         {
           "type": "string",
@@ -31112,7 +31181,7 @@
           "description": "<p>ID of the key you used to encrypt the secret.</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates or updates a repository development environment secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint. The associated user must be a repository admin.</p>",
+      "descriptionHTML": "<p>Creates or updates a repository development environment secret with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint. The associated user must be a repository admin.</p>",
       "codeExamples": [
         {
           "request": {
@@ -31271,7 +31340,7 @@
       "parameters": [
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -31280,7 +31349,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -31584,7 +31653,7 @@
         {
           "type": "string",
           "name": "encrypted_value",
-          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/secrets#get-public-key-for-the-authenticated-user\">Get the public key for the authenticated user</a> endpoint.</p>"
+          "description": "<p>Value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/secrets#get-public-key-for-the-authenticated-user\">Get the public key for the authenticated user</a> endpoint.</p>"
         },
         {
           "type": "string",
@@ -31595,10 +31664,10 @@
         {
           "type": "array",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository ids that can access the user secret. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/secrets#list-selected-repositories-for-a-user-secret\">List selected repositories for a user secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/secrets#set-selected-repositories-for-a-user-secret\">Set selected repositories for a user secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/secrets#remove-a-selected-repository-from-a-user-secret\">Remove a selected repository from a user secret</a> endpoints.</p>"
+          "description": "<p>An array of repository ids that can access the user secret. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/secrets#list-selected-repositories-for-a-user-secret\">List selected repositories for a user secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/secrets#set-selected-repositories-for-a-user-secret\">Set selected repositories for a user secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/secrets#remove-a-selected-repository-from-a-user-secret\">Remove a selected repository from a user secret</a> endpoints.</p>"
         }
       ],
-      "descriptionHTML": "<p>Creates or updates a development environment secret for a user's codespace with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>The authenticated user must have Codespaces access to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>codespace</code> or <code>codespace:secrets</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Creates or updates a development environment secret for a user's codespace with an encrypted value. Encrypt your secret using\n<a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>The authenticated user must have Codespaces access to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>codespace</code> or <code>codespace:secrets</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -32382,9 +32451,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -32677,6 +32743,15 @@
                                         "TEAM",
                                         "ROLE"
                                       ]
+                                    },
+                                    "mode": {
+                                      "type": "string",
+                                      "description": "The bypass mode for the reviewer",
+                                      "enum": [
+                                        "ALWAYS",
+                                        "EXEMPT"
+                                      ],
+                                      "default": "ALWAYS"
                                     }
                                   }
                                 }
@@ -32802,7 +32877,7 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "description": "<p>An array of repository ids for which a codespace can access the secret. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/secrets#list-selected-repositories-for-a-user-secret\">List selected repositories for a user secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/secrets#add-a-selected-repository-to-a-user-secret\">Add a selected repository to a user secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/codespaces/secrets#remove-a-selected-repository-from-a-user-secret\">Remove a selected repository from a user secret</a> endpoints.</p>",
+          "description": "<p>An array of repository ids for which a codespace can access the secret. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/secrets#list-selected-repositories-for-a-user-secret\">List selected repositories for a user secret</a>, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/secrets#add-a-selected-repository-to-a-user-secret\">Add a selected repository to a user secret</a>, and <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/codespaces/secrets#remove-a-selected-repository-from-a-user-secret\">Remove a selected repository from a user secret</a> endpoints.</p>",
           "isRequired": true
         }
       ],

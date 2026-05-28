@@ -12,6 +12,7 @@ interface PageMetadata {
   title: string
   intro: string
   documentType: string | null
+  redirectedFrom?: string
 }
 
 interface ErrorResponse {
@@ -46,6 +47,8 @@ describe('pageinfo api', () => {
       'Get started using HubGit to manage Git repositories and collaborate with others.',
     )
     expect(meta.documentType).toBe('category')
+    // Canonical URLs should not have redirectedFrom
+    expect(meta.redirectedFrom).toBeUndefined()
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
@@ -90,6 +93,7 @@ describe('pageinfo api', () => {
       expect(res.statusCode).toBe(200)
       const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toBe('HubGit.com Fixture Documentation')
+      expect(meta.redirectedFrom).toBe('/en/olden-days')
     }
     // Trailing slashes are always removed
     {
@@ -97,6 +101,7 @@ describe('pageinfo api', () => {
       expect(res.statusCode).toBe(200)
       const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toBe('HubGit.com Fixture Documentation')
+      expect(meta.redirectedFrom).toBe('/en/olden-days')
     }
     // Short code for latest version
     {

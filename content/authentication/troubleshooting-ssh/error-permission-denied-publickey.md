@@ -68,6 +68,17 @@ You should see this output:
 > Hi USERNAME! You've successfully authenticated...
 ```
 
+{% ifversion ghec %}
+
+> [!WARNING]
+> {% data reusables.enterprise-data-residency.ssh-user %}
+>
+> ```shell
+> ssh -T {% data variables.enterprise.data_residency_example_git_ssh %}
+> ```
+
+{% endif %}
+
 ## Make sure you have a key that is being used
 
 {% mac %}

@@ -29,10 +29,8 @@ Rulesets allow you to flexibly target the organizations, repositories, and branc
 
 * To target **organizations**, you can select all, choose from a list, define a dynamic pattern for organization names using `fnmatch` syntax, or use organization custom properties to dynamically target organizations based on metadata. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax). For information on custom properties, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).
 
-* Within those organizations, you can target all **repositories**, or target a dynamic list by custom property. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+* Within those organizations, you can target all **repositories**, or target a dynamic list by custom property or deployment context.
 * Within the repositories, you can target certain **branches or tags**: all branches, the default branch, or a dynamic list using `fnmatch` syntax.
-
-When you create a ruleset that targets branches in a repository, repository administrators can no longer rename branches or change the default branch in the targeted repository. They can still create and delete branches if they have the appropriate permissions.
 
 ## How can I control the format of commits?
 
@@ -61,7 +59,7 @@ The following are eligible for bypass access:
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys.
 {%- ifversion ghec %}
-* {% data variables.copilot.copilot_coding_agent %}. For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent#limitations-in-copilot-coding-agents-compatibility-with-other-features).
+* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
 {%- endif %}
 
 1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **Add bypass**.
@@ -78,7 +76,12 @@ If you set a dynamic list, you'll add one or more naming patterns using `fnmatch
 
 ### Choosing which repositories to target in your enterprise
 
-Within the selected organizations, you can target all repositories or target a dynamic list by custom property. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+Within the selected organizations, you can target all repositories or target a dynamic list based on a filter:
+
+* You can filter by custom property. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+{%- ifversion virtual-registry %}
+* {% data reusables.security.deployable-rulesets %}
+{%- endif %}
 
 ### Choosing which branches or tags to target
 
@@ -121,7 +124,7 @@ You can grant certain roles, teams, or apps bypass permissions as well as the ab
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys
 {%- ifversion ghec %}
-* {% data variables.copilot.copilot_coding_agent %}. For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent#limitations-in-copilot-coding-agents-compatibility-with-other-features).
+* {% data variables.copilot.copilot_cloud_agent %}. For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent#limitations-in-copilot-cloud-agents-compatibility-with-other-features).
 {%- endif %}
 
 1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **Add bypass**.

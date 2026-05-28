@@ -87,9 +87,9 @@ You can schedule reminders for pending pull request reviews in channels or in th
 
 {% ifversion fpt or ghec %}
 
-## Initiating {% data variables.copilot.copilot_coding_agent %} sessions within Teams
+## Initiating {% data variables.copilot.copilot_cloud_agent %} sessions within Teams
 
-The {% data variables.product.github %} app integrates {% data variables.copilot.copilot_coding_agent %} into Teams. You can summon {% data variables.copilot.copilot_coding_agent %} in threads where discussions are taking place and ask it to make changes based on the context of those discussions. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-teams).
+The {% data variables.product.github %} app integrates {% data variables.copilot.copilot_cloud_agent %} into Teams. You can summon {% data variables.copilot.copilot_cloud_agent %} in threads where discussions are taking place and ask it to make changes based on the context of those discussions. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-teams).
 
 {% endif %}
 

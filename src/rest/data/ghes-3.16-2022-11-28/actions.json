@@ -647,11 +647,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         }
       ],
@@ -913,8 +913,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -987,8 +986,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1057,8 +1055,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1581,12 +1578,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "last_accessed_at",
             "enum": [
               "created_at",
               "last_accessed_at",
               "size_in_bytes"
-            ],
-            "default": "last_accessed_at"
+            ]
           }
         },
         {
@@ -1596,11 +1593,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         }
       ],
@@ -2020,8 +2017,7 @@
         {
           "type": "array of strings",
           "name": "include_claim_keys",
-          "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>",
-          "isRequired": true
+          "description": "<p>Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates or updates the customization template for an OpenID Connect (OIDC) subject claim.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:org</code> scope to use this endpoint.</p>",
@@ -3914,11 +3910,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -6431,9 +6422,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean"
                       },
                       "archived": {
                         "type": "boolean"
@@ -11183,9 +11171,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "type": "boolean"
-                      },
                       "archived": {
                         "type": "boolean"
                       },
@@ -13217,11 +13202,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -13993,11 +13973,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -16267,11 +16242,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -17047,11 +17017,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -19389,11 +19354,6 @@
                           "collaborators_only"
                         ]
                       },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
-                      },
                       "archived": {
                         "description": "Whether the repository is archived.",
                         "default": false,
@@ -20179,11 +20139,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "description": "Whether commit comments are enabled.",
-                        "default": true,
-                        "type": "boolean"
                       },
                       "archived": {
                         "description": "Whether the repository is archived.",
@@ -22509,9 +22464,6 @@
                           "all",
                           "collaborators_only"
                         ]
-                      },
-                      "has_commit_comments": {
-                        "type": "boolean"
                       },
                       "archived": {
                         "type": "boolean"
@@ -25215,11 +25167,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "latest",
             "enum": [
               "latest",
               "all"
-            ],
-            "default": "latest"
+            ]
           }
         },
         {
@@ -25670,6 +25622,12 @@
           "name": "enable_debug_logging",
           "description": "<p>Whether to enable debug logging for the re-run.</p>",
           "default": false
+        },
+        {
+          "type": "boolean",
+          "name": "enable_debugger",
+          "description": "<p>Whether to enable the debugger for the re-run of this job.</p>",
+          "default": false
         }
       ],
       "descriptionHTML": "<p>Re-run a job and its dependent jobs in a workflow run.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
@@ -25825,8 +25783,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -27023,9 +26980,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -27642,9 +27596,6 @@
                               "all",
                               "collaborators_only"
                             ]
-                          },
-                          "has_commit_comments": {
-                            "type": "boolean"
                           },
                           "archived": {
                             "type": "boolean"
@@ -29181,9 +29132,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -29800,9 +29748,6 @@
                         "all",
                         "collaborators_only"
                       ]
-                    },
-                    "has_commit_comments": {
-                      "type": "boolean"
                     },
                     "archived": {
                       "type": "boolean"
@@ -31707,9 +31652,6 @@
                         "collaborators_only"
                       ]
                     },
-                    "has_commit_comments": {
-                      "type": "boolean"
-                    },
                     "archived": {
                       "type": "boolean"
                     },
@@ -32326,9 +32268,6 @@
                         "all",
                         "collaborators_only"
                       ]
-                    },
-                    "has_commit_comments": {
-                      "type": "boolean"
                     },
                     "archived": {
                       "type": "boolean"
@@ -34523,16 +34462,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "actor",
@@ -34610,8 +34540,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -35809,9 +35738,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -36429,9 +36355,6 @@
                               "collaborators_only"
                             ]
                           },
-                          "has_commit_comments": {
-                            "type": "boolean"
-                          },
                           "archived": {
                             "type": "boolean"
                           },
@@ -36976,16 +36899,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -37132,16 +37046,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -37212,16 +37117,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [
@@ -37312,16 +37208,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],

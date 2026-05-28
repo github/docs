@@ -23,8 +23,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The name of the tool used to generate the code scanning analysis."
+            "type": "string"
           }
         },
         {
@@ -36,8 +35,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
+            ]
           }
         },
         {
@@ -83,11 +81,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -97,7 +95,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "State of a code scanning alert.",
             "enum": [
               "open",
               "closed",
@@ -113,11 +110,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -743,6 +740,10 @@
                         "properties": {
                           "text": {
                             "type": "string"
+                          },
+                          "markdown": {
+                            "type": "string",
+                            "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                           }
                         }
                       },
@@ -1453,8 +1454,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The name of the tool used to generate the code scanning analysis."
+            "type": "string"
           }
         },
         {
@@ -1466,8 +1466,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
+            ]
           }
         },
         {
@@ -1513,11 +1512,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -1527,7 +1526,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "State of a code scanning alert.",
             "enum": [
               "open",
               "closed",
@@ -1543,11 +1541,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -1557,7 +1555,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "Severity of a code scanning alert.",
             "enum": [
               "critical",
               "high",
@@ -2192,6 +2189,10 @@
                         "properties": {
                           "text": {
                             "type": "string"
+                          },
+                          "markdown": {
+                            "type": "string",
+                            "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                           }
                         }
                       },
@@ -2915,8 +2916,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The name of the tool used to generate the code scanning analysis."
+            "type": "string"
           }
         },
         {
@@ -2928,8 +2928,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
+            ]
           }
         },
         {
@@ -2956,8 +2955,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`."
+            "type": "string"
           }
         },
         {
@@ -2976,11 +2974,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -3008,11 +3006,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created",
               "updated"
-            ],
-            "default": "created"
+            ]
           }
         },
         {
@@ -3022,7 +3020,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "State of a code scanning alert.",
             "enum": [
               "open",
               "closed",
@@ -3038,7 +3035,6 @@
           "required": false,
           "schema": {
             "type": "string",
-            "description": "Severity of a code scanning alert.",
             "enum": [
               "critical",
               "high",
@@ -3542,6 +3538,10 @@
                         "properties": {
                           "text": {
                             "type": "string"
+                          },
+                          "markdown": {
+                            "type": "string",
+                            "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                           }
                         }
                       },
@@ -3907,9 +3907,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -4349,6 +4347,10 @@
                       "properties": {
                         "text": {
                           "type": "string"
+                        },
+                        "markdown": {
+                          "type": "string",
+                          "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                         }
                       }
                     },
@@ -4713,9 +4715,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         }
       ],
@@ -5199,6 +5199,10 @@
                       "properties": {
                         "text": {
                           "type": "string"
+                        },
+                        "markdown": {
+                          "type": "string",
+                          "description": "The message text as GitHub-flavored Markdown, with placeholder links for related locations replaced by links to the relevant code. Only populated when related locations are available for the alert instance."
                         }
                       }
                     },
@@ -5563,9 +5567,7 @@
           "description": "<p>The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the <code>number</code> field in the response from the <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code> operation.</p>",
           "required": true,
           "schema": {
-            "type": "integer",
-            "description": "The security alert number.",
-            "readOnly": true
+            "type": "integer"
           }
         },
         {
@@ -5592,8 +5594,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`."
+            "type": "string"
           }
         },
         {
@@ -5821,8 +5822,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The name of the tool used to generate the code scanning analysis."
+            "type": "string"
           }
         },
         {
@@ -5834,8 +5834,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
+            ]
           }
         },
         {
@@ -5871,8 +5870,7 @@
           "description": "<p>The Git reference for the analyses you want to list. The <code>ref</code> for a branch can be formatted either as <code>refs/heads/&#x3C;branch name></code> or simply <code>&#x3C;branch name></code>. To reference a pull request use <code>refs/pull/&#x3C;number>/merge</code>.</p>",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`."
+            "type": "string"
           }
         },
         {
@@ -5881,11 +5879,7 @@
           "description": "<p>Filter analyses belonging to the same SARIF upload.</p>",
           "required": false,
           "schema": {
-            "type": "string",
-            "description": "An identifier for the upload.",
-            "examples": [
-              "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
-            ]
+            "type": "string"
           }
         },
         {
@@ -5895,11 +5889,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         },
         {
@@ -5909,10 +5903,10 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "created",
             "enum": [
               "created"
-            ],
-            "default": "created"
+            ]
           }
         }
       ],
@@ -5989,8 +5983,8 @@
                     "description": "The SHA of the commit to which the analysis you are uploading relates.",
                     "type": "string",
                     "minLength": 40,
-                    "maxLength": 40,
-                    "pattern": "^[0-9a-fA-F]+$"
+                    "maxLength": 64,
+                    "pattern": "^([0-9a-fA-F]{40}(?:[0-9a-fA-F]{24})?)$"
                   },
                   "analysis_key": {
                     "type": "string",
@@ -6202,8 +6196,8 @@
                   "description": "The SHA of the commit to which the analysis you are uploading relates.",
                   "type": "string",
                   "minLength": 40,
-                  "maxLength": 40,
-                  "pattern": "^[0-9a-fA-F]+$"
+                  "maxLength": 64,
+                  "pattern": "^([0-9a-fA-F]{40}(?:[0-9a-fA-F]{24})?)$"
                 },
                 "analysis_key": {
                   "type": "string",
@@ -7180,13 +7174,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "month",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "month"
+            ]
           }
         },
         {
@@ -7196,14 +7190,14 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "open",
               "approved",
               "expired",
               "denied",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -7614,13 +7608,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "month",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "month"
+            ]
           }
         },
         {
@@ -7630,14 +7624,14 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "open",
               "approved",
               "expired",
               "denied",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {

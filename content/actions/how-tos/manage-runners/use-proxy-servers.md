@@ -32,6 +32,10 @@ On Windows machines, the proxy environment variable names are case-insensitive. 
 
 {% data reusables.actions.self-hosted-runner-ports-protocols %}
 
+> [!WARNING]
+> Self-hosted runners do not support using IP addresses in the `no_proxy` environment variable. If your {% data variables.product.prodname_ghe_server %} instance uses an IP address and you configure `no_proxy` to bypass the proxy for that address, the runner will still fail to connect.
+> If your {% data variables.product.prodname_ghe_server %} instance is accessed using an IP address and the connection must bypass the proxy, the runner will fail to connect, even if that IP address is listed in `no_proxy`.
+
 ### Example configurations
 
 {% data reusables.actions.environment-variables-as-case-sensitive %}

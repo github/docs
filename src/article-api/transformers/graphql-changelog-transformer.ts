@@ -22,9 +22,22 @@ export class GraphQLChangelogTransformer implements PageTransformer {
   async transform(page: Page, _pathname: string, context: Context): Promise<string> {
     const currentVersion = context.currentVersion!
 
-    const { getGraphqlChangelog } = await import('@/graphql/lib/index')
+    const { getGraphqlChangelogByYear, getGraphqlChangelogYears } =
+      await import('@/graphql/lib/index')
 
-    const schema = getGraphqlChangelog(currentVersion) as ChangelogItemT[]
+    // Determine if this is a year-specific page
+    const yearMatch = page.relativePath.match(/changelog\/(\d{4})\.md$/)
+    const year = yearMatch ? Number(yearMatch[1]) : null
+    const years = getGraphqlChangelogYears(currentVersion)
+
+    let schema: ChangelogItemT[]
+    if (year) {
+      schema = getGraphqlChangelogByYear(currentVersion, year) as ChangelogItemT[]
+    } else {
+      // Index page: show only the latest year
+      const latestYear = years[0]
+      schema = getGraphqlChangelogByYear(currentVersion, latestYear) as ChangelogItemT[]
+    }
 
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
     const manualContent = await extractManualContent(page, context)
@@ -51,11 +64,19 @@ export class GraphQLChangelogTransformer implements PageTransformer {
       }
     })
 
+    // Build year navigation links
+    const displayYear = year || years[0]
+    const yearNavItems = years.map((y) => ({
+      year: y,
+      isCurrent: y === displayYear,
+    }))
+
     const templateData: Record<string, unknown> = {
       pageTitle: page.title,
       pageIntro: intro,
       manualContent,
       changelogItems,
+      yearNavItems,
     }
 
     const templateContent = loadTemplate(this.templateName)

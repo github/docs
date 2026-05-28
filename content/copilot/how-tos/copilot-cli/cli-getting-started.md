@@ -11,6 +11,8 @@ category:
   - Build with Copilot CLI
   - Quickstarts
   - Author and optimize with Copilot
+docsTeamMetrics:
+  - copilot-cli
 ---
 
 ## Introduction

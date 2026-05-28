@@ -1,4 +1,10 @@
 .container {
+  // Override Primer's selected tab indicator color to meet WCAG 1.4.11
+  // non-text contrast minimum of 3:1. The default --color-primer-border-active
+  // (#FD8C73) has only 2.3:1 contrast. Using a Primer theme variable
+  // that meets contrast in both light and dark color modes.
+  --underlineNav-borderColor-active: var(--color-severe-emphasis);
+
   // target the ActionList dropdown that appears when UnderlineNav overflows
   ul[class*="prc-ActionList-ActionList"] {
     background-color: var(

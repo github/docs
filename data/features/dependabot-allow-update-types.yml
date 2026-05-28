@@ -1,0 +1,7 @@
+# References:
+# Issue docs-content#21952 - Document update-types support in allow block
+# Core: https://github.com/dependabot/dependabot-core/pull/12925
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.21'

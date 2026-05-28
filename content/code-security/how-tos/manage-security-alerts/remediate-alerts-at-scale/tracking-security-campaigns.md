@@ -22,7 +22,7 @@ category:
 
 The tracking view helps you quickly assess the health of your organization’s campaigns. You can use it to identify campaigns with a high number of open alerts, check whether work has started, and determine whether campaigns are on track to meet their due dates.
 
-To display the campaign tracking view, navigate to the **Security** tab for the organization, then in the left sidebar click **{% octicon "goal" aria-hidden="true" aria-label="goal" %} Campaigns**. {% ifversion security-campaigns-secrets %}To display campaigns for secrets, click the **Secrets** tab at the top of the page.
+To display the campaign tracking view, navigate to the **{% data variables.product.prodname_security_and_quality_tab %}** tab for the organization, then in the left sidebar click **{% octicon "goal" aria-hidden="true" aria-label="goal" %} Campaigns**. {% ifversion security-campaigns-secrets %}To display campaigns for secrets, click the **Secrets** tab at the top of the page.
 
 ![Screenshot of the security campaigns overview page. The "Secrets" campaign tab is outlined in orange.](/assets/images/help/security/security-campaigns-tracking-overview-2tabs.png)
 

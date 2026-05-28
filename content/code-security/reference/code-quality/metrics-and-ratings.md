@@ -15,7 +15,7 @@ category:
 
 This article provides definitions for the metrics and ratings used by {% data variables.product.prodname_code_quality_short %}.
 
-You can see the rule-based results for your repository on your **Security** tab, in the **{% data variables.code-quality.all_findings %}** tab under "{% data variables.code-quality.code_quality_ui_views %}".
+You can see the rule-based results for your repository on your **{% data variables.product.prodname_security_and_quality_tab %}** tab, in the **{% data variables.code-quality.all_findings %}** tab under "{% data variables.code-quality.code_quality_ui_views %}".
 
 ## Metric definitions
 
@@ -46,6 +46,22 @@ These ratings are used to summarize the overall reliability and maintainability 
 | **Good**             | Codebase has low-severity issues or minor improvements are suggested. | ≥1 "Note" level finding       |
 | **Fair**             | Codebase has moderate-severity issues that may impact quality, but are not critical. | ≥1 "Warning" level finding              |
 | **Needs Improvement**| Codebase has high-severity issues, including bugs or major maintainability risks. | ≥1 "Error" level finding                |
+
+## Code coverage
+
+Code coverage measures what percentage of your source code is executed when your test suite runs. {% data variables.product.prodname_code_quality_short %} displays a coverage percentage on pull requests after you upload a Cobertura XML coverage report.
+
+### How coverage is calculated
+
+The coverage percentage represents the number of lines covered by tests divided by the total number of lines, expressed as a percentage. {% data variables.product.prodname_code_quality_short %} stores the latest upload for each branch (including the default branch) and compares the PR branch coverage to the default branch coverage.
+
+For example, if your default branch has 44% coverage and your PR branch has 65% coverage, the PR gained 21 percentage points of coverage.
+
+### Per-file delta
+
+The per-file breakdown on pull requests shows how coverage changed for each modified file. A positive delta means the file gained coverage on the PR branch compared to the default branch.
+
+To set up code coverage for your repository, see [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
 
 ## Further reading
 

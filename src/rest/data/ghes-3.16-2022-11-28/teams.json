@@ -4037,9 +4037,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -8700,9 +8697,6 @@
                       "collaborators_only"
                     ]
                   },
-                  "has_commit_comments": {
-                    "type": "boolean"
-                  },
                   "archived": {
                     "type": "boolean"
                   },
@@ -11580,12 +11574,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "member",
               "maintainer",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -12132,12 +12126,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "member",
               "maintainer",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
