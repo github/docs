@@ -1,0 +1,35 @@
+// Heading rhythm tweaks specific to GraphQL category pages.
+// Each schema item is its own H2; H3 and H4 are sub-sections inside an item
+// (fields, arguments, etc.) that read better when they sit closer to the H2
+// above them instead of inheriting the generic markdown padding.
+.categoryPage {
+  h2 {
+    padding-top: 2.5rem;
+  }
+
+  // The very first H2 on the page sits directly below the intro/lead; the
+  // extra padding-top adds an awkward gap there. Each schema item is wrapped
+  // in its own <div>, so a plain `h2:first-child` would also match the H2 in
+  // every subsequent item. Scope to the first item wrapper instead.
+  > :first-child h2:first-child {
+    padding-top: 0;
+  }
+
+  h3,
+  h4 {
+    padding-top: 0;
+  }
+
+  // The schema item description is rendered as HTML and often wraps in a
+  // single <p>. The trailing paragraph margin leaves a "chin" between the
+  // description and the next sub-section, so strip it. The
+  // `graphql-item-description` class is added to the description wrapper
+  // inside `GraphqlItem` by sibling PR #61435; until that merges, this rule
+  // is inert (and it's only ever evaluated under `.categoryPage`, which
+  // doesn't render until the recat PR wires this component up).
+  // `:global` is required because CSS modules would otherwise rewrite the
+  // class name.
+  :global(.graphql-item-description) > :last-child {
+    margin-bottom: 0;
+  }
+}
