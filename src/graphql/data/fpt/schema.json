@@ -13305,6 +13305,7 @@
       "id": "codescanningparameters",
       "href": "/graphql/reference/objects#codescanningparameters",
       "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "codeScanningTools",
@@ -13320,6 +13321,7 @@
       "id": "codescanningtool",
       "href": "/graphql/reference/objects#codescanningtool",
       "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
+      "isDeprecated": false,
       "fields": [
         {
           "name": "alertsThreshold",
@@ -85646,6 +85648,7 @@
       "id": "pullrequestallowedmergemethods",
       "href": "/graphql/reference/enums#pullrequestallowedmergemethods",
       "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>",
+      "isDeprecated": false,
       "values": [
         {
           "name": "MERGE",
@@ -93467,6 +93470,7 @@
       "id": "codescanningparametersinput",
       "href": "/graphql/reference/input-objects#codescanningparametersinput",
       "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "codeScanningTools",
@@ -93482,6 +93486,7 @@
       "id": "codescanningtoolinput",
       "href": "/graphql/reference/input-objects#codescanningtoolinput",
       "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
+      "isDeprecated": false,
       "inputFields": [
         {
           "name": "alertsThreshold",
