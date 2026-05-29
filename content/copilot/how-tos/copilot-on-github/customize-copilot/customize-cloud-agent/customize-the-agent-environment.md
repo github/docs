@@ -92,6 +92,9 @@ In your `copilot-setup-steps.yml` file, you can only customize the following set
 
 For more information on these options, see [AUTOTITLE](/actions/writing-workflows/workflow-syntax-for-github-actions#jobs).
 
+> [!NOTE]
+> The `copilot-setup-steps` job does not support calling reusable workflows with `uses`. Define setup logic directly in the job's `steps` instead or extract shared setup into a composite action and reference it within a step. For more information, see [AUTOTITLE](/actions/sharing-automations/creating-actions/creating-a-composite-action).
+
 Any value that is set for the `fetch-depth` option of the `actions/checkout` action will be overridden to allow the agent to rollback commits upon request, while mitigating security risks. For more information, see [`actions/checkout/README.md`](https://github.com/actions/checkout/blob/main/README.md).
 
 Your `copilot-setup-steps.yml` file will automatically be run as a normal {% data variables.product.prodname_actions %} workflow when changes are made, so you can see if it runs successfully. This will show alongside other checks in a pull request where you create or modify the file.
