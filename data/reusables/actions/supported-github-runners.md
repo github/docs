@@ -18,8 +18,8 @@ For public repositories, jobs using the workflow labels shown in the table below
     <tr>
       <td>Linux</td>
       <td>4</td>
-      <td>16 GB</td>
-      <td>14 GB</td>
+      <td>16 GiB</td>
+      <td>14 GiB</td>
       <td> x64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
@@ -30,8 +30,8 @@ For public repositories, jobs using the workflow labels shown in the table below
     <tr>
       <td>Windows</td>
       <td>4</td>
-      <td>16 GB</td>
-      <td>14 GB</td>
+      <td>16 GiB</td>
+      <td>14 GiB</td>
       <td> x64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
@@ -43,8 +43,8 @@ For public repositories, jobs using the workflow labels shown in the table below
     <tr>
       <td>Linux</td>
       <td>4</td>
-      <td>16 GB</td>
-      <td>14 GB</td>
+      <td>16 GiB</td>
+      <td>14 GiB</td>
       <td> arm64 </td>
       <td>
         <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md">ubuntu-24.04-arm</a></code>,
@@ -54,8 +54,8 @@ For public repositories, jobs using the workflow labels shown in the table below
     <tr>
       <td>Windows</td>
       <td>4</td>
-      <td>16 GB</td>
-      <td>14 GB</td>
+      <td>16 GiB</td>
+      <td>14 GiB</td>
       <td>arm64</td>
       <td>
         <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-windows-11-image.md">windows-11-arm</a></code>
@@ -64,8 +64,8 @@ For public repositories, jobs using the workflow labels shown in the table below
     <tr>
       <td>macOS</td>
       <td>4</td>
-      <td>14 GB</td>
-      <td>14 GB</td>
+      <td>14 GiB</td>
+      <td>14 GiB</td>
       <td> Intel </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>,
@@ -75,8 +75,8 @@ For public repositories, jobs using the workflow labels shown in the table below
     <tr>
       <td>macOS</td>
       <td>3 (M1)</td>
-      <td>7 GB</td>
-      <td>14 GB</td>
+      <td>7 GiB</td>
+      <td>14 GiB</td>
       <td> arm64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-latest</a></code>,
@@ -109,8 +109,8 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>Linux</td>
       <td>2</td>
-      <td>8 GB</td>
-      <td>14 GB</td>
+      <td>8 GiB</td>
+      <td>14 GiB</td>
       <td> x64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
@@ -121,8 +121,8 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>Windows</td>
       <td>2</td>
-      <td>8 GB</td>
-      <td>14 GB</td>
+      <td>8 GiB</td>
+      <td>14 GiB</td>
       <td> x64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
@@ -133,8 +133,8 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>Linux</td>
       <td>2</td>
-      <td>8 GB</td>
-      <td>14 GB</td>
+      <td>8 GiB</td>
+      <td>14 GiB</td>
       <td> arm64 </td>
       <td>
         <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md">ubuntu-24.04-arm</a></code>,
@@ -144,8 +144,8 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>Windows</td>
       <td>2</td>
-      <td>8 GB</td>
-      <td>14 GB</td>
+      <td>8 GiB</td>
+      <td>14 GiB</td>
       <td> arm64 </td>
       <td>
         <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-windows-11-image.md">windows-11-arm</a></code>
@@ -154,8 +154,8 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>macOS</td>
       <td>4</td>
-      <td>14 GB</td>
-      <td>14 GB</td>
+      <td>14 GiB</td>
+      <td>14 GiB</td>
       <td> Intel </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>,
@@ -165,8 +165,8 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>macOS</td>
       <td>3 (M1)</td>
-      <td>7 GB</td>
-      <td>14 GB</td>
+      <td>7 GiB</td>
+      <td>14 GiB</td>
       <td> arm64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-latest</a></code>,
