@@ -18,7 +18,14 @@ FROM ghcr.io/github/gh-base-image/gh-base-noble:20260505-222701-gb8f4d82d0@sha25
 # https://github.com/nodejs/release#release-schedule
 # Ubuntu's apt-get install nodejs is _very_ outdated
 # Must run as root
-RUN apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
+
+# From https://thehub.github.com/epd/engineering/devops/ci/actions/setting-up-new-github-action/
+# We passed pkg-mirror-host as a secret to the build but it is not sensitive data.
+RUN --mount=type=secret,id=pkg-mirror-host,target=/etc/pkg_mirror_host.txt \
+  if [ -f /etc/pkg_mirror_host.txt ]; then cat /etc/pkg_mirror_host.txt >> /etc/apt/mirrorlist.txt; fi
+
+RUN --mount=type=secret,id=apt-auth-conf,target=/etc/apt/auth.conf.d/apt_auth.conf \
+  apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
   && curl -sL https://deb.nodesource.com/setup_24.x | bash - \
   && apt-get install -y nodejs \
   && node --version
