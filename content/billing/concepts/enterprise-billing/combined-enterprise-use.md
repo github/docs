@@ -38,7 +38,9 @@ There are two types of {% data variables.product.prodname_enterprise %} (GHE) li
 * **GHE (Usage-based, also called metered)**: A cloud-first license where users must first be assigned to a {% data variables.product.prodname_ghe_cloud %} organization.
     * All Cloud users automatically receive a right to use {% data variables.product.prodname_ghe_server %}.
     * Billing is based on the number of active users each month.
-    * Users can generate their own Server license, which covers the number of assigned Cloud seats at the time of generation and is valid for one year.
+    * Users can generate their own Server license, and the seat count is based on the number of consumed enterprise Cloud licenses at the time of generation. The license is valid for one year.
+
+      You can find your enterprise's consumed Cloud license count on your enterprise's **Billing & Licensing > Licensing** page. Do **not** use the "Total consumed" licenses count on the **People > Members** page: that number will be higher than the Cloud-only count used for license generation.
     * Server-only users will be added to GHE (Metered) billing. These users are de-duplicated with email matching to avoid double billing.
 
 * **GHE (Volume/Subscription, also called GHE Unified)**: A bundled license for both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}.
@@ -57,7 +59,7 @@ There are two types of {% data variables.product.prodname_enterprise %} (GHE) li
 | **Cloud vs. Server**             | Cloud-first, with a Server use right for Cloud users | 1 user license covers both Cloud and Server (hybrid, Cloud-only, or Server-only)              |
 | **Setup**            | Self-service | Manual setup via {% data variables.product.github %} Sales                                    |
 | **Server license generation**    | Users generate their own {% data variables.product.prodname_ghe_server %} license | Enterprise owners download their own {% data variables.product.prodname_ghe_server %} license |
-| **License file scope**        | Covers Cloud-assigned users at time of generation | Covers all purchased users for both Cloud and Server                                          |
+| **License file scope**        | Covers consumed Cloud licenses at time of generation | Covers all purchased users for both Cloud and Server                                          |
 | **License expiration**           | Expires in 12 months | Aligned with volume license term                                                              |
 | **License key usage**            | Limits max Server users | Covers all users in the volume subscription                                                   |
 | **Required {% data variables.product.prodname_enterprise %} version**        | {% data variables.product.prodname_enterprise %} 3.13+, with {% data variables.product.prodname_github_connect %} | No specific version required                                                                  |

@@ -1,23 +1,20 @@
 ---
-title: GitHub Copilot premium requests
-intro: 'Learn how premium requests in {% data variables.product.prodname_copilot_short %} work, including usage measurement and managing your budget.'
+title: Overview of request-based billing (legacy)
+shortTitle: Billing overview (legacy)
+allowTitleToDifferFromFilename: true
+intro: Learn how premium requests in {% data variables.product.prodname_copilot_short %} work, including usage measurement and managing your budget.
 versions:
   feature: copilot
-contentType: concepts
+contentType: reference
 category:
   - Understand product costs
+redirect_from:
+  - /billing/concepts/product-billing/github-copilot-premium-requests
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cfi-cb-ce %}
-
-<!-- end expires 2026-06-01 -->
+{% data reusables.billing.legacy-pru-annual-plans-applicability %}
 
 Usage of {% data variables.product.prodname_copilot_short %} is measured through a combination of licenses and monthly usage tracking. For more information about how license costs in {% data variables.product.prodname_copilot_short %} work, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
-
-> [!IMPORTANT]
-> {% data reusables.billing.pru-sku-split-notice %}
 
 ## What are premium requests?
 
@@ -39,6 +36,9 @@ Each product's premium request usage is attributed to a premium request SKU:
 
 See [AUTOTITLE](/copilot/concepts/billing/copilot-requests) for details on which models and features consume premium requests and their SKU attribution.
 
+> [!NOTE]
+> {% data reusables.billing.pru-sku-split-notice %}
+
 ## How usage of premium requests is measured
 
 Usage of premium requests is tracked monthly and is based on the following factors.
@@ -46,12 +46,8 @@ Usage of premium requests is tracked monthly and is based on the following facto
 ### Monthly allowance
 
 * Each plan includes a fixed number of premium requests per user per month.
-* Allowances vary by plan. See [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* Allowances vary by plan.
 * Allowances reset on the 1st of each month at 00:00:00 UTC.
-
-### Multiple licenses
-
-If you receive licenses from multiple enterprises, you must choose which entity is billed for your premium requests. See [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/monitoring-your-copilot-usage-and-entitlements#managing-premium-request-billing-with-multiple-copilot-licenses).
 
 ### Usage by premium models
 
@@ -80,18 +76,7 @@ For more information about {% data variables.copilot.copilot_cloud_agent %} and 
 
 ## Using more than your included premium requests
 
-If you exceed your plan's included premium requests, there are options available depending on your account type.
-
-### Personal accounts
-
-If you exceed your allowance, set a budget for additional premium requests or upgrade to a higher plan. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
-
-### Organizations and enterprises
-
-* Admins can control whether members are allowed to exceed their premium request allowance across AI features using the **Premium request paid usage** policy.
-* Separate policy options are available for {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_spark_short %}, and {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
-* Premium request budgets can be set to either monitor or block overages, with options for bundled or individual SKU management.
-* Enterprises can also upgrade frequent users to {% data variables.copilot.copilot_enterprise_short %} for higher included allowances.
+If you exceed your allowance, set a budget for additional premium requests or upgrade to a higher plan.
 
 ## Paying for premium requests
 
@@ -101,20 +86,10 @@ If you are billed through Azure, premium request usage appears on your Azure inv
 
 ## Managing your budget for premium requests
 
-To help manage your budget for premium requests, consider the following strategies.
-
-### Budget options for personal accounts
-
 You can set a budget in your personal billing settings to receive alerts when you reach 75%, 90%, or 100% of your budget. Setting a premium request budget depends on the level of granularity you need:
 
 * **Bundled premium request budget** - Combines all premium requests into a single budget (Recommended for most users)
 * **Individual SKU budgets** - Set separate budgets for each AI product (Copilot, {% data variables.product.prodname_spark_short %}, {% data variables.copilot.copilot_cloud_agent %})
-
-### Budget options for organizations and enterprises
-
-You can set budgets at the organization, enterprise, or cost center level. If you enable **stop usage when budget is reached**, extra premium requests are blocked when the budget runs out.
-
-For detailed setup instructions, see [AUTOTITLE](/billing/tutorials/set-up-budgets).
 
 ## Monitoring usage
 

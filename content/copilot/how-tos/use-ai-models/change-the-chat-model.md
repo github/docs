@@ -17,7 +17,7 @@ Choose from a selection of models, each with its own particular strengths. You m
 
 To view the available models per client, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot#supported-models-per-client).
 
-> [!NOTE] Different models have different premium request multipliers, which can affect how much of your monthly usage allowance is consumed. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+> [!NOTE] Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
 

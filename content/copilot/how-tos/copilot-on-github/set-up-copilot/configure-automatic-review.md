@@ -17,12 +17,6 @@ category:
   - Configure Copilot
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.code-review-actions-minutes-note %}
-
-<!-- end expires 2026-06-01 -->
-
 ## Introduction
 
 You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review#about-automatic-pull-request-reviews).
@@ -30,7 +24,7 @@ You can configure {% data variables.copilot.copilot_code-review_short %} to revi
 ## Configuring automatic code review for your own pull requests
 
 > [!NOTE]
-> This is only available if you are on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
+> This is only available if you are on the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plans.
 
 {% data reusables.copilot.your-copilot %}
 1. Locate the **Automatic {% data variables.copilot.copilot_code-review_short %}** option and click the dropdown button.

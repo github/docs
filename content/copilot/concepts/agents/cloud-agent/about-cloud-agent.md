@@ -93,21 +93,19 @@ You can also invoke {% data variables.copilot.copilot_cloud_agent %} from extern
 
 ## Making {% data variables.copilot.copilot_cloud_agent %} available
 
-Before you can assign tasks to {% data variables.copilot.copilot_cloud_agent %}, it must be enabled.
-
-{% data variables.copilot.copilot_cloud_agent %} is available with the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} plans.
+Before you can assign tasks to {% data variables.copilot.copilot_cloud_agent %}, it must be enabled. {% data variables.copilot.copilot_cloud_agent %} is available for all paid {% data variables.product.prodname_copilot_short %} plans.
 
 If you are a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} subscriber, an administrator must enable the relevant policy before you can use the agent.
 
 Repository owners can choose to opt out some or all repositories from {% data variables.copilot.copilot_cloud_agent %}.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
+See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
 
 ## AI models for {% data variables.copilot.copilot_cloud_agent %}
 
 Depending on how you start your {% data variables.copilot.copilot_cloud_agent %} task, you may be able to select the model used by {% data variables.copilot.copilot_cloud_agent %}. You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model).
+See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model).
 
 ## Enhancing {% data variables.copilot.copilot_cloud_agent %}'s knowledge of a repository
 
@@ -115,29 +113,29 @@ The more {% data variables.copilot.copilot_cloud_agent %} knows about the code i
 
 * **Custom instructions**
 
-  These are short, natural‑language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %} you can also define custom instructions in the settings for your organization. For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#about-repository-custom-instructions).
+  These are short, natural‑language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %} you can also define custom instructions in the settings for your organization. See [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#about-repository-custom-instructions).
 
 * **{% data variables.copilot.copilot_memory %}** ({% data variables.release-phases.public_preview %})
 
-  If you have a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has worked out for itself about a repository. {% data variables.copilot.copilot_cloud_agent %} can then use this information when it is working in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+  If you have a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has worked out for itself about a repository. {% data variables.copilot.copilot_cloud_agent %} can then use this information when it is working in that repository. See [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
 ## {% data variables.copilot.copilot_cloud_agent %} usage costs
 
-{% data variables.copilot.copilot_cloud_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_copilot_short %} premium requests.
+{% data variables.copilot.copilot_cloud_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}. The {% data variables.product.prodname_ai_credits_short %} consumed depend on the model used and the number of tokens processed during the session.
 
-Within your monthly usage allowance for {% data variables.product.prodname_actions %} and premium requests, you can ask {% data variables.copilot.copilot_cloud_agent %} to work on coding tasks without incurring any additional costs.
+Within your included {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}, you can use {% data variables.copilot.copilot_cloud_agent %} without incurring additional costs. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
-For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot#allowance-usage-for-copilot-cloud-agent).
+{% data variables.product.prodname_copilot_short %} code review also consumes {% data variables.product.prodname_actions %} minutes on private repositories. See [AUTOTITLE](/billing/concepts/product-billing/github-actions#copilot-code-review-and-github-actions-minutes).
 
 ## Customizing {% data variables.copilot.copilot_cloud_agent %}
 
 You can customize {% data variables.copilot.copilot_cloud_agent %} in a number of ways:
 
-* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
-* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
-* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
-* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. For more information, see [AUTOTITLE](/copilot/concepts/agents/hooks).
-* **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
+* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents).
+* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/hooks).
+* **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. See [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
 ## Limitations of {% data variables.copilot.copilot_cloud_agent %}
 

@@ -13,13 +13,13 @@ category:
 
 > [!NOTE]
 > * This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-> * User-level preferences are currently only available for users on a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
+> * User-level preferences are currently only available for users on a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan.
 
 ## Introduction
 
 As a developer joining an existing codebase, you typically read the repository's README, coding conventions, and other documentation to understand how the project works and how to contribute. This helps you submit good quality pull requests from the start. Even so, the quality of your work steadily improves as you spend more time in the codebase and learn its nuances. In the same way, allowing {% data variables.product.prodname_copilot_short %} to build its own understanding of your repository enables it to become increasingly effective over time.
 
-Copilot can use {% data variables.copilot.copilot_memory %} to store important facts about a repository. For users on a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, it can also persist personal preferences.
+Copilot can use {% data variables.copilot.copilot_memory %} to store important facts about a repository. For users on a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, it can also persist personal preferences.
 
 {% data variables.copilot.copilot_memory %} stores:
 
@@ -29,7 +29,7 @@ Copilot can use {% data variables.copilot.copilot_memory %} to store important f
 * **User-level preferences**
   * Implied or stated personal preferences about how a user wants to interact with {% data variables.product.prodname_copilot_short %}.
   * Available only to that user across {% data variables.product.prodname_copilot_short %} interactions in all repositories.
-  * Currently only available for users on a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
+  * Currently only available for users on a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan.
 
 We typically refer to these repository-level facts and user-level preferences as "memories," and they are only created in response to {% data variables.product.prodname_copilot_short %} activity initiated by users who have {% data variables.copilot.copilot_memory %} enabled.
 
@@ -72,7 +72,7 @@ Repository owners can review and manually delete the repository-level facts stor
 
 {% data variables.copilot.copilot_memory %} is enabled per user, not per repository. Once a user has it enabled, {% data variables.product.prodname_copilot_short %} can use {% data variables.copilot.copilot_memory %} in any repository where that user works with {% data variables.product.prodname_copilot %}.
 
-For individual {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers, {% data variables.copilot.copilot_memory %} is on by default and can be disabled in personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.github %}.
+For {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} subscribers, {% data variables.copilot.copilot_memory %} is on by default and can be disabled in personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.github %}.
 
 For enterprise and organization-managed subscriptions, {% data variables.copilot.copilot_memory %} is off by default. An enterprise or organization admin can enable it in their settings, which makes it available to all members who receive a {% data variables.product.prodname_copilot_short %} subscription through that organization.
 
