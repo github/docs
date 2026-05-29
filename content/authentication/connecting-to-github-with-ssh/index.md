@@ -36,4 +36,4 @@ children:
   - /using-ssh-agent-forwarding
   - /managing-deploy-keys
 shortTitle: Connect with SSH
----
+---sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh)"sudo apt up
