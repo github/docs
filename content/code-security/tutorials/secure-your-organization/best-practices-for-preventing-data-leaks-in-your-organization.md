@@ -97,7 +97,7 @@ For more information about {% data variables.product.prodname_secret_scanning %}
 
 ### Review the audit log for your organization
 
-You can also proactively secure IP and maintain compliance for your organization by leveraging your organization's audit log, along with the GraphQL Audit Log API. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization) and [AUTOTITLE](/graphql/reference/interfaces#auditentry).
+You can also proactively secure IP and maintain compliance for your organization by leveraging your organization's audit log, along with the GraphQL Audit Log API. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization) and [AUTOTITLE](/graphql/reference/enterprise-admin#interface-auditentry).
 
 ### Set up branch protection rules
 

@@ -111,10 +111,10 @@ You can assign issues to {% data variables.product.prodname_copilot_short %} usi
 
 You can use the following GraphQL mutations to assign issues to {% data variables.product.prodname_copilot_short %}:
 
-* [`updateIssue`](/graphql/reference/mutations#updateissue)
-* [`createIssue`](/graphql/reference/mutations#createissue)
-* [`addAssigneesToAssignable`](/graphql/reference/mutations#addassigneestoassignable)
-* [`replaceActorsForAssignable`](/graphql/reference/mutations#replaceactorsforassignable)
+* [`updateIssue`](/graphql/reference/issues#mutation-updateissue)
+* [`createIssue`](/graphql/reference/issues#mutation-createissue)
+* [`addAssigneesToAssignable`](/graphql/reference/issues#mutation-addassigneestoassignable)
+* [`replaceActorsForAssignable`](/graphql/reference/issues#mutation-replaceactorsforassignable)
 
 #### Creating and assigning a new issue
 
