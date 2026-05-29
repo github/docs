@@ -279,7 +279,7 @@
     "@graphql-inspector/core": "^7.1.2",
     "@graphql-tools/load": "^8.1.8",
     "@octokit/rest": "22.0.0",
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.60.0",
     "@types/accept-language-parser": "1.5.7",
     "@types/cookie": "0.6.0",
     "@types/cookie-parser": "1.4.8",
