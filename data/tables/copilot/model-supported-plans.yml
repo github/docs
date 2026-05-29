@@ -48,10 +48,9 @@
   enterprise: true
 
 - name: Claude Opus 4.8
-  free: false
-  student: false
   pro: false
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 

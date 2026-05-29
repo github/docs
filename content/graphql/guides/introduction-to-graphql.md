@@ -37,7 +37,7 @@ An argument is a set of key-value pairs attached to a specific field. Some field
 
 ## Implementation
 
-A GraphQL schema may use the term _implements_ to define how an object inherits from an [interface](/graphql/reference/interfaces).
+A GraphQL schema may use the term _implements_ to define how an object inherits from an interface.
 
 Here's a contrived example of a schema that defines interface `X` and object `Y`:
 
@@ -58,9 +58,9 @@ This means object `Y` requires the same fields/arguments/return types that inter
 
 In the reference docs, you'll find that:
 
-* Each [object](/graphql/reference/objects) lists the interface(s) _from which it inherits_ under **Implements**.
+* Each object lists the interface(s) _from which it inherits_ under **Implements**.
 
-* Each [interface](/graphql/reference/interfaces) lists the objects _that inherit from it_ under **Implementations**.
+* Each interface lists the objects _that inherit from it_ under **Implementations**.
 
 ## Connection
 
@@ -74,7 +74,7 @@ Edges represent connections between nodes. When you query a connection, you trav
 
 ## Node
 
-_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see [AUTOTITLE](/graphql/guides/using-global-node-ids).
+_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a scalar, you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see [AUTOTITLE](/graphql/guides/using-global-node-ids).
 
 ## Discovering the GraphQL API
 
