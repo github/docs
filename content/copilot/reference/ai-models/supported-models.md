@@ -59,6 +59,33 @@ This table lists the supported AI models for {% data variables.copilot.copilot_a
 
 {% endrowheaders %}
 
+## Models with extended capabilities
+
+The latest {% data variables.product.prodname_copilot_short %} models support the following extended capabilities.
+
+* **1 million token context window**: Allows the model to process significantly more content in a single session. This is useful when working across large codebases, long documents, or complex multi-file projects. When you select a supported model, you can choose between the default context size or the extended (1 million token) context.
+* **Configurable reasoning levels**: Controls the depth of the model's reasoning process before it generates a response. When you select a supported model, you can choose which reasoning level you want to use. Higher reasoning levels can improve the quality of responses to complex problems.
+
+Choosing a larger context window or higher reasoning will impact {% data variables.product.prodname_ai_credits_short %} consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
+
+> [!NOTE]
+> These extended capabilities are available in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} only.
+
+{% rowheaders %}
+
+| Model | 1 million token context window | Configurable reasoning |
+| --- | --- | --- |
+| {% data variables.copilot.copilot_claude_sonnet_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_46_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_47 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_gpt_53_codex %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_gpt_54 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_gpt_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
+
 ## Model retirement history
 
 The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
@@ -117,43 +144,28 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 
 The following table shows which AI models are available in each {% data variables.product.prodname_copilot_short %} plan. For more information about the plans, see [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot).
 
-{% data reusables.copilot.gpt-53-codex-student-model-picker-note %}
-
 {% data reusables.copilot.available-models-per-plan %}
-
-## Model multipliers
-
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cfi-cb-ce %}
-
-<!-- end expires 2026-06-01 -->
-
-> [!NOTE]
-> The multiplier for these models are subject to change.
->
-> * {% data variables.copilot.copilot_claude_sonnet_46 %}
-> * {% data variables.copilot.copilot_gpt_54_mini %}
-
-{% data reusables.copilot.gpt-55-promo-period %}
-
-Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
-
-For more information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
-
-{% data reusables.copilot.model-multipliers %}
 
 ## Fallback and long-term support (LTS) models
 
 For more information about fallback and LTS models, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
 
 ## Evaluation models
-{% data variables.product.prodname_copilot %} offers access to evaluation models—including top-performing open source and open-weight models—to provide the most advanced coding suggestions available.
+{% data variables.product.prodname_copilot %} offers access to evaluation models.
 
-> [!NOTE]
-> Testing of evaluation models has revealed that some may perform worse than other models on security-related or other categories of prompts. Customers are encouraged to validate code, including code security, using a range of models and thorough human review before incorporating suggestions into production.
+> [!IMPORTANT]
+> * Testing revealed evaluation models may perform worse than other models on security-related, or other categories of prompts. 
+> * Users should always carefully review and validate code, including code security, using a range of models and with a thorough human review before incorporating suggestions into production.
+
+Evaluation models may appear in product with codenames rather than official model or provider names. These models come from, or are fine-tuned by, one or more of the following providers: Microsoft, OpenAI, Anthropic, Google. Data handling for each provider is limited to GitHub's existing agreement with that provider, and evaluation models undergo GitHub and Microsoft testing and verification before release.
 
 Evaluation models may be added, updated, or removed without notice. Availability and rate limits may differ from generally available models.
+
+Access to evaluation models in {% data variables.copilot.copilot_auto_model_selection_short %}  for users {% data variables.product.prodname_copilot_short %} plans for individuals is governed by a policy. To disable evaluation models:
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+1. For the **Evaluation models in {% data variables.product.prodname_copilot_short %} {% data variables.copilot.copilot_auto_model_selection_short %}** setting, select **Disabled** from the dropdown.
 
 ## Utility models
 

@@ -1,8 +1,8 @@
 ---
-title: Monitoring your GitHub Copilot usage and entitlements
-shortTitle: Monitor premium requests
-intro: 'Learn how you can monitor your monthly usage of {% data variables.product.prodname_copilot_short %} and get the most value out of your {% data variables.product.prodname_copilot_short %} plan.'
-permissions: 'Individual users on a paid {% data variables.product.prodname_copilot_short %} plan can view their own usage and entitlements. For {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans, organization admins and billing managers can view usage reports for members.'
+title: Monitoring your GitHub Copilot usage and entitlements (legacy)
+shortTitle: Monitor premium requests (legacy)
+allowTitleToDifferFromFilename: true
+intro: Learn how you can monitor your monthly usage of {% data variables.product.prodname_copilot_short %} and get the most value out of your {% data variables.product.prodname_copilot_short %} plan.
 versions:
   feature: copilot
 redirect_from:
@@ -13,21 +13,17 @@ redirect_from:
   - /copilot/how-tos/premium-requests/monitoring-your-copilot-usage-and-entitlements
   - /copilot/how-tos/spending/monitoring-your-copilot-usage-and-entitlements
   - /copilot/how-tos/spending/monitor-premium-requests
-contentType: how-tos
-category: 
+  - /copilot/how-tos/manage-and-track-spending/monitor-premium-requests
+contentType: reference
+category:
   - Configure Copilot
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cb-ce %}
-
-<!-- end expires 2026-06-01 -->
+{% data reusables.billing.legacy-pru-annual-plans-applicability %}
 
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.
 
-> [!NOTE]
-> Premium request counters reset on the 1st of each month at 00:00:00 UTC.
+Premium request counters reset on the 1st of each month at 00:00:00 UTC.
 
 ## Viewing premium request usage
 
@@ -38,8 +34,6 @@ There are multiple ways to view your premium request usage:
 * [View detailed analytics of your usage](#viewing-detailed-analytics-of-your-usage)
 
 If you reach your limit for premium requests, you will be notified with a message in each of the {% data variables.product.prodname_copilot_short %} interfaces you use. To download a usage report, see [Downloading usage reports](/billing/how-tos/products/view-productlicense-use#downloading-usage-reports).
-
-For information about viewing premium request usage for an organization or enterprise, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ### Viewing usage in your IDE
 
@@ -65,8 +59,6 @@ You can view an overview of your premium request usage at any time in your "Bill
 
 ### Viewing detailed analytics of your usage
 
-{% data reusables.billing.premium-request-analytics-start %}
-
 {% data reusables.user-settings.access_billing_settings_url %}
 1. In the side bar, click **Premium request analytics** to show detailed analytics.
 1. Use the filter, "Group by", and "Timeframe" options to change the data displayed in the chart and table.
@@ -88,18 +80,4 @@ You can use the following strategies to maximize the value of your premium reque
 
 * **Monitor your usage regularly**. Check your usage in your {% data variables.product.github %} account settings to see how many premium requests you’ve used. This helps you plan how much you can use for the rest of the month.
 
-* **Upgrade if needed**. If you find yourself consistently hitting your monthly allowance, consider upgrading to a plan with more premium requests included.
-
 * **Avoid retrying large prompts unnecessarily**. Submitting the same long or complex prompt multiple times may use more premium requests. Try rephrasing or simplifying your request when needed.
-
-* **Define whether users can use premium requests over their included allowance** (enterprises and organizations only). Set a policy to control whether users can incur extra costs for premium requests when they use up their included allowance. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
-
-## Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses
-
-If you have {% data variables.product.prodname_copilot_short %} licenses from multiple standalone organizations or enterprises, you must define which entity is charged for your use of premium requests. Until you define a billing entity, all premium requests you make will be rejected.
-
-In the {% data variables.product.prodname_copilot_short %} feature settings for your personal account, a **Usage billed to** dropdown is displayed in the "Billing" section if you are assigned {% data variables.product.prodname_copilot_short %} licenses by two or more enterprises or standalone organizations.
-
-![Screenshot of the {% data variables.product.prodname_copilot_short %} feature settings. The "Usage billed to" dropdown is open.](/assets/images/help/billing/copilot-billing-entity-dropdown.png)
-
-You can change your billing entity selection at any time. All subsequent premium requests are billed to the newly selected entity.

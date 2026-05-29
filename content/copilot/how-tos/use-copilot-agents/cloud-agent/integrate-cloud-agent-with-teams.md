@@ -3,6 +3,7 @@ title: Integrating Copilot cloud agent with Teams
 shortTitle: Integrate cloud agent with Teams
 allowTitleToDifferFromFilename: true
 intro: 'You can use the {% data variables.product.github %} integration in Teams to provide context and open pull requests all from within your Teams channels.'
+product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -25,7 +26,7 @@ For information about additional {% data variables.product.prodname_copilot_shor
 
 ## Prerequisites
 
-* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, or {% data variables.copilot.copilot_enterprise_short %}.
+* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through a paid {% data variables.product.prodname_copilot_short %} plan.
 * You must have a Teams account and be a member of a channel.
 
 ## Installing the {% data variables.product.github %} app in Teams

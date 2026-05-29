@@ -19,12 +19,12 @@ category:
 
 When {% data variables.product.prodname_code_quality_short %} is generally available, scanning repositories will incur two types of costs for an organization:
 
-* Premium requests
+* {% data variables.product.prodname_ai_credits_short %}
 * {% data variables.product.prodname_actions %} minutes needed to run the scans unless you use self-hosted runners
 
 ### For the {% data variables.release-phases.public_preview %}
 
-When you scan private repositories during the {% data variables.release-phases.public_preview %}, you **will not be billed** for premium request usage, but {% data variables.product.prodname_actions %} minutes **will be consumed**.
+When you scan private repositories during the {% data variables.release-phases.public_preview %}, you **will not be billed** for {% data variables.product.prodname_ai_credits_short %} usage, but {% data variables.product.prodname_actions %} minutes **will be consumed**.
 
 To view consumption of actions by the `{% data variables.code-quality.workflow_name_billing %}` workflow, download a detailed usage report from the "Billing and licensing" tab. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 

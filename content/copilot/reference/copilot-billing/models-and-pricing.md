@@ -9,13 +9,6 @@ category:
 allowTitleToDifferFromFilename: true
 contentType: reference
 ---
-<!-- expires 2026-06-01 -->
-
-> [!IMPORTANT] Starting June 1, 2026, {% data variables.product.github %} is moving {% data variables.product.prodname_copilot_short %} from request-based billing to usage-based billing. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises) and [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).
->
-> The pricing tables below reflect the new usage-based billing rates that will take effect on June 1, 2026.
-
-<!-- end expires 2026-06-01 -->
 
 ## How model pricing works
 
@@ -25,7 +18,7 @@ The cost of an interaction depends on two things: the model and the number of to
 
 How {% data variables.product.prodname_copilot_short %} usage is tracked and billed depends on your plan type:
 
-* Individual plans ({% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, and {% data variables.copilot.copilot_pro_plus_short %}) include {% data variables.product.prodname_ai_credits %} allowances that vary by plan. For details, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).
+* Individual plans ({% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %}) include {% data variables.product.prodname_ai_credits %} allowances that vary by plan. For details, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals).
 * {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} include per-user {% data variables.product.prodname_ai_credits %} allowances that are pooled at the billing entity level. For details, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
 When usage exceeds the included allowances for any {% data variables.product.prodname_copilot_short %} plan, additional usage is billed in {% data variables.product.prodname_ai_credits %} at the per-token rates shown in the pricing tables below (1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}).
@@ -88,21 +81,13 @@ For most {% data variables.product.prodname_copilot_short %} features, the model
 
 Each code review is billed in two ways: token consumption is billed in {% data variables.product.prodname_ai_credits_short %}, and the agentic infrastructure that powers the review consumes {% data variables.product.prodname_actions %} minutes.
 
-<!-- expires 2026-06-01 -->
-
-**Starting June 1, 2026**, {% data variables.copilot.copilot_code-review_short %} runs will consume {% data variables.product.prodname_actions %} minutes on {% data variables.product.prodname_dotcom %}-hosted runners. Self-hosted runners do not consume {% data variables.product.prodname_actions %} minutes. Larger runners are billed at different rates than standard {% data variables.product.prodname_dotcom %}-hosted runners. For more information on runner options, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
-
-<!-- end expires 2026-06-01 -->
+{% data variables.product.prodname_actions %} minutes are attributed to the repository, and from there to the enterprise or cost center where applicable. {% data variables.product.prodname_ai_credits_short %} are charged to the person who requests the review, or to the author of a pull request where a policy automatically triggers a review. If neither has a {% data variables.product.prodname_copilot_short %} seat, usage is billed to the enterprise or cost center instead.
 
 You can view your current {% data variables.product.prodname_actions %} usage for {% data variables.copilot.copilot_code-review_short %} in the following ways:
 
 * **{% data variables.product.prodname_actions %} metrics**: Filter by the `copilot-pull-request-reviewer` workflow. See [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-github-actions-metrics-for-your-organization).
-* **Billing usage report**: Filter by `workflow_path`. Before June 1, 2026, the value is `dynamic/copilot-pull-request-reviewer/copilot-pull-request-reviewer`. Starting June 1, 2026, the value changes to `dynamic/agents/copilot-pull-request-reviewer`. See [AUTOTITLE](/billing/reference/billing-reports).
+* **Billing usage report**: Filter by `workflow_path` using the value `dynamic/agents/copilot-pull-request-reviewer`. See [AUTOTITLE](/billing/reference/billing-reports).
 
 ## Model multipliers for annual {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers
 
-<!-- expires 2026-06-01 -->
-
-Starting June 1, 2026, {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers who choose to remain on **existing annual billing plans** and stay on the **request-based billing** model will experience changes to model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/model-multipliers-for-annual-plans).
-
-<!-- end expires 2026-06-01 -->
+{% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %} subscribers on **existing annual billing plans** using the **request-based billing** model have different model multipliers. See [AUTOTITLE](/copilot/reference/copilot-billing/model-multipliers-for-annual-plans).

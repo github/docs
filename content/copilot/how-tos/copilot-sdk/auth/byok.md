@@ -489,7 +489,6 @@ Some Copilot features may behave differently with BYOK:
 * **Model availability** - Only models supported by your provider are available
 * **Rate limiting** - Subject to your provider's rate limits, not Copilot's
 * **Usage tracking** - Usage is tracked by your provider, not GitHub Copilot
-* **Premium requests** - Do not count against Copilot premium request quotas
 
 ### Provider-specific limitations
 

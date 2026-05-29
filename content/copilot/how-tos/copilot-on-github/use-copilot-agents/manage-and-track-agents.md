@@ -49,7 +49,7 @@ If {% data variables.product.prodname_copilot_short %} is heading in the wrong d
 
 1. Press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot_short %} implements your input after it finishes its current tool call.
 
-Each steering message uses **one premium request**. Steering is not available for third-party coding agents.
+Each steering message consumes {% data variables.product.prodname_ai_credits_short %}. Steering is not available for third-party coding agents.
 
 ## Stop a session
 

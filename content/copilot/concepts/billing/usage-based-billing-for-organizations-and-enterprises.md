@@ -1,20 +1,17 @@
 ---
 title: Usage-based billing for organizations and enterprises
-intro: 'Prepare for the transition to usage-based billing for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.'
-permissions: Enterprise and organization owners and billing managers 
+shortTitle: Billing for organizations and enterprises
+intro: 'Under usage-based billing, {% data variables.product.prodname_copilot_short %} usage in organizations and enterprises is measured in {% data variables.product.prodname_ai_credits_short %}.'
+permissions: Enterprise and organization owners and billing managers
 versions:
   feature: copilot
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
+redirect_from:
+  - /copilot/how-tos/manage-and-track-spending/prepare-for-usage-based-billing
 contentType: concepts
-category: 
+category:
   - Manage Copilot for a team
 ---
-
-<!-- expires 2026-06-01 -->
-
-> [!IMPORTANT] {% data variables.product.github %} will use the billing methods described in this article **starting June 1, 2026**. You can read more about this change on [{% data variables.product.prodname_blog %}](https://gh.io/copilot-billing-blog).
-
-<!-- end expires 2026-06-01 -->
 
 ## What are {% data variables.product.prodname_ai_credits %}?
 
@@ -65,24 +62,22 @@ When your pooled {% data variables.product.prodname_ai_credits_short %} are exha
 * **Additional usage allowed**: Usage continues at published per-credit rates. The additional spend is charged to your organization or enterprise.
 * **Additional usage not allowed**: Usage is blocked until the next billing cycle when monthly amounts are refreshed.
 
-If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. There is no automatic fallback to lower-cost models when a budget is exhausted.
+If you have set a user-level budget and a user exhausts it, that user's access to {% data variables.product.prodname_copilot_short %} is halted, regardless of whether the organization's pool still has capacity. A user can also be blocked by an enterprise spending limit before they reach their individual user-level budget, if the spending limit runs out first. There is no automatic fallback to lower-cost models when a budget is exhausted. For more information about how these controls interact, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
-Additional usage budgets are set in US dollars, and usage is shown in {% data variables.product.prodname_ai_credits %}. {% data variables.product.prodname_ai_credits %} draw down the budget at a fixed rate: 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}, so a $10 budget covers 1,000 AI credits.
+Additional usage budgets are set in US dollars, and usage is shown in {% data variables.product.prodname_ai_credits_short %}. {% data variables.product.prodname_ai_credits_short %} draw down the budget at a fixed rate: 1 {% data variables.product.prodname_ai_credit_singular %} = {% data variables.product.prodname_ai_credits_value %}, so a $10 USD budget covers 1,000 AI credits.
 
 ## How can I control costs with budgets?
 
-You can set budgets at four levels to control {% data variables.product.prodname_ai_credits %} spend:
+Budget controls let you govern how individual users draw from the shared pool and cap any additional spending once it's exhausted. You can set budgets at four levels:
 
-* **Enterprise-level budgets** track spending for all organizations, repositories, and cost centers under the enterprise.
+* **User-level budgets** cap how much an individual user can consume per billing cycle, from both the shared pool and additional usage. A $0 USD user-level budget blocks the user immediately.
+* **Cost-center budgets** cap metered charges for a defined group of users after the pool is exhausted.
+* **Enterprise spending limits** cap total metered charges across your entire enterprise after the pool is exhausted.
 * **Organization-level budgets** track spending for all repositories in the organization.
-* **Cost-center-level budgets** track spending for a single cost center.
-* **User-level budgets** track spending for individual users. A $0 user-level budget means no access at all.
 
-You can use budgets to get alerts as you approach limits, and to enforce hard stops on usage. For example, if you want to allow some additional usage but keep it in check, you could set a user-level budget slightly above the included amount.
-
-For more information on setting budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
+For a full explanation of how these controls work together and when usage gets blocked, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 ## Next steps
 
+* To set up budget controls for your enterprise, see [AUTOTITLE](/copilot/tutorials/budgets/getting-started-with-budget-controls).
 * To compare per-token costs across models and estimate your spend, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
-* For guidance on how to prepare for usage-based billing, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/prepare-for-usage-based-billing).
