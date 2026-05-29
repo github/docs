@@ -52,7 +52,7 @@ After your tests generate a Cobertura XML report, upload it to {% data variables
      if: {% raw %}github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository{% endraw %}
      uses: actions/upload-code-coverage@v1
      with:
-       report: COVERAGE-FILE-PATH.xml
+       file: COVERAGE-FILE-PATH.xml
        language: LANGUAGE
        label: LABEL
    ```
@@ -112,7 +112,7 @@ jobs:
         if: {% raw %}github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository{% endraw %}
         uses: actions/upload-code-coverage@v1
         with:
-          report: coverage.xml
+          file: coverage.xml
           language: Python
           label: code-coverage/pytest
 ```
