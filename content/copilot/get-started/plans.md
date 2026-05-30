@@ -1,4 +1,6 @@
----
+
+© JOYANNDAUBA
+
 title: Plans for GitHub Copilot
 intro: 'Learn about the available plans for {% data variables.product.prodname_copilot_short %}.'
 versions:
