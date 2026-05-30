@@ -1,0 +1,73 @@
+People who have contributed to Soupermail, raised issues, or just asked a
+question that has prompted some development:
+
+Adam D Moss (the man who probably sparked Soupermail going GPL)
+Adelaide (epoch time formatting suggestion and helping out on the forums)
+Alan Pollenz (for making me look at the boolean parsing again)
+Andres (Picking up on busted conditionals)
+April Roberson (For the nicest card and chocolate I've ever been sent)
+Barry Thoms (for picking up some internationalisation issues)
+Ben Hanes (Installer testing) 
+Bill Gore (for the nice comments, even though he was just out of hospital!)
+Bruce Bennett (Smashing Belgian beer)
+Caj H�gberg (for the Swedish blondes ;-) x 2!
+Chris Croome (for prompting me about the mime extensions needed)
+Chris Peckham (an original Soupermail hacker)
+Chuck Neal
+Colin Mitchell (DBI/DBD work)
+Crystal Hill
+Dan Kletter (yum, beer! and lots of stress testing... my stress :)
+David Cross (For prompting about the time offset)
+Dominic Standage (for the beer; and he throws one hell of a party :)
+Erik Bystrom
+Garrett (bringer of beer and applet testing!)
+Gavin Matthews (for testing lots)
+Jake Fairhead (good luck at lastminute.com ;-)
+Jay Donaldson (yum, blondes!)
+Joe McManus (mail handling)
+John Nicholls (GPG testing)
+Justin Farrell (many thanks for the beer :)
+Ken Lonyai (hmm, more beer - Hoegaarden too! :)
+Kurt Merhoff (wow - dynamite beer!)
+Mara Charnell
+Marc Fischman (installation feedback)
+Mark Hofmann (Xitami feedback)
+Mark Osborne (Yummy beer!)
+Markus Bartsch
+Martin Bayer (for telling me about the Precedence mailist header)
+Massimo Selva (a superb beer selection!... drinking some at the moment !-)
+Matt Grommes
+Michael Hatzlhoffer (picking up a mail header bug)
+Oliver Smith (for putting up with UUNET customers using it :)
+Paul Franchois
+Pico Lantini (for loads of beer !-)
+Rog�rio (aka Cyvision)
+...Ross...
+Santiago Fainstein
+Sarah Stapleton-Gray
+Sonny Windstrup (for being encouraging about the pre-GPL versions, and saying it was cool)
+Tom Kopke (excellent timing for sending dark ales!)
+Thorsten Ziegler
+Tony Wood (installer testing)
+Vic66 (installer testing)
+William Chau (conditional template idea and testing)
+
+Also, all the folks doing the following projects:
+Lincoln Stein for CGI.pm - http://stein.cshl.org/WWW/software/CGI/
+Eryq for  MIME::Lite - http://www.zeegee.com/
+The GNUPG developers - http://www.gnupg.org/credits.html
+Jeff Kingston for Lout - http://snark.ptc.spbu.ru/~uwe/lout/
+The Ghostscript developers - http://www.ghostscript.com/
+
+And thanks go out to the bods at sourceforge.net for the groovy
+development environment they provide.
+
+
+Cheers chaps!
+
+Apologies for anyone I've forgotten.
+
+
+--
+$Id: credits.txt,v 1.10 2001/01/25 02:01:17 aithalv Exp $
+Yes
