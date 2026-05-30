@@ -1,0 +1,122 @@
+"<?xml version="1.0" encoding="ISO-8859-1" ?>
+  <feed xmlns="http://www.w3.org/2005/Atom">
+    <author>
+      <email>webmaster@sec.gov</email>
+      <name>Webmaster</name>
+    </author>
+    <company-info>
+      <addresses>
+        <address type="mailing">
+          <city>LOS ANGELES</city>
+          <state>CA</state>
+          <street1>1055 W. 7TH STREET, SUITE 2270</street1>
+          <zip>90017</zip>
+        </address>
+        <address type="business">
+          <city>LOS ANGELES</city>
+          <phone>213-623-6881</phone>
+          <state>CA</state>
+          <street1>1055 W. 7TH STREET, SUITE 2270</street1>
+          <zip>90017</zip>
+        </address>
+      </addresses>
+      <cik>0001479357</cik>
+      <cik-href>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001479357&amp;owner=include&amp;count=40</cik-href>
+      <conformed-name>&amp;TV Communications Inc.</conformed-name>
+      <fiscal-year-end>1209</fiscal-year-end>
+      <state-location>CA</state-location>
+      <state-location-href>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;State=CA&amp;owner=include&amp;count=40</state-location-href>
+      <state-of-incorporation>CA</state-of-incorporation>
+    </company-info>
+    <entry>
+      <category label="form type" scheme="https://www.sec.gov/" term="D" />
+      <content type="text/xml">
+        <accession-number>0001479357-11-000002</accession-number>
+        <act>33</act>
+        <file-number>021-157931</file-number>
+        <file-number-href>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;filenum=021-157931&amp;owner=include&amp;count=40</file-number-href>
+        <filing-date>2011-04-06</filing-date>
+        <filing-href>https://www.sec.gov/Archives/edgar/data/1479357/000147935711000002/0001479357-11-000002-index.htm</filing-href>
+        <filing-type>D</filing-type>
+        <film-number>11742891</film-number>
+        <form-name>Notice of Exempt Offering of Securities</form-name>
+        <items-desc>item 06</items-desc>
+        <size>9 KB</size>
+      </content>
+      <id>urn:tag:sec.gov,2008:accession-number=0001479357-11-000002</id>
+      <link href="https://www.sec.gov/Archives/edgar/data/1479357/000147935711000002/0001479357-11-000002-index.htm" rel="alternate" type="text/html" />
+      <summary type="html"> &lt;b&gt;Filed:&lt;/b&gt; 2011-04-06 &lt;b&gt;AccNo:&lt;/b&gt; 0001479357-11-000002 &lt;b&gt;Size:&lt;/b&gt; 9 KB&lt;br&gt;Item 06: Rule 506</summary>
+      <title>D  - Notice of Exempt Offering of Securities</title>
+      <updated>2011-04-06T14:45:56-04:00</updated>
+    </entry>
+    <entry>
+      <category label="form type" scheme="https://www.sec.gov/" term="D" />
+      <content type="text/xml">
+        <accession-number>0001479357-10-000002</accession-number>
+        <act>33</act>
+        <file-number>021-148106</file-number>
+        <file-number-href>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;filenum=021-148106&amp;owner=include&amp;count=40</file-number-href>
+        <filing-date>2010-09-23</filing-date>
+        <filing-href>https://www.sec.gov/Archives/edgar/data/1479357/000147935710000002/0001479357-10-000002-index.htm</filing-href>
+        <filing-type>D</filing-type>
+        <film-number>101086318</film-number>
+        <form-name>Notice of Exempt Offering of Securities</form-name>
+        <items-desc>item 06</items-desc>
+        <size>10 KB</size>
+      </content>
+      <id>urn:tag:sec.gov,2008:accession-number=0001479357-10-000002</id>
+      <link href="https://www.sec.gov/Archives/edgar/data/1479357/000147935710000002/0001479357-10-000002-index.htm" rel="alternate" type="text/html" />
+      <summary type="html"> &lt;b&gt;Filed:&lt;/b&gt; 2010-09-23 &lt;b&gt;AccNo:&lt;/b&gt; 0001479357-10-000002 &lt;b&gt;Size:&lt;/b&gt; 10 KB&lt;br&gt;Item 06: Rule 506</summary>
+      <title>D  - Notice of Exempt Offering of Securities</title>
+      <updated>2010-09-23T13:16:29-04:00</updated>
+    </entry>
+    <entry>
+      <category label="form type" scheme="https://www.sec.gov/" term="D/A" />
+      <content type="text/xml">
+        <accession-number>0001479357-10-000001</accession-number>
+        <act>33</act>
+        <amend>[Amend]</amend>
+        <file-number>021-137229</file-number>
+        <file-number-href>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;filenum=021-137229&amp;owner=include&amp;count=40</file-number-href>
+        <filing-date>2010-06-04</filing-date>
+        <filing-href>https://www.sec.gov/Archives/edgar/data/1479357/000147935710000001/0001479357-10-000001-index.htm</filing-href>
+        <filing-type>D/A</filing-type>
+        <film-number>10878334</film-number>
+        <form-name>Notice of Exempt Offering of Securities</form-name>
+        <items-desc>item 06</items-desc>
+        <size>11 KB</size>
+      </content>
+      <id>urn:tag:sec.gov,2008:accession-number=0001479357-10-000001</id>
+      <link href="https://www.sec.gov/Archives/edgar/data/1479357/000147935710000001/0001479357-10-000001-index.htm" rel="alternate" type="text/html" />
+      <summary type="html"> &lt;b&gt;Filed:&lt;/b&gt; 2010-06-04 &lt;b&gt;AccNo:&lt;/b&gt; 0001479357-10-000001 &lt;b&gt;Size:&lt;/b&gt; 11 KB&lt;br&gt;Item 06: Rule 506</summary>
+      <title>D/A [Amend]  - Notice of Exempt Offering of Securities</title>
+      <updated>2010-06-04T13:16:18-04:00</updated>
+    </entry>
+    <entry>
+      <category label="form type" scheme="https://www.sec.gov/" term="D" />
+      <content type="text/xml">
+        <accession-number>0001479357-09-000001</accession-number>
+        <act>33</act>
+        <file-number>021-137229</file-number>
+        <file-number-href>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;filenum=021-137229&amp;owner=include&amp;count=40</file-number-href>
+        <filing-date>2009-12-29</filing-date>
+        <filing-href>https://www.sec.gov/Archives/edgar/data/1479357/000147935709000001/0001479357-09-000001-index.htm</filing-href>
+        <filing-type>D</filing-type>
+        <film-number>091262507</film-number>
+        <form-name>Notice of Exempt Offering of Securities</form-name>
+        <items-desc>item 06</items-desc>
+        <size>10 KB</size>
+      </content>
+      <id>urn:tag:sec.gov,2008:accession-number=0001479357-09-000001</id>
+      <link href="https://www.sec.gov/Archives/edgar/data/1479357/000147935709000001/0001479357-09-000001-index.htm" rel="alternate" type="text/html" />
+      <summary type="html"> &lt;b&gt;Filed:&lt;/b&gt; 2009-12-29 &lt;b&gt;AccNo:&lt;/b&gt; 0001479357-09-000001 &lt;b&gt;Size:&lt;/b&gt; 10 KB&lt;br&gt;Item 06: Rule 506</summary>
+      <title>D  - Notice of Exempt Offering of Securities</title>
+      <updated>2009-12-28T18:04:27-05:00</updated>
+    </entry>
+    <id>https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001479357</id>
+    <link href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001479357&amp;owner=include&amp;start=0&amp;count=40" rel="alternate" type="text/html" />
+    <link href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001479357&amp;owner=include&amp;start=0&amp;count=40&amp;output=atom" rel="self" type="application/atom+xml" />
+    <title>&amp;TV Communications Inc.  (0001479357)</title>
+    <updated>2026-05-28T01:54:21-04:00</updated>
+  </feed>"
+ https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001479357&type=&dateb=&owner=include&start=0&count=40&output=atom#:~:text=%3C%3Fxml%20version%3D%221.0,00%3C/updated%3E%0A%20%20%3C/feed%3E
