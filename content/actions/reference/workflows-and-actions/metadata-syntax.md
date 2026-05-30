@@ -393,7 +393,7 @@ runs:
 
 ### `runs.pre-entrypoint`
 
-**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if-for-docker-container-actions).
 
 The runtime specified with the [`using`](#runsusing-for-docker-container-actions) syntax will execute this file.
 
@@ -406,6 +406,21 @@ runs:
   args:
     - 'bzz'
   pre-entrypoint: 'setup.sh'
+  entrypoint: 'main.sh'
+```
+
+### `runs.pre-if` for Docker container actions
+
+**Optional** Allows you to define conditions for the `pre-entrypoint:` action execution. The `pre-entrypoint:` action will only run if the conditions in `pre-if` are met. If not set, then `pre-if` defaults to `always()`.
+
+In this example, the `pre-entrypoint:` action runs only on Linux-based runners:
+
+```yaml
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  pre-entrypoint: 'setup.sh'
+  pre-if: runner.os == 'linux'
   entrypoint: 'main.sh'
 ```
 
