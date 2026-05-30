@@ -31,6 +31,9 @@ category:
 You can use your repository settings to specify content in your repository that {% data variables.product.prodname_copilot %} should ignore.
 
 > [!NOTE]
+> Content exclusion settings are only available for repositories owned by an organization with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan. If your repository is owned by a personal account, the **{% data variables.product.prodname_copilot_short %}** option will not appear in your repository settings. To configure content exclusion, the repository must belong to an organization that has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription.
+
+> [!NOTE]
 > {% data variables.copilot.copilot_cli %}, {% data variables.copilot.copilot_cloud_agent %}, and Agent mode in {% data variables.copilot.copilot_chat_short %} in IDEs, do not support content exclusion. For more information about these {% data variables.product.prodname_copilot_short %} features, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli), [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent), and [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
 
 {% data reusables.repositories.navigate-to-repo %}
