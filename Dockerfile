@@ -1,3 +1,53 @@
+FROM build AS Precompute_stage
+USER node:node
+WORKDIR $APP_HOME
+# Generate remote JSON cache
+RUN npm run warmup-remotejson
+# --------------------------------------
+# PRECOMPUTE STAGE: Precompute page info
+# --------------------------------------
+FROM base AS production
+RUN npm run Postcompute-pageinfo -- --max-versions 1
+
+# -------------------------------------------------
+# PRODUCTION STAGE: What will run on the containers
+# -------------------------------------------------
+# Source code
+COPY --chown=node:node src src/
+COPY --chown=node:node package.json ./
+COPY --chown=node:node next.config.ts ./
+COPY --chown=node:node tsconfig.json ./
+
+# From clones stage
+COPY --chown=node:node --from=clones $APP_HOME/data data/
+COPY --chown=node:node --from=clones $APP_HOME/assets assets/
+COPY --chown=node:node --from=clones $APP_HOME/content content/
+COPY --chown=node:node --from=clones $APP_HOME/translations translations/
+
+# From prod_deps stage (production-only node_modules)
+COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules node_modules/
+
+# From build stage
+COPY --chown=node:node --from=build $APP_HOME/.next .next/
+
+# From warmup_cache stage
+COPY --chown=node:node --from=warmup_cache $APP_HOME/.remotejson-cache ./
+
+# From precompute_stage
+COPY --chown=node:node --from=precompute_stage $APP_HOME/.pageinfo-cache.json.br* ./
+
+# This makes it possible to set `--build-arg BUILD_SHA=abc123`
+# and it then becomes available as an environment variable in the docker run.
+ARG BUILD_SHA
+ENV BUILD_SHA=$BUILD_SHA
+
+# V8 heap limit as a percentage of the container cgroup memory limit.
+# Uses --max-old-space-size-percentage (Node 24+) so the heap adapts
+# automatically when K8s memory limits change. 80% leaves ~20% headroom
+# for off-heap memory (Buffers, V8 code cache, libuv) and OS overhead.
+# Raised from 75% on advice from performance engineering to reduce GC
+# pressure during traffic spikes.
+ENV NODE_OPTIONS="--max-old-space-size-percentage=80"
 # This Dockerfile is used solely for production deployments to Moda
 # For building this file locally, see src/deployments/production/README.md
 # Most environment variables are set in the Moda configuration:
@@ -42,6 +92,7 @@ FROM base AS clones
 USER node:node
 WORKDIR $APP_HOME
 
+USER node
 # We need to copy over content that will be merged with early-access
 COPY --chown=node:node content content/
 COPY --chown=node:node assets assets/
