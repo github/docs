@@ -55,6 +55,7 @@ Name | Description
 **`admin:org`** | Fully manage the organization and its teams, projects, and memberships.
 &emsp;`write:org`| Read and write access to organization membership and organization projects.
 &emsp;`read:org`| Read-only access to organization membership, organization projects, and team membership.
+&emsp;`manage_runners:org`| Gives full control over self-hosted runners and runner groups within the organization.
 **`admin:public_key`** | Fully manage public keys.
 &emsp;`write:public_key`| Create, list, and view details for public keys.
 &emsp;`read:public_key`| List and view details for public keys.
