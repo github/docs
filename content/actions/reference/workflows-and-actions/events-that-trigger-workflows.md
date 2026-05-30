@@ -366,14 +366,17 @@ on:
 
 Runs your workflow when a pull request is added to a merge queue, which adds the pull request to a merge group. For more information see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue).
 
-For example, you can run a workflow when the `checks_requested` activity has occurred.
+You can use the `branches` or `branches-ignore` filter to configure your workflow to run only for merge groups that target specific branches. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onmerge_groupbranchesbranches-ignore).
+
+For example, the following workflow runs when the `checks_requested` activity occurs for a merge group that targets `main`.
 
 ```yaml
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
   merge_group:
     types: [checks_requested]
+    branches: [main]
 ```
 
 ## `milestone`
