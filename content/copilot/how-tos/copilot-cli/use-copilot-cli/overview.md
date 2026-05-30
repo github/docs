@@ -249,7 +249,7 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 {% data variables.copilot.copilot_cli_short %} provides several slash commands to help you monitor and manage your context window:
 
 * `/usage`: Lets you view your session statistics, including:
-  * The amount of premium requests used in the current session
+  * The amount of {% data variables.product.prodname_ai_credits %} used in the current session
   * The session duration
   * The total lines of code edited
   * A breakdown of token usage per model

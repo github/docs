@@ -741,12 +741,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "not_archived",
             "enum": [
               "all",
               "archived",
               "not_archived"
-            ],
-            "default": "not_archived"
+            ]
           }
         },
         {
@@ -1356,12 +1356,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "outside",
               "direct",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -2625,12 +2625,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -3972,12 +3972,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {
@@ -4938,12 +4938,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "open",
             "enum": [
               "open",
               "closed",
               "all"
-            ],
-            "default": "open"
+            ]
           }
         },
         {

@@ -1833,6 +1833,20 @@
       "requestPath": "/repos/{owner}/{repo}/commits/{ref}/check-suites"
     }
   ],
+  "code-quality": [
+    {
+      "slug": "get-a-code-quality-setup-configuration",
+      "subcategory": "code-quality",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/setup"
+    },
+    {
+      "slug": "update-a-code-quality-setup-configuration",
+      "subcategory": "code-quality",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/code-quality/setup"
+    }
+  ],
   "code-scanning": [
     {
       "slug": "list-code-scanning-alerts-for-an-organization",

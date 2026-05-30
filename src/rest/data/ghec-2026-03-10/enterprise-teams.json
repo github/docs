@@ -168,8 +168,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -366,8 +365,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -525,8 +523,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -736,8 +733,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -804,8 +800,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -1025,8 +1020,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1240,8 +1234,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1455,8 +1448,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1661,8 +1653,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1867,8 +1858,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1945,8 +1935,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -2110,8 +2099,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2270,8 +2258,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2347,8 +2334,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2503,8 +2489,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2655,8 +2640,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2729,8 +2713,7 @@
           {
             "\"Enterprise teams\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ]

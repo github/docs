@@ -23,8 +23,6 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         },
@@ -2795,8 +2793,6 @@
           "in": "query",
           "schema": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
             "default": 30
           }
         },
