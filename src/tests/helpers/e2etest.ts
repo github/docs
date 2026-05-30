@@ -1,17 +1,17 @@
-import cheerio from 'cheerio'
+import { load, type CheerioAPI } from 'cheerio'
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { omitBy, isUndefined } from 'lodash-es'
 
 type ResponseTypes = 'buffer' | 'json' | 'text'
 type ResponseTypeMap = {
   buffer: ArrayBuffer
-  json: any
+  json: unknown
   text: string
 }
 
 interface GetOptions<ResponseType extends ResponseTypes = 'text'> {
   method?: string
-  body?: any
+  body?: RequestInit['body']
   followRedirects?: boolean
   followAllRedirects?: boolean
   headers?: Record<string, string>
@@ -35,7 +35,7 @@ interface ResponseWithHeaders<T> {
 }
 
 // Type alias for cached DOM results to improve maintainability
-type CachedDOMResult = cheerio.Root & { res: ResponseWithHeaders<string>; $: cheerio.Root }
+type CachedDOMResult = CheerioAPI & { res: ResponseWithHeaders<string>; $: CheerioAPI }
 
 // Cache to store DOM objects
 const getDOMCache = new Map<string, CachedDOMResult>()
@@ -174,7 +174,7 @@ export async function getDOM(route: string, options: GetDOMOptions = {}): Promis
     throw new Error(`Page not found on ${route} (${res.statusCode})`)
   }
 
-  const $ = cheerio.load(res.body || '', { xmlMode: true })
+  const $ = load(res.body || '', { xmlMode: true })
   const result = $ as CachedDOMResult
   // Attach res to the cheerio object for backward compatibility
   result.res = res
@@ -191,7 +191,7 @@ export async function getDOM(route: string, options: GetDOMOptions = {}): Promis
  * @param opts - Options for the request.
  * @returns A promise that resolves to the parsed JSON object.
  */
-export async function getJSON<T = any>(
+export async function getJSON<T = unknown>(
   route: string,
   opts: Omit<GetOptions, 'method'> = {},
 ): Promise<T> {

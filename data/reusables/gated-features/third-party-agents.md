@@ -1,0 +1,1 @@
+Third-party agents are available in all paid {% data variables.product.prodname_copilot_short %} plans.

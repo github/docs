@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn about the supported AI models in {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 redirect_from:
@@ -37,25 +35,64 @@ For all of the default AI models, input prompts and output completions run throu
 
 This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status and availability in different modes.
 
-{% data reusables.copilot.grok-promo-period %}
-
 {% rowheaders %}
 
 | Model name                                             | Provider  | Release status             | Agent mode | Ask mode | Edit mode |
 |--------------------------------------------------------|-----------|----------------------------|------------|----------|-----------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}                                       | {{ model.provider }} | {{ model.release_status }} | {% if model.agent_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.ask_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.edit_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %} | {{ model.provider }} | {{ model.release_status }} | {% if model.agent_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.ask_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.edit_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
 | {% endfor %}                                           |
+
+{% endrowheaders %}
+
+## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
+
+This table lists the supported AI models for {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}. Available models may be limited by model policies. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
+
+{% rowheaders %}
+
+| Model | {% data variables.copilot.copilot_cloud_agent %} | {% data variables.copilot.copilot_chat_short %} | {% data variables.copilot.copilot_cli_short %} |
+| --- | --- | --- | --- |
+| {% for model in tables.copilot.auto-model-selection %} |
+| {{ model.name }} | {% if model.cloud_agent == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.chat == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.cli == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {% endfor %} |
+
+{% endrowheaders %}
+
+## Models with extended capabilities
+
+The latest {% data variables.product.prodname_copilot_short %} models support the following extended capabilities.
+
+* **1 million token context window**: Allows the model to process significantly more content in a single session. This is useful when working across large codebases, long documents, or complex multi-file projects. When you select a supported model, you can choose between the default context size or the extended (1 million token) context.
+* **Configurable reasoning levels**: Controls the depth of the model's reasoning process before it generates a response. When you select a supported model, you can choose which reasoning level you want to use. Higher reasoning levels can improve the quality of responses to complex problems.
+
+Choosing a larger context window or higher reasoning will impact {% data variables.product.prodname_ai_credits_short %} consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
+
+> [!NOTE]
+> These extended capabilities are available in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_cli_short %} only.
+
+{% rowheaders %}
+
+| Model | 1 million token context window | Configurable reasoning |
+| --- | --- | --- |
+| {% data variables.copilot.copilot_claude_sonnet_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_46 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_46_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_47 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_gpt_53_codex %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_gpt_54 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_gpt_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
 ## Model retirement history
 
-The following table lists AI models that have been retired from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
+The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
 
 {% rowheaders %}
 
-| Model name                                                  | Retired date                | Suggested alternative             |
+| Model name                                                  | Retirement date             | Suggested alternative             |
 |-------------------------------------------------------------|-----------------------------|-----------------------------------|
 | {% for model in tables.copilot.model-deprecation-history %} |
 | {{ model.name }}                                            | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
@@ -67,24 +104,41 @@ The following table lists AI models that have been retired from {% data variable
 
 The following table shows which models are available in each client.
 
-> [!NOTE]
-> * {% data reusables.copilot.auto-model-selection %}
-> * {% data reusables.copilot.gpt-5-codex-vscode-support %}
-> * {% data variables.copilot.copilot_gpt_51_codex %} and {% data variables.copilot.copilot_gpt_51_codex_mini %} are supported in: 
->   * Visual Studio Code versions 1.104.1 or higher
->   * JetBrains, Copilot plugin versions 1.5.61 or higher
->   * Xcode, Copilot plugin versions 0.45.0 or later
->   * Eclipse, Copilot plugin versions 0.13.0 or later 
+{% rowheaders %}
+
+| Model | {% data variables.product.prodname_dotcom_the_website %} | {% data variables.copilot.copilot_cli_short %} | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | Eclipse | Xcode | JetBrains IDEs |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| {% for model in tables.copilot.model-supported-clients %} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %} | {% if model.dotcom == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.cli == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.vscode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.vs == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.eclipse == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.xcode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.jetbrains == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {% endfor %} |
+
+{% endrowheaders %}
+
+## Minimum IDE versions for recent models
+
+Some {% data variables.product.prodname_copilot_short %} models require minimum versions of supported IDEs or {% data variables.product.prodname_copilot_short %} extensions or plugins. The table below lists the minimum versions known from changelog entries or provided release guidance. This information is tentative and subject to change as model support rolls out. For best results, keep your IDE and {% data variables.product.prodname_copilot_short %} extension or plugin updated to the latest available version.
 
 {% rowheaders %}
 
-| Model | {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | Eclipse | Xcode | JetBrains IDEs |
-|--------|-----------------------------------------------------------|-----------------------------------------------|-------------------------------------------|----------|--------|----------------|
-| {% for model in tables.copilot.model-supported-clients %} |
-| {{ model.name }}                                          | {% if model.dotcom == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.vscode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.vs == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.eclipse == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.xcode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.jetbrains == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
-| {% endfor %}                                              |
+| Model                                                | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
+|------------------------------------------------------|----------------------------------------------|------------------------------------------| --- | --- | --- |
+| {% data variables.copilot.copilot_gemini_3_flash %}  | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_31_pro %}   | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_35_flash %} | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gpt_52_codex %}    | No minimum listed                            | `17.14.19` or `18.0.0` and later         | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_53_codex %}    | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_54 %}          | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_54_mini %}     | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_55 %}          | `v1.117` and later                           | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_claude_opus_48 %}  | `v1.118` and later                           | `17.14.19` and later                     | TBD | TBD | TBD |
 
 {% endrowheaders %}
+
+> [!NOTE]
+>
+> * For {% data variables.copilot.copilot_gpt_53_codex %} in {% data variables.product.prodname_vscode %}, `v1.108` and later provide improved prompting and response quality.
+> * "No minimum listed" means the reviewed changelog or release guidance did not specify a minimum version, not that all older versions are supported.
+> * Even when a model appears in the model picker on older supported versions, prompting and model behavior may work best with the latest IDE and {% data variables.product.prodname_copilot_short %} extension or plugin versions.
 
 ## Supported AI models per {% data variables.product.prodname_copilot_short %} plan
 
@@ -92,13 +146,32 @@ The following table shows which AI models are available in each {% data variable
 
 {% data reusables.copilot.available-models-per-plan %}
 
-## Model multipliers
+## Fallback and long-term support (LTS) models
 
-Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
+For more information about fallback and LTS models, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
 
-For more information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+## Evaluation models
+{% data variables.product.prodname_copilot %} offers access to evaluation models.
 
-{% data reusables.copilot.model-multipliers %}
+> [!IMPORTANT]
+> * Testing revealed evaluation models may perform worse than other models on security-related, or other categories of prompts. 
+> * Users should always carefully review and validate code, including code security, using a range of models and with a thorough human review before incorporating suggestions into production.
+
+Evaluation models may appear in product with codenames rather than official model or provider names. These models come from, or are fine-tuned by, one or more of the following providers: Microsoft, OpenAI, Anthropic, Google. Data handling for each provider is limited to GitHub's existing agreement with that provider, and evaluation models undergo GitHub and Microsoft testing and verification before release.
+
+Evaluation models may be added, updated, or removed without notice. Availability and rate limits may differ from generally available models.
+
+Access to evaluation models in {% data variables.copilot.copilot_auto_model_selection_short %}  for users {% data variables.product.prodname_copilot_short %} plans for individuals is governed by a policy. To disable evaluation models:
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+1. For the **Evaluation models in {% data variables.product.prodname_copilot_short %} {% data variables.copilot.copilot_auto_model_selection_short %}** setting, select **Disabled** from the dropdown.
+
+## Utility models
+
+Utility models power background features across surfaces, and cannot be disabled or selected in the model picker. See [AUTOTITLE](/copilot/concepts/models/utility-models).
+
+{% data reusables.copilot.utility-models %}
 
 ## Next steps
 

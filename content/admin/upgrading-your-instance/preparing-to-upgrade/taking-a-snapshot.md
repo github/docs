@@ -1,16 +1,15 @@
 ---
-  title: Taking a snapshot
-  intro: 'To save your {% data variables.product.prodname_ghe_server %} data before upgrading, take a virtual machine snapshot.'
-  redirect_from:
-    - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot
-    - /enterprise/admin/installation/upgrading-github-enterprise-server#taking-a-snapshot
-  versions:
-    ghes: '*'
-  type: how_to
-  topics:
-    - Enterprise
-    - Upgrades
-  shortTitle: Take a snapshot
+title: Taking a snapshot
+intro: To save your {% data variables.product.prodname_ghe_server %} data before upgrading, take a virtual machine snapshot.
+redirect_from:
+  - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#taking-a-snapshot
+  - /enterprise/admin/installation/upgrading-github-enterprise-server#taking-a-snapshot
+versions:
+  ghes: '*'
+shortTitle: Take a snapshot
+contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 ## About snapshots

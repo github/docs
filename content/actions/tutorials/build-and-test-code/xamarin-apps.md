@@ -12,14 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Xamarin
-  - Xamarin.iOS
-  - Xamarin.Android
-  - Android
-  - iOS
 shortTitle: Xamarin apps
+category:
+  - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

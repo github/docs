@@ -6,10 +6,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 redirect_from:
   - /apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app
+category:
+  - Understand GitHub Apps
 ---
 
 ## Select the minimum permissions required

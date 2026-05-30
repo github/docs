@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Troubleshoot authorization
+category:
+  - Build and manage OAuth apps
 ---
 ## Application suspended
 

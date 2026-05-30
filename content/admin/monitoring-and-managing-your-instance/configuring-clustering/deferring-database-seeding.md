@@ -4,12 +4,11 @@ intro: You can speed up the process of adding a new MySQL replica node to your c
 product: '{% data reusables.gated-features.cluster %}'
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About deferring database seeding of a MySQL replica node

@@ -4,10 +4,10 @@ intro: Plan which roles your teams need to stay productive and secure.
 shortTitle: Identify role requirements
 versions:
   feature: enterprise-custom-roles
-topics:
-  - Enterprise
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-onboarding.identify-role-requirements %}

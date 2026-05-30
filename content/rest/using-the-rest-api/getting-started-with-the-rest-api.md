@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/guides/getting-started-with-the-rest-api
   - /rest/initialize-the-repo
@@ -16,6 +14,8 @@ redirect_from:
   - /v3/media
   - /rest/overview/media-types
   - /rest/using-the-rest-api/media-types
+category:
+  - Learn about the REST API
 ---
 
 ## Introduction
@@ -179,7 +179,7 @@ Body parameters allow you to pass additional data to the API. These parameters c
 
 For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) requires that you specify a title for the new issue in your request. It also allows you to optionally specify other information, such as text to put in the issue body, users to assign to the new issue, or labels to apply to the new issue. For an example of a request that uses body parameters, see [Making a request](#making-a-request).
 
-You must authenticate your request to pass body parameters. For more information, see [Authenticating](#authenticating).
+You must authenticate your request to pass body parameters. For more information, see [Authentication](#authentication).
 
 #### Query parameters
 
@@ -256,7 +256,7 @@ The following example request uses the ["Get Octocat" endpoint](/rest/meta/meta#
 ```shell copy
 gh api --method GET /octocat \
 --header 'Accept: application/vnd.github+json' \
---header "X-GitHub-Api-Version: 2022-11-28"
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}"
 ```
 
 #### Example request using query parameters
@@ -275,7 +275,7 @@ The following example uses the ["Create an issue" endpoint](/rest/issues/issues#
 ```shell copy
 gh api --method POST /repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: 2022-11-28" \
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
 -f title='Created with the REST API' \
 -f body='This is a test issue created by the REST API' \
 ```
@@ -332,7 +332,7 @@ The following example request uses the ["Get Octocat" endpoint](/rest/meta/meta#
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: 2022-11-28"
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}"
 ```
 
 #### Example request using query parameters
@@ -343,7 +343,7 @@ The ["List public events" endpoint](/rest/activity/events#list-public-events) re
 curl --request GET \
 --url "{% data variables.product.rest_url %}/events?per_page=2&page=1" \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: 2022-11-28" \
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
   https://api.github.com/events
 ```
 
@@ -359,7 +359,7 @@ curl \
 --request POST \
 --url "{% data variables.product.rest_url %}/repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues" \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: 2022-11-28" \
+--header "X-GitHub-Api-Version: {{ defaultRestApiVersion }}" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --data '{
   "title": "Created with the REST API",
@@ -699,6 +699,10 @@ You can then expand these templates using something like the [uri_template](http
 >> tmpl.expand all: 1, participating: 1
 => "/notifications?all=1&participating=1"
 ```
+
+## Rate limiting
+
+The {% data variables.product.github %} REST API limits the number of requests you can make within a given time period. For more information about rate limits and how to check your current rate limit status, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api).
 
 ## Next steps
 

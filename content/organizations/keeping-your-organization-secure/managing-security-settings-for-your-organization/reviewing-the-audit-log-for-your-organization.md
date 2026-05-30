@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Review audit log
+category:
+  - Secure and monitor your organization
 ---
 
 ## Accessing the audit log
@@ -175,6 +174,12 @@ You can identify all events that were performed by a specific access token. For 
 
 {% data reusables.audit_log.git-events-export-limited %}
 
+### Export limits
+
+{% data reusables.audit_log.audit-log-org-export-limit %}
+
+### Exported log keys and values
+
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
@@ -206,7 +211,7 @@ Note that you can't retrieve Git events using the GraphQL API. To retrieve Git e
 
 The GraphQL response can include data for up to 90 to 120 days.
 
-For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the [AUTOTITLE](/graphql/reference/interfaces#auditentry/).
+For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the [AUTOTITLE](/graphql/reference/enterprise-admin#interface-auditentry/).
 
 {% ifversion ghec %}
 

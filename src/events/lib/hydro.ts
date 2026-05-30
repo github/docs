@@ -1,7 +1,7 @@
 import { createHmac } from 'crypto'
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { isNil } from 'lodash-es'
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import { report } from '@/observability/lib/failbot'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
 import { createLogger } from '@/observability/logger'
@@ -18,14 +18,14 @@ const { NODE_ENV, HYDRO_SECRET, HYDRO_ENDPOINT } = process.env
 const inProd = NODE_ENV === 'production'
 
 if (inProd && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
-  console.warn(
+  logger.warn(
     'Running in production but HYDRO_SECRET and HYDRO_ENDPOINT environment variables are not set.',
   )
 }
 
-type EventT = {
+export type EventT = {
   schema: string
-  value: Record<string, any>
+  value: Record<string, unknown>
 }
 
 async function _publish(
@@ -95,4 +95,6 @@ async function _publish(
   return response
 }
 
-export const publish = statsd.asyncTimer(_publish, 'hydro.response_time')
+const _publishTimed = statsd.asyncTimer(adaptForTimer(_publish), 'hydro.response_time')
+export const publish: typeof _publish = (...args) =>
+  _publishTimed(...(args as Parameters<typeof _publish>))

@@ -34,6 +34,12 @@ Before beginning the deprecation, ensure the date of the deprecation is correctl
 
 1. When the PR is approved, merge it in.
 
+<details><summary><strong>🤖 Copilot prompt for Step 0</strong></summary>
+
+> I'm preparing to deprecate GHES VERSION_NUMBER. Read `src/ghes-releases/lib/enterprise-dates.json` in docs-internal and find the deprecation date for this version. Then draft a Slack message I can send to the PRP owner to confirm the date is correct. Also check `github/enterprise-releases/releases.json` and identify the PRP owner for this version.
+
+</details>
+
 ## Step 1: Create the new archived repository
 
 All previously archived content lives in its own repository. For example, GHES 3.11 archived content is located in https://github.com/github/docs-ghes-3.11.
@@ -50,7 +56,13 @@ All previously archived content lives in its own repository. For example, GHES 3
    npm run deprecate-ghes -- create-repo --version 3.11
    ```
 
-1. From the new repository's home page, click the gear icon next to the "About" section and deselect the "Releases", "Packages", and "Depployments" checkboxes. Click "Save changes".
+1. From the new repository's home page, click the gear icon next to the "About" section and deselect the "Releases", "Packages", and "Deployments" checkboxes. Click "Save changes".
+
+<details><summary><strong>🤖 Copilot prompt for Step 1</strong></summary>
+
+> Run `npm run deprecate-ghes -- create-repo --version VERSION_NUMBER` and show me the output. If the script fails (API errors, permission issues, path problems), diagnose the error and suggest a fix. The `create-docs-ghes-version-repo.sh` script may have hardcoded paths or assumptions that need updating.
+
+</details>
 
 ## Step 2: Dry run: Scrape the docs and archive the files
 
@@ -64,53 +76,67 @@ All previously archived content lives in its own repository. For example, GHES 3
 
 1. Hide search components temporarily while scraping docs by adding the `visually-hidden` class to the search components:
 
-    **In `src/search/components/input/SearchBarButton.tsx`**, wrap the return statement content:
+   **In `src/search/components/input/SearchBarButton.tsx`**, wrap the return statement content:
 
-    ```javascript
-    return (
-      <div className="visually-hidden">
-        {/* existing search button content */}
-      </div>
-    )
-    ```
+   ```javascript
+   return (
+     <div className="visually-hidden">
+       {/* existing search button content */}
+     </div>
+   );
+   ```
 
-    **In `src/search/components/input/SearchOverlayContainer.tsx`**, wrap the return statement content:
+   **In `src/search/components/input/SearchOverlayContainer.tsx`**, wrap the return statement content:
 
-    ```javascript
-    if (isSearchOpen) {
-      return (
-        <div className="visually-hidden">
-          <SearchOverlay
-            // ... existing props
-          />
-        </div>
-      )
-    }
-    ```
+   ```javascript
+   if (isSearchOpen) {
+     return (
+       <div className="visually-hidden">
+         <SearchOverlay
+         // ... existing props
+         />
+       </div>
+     );
+   }
+   ```
 
 1. Ensure your build is up to date:
 
-    ```shell
-    npm run build
-    ```
+   ```shell
+   npm run build
+   ```
 
 1. Do a dry run by scraping a small amount of files to test locally on your machine. This command does not overwrite the references to asset files so they will render on your machine.
 
-    ```shell
-    npm run deprecate-ghes-archive -- --dry-run --local-dev
-    ```
+   ```shell
+   npm run deprecate-ghes-archive -- --dry-run --local-dev
+   ```
 
 1. Navigate to the scraped files directory (`tmpArchivalDir_<VERSION_TO_DEPRECATE>`) inside your docs-internal checkout. Open a few HTML files and ensure they render and drop-down pickers work correctly.
 
-1. If the dry-run looks good, scrape all content files. This will take about 20-30 minutes. **Note:**  This will overwrite the directory that was previously generated with new files. You can also create a specific output directory using the `--output` flag.
+1. If the dry-run looks good, scrape all content files. This will take about 20-30 minutes. **Note:** This will overwrite the directory that was previously generated with new files. You can also create a specific output directory using the `--output` flag.
 
-    ```shell
-    npm run deprecate-ghes-archive
-    ```
+   ```shell
+   npm run deprecate-ghes-archive
+   ```
 
 1. Revert changes to `src/search/components/input/SearchBarButton.tsx` and `src/search/components/input/SearchOverlayContainer.tsx`.
 
 1. Check in any change to `src/ghes-releases/lib/enterprise-dates.json`.
+
+<details><summary><strong>🤖 Copilot prompt for Step 2</strong></summary>
+
+> I'm doing a dry run of the GHES VERSION_NUMBER deprecation archive scrape.
+>
+> First, in `src/search/components/input/SearchBarButton.tsx`, wrap the return statement content in a `<div className="visually-hidden">` wrapper. Do the same in `src/search/components/input/SearchOverlayContainer.tsx` for the SearchOverlay component when `isSearchOpen` is true.
+>
+> Then run `npm run build` and show me the output. If the build succeeds, run `npm run deprecate-ghes-archive -- --dry-run --local-dev` and show me the output. Tell me if any errors occurred.
+>
+> After I've reviewed the dry run output, run the full scrape: `npm run deprecate-ghes-archive`. This will take 20-30 minutes.
+>
+> When the scrape completes, revert the search component changes: `git checkout src/search/components/input/SearchBarButton.tsx src/search/components/input/SearchOverlayContainer.tsx`. Verify the files are reverted.
+
+</details>
 
 ## Step 3: Commit the scraped docs to the new repository
 
@@ -122,13 +148,19 @@ All previously archived content lives in its own repository. For example, GHES 3
 
 1. Remove the `tmpArchivalDir_<VERSION_TO_DEPRECATE>` directory from your `github/docs-internal` checkout.
 
+<details><summary><strong>🤖 Copilot prompt for Step 3</strong></summary>
+
+> Copy the scraped files from `tmpArchivalDir_<VERSION_TO_DEPRECATE>` to the `github/docs-ghes-<RELEASE_NUM>` repository. Commit all the files with the message "Archive GHES <RELEASE_NUM> docs". Verify the commit succeeded and show me the file count. Then remove the `tmpArchivalDir_<VERSION_TO_DEPRECATE>` directory from docs-internal.
+
+</details>
+
 ## Step 4: Deprecate the GHES release in docs-internal
 
 1. In your `docs-internal` checkout, create a new branch: `git checkout -b deprecate-<version>`.
 
 1. In your `docs-internal` checkout, edit `src/versions/lib/enterprise-server-releases.ts` by removing the version number to be deprecated from the `supported` array and move it to the `deprecatedWithFunctionalRedirects` array.
 
-1. Deprecate the automated pipelines data files:
+1. Deprecate the automated pipelines data files (including audit logs, REST, GraphQL, webhooks, GitHub Apps, CodeQL CLI, and secret scanning):
 
    ```shell
    npm run deprecate-ghes -- pipelines
@@ -136,9 +168,9 @@ All previously archived content lives in its own repository. For example, GHES 3
 
 1. Remove deprecated content files and update the versions frontmatter:
 
-    ```shell
+   ```shell
    npm run deprecate-ghes -- content
-    ```
+   ```
 
 1. Remove deprecated Liquid from content and data files. **Note:** The previous step to update content file frontmatter must have run successfully for this step to work because the updated frontmatter is used to determine file versions.
 
@@ -171,6 +203,7 @@ All previously archived content lives in its own repository. For example, GHES 3
    ```
 
 1. Poke around several deprecated pages by navigating to `docs.github.com/enterprise/<DEPRECATED VERSION>`, and ensure that:
+
    - Stylesheets are working properly
    - Images are rendering properly
    - The search functionality was disabled during scraping
@@ -186,9 +219,57 @@ All previously archived content lives in its own repository. For example, GHES 3
 
 1. 🚢 Ship the change.
 
+<details><summary><strong>🤖 Copilot prompt for Step 4 — initial setup</strong></summary>
+
+> I'm deprecating GHES VERSION_NUMBER in docs-internal. In `src/versions/lib/enterprise-server-releases.ts`, remove `'VERSION_NUMBER'` from the `supported` array and add it as the first element of the `deprecatedWithFunctionalRedirects` array. Show me the diff.
+
+</details>
+
+<details><summary><strong>🤖 Copilot prompt for Step 4 — run deprecation scripts</strong></summary>
+
+> Run `npm run deprecate-ghes -- pipelines` and show me the output. If there are errors, diagnose and fix them.
+>
+> Then run `npm run deprecate-ghes -- content` and show me the output. If there are errors, diagnose and fix them.
+
+</details>
+
+<details><summary><strong>🤖 Copilot prompt for Step 4 — lint and fix Liquid</strong></summary>
+
+> Run `npm run lint-content -- --paths content data --rules liquid-ifversion-versions --fix`. Some `data/variables/*.yml` files can't be auto-fixed and will show as errors. For each error, open the file, find the key mentioned in the error, and remove the deprecated Liquid conditional for GHES VERSION_NUMBER while preserving the content for supported versions. Show me each change you make.
+
+</details>
+
+<details><summary><strong>🤖 Copilot prompt for Step 4 — clean up data and remaining issues</strong></summary>
+
+> Run `npm run deprecate-ghes -- data` and show me the output.
+>
+> Then run `npm run lint-content -- --fix` to remove whitespace and check for other errors.
+>
+> Search the codebase for any remaining table pipe artifacts from removed Liquid conditionals. Look for lines matching `^\|\s*\|$` or `^\s?\|\s?$` across all content and data files. Remove any you find.
+>
+> Show me a summary of all changes made.
+
+</details>
+
+<details><summary><strong>🤖 Copilot prompt for Step 4 — final validation</strong></summary>
+
+> Run `npm run lint-content` and show me any remaining errors. For each error, fix it and show me the change.
+>
+> Then run `npm run test -- src/versions` to check version-related tests still pass.
+>
+> Summarize all changes made so far so I can review before committing.
+
+</details>
+
 ## Step 5: Create a tag
 
 1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-deprecation`. On your local, `git checkout main`, `git pull`, `git tag enterprise-<version>-deprecation`, then `git push --tags --no-verify`.
+
+<details><summary><strong>🤖 Copilot prompt for Step 5</strong></summary>
+
+> Run `git checkout main && git pull` then `git tag enterprise-VERSION_NUMBER-deprecation && git push --tags --no-verify`. Show me the output.
+
+</details>
 
 ## Step 6: Deprecate the OpenAPI description in `github/github`
 
@@ -197,6 +278,12 @@ All previously archived content lives in its own repository. For example, GHES 3
 1. Open a new PR, and get the required code owner approvals. A docs-content team member can approve it for the docs team.
 
 1. When the PR is approved, [deploy the `github/github` PR](https://thehub.github.com/epd/engineering/devops/deployment/deploying-dotcom/). If you haven't deployed a `github/github` PR before, work with someone that has -- the process isn't too involved depending on how you deploy, but there are a lot of details that can potentially be confusing as you can see from the documentation.
+
+<details><summary><strong>🤖 Copilot prompt for Step 6</strong></summary>
+
+> In the `github/github` repository, find the config file for GHES VERSION_NUMBER in `app/api/description/config/releases/`. Change `deprecated: false` to `deprecated: true`. Show me the diff and open a PR with the title "Deprecate GHES VERSION_NUMBER OpenAPI description".
+
+</details>
 
 ## Configuring the translation repositories
 

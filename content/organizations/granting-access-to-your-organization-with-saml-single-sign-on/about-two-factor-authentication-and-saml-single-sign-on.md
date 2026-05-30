@@ -6,10 +6,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: 2FA & SAML single sign-on
+category:
+  - Configure SAML single sign-on
 ---
 
 Two-factor authentication (2FA) provides basic authentication for organization members. By enabling 2FA, organization owners limit the likelihood that a member's account on {% data variables.product.prodname_dotcom %} could be compromised. For more information on 2FA, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication).

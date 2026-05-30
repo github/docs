@@ -4,8 +4,6 @@ shortTitle: Spark
 intro: 'Learn about building and deploying intelligent apps with natural language using {% data variables.product.prodname_spark %}.'
 versions:
   feature: spark
-topics:
-  - Copilot
 contentType: concepts
 category: 
   - Learn about Copilot
@@ -83,13 +81,12 @@ Benefits include:
 
 * **Centralized control**. {% data variables.product.prodname_spark_short %} is included in the {% data variables.product.prodname_copilot_short %} license and respects existing enterprise access policies.
 * **Governance and security**. Built on {% data variables.product.github %} and Azure, sparks inherit enterprise-grade reliability, authentication, and compliance.
-* **Transparency and cost management**. {% data variables.product.prodname_spark_short %} consumption draws from {% data variables.product.prodname_copilot_short %} premium requests, which you can monitor through the {% data variables.product.github %} billing platform.
+* **Transparency and cost management**. {% data variables.product.prodname_spark_short %} consumption draws from {% data variables.product.prodname_ai_credits_short %}, which you can monitor through the {% data variables.product.github %} billing platform.
 * **Accelerated innovation**. Teams can validate ideas in hours instead of months, without relying on fragmented toolchains.
 
 ### Billing
 
-Each natural-language prompt in {% data variables.product.prodname_spark_short %} consumes four premium requests.
-See [AUTOTITLE](/billing/concepts/product-billing/github-spark).
+Each prompt to {% data variables.product.prodname_spark_short %} consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/billing/concepts/product-billing/github-spark).
 
 ### Infrastructure
 
@@ -109,13 +106,13 @@ Agent mode is useful when you have a specific task in mind and want to enable {%
 
 See [{% data variables.product.prodname_copilot_short %} agent mode](/copilot/how-tos/chat-with-copilot/chat-in-ide#agent-mode).
 
-### {% data variables.copilot.copilot_coding_agent %}
+### {% data variables.copilot.copilot_cloud_agent %}
 
-Once your spark is connected to a {% data variables.product.github %} repository, you can use {% data variables.copilot.copilot_coding_agent %} to help you to continue to build and maintain your app, while you focus on other things.
+Once your spark is connected to a {% data variables.product.github %} repository, you can use {% data variables.copilot.copilot_cloud_agent %} to help you to continue to build and maintain your app, while you focus on other things.
 
-With the coding agent, you delegate specific tasks to {% data variables.product.prodname_copilot_short %} (either by assigning an issue to {% data variables.product.prodname_copilot_short %}, or prompting {% data variables.product.prodname_copilot_short %} to create a pull request), and {% data variables.product.prodname_copilot_short %} will autonomously work in the background to complete the task. {% data variables.copilot.copilot_coding_agent %} can fix bugs, refactor code, improve test coverage and more.
+With the cloud agent, you delegate specific tasks to {% data variables.product.prodname_copilot_short %} (either by assigning an issue to {% data variables.product.prodname_copilot_short %}, or prompting {% data variables.product.prodname_copilot_short %} to create a pull request), and {% data variables.product.prodname_copilot_short %} will autonomously work in the background to complete the task. {% data variables.copilot.copilot_cloud_agent %} can fix bugs, refactor code, improve test coverage and more.
 
-See [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent).
+See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
 ## Sharing your spark
 

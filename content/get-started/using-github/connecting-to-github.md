@@ -5,12 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - CLI
-  - Codespaces
-  - Desktop
-  - Git
-  - Fundamentals
+category:
+  - Set up your account on GitHub
 ---
 
 ## Introduction

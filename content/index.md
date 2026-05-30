@@ -17,6 +17,7 @@ redirect_from:
   - /articles
   - /common-issues-and-questions
   - /troubleshooting-common-issues
+  - /video-transcripts
   - /early-access/github/enforcing-best-practices-with-github-policies
   - /github/enforcing-best-practices-with-github-policies/index
   - /early-access/github/enforcing-best-practices-with-github-policies/about-github-policies
@@ -83,7 +84,7 @@ children:
   - desktop
   - early-access
   - support
-  - video-transcripts
+
   - contributing
   - github-models
   - nonprofit
@@ -111,25 +112,26 @@ childGroups:
     children:
       - copilot
       - copilot/get-started/plans
-      - copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
-      - copilot/how-tos/use-copilot-agents/coding-agent
+      - copilot/how-tos/use-copilot-agents/cloud-agent
       - copilot/tutorials
-      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/tutorials/copilot-cookbook
       - copilot/tutorials/customization-library
+      - copilot/how-tos/copilot-cli
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
       - actions
       - packages
       - pages
-  - name: Security and quality
+  - name: Security and code quality
     octicon: ShieldLockIcon
     children:
-      - code-security/secret-scanning
-      - code-security/supply-chain-security
-      - code-security/dependabot
-      - code-security/code-scanning
-      - code-security/code-quality
+      - code-security
+      - code-security/how-tos/secure-your-secrets
+      - code-security/how-tos/find-and-fix-code-vulnerabilities
+      - code-security/how-tos/secure-your-supply-chain
+      - code-security/how-tos/maintain-quality-code
+      - code-security/how-tos/secure-at-scale
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
@@ -146,10 +148,9 @@ childGroups:
     octicon: OrganizationIcon
     children:
       - organizations
-      - code-security/securing-your-organization
+      - code-security/how-tos/secure-at-scale
       - enterprise-onboarding
       - admin
-      - gh-wa
   - name: Developers
     octicon: CodeSquareIcon
     children:
@@ -196,4 +197,3 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
-

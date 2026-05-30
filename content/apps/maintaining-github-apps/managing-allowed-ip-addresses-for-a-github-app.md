@@ -4,11 +4,11 @@ intro: 'You can add an IP allow list to your {% data variables.product.prodname_
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Manage allowed IP addresses
 redirect_from:
   - /developers/apps/building-github-apps/managing-allowed-ip-addresses-for-a-github-app
+category:
+  - Maintain and share your app
 ---
 
 ## About IP address allow lists for {% data variables.product.prodname_github_apps %}

@@ -34,14 +34,18 @@ runs:
     - name: Pull Docker image
       shell: bash
       if: steps.cache-docker-layers.outputs.cache-hit != 'true'
-      run: docker pull elasticsearch:${{ inputs.elasticsearch_version }}
+      env:
+        ES_VERSION: ${{ inputs.elasticsearch_version }}
+      run: docker pull elasticsearch:${ES_VERSION}
 
     - name: Save Docker image to cache
       shell: bash
       if: steps.cache-docker-layers.outputs.cache-hit != 'true'
+      env:
+        ES_VERSION: ${{ inputs.elasticsearch_version }}
       run: |
         mkdir -p /tmp/docker-cache
-        docker save -o /tmp/docker-cache/elasticsearch.tar elasticsearch:${{ inputs.elasticsearch_version }}
+        docker save -o /tmp/docker-cache/elasticsearch.tar elasticsearch:${ES_VERSION}
 
     # Setups the Elasticsearch container
     # Derived from https://github.com/getong/elasticsearch-action

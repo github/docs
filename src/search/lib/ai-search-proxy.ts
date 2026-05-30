@@ -1,13 +1,22 @@
 import { Response } from 'express'
+import { createLogger } from '@/observability/logger'
 import statsd from '@/observability/lib/statsd'
 import { fetchStream } from '@/frame/lib/fetch-utils'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
 import type { ExtendedRequest } from '@/types'
 import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
+import { MAX_QUERY_LENGTH } from '@/search/lib/ai-search-constants'
+
+const logger = createLogger(import.meta.url)
+
+// Maximum time (ms) to wait for the initial response from the upstream
+// AI search service. Streaming may take longer once the connection is
+// established, but the connect + first-byte must complete within this window.
+const AI_SEARCH_TIMEOUT_MS = 9_000
 
 export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
-  const { query, version } = req.body
+  const { query, version } = req.body ?? {}
 
   const errors = []
 
@@ -18,11 +27,25 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
     errors.push({ message: `Invalid 'query' in request body. Must be a string` })
   }
 
+  if (typeof query === 'string' && query.length > MAX_QUERY_LENGTH) {
+    statsd.increment('ai-search.query_too_large', 1, [
+      `version:${version}`,
+      `language:${req.language}`,
+      `queryLength:${query.length}`,
+    ])
+    res.status(413).json({
+      errors: [{ message: `Query exceeds maximum length of ${MAX_QUERY_LENGTH} characters` }],
+      upstreamStatus: 413,
+    })
+    return
+  }
+
   let docsSource = ''
   try {
     docsSource = getCSECopilotSource(version)
-  } catch (error: any) {
-    errors.push({ message: error?.message || 'Invalid version' })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Invalid version'
+    errors.push({ message })
   }
 
   if (errors.length) {
@@ -59,9 +82,8 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
   let reader: ReadableStreamDefaultReader<Uint8Array> | null = null
 
   try {
-    // TODO: We temporarily add ?ai_search=1 to use a new pattern in cgs-copilot production
     const response = await fetchStream(
-      `${process.env.CSE_COPILOT_ENDPOINT}/answers?ai_search=1`,
+      `${process.env.CSE_COPILOT_ENDPOINT}/answers`,
       {
         method: 'POST',
         body: JSON.stringify(body),
@@ -71,13 +93,14 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
         },
       },
       {
+        timeout: AI_SEARCH_TIMEOUT_MS,
         throwHttpErrors: false,
       },
     )
 
     if (!response.ok) {
       const errorMessage = `Upstream server responded with status code ${response.status}`
-      console.error(errorMessage)
+      logger.error(errorMessage, { statusCode: response.status })
       statsd.increment('ai-search.stream_response_error', 1, diagnosticTags)
       res.status(response.status).json({
         errors: [{ message: errorMessage }],
@@ -125,7 +148,7 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
       statsd.increment('ai-search.success_stream_end', 1, diagnosticTags)
       res.end()
     } catch (streamError) {
-      console.error('Error streaming from cse-copilot:', streamError)
+      logger.error('Error streaming from cse-copilot', { error: streamError })
       statsd.increment('ai-search.stream_error', 1, diagnosticTags)
 
       if (!res.headersSent) {
@@ -143,9 +166,17 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
       }
     }
   } catch (error) {
-    statsd.increment('ai-search.route_error', 1, diagnosticTags)
-    console.error('Error posting /answers to cse-copilot:', error)
-    res.status(500).json({ errors: [{ message: 'Internal server error' }] })
+    const isTimeout = error instanceof Error && error.message.includes('timed out')
+
+    if (isTimeout) {
+      statsd.increment('ai-search.timeout', 1, diagnosticTags)
+      logger.error('AI search request timed out', { timeoutMs: AI_SEARCH_TIMEOUT_MS })
+      res.status(504).json({ errors: [{ message: 'Upstream request timed out' }] })
+    } else {
+      statsd.increment('ai-search.route_error', 1, diagnosticTags)
+      logger.error('Error posting /answers to cse-copilot', { error })
+      res.status(500).json({ errors: [{ message: 'Internal server error' }] })
+    }
   } finally {
     // Ensure reader lock is always released
     if (reader) {

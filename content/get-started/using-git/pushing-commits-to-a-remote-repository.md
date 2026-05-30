@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Push commits to a remote
+category:
+  - Work with Git
 ---
 ## About `git push`
 

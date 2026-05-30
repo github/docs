@@ -12,4 +12,6 @@ children:
 redirect_from:
   - /actions/writing-workflows/choosing-where-your-workflow-runs
   - /actions/how-tos/writing-workflows/choosing-where-your-workflow-runs
+contentType: how-tos
 ---
+

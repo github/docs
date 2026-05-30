@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Projects
+contentType: tutorials
+category:
+  - Customize project views and insights
 ---
 
 {% data reusables.projects.access-insights %}

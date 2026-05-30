@@ -14,9 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Rate limits
+category:
+  - Register and configure a GitHub App
 ---
 
 {% ifversion ghes %}

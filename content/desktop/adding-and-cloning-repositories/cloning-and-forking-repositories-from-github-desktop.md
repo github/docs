@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Clone & fork from Desktop
+category:
+  - Add and clone repositories
 ---
 ## About local repositories
 

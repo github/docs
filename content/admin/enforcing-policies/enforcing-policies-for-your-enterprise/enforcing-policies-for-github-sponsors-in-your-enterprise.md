@@ -1,17 +1,15 @@
 ---
 title: Enforcing policies for GitHub Sponsors in your enterprise
 intro: Enterprise owners can control whether to allow the enterprise's organizations to sponsor open source projects.
-permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_sponsors %} in an enterprise.'
+permissions: Enterprise owners can enforce policies for {% data variables.product.prodname_sponsors %} in an enterprise.
 versions:
   feature: enterprise-orgs-sponsors-with-cc
-type: how_to
-topics:
-  - Sponsors
-  - Enterprise
-  - Policies
 shortTitle: '{% data variables.product.prodname_sponsors %} policies'
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise
+contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About enterprise policies for {% data variables.product.prodname_sponsors %}

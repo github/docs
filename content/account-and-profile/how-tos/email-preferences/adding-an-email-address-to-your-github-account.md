@@ -12,11 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 shortTitle: Add email address
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 {% ifversion ghec %}

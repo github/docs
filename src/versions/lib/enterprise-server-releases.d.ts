@@ -42,6 +42,7 @@ export const oldestSupported: string
 export const dates: Dates
 export const nextDeprecationDate: string
 export const isOldestReleaseDeprecated: boolean
+export const releasesWithOldestDeprecationDate: string[]
 export const deprecatedOnNewSite: string[]
 export const deprecatedReleasesWithLegacyFormat: string[]
 export const deprecatedReleasesWithNewFormat: string[]

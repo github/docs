@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /viewing-whether-users-in-your-organization-have-2fa-enabled
   - /preparing-to-require-two-factor-authentication-in-your-organization

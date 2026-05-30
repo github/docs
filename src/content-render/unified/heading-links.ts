@@ -1,27 +1,25 @@
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
+import type { Root, Element, ElementContent, Properties } from 'hast'
 
-interface HeadingNode {
-  type: 'element'
-  tagName: string
-  properties: {
-    id?: string
+interface HeadingNode extends Element {
+  properties: Properties & {
+    id: string
     tabIndex?: number
-    [key: string]: any
   }
-  children: any[]
 }
 
-const matcher = (node: any): node is HeadingNode =>
+const matcher = (node: Element): node is HeadingNode =>
   node.type === 'element' &&
   ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName) &&
-  node.properties?.id
+  !!node.properties?.id
 
 export default function headingLinks() {
-  return (tree: any) => {
-    visit(tree, matcher, (node: HeadingNode) => {
+  return (tree: Root) => {
+    visit(tree, 'element', (node: Element) => {
+      if (!matcher(node)) return
       const { id } = node.properties
-      const text = node.children
+      const text = node.children as ElementContent[]
       node.properties.tabIndex = -1
       node.children = [
         h('a', { className: 'heading-link', href: `#${id}` }, [

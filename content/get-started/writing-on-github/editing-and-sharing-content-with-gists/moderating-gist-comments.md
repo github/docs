@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghes: '>=3.17'
   ghec: '*'
+category:
+  - Share and reuse content
 ---
 ## Disabling comments
 

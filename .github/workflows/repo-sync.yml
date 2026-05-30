@@ -10,7 +10,7 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 */3 * * *' # Run every 3rd hour at 20 minutes after
+    - cron: '20 14-23/3 * * 1-5' # Mon-Fri 6:20a, 9:20a, 12:20p, 3:20p PST
 
 permissions:
   contents: write
@@ -23,18 +23,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Sync repo to branch
-        uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
-        with:
-          source_repo: https://${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
-          source_branch: main
-          destination_branch: repo-sync
-          github_token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
+        env:
+          SOURCE_REPO: https://${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
+          SOURCE_BRANCH: main
+          DESTINATION_BRANCH: repo-sync
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
+        run: |
+          set -euo pipefail
+
+          : "${GH_TOKEN:?DOCS_BOT_PAT_REPO_SYNC is empty}"
+          : "${SOURCE_REPO:?SOURCE_REPO is empty}"
+          : "${SOURCE_BRANCH:?SOURCE_BRANCH is empty}"
+          : "${DESTINATION_BRANCH:?DESTINATION_BRANCH is empty}"
+
+          git config --unset-all http."https://github.com/".extraheader || true
+
+          git remote remove tmp_upstream 2>/dev/null || true
+          trap 'git remote remove tmp_upstream 2>/dev/null || true' EXIT
+
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git remote add tmp_upstream "${SOURCE_REPO}"
+
+          git fetch tmp_upstream --quiet
+          git push origin "refs/remotes/tmp_upstream/${SOURCE_BRANCH}:refs/heads/${DESTINATION_BRANCH}" --force
 
       - name: Ship pull request
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
           result-encoding: string
@@ -144,17 +163,38 @@ jobs:
 
             console.log('Merging the pull request')
             // Admin merge pull request to avoid squash
-            await github.rest.pulls.merge({
-              owner,
-              repo,
-              pull_number,
-              merge_method: 'merge',
-            })
-            // Error loud here, so no try/catch
-            console.log('Merged the pull request successfully')
+            // Retry once per minute for up to 15 minutes to wait for required checks (e.g. CodeQL)
+            const maxAttempts = 15
+            const delay = 60_000 // 1 minute
+            for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+              try {
+                await github.rest.pulls.merge({
+                  owner,
+                  repo,
+                  pull_number,
+                  merge_method: 'merge',
+                })
+                console.log('Merged the pull request successfully')
+                break
+              } catch (mergeError) {
+                const msg = mergeError.message || mergeError.response?.data?.message || ''
+                const isRuleViolation = mergeError.status === 405 &&
+                  msg.includes('Repository rule violations')
+                if (!isRuleViolation || attempt === maxAttempts) {
+                  throw mergeError
+                }
+                console.log(`Merge blocked by required checks (attempt ${attempt}/${maxAttempts}), retrying in 60s...`)
+                await new Promise(resolve => setTimeout(resolve, delay))
+              }
+            }
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

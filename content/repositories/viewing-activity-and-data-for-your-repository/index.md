@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /viewing-deployment-activity-for-your-repository
   - /about-repository-graphs

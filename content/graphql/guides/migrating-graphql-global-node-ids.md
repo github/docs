@@ -4,9 +4,9 @@ intro: Learn about the two global node ID formats and how to migrate from the le
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: Migrating global node IDs
+category:
+  - Understand API changes and limits
 ---
 
 ## Background

@@ -1,6 +1,6 @@
 ---
 title: Installing GitHub Enterprise Server on OpenStack KVM
-intro: 'To install {% data variables.product.prodname_ghe_server %} on OpenStack KVM, you must have OpenStack access and download the {% data variables.product.prodname_ghe_server %} QCOW2 image.'
+intro: To install {% data variables.product.prodname_ghe_server %} on OpenStack KVM, you must have OpenStack access and download the {% data variables.product.prodname_ghe_server %} QCOW2 image.
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-openstack-kvm
   - /enterprise/admin/installation/installing-github-enterprise-server-on-openstack-kvm
@@ -8,13 +8,10 @@ redirect_from:
   - /admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm
 versions:
   ghes: '*'
-type: tutorial
-topics:
-  - Administrator
-  - Enterprise
-  - Infrastructure
-  - Set up
 shortTitle: Install on OpenStack
+contentType: tutorials
+category:
+  - Install and configure your instance
 ---
 ## Prerequisites
 

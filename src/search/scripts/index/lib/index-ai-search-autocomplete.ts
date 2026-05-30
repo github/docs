@@ -26,7 +26,9 @@ type Options = {
 }
 
 export async function indexAISearchAutocomplete(options: Options) {
-  const client = getElasticsearchClient(undefined, options.verbose)
+  const client = getElasticsearchClient(undefined, options.verbose, {
+    requestTimeout: 5 * 60 * 1000,
+  })
   await client.ping() // Will throw if not available
 
   console.log(

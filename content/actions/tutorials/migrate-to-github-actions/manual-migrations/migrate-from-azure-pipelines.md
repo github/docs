@@ -12,13 +12,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Azure Pipelines
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from Azure Pipelines
+contentType: tutorials
+category:
+  - Migrate to GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -216,7 +213,7 @@ jobs:
     dependsOn: initial
     steps:
       - script: echo "This job will run after the initial job, in parallel with fanout1."
-  - job: fanin:
+  - job: fanin
     pool:
       vmImage: 'ubuntu-latest'
     dependsOn: [fanout1, fanout2]

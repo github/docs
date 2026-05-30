@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Unauthorized access
+category:
+  - Manage access credentials
 ---
 {% data variables.product.github %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
 

@@ -9,6 +9,7 @@ import { allVersions } from '@/versions/lib/all-versions'
 import processPreviews from './utils/process-previews'
 import processUpcomingChanges from './utils/process-upcoming-changes'
 import processSchemas from './utils/process-schemas'
+import { bucketSchemaByCategory, writeCategoryFiles } from './utils/bucket-by-category'
 import {
   prependDatedEntry,
   createChangelogEntry,
@@ -28,6 +29,29 @@ interface IgnoredChange {
   totalCount: number
   types: Array<{ type: string }>
 }
+
+interface RawPreview {
+  title: string
+  description?: string
+  toggled_on: string[]
+  toggled_by: string
+  announcement?: unknown
+  updates?: unknown
+  owning_teams?: string[]
+}
+
+interface UpcomingChangeEntry {
+  location: string
+  date: string
+  description: string
+  [key: string]: unknown
+}
+
+interface UpcomingChangesDocument {
+  upcoming_changes: UpcomingChangeEntry[]
+}
+
+type SchemaPreview = Omit<RawPreview, 'toggled_by'> & { toggled_by: string[] }
 
 const graphqlStaticDir = 'src/graphql/data'
 const dataFilenames = JSON.parse(
@@ -54,11 +78,10 @@ async function main() {
 
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
-    // GraphQL preview data structure - complex nested object from YAML
-    // Using any because processPreviews is an external utility without type definitions
-    const safeForPublicPreviews = yaml.load(
+    const rawPreviews = yaml.load(
       await getRemoteRawContent(previewsPath, graphqlVersion),
-    ) as any
+    ) as RawPreview[]
+    const safeForPublicPreviews: RawPreview[] = Array.isArray(rawPreviews) ? rawPreviews : []
     const previewsJson = processPreviews(safeForPublicPreviews)
     await updateStaticFile(
       previewsJson,
@@ -67,10 +90,9 @@ async function main() {
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-    // GraphQL upcoming changes data - contains upcoming_changes array
-    const previousUpcomingChanges = yaml.load(await fs.readFile(upcomingChangesPath, 'utf8')) as {
-      upcoming_changes: unknown[]
-    }
+    const previousUpcomingChanges = yaml.load(
+      await fs.readFile(upcomingChangesPath, 'utf8'),
+    ) as UpcomingChangesDocument
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     await updateFile(upcomingChangesPath, safeForPublicChanges)
     const upcomingChangesJson = await processUpcomingChanges(safeForPublicChanges)
@@ -85,12 +107,43 @@ async function main() {
     const previousSchemaString = await fs.readFile(previewFilePath, 'utf8')
     const latestSchema = await getRemoteRawContent(previewFilePath, graphqlVersion)
     await updateFile(previewFilePath, latestSchema)
-    // Using any because processSchemas returns complex GraphQL schema structures
-    const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews) // This is slow!
-    await updateStaticFile(
-      schemaJsonPerVersion as any,
-      path.join(graphqlStaticDir, graphqlVersion, 'schema.json'),
-    )
+    const previewsForSchema: SchemaPreview[] = safeForPublicPreviews.map((preview) => ({
+      ...preview,
+      toggled_by: [preview.toggled_by].flat(),
+    }))
+    // Fallback category source for GHES versions that pre-date the upstream
+    // `@docsCategory` DSL (DSL landed on master 2026-05-07; GHES 3.16-3.21
+    // were cut at the 3.21 freeze 2026-03-19). Without this, every type on
+    // those versions gets bucketed as "other". GHES 3.22+ is expected to
+    // include the DSL natively so it's excluded from the fallback.
+    let fallbackCategoryMap: Record<string, Record<string, string>> | undefined
+    const ghesMatch = /^ghes-(\d+)\.(\d+)$/.exec(graphqlVersion)
+    if (ghesMatch) {
+      const major = Number(ghesMatch[1])
+      const minor = Number(ghesMatch[2])
+      if (major < 3 || (major === 3 && minor < 22)) {
+        try {
+          fallbackCategoryMap = JSON.parse(
+            await fs.readFile(path.join(graphqlStaticDir, 'fpt', 'category-map.json'), 'utf8'),
+          )
+          console.log(`Using fpt/category-map.json as @docsCategory fallback for ${graphqlVersion}`)
+        } catch {
+          // fpt hasn't been processed yet (shouldn't happen given iteration
+          // order, but stay defensive). Without it, ghes types fall to "other".
+        }
+      }
+    }
+    const schemaJsonPerVersion = await processSchemas(
+      latestSchema,
+      previewsForSchema,
+      fallbackCategoryMap,
+    ) // This is slow!
+
+    // Split the schema by category so the runtime can lazily load only the
+    // bucket it needs for a given page request. The monolithic `schema.json`
+    // is no longer written; per-category files are the only on-disk format.
+    const perCategoryFiles = bucketSchemaByCategory(schemaJsonPerVersion)
+    await writeCategoryFiles(path.join(graphqlStaticDir, graphqlVersion), perCategoryFiles)
 
     // 4. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {
@@ -99,9 +152,8 @@ async function main() {
         previousSchemaString,
         latestSchema,
         safeForPublicPreviews,
-        previousUpcomingChanges.upcoming_changes as any,
-        (yaml.load(safeForPublicChanges) as { upcoming_changes: unknown[] })
-          .upcoming_changes as any,
+        previousUpcomingChanges.upcoming_changes,
+        (yaml.load(safeForPublicChanges) as UpcomingChangesDocument).upcoming_changes,
       )
       if (changelogEntry) {
         prependDatedEntry(
@@ -225,8 +277,8 @@ async function updateFile(filepath: string, content: string) {
 }
 
 // JSON data from GraphQL schema processing - complex nested structures
-// Using any because the structure varies (arrays, objects, nested schemas, etc.)
-async function updateStaticFile(json: any, filepath: string) {
+// Serialize unknown shapes because the structure varies (arrays, objects, nested schemas, etc.)
+async function updateStaticFile(json: unknown, filepath: string) {
   console.log(`Updating static file ${filepath}`)
   const jsonString = JSON.stringify(json, null, 2)
   return updateFile(filepath, jsonString)

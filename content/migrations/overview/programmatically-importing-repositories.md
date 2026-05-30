@@ -1,10 +1,12 @@
 ---
 title: Programmatically importing repositories
 shortTitle: Programmatic repository imports
-intro: 'You can programmatically import repositories to {% data variables.product.prodname_dotcom %}.'
+intro: You can programmatically import repositories to {% data variables.product.prodname_dotcom %}.
 versions:
   feature: source-imports-api-deprecation
-type: tutorial
+contentType: tutorials
+category:
+  - Plan your migration
 ---
 
 ## About programmatic import of repositories

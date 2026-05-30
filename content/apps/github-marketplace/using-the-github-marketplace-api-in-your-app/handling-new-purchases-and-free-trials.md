@@ -12,9 +12,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 shortTitle: New purchases & free trials
+category:
+  - Manage payments for your Marketplace app
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

@@ -1,0 +1,139 @@
+{
+  "gitignore": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/gitignore/templates",
+      "title": "Get all gitignore templates",
+      "category": "gitignore",
+      "subcategory": "gitignore",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>List all templates available to pass as an option when <a href=\"https://docs.github.com/enterprise-server@3.20/rest/repos/repos#create-a-repository-for-the-authenticated-user\">creating a repository</a>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              "Actionscript",
+              "Android",
+              "AppceleratorTitanium",
+              "Autotools",
+              "Bancha",
+              "C",
+              "C++"
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/gitignore/templates/{name}",
+      "title": "Get a gitignore template",
+      "category": "gitignore",
+      "subcategory": "gitignore",
+      "parameters": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": ""
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the content of a gitignore template.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw .gitignore contents.</li>\n</ul>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "name": "NAME"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "name": "C",
+              "source": "# Object files\n*.o\n\n# Libraries\n*.lib\n*.a\n\n# Shared objects (inc. Windows DLLs)\n*.dll\n*.so\n*.so.*\n*.dylib\n\n# Executables\n*.exe\n*.out\n*.app\n"
+            },
+            "schema": {
+              "title": "Gitignore Template",
+              "description": "Gitignore Template",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "source"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    }
+  ]
+}

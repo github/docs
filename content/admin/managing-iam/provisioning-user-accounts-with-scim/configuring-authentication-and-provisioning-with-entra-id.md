@@ -1,17 +1,10 @@
 ---
 title: Configuring authentication and provisioning with Entra ID
 shortTitle: Set up Entra ID
-intro: 'You can use a tenant in Microsoft Entra ID (previously known as Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.'
+intro: You can use a tenant in Microsoft Entra ID (previously known as Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.
 permissions: Site administrators with admin access to the IdP
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
@@ -19,6 +12,9 @@ redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
+contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}

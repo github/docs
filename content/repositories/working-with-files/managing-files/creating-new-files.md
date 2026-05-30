@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Work with files
 ---
 When creating a file on {% data variables.product.github %}, consider the following:
 

@@ -1,0 +1,19 @@
+---
+title: Reference for code scanning
+shortTitle: Code scanning
+intro: Find information to apply to your work with {% data variables.product.prodname_code_scanning %}.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+contentType: reference
+redirect_from:
+  - /code-security/code-scanning/reference
+children:
+  - workflow-configuration-options
+  - sarif-files
+  - codeql
+  - troubleshoot-analysis-errors
+  - code-scanning-logs
+---
+

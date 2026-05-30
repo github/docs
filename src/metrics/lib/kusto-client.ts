@@ -4,9 +4,7 @@ import {
   KustoResultTable,
 } from 'azure-kusto-data'
 
-import dotenv from 'dotenv'
-
-dotenv.config()
+import 'dotenv/config'
 
 if (!(process.env.KUSTO_CLUSTER || process.env.KUSTO_DATABASE)) {
   console.error(`Add KUSTO_CLUSTER and KUSTO_DATABASE to your .env file`)

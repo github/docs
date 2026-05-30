@@ -13,10 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Viewing commit details
 contentType: how-tos
+category:
+  - Track your contributions
 ---
 
 ## View commit details

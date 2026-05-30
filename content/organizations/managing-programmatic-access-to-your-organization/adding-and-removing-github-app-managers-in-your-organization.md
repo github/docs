@@ -14,11 +14,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
-  - GitHub Apps
 shortTitle: GitHub App managers
+category:
+  - Manage app and API access
 ---
 
 ## About {% data variables.product.prodname_github_app %} managers

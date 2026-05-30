@@ -33,7 +33,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     const markdown = [
       '---',
       'title: article',
-      'type: rai',
+      'contentType: rai',
       '---',
       '',
       '{% data reusables.injectables.multiple_numbers %}',
@@ -51,7 +51,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     const markdown = [
       '---',
       'title: article',
-      'type: rai',
+      'contentType: rai',
       '---',
       '',
       '{% data reusables.rai.note %}',

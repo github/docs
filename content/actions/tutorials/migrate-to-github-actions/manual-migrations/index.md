@@ -1,7 +1,7 @@
 ---
 title: Manually migrating to GitHub Actions
 shortTitle: Manual migrations
-intro: 'Learn how to manually migrate your existing CI/CD workflows to {% data variables.product.prodname_actions %}.'
+intro: Learn how to manually migrate your existing CI/CD workflows to {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,4 +17,6 @@ redirect_from:
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions
   - /actions/how-tos/migrating-to-github-actions/manually-migrating-to-github-actions
   - /actions/tutorials/migrating-to-github-actions/manually-migrating-to-github-actions
+contentType: tutorials
 ---
+

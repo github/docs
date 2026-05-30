@@ -6,15 +6,13 @@ permissions: 'To manage development environment secrets for {% data variables.pr
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-  - Secret store
-  - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
 product: 'Development environment secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).'
+category:
+  - Manage codespaces for your organization
 ---
 
 ## About secrets

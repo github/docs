@@ -1,0 +1,15 @@
+---
+title: Supported ecosystems and manifests for dependency scope
+intro: '{% data variables.product.prodname_dependabot_alerts %} supports a variety of ecosystems and manifests for dependency scope.'
+allowTitleToDifferFromFilename: true
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+shortTitle: Dependency scope
+contentType: reference
+category:
+  - Secure your dependencies
+---
+
+{% data reusables.dependabot.dependabot-alerts-dependency-scope %}

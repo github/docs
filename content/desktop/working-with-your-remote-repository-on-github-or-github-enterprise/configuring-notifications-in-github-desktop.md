@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications-in-github-desktop
+category:
+  - Configure and customize GitHub Desktop
 ---
 ## About notifications in {% data variables.product.prodname_desktop %}
 

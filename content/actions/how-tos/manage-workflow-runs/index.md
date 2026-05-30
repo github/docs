@@ -28,4 +28,6 @@ redirect_from:
   - /actions/managing-workflow-runs-and-deployments
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs
   - /actions/how-tos/managing-workflow-runs-and-deployments
+contentType: how-tos
 ---
+

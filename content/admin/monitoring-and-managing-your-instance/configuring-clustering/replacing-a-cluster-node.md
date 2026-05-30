@@ -1,6 +1,6 @@
 ---
 title: Replacing a cluster node
-intro: 'If a node fails in a {% data variables.product.prodname_ghe_server %} cluster, or if you want to add a new node with more resources, mark any nodes to replace as offline, then add the new node.'
+intro: If a node fails in a {% data variables.product.prodname_ghe_server %} cluster, or if you want to add a new node with more resources, mark any nodes to replace as offline, then add the new node.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/replacing-a-cluster-node
@@ -10,11 +10,9 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - Infrastructure
+contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About replacement of {% data variables.product.prodname_ghe_server %} cluster nodes
@@ -225,11 +223,11 @@ If you need to allocate more resources to your primary MySQL (or MySQL and MSSQL
 
    > [!NOTE] The previous snippet does not assume {% data variables.product.prodname_actions %} is enabled in the cluster.
 
-1. Check the status of the MySQL(or MySQL and MSSQL) replication from any node in the cluster by running `ghe-cluster-status -v`.
 1. If {% data variables.product.prodname_actions %} is enabled in the cluster, run the following command from the new MySQL and MSSQL node.
 
    ```shell copy
    /usr/local/share/enterprise/ghe-repl-post-failover-mssql
    ```
 
+1. Check the status of the MySQL(or MySQL and MSSQL) replication from any node in the cluster by running `ghe-cluster-status -v`.
 1. When the MySQL(or MySQL and MSSQL) replication is finished, from any node in the cluster, disable maintenance mode. See [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli).

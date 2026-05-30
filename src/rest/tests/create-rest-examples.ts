@@ -1,6 +1,9 @@
 import { describe, expect, test } from 'vitest'
 
-import getCodeSamples, { mergeExamples } from '../scripts/utils/create-rest-examples'
+import getCodeSamples, {
+  mergeExamples,
+  getResponseExamples,
+} from '../scripts/utils/create-rest-examples'
 import {
   operation,
   noContent,
@@ -52,12 +55,42 @@ describe('rest example requests and responses', () => {
 
   test('check example number and status code appear', async () => {
     const mergedExamples = await getCodeSamples(operation)
-    // example is any because getCodeSamples returns objects from untyped JavaScript module
+    // example has specific structure from getCodeSamples
     for (let index = 0; index < mergedExamples.length; index++) {
-      const example: any = mergedExamples[index]
+      const example = mergedExamples[index] as {
+        request: { description: string }
+        response: { statusCode: string }
+      }
       expect(example.request.description).toBe(
         `Example ${index + 1}: Status Code ${example.response.statusCode}`,
       )
     }
+  })
+
+  test('response examples have unique keys when multiple status codes use inline example', () => {
+    const multiStatusOp = {
+      responses: {
+        200: {
+          description: 'Response when already exists',
+          content: {
+            'application/json': {
+              example: { id: 1, status: 'existing' },
+            },
+          },
+        },
+        201: {
+          description: 'Response when created',
+          content: {
+            'application/json': {
+              example: { id: 1, status: 'created' },
+            },
+          },
+        },
+      },
+    }
+    const examples = getResponseExamples(multiStatusOp)
+    const keys = examples.map((e) => e.key)
+    expect(keys).toEqual(['200', '201'])
+    expect(new Set(keys).size).toBe(keys.length)
   })
 })

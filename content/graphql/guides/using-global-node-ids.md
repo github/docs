@@ -7,8 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
+category:
+  - Get started and make API calls
 ---
 
 You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. You can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations. For more information, see [Preview GraphQL API Node IDs in REST API resources](https://developer.github.com/changes/2017-12-19-graphql-node-id/).
@@ -100,7 +100,7 @@ query {
 
 This type of query&mdash;that is, finding the node by ID&mdash;is known as a "direct node lookup."
 
-When you run this query, you'll see that the `__typename` is [`User`](/graphql/reference/objects#user).
+When you run this query, you'll see that the `__typename` is [`User`](/graphql/reference/users#object-user).
 
 ## 3. Do a direct node lookup in GraphQL
 

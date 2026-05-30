@@ -3,11 +3,10 @@ title: Disabling SAML single sign-on for your organization
 intro: 'You can disable SAML single sign-on (SSO) for your organization.'
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Disable SAML
 permissions: Organization owners can disable SAML SSO for an organization.
+category:
+  - Configure SAML single sign-on
 ---
 
 After you disable SAML SSO for your organization, all external identities for your organization will be removed. For more information, see [AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization).

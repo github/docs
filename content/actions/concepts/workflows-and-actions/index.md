@@ -17,4 +17,6 @@ children:
   - /workflow-artifacts
   - /dependency-caching
   - /notifications-for-workflow-runs
+contentType: concepts
 ---
+

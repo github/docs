@@ -20,14 +20,15 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /view-productlicense-use
   - /download-license-use
   - /buy-advanced-security
+  - /estimate-spending
+  - /use-cost-centers
   - /manage-ghas-licenses
   - /view-ghas-committers
+  - /disable-ghas-for-enterprise
 contentType: how-tos
 ---
 

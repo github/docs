@@ -5,13 +5,18 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 shortTitle: Supported payment methods
 contentType: reference
+category:
+  - Set up payment
+redirect_from:
+  - /billing/reference/payment-methods
 ---
 
 ## Metered or usage-based billing options
+
+> [!NOTE]
+> Prepaid credit/debit cards are not accepted as a valid form of payment.
 
 The supported payment methods for metered billing:
 
@@ -27,6 +32,18 @@ Accounts with volume licenses and metered billing can use multiple payment metho
 * For managed accounts, you might pay for volume licenses via invoice, and metered usage via Azure Subscription ID.
 
 {% data variables.product.prodname_copilot_short %} standalone accounts, which traditionally used Azure Subscription IDs, can now also pay by credit card. Contact your {% data variables.product.github %} representative for details.
+
+## Unsupported Azure subscription types
+
+The following Azure subscription types cannot be used as a payment method for {% data variables.product.github %}:
+
+| Quota ID | Offer number(s) |
+|---|---|
+| `FreeTrial_2014-09-01` | MS-AZR-0044P |
+| `AzureForStudents_2018-01-01` | MS-AZR-0170P |
+| `DreamSpark_2015-02-01` | MS-AZR-0144P |
+| `AzurePass_2014-09-01` | MS-AZR-0120P, MS-AZR-0122P–MS-AZR-0125P, MS-AZR-0128P–MS-AZR-0130P |
+| `PayAsYouGo_2014-09-01` | MS-AZR-0017G |
 
 {% ifversion fpt or ghec %}
 

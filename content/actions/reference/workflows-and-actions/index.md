@@ -19,4 +19,6 @@ children:
   - /metadata-syntax
   - /workflow-cancellation
   - /dockerfile-support
+contentType: reference
 ---
+

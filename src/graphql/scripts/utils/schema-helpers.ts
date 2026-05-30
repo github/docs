@@ -12,6 +12,8 @@ import {
 import type { ConstDirectiveNode } from 'graphql/language'
 import path from 'path'
 
+import { slugPrefixForUrlKind } from '@/graphql/lib/categories'
+
 interface GraphQLTypeInfo {
   type: string
   kind: string
@@ -20,7 +22,6 @@ interface GraphQLTypeInfo {
 interface TypeInfo {
   name: string
   id: string
-  kind: string
   href: string
 }
 
@@ -82,13 +83,23 @@ async function getArguments(
     type.id = getId(typeName)
     const typeKind = getTypeKind(typeName, schema)
     if (!typeKind) continue // Skip if type kind cannot be determined
-    type.kind = typeKind
-    type.href = getFullLink(typeKind, type.id)
+    // process-schemas always emits legacy `/graphql/reference/<urlKind>#<id>`
+    // hrefs. bucket-by-category rewrites them into the category-aware form
+    // when splitting into per-category files, so monolithic schema.json stays
+    // byte-stable with what the existing runtime expects.
+    type.href = getFullLink(typeKind, type.id!)
     newArg.type = type as TypeInfo
     newArgs.push(newArg as ArgumentInfo)
   }
 
   return newArgs
+}
+
+// Build a category-aware anchor link for a type, e.g.
+// `/graphql/reference/repos#object-repository`. Exposed for the bucketer's
+// href-rewrite pass; process-schemas itself uses the legacy `getFullLink`.
+export function buildCategoryHref(category: string, urlKind: string, id: string): string {
+  return `/graphql/reference/${category}#${slugPrefixForUrlKind(urlKind)}-${id}`
 }
 
 async function getDeprecationReason(
@@ -126,6 +137,18 @@ async function getDescription(rawDescription: string): Promise<string> {
 
 function getFullLink(baseType: string, id: string): string {
   return `/graphql/reference/${baseType}#${id}`
+}
+
+// Extract the `@docsCategory(name: "...")` value from a directive list.
+// Returns undefined when the directive is absent.
+function getDocsCategory(directives: readonly ConstDirectiveNode[]): string | undefined {
+  const directive = directives.find((dir) => dir.name.value === 'docsCategory')
+  if (!directive) return
+  const nameArg = directive.arguments?.find((arg) => arg.name.value === 'name')
+  if (!nameArg) return
+  const value = (nameArg as any).value
+  if (!value || value.kind !== 'StringValue') return
+  return value.value
 }
 
 function getId(typeName: string): string {
@@ -258,6 +281,7 @@ export default {
   getDeprecationReason,
   getDeprecationStatus,
   getDescription,
+  getDocsCategory,
   getFullLink,
   getId,
   getKind,

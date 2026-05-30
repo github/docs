@@ -15,6 +15,9 @@ versions:
   ghes: '*'
   ghec: '*'
 defaultPlatform: linux
+category:
+  - Use and manage runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -115,6 +118,11 @@ export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
 
 > [!WARNING]
 > Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.github %}. We recommend that you install the {% data variables.product.github %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.github %} certificate, check with your operating system vendor.
+
+{% ifversion fpt or ghec %}
+> [!NOTE]
+> For {% data variables.actions.github_hosted_larger_runners %} using Azure private networking, see the TLS interception requirements in [AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#prerequisites).
+{% endif %}
 
 ## Reviewing the self-hosted runner application log files
 

@@ -50,6 +50,22 @@ async function main() {
   const schemaEvents = JSON.parse(await getContents(owner, repo, ref, schemaFilePath))
   const mainSha = await getCommitSha(owner, repo, `heads/${ref}`)
 
+  // Fetch fields.json to get global fields that should be included in all events
+  const fieldsFilePath = 'allowlists/fields.json'
+  const fieldsData = JSON.parse(await getContents(owner, repo, ref, fieldsFilePath))
+
+  // Extract global fields (excluding those gated by feature flags)
+  if (!fieldsData.global?.include) {
+    console.warn('Warning: fieldsData.global.include not found, no global fields will be added')
+  }
+  type FieldsIncludeEntry = { fields: string[]; feature_flag?: string }
+  const globalFields: string[] =
+    fieldsData.global?.include
+      ?.filter((entry: FieldsIncludeEntry) => !entry.feature_flag)
+      ?.flatMap((entry: FieldsIncludeEntry) => entry.fields) || []
+
+  console.log(`Loaded ${globalFields.length} global fields from fields.json`)
+
   const configFilepath = `src/audit-logs/lib/config.json`
   const pipelineConfig = JSON.parse(await readFile(configFilepath, 'utf8'))
   pipelineConfig.sha = mainSha
@@ -90,6 +106,7 @@ async function main() {
       currentEvents,
       pipelineConfig,
       titleContext,
+      globalFields,
     })
   // Wrapper around filterGhesByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
@@ -105,6 +122,7 @@ async function main() {
       pipelineConfig,
       auditLogPage,
       titleContext,
+      globalFields,
     })
 
   auditLogData.fpt = {}

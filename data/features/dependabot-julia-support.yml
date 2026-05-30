@@ -1,0 +1,6 @@
+# Reference: #20205
+# Dependabot version updates now support Julia
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.19'

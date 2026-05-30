@@ -8,4 +8,6 @@ versions:
 children:
   - /create-a-javascript-action
   - /create-a-composite-action
+contentType: tutorials
 ---
+

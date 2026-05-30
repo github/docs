@@ -4,12 +4,6 @@ shortTitle: Choose an enterprise type
 intro: Understand the types of enterprises available in {% data variables.product.prodname_ghe_cloud %} and decide whether {% data variables.product.prodname_emus %} is right for you by asking yourself some questions.
 versions:
   ghec: '*'
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/identifying-the-best-authentication-method-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise

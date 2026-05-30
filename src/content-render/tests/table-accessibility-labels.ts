@@ -1,4 +1,4 @@
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import { describe, expect, test } from 'vitest'
 
 import { renderContent } from '@/content-render/index'
@@ -20,7 +20,7 @@ describe('table accessibility labels', () => {
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const table = $('table')
     expect(table.length).toBe(1)
@@ -42,7 +42,7 @@ describe('table accessibility labels', () => {
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const table = $('table')
     expect(table.attr('aria-labelledby')).toBe('configuration-options')
@@ -59,7 +59,7 @@ describe('table accessibility labels', () => {
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const table = $('table')
     expect(table.attr('aria-label')).toBe('Pre-labeled table')
@@ -78,7 +78,7 @@ describe('table accessibility labels', () => {
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const table = $('table')
     expect(table.find('caption').text()).toBe('Existing caption')
@@ -101,7 +101,7 @@ describe('table accessibility labels', () => {
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const tables = $('table')
     expect(tables.length).toBe(2)
@@ -123,7 +123,7 @@ Some text here.
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const tables = $('table')
     expect(tables.length).toBe(2)
@@ -145,7 +145,7 @@ Some additional context here.
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const table = $('table')
     expect(table.attr('aria-labelledby')).toBe('data-table')
@@ -165,7 +165,7 @@ Some additional context here.
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const tables = $('table')
     expect(tables.length).toBe(2)
@@ -185,7 +185,7 @@ Some additional context here.
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const table = $('table')
     expect(table.attr('aria-labelledby')).toBe('supported-github-actions-features')
@@ -201,7 +201,7 @@ Some additional context here.
 `)
 
     const html = await renderContent(template)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     const table = $('table')
     expect(table.find('thead th').length).toBe(2)

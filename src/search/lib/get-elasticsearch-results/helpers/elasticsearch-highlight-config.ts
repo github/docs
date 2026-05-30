@@ -1,4 +1,4 @@
-import { SearchHighlight } from '@elastic/elasticsearch/lib/api/types'
+import type { estypes } from '@elastic/elasticsearch'
 
 import type { HighlightOptions } from '@/search/lib/search-request-params/types'
 
@@ -18,7 +18,7 @@ export type HighlightFields = {
 export function getHighlightConfiguration(
   query: string,
   highlightsFields: HighlightOptions[],
-): SearchHighlight {
+): estypes.SearchHighlight {
   const fields = {} as HighlightFields
   if (highlightsFields.includes('title')) {
     fields.title = {
@@ -76,7 +76,7 @@ export function getHighlightConfiguration(
     }
   }
 
-  const highlightConfig: SearchHighlight = {
+  const highlightConfig: estypes.SearchHighlight = {
     pre_tags: ['<mark>'],
     post_tags: ['</mark>'],
     fields,

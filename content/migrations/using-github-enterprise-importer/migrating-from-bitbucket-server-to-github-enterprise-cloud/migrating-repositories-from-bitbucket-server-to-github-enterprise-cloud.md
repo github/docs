@@ -10,6 +10,8 @@ defaultTool: cli
 redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud
   - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud
+category:
+  - Run an enterprise migration
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
@@ -19,7 +21,7 @@ You can migrate individual repositories or all repositories from a BitBucket Ser
 At this time, migrating from Bitbucket Server with the {% data variables.product.prodname_dotcom %} API is not supported.
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
 
 ## Prerequisites

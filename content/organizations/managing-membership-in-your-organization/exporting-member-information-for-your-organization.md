@@ -5,10 +5,9 @@ permissions: Organization owners can export member information for an organizati
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Export member information
+category:
+  - Manage members
 ---
 
 ## About export of membership information
@@ -28,7 +27,7 @@ The membership information report includes the following information.
   * User, subscription email address, and license status for {% data variables.visual_studio.prodname_vss_ghe %}
 {%- endif %}
 
-You can also use {% data variables.product.prodname_dotcom %}'s APIs to retrieve information about your organization's members. For more information, see the [GraphQL API](/graphql/reference/objects#user) and [REST API](/rest/users) documentation.
+You can also use {% data variables.product.prodname_dotcom %}'s APIs to retrieve information about your organization's members. For more information, see the [GraphQL API](/graphql/reference/users#object-user) and [REST API](/rest/users) documentation.
 
 {% ifversion ghec %}
 

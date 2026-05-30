@@ -7,7 +7,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types
 interface Frontmatter {
   redirect_from?: string | string[]
   children?: string[]
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const ERROR_MESSAGE =

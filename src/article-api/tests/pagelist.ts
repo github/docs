@@ -73,3 +73,71 @@ describe('Redirect Tests', () => {
     expect(res.headers.location).toBe('/api/pagelist/en/free-pro-team@latest')
   })
 })
+
+describe('Versions API', () => {
+  test('returns 200 and JSON with version information', async () => {
+    const res = await get('/api/pagelist/versions')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['content-type']).toMatch(/application\/json/)
+
+    const data = JSON.parse(res.body)
+
+    // Check top-level keys exist
+    expect(data).toHaveProperty('versions')
+    expect(data).toHaveProperty('ghesVersions')
+    expect(data).toHaveProperty('ghesLatest')
+    expect(data).toHaveProperty('ghesLatestStable')
+    expect(data).toHaveProperty('ghesReleaseCandidate')
+    expect(data).toHaveProperty('ghesDeprecated')
+    expect(data).toHaveProperty('allVersions')
+
+    // Versions array should contain expected values
+    expect(Array.isArray(data.versions)).toBe(true)
+    expect(data.versions).toContain('free-pro-team@latest')
+    expect(data.versions).toContain('enterprise-cloud@latest')
+
+    // GHES versions should be an array of version strings
+    expect(Array.isArray(data.ghesVersions)).toBe(true)
+    expect(data.ghesVersions.length).toBeGreaterThan(0)
+    expect(data.ghesVersions[0]).toMatch(/^\d+\.\d+$/)
+
+    // ghesLatest should be a valid version string
+    expect(data.ghesLatest).toMatch(/^\d+\.\d+$/)
+
+    // allVersions should be an object with version details
+    expect(typeof data.allVersions).toBe('object')
+    expect(data.allVersions['free-pro-team@latest']).toHaveProperty('version')
+    expect(data.allVersions['free-pro-team@latest']).toHaveProperty('versionTitle')
+  })
+})
+
+describe('Languages API', () => {
+  test('returns 200 and JSON with language information', async () => {
+    const res = await get('/api/pagelist/languages')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['content-type']).toMatch(/application\/json/)
+
+    const data = JSON.parse(res.body)
+
+    // Check top-level keys exist
+    expect(data).toHaveProperty('languages')
+    expect(data).toHaveProperty('allLanguages')
+
+    // Languages array should contain expected values
+    expect(Array.isArray(data.languages)).toBe(true)
+    expect(data.languages).toContain('en')
+    expect(data.languages).toContain('ja')
+    expect(data.languages).toContain('es')
+
+    // allLanguages should be an object with language details
+    expect(typeof data.allLanguages).toBe('object')
+    expect(data.allLanguages.en).toHaveProperty('name')
+    expect(data.allLanguages.en).toHaveProperty('code')
+    expect(data.allLanguages.en).toHaveProperty('hreflang')
+    expect(data.allLanguages.en).toHaveProperty('locale')
+    expect(data.allLanguages.en.name).toBe('English')
+
+    // Should not contain redirectPatterns (not JSON serializable)
+    expect(data.allLanguages.ja).not.toHaveProperty('redirectPatterns')
+  })
+})

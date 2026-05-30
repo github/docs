@@ -1,8 +1,8 @@
 ---
 title: Getting started with GitHub Actions for GitHub Enterprise Server
 shortTitle: Get started
-intro: 'Learn about enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %} for the first time.'
-permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
+intro: Learn about enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %} for the first time.
+permissions: Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.
 redirect_from:
   - /enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
@@ -11,10 +11,9 @@ redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Actions
-  - Enterprise
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 

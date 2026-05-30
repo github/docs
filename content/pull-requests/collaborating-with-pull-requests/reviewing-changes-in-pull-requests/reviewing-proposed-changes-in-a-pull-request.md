@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Review proposed changes
+category:
+  - Review pull requests
 ---
 ## About reviewing pull requests
 
@@ -26,7 +26,7 @@ It's best to review changes in a pull request one file at a time:
 
 {% ifversion copilot %}
 
-If the pull request was raised by {% data variables.product.prodname_copilot %} then, when you submit your comments, {% data variables.product.prodname_copilot_short %} will carry out more work to respond to your comments and will push a new commit to the pull request with further changes. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
+If the pull request was raised by {% data variables.product.prodname_copilot %} then, when you submit your comments, {% data variables.product.prodname_copilot_short %} will carry out more work to respond to your comments and will push a new commit to the pull request with further changes. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
 {% endif %}
 
@@ -55,7 +55,7 @@ You can ask {% data variables.copilot.copilot_chat_short %} for help understandi
 
 1. At the top right of the pull request page, click the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar.
 
-   The full-page, immersive, mode of {% data variables.copilot.copilot_chat_short %} is displayed, with the pull request attached as context to the prompt window.
+   {% data variables.copilot.copilot_chat_short %} is displayed, with the pull request attached as context to the prompt window.
 
 1. In the prompt box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
 

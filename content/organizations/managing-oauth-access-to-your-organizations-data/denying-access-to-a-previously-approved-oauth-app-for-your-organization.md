@@ -9,10 +9,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Deny {% data variables.product.prodname_oauth_app %} access
+category:
+  - Manage app and API access
 ---
 
 {% data reusables.profile.access_org %}

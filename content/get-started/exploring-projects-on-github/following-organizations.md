@@ -5,8 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profile
+category:
+  - Explore and contribute
 ---
 
 {% data reusables.organizations.follow-organizations-beta %}

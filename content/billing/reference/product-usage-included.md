@@ -5,13 +5,9 @@ intro: Check the size of the allowance for usage-based products included in each
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Actions
-  - Codespaces
-  - Packages
-  - LFS
 contentType: reference
+category:
+  - Get started with billing
 ---
 
 The table below shows the usage available in each plan. When you exceed these amounts, you'll be charged for additional usage unless you've set a budget with the setting "Stop usage when budget limit is reached" enabled. For more information, see [AUTOTITLE](/billing/tutorials/set-up-budgets).
@@ -97,4 +93,7 @@ The table below shows the usage available in each plan. When you exceed these am
 </table>
 
 > [!TIP]
-> For information about included requests for {% data variables.product.prodname_copilot %} plans, see [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot).
+> You can receive email notifications when your included usage reaches 90% and 100% during a billing period. To opt in, see [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-included-usage-alerts).
+
+For information about included requests for {% data variables.product.prodname_copilot %} plans, see [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot).
+

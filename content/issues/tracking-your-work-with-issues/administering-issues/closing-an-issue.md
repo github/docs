@@ -6,12 +6,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Issues
-  - Project management
 shortTitle: Close an issue
 redirect_from:
   - /issues/tracking-your-work-with-issues/closing-an-issue
+category:
+  - Triage and organize issues
 ---
 
 > [!NOTE]

@@ -47,7 +47,7 @@ describe('general cases', () => {
     expect.assertions(2)
     try {
       getApplicableVersions('*')
-    } catch (e: any) {
+    } catch (e: unknown) {
       expect(e).toBeInstanceOf(Error)
       expect(e).toHaveProperty(
         'message',

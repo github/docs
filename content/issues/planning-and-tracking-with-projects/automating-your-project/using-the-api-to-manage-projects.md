@@ -1,5 +1,5 @@
 ---
-title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
+title: Using the API to manage {% data variables.product.prodname_projects_v2 %}
 shortTitle: Automating with the API
 intro: You can use the GraphQL API to automate your projects.
 versions:
@@ -8,10 +8,10 @@ versions:
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
-type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
+contentType: tutorials
+category:
+  - Automate your project
 ---
 
 This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions). For a full list of the available data types, see [AUTOTITLE](/graphql/reference).
@@ -637,13 +637,13 @@ gh api graphql -f query='
 > [!NOTE]
 > You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
 >
-> * [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
-> * [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
-> * [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
-> * [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
-> * [updateIssue](/graphql/reference/mutations#updateissue)
-> * [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
-> * [transferIssue](/graphql/reference/mutations#transferissue)
+> * [addAssigneesToAssignable](/graphql/reference/issues#mutation-addassigneestoassignable)
+> * [removeAssigneesFromAssignable](/graphql/reference/issues#mutation-removeassigneesfromassignable)
+> * [addLabelsToLabelable](/graphql/reference/issues#mutation-addlabelstolabelable)
+> * [removeLabelsFromLabelable](/graphql/reference/issues#mutation-removelabelsfromlabelable)
+> * [updateIssue](/graphql/reference/issues#mutation-updateissue)
+> * [updatePullRequest](/graphql/reference/pulls#mutation-updatepullrequest)
+> * [transferIssue](/graphql/reference/issues#mutation-transferissue)
 
 ### Updating a single select field
 

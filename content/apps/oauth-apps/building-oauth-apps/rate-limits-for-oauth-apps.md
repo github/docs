@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
 shortTitle: Rate limits
+category:
+  - Build and manage OAuth apps
 ---
 
 > [!NOTE]

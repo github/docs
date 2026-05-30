@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: Recover an account with 2FA
+category:
+  - Troubleshoot authentication issues
 ---
 {% ifversion fpt or ghec %}
 

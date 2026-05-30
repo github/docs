@@ -1,14 +1,12 @@
 ---
 title: Protecting branches in your enterprise with rulesets
 shortTitle: Protect branches
-intro: 'Create rulesets at the enterprise level to enforce code governance policies across all repositories.'
+intro: Create rulesets at the enterprise level to enforce code governance policies across all repositories.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Enterprise
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-rulesets
+contentType: how-tos
 ---
 
 {% data reusables.enterprise-onboarding.rulesets-intro %}

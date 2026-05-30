@@ -2,6 +2,9 @@
  * Utility functions for fetch with retry and timeout functionality
  * to replace got library functionality
  */
+import statsd from '@/observability/lib/statsd'
+
+const STATSD_FETCH_TIMEOUT = 'fetch.timeout'
 
 export interface FetchWithRetryOptions {
   retries?: number
@@ -52,6 +55,14 @@ async function fetchWithTimeout(
   } catch (error) {
     clearTimeout(timeoutId)
     if (error instanceof Error && error.name === 'AbortError') {
+      const host = (() => {
+        try {
+          return new URL(typeof url === 'string' ? url : url.toString()).host
+        } catch {
+          return 'unknown'
+        }
+      })()
+      statsd.increment(STATSD_FETCH_TIMEOUT, 1, [`host:${host}`])
       throw new Error(`Request timed out after ${timeout}ms`)
     }
     throw error

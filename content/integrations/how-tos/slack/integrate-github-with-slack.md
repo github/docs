@@ -1,14 +1,14 @@
 ---
 title: Integrating GitHub with Slack
 shortTitle: Integrate GitHub with Slack
-intro: 'Learn how to integrate GitHub with Slack to improve collaboration and streamline workflows.'
+intro: Learn how to integrate GitHub with Slack to improve collaboration and streamline workflows.
 versions:
-    fpt: '*'
-    ghes: '*'
-    ghec: '*'
-topics:
-    - Integration
-
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+category:
+  - Administer integrations
+contentType: how-tos
 ---
 
 ## About the {% data variables.product.github %} integration for Slack
@@ -20,7 +20,7 @@ With the {% data variables.product.github %} integration for Slack, you can:
 * Get **{% data variables.product.github %} notifications** in Slack channels.
 * Use **slash commands** to take actions on {% data variables.product.github %}.
 * Give your team **context** when sharing links to {% data variables.product.github %} activities and properties.
-* Initiate a {% data variables.copilot.copilot_coding_agent %} session from Slack, using the context of a Slack thread.
+* Initiate a {% data variables.copilot.copilot_cloud_agent %} session from Slack, using the context of a Slack thread.
 
 {% data reusables.integrations.github-slack-permissions %}
 
