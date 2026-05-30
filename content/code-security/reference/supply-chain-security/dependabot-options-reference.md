@@ -264,6 +264,9 @@ The table below shows the package managers that support `cooldown`. The `default
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain        | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
+| {% ifversion dependabot-sbt-support %} |
+| sbt                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
 | Swift                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | Terraform             | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | UV                    | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
@@ -594,6 +597,9 @@ Package manager | YAML value      | Supported versions |
 | pub         | `pub`            | v2  |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain | `rust-toolchain` | Not applicable   |
+| {% endif %} |
+| {% ifversion dependabot-sbt-support %} |
+| sbt          | `sbt`            | Not applicable   |
 | {% endif %} |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |

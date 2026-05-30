@@ -17,7 +17,7 @@ category:
 
 ## About {% data variables.copilot.copilot_student_short %} access
 
-Verified students on {% data variables.product.prodname_education %} get **free access to {% data variables.product.prodname_copilot_short %}'s premium features**. See [AUTOTITLE](/copilot/concepts/billing/individual-plans#github-copilot-student).
+Verified students on {% data variables.product.prodname_education %} get **free access to {% data variables.product.prodname_copilot_short %}'s features**. See [AUTOTITLE](/copilot/concepts/billing/individual-plans#github-copilot-student).
 
 To become a verified student, see [AUTOTITLE](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student).
 

@@ -45,7 +45,7 @@ Where {% data variables.product.prodname_copilot_short %} has provided a code su
 
 ### Model usage
 
-{% data reusables.copilot.ccr-model-usage %} Each use of this feature consumes one premium request. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+{% data reusables.copilot.ccr-model-usage %} Each use of this feature consumes {% data variables.product.prodname_ai_credits_short %}. See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
 {% data reusables.copilot.ccr-model-settings %}
 

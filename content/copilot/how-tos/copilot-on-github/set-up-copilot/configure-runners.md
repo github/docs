@@ -13,12 +13,6 @@ category:
   - Author and optimize with Copilot
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.code-review-actions-minutes-note %}
-
-<!-- end expires 2026-06-01 -->
-
 ## About {% data variables.product.prodname_actions %} usage for code review tools
 
 {% data reusables.copilot.code-review.code-review-actions-usage %} Organizations in this situation can use self-hosted runners.

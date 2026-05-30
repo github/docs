@@ -11,9 +11,9 @@ import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { transformerRegistry } from '@/article-api/transformers'
+import { normalizeRenderedMarkdown } from '@/article-api/lib/normalize-markdown'
 import { minimumNotFoundHtml } from '../lib/constants'
 import { contentTypeCacheControl, defaultCacheControl } from './cache-control'
-import { isConnectionDropped } from './halt-on-dropped-connection'
 import { nextHandleRequest } from './next'
 
 const logger = createLogger(import.meta.url)
@@ -98,9 +98,6 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     res.setHeader('Last-Modified', new Date(page.effectiveDate).toUTCString())
   }
 
-  // Stop processing if the connection was already dropped
-  if (isConnectionDropped(req, res)) return
-
   // Content negotiation: serve markdown when the client prefers it over HTML.
   // Agents like Claude Code send Accept headers that omit text/html.
   if (req.accepts(['text/html', 'text/markdown']) === 'text/markdown') {
@@ -117,14 +114,13 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     // causes renderTitle/renderProp to output markdown instead of HTML,
     // which breaks the cheerio-based unwrap logic.
     const transformerContext = { ...context, markdownRequested: false }
-    req.context.renderedPage = await transformer.transform(page, path, transformerContext)
+    req.context.renderedPage = normalizeRenderedMarkdown(
+      await transformer.transform(page, path, transformerContext),
+    )
   } else {
     req.context.renderedPage = await buildRenderedPage(req)
     req.context.miniTocItems = buildMiniTocItems(req)
   }
-
-  // Stop processing if the connection was already dropped
-  if (isConnectionDropped(req, res)) return
 
   // Create string for <title> tag
   page.fullTitle = page.title

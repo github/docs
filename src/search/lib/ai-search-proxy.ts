@@ -1,10 +1,14 @@
 import { Response } from 'express'
+import { createLogger } from '@/observability/logger'
 import statsd from '@/observability/lib/statsd'
 import { fetchStream } from '@/frame/lib/fetch-utils'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
 import type { ExtendedRequest } from '@/types'
 import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
+import { MAX_QUERY_LENGTH } from '@/search/lib/ai-search-constants'
+
+const logger = createLogger(import.meta.url)
 
 // Maximum time (ms) to wait for the initial response from the upstream
 // AI search service. Streaming may take longer once the connection is
@@ -21,6 +25,19 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
     errors.push({ message: `Missing required key 'query' in request body` })
   } else if (typeof query !== 'string') {
     errors.push({ message: `Invalid 'query' in request body. Must be a string` })
+  }
+
+  if (typeof query === 'string' && query.length > MAX_QUERY_LENGTH) {
+    statsd.increment('ai-search.query_too_large', 1, [
+      `version:${version}`,
+      `language:${req.language}`,
+      `queryLength:${query.length}`,
+    ])
+    res.status(413).json({
+      errors: [{ message: `Query exceeds maximum length of ${MAX_QUERY_LENGTH} characters` }],
+      upstreamStatus: 413,
+    })
+    return
   }
 
   let docsSource = ''
@@ -83,7 +100,7 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
 
     if (!response.ok) {
       const errorMessage = `Upstream server responded with status code ${response.status}`
-      console.error(errorMessage)
+      logger.error(errorMessage, { statusCode: response.status })
       statsd.increment('ai-search.stream_response_error', 1, diagnosticTags)
       res.status(response.status).json({
         errors: [{ message: errorMessage }],
@@ -131,7 +148,7 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
       statsd.increment('ai-search.success_stream_end', 1, diagnosticTags)
       res.end()
     } catch (streamError) {
-      console.error('Error streaming from cse-copilot:', streamError)
+      logger.error('Error streaming from cse-copilot', { error: streamError })
       statsd.increment('ai-search.stream_error', 1, diagnosticTags)
 
       if (!res.headersSent) {
@@ -153,11 +170,11 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
 
     if (isTimeout) {
       statsd.increment('ai-search.timeout', 1, diagnosticTags)
-      console.error(`AI search request timed out after ${AI_SEARCH_TIMEOUT_MS}ms`)
+      logger.error('AI search request timed out', { timeoutMs: AI_SEARCH_TIMEOUT_MS })
       res.status(504).json({ errors: [{ message: 'Upstream request timed out' }] })
     } else {
       statsd.increment('ai-search.route_error', 1, diagnosticTags)
-      console.error('Error posting /answers to cse-copilot:', error)
+      logger.error('Error posting /answers to cse-copilot', { error })
       res.status(500).json({ errors: [{ message: 'Internal server error' }] })
     }
   } finally {

@@ -664,11 +664,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         }
       ],
@@ -940,8 +940,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1016,8 +1015,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1093,8 +1091,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -1169,8 +1166,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2181,12 +2177,12 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "last_accessed_at",
             "enum": [
               "created_at",
               "last_accessed_at",
               "size_in_bytes"
-            ],
-            "default": "last_accessed_at"
+            ]
           }
         },
         {
@@ -2196,11 +2192,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "desc",
             "enum": [
               "asc",
               "desc"
-            ],
-            "default": "desc"
+            ]
           }
         }
       ],
@@ -2707,8 +2703,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "integer",
-            "minimum": 1
+            "type": "integer"
           }
         },
         {
@@ -2717,8 +2712,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "integer",
-            "minimum": 1
+            "type": "integer"
           }
         }
       ],
@@ -4273,8 +4267,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+            "type": "string"
           }
         }
       ],
@@ -4388,8 +4381,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+            "type": "string"
           }
         }
       ],
@@ -5841,8 +5833,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5945,8 +5936,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6021,8 +6011,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -27099,11 +27088,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "latest",
             "enum": [
               "latest",
               "all"
-            ],
-            "default": "latest"
+            ]
           }
         },
         {
@@ -27715,8 +27704,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -37262,16 +37250,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         },
         {
           "name": "actor",
@@ -37349,8 +37328,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           }
         },
         {
@@ -39887,16 +39865,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -40043,16 +40012,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -40123,16 +40083,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [
@@ -40256,16 +40207,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],
@@ -40336,16 +40278,7 @@
           "in": "path",
           "description": "<p>The ID of the workflow. You can also pass the workflow file name as a string.</p>",
           "required": true,
-          "schema": {
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
-          }
+          "schema": {}
         }
       ],
       "bodyParameters": [],

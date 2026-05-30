@@ -117,6 +117,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'Claude Opus 4.8'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 - name: 'Claude Sonnet 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -164,13 +171,6 @@
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'
-  release_status: 'Public preview'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'Goldeneye'
-  provider: 'Fine-tuned GPT-5.1-Codex'
   release_status: 'Public preview'
   agent_mode: true
   ask_mode: true

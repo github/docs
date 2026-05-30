@@ -82,7 +82,7 @@ Also look for the following indicators, which may require broader intervention b
 * **Many repositories affected by the same rule**: Suggests a systemic pattern that may require team training or updated coding standards
 * **High vulnerability counts in a specific language**: May point to framework-level issues or missing scanning tooling for that language
 
-## Next steps
+{% data reusables.security.start-ghas-trial %}
 
 To start remediating vulnerabilities with {% data variables.copilot.copilot_autofix_short %}, enable {% data variables.product.prodname_GH_code_security_always %} for your organization. You have two options:
 

@@ -72,7 +72,7 @@ There is a delay while the {% data variables.copilot.copilot_cloud_agent_short %
 You can track {% data variables.copilot.copilot_cloud_agent %}'s work:
 
 * In the pull request, the summary is updated as work progresses.
-* Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) or session logs. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+* Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) or session logs. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 ### Open your own pull requests
 

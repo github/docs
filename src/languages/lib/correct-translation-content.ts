@@ -131,6 +131,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% datos de variables.', '{% data variables.')
     // `{% variables de datos.` — reversed word order "variables of data"
     content = content.replaceAll('{% variables de datos.', '{% data variables.')
+    // `{% los datos variables.` — article "los" (the) prepended to "datos variables"
+    content = content.replaceAll('{% los datos variables.', '{% data variables.')
+    content = content.replaceAll('{%- los datos variables.', '{%- data variables.')
     // `{% Datos ` — capitalized "datos" = data
     content = content.replaceAll('{% Datos variables', '{% data variables')
     // `{% dato ` — singular form of "datos" = data
@@ -511,6 +514,14 @@ export function correctTranslatedContentStrings(
       /\{%(-?)\s*data\s+variables\.product\.\s+(prodname_[A-Za-z0-9_]+)/g,
       '{%$1 data variables.product.$2',
     )
+    // `{% licenças de dados variables.X %}` — "licenças de dados" (data licenses)
+    // inserted before the variable path by the translator. Strip the prefix.
+    content = content.replaceAll('{% licenças de dados variables.', '{% data variables.')
+    content = content.replaceAll('{%- licenças de dados variables.', '{%- data variables.')
+    // `{% sugestões embutidas do variables.X %}` — translator replaced `{% data` with
+    // Portuguese prose meaning "inline suggestions of". Restore the data keyword.
+    content = content.replaceAll('{% sugestões embutidas do variables.', '{% data variables.')
+    content = content.replaceAll('{%- sugestões embutidas do variables.', '{%- data variables.')
     // Fully translated reusables path: `{% dados reutilizáveis.X.Y %}` → `{% data reusables.X.Y %}`
     content = content.replaceAll('{% dados reutilizáveis.', '{% data reusables.')
     // Translated path segment inside reusables path: `repositórios` → `repositories`
@@ -1141,7 +1152,13 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% données ', '{% data ')
     // `{% Données ` — capitalized form
     content = content.replaceAll('{% Données variables', '{% data variables')
+    // `{% Données réutilisables.` / `{% Données Réutilisables.` — capitalized forms (lowercase/uppercase R)
     content = content.replaceAll('{% Données réutilisables.', '{% data reusables.')
+    content = content.replaceAll('{% Données Réutilisables.', '{% data reusables.')
+    // `{% compte de données variables.X %}` — translator inserted "compte" (account)
+    // before "de données variables". Strip the prefix and restore the data keyword.
+    content = content.replaceAll('{% compte de données variables.', '{% data variables.')
+    content = content.replaceAll('{%- compte de données variables.', '{%- data variables.')
     // Catch remaining "ou" between any plan names in ifversion/elsif/if tags
     content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
@@ -1284,6 +1301,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 데이터 변숫값.', '{% data variables.')
     content = content.replaceAll('{% 기타 %}', '{% else %}')
     content = content.replaceAll('{%- 기타 %}', '{%- else %}')
+    // `{% other %}` — English "other" used as an alias for else by the translator
+    content = content.replaceAll('{% other %}', '{% else %}')
+    content = content.replaceAll('{%- other %}', '{%- else %}')
     content = content.replaceAll('{% 참고 %}', '{% note %}')
     content = content.replaceAll('{%- 참고 %}', '{%- note %}')
     content = content.replaceAll('{% 원시 %}', '{% raw %}')
@@ -1416,6 +1436,9 @@ export function correctTranslatedContentStrings(
   }
 
   if (context.code === 'de') {
+    // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
+    content = content.replaceAll('{%–', '{%-')
+
     content = content.replaceAll('{% Daten variables', '{% data variables')
     content = content.replaceAll('{% daten variables', '{% data variables')
     content = content.replaceAll('{% Daten reusables', '{% data reusables')

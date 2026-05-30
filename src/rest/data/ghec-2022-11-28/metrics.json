@@ -1177,11 +1177,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "day",
               "week"
-            ],
-            "default": "day"
+            ]
           }
         }
       ],
@@ -1654,11 +1654,11 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "day",
               "week"
-            ],
-            "default": "day"
+            ]
           }
         }
       ],
