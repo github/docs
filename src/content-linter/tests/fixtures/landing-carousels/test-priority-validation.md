@@ -1,6 +1,6 @@
 ---
 title: Test Priority Validation
-layout: product-landing
+layout: discovery-landing
 versions:
   fpt: '*'
 carousels:

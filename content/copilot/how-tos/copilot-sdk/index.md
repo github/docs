@@ -1,17 +1,25 @@
 ---
-title: GitHub Copilot SDK
-shortTitle: Copilot SDK
-intro: Learn how to customize your {% data variables.product.prodname_copilot_short %} experience using {% data variables.copilot.copilot_sdk_short %}.
+title: Copilot SDK
+intro: >-
+  Welcome to the GitHub Copilot SDK docs. Whether you're building your first
+  Copilot-powered app or deploying to production, you'll find what you need
+  here.
 versions:
-  feature: copilot
-children:
-  - /sdk-getting-started
-  - /set-up-copilot-sdk
-  - /authenticate-copilot-sdk
-  - /use-copilot-sdk
-  - /use-hooks
-  - /observability
-  - /integrations
-  - /troubleshooting
+  fpt: '*'
+  ghec: '*'
 contentType: how-tos
+children:
+  - /auth
+  - /features
+  - /getting-started
+  - /hooks
+  - /integrations
+  - /observability
+  - /setup
+  - /troubleshooting
 ---
+
+<!-- markdownlint-disable GHD046 GHD005 -->
+<!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
+
+

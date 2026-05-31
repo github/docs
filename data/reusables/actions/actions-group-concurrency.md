@@ -1,10 +1,29 @@
+{% ifversion actions-nga %}
+
+This means that there can be at most one running job or workflow in a concurrency group at any time. When a concurrent job or workflow is queued, if another job or workflow using the same concurrency group in the repository is in progress, the queued job or workflow will be `pending`. By default, any existing `pending` job or workflow in the same concurrency group will be canceled and the new queued job or workflow will take its place.
+
+{% else %}
+
 This means that there can be at most one running and one pending job in a concurrency group at any time. When a concurrent job or workflow is queued, if another job or workflow using the same concurrency group in the repository is in progress, the queued job or workflow will be `pending`. Any existing `pending` job or workflow in the same concurrency group, if it exists, will be canceled and the new queued job or workflow will take its place.
+
+{% endif %}
 
 To also cancel any currently running job or workflow in the same concurrency group, specify `cancel-in-progress: true`. To conditionally cancel currently running jobs or workflows in the same concurrency group, you can specify `cancel-in-progress` as an expression with any of the allowed expression contexts.
 
+{% ifversion actions-nga %}
+
+To allow more than one `pending` job or workflow run to wait in the same concurrency group, use the optional `queue` property. The `queue` property accepts the following values:
+
+* `single` (default): At most one job or workflow run can be `pending` in the concurrency group. When a new job or workflow run is queued, any existing `pending` job or workflow run in the same group is canceled and replaced.
+* `max`: Up to 100 jobs or workflow runs can be `pending` in the concurrency group. When the queue is full, any additional jobs or workflow runs are canceled.
+
+The combination of `queue: max` and `cancel-in-progress: true` is not allowed and will result in a workflow validation error.
+
+{% endif %}
+
 > [!NOTE]
 > * The concurrency group name is case insensitive. For example, `prod` and `Prod` will be treated as the same concurrency group.
-> * Ordering is not guaranteed for jobs or workflow runs using concurrency groups. Jobs or workflow runs in the same concurrency group are handled in an arbitrary order.
+> * Jobs or workflow runs in the same concurrency group are processed in first-in-first-out (FIFO) order according to the time each one started waiting on the concurrency group, not the time each workflow was dispatched. Since the actual start time of a job or run may vary, ordering is not guaranteed.
 
 ### Example: Using concurrency and the default behavior
 
@@ -80,6 +99,33 @@ concurrency:
 ```
 
 {% endraw %}
+
+{% ifversion actions-nga %}
+
+### Example: Queueing multiple pending runs
+
+By default, only one job or workflow run can be `pending` in a concurrency group at a time. To allow multiple runs to queue instead of being canceled, set `queue: max`. With `queue: max`, up to 100 jobs or workflow runs can wait in the concurrency group; once the queue is full, any additional runs are canceled.
+
+For example, the following workflow queues deployments to the `production` environment, processing them one at a time in order based on when each run started waiting on the concurrency group:
+
+{% raw %}
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: production-deploy
+  queue: max
+```
+
+{% endraw %}
+
+Note that `queue: max` cannot be combined with `cancel-in-progress: true`, because the two options describe conflicting behaviors for handling in-progress runs.
+
+{% endif %}
 
 ### Example: Using concurrency to cancel any in-progress job or run
 

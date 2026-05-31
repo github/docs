@@ -2,6 +2,7 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
 import { allTools } from '@/tools/lib/all-tools'
+import { codeLanguages } from '@/code-tabs/lib/languages'
 import { contentTypesEnum } from '@/frame/lib/frontmatter'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$'
@@ -613,29 +614,34 @@ const preference = {
     },
     preference_name: {
       type: 'string',
-      enum: ['application', 'color_mode', 'os', 'code_display'],
-      description: 'The preference name, such as os, application, or color_mode',
+      enum: ['application', 'color_mode', 'os', 'code_display', 'code_language'],
+      description: 'The preference name, such as os, application, color_mode, or code_language',
     },
     preference_value: {
       type: 'string',
       enum: [
-        // application
-        ...Object.keys(allTools),
-        // color_mode
-        'dark',
-        'light',
-        'auto',
-        'auto:dark',
-        'auto:light',
-        // os
-        'linux',
-        'mac',
-        'windows',
-        // code_display
-        'beside',
-        'inline',
+        ...new Set([
+          // application
+          ...Object.keys(allTools),
+          // color_mode
+          'dark',
+          'light',
+          'auto',
+          'auto:dark',
+          'auto:light',
+          // os
+          'linux',
+          'mac',
+          'windows',
+          // code_display
+          'beside',
+          'inline',
+          // code_language (may overlap with allTools, e.g. 'javascript')
+          ...Object.keys(codeLanguages),
+        ]),
       ],
-      description: 'The application, color_mode, os, or code_display selected by the user.',
+      description:
+        'The application, color_mode, os, code_display, or code_language selected by the user.',
     },
   },
 }

@@ -104,7 +104,7 @@ If {% data variables.product.prodname_copilot_short %} generates a sub-issue tha
 
 ## Next steps
 
-Now that you’ve generated and refined your project issues, you can assign them to the right team members or even to {% data variables.product.prodname_copilot_short %} itself for further assistance. To learn more about how to assign {% data variables.product.prodname_copilot_short %} or contributors to issues, and how to continue planning and implementing your project with {% data variables.product.prodname_copilot_short %}’s agentic features, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
+Now that you’ve generated and refined your project issues, you can assign them to the right team members or even to {% data variables.product.prodname_copilot_short %} itself for further assistance. To learn more about how to assign {% data variables.product.prodname_copilot_short %} or contributors to issues, and how to continue planning and implementing your project with {% data variables.product.prodname_copilot_short %}’s agentic features, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 
 ## Further reading
 

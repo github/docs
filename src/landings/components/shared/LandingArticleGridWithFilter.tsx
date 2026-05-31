@@ -272,6 +272,7 @@ export const ArticleGrid = ({
             <TextInput
               leadingVisual={SearchIcon}
               placeholder={t('article_grid.search_articles')}
+              aria-label={t('article_grid.search_articles')}
               ref={inputRef}
               autoComplete="false"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -297,6 +298,10 @@ export const ArticleGrid = ({
             <p className={styles.noArticlesText}>{t('article_grid.no_articles_found')}</p>
           </div>
         )}
+
+        <div aria-live="polite" aria-atomic="true" className="visually-hidden">
+          {filteredResults.length === 0 ? t('article_grid.no_articles_found') : ''}
+        </div>
       </div>
 
       {/* Pagination */}

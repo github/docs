@@ -184,8 +184,8 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const ui: UIStrings = {}
   addUINamespaces(req, ui, DEFAULT_UI_NAMESPACES)
 
-  // Every product landing page has a listing of all articles.
-  // It's used by the <ProductArticlesList> component.
+  // Product index pages (depth-2 index.md, e.g. actions/index.md) need the
+  // full product tree for landing rendering.
   const includeFullProductTree = documentType === 'product'
   const includeSidebarTree = documentType !== 'homepage'
 

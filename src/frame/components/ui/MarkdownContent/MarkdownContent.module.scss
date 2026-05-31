@@ -31,6 +31,45 @@
       }
     }
   }
+
+  :global(.ghd-codetabs) {
+    margin: 1.5rem 0;
+  }
+
+  :global(.ghd-codetabs-nav) {
+    margin-bottom: 0;
+
+    :global(ul) {
+      padding-left: 0 !important;
+    }
+
+    :global(a) {
+      text-decoration: none !important;
+    }
+  }
+
+  :global(.ghd-codetab + .ghd-codetab) {
+    margin-top: 1rem;
+  }
+
+  :global(.ghd-codetabs-enhanced .ghd-codetab) {
+    margin-top: 0;
+  }
+
+  :global(.ghd-codetab-fallback-label) {
+    margin-bottom: 0.75rem;
+    color: var(--fgColor-muted, #59636e);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  :global(.ghd-codetabs-enhanced .ghd-codetab-fallback-label) {
+    display: none;
+  }
+
+  :global(.ghd-codetabs-enhanced .ghd-codetab-hidden) {
+    display: none;
+  }
 }
 
 .codeBlockContainer {

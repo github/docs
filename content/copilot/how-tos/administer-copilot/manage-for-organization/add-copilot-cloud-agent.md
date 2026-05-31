@@ -21,12 +21,6 @@ category:
 > [!NOTE]
 > For an introduction to {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
-## Prerequisites
-
-* For general information, see [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent).
-* For information on premium requests and Actions minutes, see [Allowance usage for {% data variables.copilot.copilot_cloud_agent %}](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot#allowance-usage-for-copilot-cloud-agent).
-* For information on MCP servers, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
-
 ## Enabling {% data variables.copilot.copilot_cloud_agent %} for your members
 
 > [!NOTE]

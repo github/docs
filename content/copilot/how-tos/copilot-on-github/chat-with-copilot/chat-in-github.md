@@ -50,7 +50,7 @@ category:
 
 ### Changing and comparing AI models
 
-You can choose from a selection of AI models, each with different strengths. Different models have different premium request multipliers, which affect your monthly usage allowance. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+You can choose from a selection of AI models, each with different strengths. Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
@@ -71,6 +71,10 @@ The response to your edited question is displayed in a new subthread. An edit co
 > [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 You can attach images to your prompts by pasting, dragging, or clicking {% octicon "plus" aria-label="Add attachment" %} in the prompt box and then selecting **{% octicon "file-code" aria-hidden="true" %} Upload from computer**. Select a model that supports images from the model picker. For supported file types and example questions, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs).
+
+### Conversation history and retention
+
+{% data variables.copilot.copilot_chat_short %} stores up to 100 of your most recent conversations. Messages within each conversation are kept for 28 days before being permanently deleted. Once a conversation has no messages left, it's automatically removed from your history.
 
 ## Further reading
 

@@ -7,7 +7,9 @@ permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: how-tos
 versions:
-  feature: security-overview-org-codeql-pr-alerts
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/security-overview/viewing-metrics-for-pull-request-alerts
 category:

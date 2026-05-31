@@ -49,7 +49,7 @@ Repository administrators can configure MCP servers by following these steps:
 
    Your configuration will be validated to ensure proper syntax.
 
-1. If your MCP server requires a variable, key, or secret, add a variable or secret to your {% data variables.product.prodname_copilot_short %} environment. Only variables and secrets with names prefixed with `COPILOT_MCP_` will be available to your MCP configuration. See [Setting up a {% data variables.product.prodname_copilot_short %} environment for {% data variables.copilot.copilot_cloud_agent %}](#setting-up-a-copilot-environment-for-copilot-cloud-agent).
+1. If your MCP server requires a variable, key, or secret, add an Agents secret or variable for {% data variables.copilot.copilot_cloud_agent %} with a name prefixed with `COPILOT_MCP_`. Only Agents secrets and variables with names prefixed with `COPILOT_MCP_` will be available to your MCP configuration. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 ## Writing a JSON configuration for MCP servers
 
@@ -249,7 +249,7 @@ To use the Azure DevOps MCP server with {% data variables.copilot.copilot_cloud_
    ```
 
    This configuration ensures the `azure/login` action is executed when {% data variables.copilot.copilot_cloud_agent %} runs.
-1. In your repository’s {% data variables.product.prodname_copilot_short %} environment, add secrets for your `AZURE_CLIENT_ID` and `AZURE_TENANT_ID`.
+1. Configure secrets for your `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` as Agents secrets at either the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 1. Configure the Azure DevOps MCP server by adding an `ado` object to your MCP configuration with defined tools you want {% data variables.copilot.copilot_cloud_agent %} to use.
 
   ```json copy
@@ -313,20 +313,6 @@ To adapt the configuration for {% data variables.copilot.copilot_cloud_agent %},
 
 For more information on MCP in {% data variables.product.prodname_vscode_shortname %}, see the [{% data variables.product.prodname_vscode_shortname %} docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
-## Setting up a {% data variables.product.prodname_copilot_short %} environment for {% data variables.copilot.copilot_cloud_agent %}
-
-Some MCP servers will require keys or secrets. To leverage those servers in {% data variables.copilot.copilot_cloud_agent %}, you can add secrets to an environment for {% data variables.product.prodname_copilot_short %}. This ensures the secrets are properly recognized and passed to the applicable MCP server that you have configured.
-
-You must be a repository administrator to configure a {% data variables.product.prodname_copilot_short %} environment for your repository.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-environment %}
-{% data reusables.actions.new-environment %}
-1. Call the new environment `copilot` and click **Configure environment**.
-1. Under "Environment secrets", click **Add environment secret**.
-1. Give the secret a name beginning `COPILOT_MCP_`, add the secret value, then click **Add secret**.
-
 ## Validating your MCP configuration
 
 Once you've set up your MCP configuration, you should test it to make sure it is set up correctly.
@@ -376,10 +362,7 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
    For more information on toolsets, refer to the [README](https://github.com/github/github-mcp-server?tab=readme-ov-file#available-toolsets) in the {% data variables.product.github %} Remote MCP Server documentation.
 
 1. Click **Save**.
-{% data reusables.actions.sidebar-environment %}
-1. Click the `copilot` environment.
-1. Under "Environment secrets", click **Add environment secret**.
-1. Call the secret `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN`, enter your {% data variables.product.pat_generic %} in the "Value" field, then click **Add secret**.
+1. Add an Agents secret called `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with your {% data variables.product.pat_generic %} as the value. You can configure this at either the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
 For information on using the {% data variables.product.github %} MCP server in other environments, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
 

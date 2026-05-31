@@ -168,7 +168,7 @@ Using what you know about my sessions, what type of tasks give me one-shot succe
 
 {% data variables.product.prodname_copilot_short %} will analyze your conversations, looking for times when an initial response was not followed by related prompts, and times when there was a series of iterative prompts and responses.
 
-### Reduce premium request usage
+### Reduce {% data variables.product.prodname_ai_credits %} usage
 
 ```copilot copy
 Based on my previous CLI sessions, how could I prompt you in a way that would cost less?

@@ -54,9 +54,25 @@ See [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependab
 
 ## Alert ownership and assignments
 
-Users with write access or higher can assign {% data variables.product.prodname_dependabot_alerts %} to repository collaborators, teams, or {% data variables.product.prodname_copilot_short %} to establish clear ownership for vulnerability remediation. Assignments help track who's responsible for each alert and prevent vulnerabilities from being overlooked.
+Users with write access or higher can assign {% data variables.product.prodname_dependabot_alerts %} to repository collaborators, teams, or AI agents to establish clear ownership for vulnerability remediation. Assignments help track who's responsible for each alert and prevent vulnerabilities from being overlooked.
 
-When an alert is assigned, the assignee receives a notification and the alert displays their name in the alert list. You can filter alerts by assignee to track progress. Assigning an alert to {% data variables.product.prodname_copilot_short %} automatically generates a fix and opens a draft pull request for review.
+You can assign alerts to the following types of agents:
+
+* **{% data variables.product.prodname_copilot_short %}**, {% data variables.product.github %}'s built-in AI agent.
+* **Third-party agents**,such as Codex or Claude, when enabled in your repository settings.
+
+When an alert is assigned to a person or team, the assignee receives a notification and the alert displays their name in the alert list. You can filter alerts by assignee to track progress.
+
+When an alert is assigned to an agent, the agent automatically creates a session and opens a draft pull request with a proposed fix. If the agent can't generate a fix, it remains as an assignee, and you can click **View Session** on the alert timeline to review the agent's log.
+
+> [!NOTE]
+> Assignment visibility is currently scoped to the repository-level alerts view. The organization-wide security overview does not display alert assignments.
+
+When an alert's assignees change, {% data variables.product.github %} sends an `assignees_changed` webhook event. You can use this event to trigger workflows or sync assignment data with external systems. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#dependabot_alert).
+
+### Automation and integrations
+
+You can manage alert assignments programmatically using the REST API. For more information, see [AUTOTITLE](/rest/dependabot/alerts).
 
 For information about assigning alerts, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-prioritizing-dependabot-alerts).
 

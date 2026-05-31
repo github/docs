@@ -47,12 +47,12 @@ Before you begin, it’s important to understand who you’re writing for, what 
 
 Determine which type of content you will write, based on the intended audience and the core purpose of the content. {% data variables.product.prodname_docs %} use the following content types:
 
-* [Conceptual content](/contributing/style-guide-and-content-model/conceptual-content-type)
-* [Referential content](/contributing/style-guide-and-content-model/referential-content-type)
-* [Procedural content](/contributing/style-guide-and-content-model/procedural-content-type)
-* [Troubleshooting content](/contributing/style-guide-and-content-model/troubleshooting-content-type)
-* [Quickstart](/contributing/style-guide-and-content-model/quickstart-content-type)
-* [Tutorial](/contributing/style-guide-and-content-model/tutorial-content-type)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/conceptual-content-type)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/referential-content-type)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/how-to-content-type)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/quickstart-content-type)
+* [AUTOTITLE](/contributing/style-guide-and-content-model/tutorial-content-type)
 
 For example, use the conceptual content type to help readers understand the basics of a feature or topic and how it can help them accomplish their goals. Use the procedural content type to help people complete a specific task from start to finish.
 

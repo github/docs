@@ -16,7 +16,7 @@ category:
 
 ## About push protection in the {% data variables.product.prodname_dotcom %} UI
 
-When you {% ifversion push-protection-delegated-bypass-file-upload-support %}upload, create, {% else %}create {% endif %}or edit files from the {% data variables.product.prodname_dotcom %} UI, push protection prevents you from accidentally committing secrets to a repository by blocking commits containing supported secrets.
+When you upload, create, or edit files from the {% data variables.product.prodname_dotcom %} UI, push protection prevents you from accidentally committing secrets to a repository by blocking commits containing supported secrets.
 
 {% data variables.product.prodname_dotcom %} will also block the commit if you attempt to upload files containing supported secrets.
 
@@ -56,8 +56,6 @@ If you don't see the option to bypass the block, the repository administrator or
 
 ## Requesting bypass privileges
 
-{% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
-
 If your commit has been blocked by push protection, you can request permission to bypass the block. The request is sent to a designated group of reviewers, who will either approve or deny the request.
 
 Requests expire after 7 days.
@@ -76,5 +74,5 @@ If your request is denied, you will need to remove the secret from the file befo
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line){% ifversion secret-scanning-push-protection-content-endpoints %}
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api){% endif %}
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api)

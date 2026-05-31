@@ -1,0 +1,2422 @@
+{
+  "mutations": [
+    {
+      "name": "updateTeamsRepository",
+      "id": "updateteamsrepository",
+      "href": "/graphql/reference/teams#mutation-updateteamsrepository",
+      "description": "<p>Update team repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateTeamsRepositoryInput!",
+          "id": "updateteamsrepositoryinput",
+          "href": "/graphql/reference/teams#input-object-updateteamsrepositoryinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository",
+          "description": "<p>The repository that was updated.</p>"
+        },
+        {
+          "name": "teams",
+          "type": "[Team!]",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team",
+          "description": "<p>The teams granted permission on the repository.</p>"
+        }
+      ],
+      "category": "teams"
+    }
+  ],
+  "objects": [
+    {
+      "name": "OrganizationTeamsHovercardContext",
+      "id": "organizationteamshovercardcontext",
+      "href": "/graphql/reference/teams#object-organizationteamshovercardcontext",
+      "description": "<p>An organization teams hovercard context.</p>",
+      "implements": [
+        {
+          "name": "HovercardContext",
+          "id": "hovercardcontext",
+          "href": "/graphql/reference/users#interface-hovercardcontext"
+        }
+      ],
+      "fields": [
+        {
+          "name": "message",
+          "description": "<p>A string describing this context.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "octicon",
+          "description": "<p>An octicon to accompany this context.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "relevantTeams",
+          "description": "<p>Teams in this organization the user is a member of that are relevant.</p>",
+          "type": "TeamConnection!",
+          "id": "teamconnection",
+          "href": "/graphql/reference/teams#object-teamconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "teamsResourcePath",
+          "description": "<p>The path for the full team list for this user.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "teamsUrl",
+          "description": "<p>The URL for the full team list for this user.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "totalTeamCount",
+          "description": "<p>The total number of teams the user is on in the organization.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "Team",
+      "id": "team",
+      "href": "/graphql/reference/teams#object-team",
+      "description": "<p>A team of users in an organization.</p>",
+      "implements": [
+        {
+          "name": "MemberStatusable",
+          "id": "memberstatusable",
+          "href": "/graphql/reference/users#interface-memberstatusable"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "Subscribable",
+          "id": "subscribable",
+          "href": "/graphql/reference/activity#interface-subscribable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "ancestors",
+          "description": "<p>A list of teams that are ancestors of this team.</p>",
+          "type": "TeamConnection!",
+          "id": "teamconnection",
+          "href": "/graphql/reference/teams#object-teamconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "avatarUrl",
+          "description": "<p>A URL pointing to the team's avatar.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri",
+          "arguments": [
+            {
+              "name": "size",
+              "defaultValue": "400",
+              "description": "<p>The size in pixels of the resulting square image.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "childTeams",
+          "description": "<p>List of child teams belonging to this team.</p>",
+          "type": "TeamConnection!",
+          "id": "teamconnection",
+          "href": "/graphql/reference/teams#object-teamconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "immediateOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to list immediate child teams or all descendant child teams.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for connection.</p>",
+              "type": {
+                "name": "TeamOrder",
+                "id": "teamorder",
+                "href": "/graphql/reference/teams#input-object-teamorder"
+              }
+            },
+            {
+              "name": "userLogins",
+              "description": "<p>User logins to filter by.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "combinedSlug",
+          "description": "<p>The slug corresponding to the organization and team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "discussion",
+          "description": "<p>Find a team discussion by its number.</p>",
+          "type": "TeamDiscussion",
+          "id": "teamdiscussion",
+          "href": "/graphql/reference/other#object-teamdiscussion",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The sequence number of the discussion to find.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "discussions",
+          "description": "<p>A list of team discussions.</p>",
+          "type": "TeamDiscussionConnection!",
+          "id": "teamdiscussionconnection",
+          "href": "/graphql/reference/other#object-teamdiscussionconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "isPinned",
+              "description": "<p>If provided, filters discussions according to whether or not they are pinned.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "href": "/graphql/reference/other#scalar-boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for connection.</p>",
+              "type": {
+                "name": "TeamDiscussionOrder",
+                "id": "teamdiscussionorder",
+                "href": "/graphql/reference/other#input-object-teamdiscussionorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "discussionsResourcePath",
+          "description": "<p>The HTTP path for team discussions.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "discussionsUrl",
+          "description": "<p>The HTTP URL for team discussions.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "editTeamResourcePath",
+          "description": "<p>The HTTP path for editing this team.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "editTeamUrl",
+          "description": "<p>The HTTP URL for editing this team.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the Team object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "invitations",
+          "description": "<p>A list of pending invitations for users to this team.</p>",
+          "type": "OrganizationInvitationConnection",
+          "id": "organizationinvitationconnection",
+          "href": "/graphql/reference/orgs#object-organizationinvitationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "memberStatuses",
+          "description": "<p>Get the status messages members of this entity have set that are either public or visible only to the organization.</p>",
+          "type": "UserStatusConnection!",
+          "id": "userstatusconnection",
+          "href": "/graphql/reference/users#object-userstatusconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for user statuses returned from the connection.</p>",
+              "type": {
+                "name": "UserStatusOrder",
+                "id": "userstatusorder",
+                "href": "/graphql/reference/users#input-object-userstatusorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "members",
+          "description": "<p>A list of users who are members of this team.</p>",
+          "type": "TeamMemberConnection!",
+          "id": "teammemberconnection",
+          "href": "/graphql/reference/users#object-teammemberconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "membership",
+              "defaultValue": "ALL",
+              "description": "<p>Filter by membership type.</p>",
+              "type": {
+                "name": "TeamMembershipType",
+                "id": "teammembershiptype",
+                "href": "/graphql/reference/teams#enum-teammembershiptype"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for the connection.</p>",
+              "type": {
+                "name": "TeamMemberOrder",
+                "id": "teammemberorder",
+                "href": "/graphql/reference/teams#input-object-teammemberorder"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "role",
+              "description": "<p>Filter by team member role.</p>",
+              "type": {
+                "name": "TeamMemberRole",
+                "id": "teammemberrole",
+                "href": "/graphql/reference/teams#enum-teammemberrole"
+              }
+            }
+          ]
+        },
+        {
+          "name": "membersResourcePath",
+          "description": "<p>The HTTP path for the team' members.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "membersUrl",
+          "description": "<p>The HTTP URL for the team' members.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "newTeamResourcePath",
+          "description": "<p>The HTTP path creating a new team.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "newTeamUrl",
+          "description": "<p>The HTTP URL creating a new team.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "notificationSetting",
+          "description": "<p>The notification setting that the team has set.</p>",
+          "type": "TeamNotificationSetting!",
+          "id": "teamnotificationsetting",
+          "href": "/graphql/reference/teams#enum-teamnotificationsetting"
+        },
+        {
+          "name": "organization",
+          "description": "<p>The organization that owns this team.</p>",
+          "type": "Organization!",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "parentTeam",
+          "description": "<p>The parent team of the team.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "privacy",
+          "description": "<p>The level of privacy the team has.</p>",
+          "type": "TeamPrivacy!",
+          "id": "teamprivacy",
+          "href": "/graphql/reference/teams#enum-teamprivacy"
+        },
+        {
+          "name": "projectV2",
+          "description": "<p>Finds and returns the project according to the provided project number.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "href": "/graphql/reference/projects#object-projectv2",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The Project number.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectsV2",
+          "description": "<p>List of projects this team has collaborator access to.</p>",
+          "type": "ProjectV2Connection!",
+          "id": "projectv2connection",
+          "href": "/graphql/reference/projects#object-projectv2connection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "filterBy",
+              "description": "<p>Filtering options for projects returned from this connection.</p>",
+              "type": {
+                "name": "ProjectV2Filters",
+                "id": "projectv2filters",
+                "href": "/graphql/reference/projects#input-object-projectv2filters"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "href": "/graphql/reference/projects#enum-projectv2permissionlevel"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>How to order the returned projects.</p>",
+              "type": {
+                "name": "ProjectV2Order",
+                "id": "projectv2order",
+                "href": "/graphql/reference/projects#input-object-projectv2order"
+              }
+            },
+            {
+              "name": "query",
+              "defaultValue": "",
+              "description": "<p>The query to search projects by.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "repositories",
+          "description": "<p>A list of repositories this team has access to.</p>",
+          "type": "TeamRepositoryConnection!",
+          "id": "teamrepositoryconnection",
+          "href": "/graphql/reference/repos#object-teamrepositoryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "href": "/graphql/reference/other#scalar-int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for the connection.</p>",
+              "type": {
+                "name": "TeamRepositoryOrder",
+                "id": "teamrepositoryorder",
+                "href": "/graphql/reference/teams#input-object-teamrepositoryorder"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for. Repositories will be returned where the name contains your search string.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "href": "/graphql/reference/other#scalar-string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "repositoriesResourcePath",
+          "description": "<p>The HTTP path for this team's repositories.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "repositoriesUrl",
+          "description": "<p>The HTTP URL for this team's repositories.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this team.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "reviewRequestDelegationAlgorithm",
+          "description": "<p>What algorithm is used for review assignment for this team.</p>",
+          "type": "TeamReviewAssignmentAlgorithm",
+          "id": "teamreviewassignmentalgorithm",
+          "href": "/graphql/reference/teams#enum-teamreviewassignmentalgorithm"
+        },
+        {
+          "name": "reviewRequestDelegationEnabled",
+          "description": "<p>True if review assignment is enabled for this team.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "reviewRequestDelegationMemberCount",
+          "description": "<p>How many team members are required for review assignment for this team.</p>",
+          "type": "Int",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        },
+        {
+          "name": "reviewRequestDelegationNotifyTeam",
+          "description": "<p>When assigning team members via delegation, whether the entire team should be notified as well.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The slug corresponding to the team.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "teamsResourcePath",
+          "description": "<p>The HTTP path for this team's teams.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "teamsUrl",
+          "description": "<p>The HTTP URL for this team's teams.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this team.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "viewerCanAdminister",
+          "description": "<p>Team is adminable by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanSubscribe",
+          "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerSubscription",
+          "description": "<p>Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.</p>",
+          "type": "SubscriptionState",
+          "id": "subscriptionstate",
+          "href": "/graphql/reference/activity#enum-subscriptionstate"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamAddMemberAuditEntry",
+      "id": "teamaddmemberauditentry",
+      "href": "/graphql/reference/teams#object-teamaddmemberauditentry",
+      "description": "<p>Audit log entry for a team.add_member event.</p>",
+      "implements": [
+        {
+          "name": "AuditEntry",
+          "id": "auditentry",
+          "href": "/graphql/reference/enterprise-admin#interface-auditentry"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "OrganizationAuditEntryData",
+          "id": "organizationauditentrydata",
+          "href": "/graphql/reference/orgs#interface-organizationauditentrydata"
+        },
+        {
+          "name": "TeamAuditEntryData",
+          "id": "teamauditentrydata",
+          "href": "/graphql/reference/teams#interface-teamauditentrydata"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>The action name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actor",
+          "description": "<p>The user who initiated the action.</p>",
+          "type": "AuditEntryActor",
+          "id": "auditentryactor",
+          "href": "/graphql/reference/enterprise-admin#union-auditentryactor"
+        },
+        {
+          "name": "actorIp",
+          "description": "<p>The IP address of the actor.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorLocation",
+          "description": "<p>A readable representation of the actor's location.</p>",
+          "type": "ActorLocation",
+          "id": "actorlocation",
+          "href": "/graphql/reference/users#object-actorlocation"
+        },
+        {
+          "name": "actorLogin",
+          "description": "<p>The username of the user who initiated the action.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorResourcePath",
+          "description": "<p>The HTTP path for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "actorUrl",
+          "description": "<p>The HTTP URL for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>The time the action was initiated.</p>",
+          "type": "PreciseDateTime!",
+          "id": "precisedatetime",
+          "href": "/graphql/reference/other#scalar-precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamAddMemberAuditEntry object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isLdapMapped",
+          "description": "<p>Whether the team was mapped to an LDAP Group.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operationType",
+          "description": "<p>The corresponding operation type for the action.</p>",
+          "type": "OperationType",
+          "id": "operationtype",
+          "href": "/graphql/reference/meta#enum-operationtype"
+        },
+        {
+          "name": "organization",
+          "description": "<p>The Organization associated with the Audit Entry.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "organizationName",
+          "description": "<p>The name of the Organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationResourcePath",
+          "description": "<p>The HTTP path for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "organizationUrl",
+          "description": "<p>The HTTP URL for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "team",
+          "description": "<p>The team associated with the action.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "teamName",
+          "description": "<p>The name of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "teamResourcePath",
+          "description": "<p>The HTTP path for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "teamUrl",
+          "description": "<p>The HTTP URL for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user affected by the action.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "userLogin",
+          "description": "<p>For actions involving two users, the actor is the initiator and the user is the affected user.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "userResourcePath",
+          "description": "<p>The HTTP path for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "userUrl",
+          "description": "<p>The HTTP URL for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamAddRepositoryAuditEntry",
+      "id": "teamaddrepositoryauditentry",
+      "href": "/graphql/reference/teams#object-teamaddrepositoryauditentry",
+      "description": "<p>Audit log entry for a team.add_repository event.</p>",
+      "implements": [
+        {
+          "name": "AuditEntry",
+          "id": "auditentry",
+          "href": "/graphql/reference/enterprise-admin#interface-auditentry"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "OrganizationAuditEntryData",
+          "id": "organizationauditentrydata",
+          "href": "/graphql/reference/orgs#interface-organizationauditentrydata"
+        },
+        {
+          "name": "RepositoryAuditEntryData",
+          "id": "repositoryauditentrydata",
+          "href": "/graphql/reference/repos#interface-repositoryauditentrydata"
+        },
+        {
+          "name": "TeamAuditEntryData",
+          "id": "teamauditentrydata",
+          "href": "/graphql/reference/teams#interface-teamauditentrydata"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>The action name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actor",
+          "description": "<p>The user who initiated the action.</p>",
+          "type": "AuditEntryActor",
+          "id": "auditentryactor",
+          "href": "/graphql/reference/enterprise-admin#union-auditentryactor"
+        },
+        {
+          "name": "actorIp",
+          "description": "<p>The IP address of the actor.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorLocation",
+          "description": "<p>A readable representation of the actor's location.</p>",
+          "type": "ActorLocation",
+          "id": "actorlocation",
+          "href": "/graphql/reference/users#object-actorlocation"
+        },
+        {
+          "name": "actorLogin",
+          "description": "<p>The username of the user who initiated the action.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorResourcePath",
+          "description": "<p>The HTTP path for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "actorUrl",
+          "description": "<p>The HTTP URL for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>The time the action was initiated.</p>",
+          "type": "PreciseDateTime!",
+          "id": "precisedatetime",
+          "href": "/graphql/reference/other#scalar-precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamAddRepositoryAuditEntry object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isLdapMapped",
+          "description": "<p>Whether the team was mapped to an LDAP Group.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operationType",
+          "description": "<p>The corresponding operation type for the action.</p>",
+          "type": "OperationType",
+          "id": "operationtype",
+          "href": "/graphql/reference/meta#enum-operationtype"
+        },
+        {
+          "name": "organization",
+          "description": "<p>The Organization associated with the Audit Entry.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "organizationName",
+          "description": "<p>The name of the Organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationResourcePath",
+          "description": "<p>The HTTP path for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "organizationUrl",
+          "description": "<p>The HTTP URL for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with the action.</p>",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The name of the repository.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryResourcePath",
+          "description": "<p>The HTTP path for the repository.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "repositoryUrl",
+          "description": "<p>The HTTP URL for the repository.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "team",
+          "description": "<p>The team associated with the action.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "teamName",
+          "description": "<p>The name of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "teamResourcePath",
+          "description": "<p>The HTTP path for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "teamUrl",
+          "description": "<p>The HTTP URL for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user affected by the action.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "userLogin",
+          "description": "<p>For actions involving two users, the actor is the initiator and the user is the affected user.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "userResourcePath",
+          "description": "<p>The HTTP path for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "userUrl",
+          "description": "<p>The HTTP URL for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamChangeParentTeamAuditEntry",
+      "id": "teamchangeparentteamauditentry",
+      "href": "/graphql/reference/teams#object-teamchangeparentteamauditentry",
+      "description": "<p>Audit log entry for a team.change_parent_team event.</p>",
+      "implements": [
+        {
+          "name": "AuditEntry",
+          "id": "auditentry",
+          "href": "/graphql/reference/enterprise-admin#interface-auditentry"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "OrganizationAuditEntryData",
+          "id": "organizationauditentrydata",
+          "href": "/graphql/reference/orgs#interface-organizationauditentrydata"
+        },
+        {
+          "name": "TeamAuditEntryData",
+          "id": "teamauditentrydata",
+          "href": "/graphql/reference/teams#interface-teamauditentrydata"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>The action name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actor",
+          "description": "<p>The user who initiated the action.</p>",
+          "type": "AuditEntryActor",
+          "id": "auditentryactor",
+          "href": "/graphql/reference/enterprise-admin#union-auditentryactor"
+        },
+        {
+          "name": "actorIp",
+          "description": "<p>The IP address of the actor.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorLocation",
+          "description": "<p>A readable representation of the actor's location.</p>",
+          "type": "ActorLocation",
+          "id": "actorlocation",
+          "href": "/graphql/reference/users#object-actorlocation"
+        },
+        {
+          "name": "actorLogin",
+          "description": "<p>The username of the user who initiated the action.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorResourcePath",
+          "description": "<p>The HTTP path for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "actorUrl",
+          "description": "<p>The HTTP URL for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>The time the action was initiated.</p>",
+          "type": "PreciseDateTime!",
+          "id": "precisedatetime",
+          "href": "/graphql/reference/other#scalar-precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamChangeParentTeamAuditEntry object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isLdapMapped",
+          "description": "<p>Whether the team was mapped to an LDAP Group.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operationType",
+          "description": "<p>The corresponding operation type for the action.</p>",
+          "type": "OperationType",
+          "id": "operationtype",
+          "href": "/graphql/reference/meta#enum-operationtype"
+        },
+        {
+          "name": "organization",
+          "description": "<p>The Organization associated with the Audit Entry.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "organizationName",
+          "description": "<p>The name of the Organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationResourcePath",
+          "description": "<p>The HTTP path for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "organizationUrl",
+          "description": "<p>The HTTP URL for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "parentTeam",
+          "description": "<p>The new parent team.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "parentTeamName",
+          "description": "<p>The name of the new parent team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "parentTeamNameWas",
+          "description": "<p>The name of the former parent team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "parentTeamResourcePath",
+          "description": "<p>The HTTP path for the parent team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "parentTeamUrl",
+          "description": "<p>The HTTP URL for the parent team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "parentTeamWas",
+          "description": "<p>The former parent team.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "parentTeamWasResourcePath",
+          "description": "<p>The HTTP path for the previous parent team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "parentTeamWasUrl",
+          "description": "<p>The HTTP URL for the previous parent team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "team",
+          "description": "<p>The team associated with the action.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "teamName",
+          "description": "<p>The name of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "teamResourcePath",
+          "description": "<p>The HTTP path for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "teamUrl",
+          "description": "<p>The HTTP URL for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user affected by the action.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "userLogin",
+          "description": "<p>For actions involving two users, the actor is the initiator and the user is the affected user.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "userResourcePath",
+          "description": "<p>The HTTP path for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "userUrl",
+          "description": "<p>The HTTP URL for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamConnection",
+      "id": "teamconnection",
+      "href": "/graphql/reference/teams#object-teamconnection",
+      "description": "<p>The connection type for Team.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[TeamEdge]",
+          "id": "teamedge",
+          "href": "/graphql/reference/teams#object-teamedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Team]",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamEdge",
+      "id": "teamedge",
+      "href": "/graphql/reference/teams#object-teamedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamRemoveMemberAuditEntry",
+      "id": "teamremovememberauditentry",
+      "href": "/graphql/reference/teams#object-teamremovememberauditentry",
+      "description": "<p>Audit log entry for a team.remove_member event.</p>",
+      "implements": [
+        {
+          "name": "AuditEntry",
+          "id": "auditentry",
+          "href": "/graphql/reference/enterprise-admin#interface-auditentry"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "OrganizationAuditEntryData",
+          "id": "organizationauditentrydata",
+          "href": "/graphql/reference/orgs#interface-organizationauditentrydata"
+        },
+        {
+          "name": "TeamAuditEntryData",
+          "id": "teamauditentrydata",
+          "href": "/graphql/reference/teams#interface-teamauditentrydata"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>The action name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actor",
+          "description": "<p>The user who initiated the action.</p>",
+          "type": "AuditEntryActor",
+          "id": "auditentryactor",
+          "href": "/graphql/reference/enterprise-admin#union-auditentryactor"
+        },
+        {
+          "name": "actorIp",
+          "description": "<p>The IP address of the actor.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorLocation",
+          "description": "<p>A readable representation of the actor's location.</p>",
+          "type": "ActorLocation",
+          "id": "actorlocation",
+          "href": "/graphql/reference/users#object-actorlocation"
+        },
+        {
+          "name": "actorLogin",
+          "description": "<p>The username of the user who initiated the action.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorResourcePath",
+          "description": "<p>The HTTP path for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "actorUrl",
+          "description": "<p>The HTTP URL for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>The time the action was initiated.</p>",
+          "type": "PreciseDateTime!",
+          "id": "precisedatetime",
+          "href": "/graphql/reference/other#scalar-precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamRemoveMemberAuditEntry object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isLdapMapped",
+          "description": "<p>Whether the team was mapped to an LDAP Group.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operationType",
+          "description": "<p>The corresponding operation type for the action.</p>",
+          "type": "OperationType",
+          "id": "operationtype",
+          "href": "/graphql/reference/meta#enum-operationtype"
+        },
+        {
+          "name": "organization",
+          "description": "<p>The Organization associated with the Audit Entry.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "organizationName",
+          "description": "<p>The name of the Organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationResourcePath",
+          "description": "<p>The HTTP path for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "organizationUrl",
+          "description": "<p>The HTTP URL for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "team",
+          "description": "<p>The team associated with the action.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "teamName",
+          "description": "<p>The name of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "teamResourcePath",
+          "description": "<p>The HTTP path for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "teamUrl",
+          "description": "<p>The HTTP URL for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user affected by the action.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "userLogin",
+          "description": "<p>For actions involving two users, the actor is the initiator and the user is the affected user.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "userResourcePath",
+          "description": "<p>The HTTP path for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "userUrl",
+          "description": "<p>The HTTP URL for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamRemoveRepositoryAuditEntry",
+      "id": "teamremoverepositoryauditentry",
+      "href": "/graphql/reference/teams#object-teamremoverepositoryauditentry",
+      "description": "<p>Audit log entry for a team.remove_repository event.</p>",
+      "implements": [
+        {
+          "name": "AuditEntry",
+          "id": "auditentry",
+          "href": "/graphql/reference/enterprise-admin#interface-auditentry"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        },
+        {
+          "name": "OrganizationAuditEntryData",
+          "id": "organizationauditentrydata",
+          "href": "/graphql/reference/orgs#interface-organizationauditentrydata"
+        },
+        {
+          "name": "RepositoryAuditEntryData",
+          "id": "repositoryauditentrydata",
+          "href": "/graphql/reference/repos#interface-repositoryauditentrydata"
+        },
+        {
+          "name": "TeamAuditEntryData",
+          "id": "teamauditentrydata",
+          "href": "/graphql/reference/teams#interface-teamauditentrydata"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>The action name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actor",
+          "description": "<p>The user who initiated the action.</p>",
+          "type": "AuditEntryActor",
+          "id": "auditentryactor",
+          "href": "/graphql/reference/enterprise-admin#union-auditentryactor"
+        },
+        {
+          "name": "actorIp",
+          "description": "<p>The IP address of the actor.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorLocation",
+          "description": "<p>A readable representation of the actor's location.</p>",
+          "type": "ActorLocation",
+          "id": "actorlocation",
+          "href": "/graphql/reference/users#object-actorlocation"
+        },
+        {
+          "name": "actorLogin",
+          "description": "<p>The username of the user who initiated the action.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "actorResourcePath",
+          "description": "<p>The HTTP path for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "actorUrl",
+          "description": "<p>The HTTP URL for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>The time the action was initiated.</p>",
+          "type": "PreciseDateTime!",
+          "id": "precisedatetime",
+          "href": "/graphql/reference/other#scalar-precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the TeamRemoveRepositoryAuditEntry object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "isLdapMapped",
+          "description": "<p>Whether the team was mapped to an LDAP Group.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "operationType",
+          "description": "<p>The corresponding operation type for the action.</p>",
+          "type": "OperationType",
+          "id": "operationtype",
+          "href": "/graphql/reference/meta#enum-operationtype"
+        },
+        {
+          "name": "organization",
+          "description": "<p>The Organization associated with the Audit Entry.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/orgs#object-organization"
+        },
+        {
+          "name": "organizationName",
+          "description": "<p>The name of the Organization.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "organizationResourcePath",
+          "description": "<p>The HTTP path for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "organizationUrl",
+          "description": "<p>The HTTP URL for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository associated with the action.</p>",
+          "type": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/repos#object-repository"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The name of the repository.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "repositoryResourcePath",
+          "description": "<p>The HTTP path for the repository.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "repositoryUrl",
+          "description": "<p>The HTTP URL for the repository.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "team",
+          "description": "<p>The team associated with the action.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "teamName",
+          "description": "<p>The name of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "teamResourcePath",
+          "description": "<p>The HTTP path for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "teamUrl",
+          "description": "<p>The HTTP URL for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user affected by the action.</p>",
+          "type": "User",
+          "id": "user",
+          "href": "/graphql/reference/users#object-user"
+        },
+        {
+          "name": "userLogin",
+          "description": "<p>For actions involving two users, the actor is the initiator and the user is the affected user.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "userResourcePath",
+          "description": "<p>The HTTP path for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "userUrl",
+          "description": "<p>The HTTP URL for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "teams"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "TeamAuditEntryData",
+      "id": "teamauditentrydata",
+      "href": "/graphql/reference/teams#interface-teamauditentrydata",
+      "description": "<p>Metadata for an audit entry with action team.*.</p>",
+      "fields": [
+        {
+          "name": "team",
+          "description": "<p>The team associated with the action.</p>",
+          "type": "Team",
+          "id": "team",
+          "href": "/graphql/reference/teams#object-team"
+        },
+        {
+          "name": "teamName",
+          "description": "<p>The name of the team.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "teamResourcePath",
+          "description": "<p>The HTTP path for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        },
+        {
+          "name": "teamUrl",
+          "description": "<p>The HTTP URL for this team.</p>",
+          "type": "URI",
+          "id": "uri",
+          "href": "/graphql/reference/other#scalar-uri"
+        }
+      ],
+      "category": "teams"
+    }
+  ],
+  "enums": [
+    {
+      "name": "TeamMemberOrderField",
+      "id": "teammemberorderfield",
+      "href": "/graphql/reference/teams#enum-teammemberorderfield",
+      "description": "<p>Properties by which team member connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order team members by creation time.</p>"
+        },
+        {
+          "name": "LOGIN",
+          "description": "<p>Order team members by login.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamMemberRole",
+      "id": "teammemberrole",
+      "href": "/graphql/reference/teams#enum-teammemberrole",
+      "description": "<p>The possible team member roles; either<code>maintainer</code>or 'member'.</p>",
+      "values": [
+        {
+          "name": "MAINTAINER",
+          "description": "<p>A team maintainer has permission to add and remove team members.</p>"
+        },
+        {
+          "name": "MEMBER",
+          "description": "<p>A team member has no administrative permissions on the team.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamMembershipType",
+      "id": "teammembershiptype",
+      "href": "/graphql/reference/teams#enum-teammembershiptype",
+      "description": "<p>Defines which types of team members are included in the returned list. Can be one of IMMEDIATE, CHILD_TEAM or ALL.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Includes immediate and child team members for the team.</p>"
+        },
+        {
+          "name": "CHILD_TEAM",
+          "description": "<p>Includes only child team members for the team.</p>"
+        },
+        {
+          "name": "IMMEDIATE",
+          "description": "<p>Includes only immediate members of the team.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamNotificationSetting",
+      "id": "teamnotificationsetting",
+      "href": "/graphql/reference/teams#enum-teamnotificationsetting",
+      "description": "<p>The possible team notification values.</p>",
+      "values": [
+        {
+          "name": "NOTIFICATIONS_DISABLED",
+          "description": "<p>No one will receive notifications.</p>"
+        },
+        {
+          "name": "NOTIFICATIONS_ENABLED",
+          "description": "<p>Everyone will receive notifications when the team is @mentioned.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamOrderField",
+      "id": "teamorderfield",
+      "href": "/graphql/reference/teams#enum-teamorderfield",
+      "description": "<p>Properties by which team connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "NAME",
+          "description": "<p>Allows ordering a list of teams by name.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamPrivacy",
+      "id": "teamprivacy",
+      "href": "/graphql/reference/teams#enum-teamprivacy",
+      "description": "<p>The possible team privacy values.</p>",
+      "values": [
+        {
+          "name": "SECRET",
+          "description": "<p>A secret team can only be seen by its members.</p>"
+        },
+        {
+          "name": "VISIBLE",
+          "description": "<p>A visible team can be seen and @mentioned by every member of the organization.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamRepositoryOrderField",
+      "id": "teamrepositoryorderfield",
+      "href": "/graphql/reference/teams#enum-teamrepositoryorderfield",
+      "description": "<p>Properties by which team repository connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order repositories by creation time.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order repositories by name.</p>"
+        },
+        {
+          "name": "PERMISSION",
+          "description": "<p>Order repositories by permission.</p>"
+        },
+        {
+          "name": "PUSHED_AT",
+          "description": "<p>Order repositories by push time.</p>"
+        },
+        {
+          "name": "STARGAZERS",
+          "description": "<p>Order repositories by number of stargazers.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order repositories by update time.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamReviewAssignmentAlgorithm",
+      "id": "teamreviewassignmentalgorithm",
+      "href": "/graphql/reference/teams#enum-teamreviewassignmentalgorithm",
+      "description": "<p>The possible team review assignment algorithms.</p>",
+      "values": [
+        {
+          "name": "LOAD_BALANCE",
+          "description": "<p>Balance review load across the entire team.</p>"
+        },
+        {
+          "name": "ROUND_ROBIN",
+          "description": "<p>Alternate reviews between each team member.</p>"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamRole",
+      "id": "teamrole",
+      "href": "/graphql/reference/teams#enum-teamrole",
+      "description": "<p>The role of a user on a team.</p>",
+      "values": [
+        {
+          "name": "ADMIN",
+          "description": "<p>User has admin rights on the team.</p>"
+        },
+        {
+          "name": "MEMBER",
+          "description": "<p>User is a member of the team.</p>"
+        }
+      ],
+      "category": "teams"
+    }
+  ],
+  "inputObjects": [
+    {
+      "name": "TeamMemberOrder",
+      "id": "teammemberorder",
+      "href": "/graphql/reference/teams#input-object-teammemberorder",
+      "description": "<p>Ordering options for team member connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order team members by.</p>",
+          "type": "TeamMemberOrderField!",
+          "id": "teammemberorderfield",
+          "href": "/graphql/reference/teams#enum-teammemberorderfield"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamOrder",
+      "id": "teamorder",
+      "href": "/graphql/reference/teams#input-object-teamorder",
+      "description": "<p>Ways in which team connections can be ordered.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order nodes.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order nodes by.</p>",
+          "type": "TeamOrderField!",
+          "id": "teamorderfield",
+          "href": "/graphql/reference/teams#enum-teamorderfield"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "TeamRepositoryOrder",
+      "id": "teamrepositoryorder",
+      "href": "/graphql/reference/teams#input-object-teamrepositoryorder",
+      "description": "<p>Ordering options for team repository connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "href": "/graphql/reference/meta#enum-orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order repositories by.</p>",
+          "type": "TeamRepositoryOrderField!",
+          "id": "teamrepositoryorderfield",
+          "href": "/graphql/reference/teams#enum-teamrepositoryorderfield"
+        }
+      ],
+      "category": "teams"
+    },
+    {
+      "name": "UpdateTeamsRepositoryInput",
+      "id": "updateteamsrepositoryinput",
+      "href": "/graphql/reference/teams#input-object-updateteamsrepositoryinput",
+      "description": "<p>Autogenerated input type of UpdateTeamsRepository.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "permission",
+          "description": "<p>Permission that should be granted to the teams.</p>",
+          "type": "RepositoryPermission!",
+          "id": "repositorypermission",
+          "href": "/graphql/reference/repos#enum-repositorypermission"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>Repository ID being granted access to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamIds",
+          "description": "<p>A list of teams being granted access. Limit: 10.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id",
+          "isDeprecated": false
+        }
+      ],
+      "category": "teams"
+    }
+  ]
+}

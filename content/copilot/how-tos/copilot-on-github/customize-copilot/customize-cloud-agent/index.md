@@ -10,6 +10,7 @@ children:
   - /extend-cloud-agent-with-mcp
   - /use-hooks
   - /customize-the-agent-environment
+  - /configure-secrets-and-variables
   - /customize-the-agent-firewall
   - /test-custom-agents
 contentType: how-tos

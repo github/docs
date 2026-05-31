@@ -30,6 +30,7 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 * Use **repository dashboards** to track reliability and maintainability scores, identify areas needing attention, and prioritize remediation.
 * Monitor **organization dashboards** to understand the code health of your repositories at a glance and determine which repositories to investigate further.
 * Set up **rulesets** for pull requests to enforce code quality standards and block changes that do not meet your criteria.
+* Upload **code coverage** reports to see test coverage metrics directly on pull requests, helping reviewers identify untested code.
 * Easily assign remediation work to **{% data variables.copilot.copilot_cloud_agent %}**, if you have a {% data variables.product.prodname_copilot_short %} license.
 
 ## Availability and usage costs
@@ -62,6 +63,8 @@ In addition, you'll see an AI-powered analysis of all recent pushes to the defau
 ### Pull request results
 
 When {% data variables.product.prodname_codeql %} finds rule-based problems on pull requests, you'll see comments from the `{% data variables.code-quality.pr_commenter %}`. Where possible, each comment will include a {% data variables.copilot.copilot_autofix_short %} suggestion on how to fix the problem. See [AUTOTITLE](/code-security/code-quality/tutorials/fix-findings-in-prs).
+
+If you have set up code coverage, the `{% data variables.code-quality.pr_commenter %}` also posts a coverage summary showing the aggregate coverage percentage for the PR branch compared to the default branch. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/interpret-results#viewing-code-coverage-on-pull-requests).
 
 ### Default branch results
 

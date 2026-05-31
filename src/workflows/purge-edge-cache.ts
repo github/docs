@@ -8,6 +8,8 @@
 //    key purges, around 2 seconds apart.
 //
 // See https://developer.fastly.com/learning/concepts/purging/#shielding
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
+
 const DELAY_BEFORE_FIRST_PURGE = 0 * 1000
 const DELAY_BEFORE_SECOND_PURGE = 2 * 1000
 
@@ -23,20 +25,29 @@ async function purgeFastlyBySurrogateKey({
   surrogateKey: string
 }) {
   const safeServiceId = encodeURIComponent(serviceId)
+  const safeSurrogateKey = encodeURIComponent(surrogateKey)
 
   const headers = {
     'fastly-key': apiToken,
     accept: 'application/json',
     'fastly-soft-purge': '1',
   }
-  const requestPath = `https://api.fastly.com/service/${safeServiceId}/purge/${surrogateKey}`
-  const response = await fetch(requestPath, {
-    method: 'POST',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json',
+  const requestPath = `https://api.fastly.com/service/${safeServiceId}/purge/${safeSurrogateKey}`
+  const response = await fetchWithRetry(
+    requestPath,
+    {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json',
+      },
     },
-  })
+    {
+      retries: 0,
+      timeout: 30_000,
+      throwHttpErrors: false,
+    },
+  )
   if (!response.ok) {
     throw new Error(`HTTP ${response.status}: ${response.statusText}`)
   }

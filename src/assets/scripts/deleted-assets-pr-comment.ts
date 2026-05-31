@@ -40,10 +40,15 @@ async function main({ owner, repo, baseSHA, headSHA }: MainArgs) {
     throw new Error('No files found in the PR')
   }
 
+  // Auto-generated asset directories managed by sync pipelines.
+  // These are deleted and recreated on each sync, so deletions are expected.
+  const AUTO_GENERATED_ASSET_DIRS = ['assets/images/help/copilot/copilot-sdk/']
+
   const oldFilenames = []
   for (const file of files) {
     const { filename, status } = file
     if (!filename.startsWith('assets')) continue
+    if (AUTO_GENERATED_ASSET_DIRS.some((dir) => filename.startsWith(dir))) continue
     if (status === 'removed') {
       // Bad
       oldFilenames.push(filename)

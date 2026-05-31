@@ -68,7 +68,7 @@ curl -H "Authorization: bearer TOKEN" -X POST -d " \
 
 ### About query and mutation operations
 
-The two types of allowed operations in GitHub's GraphQL API are _queries_ and _mutations_. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`. The [mutation name](/graphql/reference/mutations) determines which modification is executed.
+The two types of allowed operations in GitHub's GraphQL API are _queries_ and _mutations_. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`. The mutation name determines which modification is executed.
 
 For information about rate limiting, see [AUTOTITLE](/graphql/overview/resource-limitations).
 
@@ -76,7 +76,7 @@ Queries and mutations share similar forms, with some important differences.
 
 ### About queries
 
-GraphQL queries return only the data you specify. To form a query, you must specify [fields within fields](/graphql/guides/introduction-to-graphql#field) (also known as _nested subfields_) until you return only [scalars](/graphql/reference/scalars).
+GraphQL queries return only the data you specify. To form a query, you must specify [fields within fields](/graphql/guides/introduction-to-graphql#field) (also known as _nested subfields_) until you return only scalars.
 
 Queries are structured like this:
 
@@ -104,7 +104,7 @@ Mutations are structured like this:
 
 The input object in this example is `MutationNameInput`, and the payload object is `MutationNamePayload`.
 
-In the [mutations](/graphql/reference/mutations) reference, the listed _input fields_ are what you pass as the input object. The listed _return fields_ are what you pass as the payload object.
+In the mutations reference, the listed _input fields_ are what you pass as the input object. The listed _return fields_ are what you pass as the payload object.
 
 For a real-world example, see [Example mutation](#example-mutation).
 
@@ -198,7 +198,7 @@ Looking at the composition line by line:
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
-  To begin the query, we want to find a [`repository`](/graphql/reference/objects#repository) object. The schema validation indicates this object requires an `owner` and a `name` argument.
+  To begin the query, we want to find a [`repository`](/graphql/reference/repos#object-repository) object. The schema validation indicates this object requires an `owner` and a `name` argument.
 
 * `issues(last:20, states:CLOSED) {`
 
@@ -206,9 +206,9 @@ Looking at the composition line by line:
 
   Some details about the `issues` object:
 
-  * The [docs](/graphql/reference/objects#repository) tell us this object has the type `IssueConnection`.
+  * The [docs](/graphql/reference/repos#object-repository) tell us this object has the type `IssueConnection`.
   * Schema validation indicates this object requires a `last` or `first` number of results as an argument, so we provide `20`.
-  * The [docs](/graphql/reference/objects#repository) also tell us this object accepts a `states` argument, which is an [`IssueState`](/graphql/reference/enums#issuestate) enum that accepts `OPEN` or `CLOSED` values. To find only closed issues, we give the `states` key a value of `CLOSED`.
+  * The [docs](/graphql/reference/repos#object-repository) also tell us this object accepts a `states` argument, which is an [`IssueState`](/graphql/reference/issues#enum-issuestate) enum that accepts `OPEN` or `CLOSED` values. To find only closed issues, we give the `states` key a value of `CLOSED`.
 
 * `edges {`
 
@@ -216,9 +216,9 @@ Looking at the composition line by line:
 
 * `node {`
 
-  Here we retrieve the node at the end of the edge. The [`IssueConnection` docs](/graphql/reference/objects#issueconnection) indicate the node at the end of the `IssueConnection` type is an `Issue` object.
+  Here we retrieve the node at the end of the edge. The [`IssueConnection` docs](/graphql/reference/issues#object-issueconnection) indicate the node at the end of the `IssueConnection` type is an `Issue` object.
 
-* Now that we know we're retrieving an `Issue` object, we can look at the [docs](/graphql/reference/objects#issue) and specify the fields we want to return:
+* Now that we know we're retrieving an `Issue` object, we can look at the [docs](/graphql/reference/issues#object-issue) and specify the fields we want to return:
 
   ```graphql
   title
@@ -234,7 +234,7 @@ Looking at the composition line by line:
 
   Here we specify the `title`, `url`, and `labels` fields of the `Issue` object.
 
-  The `labels` field has the type [`LabelConnection`](/graphql/reference/objects#labelconnection). As with the `issues` object, because `labels` is a connection, we must travel its edges to a connected node: the `label` object. At the node, we can specify the `label` object fields we want to return, in this case, `name`.
+  The `labels` field has the type [`LabelConnection`](/graphql/reference/issues#object-labelconnection). As with the `issues` object, because `labels` is a connection, we must travel its edges to a connected node: the `label` object. At the node, we can specify the `label` object fields we want to return, in this case, `name`.
 
 You may notice that running this query on the Octocat's public `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
 
@@ -270,7 +270,7 @@ Let's walk through the example. The task sounds simple: add an emoji reaction to
 
 So how do we know to begin with a query? We don't, yet.
 
-Because we want to modify data on the server (attach an emoji to an issue), we begin by searching the schema for a helpful mutation. The reference docs show the [`addReaction`](/graphql/reference/mutations#addreaction) mutation, with this description: `Adds a reaction to a subject.` Perfect!
+Because we want to modify data on the server (attach an emoji to an issue), we begin by searching the schema for a helpful mutation. The reference docs show the [`addReaction`](/graphql/reference/reactions#mutation-addreaction) mutation, with this description: `Adds a reaction to a subject.` Perfect!
 
 The docs for the mutation list three input fields:
 
@@ -319,13 +319,13 @@ With the ID known, we can proceed with the mutation:
 
   * `addReaction` is the name of the mutation.
   * `input` is the required argument key. This will always be `input` for a mutation.
-  * `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` is the required argument value. This will always be an [input object](/graphql/reference/input-objects) (hence the curly braces) composed of input fields (`subjectId` and `content` in this case) for a mutation.
+  * `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` is the required argument value. This will always be an input object (hence the curly braces) composed of input fields (`subjectId` and `content` in this case) for a mutation.
 
-  How do we know which value to use for the content? The [`addReaction` docs](/graphql/reference/mutations#addreaction) tell us the `content` field has the type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an [enum](/graphql/reference/enums) because only certain emoji reactions are supported on GitHub issues. These are the allowed values for reactions (note some values differ from their corresponding emoji names):
+  How do we know which value to use for the content? The [`addReaction` docs](/graphql/reference/reactions#mutation-addreaction) tell us the `content` field has the type [`ReactionContent`](/graphql/reference/reactions#enum-reactioncontent), which is an enum because only certain emoji reactions are supported on GitHub issues. These are the allowed values for reactions (note some values differ from their corresponding emoji names):
 
   {% data reusables.repositories.reaction_list %}
 
-* The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/mutations#addreaction), which three possible return fields:
+* The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/reactions#mutation-addreaction), which three possible return fields:
 
   * `clientMutationId` (`String`)
   * `reaction` (`Reaction!`)
@@ -375,7 +375,7 @@ variables {
 
 > [!NOTE]
 > You may notice that the `content` field value in the earlier example (where it's used directly in the mutation) does not have quotes around `HOORAY`, but it does have quotes when used in the variable. There's a reason for this:
-> * When you use `content` directly in the mutation, the schema expects the value to be of type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an _enum_, not a string. Schema validation will throw an error if you add quotes around the enum value, as quotes are reserved for strings.
+> * When you use `content` directly in the mutation, the schema expects the value to be of type [`ReactionContent`](/graphql/reference/reactions#enum-reactioncontent), which is an _enum_, not a string. Schema validation will throw an error if you add quotes around the enum value, as quotes are reserved for strings.
 > * When you use `content` in a variable, the variables section must be valid JSON, so the quotes are required. Schema validation correctly interprets the `ReactionContent` type when the variable is passed into the mutation during execution.
 >
 > For more information on the difference between enums and strings, see the [official GraphQL spec](https://spec.graphql.org/June2018/#sec-Enums).

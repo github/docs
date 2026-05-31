@@ -17,7 +17,7 @@ You can connect an Azure subscription to your organization or enterprise account
 ## {% data variables.product.prodname_copilot_short %}-specific usage
 
 * {% data variables.product.prodname_copilot_short %} license usage is measured as the **number of active seats**.
-* If people use more than their included allowance of premium requests, the cost of any additional usage is included.
+* If your enterprise exceeds its included pool of {% data variables.product.prodname_ai_credits_short %}, the cost of any additional usage is included.
 * Usage data is sent daily to Azure.
 * Charges for the calendar month appear on your Azure invoice at the start of the next month.
 

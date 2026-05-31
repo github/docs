@@ -5,7 +5,8 @@ permissions:
   actions: read|write|none{% ifversion artifact-metadata %}
   artifact-metadata: read|write|none{% endif %}{% ifversion artifact-attestations %}
   attestations: read|write|none{% endif %}
-  checks: read|write|none
+  checks: read|write|none{% ifversion code-quality %}
+  code-quality: read|write|none{% endif %}
   contents: read|write|none
   deployments: read|write|none{% ifversion fpt or ghec %}
   id-token: write|none{% endif %}

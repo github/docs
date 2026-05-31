@@ -57,7 +57,7 @@ describe(frontmatterSchema.names.join(' - '), () => {
       "  fpt: '*'",
       'sidebarLink:',
       '  text: "All prompts"',
-      '  href: "/copilot/copilot-chat-cookbook"',
+      '  href: "/copilot/copilot-cookbook"',
       '---',
     ].join('\n')
     const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
@@ -72,7 +72,7 @@ describe(frontmatterSchema.names.join(' - '), () => {
       'versions:',
       "  fpt: '*'",
       'sidebarLink:',
-      '  href: "/copilot/copilot-chat-cookbook"',
+      '  href: "/copilot/copilot-cookbook"',
       '---',
     ].join('\n')
     const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })

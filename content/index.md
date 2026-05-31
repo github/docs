@@ -114,7 +114,7 @@ childGroups:
       - copilot/get-started/plans
       - copilot/how-tos/use-copilot-agents/cloud-agent
       - copilot/tutorials
-      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/tutorials/copilot-cookbook
       - copilot/tutorials/customization-library
       - copilot/how-tos/copilot-cli
   - name: CI/CD and DevOps
