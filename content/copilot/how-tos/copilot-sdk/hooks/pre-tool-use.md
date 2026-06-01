@@ -102,9 +102,23 @@ public delegate Task<PreToolUseHookOutput?> PreToolUseHandler(
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.rpc.*;
+import java.util.concurrent.CompletableFuture;
 
-PreToolUseHandler preToolUseHandler;
+public class PreToolUseSignature {
+    PreToolUseHandler handler = (PreToolUseHookInput input, HookInvocation invocation) ->
+        CompletableFuture.completedFuture(PreToolUseHookOutput.allow());
+    public static void main(String[] args) {}
+}
+```
+
+```java
+@FunctionalInterface
+public interface PreToolUseHandler {
+    CompletableFuture<PreToolUseHookOutput> handle(
+        PreToolUseHookInput input,
+        HookInvocation invocation);
+}
 ```
 
 {% endcodetab %}
@@ -138,6 +152,23 @@ Return `null` or `undefined` to allow the tool to execute with no changes. Other
 | `"allow"` | Tool executes normally |
 | `"deny"` | Tool is blocked, reason shown to user |
 | `"ask"` | User is prompted to approve (interactive mode) |
+
+### Skipping permission prompts for trusted custom tools
+
+If you define a custom tool that is safe to run without prompting, set `skipPermission: true` on the tool definition. Use this for trusted, app-owned tools whose inputs are already constrained by your application; use `onPreToolUse` when you need per-call policy checks or argument validation.
+
+```typescript
+const getWeather = defineTool("get_weather", {
+  description: "Get weather for a location.",
+  parameters: {
+    type: "object",
+    properties: { location: { type: "string" } },
+    required: ["location"],
+  },
+  skipPermission: true,
+  handler: async ({ location }) => ({ forecast: `Sunny in ${location}` }),
+});
+```
 
 ## Examples
 
@@ -265,9 +296,11 @@ var session = await client.CreateSessionAsync(new SessionConfig
 {% endcodetab %}
 {% codetab java %}
 
+<!-- docs-validate: skip -->
+
 ```java
-import com.github.copilot.sdk.*;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.*;
+import com.github.copilot.rpc.*;
 import java.util.concurrent.CompletableFuture;
 
 var hooks = new SessionHooks()

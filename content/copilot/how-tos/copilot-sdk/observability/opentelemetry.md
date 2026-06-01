@@ -81,8 +81,8 @@ var client = new CopilotClient(new CopilotClientOptions
 <!-- docs-validate: skip -->
 
 ```java
-import com.github.copilot.sdk.CopilotClient;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.*;
 
 var client = new CopilotClient(new CopilotClientOptions()
     .setTelemetry(new TelemetryConfig()
@@ -122,6 +122,8 @@ let client = Client::start(ClientOptions::new()
 > **Most users don't need this.** The `TelemetryConfig` above is all you need to collect traces from the CLI. The trace context propagation described in this section is an **advanced feature** for applications that create their own OpenTelemetry spans and want them to appear in the **same distributed trace** as the CLI's spans.
 
 The SDK can propagate W3C Trace Context (`traceparent`/`tracestate`) on JSON-RPC payloads so that your application's spans and the CLI's spans are linked in one distributed trace. This is useful when, for example, you want to see a "handle tool call" span in your app nested inside the CLI's "execute tool" span, or show the SDK call as a child of your request-handling span.
+
+For cost attribution alongside traces, subscribe to `assistant.usage` events and inspect `apiEndpoint` (`AssistantUsageApiEndpoint`) to see whether a turn used Chat Completions, Responses, or Anthropic Messages; see [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/streaming-events).
 
 #### SDK → CLI (outbound)
 

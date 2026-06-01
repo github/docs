@@ -166,8 +166,8 @@ var session = await client.CreateSessionAsync(new SessionConfig
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.*;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.*;
+import com.github.copilot.rpc.*;
 import java.util.concurrent.CompletableFuture;
 
 try (var client = new CopilotClient()) {

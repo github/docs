@@ -99,8 +99,8 @@ var client = new CopilotClient(new CopilotClientOptions
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.CopilotClient;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.*;
 
 var client = new CopilotClient(new CopilotClientOptions()
     .setLogLevel("debug")
@@ -173,6 +173,8 @@ var client = new CopilotClient(new CopilotClientOptions
 
 {% endcodetab %}
 {% codetab java %}
+
+<!-- docs-validate: skip -->
 
 ```java
 // The Java SDK does not currently support passing extra CLI arguments.
@@ -284,7 +286,7 @@ var client = new CopilotClient(new CopilotClientOptions
 
    ```golang
    client := copilot.NewClient(&copilot.ClientOptions{
-       GithubToken: os.Getenv("GITHUB_TOKEN"),
+       GitHubToken: os.Getenv("GITHUB_TOKEN"),
    })
    ```
 
@@ -294,7 +296,7 @@ var client = new CopilotClient(new CopilotClientOptions
    ```csharp
    var client = new CopilotClient(new CopilotClientOptions
    {
-       GithubToken = Environment.GetEnvironmentVariable("GITHUB_TOKEN")
+       GitHubToken = Environment.GetEnvironmentVariable("GITHUB_TOKEN")
    });
    ```
 
