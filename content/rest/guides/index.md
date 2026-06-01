@@ -20,7 +20,7 @@ children:
   - /using-the-rest-api-to-interact-with-checks
   - /encrypting-secrets-for-the-rest-api
 ---
-This section of the documentation is intended to get you up-and-running with
-real-world {% data variables.product.github %} API applications. We'll go over everything you need to know, from authentication to results manipulation to integrating results with other apps.
+This section of the documentation helps you get up and running with real-world {% data variables.product.github %} REST API applications. The guides cover authentication, scripting, manipulating results, and integrating with other apps.
+Each tutorial includes a project saved and documented in the public platform-samples repository..
 Every tutorial will include a project, and each project will be saved and documented in our public
 [platform-samples](https://github.com/github/platform-samples) repository.
