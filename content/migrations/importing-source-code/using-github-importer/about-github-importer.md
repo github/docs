@@ -1,4 +1,4 @@
----
+Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page---
 title: About GitHub Importer
 intro: "If your source code is stored on another Git-based hosting service, you can move the code to {% data variables.product.prodname_dotcom_the_website %} using {% data variables.product.prodname_importer %}."
 redirect_from:
