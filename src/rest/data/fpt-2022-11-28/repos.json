@@ -13252,6 +13252,100 @@
     {
       "serverUrl": "https://api.github.com",
       "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hash-algorithm",
+      "title": "Get the hash algorithm for a repository",
+      "category": "repos",
+      "subcategory": "repos",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns the hash algorithm used to store repository objects.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "hash_algorithm": "sha1"
+            },
+            "schema": {
+              "title": "Repository hash algorithm",
+              "description": "Repository hash algorithm",
+              "type": "object",
+              "properties": {
+                "hash_algorithm": {
+                  "type": "string",
+                  "description": "The Git hash algorithm used by this repository.",
+                  "enum": [
+                    "sha1",
+                    "sha256"
+                  ]
+                }
+              },
+              "required": [
+                "hash_algorithm"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/immutable-releases",
       "title": "Check if immutable releases are enabled for a repository",
       "category": "repos",
@@ -35288,6 +35382,21 @@
               "fail",
               "bypass",
               "all"
+            ]
+          }
+        },
+        {
+          "name": "evaluate_status",
+          "description": "<p>The evaluate status to filter on. When specified, only rule suites resulting from rulesets with the specified evaluate status will be returned.</p>\n<ul>\n<li><code>all</code> - all rule suites will be returned.</li>\n<li><code>active</code> - only rule suites resulting from rulesets in active (non-evaluate) mode will be returned.</li>\n<li><code>evaluate</code> - only rule suites resulting from rulesets in evaluate mode will be returned.</li>\n</ul>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "default": "all",
+            "enum": [
+              "all",
+              "active",
+              "evaluate"
             ]
           }
         },
