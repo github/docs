@@ -1,0 +1,241 @@
+2026-05-08T20:27:18.2520214Z Current runner version: '2.334.0'
+2026-05-08T20:27:18.2541649Z ##[group]Runner Image Provisioner
+2026-05-08T20:27:18.2542354Z Hosted Compute Agent
+2026-05-08T20:27:18.2542994Z Version: 20260213.493
+2026-05-08T20:27:18.2543593Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-08T20:27:18.2544236Z Build Date: 2026-02-13T00:28:41Z
+2026-05-08T20:27:18.2544917Z Worker ID: {f43782e4-7fa0-4942-a499-af34deee2707}
+2026-05-08T20:27:18.2545554Z Azure Region: westus
+2026-05-08T20:27:18.2546096Z ##[endgroup]
+2026-05-08T20:27:18.2547614Z ##[group]Operating System
+2026-05-08T20:27:18.2548302Z Ubuntu
+2026-05-08T20:27:18.2548742Z 24.04.4
+2026-05-08T20:27:18.2549189Z LTS
+2026-05-08T20:27:18.2549675Z ##[endgroup]
+2026-05-08T20:27:18.2550173Z ##[group]Runner Image
+2026-05-08T20:27:18.2550726Z Image: ubuntu-24.04
+2026-05-08T20:27:18.2551247Z Version: 20260413.86.1
+2026-05-08T20:27:18.2552348Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-08T20:27:18.2553676Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-05-08T20:27:18.2554537Z ##[endgroup]
+2026-05-08T20:27:18.2555472Z ##[group]GITHUB_TOKEN Permissions
+2026-05-08T20:27:18.2557269Z Contents: read
+2026-05-08T20:27:18.2557786Z Metadata: read
+2026-05-08T20:27:18.2558298Z ##[endgroup]
+2026-05-08T20:27:18.2560261Z Secret source: Actions
+2026-05-08T20:27:18.2560923Z Prepare workflow directory
+2026-05-08T20:27:18.2915386Z Prepare all required actions
+2026-05-08T20:27:18.2951568Z Getting action download info
+2026-05-08T20:27:18.7423836Z Download action repository 'actions/checkout@v6' (SHA:de0fac2e4500dabe0009e67214ff5f5447ce83dd)
+2026-05-08T20:27:18.9323533Z Download action repository 'actions/setup-node@v6' (SHA:48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e)
+2026-05-08T20:27:20.3870919Z Complete job name: Lint
+2026-05-08T20:27:20.4532837Z ##[group]Run actions/checkout@v6
+2026-05-08T20:27:20.4533423Z with:
+2026-05-08T20:27:20.4533666Z   repository: npm/node-semver
+2026-05-08T20:27:20.4534264Z   token: ***
+2026-05-08T20:27:20.4534500Z   ssh-strict: true
+2026-05-08T20:27:20.4534737Z   ssh-user: git
+2026-05-08T20:27:20.4534986Z   persist-credentials: true
+2026-05-08T20:27:20.4535242Z   clean: true
+2026-05-08T20:27:20.4535490Z   sparse-checkout-cone-mode: true
+2026-05-08T20:27:20.4535764Z   fetch-depth: 1
+2026-05-08T20:27:20.4536002Z   fetch-tags: false
+2026-05-08T20:27:20.4536237Z   show-progress: true
+2026-05-08T20:27:20.4536685Z   lfs: false
+2026-05-08T20:27:20.4536906Z   submodules: false
+2026-05-08T20:27:20.4537156Z   set-safe-directory: true
+2026-05-08T20:27:20.4537650Z ##[endgroup]
+2026-05-08T20:27:20.5481986Z Syncing repository: npm/node-semver
+2026-05-08T20:27:20.5483460Z ##[group]Getting Git version info
+2026-05-08T20:27:20.5483873Z Working directory is '/home/runner/work/node-semver/node-semver'
+2026-05-08T20:27:20.5484670Z [command]/usr/bin/git version
+2026-05-08T20:27:20.7882075Z git version 2.53.0
+2026-05-08T20:27:20.7936832Z ##[endgroup]
+2026-05-08T20:27:20.7951292Z Temporarily overriding HOME='/home/runner/work/_temp/db275f2d-8cfe-42dc-9a0a-6ab08550daa5' before making global git config changes
+2026-05-08T20:27:20.7952152Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-08T20:27:20.7957003Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/node-semver/node-semver
+2026-05-08T20:27:20.7994257Z Deleting the contents of '/home/runner/work/node-semver/node-semver'
+2026-05-08T20:27:20.7998553Z ##[group]Initializing the repository
+2026-05-08T20:27:20.8003005Z [command]/usr/bin/git init /home/runner/work/node-semver/node-semver
+2026-05-08T20:27:20.8101987Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-08T20:27:20.8102775Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-08T20:27:20.8103303Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-08T20:27:20.8103694Z hint: call:
+2026-05-08T20:27:20.8104159Z hint:
+2026-05-08T20:27:20.8104485Z hint: 	git config --global init.defaultBranch <name>
+2026-05-08T20:27:20.8104832Z hint:
+2026-05-08T20:27:20.8105138Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-08T20:27:20.8105621Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-08T20:27:20.8105980Z hint:
+2026-05-08T20:27:20.8106207Z hint: 	git branch -m <name>
+2026-05-08T20:27:20.8106713Z hint:
+2026-05-08T20:27:20.8107099Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-08T20:27:20.8107810Z Initialized empty Git repository in /home/runner/work/node-semver/node-semver/.git/
+2026-05-08T20:27:20.8113560Z [command]/usr/bin/git remote add origin https://github.com/npm/node-semver
+2026-05-08T20:27:20.8147606Z ##[endgroup]
+2026-05-08T20:27:20.8148143Z ##[group]Disabling automatic garbage collection
+2026-05-08T20:27:20.8151451Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-08T20:27:20.8181783Z ##[endgroup]
+2026-05-08T20:27:20.8182268Z ##[group]Setting up auth
+2026-05-08T20:27:20.8182939Z Removing SSH command configuration
+2026-05-08T20:27:20.8189329Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-08T20:27:20.8221596Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-08T20:27:20.8504568Z Removing HTTP extra header
+2026-05-08T20:27:20.8510391Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-08T20:27:20.8542834Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-08T20:27:20.8758428Z Removing includeIf entries pointing to credentials config files
+2026-05-08T20:27:20.8764400Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-08T20:27:20.8797817Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-08T20:27:20.9022873Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-f70e35d6-d385-4941-a51f-9b84c979b61d.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-08T20:27:20.9060534Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/node-semver/node-semver/.git.path /home/runner/work/_temp/git-credentials-f70e35d6-d385-4941-a51f-9b84c979b61d.config
+2026-05-08T20:27:20.9089816Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/node-semver/node-semver/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-f70e35d6-d385-4941-a51f-9b84c979b61d.config
+2026-05-08T20:27:20.9118340Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-f70e35d6-d385-4941-a51f-9b84c979b61d.config
+2026-05-08T20:27:20.9149133Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-f70e35d6-d385-4941-a51f-9b84c979b61d.config
+2026-05-08T20:27:20.9175168Z ##[endgroup]
+2026-05-08T20:27:20.9175786Z ##[group]Fetching the repository
+2026-05-08T20:27:20.9183917Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +efa4be6096c1f9b77d9d27d6132f6220c43b4e31:refs/remotes/origin/main
+2026-05-08T20:27:22.9846000Z From https://github.com/npm/node-semver
+2026-05-08T20:27:22.9847121Z  * [new ref]         efa4be6096c1f9b77d9d27d6132f6220c43b4e31 -> origin/main
+2026-05-08T20:27:22.9877840Z [command]/usr/bin/git branch --list --remote origin/main
+2026-05-08T20:27:22.9900505Z   origin/main
+2026-05-08T20:27:22.9909447Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-05-08T20:27:22.9933317Z efa4be6096c1f9b77d9d27d6132f6220c43b4e31
+2026-05-08T20:27:22.9943081Z ##[endgroup]
+2026-05-08T20:27:22.9943557Z ##[group]Determining the checkout info
+2026-05-08T20:27:22.9944091Z ##[endgroup]
+2026-05-08T20:27:22.9944456Z [command]/usr/bin/git sparse-checkout disable
+2026-05-08T20:27:23.1322044Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-08T20:27:23.2818178Z ##[group]Checking out the ref
+2026-05-08T20:27:23.2822746Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-05-08T20:27:23.4729773Z Switched to a new branch 'main'
+2026-05-08T20:27:23.4730696Z branch 'main' set up to track 'origin/main'.
+2026-05-08T20:27:23.4737315Z ##[endgroup]
+2026-05-08T20:27:23.4782640Z [command]/usr/bin/git log -1 --format=%H
+2026-05-08T20:27:23.4807523Z efa4be6096c1f9b77d9d27d6132f6220c43b4e31
+2026-05-08T20:27:23.4991065Z ##[group]Run git config --global user.email "npm-cli+bot@github.com"
+2026-05-08T20:27:23.4991564Z [36;1mgit config --global user.email "npm-cli+bot@github.com"[0m
+2026-05-08T20:27:23.4991944Z [36;1mgit config --global user.name "npm CLI robot"[0m
+2026-05-08T20:27:23.5015409Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-05-08T20:27:23.5015725Z ##[endgroup]
+2026-05-08T20:27:23.8659512Z ##[group]Run actions/setup-node@v6
+2026-05-08T20:27:23.8659770Z with:
+2026-05-08T20:27:23.8659944Z   node-version: 26.x
+2026-05-08T20:27:23.8660138Z   check-latest: contains('26.x', '.x')
+2026-05-08T20:27:23.8660477Z   token: ***
+2026-05-08T20:27:23.8660666Z   package-manager-cache: true
+2026-05-08T20:27:23.8660903Z ##[endgroup]
+2026-05-08T20:27:24.0072466Z Attempting to download 26.x...
+2026-05-08T20:27:24.7487657Z Acquiring 26.1.0 - x64 from https://github.com/actions/node-versions/releases/download/26.1.0-25496618813/node-26.1.0-linux-x64.tar.gz
+2026-05-08T20:27:25.1784480Z Extracting ...
+2026-05-08T20:27:25.1893109Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/071f95d5-b811-44cb-a365-679d82153793 -f /home/runner/work/_temp/55eec4ed-0b4a-4266-8e29-3f514ead44dd
+2026-05-08T20:27:26.4567651Z Adding to the cache ...
+2026-05-08T20:27:30.7612955Z ##[group]Environment details
+2026-05-08T20:27:31.1475775Z node: v26.1.0
+2026-05-08T20:27:31.1476210Z npm: 11.13.0
+2026-05-08T20:27:31.1476689Z yarn: 1.22.22
+2026-05-08T20:27:31.1477274Z ##[endgroup]
+2026-05-08T20:27:31.3462133Z Prepare all required actions
+2026-05-08T20:27:31.3529694Z ##[group]Run ./.github/actions/install-latest-npm
+2026-05-08T20:27:31.3529978Z with:
+2026-05-08T20:27:31.3530151Z   node: v26.1.0
+2026-05-08T20:27:31.3530320Z ##[endgroup]
+2026-05-08T20:27:31.3633183Z ##[group]Run MATCH=""
+2026-05-08T20:27:31.3633441Z [36;1mMATCH=""[0m
+2026-05-08T20:27:31.3633716Z [36;1mSPECS=("latest" "next-10" "next-9" "next-8" "next-7" "next-6")[0m
+2026-05-08T20:27:31.3634035Z [36;1m[0m
+2026-05-08T20:27:31.3634216Z [36;1mecho "node@$NODE_VERSION"[0m
+2026-05-08T20:27:31.3634439Z [36;1m[0m
+2026-05-08T20:27:31.3634613Z [36;1mfor SPEC in ${SPECS[@]}; do[0m
+2026-05-08T20:27:31.3634967Z [36;1m  ENGINES=$(npm view npm@$SPEC --json | jq -r '.engines.node')[0m
+2026-05-08T20:27:31.3635413Z [36;1m  echo "Checking if node@$NODE_VERSION satisfies npm@$SPEC ($ENGINES)"[0m
+2026-05-08T20:27:31.3635840Z [36;1m[0m
+2026-05-08T20:27:31.3636200Z [36;1m  if npx semver -r "$ENGINES" "$NODE_VERSION" > /dev/null; then[0m
+2026-05-08T20:27:31.3636842Z [36;1m    MATCH=$SPEC[0m
+2026-05-08T20:27:31.3637099Z [36;1m    echo "Found compatible version: npm@$MATCH"[0m
+2026-05-08T20:27:31.3637359Z [36;1m    break[0m
+2026-05-08T20:27:31.3637541Z [36;1m  fi[0m
+2026-05-08T20:27:31.3637709Z [36;1mdone[0m
+2026-05-08T20:27:31.3637874Z [36;1m[0m
+2026-05-08T20:27:31.3638048Z [36;1mif [ -z $MATCH ]; then[0m
+2026-05-08T20:27:31.3638375Z [36;1m  echo "Could not find a compatible version of npm for node@$NODE_VERSION"[0m
+2026-05-08T20:27:31.3638728Z [36;1m  exit 1[0m
+2026-05-08T20:27:31.3638897Z [36;1mfi[0m
+2026-05-08T20:27:31.3639056Z [36;1m[0m
+2026-05-08T20:27:31.3639300Z [36;1mnpm i --prefer-online --no-fund --no-audit -g npm@$MATCH[0m
+2026-05-08T20:27:31.3663709Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-05-08T20:27:31.3664023Z env:
+2026-05-08T20:27:31.3664196Z   NODE_VERSION: v26.1.0
+2026-05-08T20:27:31.3664399Z ##[endgroup]
+2026-05-08T20:27:31.3891101Z node@v26.1.0
+2026-05-08T20:27:33.4813854Z Checking if node@v26.1.0 satisfies npm@latest (^20.17.0 || >=22.9.0)
+2026-05-08T20:27:33.8765413Z npm warn exec The following package was not found and will be installed: semver@7.7.4
+2026-05-08T20:27:34.0538931Z Found compatible version: npm@latest
+2026-05-08T20:27:35.6121304Z 
+2026-05-08T20:27:35.6122140Z changed 18 packages in 2s
+2026-05-08T20:27:35.6292240Z ##[group]Run npm -v
+2026-05-08T20:27:35.6292472Z [36;1mnpm -v[0m
+2026-05-08T20:27:35.6313601Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-05-08T20:27:35.6313905Z ##[endgroup]
+2026-05-08T20:27:35.7258998Z 11.14.1
+2026-05-08T20:27:35.7588168Z ##[group]Run npm i --ignore-scripts --no-audit --no-fund
+2026-05-08T20:27:35.7588564Z [36;1mnpm i --ignore-scripts --no-audit --no-fund[0m
+2026-05-08T20:27:35.7609567Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-05-08T20:27:35.7609860Z ##[endgroup]
+2026-05-08T20:27:47.9570956Z npm warn deprecated tap@16.3.10: Versions of tap before v18 are no longer maintained. Please upgrade.
+2026-05-08T20:27:48.8004833Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2026-05-08T20:27:49.5554833Z npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+2026-05-08T20:27:49.9248053Z npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+2026-05-08T20:27:49.9478132Z npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+2026-05-08T20:27:50.0786641Z npm warn deprecated libtap@1.4.1: This library is no longer used by node-tap, and is unmaintained.
+2026-05-08T20:27:50.5300851Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-05-08T20:27:50.5960204Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-05-08T20:27:50.6148840Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-05-08T20:27:50.7363970Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-05-08T20:27:50.7805455Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+2026-05-08T20:27:51.3199917Z npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+2026-05-08T20:27:53.1492298Z npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+2026-05-08T20:27:54.2148178Z 
+2026-05-08T20:27:54.2149029Z added 761 packages in 18s
+2026-05-08T20:27:54.2562053Z ##[group]Run npm run lint --ignore-scripts
+2026-05-08T20:27:54.2562496Z [36;1mnpm run lint --ignore-scripts[0m
+2026-05-08T20:27:54.2583613Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-05-08T20:27:54.2584048Z ##[endgroup]
+2026-05-08T20:27:54.4843587Z 
+2026-05-08T20:27:54.4844112Z > semver@7.8.0 lint
+2026-05-08T20:27:54.4844460Z > npm run eslint
+2026-05-08T20:27:54.4844627Z 
+2026-05-08T20:27:54.5670747Z 
+2026-05-08T20:27:54.5671303Z > semver@7.8.0 eslint
+2026-05-08T20:27:54.5671729Z > eslint "**/*.{js,cjs,ts,mjs,jsx,tsx}"
+2026-05-08T20:27:54.5671912Z 
+2026-05-08T20:27:55.8032592Z ##[group]Run npm run postlint --ignore-scripts
+2026-05-08T20:27:55.8032919Z [36;1mnpm run postlint --ignore-scripts[0m
+2026-05-08T20:27:55.8053137Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-05-08T20:27:55.8053419Z ##[endgroup]
+2026-05-08T20:27:55.8925214Z 
+2026-05-08T20:27:55.8925613Z > semver@7.8.0 postlint
+2026-05-08T20:27:55.8926052Z > template-oss-check
+2026-05-08T20:27:55.8926195Z 
+2026-05-08T20:27:57.6083029Z Post job cleanup.
+2026-05-08T20:27:57.7234262Z Post job cleanup.
+2026-05-08T20:27:57.8002549Z [command]/usr/bin/git version
+2026-05-08T20:27:57.8035290Z git version 2.53.0
+2026-05-08T20:27:57.8063750Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/5e3ca028-81c0-44bf-8ecd-1aae81fcf190/.gitconfig'
+2026-05-08T20:27:57.8071307Z Temporarily overriding HOME='/home/runner/work/_temp/5e3ca028-81c0-44bf-8ecd-1aae81fcf190' before making global git config changes
+2026-05-08T20:27:57.8072538Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-08T20:27:57.8095389Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/node-semver/node-semver
+2026-05-08T20:27:57.8104450Z Removing SSH command configuration
+2026-05-08T20:27:57.8109622Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-08T20:27:57.8139491Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-08T20:27:57.8342055Z Removing HTTP extra header
+2026-05-08T20:27:57.8345891Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-08T20:27:57.8375112Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-08T20:27:57.8574683Z Removing includeIf entries pointing to credentials config files
+2026-05-08T20:27:57.8580967Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-08T20:27:57.8601461Z includeif.gitdir:/home/runner/work/node-semver/node-semver/.git.path
+2026-05-08T20:27:57.8602339Z includeif.gitdir:/home/runner/work/node-semver/node-semver/.git/worktrees/*.path
+2026-05-08T20:27:57.8603097Z includeif.gitdir:/github/workspace/.git.path
+2026-05-08T20:27:57.8603720Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-05-08T20:27:57.8610571Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/node-semver/node-semver/.git.path
+2026-05-08T20:27:57.8630977Z /home/runner/work/_temp/git-credentials-f70e35d6-d385-4941-a51f-9b84c979b61d.config
+2026-05-08T20:27:57.8640510Z [command]/usr/bin/git config --local --unset inclu Edgarruiz8585 

@@ -1,0 +1,268 @@
+"Verifying Access Server Downloads with SHA256SUM
+Abstract
+
+Official SHA256 checksums for OpenVPN Access Server downloads, including Linux packages, virtual machine images, bundled clients, installation scripts, and post-authentication scripts.
+
+When downloading Access Server files manually, you can verify that the files you receive are authentic and unaltered. One way to do this is to use SHA-256 checksums, which provide a unique signature for each file. You can compare this signature with the one we provide to confirm the integrity of the downloaded files. If the checksum matches, you can be confident that the file is intact and authentic.
+
+SHA256 checksums for Access Server files
+Artifacts
+Platform
+
+Architecture
+
+Package
+
+SHA256SUM
+
+RHEL 8
+
+x86_64
+
+openvpn-as-3.2.1_d0affc91-1.el8.x86_64.rpm
+
+8e96b6907558f9f7b795cff8a1f43300a99f056b2e7023933ab12ea9315f870e
+
+RHEL 9
+
+x86_64
+
+openvpn-as-3.2.1_d0affc91-1.el9.x86_64.rpm
+
+350f6dfe029812ff9c39bf7ee65b78c9e9961bc9121b072c23010d5a9b26af02
+
+RHEL 10
+
+x86_64
+
+openvpn-as-3.2.1_d0affc91-1.el10.x86_64.rpm
+
+bd8ee58216d843d1e0da60566b1e02e4d37a9633139d1565022858233cd5a458
+
+Debian 12 (Bookworm)
+
+amd64
+
+openvpn-as_3.2.1-d0affc91-Debian12_amd64.deb
+
+e7f76b521dd149f642d3d6fa7cfeb49949dd8d403c260b87128ca754a98cc7b5
+
+Debian 13 (Trixie)
+
+amd64
+
+openvpn-as_3.2.1-d0affc91-Debian13_amd64.deb
+
+2af165e8f6b27d1d398b24e81b90588c380dea1f7f79c549ec34f58562869499
+
+Ubuntu 22 (Jammy)
+
+amd64
+
+openvpn-as_3.2.1-d0affc91-Ubuntu22_amd64.deb
+
+81ca72920950c603a7be4b28ca9b1f23ba0dabad3f438a4796b6ab23766a96e3
+
+Ubuntu 22 (Jammy)
+
+arm64
+
+openvpn-as_3.2.1-d0affc91-Ubuntu22_arm64.deb
+
+792261c95f46b13aa081bfd0e0c50e2a02726f0410e78740e715f4adb59c6a8f
+
+Ubuntu 24 (Noble)
+
+amd64
+
+openvpn-as_3.2.1-d0affc91-Ubuntu24_amd64.deb
+
+19f1cd68667f7f79ceb4ab7e514bdd947db0b3431ef5d9994a95b3bc438b2081
+
+Ubuntu 24 (Noble)
+
+arm64
+
+openvpn-as_3.2.1-d0affc91-Ubuntu24_arm64.deb
+
+907ad58fea902be2135a0741139064f0d1983091d5692ee772acec664e966a2a
+
+VMware ESXi
+
+x86_64
+
+as-ubuntu-image-noble-3.1.0.ova
+
+b5e2ebb967229b4838506f8a0a94330b7e3f2b89be1b38283566f48291606027
+
+Hyper-V
+
+x86_64
+
+as-ubuntu-image-noble-3.1.0.vhdx.zip
+
+fcc5b64bb9d3a3db7dd7dae9dc571939abf65d871a8cd868cf9f99cf6c38ef8b
+
+Debian/Ubuntu (clients bundle)
+
+all
+
+openvpn-as-bundled-clients-latest.deb
+
+be1e15752555470bee3527d72e49502648f5b1c26248ff00cee607a97d9b2140
+
+RHEL (clients bundle)
+
+all
+
+openvpn-as-bundled-clients-latest.rpm
+
+843790fa48fed3c784b00d08b9a62f26e499406707d812f515a64f7e32b52418
+
+Scripts
+File Name
+
+SHA256SUM
+
+Version
+
+install.sh
+
+dca4fdce24ef9aff690bbeca3b1092192f5f008eb732774b86267f091fc86f71
+
+2.1
+
+bridge-down.sh
+
+279a3321fd2760d6eb1acb0ba71c9b862bc33c9ced1efa775142d4697b28a848
+
+1.0
+
+bridge-up.sh
+
+5538ee6e9d6cb2e2bb5882d54c69fd044ca89375c1406ad5432877d01369c091
+
+1.0
+
+aws-updown.sh
+
+8ecd0465d6ba39ba376c76f129aaa6ac303c47f9783810b25fe1591e6270a77b
+
+1.0
+
+ipsec.conf
+
+4da7378f563f079ecd635b2fb7201308ab33269b707a71b687c234a6dfb9167d
+
+1.1
+
+ipsec.secrets
+
+46fe56cd944fb8c87c7fbf24d50c9730e361228be5b57a5de04dac0f901fff35
+
+1.0
+
+pascrs.py
+
+a260aaf39d7b8d3cf6474a852c69a50c7929c4839d5a323a1671fbc69949e9b2
+
+1.0
+
+pasvar.py
+
+4c1c45fa98b39d3372a7da1fcc6437241cb46a111ae98cb60a3e08c5428c0a44
+
+1.0
+
+post_auth_custom_auth.py
+
+55f2fdb1d7b38d635b57443f4ab0e9aee2717d94e06ec5b14c36ca4a36397a08
+
+1.0
+
+post_auth_ip_address_checking.py
+
+c62a78ec338815f9548f77d76166b5a2c050d79db6471fcf9f7fc040fa7d3741
+
+1.0
+
+post_auth_ldap_autologin_dbsave.py
+
+8fefb1df6a82dda1181fcb25ae9ae21a44e437196e4829d963ec53394d9ce537
+
+1.1
+
+post_auth_mac_address_checking.py
+
+608074f2de974145d9fd7646359504ab6f07759c4db8f8ab7ff290c4caa1af76
+
+2.1
+
+post_auth_pas_only.py
+
+b4cf2e3d497516c59a4a7ba55aa8a3cbf538940122543652ab03d0f6eabb486f
+
+1.1
+
+post_auth_radius_mapping.py
+
+0d838425e6387e2b0846c86e6ae30c2abc583b938c866911dbbdb306850410b1
+
+2.1
+
+post_auth_saml_group_mapping.py
+
+fac6bea6ecb35c1e069ebe7a2f70460b71071c268661def4ecb80502001ec8e6
+
+1.1
+
+post_auth_x509_group.py
+
+97266d0235fb47dd00687a737a43cc54a06a036e0c3b9a2cc83d8056b855a89e
+
+1.0
+
+post_auth_x509.py
+
+22bd5dab4fc2bf299c76c793e72ba712038d700ac709e9034797e5a0dc731a67
+
+1.0
+
+SHA256SUM is a tool that generates a 256-bit hash (a unique string of characters) for a file. A calculation based on the file's contents generates this hash, and if even one byte of the file changes, the hash will be completely different. By comparing the hash of your downloaded file with the official hash provided by us, you can verify that the file hasn't been altered or corrupted.
+
+Verifying the file ensures it wasn't corrupted during the download process.
+
+Comparing the checksum helps protect against any unauthorized modifications to the file.
+
+Downloading a file from an official source may not always guarantee safety if the file is intercepted and altered. To ensure the file is legitimate, you should verify the checksum.
+
+We recommend using the install.sh script from the Access Server Portal (opens in a new window), as it leverages the operating system's built-in package manager to automatically authenticate packages with a trusted signing key, eliminating the need for manual verification. However, if preferred, you can manually validate the install.sh script's integrity using the SHA256 checksum provided in the table above.
+
+For offline installations, you can manually check the integrity of any downloaded files using the provided SHA256 hashes. To verify a downloaded file, follow these steps:
+
+Connect to the console and get root privileges.
+
+Download the install script from the Access Server portal (opens in a new window) or manually download the Access Server file.
+
+Calculate the checksum of your downloaded file:
+
+sha256sum openvpn-as-x.deb1
+1
+
+Replace the filename with the file you want to check the integrity of.
+
+After running the command, the tool returns a checksum.
+
+Compare the checksum with the one listed for the file in the scripts table. If it matches, your file is authentic.
+
+If you're using the installation script from the Access Server Portal, you can verify the integrity of install.sh by comparing the SHA256SUM and version from the scripts table.
+
+The easiest way to ensure the authenticity of Access Server installation files is to use our install script, which leverages the operating system's built-in package manager to authenticate downloaded packages using a trusted signing key. This eliminates the need for manual file verification. However, suppose you prefer downloading the installation files manually, such as for offline installations. In that case, you can authenticate their integrity by comparing the files against the provided SHA256 hashes to ensure they haven't been tampered with or corrupted.
+
+Was this information helpful?
+
+Thank you for your feedback!
+
+Can't find what you're looking for?
+Our support team will be happy to assist you."
+ https://openvpn.net/as-docs/sha256sum-data.html#important-notes-170644
