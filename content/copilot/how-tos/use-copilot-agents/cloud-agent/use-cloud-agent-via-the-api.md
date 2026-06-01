@@ -1,8 +1,8 @@
 ---
 title: Using Copilot cloud agent via the API
 shortTitle: Use cloud agent via the API
-intro: 'You can start and manage {% data variables.copilot.copilot_cloud_agent %} tasks directly using the REST API and assign issues to Copilot using the issues REST and GraphQL APIs.'
-product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
+intro: 'You can start and manage {% data variables.copilot.copilot_cloud_agent %} tasks programmatically using the REST API.'
+product: '{% data reusables.gated-features.copilot-cloud-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: how-tos
