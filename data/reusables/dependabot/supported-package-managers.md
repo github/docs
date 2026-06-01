@@ -14,6 +14,9 @@ Composer       | `composer`       | v2         | {% octicon "check" aria-label="
 | {% ifversion dependabot-conda-support %} |
 [Conda](#conda) | `conda` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
+| {% ifversion dependabot-deno-support %} |
+[Deno](#deno) | `deno` | >=v2 | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 [Dev containers](#dev-containers) | `devcontainers`         | Not applicable               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [Docker](#docker)    | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 | {% ifversion dependabot-docker-compose-support %} |
@@ -88,6 +91,16 @@ Private registry support includes cargo registries, so you can use {% data varia
 ### Conda
 
 {% data variables.product.prodname_dependabot %} support for Conda does **not include private registries, vendoring, or lock file updates**.
+
+{% endif %}
+
+{% ifversion dependabot-deno-support %}
+
+### Deno
+
+{% data variables.product.prodname_dependabot %} can update dependencies in `deno.json` and `deno.jsonc` configuration files. Deno projects can use dependencies from [JSR](https://jsr.io/) (the JavaScript Registry) or from the npm registry.
+
+{% data variables.product.prodname_dependabot %} support for Deno does **not include private registries or vendoring**.
 
 {% endif %}
 
