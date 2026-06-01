@@ -12,7 +12,7 @@ category:
 
 > [!NOTE]
 > * This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-> * User-level preferences are currently only available for users on a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
+> * User-level preferences are currently only available for users on a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan.
 
 {% data variables.copilot.copilot_memory %} lets {% data variables.product.prodname_copilot_short %} learn about your codebase and your personal preferences, helping {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, and {% data variables.copilot.copilot_cli_short %} work more effectively.
 
@@ -20,7 +20,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
 ## Enabling {% data variables.copilot.copilot_memory %}
 
-For users with an individual {% data variables.product.prodname_copilot_short %} subscription to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_memory %} is enabled by default. These users can manage the setting in their personal {% data variables.product.prodname_copilot_short %} settings.
+For users with an individual paid {% data variables.product.prodname_copilot_short %} subscription, {% data variables.copilot.copilot_memory %} is enabled by default. These users can manage the setting in their personal {% data variables.product.prodname_copilot_short %} settings.
 
 For enterprise and organization-managed {% data variables.product.prodname_copilot_short %} subscriptions, {% data variables.copilot.copilot_memory %} is off by default and must be enabled in the enterprise or organization settings.
 
@@ -58,7 +58,7 @@ If the organization belongs to an enterprise, the ability for organization owner
 
 ### Managing {% data variables.copilot.copilot_memory %} for an individual user
 
-If you have an individual {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} subscription, {% data variables.copilot.copilot_memory %} is enabled by default.
+If you have an individual paid {% data variables.product.prodname_copilot_short %} subscription, {% data variables.copilot.copilot_memory %} is enabled by default.
 
 Regardless of your plan, you can disable or re-enable it at any time in your personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.github %}.
 

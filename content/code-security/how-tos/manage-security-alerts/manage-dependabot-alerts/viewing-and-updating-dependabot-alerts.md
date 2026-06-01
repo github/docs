@@ -120,7 +120,7 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 
 1. [Viewing and prioritizing {% data variables.product.prodname_dependabot_alerts %}](#viewing-and-prioritizing-dependabot-alerts) (above).
 1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert. Unfixed dismissed alerts can be reopened later.
-1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see [AUTOTITLE](/graphql/reference/objects#repositoryvulnerabilityalert) in the GraphQL API documentation.
+1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see [AUTOTITLE](/graphql/reference/dependabot#object-repositoryvulnerabilityalert) in the GraphQL API documentation.
 
    ![Screenshot of a {% data variables.product.prodname_dependabot %} alert page, with the "Dismiss" dropdown and the option to add a dismissal comment outlined in orange.](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
 

@@ -1,21 +1,27 @@
 // Heading rhythm tweaks specific to GraphQL category pages.
-// Each schema item is its own H2; H3 and H4 are sub-sections inside an item
-// (fields, arguments, etc.) that read better when they sit closer to the H2
-// above them instead of inheriting the generic markdown padding.
+// Each schema kind (Objects, Mutations, etc.) is a section H2; individual
+// items inside a section are H3; sub-sections within an item (fields,
+// arguments, return fields, etc.) are H4.
 .categoryPage {
   h2 {
     padding-top: 2.5rem;
   }
 
+  // Items inside a kind section need top spacing so consecutive items don't
+  // visually run together. The first item under each kind H2 doesn't need
+  // it: the H2's own padding-top already provides plenty of breathing room.
+  h3 {
+    padding-top: 2rem;
+  }
+
   // The very first H2 on the page sits directly below the intro/lead; the
-  // extra padding-top adds an awkward gap there. Each schema item is wrapped
-  // in its own <div>, so a plain `h2:first-child` would also match the H2 in
-  // every subsequent item. Scope to the first item wrapper instead.
-  > :first-child h2:first-child {
+  // extra padding-top adds an awkward gap there. Same idea for the first H3
+  // in each section, which sits directly under its kind H2.
+  > :first-child h2:first-child,
+  section > h3:first-of-type {
     padding-top: 0;
   }
 
-  h3,
   h4 {
     padding-top: 0;
   }

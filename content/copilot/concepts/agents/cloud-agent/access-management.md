@@ -32,7 +32,7 @@ category:
 
 If you are a {% data variables.copilot.copilot_enterprise %} or {% data variables.copilot.copilot_for_business %} subscriber, {% data variables.copilot.copilot_cloud_agent %} is disabled by default and must be enabled by an administrator before it is available for use.
 
-If you are a {% data variables.copilot.copilot_pro %} or Pro+ subscriber, {% data variables.copilot.copilot_cloud_agent %} is enabled by default.
+If you are a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} subscriber, {% data variables.copilot.copilot_cloud_agent %} is enabled by default.
 
 Once enabled, you can use {% data variables.copilot.copilot_cloud_agent %} in any repository, provided that an administrator hasn't opted the repository out.
 

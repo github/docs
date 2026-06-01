@@ -3,7 +3,7 @@ title: OpenAI Codex
 shortTitle: OpenAI Codex
 allowTitleToDifferFromFilename: true
 intro: 'Use the {% data variables.product.prodname_openai_codex %} coding agent and Visual Studio Code extension powered by {% data variables.product.prodname_copilot_short %}.'
-product: '{% data reusables.gated-features.openai-codex %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_plan=pro-plus&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.openai-codex %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_plan=cfi&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: concepts
@@ -18,8 +18,6 @@ category:
 The {% data variables.product.prodname_openai_codex %} coding agent and the {% data variables.product.prodname_vscode_shortname %} {% data variables.product.prodname_openai_codex %} integration use the Codex SDK and can be powered by your existing {% data variables.product.prodname_copilot_short %} subscription. For more information about how {% data variables.product.prodname_openai_codex %} works, see the [{% data variables.product.prodname_openai_codex %} documentation](https://developers.openai.com/codex).
 
 ## {% data variables.product.prodname_openai_codex %} coding agent
-
-The {% data variables.product.prodname_openai_codex %} coding agent is available to {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %}, and {% data variables.copilot.copilot_enterprise %} users.
 
 Before you can assign tasks to {% data variables.product.prodname_openai_codex %} coding agent, it must be enabled. See [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories). 
 
@@ -36,9 +34,9 @@ If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %
 
 ## {% data variables.product.prodname_vscode_shortname %} extension
 
-> [!NOTE] The "Sign in with {% data variables.product.prodname_copilot_short %}" option in the {% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode_shortname %} extension is only available to {% data variables.copilot.copilot_pro_plus %} subscribers.
+> [!NOTE] The "Sign in with {% data variables.product.prodname_copilot_short %}" option in the {% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode_shortname %} extension is only available to {% data variables.copilot.copilot_pro_plus %} and {% data variables.copilot.copilot_max_short %} subscribers.
 
-Use "Sign in with {% data variables.product.prodname_copilot_short %}" when launching the extension. {% data variables.copilot.copilot_pro_plus_short %} users can see this integration in the [Agent Sessions view](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions-view) in {% data variables.product.prodname_vscode_shortname %} Insiders along with progress on their running tasks. All usage is subject to {% data variables.product.github %} rate limits and billing. See [AUTOTITLE](/copilot/concepts/billing/copilot-requests#premium-features).
+Use "Sign in with {% data variables.product.prodname_copilot_short %}" when launching the extension. {% data variables.copilot.copilot_pro_plus_short %} and {% data variables.copilot.copilot_max_short %} users can see this integration in the [Agent Sessions view](https://code.visualstudio.com/docs/copilot/chat/chat-sessions#_agent-sessions-view) in {% data variables.product.prodname_vscode_shortname %} Insiders along with progress on their running tasks. All usage is subject to {% data variables.product.github %} rate limits and billing. See [AUTOTITLE](/copilot/concepts/billing/copilot-requests#premium-features).
 
 ### Model availability
 

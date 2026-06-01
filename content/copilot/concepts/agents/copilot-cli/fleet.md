@@ -45,11 +45,9 @@ When you use the `/fleet` command, the main {% data variables.product.prodname_c
 
 ## Points to consider
 
-* **Premium request usage**: When you submit a prompt in the CLI and {% data variables.product.prodname_copilot_short %} interacts with the selected large language model (LLM) to generate a response, this consumes premium requests. The number of premium requests consumed depends on the model that's currently selected. More interactions with the LLM result in more premium requests being consumed.
+* **{% data variables.product.prodname_ai_credits %} usage**: When you submit a prompt in the CLI and {% data variables.product.prodname_copilot_short %} interacts with the selected large language model (LLM) to generate a response, this consumes {% data variables.product.prodname_ai_credits %}. More interactions with the LLM result in a higher consumption of {% data variables.product.prodname_ai_credits %}.
 
-  Each subagent can interact with the LLM independently of the main agent, so splitting work up into smaller tasks that are run by subagents may result in more LLM interactions than if the work was handled by the main agent. Using `/fleet` in a prompt may therefore cause more premium requests to be consumed.
-
-  {% data reusables.cli.billable-prus %}
+  Each subagent can interact with the LLM independently of the main agent, so splitting work up into smaller tasks that are run by subagents may result in more LLM interactions than if the work was handled by the main agent. Using `/fleet` in a prompt may therefore cause more {% data variables.product.prodname_ai_credits %} to be consumed.
 
 * **Task composition**: Work is best suited to execution by multiple subagents if it can be decomposed into independent subtasks. If your request is inherently sequential, using the `/fleet` slash command mode may not provide any benefit.
 

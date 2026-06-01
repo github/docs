@@ -37,7 +37,7 @@ Some events have multiple activity types. For these events, you can specify whic
 > * {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 > * {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). For information about the branch protection rule APIs, see [AUTOTITLE](/graphql/reference/objects#branchprotectionrule) in the GraphQL API documentation or [AUTOTITLE](/rest/branches).
+Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). For information about the branch protection rule APIs, see [AUTOTITLE](/graphql/reference/branches#object-branchprotectionrule) in the GraphQL API documentation or [AUTOTITLE](/rest/branches).
 
 For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
 
@@ -58,7 +58,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * To prevent recursive workflows, this event does not trigger workflows if the check run's check suite was created by {% data variables.product.prodname_actions %} or if the check suite's head SHA is associated with {% data variables.product.prodname_actions %}.
 
-Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see [AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check run APIs, see [AUTOTITLE](/graphql/reference/objects#checkrun) in the GraphQL API documentation or [AUTOTITLE](/rest/checks/runs).
+Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see [AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check run APIs, see [AUTOTITLE](/graphql/reference/checks#object-checkrun) in the GraphQL API documentation or [AUTOTITLE](/rest/checks/runs).
 
 For example, you can run a workflow when a check run has been `rerequested` or `completed`.
 
@@ -79,7 +79,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * To prevent recursive workflows, this event does not trigger workflows if the check suite was created by {% data variables.product.prodname_actions %} or if the check suite's head SHA is associated with {% data variables.product.prodname_actions %}.
 
-Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see [AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check suite APIs, see [AUTOTITLE](/graphql/reference/objects#checksuite) in the GraphQL API documentation or [AUTOTITLE](/rest/checks/suites).
+Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see [AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check suite APIs, see [AUTOTITLE](/graphql/reference/checks#object-checksuite) in the GraphQL API documentation or [AUTOTITLE](/rest/checks/suites).
 
 For example, you can run a workflow when a check suite has been `completed`.
 
@@ -98,7 +98,7 @@ on:
 > [!NOTE]
 > An event will not be created when you create more than three tags at once.
 
-Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see [AUTOTITLE](/graphql/reference/mutations#createref) in the GraphQL API documentation or [AUTOTITLE](/rest/git/refs#create-a-reference).
+Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see [AUTOTITLE](/graphql/reference/git#mutation-createref) in the GraphQL API documentation or [AUTOTITLE](/rest/git/refs#create-a-reference).
 
 For example, you can run a workflow when the `create` event occurs.
 
@@ -117,7 +117,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * An event will not be created when you delete more than three tags at once.
 
-Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see [AUTOTITLE](/graphql/reference/mutations#deleteref) in the GraphQL API documentation or [AUTOTITLE](/rest/git/refs#delete-a-reference).
+Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see [AUTOTITLE](/graphql/reference/git#mutation-deleteref) in the GraphQL API documentation or [AUTOTITLE](/rest/git/refs#delete-a-reference).
 
 For example, you can run a workflow when the `delete` event occurs.
 
@@ -132,7 +132,7 @@ on:
 | --------------------- | -------------- | ------------ | -------------|
 | [`deployment`](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment) | Not applicable | Commit to be deployed | Branch or tag to be deployed (empty if created with a commit SHA)|
 
-Runs your workflow when someone creates a deployment in the workflow's repository. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment, see [AUTOTITLE](/graphql/reference/mutations#createdeployment) in the GraphQL API documentation or [AUTOTITLE](/rest/repos#deployments).
+Runs your workflow when someone creates a deployment in the workflow's repository. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment, see [AUTOTITLE](/graphql/reference/deployments#mutation-createdeployment) in the GraphQL API documentation or [AUTOTITLE](/rest/repos#deployments).
 
 For example, you can run a workflow when the `deployment` event occurs.
 
@@ -150,7 +150,7 @@ on:
 > [!NOTE]
 > When a deployment status's state is set to `inactive`, a workflow run will not be triggered.
 
-Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see [AUTOTITLE](/graphql/reference/mutations#createdeploymentstatus) in the GraphQL API documentation or [AUTOTITLE](/rest/deployments#create-a-deployment-status).
+Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see [AUTOTITLE](/graphql/reference/deployments#mutation-createdeploymentstatus) in the GraphQL API documentation or [AUTOTITLE](/rest/deployments#create-a-deployment-status).
 
 For example, you can run a workflow when the `deployment_status` event occurs.
 
@@ -170,7 +170,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Runs your workflow when a discussion in the workflow's repository is created or modified. For activity related to comments on a discussion, use the [`discussion_comment`](#discussion_comment) event. For more information about discussions, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions). For information about the GraphQL API, see [AUTOTITLE](/graphql/reference/objects#discussion).
+Runs your workflow when a discussion in the workflow's repository is created or modified. For activity related to comments on a discussion, use the [`discussion_comment`](#discussion_comment) event. For more information about discussions, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions). For information about the GraphQL API, see [AUTOTITLE](/graphql/reference/discussions#object-discussion).
 
 For example, you can run a workflow when a discussion has been `created`, `edited`, or `answered`.
 
@@ -191,7 +191,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Runs your workflow when a comment on a discussion in the workflow's repository is created or modified. For activity related to a discussion as opposed to comments on the discussion, use the [`discussion`](#discussion) event. For more information about discussions, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions). For information about the GraphQL API, see [AUTOTITLE](/graphql/reference/objects#discussion).
+Runs your workflow when a comment on a discussion in the workflow's repository is created or modified. For activity related to a discussion as opposed to comments on the discussion, use the [`discussion`](#discussion) event. For more information about discussions, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions). For information about the GraphQL API, see [AUTOTITLE](/graphql/reference/discussions#object-discussion).
 
 For example, you can run a workflow when a discussion comment has been `created` or `deleted`.
 
@@ -268,7 +268,7 @@ on:
 > * {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 > * {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue or pull request comment is created, edited, or deleted. For information about the issue comment APIs, see [AUTOTITLE](/graphql/reference/objects#issuecomment) in the GraphQL API documentation or [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment) in the REST API documentation.
+Runs your workflow when an issue or pull request comment is created, edited, or deleted. For information about the issue comment APIs, see [AUTOTITLE](/graphql/reference/issues#object-issuecomment) in the GraphQL API documentation or [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment) in the REST API documentation.
 
 For example, you can run a workflow when an issue or pull request comment has been `created` or `deleted`.
 
@@ -321,7 +321,7 @@ jobs:
 > * {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 > * {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues). For information about the issue APIs, see [AUTOTITLE](/graphql/reference/objects#issue) in the GraphQL API documentation or [AUTOTITLE](/rest/issues).
+Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues). For information about the issue APIs, see [AUTOTITLE](/graphql/reference/issues#object-issue) in the GraphQL API documentation or [AUTOTITLE](/rest/issues).
 
 For example, you can run a workflow when an issue has been `opened`, `edited`, or `milestoned`.
 
@@ -341,7 +341,7 @@ on:
 > * {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#label). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 > * {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels). For information about the label APIs, see [AUTOTITLE](/graphql/reference/objects#label) in the GraphQL API documentation or [AUTOTITLE](/rest/issues/labels).
+Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels). For information about the label APIs, see [AUTOTITLE](/graphql/reference/issues#object-label) in the GraphQL API documentation or [AUTOTITLE](/rest/issues/labels).
 
 If you want to run your workflow when a label is added to or removed from an issue, pull request, or discussion, use the `labeled` or `unlabeled` activity types for the [`issues`](#issues), [`pull_request`](#pull_request), [`pull_request_target`](#pull_request_target), or [`discussion`](#discussion) events instead.
 
@@ -386,7 +386,7 @@ on:
 > * {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 > * {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones). For information about the milestone APIs, see [AUTOTITLE](/graphql/reference/objects#milestone) in the GraphQL API documentation or [AUTOTITLE](/rest/issues/milestones).
+Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones). For information about the milestone APIs, see [AUTOTITLE](/graphql/reference/issues#object-milestone) in the GraphQL API documentation or [AUTOTITLE](/rest/issues/milestones).
 
 If you want to run your workflow when an issue is added to or removed from a milestone, use the `milestoned` or `demilestoned` activity types for the [`issues`](#issues) event instead.
 
@@ -429,7 +429,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
-Runs your workflow when a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to cards or columns in a {% data variables.projects.projects_v1_board %}, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the {% data variables.projects.projects_v1_board %} APIs, see [AUTOTITLE](/graphql/reference/objects#project) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic).
+Runs your workflow when a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to cards or columns in a {% data variables.projects.projects_v1_board %}, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the {% data variables.projects.projects_v1_board %} APIs, see [AUTOTITLE](/graphql/reference/projects-classic#object-project) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic).
 
 For example, you can run a workflow when a project has been `created` or `deleted`.
 
@@ -450,7 +450,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
-Runs your workflow when a card on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or columns in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project card APIs, see [AUTOTITLE](/graphql/reference/objects#projectcard) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic/cards).
+Runs your workflow when a card on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or columns in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project card APIs, see [AUTOTITLE](/graphql/reference/projects-classic#object-projectcard) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic/cards).
 
 For example, you can run a workflow when a project card has been `created` or `deleted`.
 
@@ -471,7 +471,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
-Runs your workflow when a column on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or cards in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project column APIs, see [AUTOTITLE](/graphql/reference/objects#projectcolumn) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic#columns).
+Runs your workflow when a column on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or cards in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project column APIs, see [AUTOTITLE](/graphql/reference/projects-classic#object-projectcolumn) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic#columns).
 
 For example, you can run a workflow when a project column has been `created` or `deleted`.
 
@@ -514,7 +514,7 @@ on:
 > * When a pull request is created or updated by a workflow using `GITHUB_TOKEN`, `pull_request` events with the `opened`, `synchronize`, or `reopened` activity types create workflow runs that require approval. A user with write access to the repository can approve these runs from the pull request page. With the exception of `workflow_dispatch` and `repository_dispatch`, other `GITHUB_TOKEN`-triggered events do not create workflow runs at all.{% endif %}
 > * The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
 
-Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see [AUTOTITLE](/graphql/reference/objects#pullrequest) in the GraphQL API documentation or [AUTOTITLE](/rest/pulls).
+Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see [AUTOTITLE](/graphql/reference/pulls#object-pullrequest) in the GraphQL API documentation or [AUTOTITLE](/rest/pulls).
 
 Note that `GITHUB_SHA` for this event is the last merge commit of the pull request merge branch. If you want to get the commit ID for the last commit to the head branch of the pull request, use `github.event.pull_request.head.sha` instead. For more information about merge branches, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#pull-request-refs-and-merge-branches).
 
@@ -654,7 +654,7 @@ To run your workflow when a comment on a pull request (not on a pull request's d
 > [!NOTE]
 > {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Runs your workflow when a pull request review is submitted, edited, or dismissed. A pull request review is a group of pull request review comments in addition to a body comment and a state. For activity related to pull request review comments or pull request comments, use the [`pull_request_review_comment`](#pull_request_review_comment) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review APIs, see [AUTOTITLE](/graphql/reference/objects#pullrequest) in the GraphQL API documentation or [AUTOTITLE](/rest/pulls#reviews).
+Runs your workflow when a pull request review is submitted, edited, or dismissed. A pull request review is a group of pull request review comments in addition to a body comment and a state. For activity related to pull request review comments or pull request comments, use the [`pull_request_review_comment`](#pull_request_review_comment) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review APIs, see [AUTOTITLE](/graphql/reference/pulls#object-pullrequest) in the GraphQL API documentation or [AUTOTITLE](/rest/pulls#reviews).
 
 For example, you can run a workflow when a pull request review has been `edited` or `dismissed`.
 
@@ -692,7 +692,7 @@ jobs:
 > [!NOTE]
 > {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Runs your workflow when a pull request review comment is modified. A pull request review comment is a comment on a pull request's diff. For activity related to pull request reviews or pull request comments, use the [`pull_request_review`](#pull_request_review) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review comment APIs, see [AUTOTITLE](/graphql/reference/objects#pullrequestreviewcomment) in the GraphQL API documentation or [AUTOTITLE](/rest/pulls#comments).
+Runs your workflow when a pull request review comment is modified. A pull request review comment is a comment on a pull request's diff. For activity related to pull request reviews or pull request comments, use the [`pull_request_review`](#pull_request_review) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review comment APIs, see [AUTOTITLE](/graphql/reference/pulls#object-pullrequestreviewcomment) in the GraphQL API documentation or [AUTOTITLE](/rest/pulls#comments).
 
 For example, you can run a workflow when a pull request review comment has been `created` or `deleted`.
 
@@ -830,7 +830,7 @@ jobs:
 | [`push`](/webhooks-and-events/webhooks/webhook-events-and-payloads#push) | Not applicable | Tip commit pushed to the ref. When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
 
 > [!NOTE]
-> * The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see [AUTOTITLE](/graphql/reference/objects#commit) in the GraphQL API documentation or [AUTOTITLE](/rest/commits#get-a-commit).
+> * The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see [AUTOTITLE](/graphql/reference/commits#object-commit) in the GraphQL API documentation or [AUTOTITLE](/rest/commits#get-a-commit).
 > * Events will not be created if more than 5,000 branches are pushed at once. Events will not be created for tags when more than three tags are pushed at once.
 
 Runs your workflow when you push a commit or tag, or when you create a repository from a template. This includes workflows that are not merged into the default branch. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs). 
@@ -935,7 +935,7 @@ on:
 > * Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the {% data variables.product.github %} UI, your release may automatically be saved as a draft.
 > * The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable _and_ pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
-Runs your workflow when release activity in your repository occurs. For information about the release APIs, see [AUTOTITLE](/graphql/reference/objects#release) in the GraphQL API documentation or [AUTOTITLE](/rest/releases) in the REST API documentation.
+Runs your workflow when release activity in your repository occurs. For information about the release APIs, see [AUTOTITLE](/graphql/reference/releases#object-release) in the GraphQL API documentation or [AUTOTITLE](/rest/releases) in the REST API documentation.
 
 For example, you can run a workflow when a release has been `published`.
 
@@ -1052,7 +1052,7 @@ Notifications for scheduled workflows are sent to the user who last modified the
 > [!NOTE]
 > {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see [AUTOTITLE](/graphql/reference/objects#status) in the GraphQL API documentation or [AUTOTITLE](/rest/commits#commit-statuses).
+Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see [AUTOTITLE](/graphql/reference/commits#object-status) in the GraphQL API documentation or [AUTOTITLE](/rest/commits#commit-statuses).
 
 For example, you can run a workflow when the `status` event occurs.
 
@@ -1089,7 +1089,7 @@ jobs:
 > * {% data reusables.developer-site.multiple_activity_types %} Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch). {% data reusables.developer-site.limit_workflow_to_activity_types %}
 > * {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see [AUTOTITLE](/graphql/reference/mutations#addstar) in the GraphQL API documentation or [AUTOTITLE](/rest/activity/starring).
+Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see [AUTOTITLE](/graphql/reference/activity#mutation-addstar) in the GraphQL API documentation or [AUTOTITLE](/rest/activity/starring).
 
 For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
 

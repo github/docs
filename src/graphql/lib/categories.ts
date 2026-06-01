@@ -26,6 +26,19 @@ export const KIND_LABELS: Record<SchemaKindKey, string> = {
   scalars: 'Scalar',
 }
 
+// Plural form of `KIND_LABELS`, used as the section heading (and mini-TOC
+// parent label) when a GraphQL category page groups its items by kind.
+export const KIND_LABELS_PLURAL: Record<SchemaKindKey, string> = {
+  queries: 'Queries',
+  mutations: 'Mutations',
+  objects: 'Objects',
+  interfaces: 'Interfaces',
+  enums: 'Enums',
+  unions: 'Unions',
+  inputObjects: 'Input objects',
+  scalars: 'Scalars',
+}
+
 // Slug prefix used to disambiguate items across kinds on a category page.
 // For example, a `Repository` object and a `repository` query both have id
 // `repository`; on a category page they become `object-repository` and

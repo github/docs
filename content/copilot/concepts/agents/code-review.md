@@ -3,6 +3,7 @@ title: About GitHub Copilot code review
 shortTitle: Code review
 allowTitleToDifferFromFilename: true
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can review pull requests for you.'
+product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 redirect_from:
@@ -14,12 +15,6 @@ contentType: concepts
 category:
   - Learn about Copilot
 ---
-
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.code-review-actions-minutes-note %}
-
-<!-- end expires 2026-06-01 -->
 
 ## Introduction
 
@@ -39,16 +34,8 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 * Xcode
 * JetBrains IDEs
 
-{% data variables.copilot.copilot_code-review_short %} is a premium feature available with these plans:
-
-* {% data variables.copilot.copilot_pro_short %}
-* {% data variables.copilot.copilot_pro_plus_short %}
-* {% data variables.copilot.copilot_business_short %}
-* {% data variables.copilot.copilot_enterprise_short %}
-
-See [{% data variables.product.prodname_copilot_short %} plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
-
-If you receive {% data variables.product.prodname_copilot_short %} from an organization, your organization must enable the **{% data variables.copilot.copilot_code-review_short %}** option in the {% data variables.product.prodname_copilot_short %} policy settings. This applies to reviews on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
+> [!NOTE]
+> If you receive {% data variables.product.prodname_copilot_short %} from an organization, your organization must enable the **{% data variables.copilot.copilot_code-review_short %}** option in the {% data variables.product.prodname_copilot_short %} policy settings. This applies to reviews on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
 
 ## {% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license
 
@@ -58,7 +45,7 @@ Organization members **without a {% data variables.product.prodname_copilot_shor
 
 To allow organization members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %}, you must enable two policies:
 
-1. **Premium request paid usage**. Enable this policy first. It allows the enterprise or organization to incur charges for {% data variables.copilot.copilot_code-review_short %} premium request usage.
+1. **{% data variables.product.prodname_ai_credits_short %} paid usage**. Enable this policy first. It allows the enterprise or organization to incur charges for {% data variables.copilot.copilot_code-review_short %} {% data variables.product.prodname_ai_credits_short %} usage.
 1. **Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %}**. This sub-policy enables {% data variables.copilot.copilot_code-review_short %} for users without a license.
 
 The second policy has these characteristics:
@@ -98,7 +85,7 @@ For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 * **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes. Full project context gathering is generally available.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_cloud_agent %}**. This automates creating a new pull request against your branch with the suggested fixes applied. Passing suggestions to {% data variables.copilot.copilot_cloud_agent %} is in public preview and subject to change.
 
-These capabilities are enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
+These capabilities are enabled automatically for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_max_short %} plans.
 
 If {% data variables.product.prodname_actions %} is unavailable or if Actions workflows used by {% data variables.copilot.copilot_code-review_short %} fail, reviews will still be generated. However, they will not include the additional features provided by the agentic capabilities.
 
@@ -117,31 +104,30 @@ For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/co
 
 You can view the {% data variables.product.prodname_actions %} minutes associated with {% data variables.copilot.copilot_code-review_short %} runs. For more information, see [{% data variables.product.prodname_actions %} minutes for code review](/copilot/reference/copilot-billing/models-and-pricing#github-actions-minutes-for-code-review).
 
-## Code review monthly quota
+## Code review usage
 
-> [!IMPORTANT]
-> Starting June 1, 2026, {% data variables.copilot.copilot_code-review_short %} will have a model multiplier of 13. This means each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests will be reduced by 13.
+Each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, the interaction consumes {% data variables.product.prodname_ai_credits_short %}. The amount depends on the model used and the number of tokens processed.
 
-Each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one.
+Code reviews have two cost components: {% data variables.product.prodname_ai_credits_short %} for the model interaction (the review itself), and {% data variables.product.prodname_actions %} minutes for the agentic capabilities (context gathering and tool use). For more information on {% data variables.product.prodname_actions %} usage, see [Usage of {% data variables.product.prodname_actions %} runners for agentic capabilities in code review](#usage-of-github-actions-runners-for-agentic-capabilities-in-code-review).
 
-If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the pull request author's quota. If a review is manually requested by another user, the usage is applied to that user's quota instead.
+If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the {% data variables.product.prodname_ai_credits_short %} consumption is attributed to the pull request author. If a review is manually requested by another user, the consumption is attributed to that user instead.
 
 If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to:
 
 * The user who triggered the workflow, if that user can be identified.
 * A designated billing owner.
 
-### What happens when you reach your quota
+### What happens when a budget is reached
 
-When you reach your monthly quota, you will not be able to get a code review from {% data variables.product.prodname_copilot_short %} until your quota resets. To continue to use code reviews before your quota resets, you will need to upgrade your {% data variables.product.prodname_copilot_short %} plan or enable additional premium requests.
+For {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, code review access is governed by budget controls. If a user reaches their user-level budget, or if the enterprise or cost center spending limit is exhausted, code reviews are blocked along with other {% data variables.product.prodname_ai_credits_short %}-consuming features. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing#what-happens-when-a-user-is-blocked).
 
 ### Users without a {% data variables.product.prodname_copilot_short %} license or plan that includes {% data variables.copilot.copilot_code-review_short %}
 
-Users without access to {% data variables.copilot.copilot_code-review_short %} do not have a monthly premium request quota. This includes users who have no {% data variables.product.prodname_copilot_short %} license and users on the {% data variables.copilot.copilot_free_short %} plan, which does not include {% data variables.copilot.copilot_code-review_short %}.
+Users without access to {% data variables.copilot.copilot_code-review_short %} do not have a monthly allowance of {% data variables.product.prodname_ai_credits_short %} for it. This includes users who have no {% data variables.product.prodname_copilot_short %} license and users on the {% data variables.copilot.copilot_free_short %} plan, which does not include {% data variables.copilot.copilot_code-review_short %}.
 
-When {% data variables.copilot.copilot_code-review_short %} is enabled for these users, any premium requests they generate are billed directly to the organization or enterprise as paid overage usage. This applies to both manually requested reviews and automatic code reviews.
+When {% data variables.copilot.copilot_code-review_short %} is enabled for these users, any {% data variables.product.prodname_ai_credits_short %} they consume are billed directly to the organization or enterprise as paid additional usage. This applies to both manually requested reviews and automatic code reviews.
 
-Premium requests generated by these users are not attributed to any {% data variables.product.prodname_copilot_short %} plan quota. They appear as overage usage in billing reports and premium request analytics. Users with a {% data variables.product.prodname_copilot_short %} license that includes code review continue to consume premium requests from their assigned plan quota.
+{% data variables.product.prodname_ai_credits_short %} consumed by these users are not attributed to any individual user's budget. They appear as additional usage in billing reports. Users with a {% data variables.product.prodname_copilot_short %} license that includes code review consume {% data variables.product.prodname_ai_credits_short %} from the shared pool, subject to any user-level budgets configured by their administrator.
 
 ## Model usage
 
@@ -165,7 +151,7 @@ These are short, natural-language statements that you write and store as one or 
 
 ### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
 
-If you have a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has learned about a repository. {% data variables.product.prodname_copilot_short %} can then use this information when it reviews pull requests in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+If you have a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has learned about a repository. {% data variables.product.prodname_copilot_short %} can then use this information when it reviews pull requests in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
 ## About automatic pull request reviews
 

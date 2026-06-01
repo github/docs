@@ -11,6 +11,7 @@ import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { transformerRegistry } from '@/article-api/transformers'
+import { normalizeRenderedMarkdown } from '@/article-api/lib/normalize-markdown'
 import { minimumNotFoundHtml } from '../lib/constants'
 import { contentTypeCacheControl, defaultCacheControl } from './cache-control'
 import { nextHandleRequest } from './next'
@@ -113,7 +114,9 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     // causes renderTitle/renderProp to output markdown instead of HTML,
     // which breaks the cheerio-based unwrap logic.
     const transformerContext = { ...context, markdownRequested: false }
-    req.context.renderedPage = await transformer.transform(page, path, transformerContext)
+    req.context.renderedPage = normalizeRenderedMarkdown(
+      await transformer.transform(page, path, transformerContext),
+    )
   } else {
     req.context.renderedPage = await buildRenderedPage(req)
     req.context.miniTocItems = buildMiniTocItems(req)

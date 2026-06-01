@@ -129,14 +129,7 @@ async function main() {
           console.log(`Using fpt/category-map.json as @docsCategory fallback for ${graphqlVersion}`)
         } catch {
           // fpt hasn't been processed yet (shouldn't happen given iteration
-          // order, but stay defensive). Without it, ghes types fall to "other",
-          // so warn loudly rather than silently mis-bucketing the schema.
-          console.warn(
-            `No fpt/category-map.json available as @docsCategory fallback for ${graphqlVersion}; ` +
-              `every type without an explicit @docsCategory directive will be bucketed as "other". ` +
-              `This usually means sync was run for a single GHES version, or the iteration order of ` +
-              `allVersions changed so that fpt is no longer processed first.`,
-          )
+          // order, but stay defensive). Without it, ghes types fall to "other".
         }
       }
     }
@@ -146,17 +139,9 @@ async function main() {
       fallbackCategoryMap,
     ) // This is slow!
 
-    // Keep writing the monolithic `schema.json` so the existing runtime
-    // loader continues to work. The per-category files are emitted alongside
-    // it so a follow-up PR can flip the loader over without coordinating a
-    // sync run.
-    await updateStaticFile(
-      schemaJsonPerVersion,
-      path.join(graphqlStaticDir, graphqlVersion, 'schema.json'),
-    )
-
     // Split the schema by category so the runtime can lazily load only the
-    // bucket it needs for a given page request.
+    // bucket it needs for a given page request. The monolithic `schema.json`
+    // is no longer written; per-category files are the only on-disk format.
     const perCategoryFiles = bucketSchemaByCategory(schemaJsonPerVersion)
     await writeCategoryFiles(path.join(graphqlStaticDir, graphqlVersion), perCategoryFiles)
 

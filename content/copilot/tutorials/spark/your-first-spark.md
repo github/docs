@@ -4,7 +4,7 @@ shortTitle: Your first spark
 intro: 'Learn how to build your first {% data variables.product.prodname_spark %} app in minutes, without writing any code.'
 versions:
   feature: spark
-product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %} or {% data variables.copilot.copilot_enterprise_short %} license can use {% data variables.product.prodname_spark_short %}.'
+product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, or {% data variables.copilot.copilot_enterprise_short %} license can use {% data variables.product.prodname_spark_short %}.'
 redirect_from:
   - /copilot/tutorials/building-your-first-app-in-minutes-with-github-spark
   - /copilot/tutorials/spark/easy-apps-with-spark

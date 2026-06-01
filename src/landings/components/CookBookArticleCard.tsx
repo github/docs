@@ -34,7 +34,7 @@ export const CookBookArticleCard = ({
   return (
     <div className="m-2">
       <div
-        className={`${styles.cardContainer} ${spotlight ? spotlightClasses : 'd-flex pb-3 border-bottom'}`}
+        className={`${styles.cardContainer} ${spotlight ? spotlightClasses : 'd-flex flex-wrap pb-3 border-bottom'}`}
       >
         {spotlight ? setImage(image, title) : null}
         {spotlight
@@ -42,15 +42,15 @@ export const CookBookArticleCard = ({
           : IconComponent && (
               <IconComponent
                 size={48}
-                className="mr-4 bgColor-accent-muted p-3 circle fgColor-accent"
+                className="mr-4 bgColor-accent-muted p-3 circle fgColor-accent flex-shrink-0"
               />
             )}
-        <div>
+        <div className="min-width-0 flex-1">
           <h3 className="h4 fgColor-accent">
             <Link href={url}>{title}</Link>
           </h3>
           <div className="fgColor-muted mb-3 mt-2">{description}</div>
-          <LabelGroup>
+          <LabelGroup className={styles.labelGroup}>
             {tags.map((tag, index) => (
               <Label key={index} variant="accent" className={styles.label} size="small">
                 {tag}
