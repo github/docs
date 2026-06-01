@@ -70,7 +70,7 @@ Azure API Center provides a fully managed MCP registry with automatic CORS confi
 1. To complete the initial setup for your registry, see [Register and discover remote MCP servers in your API inventory](https://learn.microsoft.com/azure/api-center/register-discover-mcp-server) in the Azure documentation.
 1. If you want your developers to have access to local MCP servers, include those servers in your registry with the correct server ID. For more information, see [AUTOTITLE](/copilot/reference/mcp-allowlist-enforcement).
 1. To ensure {% data variables.product.prodname_copilot %} can fetch your registry, in the visibility settings of your API Center, allow anonymous access.
-1. Copy your API Center endpoint URL. In the next article, you will use this URL to make your registry available across your company.
+1. Copy your API Center endpoint URL. In the next article, you will use this URL to make your registry available across your company. When using the API Center URL in allowlist policy, you'll need to append it with `/workspaces/default`, e.g. `sampleapicenter.data.westeurope.azure-apicenter.ms/workspaces/default`.
 
 ### Pricing and limits
 
