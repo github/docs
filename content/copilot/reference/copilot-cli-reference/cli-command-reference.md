@@ -301,6 +301,8 @@ For a complete list of commands and options, run `copilot help`.
 > [!NOTE]
 > The `--remote`, `--no-remote`, and `--connect` options require the remote sessions feature to be available on your account.
 
+You can use `--remote` with `--resume <TASK-ID>` to resume a remote task locally. This works even when the task was originally created outside a Git repository.
+
 ## Tool availability values
 
 The `--available-tools` and `--excluded-tools` options support these values:
@@ -541,12 +543,25 @@ The CLI includes built-in MCP servers that are available without additional setu
 
 | Server | Description |
 |--------|-------------|
-| `github-mcp-server` | {% data variables.product.github %} API integration: issues, pull requests, commits, code search, and {% data variables.product.prodname_actions %}. |
+| `github-mcp-server` | {% data variables.product.github %} API integration: issues, pull requests, labels, commits, code search, and {% data variables.product.prodname_actions %}. |
 | `playwright` | Browser automation: navigate, click, type, screenshot, and form handling. |
 | `fetch` | HTTP requests via the `fetch` tool. |
 | `time` | Time utilities: `get_current_time` and `convert_time`. |
 
 Use `--disable-builtin-mcps` to disable all built-in servers, or `--disable-mcp-server SERVER-NAME` to disable a specific one.
+
+#### {% data variables.product.github %} MCP server tools
+
+The `github-mcp-server` provides the following tools.
+
+| Tools | Description |
+|-------|-------------|
+| `get_file_contents`, `search_code` | Browse repository files. |
+| `list_issues`, `issue_read`, `search_issues` | Issue tracking. |
+| `get_pull_request`, `list_pull_requests`, `get_pull_request_files` | Pull requests. |
+| `list_commits`, `get_commit` | Commit history. |
+| `list_workflow_runs`, `get_workflow_run_logs` | {% data variables.product.prodname_actions %}. |
+| `get_label`, `list_label`, `label_write` | Label management. |
 
 ### MCP server naming
 

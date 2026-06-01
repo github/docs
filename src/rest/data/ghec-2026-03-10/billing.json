@@ -3050,7 +3050,8 @@
                         "enum": [
                           "detailed",
                           "summarized",
-                          "premium_request"
+                          "premium_request",
+                          "ai_credit"
                         ]
                       },
                       "start_date": {
@@ -3171,7 +3172,8 @@
           "enum": [
             "detailed",
             "summarized",
-            "premium_request"
+            "premium_request",
+            "ai_credit"
           ]
         },
         {
@@ -3238,7 +3240,8 @@
                   "enum": [
                     "detailed",
                     "summarized",
-                    "premium_request"
+                    "premium_request",
+                    "ai_credit"
                   ]
                 },
                 "start_date": {
@@ -3399,7 +3402,8 @@
                   "enum": [
                     "detailed",
                     "summarized",
-                    "premium_request"
+                    "premium_request",
+                    "ai_credit"
                   ]
                 },
                 "start_date": {

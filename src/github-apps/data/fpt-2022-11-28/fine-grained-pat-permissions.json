@@ -7436,6 +7436,15 @@
       },
       {
         "category": "repos",
+        "slug": "get-the-hash-algorithm-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/hash-algorithm",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
         "slug": "list-repository-languages",
         "subcategory": "repos",
         "verb": "get",
