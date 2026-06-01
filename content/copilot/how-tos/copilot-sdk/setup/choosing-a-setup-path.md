@@ -43,6 +43,7 @@ You're building tools for your team or company. Users are employees who need to 
 1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/backend-services)**—Run the SDK in your internal services
 
 **If scaling beyond a single server:**
+1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy)**—Configure SDK options for multi-user server mode
 1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/scaling)**—Handle multiple users and services
 
 ### 🚀 App developer (ISV)
@@ -55,6 +56,7 @@ You're building a product for customers. You need to handle authentication for y
 1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/backend-services)**—Power your product from server-side code
 
 **For production:**
+1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy)**—Use `mode: "empty"`, per-session tokens, and isolated runtime state
 1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/scaling)**—Serve many customers reliably
 
 ### 🏗️ Platform developer
@@ -63,6 +65,7 @@ You're embedding Copilot into a platform—APIs, developer tools, or infrastruct
 
 **Start with:**
 1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/backend-services)**—Core server-side integration
+1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy)**—SDK-level isolation, per-session auth, and shared runtime options
 1. **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/scaling)**—Session isolation, horizontal scaling, persistence
 
 **Depending on your auth model:**
@@ -81,6 +84,7 @@ Use this table to find the right guides based on what you need to do:
 | Use your own model keys (OpenAI, Azure, etc.) | [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) |
 | Azure BYOK with Managed Identity (no API keys) | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/azure-managed-identity) |
 | Run the SDK on a server | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/backend-services) |
+| Configure SDK options for concurrent users | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy) |
 | Serve multiple users / scale horizontally | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/scaling) |
 
 ## Configuration comparison

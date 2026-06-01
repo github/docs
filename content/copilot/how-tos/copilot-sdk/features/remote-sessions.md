@@ -17,6 +17,8 @@ contentType: how-tos
 <!-- markdownlint-disable GHD046 GHD005 -->
 <!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
 
+For running sessions on GitHub-hosted compute, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/features/cloud-sessions).
+
 ## Prerequisites
 
 * The user must be authenticated (GitHub token or logged-in user)
@@ -140,97 +142,6 @@ while let Ok(event) = events.recv().await {
 
 <!-- tabs:end -->
 
-### Cloud sessions
-
-Set the create-session `cloud` option to create a remote session in the cloud instead of a local session. You can include repository metadata to associate the cloud session with a GitHub repository.
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-<!-- docs-validate: skip -->
-
-```typescript
-const session = await client.createSession({
-  onPermissionRequest: async () => ({ allowed: true }),
-  cloud: {
-    repository: { owner: "github", name: "copilot-sdk", branch: "main" },
-  },
-});
-```
-
-#### Python
-
-<!-- docs-validate: skip -->
-
-```python
-from copilot import CloudSessionOptions, CloudSessionRepository
-
-session = await client.create_session(
-    on_permission_request=PermissionHandler.approve_all,
-    cloud=CloudSessionOptions(
-        repository=CloudSessionRepository(
-            owner="github",
-            name="copilot-sdk",
-            branch="main",
-        )
-    ),
-)
-```
-
-#### Go
-
-<!-- docs-validate: skip -->
-
-```golang
-session, err := client.CreateSession(ctx, &copilot.SessionConfig{
-    Cloud: &copilot.CloudSessionOptions{
-        Repository: &copilot.CloudSessionRepository{
-            Owner:  "github",
-            Name:   "copilot-sdk",
-            Branch: "main",
-        },
-    },
-})
-```
-
-#### C#
-
-<!-- docs-validate: skip -->
-
-```csharp
-var session = await client.CreateSessionAsync(new SessionConfig
-{
-    Cloud = new CloudSessionOptions
-    {
-        Repository = new CloudSessionRepository
-        {
-            Owner = "github",
-            Name = "copilot-sdk",
-            Branch = "main"
-        }
-    }
-});
-```
-
-#### Rust
-
-<!-- docs-validate: skip -->
-
-```rust
-use github_copilot_sdk::{CloudSessionOptions, CloudSessionRepository, SessionConfig};
-
-let session = client.create_session(
-    SessionConfig::default().with_cloud(
-        CloudSessionOptions::with_repository(
-            CloudSessionRepository::new("github", "copilot-sdk").with_branch("main"),
-        ),
-    ),
-).await?;
-```
-
-<!-- tabs:end -->
-
 ### On-demand (per-session toggle)
 
 Use `session.rpc.remote.enable()` to start remote access mid-session, and `session.rpc.remote.disable()` to stop it. This is equivalent to the CLI's `/remote on` and `/remote off` commands.
@@ -316,6 +227,5 @@ The remote URL can be rendered as a QR code for easy mobile access. The SDK prov
 ## Notes
 
 * The `remote` client option only applies when the SDK spawns the CLI process. It is ignored when connecting to an external server via `cliUrl`.
-* The `cloud` session option applies only to new sessions created with `session.create`; it is not used when resuming an existing session.
 * If the working directory is not a GitHub repository, remote setup is silently skipped (always-on mode) or returns an error (on-demand mode).
 * Remote sessions require authentication. Ensure `gitHubToken` or `useLoggedInUser` is configured.

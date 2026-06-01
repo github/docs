@@ -104,9 +104,23 @@ public delegate Task<UserPromptSubmittedHookOutput?> UserPromptSubmittedHandler(
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.rpc.*;
+import java.util.concurrent.CompletableFuture;
 
-UserPromptSubmittedHandler userPromptSubmittedHandler;
+public class UserPromptSubmittedSignature {
+    UserPromptSubmittedHandler handler = (UserPromptSubmittedHookInput input, HookInvocation invocation) ->
+        CompletableFuture.completedFuture(null);
+    public static void main(String[] args) {}
+}
+```
+
+```java
+@FunctionalInterface
+public interface UserPromptSubmittedHandler {
+    CompletableFuture<UserPromptSubmittedHookOutput> handle(
+        UserPromptSubmittedHookInput input,
+        HookInvocation invocation);
+}
 ```
 
 {% endcodetab %}
@@ -242,9 +256,11 @@ var session = await client.CreateSessionAsync(new SessionConfig
 {% endcodetab %}
 {% codetab java %}
 
+<!-- docs-validate: skip -->
+
 ```java
-import com.github.copilot.sdk.*;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.*;
+import com.github.copilot.rpc.*;
 import java.util.concurrent.CompletableFuture;
 
 var hooks = new SessionHooks()

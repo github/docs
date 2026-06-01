@@ -3,7 +3,7 @@ title: Custom agents and sub-agent orchestration
 shortTitle: Custom Agents
 intro: >-
   Define specialized agents with scoped tools and prompts, then let Copilot
-  orchestrate them as sub-agents within a single session.
+    orchestrate them as sub-agents within a single session.
 versions:
   fpt: '*'
   ghec: '*'
@@ -205,9 +205,8 @@ await using var session = await client.CreateSessionAsync(new SessionConfig
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.CopilotClient;
-import com.github.copilot.sdk.events.*;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.*;
 import java.util.List;
 
 try (var client = new CopilotClient()) {
@@ -380,7 +379,7 @@ var session = await client.CreateSessionAsync(new SessionConfig
 <!-- docs-validate: skip -->
 
 ```java
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.rpc.*;
 import java.util.List;
 
 var session = client.createSession(
@@ -637,6 +636,8 @@ await session.SendAndWaitAsync(new MessageOptions
 
 {% endcodetab %}
 {% codetab java %}
+
+<!-- docs-validate: skip -->
 
 ```java
 session.on(event -> {

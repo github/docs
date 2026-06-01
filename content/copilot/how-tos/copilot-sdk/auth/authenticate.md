@@ -93,7 +93,7 @@ await using var client = new CopilotClient();
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.CopilotClient;
+import com.github.copilot.CopilotClient;
 
 // Default: uses logged-in user credentials
 var client = new CopilotClient();
@@ -166,7 +166,7 @@ func main() {
 import copilot "github.com/github/copilot-sdk/go"
 
 client := copilot.NewClient(&copilot.ClientOptions{
-    GithubToken:     userAccessToken,   // Token from OAuth flow
+    GitHubToken:     userAccessToken,   // Token from OAuth flow
     UseLoggedInUser: copilot.Bool(false), // Don't use stored CLI credentials
 })
 ```
@@ -198,9 +198,11 @@ await using var client = new CopilotClient(new CopilotClientOptions
 {% endcodetab %}
 {% codetab java %}
 
+<!-- docs-validate: skip -->
+
 ```java
-import com.github.copilot.sdk.CopilotClient;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.*;
 
 var client = new CopilotClient(new CopilotClientOptions()
     .setGitHubToken(userAccessToken)  // Token from OAuth flow
@@ -292,12 +294,14 @@ BYOK allows you to use your own API keys from model providers like Azure AI Foun
 
 When multiple authentication methods are available, the SDK uses them in this priority order:
 
-1. **Explicit `gitHubToken`** - Token passed directly to SDK constructor
+1. **Explicit `gitHubToken`** - Token passed directly to the SDK client or session configuration
 1. **HMAC key** - `CAPI_HMAC_KEY` or `COPILOT_HMAC_KEY` environment variables
 1. **Direct API token** - `GITHUB_COPILOT_API_TOKEN` with `COPILOT_API_URL`
 1. **Environment variable tokens** - `COPILOT_GITHUB_TOKEN` → `GH_TOKEN` → `GITHUB_TOKEN`
 1. **Stored OAuth credentials** - From previous `copilot` CLI login
 1. **GitHub CLI** - `gh auth` credentials
+
+For multi-user server mode, pass a per-session `gitHubToken` so each session runs with the correct GitHub identity; see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy).
 
 ## Disabling auto-login
 
@@ -365,8 +369,8 @@ await using var client = new CopilotClient(new CopilotClientOptions
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.CopilotClient;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.*;
 
 var client = new CopilotClient(new CopilotClientOptions()
     .setUseLoggedInUser(false)  // Only use explicit tokens

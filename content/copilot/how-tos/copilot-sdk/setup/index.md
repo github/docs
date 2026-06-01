@@ -14,6 +14,7 @@ children:
   - /choosing-a-setup-path
   - /github-oauth
   - /local-cli
+  - /multi-tenancy
   - /scaling
 ---
 

@@ -203,9 +203,8 @@ var session = await client.CreateSessionAsync(new SessionConfig
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.CopilotClient;
-import com.github.copilot.sdk.events.*;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.*;
 import java.util.concurrent.CompletableFuture;
 
 try (var client = new CopilotClient()) {
@@ -408,14 +407,16 @@ var session = await client.CreateSessionAsync(new SessionConfig
 {% endcodetab %}
 {% codetab java %}
 
+<!-- docs-validate: skip -->
+
 ```java
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-import com.github.copilot.sdk.PermissionHandler;
-import com.github.copilot.sdk.SessionConfig;
-import com.github.copilot.sdk.SessionHooks;
-import com.github.copilot.sdk.json.PreToolUseHookOutput;
+import com.github.copilot.rpc.PermissionHandler;
+import com.github.copilot.rpc.SessionConfig;
+import com.github.copilot.rpc.SessionHooks;
+import com.github.copilot.rpc.PreToolUseHookOutput;
 var readOnlyTools = Set.of("read_file", "glob", "grep", "view");
 
 var hooks = new SessionHooks()

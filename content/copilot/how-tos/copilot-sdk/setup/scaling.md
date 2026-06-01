@@ -14,6 +14,8 @@ contentType: how-tos
 <!-- markdownlint-disable GHD046 GHD005 -->
 <!-- Suppressed: GHD046 (outdated release terminology), GHD005 (hardcoded data variable) -->
 
+For SDK-level options and patterns, see [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy).
+
 **Best for:** Platform developers, SaaS builders, any deployment serving more than a handful of concurrent users.
 
 ## Core concepts
