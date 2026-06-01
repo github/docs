@@ -1,0 +1,723 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<params_config>
+    <params_id id = "1">
+       <params_rat name = "GSM" operation = "1" type = "1">
+          <params_value name = "gsm_tx_powerback_value"   index = "0">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+          <params_value name = "gprs_1tx_powerback_value" index = "1">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+          <params_value name = "gprs_2tx_powerback_value" index = "2">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+          <params_value name = "gprs_3tx_powerback_value" index = "3">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+          <params_value name = "gprs_4tx_powerback_value" index = "4">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+          <params_value name = "edge_1tx_powerback_value" index = "5">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+          <params_value name = "edge_2tx_powerback_value" index = "6">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+          <params_value name = "edge_3tx_powerback_value" index = "7">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+          <params_value name = "edge_4tx_powerback_value" index = "8">
+              <item name = "band850"   value = "2"/>
+              <item name = "band900"   value = "0"/>
+              <item name = "band1800"  value = "0"/>
+              <item name = "band1900"   value = "0"/>
+          </params_value>
+       </params_rat>
+       <params_rat name = "WCDMA" operation = "1">
+           <item name = "1"  value ="1"/>
+           <item name = "2"  value ="2"/>
+           <item name = "4"  value ="2"/>
+           <item name = "5"  value ="3"/>
+           <item name = "8"  value ="4"/>
+       </params_rat>
+       <params_rat  name = "LTE" operation = "1">
+          <item name = "1"  value ="-1"/>
+          <item name = "2"  value ="-1"/>
+          <item name = "3"  value ="1"/>
+          <item name = "4"  value ="1"/>
+          <item name = "5"  value =""/>
+          <item name = "6"  value =""/>
+          <item name = "7"  value =""/>
+          <item name = "8"  value =""/>
+          <item name = "9"  value =""/>
+          <item name = "10" value =""/>
+          <item name = "11" value =""/>
+          <item name = "12" value =""/>
+          <item name = "13" value =""/>
+          <item name = "14" value =""/>
+          <item name = "15" value =""/>
+          <item name = "16" value =""/>
+          <item name = "17" value =""/>
+          <item name = "18" value =""/>
+          <item name = "19" value =""/>
+          <item name = "20" value =""/>
+          <item name = "21" value =""/>
+          <item name = "22" value =""/>
+          <item name = "23" value =""/>
+       </params_rat>
+    </params_id>
+    <params_id id = "2">
+        <params_rat name = "GSM" operation = "2" type = "1">
+            <params_value name = "gsm_tx_powerback_value"   index = "0">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_1tx_powerback_value" index = "1">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_2tx_powerback_value" index = "2">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_3tx_powerback_value" index = "3">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_4tx_powerback_value" index = "4">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_1tx_powerback_value" index = "5">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_2tx_powerback_value" index = "6">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_3tx_powerback_value" index = "7">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_4tx_powerback_value" index = "8">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+        </params_rat>
+        <params_rat name = "WCDMA" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="-2"/>
+            <item name = "4"  value ="2"/>
+            <item name = "5"  value ="3"/>
+            <item name = "8"  value ="4"/>
+        </params_rat>
+        <params_rat  name = "LTE" operation = "1">
+            <item name = "1"  value ="-1"/>
+            <item name = "2"  value ="-1"/>
+            <item name = "3"  value ="-1"/>
+            <item name = "4"  value ="1"/>
+            <item name = "5"  value =""/>
+            <item name = "6"  value =""/>
+            <item name = "7"  value =""/>
+            <item name = "8"  value =""/>
+            <item name = "9"  value =""/>
+            <item name = "10" value =""/>
+            <item name = "11" value =""/>
+            <item name = "12" value =""/>
+            <item name = "13" value =""/>
+            <item name = "14" value =""/>
+            <item name = "15" value =""/>
+            <item name = "16" value =""/>
+            <item name = "17" value =""/>
+            <item name = "18" value =""/>
+            <item name = "19" value =""/>
+            <item name = "20" value =""/>
+            <item name = "21" value =""/>
+            <item name = "22" value =""/>
+            <item name = "23" value =""/>
+        </params_rat>
+    </params_id>
+    <params_id id = "3">
+        <params_rat name = "GSM" operation = "3" type = "1">
+            <params_value name = "gsm_tx_powerback_value"   index = "0">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_1tx_powerback_value" index = "1">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_2tx_powerback_value" index = "2">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_3tx_powerback_value" index = "3">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_4tx_powerback_value" index = "4">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_1tx_powerback_value" index = "5">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_2tx_powerback_value" index = "6">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_3tx_powerback_value" index = "7">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_4tx_powerback_value" index = "8">
+                <item name = "band850"   value = "0x2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+        </params_rat>
+        <params_rat name = "WCDMA" operation = "1">
+            <item name = "1"  value ="-1"/>
+            <item name = "2"  value ="-2"/>
+            <item name = "4"  value ="2"/>
+            <item name = "5"  value ="3"/>
+            <item name = "8"  value ="4"/>
+        </params_rat>
+        <params_rat  name = "LTE" operation = "1">
+            <item name = "1"  value ="-1"/>
+            <item name = "2"  value ="-1"/>
+            <item name = "3"  value ="-1"/>
+            <item name = "4"  value ="1"/>
+            <item name = "5"  value =""/>
+            <item name = "6"  value =""/>
+            <item name = "7"  value =""/>
+            <item name = "8"  value =""/>
+            <item name = "9"  value =""/>
+            <item name = "10" value =""/>
+            <item name = "11" value =""/>
+            <item name = "12" value =""/>
+            <item name = "13" value =""/>
+            <item name = "14" value =""/>
+            <item name = "15" value =""/>
+            <item name = "16" value =""/>
+            <item name = "17" value =""/>
+            <item name = "18" value =""/>
+            <item name = "19" value =""/>
+            <item name = "20" value =""/>
+            <item name = "21" value =""/>
+            <item name = "22" value =""/>
+            <item name = "23" value =""/>
+        </params_rat>
+    </params_id>
+    <params_id id = "4">
+        <params_rat name = "GSM" operation = "1" type = "1">
+            <params_value name = "gsm_tx_powerback_value"   index = "0">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_1tx_powerback_value" index = "1">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_2tx_powerback_value" index = "2">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_3tx_powerback_value" index = "3">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_4tx_powerback_value" index = "4">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_1tx_powerback_value" index = "5">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_2tx_powerback_value" index = "6">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_3tx_powerback_value" index = "7">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_4tx_powerback_value" index = "8">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+        </params_rat>
+        <params_rat name = "WCDMA" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="2"/>
+            <item name = "4"  value ="2"/>
+            <item name = "5"  value ="3"/>
+            <item name = "8"  value ="4"/>
+        </params_rat>
+        <params_rat  name = "LTE" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="1"/>
+            <item name = "3"  value ="1"/>
+            <item name = "4"  value ="1"/>
+            <item name = "5"  value =""/>
+            <item name = "6"  value =""/>
+            <item name = "7"  value =""/>
+            <item name = "8"  value =""/>
+            <item name = "9"  value =""/>
+            <item name = "10" value =""/>
+            <item name = "11" value =""/>
+            <item name = "12" value =""/>
+            <item name = "13" value =""/>
+            <item name = "14" value =""/>
+            <item name = "15" value =""/>
+            <item name = "16" value =""/>
+            <item name = "17" value =""/>
+            <item name = "18" value =""/>
+            <item name = "19" value =""/>
+            <item name = "20" value =""/>
+            <item name = "21" value =""/>
+            <item name = "22" value =""/>
+            <item name = "23" value =""/>
+        </params_rat>
+    </params_id>
+    <params_id id = "5">
+        <params_rat name = "GSM" operation = "1" type = "1">
+            <params_value name = "gsm_tx_powerback_value"   index = "0">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_1tx_powerback_value" index = "1">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_2tx_powerback_value" index = "2">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_3tx_powerback_value" index = "3">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_4tx_powerback_value" index = "4">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_1tx_powerback_value" index = "5">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_2tx_powerback_value" index = "6">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_3tx_powerback_value" index = "7">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_4tx_powerback_value" index = "8">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+        </params_rat>
+        <params_rat name = "WCDMA" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="2"/>
+            <item name = "4"  value ="2"/>
+            <item name = "5"  value ="3"/>
+            <item name = "8"  value ="4"/>
+        </params_rat>
+        <params_rat  name = "LTE" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="1"/>
+            <item name = "3"  value ="1"/>
+            <item name = "4"  value ="1"/>
+            <item name = "5"  value =""/>
+            <item name = "6"  value =""/>
+            <item name = "7"  value =""/>
+            <item name = "8"  value =""/>
+            <item name = "9"  value =""/>
+            <item name = "10" value =""/>
+            <item name = "11" value =""/>
+            <item name = "12" value =""/>
+            <item name = "13" value =""/>
+            <item name = "14" value =""/>
+            <item name = "15" value =""/>
+            <item name = "16" value =""/>
+            <item name = "17" value =""/>
+            <item name = "18" value =""/>
+            <item name = "19" value =""/>
+            <item name = "20" value =""/>
+            <item name = "21" value =""/>
+            <item name = "22" value =""/>
+            <item name = "23" value =""/>
+        </params_rat>
+    </params_id>
+    <params_id id = "6">
+        <params_rat name = "GSM" operation = "1" type = "1">
+            <params_value name = "gsm_tx_powerback_value"   index = "0">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_1tx_powerback_value" index = "1">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_2tx_powerback_value" index = "2">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_3tx_powerback_value" index = "3">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_4tx_powerback_value" index = "4">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_1tx_powerback_value" index = "5">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_2tx_powerback_value" index = "6">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_3tx_powerback_value" index = "7">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_4tx_powerback_value" index = "8">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+        </params_rat>
+        <params_rat name = "WCDMA" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="2"/>
+            <item name = "4"  value =""/>
+            <item name = "5"  value =""/>
+            <item name = "8"  value =""/>
+        </params_rat>
+        <params_rat  name = "LTE" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="1"/>
+            <item name = "3"  value ="1"/>
+            <item name = "4"  value ="1"/>
+            <item name = "5"  value =""/>
+            <item name = "6"  value =""/>
+            <item name = "7"  value =""/>
+            <item name = "8"  value =""/>
+            <item name = "9"  value =""/>
+            <item name = "10" value =""/>
+            <item name = "11" value =""/>
+            <item name = "12" value =""/>
+            <item name = "13" value =""/>
+            <item name = "14" value =""/>
+            <item name = "15" value =""/>
+            <item name = "16" value =""/>
+            <item name = "17" value =""/>
+            <item name = "18" value =""/>
+            <item name = "19" value =""/>
+            <item name = "20" value =""/>
+            <item name = "21" value =""/>
+            <item name = "22" value =""/>
+            <item name = "23" value =""/>
+        </params_rat>
+    </params_id>
+    <params_id id = "7">
+        <params_rat name = "GSM" operation = "1" type = "1">
+            <params_value name = "gsm_tx_powerback_value"   index = "0">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_1tx_powerback_value" index = "1">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_2tx_powerback_value" index = "2">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_3tx_powerback_value" index = "3">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_4tx_powerback_value" index = "4">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_1tx_powerback_value" index = "5">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_2tx_powerback_value" index = "6">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_3tx_powerback_value" index = "7">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_4tx_powerback_value" index = "8">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+        </params_rat>
+        <params_rat name = "WCDMA" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="2"/>
+            <item name = "4"  value ="2"/>
+            <item name = "5"  value ="3"/>
+            <item name = "8"  value ="4"/>
+        </params_rat>
+        <params_rat  name = "LTE" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="1"/>
+            <item name = "3"  value ="1"/>
+            <item name = "4"  value ="1"/>
+            <item name = "5"  value =""/>
+            <item name = "6"  value =""/>
+            <item name = "7"  value =""/>
+            <item name = "8"  value =""/>
+            <item name = "9"  value =""/>
+            <item name = "10" value =""/>
+            <item name = "11" value =""/>
+            <item name = "12" value =""/>
+            <item name = "13" value =""/>
+            <item name = "14" value =""/>
+            <item name = "15" value =""/>
+            <item name = "16" value =""/>
+            <item name = "17" value =""/>
+            <item name = "18" value =""/>
+            <item name = "19" value =""/>
+            <item name = "20" value =""/>
+            <item name = "21" value =""/>
+            <item name = "22" value =""/>
+            <item name = "23" value =""/>
+        </params_rat>
+    </params_id>
+    <params_id id = "8">
+        <params_rat name = "GSM" operation = "2" type = "1">
+            <params_value name = "gsm_tx_powerback_value"   index = "0">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_1tx_powerback_value" index = "1">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_2tx_powerback_value" index = "2">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_3tx_powerback_value" index = "3">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "gprs_4tx_powerback_value" index = "4">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_1tx_powerback_value" index = "5">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_2tx_powerback_value" index = "6">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_3tx_powerback_value" index = "7">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+            <params_value name = "edge_4tx_powerback_value" index = "8">
+                <item name = "band850"   value = "2"/>
+                <item name = "band900"   value = "0"/>
+                <item name = "band1800"  value = "0"/>
+                <item name = "band1900"   value = "0"/>
+            </params_value>
+        </params_rat>
+        <params_rat name = "WCDMA" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="2"/>
+            <item name = "4"  value ="2"/>
+            <item name = "5"  value ="3"/>
+            <item name = "8"  value ="4"/>
+        </params_rat>
+        <params_rat  name = "LTE" operation = "1">
+            <item name = "1"  value ="1"/>
+            <item name = "2"  value ="1"/>
+            <item name = "3"  value ="1"/>
+            <item name = "4"  value ="1"/>
+            <item name = "5"  value =""/>
+            <item name = "6"  value =""/>
+            <item name = "7"  value =""/>
+            <item name = "8"  value =""/>
+            <item name = "9"  value =""/>
+            <item name = "10" value =""/>
+            <item name = "11" value =""/>
+            <item name = "12" value =""/>
+            <item name = "13" value =""/>
+            <item name = "14" value =""/>
+            <item name = "15" value =""/>
+            <item name = "16" value =""/>
+            <item name = "17" value =""/>
+            <item name = "18" value =""/>
+            <item name = "19" value =""/>
+            <item name = "20" value =""/>
+            <item name = "21" value =""/>
+            <item name = "22" value =""/>
+            <item name = "23" value =""/>
+        </params_rat>
+    </params_id>
+</params_config>
