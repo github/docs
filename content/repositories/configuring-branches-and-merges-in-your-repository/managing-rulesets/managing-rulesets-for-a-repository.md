@@ -14,7 +14,7 @@ category:
 
 After creating a ruleset, you can still make changes to it. For example, you can add rules to better protect your branches or tags, or you can {% ifversion repo-rules-enterprise %}switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repository{% else %}temporarily disable a ruleset to troubleshoot any unintended effects on the contributor experience for your repository{% endif %}.
 
-You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/repos/rules) and [AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset).
+You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/repos/rules) and [AUTOTITLE](/graphql/reference/repos#mutation-createrepositoryruleset).
 
 {% ifversion repo-rules-enterprise %}
 

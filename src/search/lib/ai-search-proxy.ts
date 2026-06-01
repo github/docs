@@ -6,6 +6,7 @@ import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
 import type { ExtendedRequest } from '@/types'
 import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
+import { MAX_QUERY_LENGTH } from '@/search/lib/ai-search-constants'
 
 const logger = createLogger(import.meta.url)
 
@@ -24,6 +25,19 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
     errors.push({ message: `Missing required key 'query' in request body` })
   } else if (typeof query !== 'string') {
     errors.push({ message: `Invalid 'query' in request body. Must be a string` })
+  }
+
+  if (typeof query === 'string' && query.length > MAX_QUERY_LENGTH) {
+    statsd.increment('ai-search.query_too_large', 1, [
+      `version:${version}`,
+      `language:${req.language}`,
+      `queryLength:${query.length}`,
+    ])
+    res.status(413).json({
+      errors: [{ message: `Query exceeds maximum length of ${MAX_QUERY_LENGTH} characters` }],
+      upstreamStatus: 413,
+    })
+    return
   }
 
   let docsSource = ''

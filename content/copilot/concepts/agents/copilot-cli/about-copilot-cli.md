@@ -305,7 +305,17 @@ For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp
 
 You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command or the `--model` command-line option. Enter this command, then select a model from the list.
 
-Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive interface, and each time you use {% data variables.copilot.copilot_cli_short %} programmatically, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
+Each time you interact with {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive interface, or use {% data variables.copilot.copilot_cli_short %} programmatically, {% data variables.product.prodname_ai_credits_short %} are consumed based on the number of tokens processed. The amount consumed per interaction varies depending on the model used. See [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
+
+### Models with extended capabilities
+
+The latest models support a 1 million token context window, so you can work across larger codebases, longer documents, and complex multi-file projects without losing context. After you select a supported model, you will be prompted to choose between the default context size or an extended (1 million token) context.
+
+In addition, these models also support configurable reasoning levels, which control the depth of the model's reasoning process before it generates a response.
+
+Choosing a larger context window or higher reasoning will impact {% data variables.product.prodname_ai_credits_short %} consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
+
+For a list of models that support these capabilities, see [Models with extended capabilities](/copilot/reference/ai-models/supported-models#models-with-extended-capabilities).
 
 ### Using your own model provider
 

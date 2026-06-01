@@ -3,6 +3,7 @@ title: Integrating Copilot cloud agent with Slack
 shortTitle: Integrate cloud agent with Slack
 allowTitleToDifferFromFilename: true
 intro: 'Provide context to the {% data variables.product.prodname_copilot_short %} cloud agent and open pull requests, all from within your Slack workspace.'
+product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -31,7 +32,7 @@ When you @mention {% data variables.product.prodname_copilot_short %} in Slack, 
 
 ## Prerequisites
 
-* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, or {% data variables.copilot.copilot_enterprise_short %}.
+* You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through a paid {% data variables.product.prodname_copilot_short %} plan.
 * You must have a Slack account and be a member of a workspace.
 * You must have the {% data variables.product.prodname_github_app %} for Slack installed. See [AUTOTITLE](/integrations/how-tos/slack/integrate-github-with-slack).
 

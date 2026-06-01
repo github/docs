@@ -29,6 +29,10 @@
   multiplier_paid: 15
   multiplier_free: Not applicable
 
+- name: Claude Opus 4.8
+  multiplier_paid: 15
+  multiplier_free: Not applicable
+
 - name: Claude Sonnet 4.5
   multiplier_paid: 1
   multiplier_free: Not applicable
@@ -95,8 +99,4 @@
 
 - name: Raptor mini
   multiplier_paid: 0
-  multiplier_free: 1
-
-- name: Goldeneye
-  multiplier_paid: Not applicable
   multiplier_free: 1
