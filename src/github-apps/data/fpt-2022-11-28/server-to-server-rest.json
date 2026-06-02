@@ -1455,6 +1455,12 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-ai-credit-usage-report-for-an-organization",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/ai_credit/usage"
+    },
+    {
       "slug": "get-all-budgets-for-an-organization",
       "subcategory": "budgets",
       "verb": "get",

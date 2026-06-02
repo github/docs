@@ -71,6 +71,14 @@ Anthropic models include a cache write cost in addition to cached input.
 
 [^7]: {% data variables.copilot.copilot_raptor_mini %} uses {% data variables.copilot.copilot_gpt_5_mini %} pricing.
 
+### Microsoft
+
+| Model | Release status | Category | Input | Cached input | Output |
+| --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "microsoft" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
+
 ## Code completions
 
 {% data reusables.copilot.tbb-completions %}

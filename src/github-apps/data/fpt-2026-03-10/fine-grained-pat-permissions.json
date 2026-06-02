@@ -128,6 +128,15 @@
       },
       {
         "category": "billing",
+        "slug": "get-billing-ai-credit-usage-report-for-an-organization",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/ai_credit/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
         "slug": "get-all-budgets-for-an-organization",
         "subcategory": "budgets",
         "verb": "get",
@@ -9219,6 +9228,15 @@
     "title": "Plan",
     "displayTitle": "User permissions for \"Plan\"",
     "permissions": [
+      {
+        "category": "billing",
+        "slug": "get-billing-ai-credit-usage-report-for-a-user",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/ai_credit/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
       {
         "category": "billing",
         "slug": "get-billing-premium-request-usage-report-for-a-user",
