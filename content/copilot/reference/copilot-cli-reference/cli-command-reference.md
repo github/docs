@@ -144,6 +144,31 @@ Sessions sort by the following modes:
 
 Sessions already open in another window float to the top in all non-relevance sort modes. When no working-directory context is available, the `relevance` mode is skipped.
 
+## Diff mode shortcuts
+
+When diff mode is open (entered via `/diff`):
+
+| Shortcut | Purpose |
+|----------|---------|
+| <kbd>↑</kbd> / `k` | Move selection up one line. |
+| <kbd>↓</kbd> / `j` | Move selection down one line. |
+| <kbd>←</kbd> / `h` | Jump to the previous file. |
+| <kbd>→</kbd> / `l` | Jump to the next file. |
+| <kbd>Home</kbd> | Jump to the first line. |
+| <kbd>End</kbd> | Jump to the last line. |
+| <kbd>Page Up</kbd> | Scroll up one page. |
+| <kbd>Page Down</kbd> | Scroll down one page. |
+| `Click` | Select the clicked diff line (requires mouse support). |
+| Mouse scroll | Scroll up or down. |
+| `c` | Add or edit a comment on the selected line. |
+| `s` | Show comments summary (when comments exist). |
+| `b` | Toggle between unstaged changes and branch diff. |
+| <kbd>Enter</kbd> | Submit all comments (when comments exist). |
+| `r` | Refresh the diff (remote sessions only). |
+| <kbd>Esc</kbd> / <kbd>Ctrl</kbd>+<kbd>C</kbd> | Exit diff mode. |
+
+Holding <kbd>↑</kbd> or <kbd>↓</kbd> accelerates scrolling after the first 10 rapid presses. Mouse support requires `--mouse` (enabled by default in alt-screen mode). Disable with `--no-mouse`.
+
 ## Navigation shortcuts in the interactive interface
 
 | Shortcut                            | Purpose                                      |
@@ -183,7 +208,7 @@ Sessions already open in another window float to the top in all non-relevance so
 | `/copy`                                             | Copy the last response to the clipboard. |
 | `/cwd`, `/cd [PATH]`                                | Change the working directory or display the current directory. |
 | `/delegate [PROMPT]`                                | Delegate changes to a remote repository with an AI-generated pull request. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca). |
-| `/diff`                                             | Review the changes made in the current directory. |
+| `/diff`                                             | Review changes in the current directory; auto-switches to branch diff when the working tree is clean (experimental). |
 | `/downgrade <VERSION>`                              | Download and restart into a specific CLI version. Available for team accounts. |
 | `/env`                                              | Show loaded environment details (instructions, MCP servers, skills, agents, plugins, LSPs, extensions). |
 | `/exit`, `/quit`                                    | Exit the CLI. |
@@ -483,6 +508,27 @@ Use `copilot mcp` to manage MCP server configurations from the command line with
 | `cwd` | No | Working directory for the server. |
 | `timeout` | No | Tool call timeout in milliseconds. |
 | `type` | No | `"local"` or `"stdio"`. Default: `"local"`. |
+
+### Private npm registry
+
+Use `--registry` in the `args` array to pull a package from a private npm registry—for example, Artifactory or a {% data variables.product.github %} Packages feed:
+
+```json
+{
+    "mcpServers": {
+        "my-internal-server": {
+            "command": "npx",
+            "args": [
+                "--registry", "https://npm.pkg.github.com",
+                "@my-org/internal-mcp-server"
+            ],
+            "tools": ["*"]
+        }
+    }
+}
+```
+
+The `--registry` flag and other npm config flags (`--userconfig`, `--globalconfig`, `--prefix`, `--cache`, `--node-options`, `--workspace`, `-w`) are treated as value-consuming arguments when computing the server's identity fingerprint. This ensures enterprise allowlist checks and registry verification work correctly when these flags appear before the package name.
 
 ### Remote server configuration fields
 
