@@ -50,7 +50,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 | {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-cli) |
 | Editor preview features | Least restrictive organization | [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) |
 | {% data variables.product.prodname_github_models %}, one policy per model | Least restrictive organization | [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale) |
-| MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp) |
+| MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers) |
 | {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-commit-message-generation) |
 
 ## Next steps

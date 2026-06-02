@@ -35,6 +35,7 @@ The following table shows the model multipliers per supported model.
 >
 > * {% data variables.copilot.copilot_claude_sonnet_46 %}
 > * {% data variables.copilot.copilot_gpt_54_mini %}
+> * The multiplier for {% data variables.copilot.copilot_mai_code_1_flash %} is a promotional rate.
 
 | Model | Multiplier |
 | --- | ---: |

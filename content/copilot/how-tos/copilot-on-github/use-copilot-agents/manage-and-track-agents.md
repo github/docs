@@ -63,6 +63,50 @@ Archive stopped sessions to remove them from your sessions list.
 1. Click **{% octicon "kebab-horizontal" aria-label="More actions" %}**, then click **{% octicon "inbox" aria-hidden="true" aria-label="inbox" %} Archive session**.
 1. In the dialog, click **Yes, archive**.
 
+{% data variables.copilot.copilot_cloud_agent %} sessions can be archived but not deleted. Only local sessions (from {% data variables.copilot.copilot_cli %}, {% data variables.product.prodname_vscode_shortname %}, JetBrains, or the {% data variables.copilot.github_copilot_app %}) can be deleted. For more information about deleting sessions, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle#managing-your-session-data).
+
+## Share a session
+
+{% data variables.copilot.copilot_cloud_agent %} sessions are **shared** by default. They appear in the "All sessions" view on the "Agents" tab of your repository, visible to anyone with access to the repository.
+
+Local sessions (from {% data variables.copilot.copilot_cli %}, {% data variables.product.prodname_vscode_shortname %}, JetBrains, or the {% data variables.copilot.github_copilot_app %}) are **unshared** by default. You can choose to share a local session from the "Agents" tab of your repository, giving view-only access to repository collaborators. To share or unshare a local session, use the sharing controls in the session's menu.
+
+Recipients can view the session's prompts, responses, and file changes, but cannot steer or modify the session. Shared local sessions appear in the "All sessions" view but are not indexed for other users' session queries (they will not appear in another user's `/chronicle` results).
+
+For more information about session syncing, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle#session-syncing).
+
+## Query past sessions
+
+You can search your session history by asking natural language questions in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, JetBrains, the {% data variables.copilot.github_copilot_app %}, or {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_copilot_short %} searches across your synced sessions from {% data variables.copilot.copilot_cli_short %}, {% data variables.copilot.copilot_cloud_agent %}, and {% data variables.copilot.copilot_code-review_short %} to provide answers.
+
+You can only query sessions that you started. Your session data is private by default, but you can choose to share individual sessions for view-only access. See [Share a session](#share-a-session) earlier in this article.
+
+### Prerequisites
+
+Your sessions must be synced to your {% data variables.product.github %} account. By default, session data is synced automatically. If you have opted out of syncing (by setting `"remoteExport": false` in your CLI settings JSON), or if your organization has not enabled the "Store local sessions in the Cloud" policy, session querying is not available. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle#session-syncing).
+
+### Example queries
+
+```text
+What agent tasks did I run last week?
+```
+
+```text
+Find the session where I refactored authentication.
+```
+
+```text
+Have I worked on anything related to the payments API?
+```
+
+```text
+Show me sessions where the agent struggled or I had to correct it multiple times.
+```
+
+{% data variables.product.prodname_copilot_short %} can search across your prompts, responses, file changes, and other context from your synced sessions.
+
+For CLI-specific session querying and `/chronicle` commands, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle). For conceptual information about how session data is stored and synced, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle).
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/tutorials/cloud-agent/get-the-best-results)

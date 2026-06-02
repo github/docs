@@ -42,6 +42,8 @@ You can start {% data variables.copilot.copilot_cloud_agent %} from several clie
 * [Linear](/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-linear)
 * [Raycast](/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-from-raycast)
 
+You can also start sessions automatically, on a schedule or in response to events such as an issue being opened, by setting up an {% data variables.copilot.copilot_automation %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations).
+
 {% data variables.product.prodname_copilot_short %} will start working on the task in the background. Some entry points open a pull request automatically. In other cases, you can prompt {% data variables.product.prodname_copilot_short %} to open a pull request, or create a pull request when {% data variables.product.prodname_copilot_short %} finishes work, from the session logs.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).

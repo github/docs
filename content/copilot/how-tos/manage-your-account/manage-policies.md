@@ -56,12 +56,14 @@ If you choose to allow suggestions matching public code or use a product that do
 ## Enabling or disabling third-party coding agents in your repositories
 
 > [!NOTE]
-> {% data reusables.gated-features.third-party-agents %}
+> {% data reusables.copilot.plans.permission-paid-plans-no-purchase-link %}
 
 You can choose whether to allow the following coding agents to be enabled in your personal account:
 
 * {% data variables.product.prodname_anthropic_claude %}
 * {% data variables.product.prodname_openai_codex %}
+
+Installed {% data variables.copilot.agent_apps %} also appear under "Partner agents" and are enabled in the same way. For more information, see [AUTOTITLE](/copilot/concepts/agents/agent-apps).
 
 Coding agents have access to the same repositories that {% data variables.copilot.copilot_cloud_agent %} has been enabled in.
 

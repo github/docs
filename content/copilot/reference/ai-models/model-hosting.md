@@ -86,6 +86,10 @@ To provide better service quality and reduce latency, {% data variables.product.
 
 When using {% data variables.copilot.copilot_gemini %} models, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
+## Microsoft models
+
+{% data variables.copilot.copilot_mai_code_1_flash %} is a first-party Microsoft model hosted on Azure in {% data variables.product.github %}'s tenant. 
+
 ## Inline suggestions
 
 Inline suggestions, including ghost text and next edit suggestions, are powered by models hosted on Azure for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans. {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_student_short %} user models are hosted on Fireworks AI.

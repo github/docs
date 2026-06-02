@@ -28,7 +28,7 @@ Use this table to find a suitable model quickly, see more detail in the sections
 | Model                                              | Task area             | Excels at (primary use case) | Further reading             |
 |----------------------------------------------------|-----------------------|------------------------------|-----------------------------|
 | {% for model in tables.copilot.model-comparison %} |
-| {{ model.name }}                                   | {{ model.task_area }} | {{ model.excels_at }}        | {{ model.further_reading }} |
+| {{ model.name }}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}                                   | {{ model.task_area }} | {{ model.excels_at }}        | {{ model.further_reading }} |
 | {% endfor %}                                       |
 
 ## Task: General-purpose coding and writing
@@ -40,6 +40,7 @@ Use these models for common development tasks that require a balance of quality,
 | {% data variables.copilot.copilot_gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
 | {% data variables.copilot.copilot_gpt_5_mini %}   | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
 | {% data variables.copilot.copilot_raptor_mini %}  | Specialized for fast, accurate inline suggestions and explanations.                                        |
+| {% data variables.copilot.copilot_mai_code_1_flash %} | Strong instruction-following and adaptive reasoning make it a reliable default for everyday coding tasks, writing, and multi-turn development workflows. |
 
 ### When to use these models
 
@@ -63,6 +64,7 @@ These models are optimized for speed and responsiveness. They’re ideal for qui
 | Model                                                 | Why it's a good fit                                                                                        |
 |-------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_claude_haiku_45 %}  | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations.      |
+| {% data variables.copilot.copilot_mai_code_1_flash %} | Handles quick coding tasks with adaptive efficiency, stays concise for simple requests and delivers fast, accurate responses without unnecessary depth. |
 
 ### When to use these models
 
@@ -133,6 +135,8 @@ Use one of these models if you want to:
 If your task involves deep reasoning or large-scale refactoring, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For text-only tasks or simpler code edits, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks).
 
 ## Next steps
+
+[^mai-code-1-flash]: {% data variables.copilot.copilot_mai_code_1_flash %} is a continuously improving model. Performance and behavior may evolve over time as new checkpoints are released.
 
 Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_41 %}, then adjust based on your needs.
 

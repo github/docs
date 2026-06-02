@@ -40,7 +40,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | Model name                                             | Provider  | Release status             | Agent mode | Ask mode | Edit mode |
 |--------------------------------------------------------|-----------|----------------------------|------------|----------|-----------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %} | {{ model.provider }} | {{ model.release_status }} | {% if model.agent_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.ask_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.edit_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %} | {{ model.provider }} | {{ model.release_status }} | {% if model.agent_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.ask_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.edit_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
@@ -120,17 +120,18 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 
 {% rowheaders %}
 
-| Model                                                | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
-|------------------------------------------------------|----------------------------------------------|------------------------------------------| --- | --- | --- |
-| {% data variables.copilot.copilot_gemini_3_flash %}  | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gemini_31_pro %}   | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gemini_35_flash %} | `v1.115.0` and later                         | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
-| {% data variables.copilot.copilot_gpt_52_codex %}    | No minimum listed                            | `17.14.19` or `18.0.0` and later         | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
-| {% data variables.copilot.copilot_gpt_53_codex %}    | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
-| {% data variables.copilot.copilot_gpt_54 %}          | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_gpt_54_mini %}     | `v1.104.1` and later                         | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_gpt_55 %}          | `v1.117` and later                           | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_claude_opus_48 %}  | `v1.118` and later                           | `17.14.19` and later                     | TBD | TBD | TBD |
+| Model                                                    | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Xcode | Eclipse |
+|----------------------------------------------------------| --- |------------------------------------------| -- | --- | --- |
+| {% data variables.copilot.copilot_gemini_3_flash %}      | `v1.115.0` and later | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_31_pro %}       | `v1.115.0` and later | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gemini_35_flash %}     | `v1.115.0` and later | `17.14.22` or `18.1.0` and later         | `1.5.62` and later | `0.46.0` and later | `0.14.0` and later |
+| {% data variables.copilot.copilot_gpt_52_codex %}        | No minimum listed    | `17.14.19` or `18.0.0` and later         | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_53_codex %}        | `v1.104.1` and later | `17.14.19` and later                     | `1.5.61` and later | `0.45.0` and later | `0.13.0` and later |
+| {% data variables.copilot.copilot_gpt_54 %}              | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_54_mini %}         | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_gpt_55 %}              | `v1.117` and later   | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
+| {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` and later   | `17.14.19` and later                     | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` and later   | Not available                            | Not available | Not available | Not available |
 
 {% endrowheaders %}
 
@@ -166,6 +167,8 @@ Access to evaluation models in {% data variables.copilot.copilot_auto_model_sele
 {% data reusables.user-settings.access_settings %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. For the **Evaluation models in {% data variables.product.prodname_copilot_short %} {% data variables.copilot.copilot_auto_model_selection_short %}** setting, select **Disabled** from the dropdown.
+
+[^mai-code-1-flash]: {% data variables.copilot.copilot_mai_code_1_flash %} is a continuously improving model. Performance and behavior may evolve over time as new checkpoints are released.
 
 ## Utility models
 
