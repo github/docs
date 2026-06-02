@@ -5,13 +5,15 @@ Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone 
 
 ## Quick links by contributor type
 
-* **Hubbers (GitHub employees):** See [CONTRIBUTING.md](https://github.com/github/docs-content/blob/main/CONTRIBUTING.md) in the `docs-content` repository for GitHub-specific processes.
+* **Hubbers (GitHub employees):** See [CONTRIBUTING.md](https://github.com/github/docs-content/blob/main/CONTRIBUTING.md) in the `docs-content` repository updates
+- [Contributing](#contributing)
+  
+- [READMEs](#readmes)
+- [License](#license)
 
 * **Open source contributors:** See [CONTRIBUTING.md](https://github.com/github/docs/blob/main/.github/CONTRIBUTING.md) in the `docs` repository for a quick-start summary.
 
-## How we sync changes across Docs repositories
-
-There are two GitHub Docs repositories: 
+##There are two GitHub Docs repositories: 
 
 - **`github/docs`** (public): Open to external contributions
 
@@ -36,3 +38,7 @@ This project is dual-licensed under:
 
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
 * **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+
+<!-- Just a comment to test source control - REMOVE THIS SOON -->
+
