@@ -97,6 +97,10 @@
   multiplier_paid: 7.5
   multiplier_free: Not applicable
 
+- name: MAI-Code-1-Flash
+  multiplier_paid: 0.33
+  multiplier_free: Not applicable
+
 - name: Raptor mini
   multiplier_paid: 0
   multiplier_free: 1

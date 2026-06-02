@@ -51,6 +51,8 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    This can be a simple chat question, or a request for {% data variables.product.prodname_copilot_short %} to perform a specific task, such as fixing a bug, adding a feature to an existing application, or creating a new application.
 
+   As an alternative to typing, you can speak your prompt. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input).
+
    For some examples of prompts, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 
 1. When {% data variables.product.prodname_copilot_short %} wants to use a tool that could modify or execute files—{% data reusables.cli.tools-needing-approval %}—it will ask you to approve the use of the tool.
@@ -116,6 +118,16 @@ You can prepend your input with `!` to directly run shell commands, without maki
 ```shell
 !git clone https://github.com/github/copilot-cli
 ```
+
+### Schedule prompts to run later
+
+You can schedule prompts to run in the future using the `/every` and `/after` slash commands. The `/every` command schedules a prompt to run repeatedly at a specified interval, while the `/after` command schedules a one-shot prompt to run once after a specified delay. For example:
+
+```shell
+/every 1h Run frontend tests and report any failures
+```
+
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/automate-copilot-cli/schedule-prompts).
 
 ### Resume an interactive session
 
@@ -262,6 +274,10 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 ### Enable all permissions
 
 For situations where you trust {% data variables.product.prodname_copilot_short %} to run freely, you can use the `--allow-all` or `--yolo` flags to enable all permissions at once.
+
+### Run in a sandbox
+
+You can run {% data variables.copilot.copilot_cli_short %} sessions inside a sandbox to restrict access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session. To start a cloud-backed session instead, run `copilot --cloud`. For more information, see [AUTOTITLE](/copilot/concepts/about-cloud-and-local-sandboxes).
 
 ### Toggle reasoning visibility
 

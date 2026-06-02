@@ -1,11 +1,14 @@
 ---
-title: About third-party agents
-shortTitle: Third-party agents
-intro: 'You can incorporate coding agents into your development workflows on {% data variables.product.github %}.'
-product: '{% data reusables.gated-features.third-party-agents %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+title: About third-party coding agents
+allowTitleToDifferFromFilename: true
+shortTitle: Third-party coding agents
+intro: 'You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %} to work asynchronously on your development tasks on {% data variables.product.github %}.'
+product: '{% data reusables.copilot.plans.permission-paid-plans-no-purchase-link %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: concepts
+redirect_from:
+  - /copilot/concepts/agents/about-third-party-agents
 ---
 
 > [!NOTE] Third-party coding agents are currently in {% data variables.release-phases.public_preview %}.
@@ -27,9 +30,6 @@ You can kick off tasks with coding agents in the following locations:
 * In [**{% data variables.product.prodname_vscode %}**](https://code.visualstudio.com/docs/copilot/agents/overview#_create-an-agent-session): Start a new session in the chat view, or delegate an existing session to a different agent.
 
 ### Making coding agents available
-
-> [!NOTE]
-> {% data reusables.gated-features.third-party-agents %}
 
 Before you can assign tasks to coding agents on {% data variables.product.github %}, they must be enabled in your account policies.
 

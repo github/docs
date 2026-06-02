@@ -59,3 +59,12 @@ To mitigate this risk, {% data variables.copilot.copilot_cloud_agent %} is desig
 * {% data variables.copilot.copilot_cloud_agent %}'s commits are signed, so they appear as "Verified" on {% data variables.product.github %}. This provides confidence that the commits were made by {% data variables.copilot.copilot_cloud_agent %} and have not been altered.
 * Session logs and audit log events are available to administrators.
 * The commit message for each agent-authored commit includes a link to the agent session logs, for code review and auditing. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
+
+## Automations run without a person initiating each task
+
+{% data variables.copilot.copilot_automations_cap %} run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events, without a person initiating each task. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations). This introduces some additional risks, which {% data variables.product.github %} mitigates as follows.
+
+* **Work is attributed to the person who created the automation.** Pull requests opened and code pushed by an {% data variables.copilot.copilot_automation %} are attributed to the user who created the {% data variables.copilot.copilot_automation %}. As when that user creates a pull request themselves, they can't approve it, which preserves the expected "Required approvals" controls.
+* **You control which tools an automation can use.** When an {% data variables.copilot.copilot_automation %} is triggered by an event, input from untrusted users could become part of the prompt. To limit the impact of prompt injection, you choose exactly which tools an {% data variables.copilot.copilot_automation %} can use, so it can only take the actions the task requires.
+* **Events from untrusted users are ignored by default.** {% data variables.copilot.copilot_automations_cap %} ignore events triggered by users without write access to the repository by default, with a setting to opt in.
+* **Workflows still require human approval.** An issue or pull request opened by an {% data variables.copilot.copilot_automation %} could trigger another {% data variables.copilot.copilot_automation %}. As with all {% data variables.copilot.copilot_cloud_agent %} work, {% data variables.product.prodname_actions %} workflows don't run on a pull request until a user with write access approves them, which prevents workflows from running automatically as part of such a chain.

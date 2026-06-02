@@ -23,7 +23,7 @@ This table shows what each customization feature is and where it lives.
 | [{% data variables.copilot.subagents_caps_short %}](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-subagents) | Separate agent spawned by the main agent to handle delegated work in an isolated context | N/A (runtime process, not a user-configured file) |
 | [Agent skills](/copilot/concepts/agents/about-agent-skills) | Folder of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} loads when relevant to a task | `.github/skills/<skill-name>/SKILL.md`, `.claude/skills/<skill-name>/SKILL.md`, or `.agents/skills/<skill-name>/SKILL.md` (project); `~/.copilot/skills/<skill-name>/SKILL.md` or `~/.agents/skills/<skill-name>/SKILL.md` (personal) |
 | [Hooks](/copilot/concepts/agents/hooks) | Custom shell commands that execute deterministically at specific points in an agent's workflow | `.github/hooks/*.json` |
-| [MCP servers](/copilot/concepts/context/mcp) | Connection to external systems, APIs, and databases | `mcp.json` (path varies by IDE), repo settings on {% data variables.product.github %} ({% data variables.copilot.copilot_cloud_agent_short %}), or `mcp-servers` property in {% data variables.copilot.copilot_custom_agent_short %} configurations |
+| [MCP servers](/copilot/concepts/context/mcp) | Connection to external systems, APIs, and databases | `mcp.json` (path varies by IDE), repository MCP settings on {% data variables.product.github %} (applies to {% data variables.copilot.copilot_cloud_agent_short %} and {% data variables.copilot.copilot_code-review_short %}), or `mcp-servers` property in {% data variables.copilot.copilot_custom_agent_short %} configurations |
 
 ## Usage comparison
 

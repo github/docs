@@ -168,6 +168,14 @@
   ask_mode: true
   edit_mode: true
 
+# Microsoft models
+- name: 'MAI-Code-1-Flash'
+  provider: 'Microsoft'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'
