@@ -211,6 +211,7 @@ These settings apply across all your sessions and repositories. You can edit thi
 | `banner` | `"always"` \| `"once"` \| `"never"` | `"once"` | Animated banner display frequency. |
 | `bashEnv` | `boolean` | `false` | Enable `BASH_ENV` support for bash shells. Can also be set with `--bash-env` or `--no-bash-env`. |
 | `beep` | `boolean` | `true` | Play an audible beep when attention is required. |
+| `builtInAgents.rubberDuck` | `boolean` | `true` | Enable the rubber-duck subagent that provides adversarial feedback on agent plans. |
 | `colorMode` | `"default"` \| `"dim"` \| `"high-contrast"` \| `"colorblind"` | `"default"` | Color contrast mode. Managed by the `/theme` slash command. |
 | `compactPaste` | `boolean` | `true` | Collapse large pastes (more than 10 lines) into compact tokens. |
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. One message is randomly selected each time the CLI starts. Useful for team announcements or reminders. |
@@ -241,6 +242,7 @@ These settings apply across all your sessions and repositories. You can edit thi
 | `remoteExport` | `boolean` | `true` | Export sessions remotely when session sync is available. Set to `false` to opt out of remote export by default. The `remoteSessions` setting when set to `true`, or the `--remote` flag, still enables export and steering regardless of this setting. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
 | `screenReader` | `boolean` | `false` | Enable screen reader optimizations. |
+| `showTipsOnStartup` | `boolean` | `true` | Show a random command tip when the CLI starts. |
 | `skillDirectories` | `string[]` | `[]` | Additional directories to search for custom skill definitions (in addition to `~/.copilot/skills/`). |
 | `statusLine` | `object` | — | Custom status line display. `type`: must be `"command"`. `command`: path to an executable script that receives session JSON on stdin and prints status content to stdout. `padding`: optional number of left-padding spaces. |
 | `storeTokenPlaintext` | `boolean` | `false` | Allow authentication tokens to be stored in plain text in `config.json` when no system keychain is available. |
