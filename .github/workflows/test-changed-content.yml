@@ -47,6 +47,8 @@ jobs:
       - name: Get changed files
         id: changed_files
         uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
+        id: changed-files
+        test-changed-content:
         with:
           files: 'content/**'
           # Needed to expose `all_old_new_renamed_files` (old,new pairs for renames).
