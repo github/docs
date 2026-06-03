@@ -22,6 +22,8 @@ Alternatively, if you want to apply a {% data variables.product.prodname_securit
 
 ## Detaching repositories from linked {% data variables.product.prodname_security_configurations %}
 
+Detached repositories show a status of "No configuration" in the repository table on the {% data variables.product.prodname_security_configurations %} settings page. For more information about all configuration statuses, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
+
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}

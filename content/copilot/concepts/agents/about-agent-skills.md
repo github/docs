@@ -12,7 +12,7 @@ contentType: concepts
 ---
 
 > [!NOTE]
-> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
+> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
 
 ## About agent skills
 

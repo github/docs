@@ -25,6 +25,9 @@ picker:
   product_picker_default_text: All products
   version_picker_default_text: Choose a version
 
+code_tabs:
+  aria_label: Code languages
+
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 
@@ -381,6 +384,7 @@ cookbook_landing:
   search_articles: Search examples
   category: Category
   complexity: Complexity
+  surface: Surface
 
 carousels:
   recommended: Recommended

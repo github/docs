@@ -3,7 +3,7 @@ title: Build an optimized review process with {% data variables.product.prodname
 allowTitleToDifferFromFilename: true
 shortTitle: Optimize code reviews
 intro: Automate reviews with {% data variables.product.prodname_copilot_short %} to optimize and improve your review process.
-product: '{% data variables.copilot.copilot_code-review_short %} is available for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).'
+product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 contentType: tutorials

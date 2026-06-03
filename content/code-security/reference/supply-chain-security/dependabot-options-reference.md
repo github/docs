@@ -218,42 +218,63 @@ You can specify the duration of the cooldown using the options below.
 | `include` | List of dependencies to **apply cooldown** (up to **150 items**). Supports wildcards (`*`). |
 | `exclude` | List of dependencies **excluded from cooldown** (up to **150 items**). Supports wildcards (`*`). |
 
-The table below shows the package managers for which SemVer is supported.
+The table below shows the package managers that support `cooldown`. The `default-days` option is supported for all package managers listed, while `semver-major-days`, `semver-minor-days`, and `semver-patch-days` are supported only where indicated.
 
-| Package manager        | SemVer supported |
-|-----------------------|------------------|
+| Package manager        | Default days supported | SemVer-bump days supported |
+|-----------------------|:----------------------:|:--------------------------:|
 | {% ifversion dependabot-bazel-support %} |
-| Bazel               | {% octicon "x" aria-label="Not supported" %}              |
+| Bazel               | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
-| Bundler               | {% octicon "check" aria-label="Supported" %}              |
-| Bun                   | {% octicon "check" aria-label="Supported" %}              |
-| Cargo                 | {% octicon "check" aria-label="Supported" %}              |
-| Composer              | {% octicon "check" aria-label="Supported" %}              |
-| Devcontainers         | {% octicon "x" aria-label="Not supported" %}              |
-| Docker                | {% octicon "x" aria-label="Not supported" %}              |
-| Docker Compose        | {% octicon "x" aria-label="Not supported" %}              |
-| Dotnet SDK            | {% octicon "check" aria-label="Supported" %}              |
-| Elm                   | {% octicon "check" aria-label="Supported" %}              |
-| {% data variables.product.prodname_actions %} | {% octicon "x" aria-label="Not supported" %} |
-| Gitsubmodule          | {% octicon "x" aria-label="Not supported" %}              |
-| Gomod (Go Modules)    | {% octicon "check" aria-label="Supported" %}              |
-| Gradle                | {% octicon "check" aria-label="Supported" %}              |
-| Helm                  | {% octicon "x" aria-label="Not supported" %}              |
-| Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              |
+| Bundler               | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Bun                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Cargo                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Composer              | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-conda-support %} |
+| Conda                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
+| {% ifversion dependabot-deno-support %} |
+| Deno                  | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
+| Devcontainers         | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Docker                | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Docker Compose        | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Dotnet SDK            | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Elm                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.product.prodname_actions %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Gitsubmodule          | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Gomod (Go Modules)    | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Gradle                | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Helm                  | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% ifversion dependabot-julia-support %} |
-| Julia                 | {% octicon "check" aria-label="Supported" %}              |
+| Julia                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
-| Maven                 | {% octicon "check" aria-label="Supported" %}              |
-| NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              |
-| NuGet                 | {% octicon "check" aria-label="Supported" %}              |
+| Maven                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-nix-support %} |
+| Nix flakes            | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
+| NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| NuGet                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% ifversion dependabot-opentofu-support %} |
-| OpenTofu              | {% octicon "check" aria-label="Supported" %}              |
+| OpenTofu              | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
-| Pip                   | {% octicon "check" aria-label="Supported" %}              |
-| Pub                   | {% octicon "check" aria-label="Supported" %}              |
-| Swift                 | {% octicon "check" aria-label="Supported" %}              |
-| Terraform             | {% octicon "x" aria-label="Not supported" %}              |
-| UV                    | {% octicon "check" aria-label="Supported" %}              |
+| Pip                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-pre-commit-support %} |
+| pre-commit            | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
+| Pub                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-rust-toolchain-support %} |
+| Rust toolchain        | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
+| {% ifversion dependabot-sbt-support %} |
+| sbt                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
+| Swift                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| Terraform             | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| UV                    | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% ifversion dependabot-vcpkg-support %} |
+| vcpkg                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 
 > [!NOTE]
 >
@@ -540,6 +561,9 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-conda-support %} |
 | Conda         | `conda`          | Not applicable               |
 | {% endif %} |
+| {% ifversion dependabot-deno-support %} |
+| Deno         | `deno`          | >=v2               |
+| {% endif %} |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
@@ -578,6 +602,9 @@ Package manager | YAML value      | Supported versions |
 | pub         | `pub`            | v2  |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain | `rust-toolchain` | Not applicable   |
+| {% endif %} |
+| {% ifversion dependabot-sbt-support %} |
+| sbt          | `sbt`            | Not applicable   |
 | {% endif %} |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |

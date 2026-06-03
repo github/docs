@@ -91,6 +91,4 @@ Finally, look for the following indicators, which may require additional prevent
 * **Repeated secret types**: Suggests specific workflows or teams need targeted intervention
 * **Common secret categories**: May point to particular CI/CD processes requiring security improvements
 
-## Next steps
-
-After understanding your secret exposure, select repositories for a {% data variables.product.prodname_GH_secret_protection %} pilot. See [AUTOTITLE](/code-security/concepts/security-at-scale/best-practices-for-selecting-pilot-repositories).
+{% data reusables.security.start-ghas-trial %}

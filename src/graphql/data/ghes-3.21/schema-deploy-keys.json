@@ -1,0 +1,129 @@
+{
+  "objects": [
+    {
+      "name": "DeployKey",
+      "id": "deploykey",
+      "href": "/graphql/reference/deploy-keys#object-deploykey",
+      "description": "<p>A repository deploy key.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "enabled",
+          "description": "<p>Whether or not the deploy key is enabled by policy at the Enterprise or Organization level.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the DeployKey object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "key",
+          "description": "<p>The deploy key.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "readOnly",
+          "description": "<p>Whether or not the deploy key is read only.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "title",
+          "description": "<p>The deploy key title.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "verified",
+          "description": "<p>Whether or not the deploy key has been verified.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        }
+      ],
+      "category": "deploy-keys"
+    },
+    {
+      "name": "DeployKeyConnection",
+      "id": "deploykeyconnection",
+      "href": "/graphql/reference/deploy-keys#object-deploykeyconnection",
+      "description": "<p>The connection type for DeployKey.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DeployKeyEdge]",
+          "id": "deploykeyedge",
+          "href": "/graphql/reference/deploy-keys#object-deploykeyedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DeployKey]",
+          "id": "deploykey",
+          "href": "/graphql/reference/deploy-keys#object-deploykey"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "href": "/graphql/reference/other#object-pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "href": "/graphql/reference/other#scalar-int"
+        }
+      ],
+      "category": "deploy-keys"
+    },
+    {
+      "name": "DeployKeyEdge",
+      "id": "deploykeyedge",
+      "href": "/graphql/reference/deploy-keys#object-deploykeyedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DeployKey",
+          "id": "deploykey",
+          "href": "/graphql/reference/deploy-keys#object-deploykey"
+        }
+      ],
+      "category": "deploy-keys"
+    }
+  ]
+}

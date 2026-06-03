@@ -298,6 +298,10 @@ export const ArticleGrid = ({
             <p className={styles.noArticlesText}>{t('article_grid.no_articles_found')}</p>
           </div>
         )}
+
+        <div aria-live="polite" aria-atomic="true" className="visually-hidden">
+          {filteredResults.length === 0 ? t('article_grid.no_articles_found') : ''}
+        </div>
       </div>
 
       {/* Pagination */}

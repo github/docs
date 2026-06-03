@@ -16,6 +16,8 @@ category:
 
 After you create a {% data variables.product.prodname_custom_security_configuration %}, you need to apply it to repositories in your enterprise to enable the configuration's settings on those repositories.
 
+The repository list displays each repository's configuration status. For the full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
+
 {% data reusables.security-configurations.security-features-use-actions %}
 
 ## Applying your {% data variables.product.prodname_custom_security_configuration %} to repositories in your enterprise

@@ -29,6 +29,10 @@
   multiplier_paid: 15
   multiplier_free: Not applicable
 
+- name: Claude Opus 4.8
+  multiplier_paid: 15
+  multiplier_free: Not applicable
+
 - name: Claude Sonnet 4.5
   multiplier_paid: 1
   multiplier_free: Not applicable
@@ -47,6 +51,10 @@
 
 - name: Gemini 3.1 Pro
   multiplier_paid: 1
+  multiplier_free: Not applicable
+
+- name: Gemini 3.5 Flash
+  multiplier_paid: 14
   multiplier_free: Not applicable
 
 - name: GPT-4.1
@@ -89,14 +97,10 @@
   multiplier_paid: 7.5
   multiplier_free: Not applicable
 
-- name: Grok Code Fast 1
-  multiplier_paid: 0.25
-  multiplier_free: 1
+- name: MAI-Code-1-Flash
+  multiplier_paid: 0.33
+  multiplier_free: Not applicable
 
 - name: Raptor mini
   multiplier_paid: 0
-  multiplier_free: 1
-
-- name: Goldeneye
-  multiplier_paid: Not applicable
   multiplier_free: 1

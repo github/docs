@@ -62,7 +62,7 @@ Before you get started, you may want to familiarize yourself with the following 
 * [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 * [REST API checks endpoints](/rest/checks)
 
-Checks are also available to use with the GraphQL API, but this tutorial focuses on the REST API. For more information about the GraphQL objects, see [Check Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) in the GraphQL documentation.
+Checks are also available to use with the GraphQL API, but this tutorial focuses on the REST API. For more information about the GraphQL objects, see [Check Suite](/graphql/reference/checks#object-checksuite) and [Check Run](/graphql/reference/checks#object-checkrun) in the GraphQL documentation.
 
 ## Setup
 

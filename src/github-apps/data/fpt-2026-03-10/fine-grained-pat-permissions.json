@@ -128,6 +128,15 @@
       },
       {
         "category": "billing",
+        "slug": "get-billing-ai-credit-usage-report-for-an-organization",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/ai_credit/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
         "slug": "get-all-budgets-for-an-organization",
         "subcategory": "budgets",
         "verb": "get",
@@ -2426,6 +2435,15 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-organization-user-teams-report-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/user-teams-1-day",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
         "slug": "get-copilot-organization-users-usage-metrics-for-a-specific-day",
         "subcategory": "copilot-usage-metrics",
         "verb": "get",
@@ -4504,6 +4522,24 @@
         "access": "write"
       },
       {
+        "category": "code-quality",
+        "slug": "get-a-code-quality-setup-configuration",
+        "subcategory": "code-quality",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-quality",
+        "slug": "update-a-code-quality-setup-configuration",
+        "subcategory": "code-quality",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "code-scanning",
         "slug": "get-a-code-scanning-default-setup-configuration",
         "subcategory": "code-scanning",
@@ -6402,7 +6438,16 @@
         "subcategory": "releases",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -6457,6 +6502,21 @@
         "verb": "post",
         "requestPath": "/repos/{template_owner}/{template_repo}/generate",
         "additional-permissions": true,
+        "access": "read"
+      }
+    ]
+  },
+  "copilot_agent_settings": {
+    "title": "Copilot agent settings",
+    "displayTitle": "Repository permissions for \"Copilot agent settings\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
+        "subcategory": "copilot-cloud-agent-management",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/copilot/cloud-agent/configuration",
+        "additional-permissions": false,
         "access": "read"
       }
     ]
@@ -7385,6 +7445,15 @@
       },
       {
         "category": "repos",
+        "slug": "get-the-hash-algorithm-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/hash-algorithm",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
         "slug": "list-repository-languages",
         "subcategory": "repos",
         "verb": "get",
@@ -8117,24 +8186,6 @@
       },
       {
         "category": "pulls",
-        "slug": "archive-a-pull-request",
-        "subcategory": "pulls",
-        "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "pulls",
-        "slug": "unarchive-a-pull-request",
-        "subcategory": "pulls",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/archive",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "pulls",
         "slug": "list-review-comments-on-a-pull-request",
         "subcategory": "comments",
         "verb": "get",
@@ -8717,6 +8768,15 @@
         "requestPath": "/repos/{owner}/{repo}/releases",
         "additional-permissions": true,
         "access": "write"
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
+        "additional-permissions": true,
+        "access": "write"
       }
     ]
   },
@@ -9168,6 +9228,15 @@
     "title": "Plan",
     "displayTitle": "User permissions for \"Plan\"",
     "permissions": [
+      {
+        "category": "billing",
+        "slug": "get-billing-ai-credit-usage-report-for-a-user",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/ai_credit/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
       {
         "category": "billing",
         "slug": "get-billing-premium-request-usage-report-for-a-user",

@@ -15,13 +15,13 @@ docsTeamMetrics:
   - copilot-cli
 ---
 
-{% data variables.copilot.copilot_cli_short %} stores the data from your CLI sessions locally on your machine. This session data allows you to:
+{% data variables.copilot.copilot_cli_short %} stores the data from your CLI sessions locally on your machine, and by default syncs sessions to your {% data variables.product.github %} account. This session data allows you to:
 
 * Resume previous sessions and pick up right where you left off.
 * Use the `/chronicle` slash command to generate standup reports, get personalized tips, and receive suggestions for improving your `.github/copilot-instructions.md` file.
 * Ask {% data variables.product.prodname_copilot_short %} questions about your past interactions.
 
-This article explains how to use these features. For a deeper dive into how session data is stored, and the benefits of the `/chronicle` command, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle).
+This article explains how to use these features from {% data variables.copilot.copilot_cli_short %}. For a deeper dive into how session data is stored and synced, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle). For querying your sessions from {% data variables.product.prodname_vscode_shortname %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 ## Resuming a previous session
 
@@ -67,18 +67,18 @@ If you don't specify a file path, the Markdown file is saved in the current work
 
 ## Using the `/chronicle` slash command
 
-{% data reusables.copilot.copilot-cli.cli-experimental-chronicle %}
-
 The `/chronicle` slash command provides a set of subcommands that generate specific types of insights from your session history. While you can ask {% data variables.product.prodname_copilot_short %} free-form questions about your sessions at any time, `/chronicle` subcommands provide a quick way to get specific insights.
 
 When you type `/chronicle` without arguments, a picker is displayed that lets you choose from the available subcommands:
 
 | Subcommand | Description |
 | ---------- | ----------- |
-| `standup`  | Generate a standup report from your recent work. |
-| `tips`     | Get personalized tips based on your usage patterns. |
-| `improve`  | Suggest improvements to your {% data variables.product.prodname_copilot_short %} custom instructions file. |
-| `reindex`  | Rebuild the session store index from your session history. |
+| `standup`    | Generate a standup report from your recent work. |
+| `tips`       | Get personalized tips based on your usage patterns. |
+| `cost tips`  | Get feedback on your token spend and suggestions for reducing costs. |
+| `search`     | Search your session history for specific topics or keywords. |
+| `improve`    | Suggest improvements to your {% data variables.product.prodname_copilot_short %} custom instructions file. |
+| `reindex`    | Rebuild the local session store from your session history, and sync session data to your account. |
 
 You can also invoke a subcommand directly, without using the picker—for example, `/chronicle standup`.
 
@@ -136,6 +136,22 @@ You can focus the tips on a specific area by appending context after `/chronicle
 /chronicle tips for better prompting
 ```
 
+### `/chronicle cost tips`
+
+This analyzes your token usage across recent sessions to show where tokens are being spent and suggests ways to reduce costs. {% data variables.product.prodname_copilot_short %} looks at patterns like prompt length, tool call frequency, and continuation steps to identify opportunities for more efficient usage.
+
+```copilot copy
+/chronicle cost tips
+```
+
+### `/chronicle search`
+
+This searches all of your session content (not just summaries) for specific keywords or topics. Unlike free-form questions that rely on semantic understanding, `/chronicle search` performs a direct content search, making it useful when you know the exact term or topic you are looking for.
+
+```copilot copy
+/chronicle search authentication
+```
+
 ### `/chronicle improve`
 
 This does a deep dive into your session history to find places where {% data variables.product.prodname_copilot_short %} struggled to provide the kind of response or results you were looking for, or where you had to course-correct by providing follow-up prompts. On the basis of this research, it suggests improvements to your `.github/copilot-instructions.md` custom instructions file.
@@ -168,7 +184,7 @@ Using what you know about my sessions, what type of tasks give me one-shot succe
 
 {% data variables.product.prodname_copilot_short %} will analyze your conversations, looking for times when an initial response was not followed by related prompts, and times when there was a series of iterative prompts and responses.
 
-### Reduce premium request usage
+### Reduce {% data variables.product.prodname_ai_credits %} usage
 
 ```copilot copy
 Based on my previous CLI sessions, how could I prompt you in a way that would cost less?
@@ -195,4 +211,5 @@ Have I worked on anything related to authentication in the last month?
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle)
+* [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

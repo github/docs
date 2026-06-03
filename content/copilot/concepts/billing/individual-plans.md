@@ -15,16 +15,11 @@ contentType: concepts
 category: 
   - Learn about Copilot
 ---
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cfi %}
-
-<!-- end expires 2026-06-01 -->
 
 > [!IMPORTANT]
-> {% data reusables.copilot.plans.individual-plans-paused %}
+> * {% data reusables.copilot.plans.individual-plans-paused %}
 
-{% data variables.product.company_short %} offers three {% data variables.product.prodname_copilot_short %} plans for individual developers, as well as a dedicated student offering, each designed to meet different needs based on your coding habits, interest in AI models, and desired level of flexibility.
+{% data variables.product.company_short %} offers multiple {% data variables.product.prodname_copilot_short %} plans for individual developers, as well as a dedicated student offering, each designed to meet different needs based on your coding habits, interest in AI models, and desired level of flexibility.
 
 You can choose from the following plans.
 
@@ -32,8 +27,8 @@ You can choose from the following plans.
 
 For developers looking to get started with {% data variables.product.prodname_copilot_short %}.
 
-* Includes up to **2,000 inline suggestions** in IDEs per month
-* Includes up to **50 premium requests** per month
+* Includes up to **2,000 code completions** and an allowance of {% data variables.product.prodname_ai_credits %}
+* Limited chat and agent usage and a selection of models
 * Designed to give you a limited taste of {% data variables.product.prodname_copilot_short %}'s capabilities
 * No subscription or payment required
 * Intended for **personal use only**, not for users managed by an organization or enterprise
@@ -43,9 +38,8 @@ For developers looking to get started with {% data variables.product.prodname_co
 
 Verified students can access unlimited completions and additional models at no cost.
 
-* Includes **unlimited completions** in IDEs
-* Access to {% data variables.copilot.copilot_chat_short %} and additional models
-* Includes up to **300 premium requests** per month (additional at {% data variables.copilot.additional_premium_requests %} each)
+* Includes **unlimited** code completions and an allowance of {% data variables.product.prodname_ai_credits %}
+* Limited chat and agent usage and a selection of models
 * Free for verified students
 
 ## {% data variables.copilot.copilot_pro %}
@@ -53,21 +47,34 @@ Verified students can access unlimited completions and additional models at no c
 For developers who want more flexibility, including unlimited completions and access to additional models.
 
 * Includes **unlimited completions** in IDEs
-* Access to {% data variables.copilot.copilot_chat_short %} and additional models
-* Includes up to **300 premium requests** per month (additional at {% data variables.copilot.additional_premium_requests %} each)
+* Access to {% data variables.copilot.copilot_chat_short %} and a selection of models
+* A monthly allowance of {% data variables.product.prodname_ai_credits_short %}. See [{% data variables.product.prodname_ai_credits %} allowance by plan](/copilot/concepts/billing/usage-based-billing-for-individuals).
 * Free for verified teachers and maintainers of popular open source projects
 
 ## {% data variables.copilot.copilot_pro_plus %}
 
-For developers who need maximum flexibility, premium access to available models, and expanded request limits.
+For developers who need maximum flexibility, premium access to available models, and expanded limits.
 
-* Everything in {% data variables.copilot.copilot_pro_short %}, plus:
+* Everything in {% data variables.copilot.copilot_pro_short %}, and:
 
-  * **Full access** to all available models in {% data variables.copilot.copilot_chat_short %}
-  * Up to **1,500 premium requests** per month (additional at {% data variables.copilot.additional_premium_requests %} each)
+  * Access to premium models
+  * A higher monthly allowance of {% data variables.product.prodname_ai_credits_short %}. See [{% data variables.product.prodname_ai_credits %} allowance by plan](/copilot/concepts/billing/usage-based-billing-for-individuals).
   * Priority access to advanced AI capabilities
 
 * Ideal for AI power users and developers who want cutting-edge tools
+
+## {% data variables.copilot.copilot_max %}
+
+> [!IMPORTANT] {% data reusables.copilot.plans.copilot-max-upgrade-only %}
+
+Designed for sustained, high-volume {% data variables.product.prodname_copilot_short %} users. 
+
+* Everything in {% data variables.copilot.copilot_pro_plus_short %}, and:
+
+   * Our highest available monthly allowance of {% data variables.product.prodname_ai_credits_short %}. See [{% data variables.product.prodname_ai_credits %} allowance by plan](/copilot/concepts/billing/usage-based-billing-for-individuals).
+   * **Priority access** to new models and features
+
+* Ideal for high-volume AI power users who want access to the most AI credits available to them
 
 ## Comparing plans
 
@@ -75,18 +82,24 @@ The following table highlights the key differences between individual {% data va
 
 {% rowheaders %}
 
-| Feature | {% data variables.copilot.copilot_free %} | {% data variables.copilot.copilot_student %} | {% data variables.copilot.copilot_pro %} | {% data variables.copilot.copilot_pro_plus %} |
-|--------|----------------------------------------------------|----------------------------------------------|--------------------------------------------------|----------------------------------------------------------|
-| Price | Free | [Free](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) | {% data variables.copilot.cfi_price_per_month %} per month<br>([free](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers) for some users) | {% data variables.copilot.cpp_price_per_month %} per month |
-| Real-time code suggestions with included models | Up to 2,000 per month | Unlimited | Unlimited | Unlimited |
-| Premium requests | 50 per month | 300 per month | 300 per month | 1,500 per month |
-| Purchase additional premium requests at {% data variables.copilot.additional_premium_requests %} per request | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_chat_short %} interactions[^1] | Up to 50 per month | Unlimited with included models | Unlimited with included models | Unlimited with included models |
-| Access to premium models | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} Full access |
+| Feature | {% data variables.copilot.copilot_free_short %} | {% data variables.copilot.copilot_student_short %} | {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.copilot_max_short %} | 
+|--------|----------------------------------------------------|----------------------------------------------|--------------------------------------------------|----------------------------------------------------------|----------------------------------------------------------|
+| Price | Free | [Free](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) | {% data variables.copilot.cfi_price_per_month %} per month<br>([free](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers) for some users) | {% data variables.copilot.cpp_price_per_month %} per month | {% data variables.copilot.cm_price_per_month %} per month  |
+| Real-time code suggestions with included models | Up to 2,000 per month | Unlimited | Unlimited | Unlimited | Unlimited |
+| {% data variables.product.prodname_copilot_short %} interactions[^1] | Limited ({% data variables.copilot.copilot_auto_model_selection_short %} only) | Limited ({% data variables.copilot.copilot_auto_model_selection_short %} only) | Subject to monthly {% data variables.product.prodname_ai_credits_short %} allowance | Subject to monthly {% data variables.product.prodname_ai_credits_short %} allowance | Subject to monthly {% data variables.product.prodname_ai_credits_short %} allowance |
+| Access to premium models | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} Full access | {% octicon "check" aria-label="Included" %} Full access |
 
 {% endrowheaders %}
 
 [^1]: Response times may vary during periods of high usage.
+
+### {% data variables.product.prodname_ai_credits %} allowance by plan
+
+The following table shows what's included with each paid plan.
+
+{% data reusables.copilot.plans.ai-credits-by-plan %}
+
+For more information on how {% data variables.product.prodname_ai_credits %} work, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-individuals) and [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
 For a detailed comparison of features and benefits, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 
@@ -97,7 +110,8 @@ Consider the following to decide which plan is right for you:
 * **Just getting started?** Try {% data variables.copilot.copilot_free %} to explore basic functionality at no cost.
 * **Studying?** Choose {% data variables.copilot.copilot_student_short %} to access premium features at no cost.
 * **Coding regularly with AI?** Upgrade to {% data variables.copilot.copilot_pro %} for more flexibility and access to premium features.
-* **Want the best performance and most model access?** Go with {% data variables.copilot.copilot_pro_plus %} to unlock everything {% data variables.product.prodname_copilot_short %} has to offer.
+* **Want the best performance and premium model access?** Go with {% data variables.copilot.copilot_pro_plus %} to unlock everything {% data variables.product.prodname_copilot_short %} has to offer.
+* **Doing sustained high-volume {% data variables.product.prodname_copilot_short %} development?** {% data variables.copilot.copilot_max %} offers the highest monthly allowance of {% data variables.product.prodname_ai_credits_short %} for individual plans. 
 
 To learn how to set up the plan that’s right for you, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan).
 

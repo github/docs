@@ -58,6 +58,7 @@ children:
   - /campaigns
   - /checks
   - /classroom
+  - /code-quality
   - /code-scanning
   - /code-security
   - /codes-of-conduct

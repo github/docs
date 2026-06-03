@@ -342,18 +342,6 @@
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Active Directory Application Secret
-  secretType: >-
-    azure_active_directory_application_id,
-    </br>azure_active_directory_application_secret
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: false
-- provider: Azure
-  supportedSecret: Azure Active Directory Application Secret
   secretType: azure_active_directory_application_secret
   isPublic: true
   isPrivateWithGhas: true
@@ -548,7 +536,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: true
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -638,7 +626,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -948,7 +936,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -1018,7 +1006,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -1508,7 +1496,7 @@
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -1518,7 +1506,7 @@
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -1548,7 +1536,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: true
   isduplicate: true
@@ -2014,10 +2002,10 @@
   isduplicate: false
 - provider: Elastic
   supportedSecret: Elastic Stack API Key
-  secretType: elastic_stack_api_key, </br>elastic_stack_environment
+  secretType: elastic_stack_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: true
@@ -2227,7 +2215,7 @@
   secretType: gitlab_ci_build_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2247,7 +2235,7 @@
   secretType: gitlab_feature_flag_client_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2257,7 +2245,7 @@
   secretType: gitlab_feed_token_v2
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2267,7 +2255,7 @@
   secretType: gitlab_incoming_email_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2277,7 +2265,7 @@
   secretType: gitlab_kubernetes_agent_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2287,7 +2275,7 @@
   secretType: gitlab_oauth_app_secret
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2307,7 +2295,7 @@
   secretType: gitlab_runner_auth_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2317,7 +2305,7 @@
   secretType: gitlab_runner_registration_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2327,7 +2315,7 @@
   secretType: gitlab_scim_oauth_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2858,7 +2846,7 @@
   isduplicate: false
 - provider: Lark
   supportedSecret: Lark APaaS Client Secret
-  secretType: lark_apaas_client_id, </br>lark_apaas_client_secret
+  secretType: lark_apaas_client_secret
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2868,7 +2856,7 @@
   isduplicate: false
 - provider: Lark
   supportedSecret: Lark Application Secret
-  secretType: lark_app_id, </br>lark_app_secret
+  secretType: lark_app_secret
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2888,7 +2876,7 @@
   isduplicate: false
 - provider: Lark
   supportedSecret: Lark Meego Plugin Secret
-  secretType: lark_meego_plugin_id, </br>lark_meego_plugin_secret
+  secretType: lark_meego_plugin_secret
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3133,6 +3121,16 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Meraki
+  supportedSecret: Meraki Dashboard API Key
+  secretType: meraki_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -3698,7 +3696,7 @@
   isduplicate: false
 - provider: Pinecone
   supportedSecret: Pinecone API Key
-  secretType: pinecone_api_key, </br>pinecone_environment
+  secretType: pinecone_api_key
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -4152,7 +4150,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4312,7 +4310,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4352,7 +4350,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4372,7 +4370,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4392,7 +4390,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -4930,7 +4928,7 @@
   supportedSecret: VolcEngine Ark API Key
   secretType: volcengine_ark_api_key
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -5043,7 +5041,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Yandex

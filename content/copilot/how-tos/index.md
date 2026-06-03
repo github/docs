@@ -10,6 +10,7 @@ children:
   - /get-code-suggestions
   - /chat-with-copilot
   - /copilot-cli
+  - /cloud-and-local-sandboxes
   - /github-copilot-app
   - /copilot-sdk
   - /use-copilot-agents

@@ -13,12 +13,6 @@ category:
   - Author and optimize with Copilot
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.code-review-actions-minutes-note %}
-
-<!-- end expires 2026-06-01 -->
-
 ## About {% data variables.product.prodname_actions %} usage for code review tools
 
 {% data reusables.copilot.code-review.code-review-actions-usage %} Organizations in this situation can use self-hosted runners.
@@ -77,3 +71,21 @@ By default, {% data variables.copilot.copilot_code-review_short %} runs on a sta
        runs-on: ubuntu-4-core
        # ...
    ```
+
+## Configure runners at the organization level
+
+Organization owners can set a default runner type for {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} across all repositories in the organization, and control whether individual repositories can override this default.
+
+> [!NOTE]
+> The organization-level runner type applies to both {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %}. Repositories can still override the organization default using `copilot-setup-steps.yml` unless you disable **Allow repositories to customize the runner type**. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/configure-runner-for-coding-agent#preventing-repositories-from-customizing-the-runner-type).
+
+This is useful if your organization requires all code reviews and {% data variables.copilot.copilot_cloud_agent_short %} tasks to run on specific runners, for example, to use larger runners for better performance or self-hosted runners that have access to internal resources.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the sidebar, under "Code, planning, and automation," click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, and then click **Runner type**.
+1. Next to "Runner type configuration," click {% octicon "pencil" aria-label="Edit" %}.
+1. In the "Edit runner type" dialog, select the runner type to use by default across your organization, then click **Save runner selection**.
+   * **Standard {% data variables.product.prodname_dotcom %} runner**: {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} will use the standard {% data variables.product.prodname_dotcom %}-hosted runner.
+   * **Labeled runner**: {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_cloud_agent %} will use a runner matching the label you specify.
+1. Optionally, to prevent individual repositories from overriding the organization-level runner configuration using their `copilot-setup-steps.yml` file, disable **Allow repositories to customize the runner type**.

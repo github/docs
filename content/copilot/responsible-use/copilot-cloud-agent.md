@@ -23,6 +23,8 @@ category:
 
 While working on your task, the agent has access to its own ephemeral development environment where it can make changes to your code, execute automated tests, and run linters.
 
+The agent can also be run automatically, on a schedule or in response to events such as an issue being opened, by setting up an {% data variables.copilot.copilot_automation %}. In this case, the agent performs a task you defined in advance, without a person initiating each run. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+
 The agent has been evaluated across a variety of programming languages, with English as the primary supported language.
 
 The agent works by using a combination of natural language processing and machine learning to understand your task and make changes in a codebase to complete your task. This process can be broken down into a number of steps.
@@ -175,7 +177,7 @@ To mitigate the risk of inaccurate code, you should carefully review and test th
 
 {% data variables.copilot.copilot_cloud_agent %} may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
-If this happens, {% data variables.product.prodname_copilot_short %} will show matches in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+If this happens, {% data variables.product.prodname_copilot_short %} will show matches in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 ### Legal and regulatory considerations
 

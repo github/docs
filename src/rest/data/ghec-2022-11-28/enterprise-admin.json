@@ -459,8 +459,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -786,8 +785,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -2037,13 +2035,13 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "day",
             "enum": [
               "hour",
               "day",
               "week",
               "month"
-            ],
-            "default": "day"
+            ]
           }
         },
         {
@@ -2053,6 +2051,7 @@
           "required": false,
           "schema": {
             "type": "string",
+            "default": "all",
             "enum": [
               "completed",
               "cancelled",
@@ -2062,8 +2061,7 @@
               "denied",
               "open",
               "all"
-            ],
-            "default": "all"
+            ]
           }
         },
         {
@@ -2812,8 +2810,7 @@
           {
             "\"Enterprise credentials\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -3005,8 +3002,7 @@
           {
             "\"Custom properties\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3299,8 +3295,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3490,8 +3485,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3671,8 +3665,7 @@
           {
             "\"Custom properties\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3912,8 +3905,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -3984,8 +3976,7 @@
           {
             "\"Custom properties\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -4181,8 +4172,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4481,8 +4471,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "admin"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4668,8 +4657,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4914,8 +4902,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "admin"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -4990,8 +4977,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "admin"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5150,8 +5136,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5264,8 +5249,7 @@
           {
             "\"Enterprise custom properties for organizations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -5531,8 +5515,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5607,8 +5590,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5693,8 +5675,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5779,8 +5760,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5855,8 +5835,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -5941,8 +5920,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6027,8 +6005,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6260,8 +6237,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6446,8 +6422,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -6820,8 +6795,7 @@
           {
             "\"Custom enterprise roles\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -7259,8 +7233,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -7370,8 +7343,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -7554,8 +7526,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -8430,8 +8401,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -8555,8 +8525,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -8952,6 +8921,7 @@
                         "type": "string",
                         "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                         "enum": [
+                          "read",
                           "write"
                         ]
                       },
@@ -9184,8 +9154,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -9821,6 +9790,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -10215,8 +10185,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -10297,8 +10266,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -10432,8 +10400,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11075,6 +11042,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -11468,8 +11436,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11599,8 +11566,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -11734,8 +11700,7 @@
           {
             "\"Enterprise organization installations\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ],
@@ -14334,128 +14299,6 @@
                         }
                       },
                       {
-                        "title": "file_path_restriction",
-                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_path_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_paths": {
-                                "type": "array",
-                                "description": "The file paths that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_paths"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_path_length",
-                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_path_length"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_path_length": {
-                                "type": "integer",
-                                "description": "The maximum amount of characters allowed in file paths.",
-                                "minimum": 1,
-                                "maximum": 32767
-                              }
-                            },
-                            "required": [
-                              "max_file_path_length"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "file_extension_restriction",
-                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_extension_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_extensions": {
-                                "type": "array",
-                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_extensions"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_size",
-                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_size"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_size": {
-                                "type": "integer",
-                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
-                                "minimum": 1,
-                                "maximum": 100
-                              }
-                            },
-                            "required": [
-                              "max_file_size"
-                            ]
-                          }
-                        }
-                      },
-                      {
                         "title": "workflows",
                         "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
                         "type": "object",
@@ -14607,6 +14450,128 @@
                             }
                           }
                         }
+                      },
+                      {
+                        "title": "file_path_restriction",
+                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_path_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_paths": {
+                                "type": "array",
+                                "description": "The file paths that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_paths"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_path_length",
+                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_path_length"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_path_length": {
+                                "type": "integer",
+                                "description": "The maximum amount of characters allowed in file paths.",
+                                "minimum": 1,
+                                "maximum": 32767
+                              }
+                            },
+                            "required": [
+                              "max_file_path_length"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_extension_restriction",
+                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_extension_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_extensions": {
+                                "type": "array",
+                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_extensions"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_size",
+                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_size"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_size": {
+                                "type": "integer",
+                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
+                                "minimum": 1,
+                                "maximum": 100
+                              }
+                            },
+                            "required": [
+                              "max_file_size"
+                            ]
+                          }
+                        }
                       }
                     ]
                   }
@@ -14647,8 +14612,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -15768,128 +15732,6 @@
                         }
                       },
                       {
-                        "title": "file_path_restriction",
-                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_path_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_paths": {
-                                "type": "array",
-                                "description": "The file paths that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_paths"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_path_length",
-                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_path_length"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_path_length": {
-                                "type": "integer",
-                                "description": "The maximum amount of characters allowed in file paths.",
-                                "minimum": 1,
-                                "maximum": 32767
-                              }
-                            },
-                            "required": [
-                              "max_file_path_length"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "file_extension_restriction",
-                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_extension_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_extensions": {
-                                "type": "array",
-                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_extensions"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_size",
-                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_size"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_size": {
-                                "type": "integer",
-                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
-                                "minimum": 1,
-                                "maximum": 100
-                              }
-                            },
-                            "required": [
-                              "max_file_size"
-                            ]
-                          }
-                        }
-                      },
-                      {
                         "title": "workflows",
                         "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
                         "type": "object",
@@ -16041,6 +15883,128 @@
                             }
                           }
                         }
+                      },
+                      {
+                        "title": "file_path_restriction",
+                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_path_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_paths": {
+                                "type": "array",
+                                "description": "The file paths that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_paths"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_path_length",
+                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_path_length"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_path_length": {
+                                "type": "integer",
+                                "description": "The maximum amount of characters allowed in file paths.",
+                                "minimum": 1,
+                                "maximum": 32767
+                              }
+                            },
+                            "required": [
+                              "max_file_path_length"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_extension_restriction",
+                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_extension_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_extensions": {
+                                "type": "array",
+                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_extensions"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_size",
+                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_size"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_size": {
+                                "type": "integer",
+                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
+                                "minimum": 1,
+                                "maximum": 100
+                              }
+                            },
+                            "required": [
+                              "max_file_size"
+                            ]
+                          }
+                        }
                       }
                     ]
                   }
@@ -16081,8 +16045,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -18686,128 +18649,6 @@
                         }
                       },
                       {
-                        "title": "file_path_restriction",
-                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_path_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_paths": {
-                                "type": "array",
-                                "description": "The file paths that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_paths"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_path_length",
-                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_path_length"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_path_length": {
-                                "type": "integer",
-                                "description": "The maximum amount of characters allowed in file paths.",
-                                "minimum": 1,
-                                "maximum": 32767
-                              }
-                            },
-                            "required": [
-                              "max_file_path_length"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "file_extension_restriction",
-                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "file_extension_restriction"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "restricted_file_extensions": {
-                                "type": "array",
-                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            },
-                            "required": [
-                              "restricted_file_extensions"
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": "max_file_size",
-                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
-                        "type": "object",
-                        "required": [
-                          "type"
-                        ],
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "max_file_size"
-                            ]
-                          },
-                          "parameters": {
-                            "type": "object",
-                            "properties": {
-                              "max_file_size": {
-                                "type": "integer",
-                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
-                                "minimum": 1,
-                                "maximum": 100
-                              }
-                            },
-                            "required": [
-                              "max_file_size"
-                            ]
-                          }
-                        }
-                      },
-                      {
                         "title": "workflows",
                         "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged.",
                         "type": "object",
@@ -18959,6 +18800,128 @@
                             }
                           }
                         }
+                      },
+                      {
+                        "title": "file_path_restriction",
+                        "description": "Prevent commits that include changes in specified file and folder paths from being pushed to the commit graph. This includes absolute paths that contain file names.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_path_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_paths": {
+                                "type": "array",
+                                "description": "The file paths that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_paths"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_path_length",
+                        "description": "Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_path_length"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_path_length": {
+                                "type": "integer",
+                                "description": "The maximum amount of characters allowed in file paths.",
+                                "minimum": 1,
+                                "maximum": 32767
+                              }
+                            },
+                            "required": [
+                              "max_file_path_length"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "file_extension_restriction",
+                        "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "file_extension_restriction"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "restricted_file_extensions": {
+                                "type": "array",
+                                "description": "The file extensions that are restricted from being pushed to the commit graph.",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "restricted_file_extensions"
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "title": "max_file_size",
+                        "description": "Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.",
+                        "type": "object",
+                        "required": [
+                          "type"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "max_file_size"
+                            ]
+                          },
+                          "parameters": {
+                            "type": "object",
+                            "properties": {
+                              "max_file_size": {
+                                "type": "integer",
+                                "description": "The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).",
+                                "minimum": 1,
+                                "maximum": 100
+                              }
+                            },
+                            "required": [
+                              "max_file_size"
+                            ]
+                          }
+                        }
                       }
                     ]
                   }
@@ -18999,8 +18962,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19071,8 +19033,7 @@
           {
             "\"Enterprise administration\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19406,10 +19367,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "members"
-            ]
+            "type": "string"
           }
         },
         {
@@ -19419,11 +19377,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 1
           }
         },
         {
@@ -19433,11 +19387,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 30,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 30
           }
         },
         {
@@ -19694,8 +19644,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19972,8 +19921,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -19990,10 +19938,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -20002,10 +19947,7 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "string",
-            "examples": [
-              "members"
-            ]
+            "type": "string"
           }
         },
         {
@@ -20219,8 +20161,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -20237,10 +20178,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -20680,8 +20618,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -20698,10 +20635,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -21150,8 +21084,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -21168,10 +21101,7 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string",
-            "examples": [
-              "7fce0092-d52e-4f76-b727-3955bd72c939"
-            ]
+            "type": "string"
           }
         },
         {
@@ -21241,8 +21171,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -21269,11 +21198,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 1,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 1
           }
         },
         {
@@ -21283,11 +21208,7 @@
           "required": false,
           "schema": {
             "type": "integer",
-            "default": 30,
-            "format": "int32",
-            "examples": [
-              1
-            ]
+            "default": 30
           }
         },
         {
@@ -21619,8 +21540,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -22344,8 +22264,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -22657,8 +22576,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "read"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -23129,8 +23047,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -24009,8 +23926,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     },
     {
@@ -24097,8 +24013,7 @@
           {
             "\"Enterprise SCIM\" enterprise permissions": "write"
           }
-        ],
-        "disabledForPatV2": true
+        ]
       }
     }
   ]

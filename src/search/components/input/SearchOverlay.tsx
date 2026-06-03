@@ -22,6 +22,7 @@ import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
 
 import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
+import { MAX_QUERY_LENGTH } from '@/search/lib/ai-search-constants'
 
 import {
   SearchContext,
@@ -693,6 +694,7 @@ export function SearchOverlay({
             ref={inputRef}
             value={urlSearchInputQuery}
             onChange={handleSearchQueryChange}
+            maxLength={MAX_QUERY_LENGTH}
             leadingVisual={<SearchIcon />}
             role="combobox"
             // In AskAI the search input not longer "controls" the suggestions list, because there is no list, so we remove the aria-controls attribute

@@ -363,6 +363,9 @@ category:
     complexity: {
       type: 'array',
     },
+    surface: {
+      type: 'array',
+    },
     industry: {
       type: 'array',
     },
@@ -403,6 +406,17 @@ category:
         additionalProperties: false,
       },
       description: 'Array of articles to feature in the spotlight section',
+    },
+    // Filters to display on cookbook-style category landing pages.
+    // Allowed values: 'category' (always shown), 'surface', 'complexity'.
+    filters: {
+      type: 'array',
+      items: {
+        type: 'string',
+        enum: ['category', 'surface', 'complexity'],
+      },
+      description:
+        'Which filter menus to display on the category landing page. The category filter is always shown.',
     },
     // Carousels configuration for category landing pages (supports multiple carousels)
     carousels: {

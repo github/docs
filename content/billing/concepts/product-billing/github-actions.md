@@ -31,6 +31,15 @@ For **private repositories**, each {% data variables.product.github %} account r
 > [!TIP]
 > Anyone with write access to a repository can run actions. Any costs of running the actions are billed to the repository owner.
 
+### {% data variables.copilot.copilot_code-review_short %} and {% data variables.product.prodname_actions %} minutes
+
+Each {% data variables.copilot.copilot_code-review_short %} consumes {% data variables.product.prodname_actions %} minutes in addition to {% data variables.product.prodname_ai_credits_short %}.
+
+* **Private repositories:** Minutes are consumed from your account or organization's existing plan entitlement. Any usage beyond your included minutes is billed at standard {% data variables.product.prodname_actions %} rates.
+* **Public repositories:** Minutes remain free.
+
+{% data variables.copilot.copilot_code-review_short %} runs on standard {% data variables.product.github %}-hosted Ubuntu Linux runners by default. You can also configure {% data variables.actions.github_hosted_larger_runners %} or self-hosted runners via Actions Runner Controller (ARC), which are billed at different rates.
+
 ## How storage billing works
 
 {% data variables.product.prodname_actions %} storage billing operates on an **hourly accrual model**:
@@ -48,11 +57,13 @@ It's important to understand the difference between what you see on {% data vari
 * **Accrued storage:** The cumulative total of storage used throughout the billing cycle (determines your bill)
 
 **When you delete artifacts:**
+
 * Current storage decreases immediately
 * Future hourly charges stop accumulating
 * Storage already accrued during the current billing cycle remains in your total and will appear on your bill
 
 **Example (30-day billing cycle):** If you store 10 GB of artifacts for 10 days, then delete everything on day 11:
+
 * Days 1-10: Accruing 240 GB-Hours per day (10 GB × 24 hours)
 * Day 11: Delete artifacts → current storage drops to 0 GB
 * Days 11-30: Accruing 0 GB-Hours (no storage)
@@ -63,11 +74,13 @@ Deleting artifacts reduces your current storage and prevents future charges, but
 ### Storage measurement units
 
 {% data variables.product.prodname_actions %} measures storage in **binary gigabytes (GB)**, where:
+
 * 1 GB = 2^30 bytes = 1,073,741,824 bytes
 * This is also known as a gibibyte (GiB)
 * 1 GB = 1,024 megabytes (MB)
 
 **Billing calculations use GB-Hours:**
+
 * 1 GB-Hour = 1 GB of storage for 1 hour
 * Example: Storing 3 GB for 10 days = 720 GB-Hours (3 GB × 10 days × 24 hours)
 
@@ -109,6 +122,7 @@ The following amounts of time for standard runners, artifact storage, and cache 
 {% data reusables.billing.actions-included-quotas %}
 
 The use of standard {% data variables.product.github %}-hosted runners is free:
+
 * In public repositories
 * For {% data variables.product.prodname_pages %}
 * For {% data variables.product.prodname_dependabot %}
@@ -117,6 +131,7 @@ The use of standard {% data variables.product.github %}-hosted runners is free:
 >
 > * Larger runners are always charged for, even when used by public repositories or when you have quota available from your plan.
 > * The storage amounts shown are **shared** with {% data variables.product.prodname_registry %}. This means your total storage across Actions artifacts, Actions caches, and Packages cannot exceed the included amount for your plan.
+> * {% data variables.copilot.copilot_code-review_short %} consumes {% data variables.product.prodname_actions %} minutes on private repositories. For public repositories, {% data variables.product.prodname_actions %} minutes remain free.
 
 ## Using more than your included quota
 

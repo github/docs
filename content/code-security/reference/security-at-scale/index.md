@@ -11,5 +11,6 @@ children:
   - /security-overview-dashboard-metrics
   - /available-filters-for-security-overview
   - /security-configuration-enforcement
+  - /security-configuration-statuses
   - /troubleshoot-security-configurations
 ---

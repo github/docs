@@ -1860,7 +1860,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -3163,7 +3163,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -5125,7 +5125,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -7040,7 +7040,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -9260,7 +9260,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -11280,7 +11280,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -13392,7 +13392,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -15433,7 +15433,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -17404,7 +17404,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -19324,7 +19324,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -21624,7 +21624,7 @@
               {
                 "type": "object or null",
                 "name": "type",
-                "description": "<p>The type of issue.</p>",
+                "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -23726,7 +23726,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -26123,7 +26123,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -28177,7 +28177,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -29995,7 +29995,7 @@
               {
                 "type": "object or null",
                 "name": "type",
-                "description": "<p>The type of issue.</p>",
+                "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -32670,7 +32670,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -34634,7 +34634,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -34836,7 +34836,7 @@
       {
         "type": "object or null",
         "name": "type",
-        "description": "<p>The type of issue.</p>",
+        "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
         "isRequired": true,
         "childParamsGroups": [
           {
@@ -36787,7 +36787,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -38752,7 +38752,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -40723,7 +40723,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -42684,7 +42684,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -44648,7 +44648,7 @@
           {
             "type": "object or null",
             "name": "type",
-            "description": "<p>The type of issue.</p>",
+            "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
             "childParamsGroups": [
               {
                 "type": "integer",
@@ -44850,7 +44850,7 @@
       {
         "type": "object or null",
         "name": "type",
-        "description": "<p>The type of issue.</p>",
+        "description": "<p>The type assigned to the issue. This is only present for issues in repositories where issue types are supported.</p>",
         "isRequired": true,
         "childParamsGroups": [
           {

@@ -4028,6 +4028,10 @@
         "permissions": [
           {
             "\"Contents\" repository permissions": "write"
+          },
+          {
+            "\"Contents\" repository permissions": "write",
+            "\"Workflows\" repository permissions": "write"
           }
         ]
       }

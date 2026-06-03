@@ -15,6 +15,7 @@ export type CategoryLandingContextT = {
   renderedPage: string
   currentLayout: string
   spotlight?: SpotlightItem[]
+  filters?: Array<'category' | 'surface' | 'complexity'>
 }
 
 export const CategoryLandingContext = createContext<CategoryLandingContextT | null>(null)
@@ -49,6 +50,11 @@ interface ContextRequest {
 export const getCategoryLandingContextFromRequest = (
   req: ContextRequest,
 ): CategoryLandingContextT => {
+  const spotlight = req.context.page.spotlight as SpotlightItem[] | undefined
+  const filters = req.context.page.filters as
+    | Array<'category' | 'surface' | 'complexity'>
+    | undefined
+
   return {
     title: req.context.page.title,
     productCallout: (req.context.page.product as string) || '',
@@ -61,6 +67,9 @@ export const getCategoryLandingContextFromRequest = (
     featuredLinks: getFeaturedLinksFromReq(req),
     renderedPage: (req.context.renderedPage as string) || '',
     currentLayout: req.context.currentLayoutName || '',
-    spotlight: req.context.page.spotlight as SpotlightItem[] | undefined,
+    // `getServerSideProps` cannot serialize `undefined`, so only include these
+    // when they are actually defined on the page frontmatter.
+    ...(spotlight !== undefined && { spotlight }),
+    ...(filters !== undefined && { filters }),
   }
 }

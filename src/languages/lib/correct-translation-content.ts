@@ -58,13 +58,13 @@ export function correctTranslatedContentStrings(
   )
 
   // The translation pipeline frequently splits Markdown bullet markers
-  // (`*`) and table-cell pipes (`|`) onto their own line, with the
-  // actual content pushed to the next line as deeply indented text.
+  // (`*` and `-`) and table-cell pipes (`|`) onto their own line, with
+  // the actual content pushed to the next line as deeply indented text.
   // This breaks list and table rendering and leaves `[AUTOTITLE]` links
   // unexpanded. Rejoin the marker with its content. This corruption
-  // affects every translated language (~47k bullets and ~11k cells in
-  // total), so it lives in the universal pre-fixes block.
-  content = content.replace(/^([ \t]*)\* ?\n[ \t]+/gm, '$1* ')
+  // affects every translated language, so it lives in the universal
+  // pre-fixes block.
+  content = content.replace(/^([ \t]*)([*-]) ?\n[ \t]+/gm, '$1$2 ')
   content = content.replace(/^\|[ \t]*\n[ \t]+/gm, '| ')
 
   // The same translator wrapping habit also strands heading markers
@@ -77,6 +77,16 @@ export function correctTranslatedContentStrings(
   // ~3k headings, ~1.6k blockquotes, ~3.5k bold-after-marker cases
   // measured across all eight translated languages.
   content = joinDanglingMarkers(content)
+
+  // YAML `|2-` block-scalar artifacts: some translated frontmatter fields
+  // (typically `intro`) arrive with a spurious leading newline followed by
+  // deep indentation when the translator wrote `field: |2-\n\n    content`.
+  // The YAML parser preserves the leading blank line and extra indentation
+  // in the parsed string. Strip that leading whitespace when the English
+  // source has no such prefix.
+  if (content.startsWith('\n') && !englishContent.startsWith('\n')) {
+    content = content.replace(/^\n[ \t]*/, '')
+  }
 
   // --- Per-language fixes (es, ja, pt, zh, ru, fr, ko, de) ---
 
@@ -121,6 +131,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% datos de variables.', '{% data variables.')
     // `{% variables de datos.` — reversed word order "variables of data"
     content = content.replaceAll('{% variables de datos.', '{% data variables.')
+    // `{% los datos variables.` — article "los" (the) prepended to "datos variables"
+    content = content.replaceAll('{% los datos variables.', '{% data variables.')
+    content = content.replaceAll('{%- los datos variables.', '{%- data variables.')
     // `{% Datos ` — capitalized "datos" = data
     content = content.replaceAll('{% Datos variables', '{% data variables')
     // `{% dato ` — singular form of "datos" = data
@@ -193,6 +206,18 @@ export function correctTranslatedContentStrings(
     content = content.replace(
       /\{%-?(\s+(?:ifversion|elsif|if)\s+(?:not\s+)?(?:fpt|ghec|ghes|ghae)(?:\s+(?:or|and)\s+(?:not\s+)?(?:fpt|ghec|ghes|ghae))*)\}/g,
       '{%$1 %}',
+    )
+
+    // `{% de escritorio %}` — Spanish "de escritorio" = desktop (platform tab)
+    content = content.replaceAll('{% de escritorio %}', '{% desktop %}')
+    content = content.replaceAll('{%- de escritorio %}', '{%- desktop %}')
+
+    // `{% variablesdatos.producto.` — translator fused "variables" + "datos" (data)
+    // without the `data` keyword and used "producto" (product) instead of "variables.product".
+    // e.g. `{% variablesdatos.producto.prodname_dotcom %}` → `{% data variables.product.prodname_dotcom %}`
+    content = content.replace(
+      /\{%(-?)\s*variablesdatos\.producto\.([A-Za-z0-9._-]+)(\s*-?%\})/g,
+      '{%$1 data variables.product.$2$3',
     )
 
     // [SCRAPE-6548] Per-file fix for the Spanish reusable
@@ -465,6 +490,26 @@ export function correctTranslatedContentStrings(
       '{% data variables.product.prodname_dotcom %} ホステッド ランナー{% ifversion default-setup-self-hosted-runners-GHEC %}なしのエンタープライズに対して {% data variables.product.prodname_code_scanning %} を有効化、構成、および無効化できます。 {% data variables.product.prodname_code_scanning_caps %} を使用すると、コードの脆弱性やエラーをスキャンできます。',
       '{% data variables.product.prodname_dotcom %} ホステッド ランナー{% ifversion default-setup-self-hosted-runners-GHEC %}なしのエンタープライズに対して{% endif %} {% data variables.product.prodname_code_scanning %} を有効化、構成、および無効化できます。 {% data variables.product.prodname_code_scanning_caps %} を使用すると、コードの脆弱性やエラーをスキャンできます。',
     )
+
+    // [SCRAPE-6604] Per-file fixes for ja pages whose intro/title Liquid was
+    // structurally scrambled. Scoped by unique broken substring so they are
+    // no-ops everywhere except the affected file.
+
+    // code-security/.../enabling-github-advanced-security-for-your-enterprise.md
+    // (title): `{% ifversion ghas-products %}` opens but never closes.
+    // Append `{% endif %}`. (versions: ghes: '*')
+    content = content.replaceAll(
+      '{% ifversion ghas-products %}製品をあなたの企業のために有効にする\n',
+      '{% ifversion ghas-products %}製品をあなたの企業のために有効にする{% endif %}\n',
+    )
+
+    // admin/managing-iam/.../configuring-scim-provisioning-with-okta.md
+    // (intro): spurious `{% endif %}` after `上で` — one too many endifs for
+    // the single `{% ifversion ghec %}` opener. Drop the stray closer.
+    content = content.replaceAll(
+      '{% endif %} 上で{% endif %}エンタープライズとの通信を実行できるように Okta を構成する方法を学習します。',
+      '{% endif %} 上でエンタープライズとの通信を実行できるように Okta を構成する方法を学習します。',
+    )
   }
 
   if (context.code === 'pt') {
@@ -489,8 +534,19 @@ export function correctTranslatedContentStrings(
       /\{%(-?)\s*data\s+variables\.product\.\s+(prodname_[A-Za-z0-9_]+)/g,
       '{%$1 data variables.product.$2',
     )
+    // `{% licenças de dados variables.X %}` — "licenças de dados" (data licenses)
+    // inserted before the variable path by the translator. Strip the prefix.
+    content = content.replaceAll('{% licenças de dados variables.', '{% data variables.')
+    content = content.replaceAll('{%- licenças de dados variables.', '{%- data variables.')
+    // `{% sugestões embutidas do variables.X %}` — translator replaced `{% data` with
+    // Portuguese prose meaning "inline suggestions of". Restore the data keyword.
+    content = content.replaceAll('{% sugestões embutidas do variables.', '{% data variables.')
+    content = content.replaceAll('{%- sugestões embutidas do variables.', '{%- data variables.')
     // Fully translated reusables path: `{% dados reutilizáveis.X.Y %}` → `{% data reusables.X.Y %}`
     content = content.replaceAll('{% dados reutilizáveis.', '{% data reusables.')
+    // `{% dado reutilizáveis.X.Y %}` — singular "dado" (datum) + plural "reutilizáveis"
+    content = content.replaceAll('{% dado reutilizáveis.', '{% data reusables.')
+    content = content.replaceAll('{%- dado reutilizáveis.', '{%- data reusables.')
     // Translated path segment inside reusables path: `repositórios` → `repositories`
     content = content.replaceAll(
       '{% data reusables.repositórios.',
@@ -513,6 +569,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% variáveis de dados ', '{% data variables ')
     // `{% dados variáveis.` — alternate word order "data variables"
     content = content.replaceAll('{% dados variáveis.', '{% data variables.')
+    // `{% Espaços de Código %}` / `{% espaços de código %}` — "Code Spaces" = codespaces
+    content = content.replaceAll('{% Espaços de Código %}', '{% codespaces %}')
+    content = content.replaceAll('{%- Espaços de Código %}', '{%- codespaces %}')
+    content = content.replaceAll('{% espaços de código %}', '{% codespaces %}')
+    content = content.replaceAll('{%- espaços de código %}', '{%- codespaces %}')
     // `{% janelas %}` — Portuguese "windows" = windows (platform tag)
     content = content.replaceAll('{% janelas %}', '{% windows %}')
     content = content.replaceAll('{%- janelas %}', '{%- windows %}')
@@ -622,6 +683,9 @@ export function correctTranslatedContentStrings(
     // `{% caso contrário %}` — alternate "otherwise" = else
     content = content.replaceAll('{% caso contrário %}', '{% else %}')
     content = content.replaceAll('{%- caso contrário %}', '{%- else %}')
+    // `{% outra %}` — "other/another" (feminine) = else
+    content = content.replaceAll('{% outra %}', '{% else %}')
+    content = content.replaceAll('{%- outra %}', '{%- else %}')
     // `{% observação %}` — "note" = note
     content = content.replaceAll('{% observação %}', '{% note %}')
     content = content.replaceAll('{%- observação %}', '{%- note %}')
@@ -638,6 +702,15 @@ export function correctTranslatedContentStrings(
     // inside `{% data variables.product. prodname_ghe_cloud %}`. The generic
     // pt regex above already restored it, but here we only need to confirm —
     // no extra per-file replacement required.
+
+    // [SCRAPE-6604] Per-file fix:
+    // organizations/.../requiring-two-factor-authentication-in-your-organization.md
+    // (intro): `{% ifversion fpt or ghec %}...{% else %}` never closes.
+    // Append `{% endif %}` at the end of the intro value.
+    content = content.replaceAll(
+      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.',
+      'tornando mais difícil para os atores mal-intencionados acessarem os repositórios e as configurações de uma organização.{% endif %}',
+    )
   }
 
   if (context.code === 'zh') {
@@ -761,6 +834,18 @@ export function correctTranslatedContentStrings(
     // already opened on the previous line. Drop the inner duplicate so the
     // outer endif balances correctly.
     content = content.replaceAll('> * {% ifversion ghes %} 本文包含', '> * 本文包含')
+
+    // `{% 捕获IDENTIFIER %}` — Chinese "捕获" = "to capture" = capture.
+    // Translator translated the tag name but kept the variable name in English.
+    // Pattern: `{% 捕获IDENTIFIER %}` (no space) or `{% 捕获 IDENTIFIER %}` (with space)
+    // → `{% capture IDENTIFIER %}`
+    content = content.replace(/\{%(-?)\s*捕获\s*(\w+)\s*(-?)%\}/g, '{%$1 capture $2 $3%}')
+
+    // [SCRAPE-6604] Per-file fix:
+    // organizations/.../permissions-of-custom-organization-roles.md (intro):
+    // `{% ifversion org-custom-role-with-repo-permissions %}...{% else %}` never
+    // closes. Append `{% endif %}` at the end of the intro value.
+    content = content.replaceAll("{% else %} 的访问权限。'", "{% else %} 的访问权限{% endif %}。'")
   }
 
   if (context.code === 'ru') {
@@ -890,6 +975,23 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%- эндкёрл %}', '{%- endcurl %}')
     content = content.replaceAll('{% запроса %}', '{% endraw %}')
     content = content.replaceAll('{%- запроса %}', '{%- endraw %}')
+    // `{% API %}` — uppercase API used as platform/tool tab tag (correct: lowercase `{% api %}`)
+    content = content.replaceAll('{% API %}', '{% api %}')
+    content = content.replaceAll('{%- API %}', '{%- api %}')
+
+    // `{% захватить VARNAME %}` — "захватить" = "to capture" = capture
+    // The translator translated the tag name but kept the variable name in English.
+    // Pattern: `{% захватить IDENTIFIER %}` → `{% capture IDENTIFIER %}`
+    content = content.replace(/\{%(-?)\s*захватить\s+(\w+)\s*(-?)%\}/g, '{%$1 capture $2 $3%}')
+
+    // Comma-separated plan names in ifversion/elsif/if tags:
+    // `{% ifversion fpt, ghec %}` — translator used comma instead of `or` between plans.
+    // Only safe to fix when the comma appears between recognised plan-name tokens.
+    content = content.replace(
+      /\{%(-?\s+(?:ifversion|elsif|if)\s+[^%]*?),\s*((?:fpt|ghec|ghes|ghae|ghecom)[^%]*?-?%\})/g,
+      '{%$1 or $2',
+    )
+
     // `{% джетмозги %}` — Russian literal translation of "JetBrains" (джет=jet, мозги=brains)
     content = content.replaceAll('{% джетмозги %}', '{% jetbrains %}')
     content = content.replaceAll('{%- джетмозги %}', '{%- jetbrains %}')
@@ -1049,9 +1151,21 @@ export function correctTranslatedContentStrings(
       'Вы можете увидеть, кто внес{% endif %} коммиты в репозиторий{% ifversion fpt or ghec %} и его зависимости.',
       'Вы можете увидеть, кто внес коммиты в репозиторий{% ifversion fpt or ghec %} и его зависимости{% endif %}.',
     )
+
+    // data/reusables/enterprise-licensing/unique-user-licensing-model.md:
+    // The translator garbled `{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}`
+    // into `{% ifversion enterprise-licensing-language %}license-language%else %}licenses{% license seats{% endif %}`.
+    // Restore the correct conditional.
+    content = content.replaceAll(
+      '{% ifversion enterprise-licensing-language %}license-language%else %}licenses{% license seats{% endif %}',
+      '{% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}',
+    )
   }
 
   if (context.code === 'fr') {
+    // `{% espaces de code %}` — French "code spaces" = codespaces
+    content = content.replaceAll('{% espaces de code %}', '{% codespaces %}')
+    content = content.replaceAll('{%- espaces de code %}', '{%- codespaces %}')
     // `{% sinon %}` — "otherwise" = else
     content = content.replaceAll('{% sinon %}', '{% else %}')
     content = content.replaceAll('{%- sinon %}', '{%- else %}')
@@ -1087,7 +1201,13 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% données ', '{% data ')
     // `{% Données ` — capitalized form
     content = content.replaceAll('{% Données variables', '{% data variables')
+    // `{% Données réutilisables.` / `{% Données Réutilisables.` — capitalized forms (lowercase/uppercase R)
     content = content.replaceAll('{% Données réutilisables.', '{% data reusables.')
+    content = content.replaceAll('{% Données Réutilisables.', '{% data reusables.')
+    // `{% compte de données variables.X %}` — translator inserted "compte" (account)
+    // before "de données variables". Strip the prefix and restore the data keyword.
+    content = content.replaceAll('{% compte de données variables.', '{% data variables.')
+    content = content.replaceAll('{%- compte de données variables.', '{%- data variables.')
     // Catch remaining "ou" between any plan names in ifversion/elsif/if tags
     content = content.replace(/\{%-? (?:ifversion|elsif|if) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
@@ -1230,6 +1350,9 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 데이터 변숫값.', '{% data variables.')
     content = content.replaceAll('{% 기타 %}', '{% else %}')
     content = content.replaceAll('{%- 기타 %}', '{%- else %}')
+    // `{% other %}` — English "other" used as an alias for else by the translator
+    content = content.replaceAll('{% other %}', '{% else %}')
+    content = content.replaceAll('{%- other %}', '{%- else %}')
     content = content.replaceAll('{% 참고 %}', '{% note %}')
     content = content.replaceAll('{%- 참고 %}', '{%- note %}')
     content = content.replaceAll('{% 원시 %}', '{% raw %}')
@@ -1333,6 +1456,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% Variable.', '{% data variables.')
     content = content.replaceAll('{%- Variable.', '{%- data variables.')
 
+    // `{% 캡처 IDENTIFIER %}` — Korean "캡처" = "capture".
+    // Translator translated the tag name but kept the variable name in English.
+    // Pattern: `{% 캡처 IDENTIFIER %}` → `{% capture IDENTIFIER %}`
+    content = content.replace(/\{%(-?)\s*캡처\s+(\w+)\s*(-?)%\}/g, '{%$1 capture $2 $3%}')
+
     // [SCRAPE-6548] Per-file fix:
     // account-and-profile/concepts/username-changes.md (intro): orphan
     // `{% endif %}` and `{% ifversion ghes %}` swapped — the conditional
@@ -1354,9 +1482,21 @@ export function correctTranslatedContentStrings(
       '자체 호스팅된 실행기에서 실행 중인 {% data variables.product.prodname_dependabot %}에 대한 액세스를 구성할 수도 있습니다.{% data variables.product.prodname_dependabot %}',
       '자체 호스팅된 실행기에서 실행 중인 {% data variables.product.prodname_dependabot %}에 대한 액세스를 구성할 수도 있습니다.{% endif %}',
     )
+
+    // [SCRAPE-6604] Per-file fix:
+    // organizations/.../permissions-of-custom-organization-roles.md (intro):
+    // `{% ifversion org-custom-role-with-repo-permissions %}...{% else %}` never
+    // closes. Append `{% endif %}` at the end of the intro value.
+    content = content.replaceAll(
+      "{% else %}에 대한 액세스를 제어할 수 있습니다.'",
+      "{% else %}에 대한 액세스를 제어할 수 있습니다.{% endif %}'",
+    )
   }
 
   if (context.code === 'de') {
+    // `{%–` — en-dash (U+2013) used instead of hyphen in `{%-` trim modifier
+    content = content.replaceAll('{%–', '{%-')
+
     content = content.replaceAll('{% Daten variables', '{% data variables')
     content = content.replaceAll('{% daten variables', '{% data variables')
     content = content.replaceAll('{% Daten reusables', '{% data reusables')
@@ -1513,6 +1653,8 @@ export function correctTranslatedContentStrings(
       '{%$1data reusables.',
     )
     content = content.replace(/\{%(-?\s*)data Variablen\./g, '{%$1data variables.')
+    // `data variablen.` — lowercase variant of "Variablen" (survives after broad fallback)
+    content = content.replace(/\{%(-?\s*)data variablen\./g, '{%$1data variables.')
     // German `oder` = "or", `und` = "and" inside ifversion/elsif/if tags
     content = content.replace(/\{%-?\s+(?:ifversion|elsif|if)\s+[^%]*?\soder\s[^%]*?-?%\}/g, (m) =>
       m.replace(/\soder\s/g, ' or '),
@@ -1914,8 +2056,13 @@ export function correctTranslatedContentStrings(
       else englishSpaces.add(m[0])
     }
     if (englishLinebreaks.size > 0) {
-      content = content.replace(/\{%(.+?)%\} /g, (match) => {
+      content = content.replace(/\{%(.+?)%\} /g, (match, _p1, offset, string) => {
         if (match.lastIndexOf('{%') > 0) return match
+        // Don't inject a linebreak when the tag is inside a heading line — doing
+        // so would split `#### {% data X %} Japanese text` into a heading with
+        // no content followed by a loose paragraph of Japanese text.
+        const lineStart = (string as string).lastIndexOf('\n', offset) + 1
+        if (/^[ \t]{0,3}#{1,6}/.test((string as string).slice(lineStart, offset))) return match
         const withLinebreak = `${match.slice(0, -1)}\n`
         if (englishLinebreaks.has(withLinebreak) && !englishSpaces.has(match)) {
           return withLinebreak
@@ -2058,11 +2205,12 @@ export function correctTranslatedContentStrings(
  * Rejoin marker lines that the translation pipeline split from their content.
  *
  * Translators sometimes leave a heading marker (`#`/`##`/...), blockquote
- * marker (`>`), or the opening `**` of a bold span (immediately following a
- * list/heading/blockquote/table marker) on its own line, with the rest of
- * the content pushed to the next line as deeply indented text. This breaks
- * rendering (empty headings, broken blockquotes, unrendered bold, unexpanded
- * Liquid and `[AUTOTITLE]` links).
+ * marker (`>`), ordered-list marker (`1.`, `2.`, ...), or the opening `**`
+ * of a bold span (immediately following a list/heading/blockquote/table
+ * marker) on its own line, with the rest of the content pushed to the next
+ * line as deeply indented text. This breaks rendering (empty headings, broken
+ * blockquotes, broken ordered lists rendered as code blocks, unrendered bold,
+ * unexpanded Liquid and `[AUTOTITLE]` links).
  *
  * Conservative thresholds:
  * - Marker line has 0–3 leading spaces (CommonMark heading/blockquote rule).
@@ -2081,11 +2229,21 @@ function joinDanglingMarkers(content: string): string {
   // Marker-only line patterns (run only against non-fenced, non-frontmatter lines).
   const headingOnly = /^([ \t]{0,3})(#{1,6})[ \t]*$/
   const blockquoteOnly = /^([ \t]{0,3}>)[ \t]*$/
+  // Ordered-list marker alone on a line: `1. \n              content`.
+  const orderedListOnly = /^([ \t]{0,3}\d+\.)[ \t]*$/
   // Bold-open after a list/heading/blockquote/table marker (no other content).
   const markerThenBoldOnly =
     /^([ \t]{0,3}(?:[*+-]|\d+\.)[ \t]+|[ \t]{0,3}>[ \t]+|[ \t]{0,3}#{1,6}[ \t]+|\|[ \t]*)\*\*[ \t]*$/
   // Continuation: 6+ leading spaces and at least one non-whitespace character.
+  // Used when checking whether the *next* line is a deeply-indented continuation
+  // after a recognised marker.
   const deepIndented = /^[ \t]{6,}(\S.*)$/
+  // Standalone deeply-indented paragraph: 9+ leading spaces.  Translation
+  // artifacts consistently use 14 spaces; legitimate list-continuation content
+  // uses at most 6 spaces (confirmed by corpus analysis).  The 9+ threshold
+  // keeps the two populations well separated and is fence-safe after the
+  // improved fence detection above.
+  const veryDeepIndented = /^[ \t]{9,}(\S.*)$/
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i]
@@ -2108,7 +2266,12 @@ function joinDanglingMarkers(content: string): string {
     }
 
     // CommonMark fenced code block: 0–3 leading spaces, then 3+ ` or ~.
-    const fenceMatch = line.match(/^[ \t]{0,3}(`{3,}|~{3,})/)
+    // CommonMark permits fences to be indented 0–3 spaces at the document
+    // level, but inside a list item a fence can appear at 4+ spaces of
+    // leading indentation.  Use `^[ \t]*` so that code blocks nested inside
+    // list items (e.g. `    ```json`) are correctly recognised and their
+    // content is not inadvertently stripped by the selfStrip pass below.
+    const fenceMatch = line.match(/^[ \t]*(`{3,}|~{3,})/)
     if (fenceMatch) {
       const marker = fenceMatch[1]
       if (!inFence) {
@@ -2129,6 +2292,21 @@ function joinDanglingMarkers(content: string): string {
       continue
     }
 
+    // A line that itself starts with 9+ spaces and is not inside a code fence
+    // is a translation-pipeline corruption artifact: the pipeline indented an
+    // entire paragraph line, causing CommonMark to render it as an indented
+    // code block (4+ spaces at the document level = code block).  Strip the
+    // leading whitespace so the content renders as a normal paragraph.
+    // Marker-only lines (headings `# `, blockquotes `> `, list items `1. `)
+    // always have ≤3 leading spaces, so they are never misidentified here.
+    // The 9+ threshold (vs the 6+ used for nextDeep) ensures that legitimate
+    // list-continuation lines (which use ≤6 spaces) are never stripped.
+    const selfStrip = line.match(veryDeepIndented)
+    if (selfStrip) {
+      out.push(selfStrip[1])
+      continue
+    }
+
     const next = i + 1 < lines.length ? lines[i + 1] : undefined
     const nextDeep = next !== undefined ? next.match(deepIndented) : null
     if (!nextDeep) {
@@ -2137,24 +2315,50 @@ function joinDanglingMarkers(content: string): string {
     }
     const nextContent = nextDeep[1]
 
+    // Consume additional deeply-indented continuation lines so multi-line
+    // wrapped headings/blockquotes/bold-opens collapse onto one line
+    // (e.g. `##\n      {%if%}\n      content`). Returns the concatenated
+    // continuation text and the new line index.
+    const consumeContinuations = (start: number): { extra: string; nextI: number } => {
+      let extra = ''
+      let j = start
+      while (j + 1 < lines.length) {
+        const cont = lines[j + 1].match(deepIndented)
+        if (!cont) break
+        extra += cont[1]
+        j++
+      }
+      return { extra, nextI: j }
+    }
+
     const heading = line.match(headingOnly)
     if (heading) {
-      out.push(`${heading[1]}${heading[2]} ${nextContent}`)
-      i++
+      const { extra, nextI } = consumeContinuations(i + 1)
+      out.push(`${heading[1]}${heading[2]} ${nextContent}${extra}`)
+      i = nextI
       continue
     }
 
     const bq = line.match(blockquoteOnly)
     if (bq) {
-      out.push(`${bq[1]} ${nextContent}`)
+      const { extra, nextI } = consumeContinuations(i + 1)
+      out.push(`${bq[1]} ${nextContent}${extra}`)
+      i = nextI
+      continue
+    }
+
+    const ol = line.match(orderedListOnly)
+    if (ol) {
+      out.push(`${ol[1]} ${nextContent}`)
       i++
       continue
     }
 
     const boldOpen = line.match(markerThenBoldOnly)
     if (boldOpen) {
-      out.push(`${boldOpen[1]}**${nextContent}`)
-      i++
+      const { extra, nextI } = consumeContinuations(i + 1)
+      out.push(`${boldOpen[1]}**${nextContent}${extra}`)
+      i = nextI
       continue
     }
 

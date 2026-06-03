@@ -63,6 +63,11 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 4.7 model card](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf)'
 
+- name: Claude Opus 4.8
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: 'Not available'
+
 - name: Claude Sonnet 4.5
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning
@@ -87,13 +92,18 @@
 - name: Gemini 3.1 Pro
   task_area: Deep reasoning and debugging
   excels_at: Effective and efficient edit-then-test loops with high tool precision
-  further_reading: 'not applicable'
+  further_reading: 'Not available'
 
-# xAI
-- name: Grok Code Fast 1
+- name: Gemini 3.5 Flash
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Fast, reliable answers to lightweight coding questions
+  further_reading: '[Gemini 3.5 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf)'
+
+# Microsoft
+- name: MAI-Code-1-Flash
   task_area: General-purpose coding and writing
   excels_at: Fast, accurate code completions and explanations
-  further_reading: '[Grok Code Fast 1 model card](https://data.x.ai/2025-08-20-grok-4-model-card.pdf)'
+  further_reading: '[MAI-Code-1-Flash model card](https://aka.ms/mai-code-1-flash-modelcard)'
 
 # Other providers (alphabetized by model name)
 - name: Qwen2.5

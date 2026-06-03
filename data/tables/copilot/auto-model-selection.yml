@@ -3,7 +3,7 @@
 #    - OpenAI
 #    - Anthropic
 #    - Google
-#    - xAI
+#    - Microsoft
 #    - others
 # 2. Within each provider group, alphabetically by model name.
 #
@@ -54,8 +54,8 @@
   chat: true
   cli: true
 
-# xAI
-- name: Grok Code Fast 1
+# Microsoft
+- name: MAI-Code-1-Flash
   cloud_agent: false
   chat: true
   cli: false

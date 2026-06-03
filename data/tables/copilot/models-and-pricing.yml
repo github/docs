@@ -153,6 +153,15 @@
   output: $25.00
   cache_write: $6.25
 
+- model: Claude Opus 4.8
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $5.00
+  cached_input: $0.50
+  output: $25.00
+  cache_write: $6.25
+
 # Google
 - model: 'Gemini 2.5 Pro[^5]'
   provider: google
@@ -181,14 +190,22 @@
   output: $12.00
   notes: "Prompts \u2264200K tokens"
 
-# xAI
-- model: Grok Code Fast 1
-  provider: xai
+- model: 'Gemini 3.5 Flash'
+  provider: google
   release_status: GA
   category: Lightweight
-  input: $0.20
-  cached_input: $0.02
-  output: $1.50
+  input: $1.50
+  cached_input: $0.15
+  output: $9.00
+
+# Microsoft
+- model: 'MAI-Code-1-Flash'
+  provider: microsoft
+  release_status: GA
+  category: Lightweight
+  input: $0.75
+  cached_input: $0.075
+  output: $4.50
 
 # Fine-tuned (GitHub)
 - model: 'Raptor mini[^7]'
@@ -199,12 +216,3 @@
   cached_input: $0.025
   output: $2.00
   notes: Uses GPT-5 mini pricing
-
-- model: 'Goldeneye[^8]'
-  provider: github
-  release_status: Public preview
-  category: Powerful
-  input: $1.25
-  cached_input: $0.125
-  output: $10.00
-  notes: Uses GPT-5.1-Codex pricing

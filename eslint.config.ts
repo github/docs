@@ -161,6 +161,17 @@ export default [
     },
   },
 
+  // Client-side files that run in the browser where the server-only logger is unavailable
+  {
+    files: [
+      'src/search/components/hooks/useAISearchAutocomplete.ts',
+      'src/search/components/hooks/useAISearchLocalStorageCache.ts',
+    ],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
   // Disable custom logger rule for logger implementation itself
   {
     files: ['src/observability/logger/**/*.{ts,js}'],
@@ -177,20 +188,12 @@ export default [
       'src/article-api/**/*.{ts,js}',
       'src/audit-logs/**/*.{ts,js}',
       'src/color-schemes/**/*.{ts,js}',
-      'src/data-directory/**/*.{ts,js}',
       'src/dev-toc/**/*.{ts,js}',
-      'src/events/**/*.{ts,js}',
+      'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
-      'src/frame/**/*.{ts,js}',
-      'src/github-apps/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
-      'src/languages/**/*.{ts,js}',
-      'src/links/**/*.{ts,js}',
       'src/metrics/**/*.{ts,js}',
-      'src/observability/**/*.{ts,js}',
-      'src/rest/**/*.{ts,js}',
-      'src/search/**/*.{ts,js}',
-      'src/shielding/**/*.{ts,js}',
+      'src/observability/lib/handle-package-not-found.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
@@ -205,6 +208,10 @@ export default [
       'src/workflows/**/*.{ts,js}',
       'src/content-linter/**/*.{ts,js}',
       '**/*.{tsx,jsx}',
+      // Client-side module that cannot use the server-only structured logger
+      'src/languages/lib/translation-utils.ts',
+      // CLI help script — chalk-colored terminal output, not application logging
+      'src/rest/docs.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
@@ -227,19 +234,16 @@ export default [
   // Legacy files with @typescript-eslint/no-explicit-any violations (see github/docs-engineering#5797)
   {
     files: [
-      'src/article-api/scripts/generate-api-docs.ts',
       'src/article-api/transformers/audit-logs-transformer.ts',
       'src/article-api/transformers/rest-transformer.ts',
       'src/codeql-cli/scripts/convert-markdown-for-docs.ts',
       'src/content-linter/scripts/lint-content.ts',
-
       'src/content-render/liquid/index.ts',
       'src/content-render/scripts/liquid-tags.ts',
       'src/content-render/scripts/move-content.ts',
       'src/content-render/unified/annotate.ts',
       'src/content-render/unified/index.ts',
       'src/data-directory/lib/get-data.ts',
-      'src/fixtures/tests/guides.ts',
       'src/frame/components/context/MainContext.tsx',
       'src/frame/lib/page-data.ts',
       'src/frame/tests/page.ts',
@@ -250,13 +254,9 @@ export default [
       'src/graphql/scripts/utils/schema-helpers.ts',
       'src/graphql/tests/validate-schema.ts',
       'src/landings/components/CookBookFilter.tsx',
-      'src/landings/components/SidebarProduct.tsx',
-      'src/landings/pages/product.tsx',
       'src/languages/lib/correct-translation-content.ts',
       'src/languages/lib/render-with-fallback.ts',
-      'src/languages/lib/translation-utils.ts',
       'src/links/lib/update-internal-links.ts',
-      'src/links/scripts/check-github-github-links.ts',
       'src/rest/components/get-rest-code-samples.ts',
       'src/rest/pages/category.tsx',
       'src/rest/pages/subcategory.tsx',
@@ -268,23 +268,16 @@ export default [
       'src/rest/scripts/utils/update-markdown.ts',
       'src/rest/tests/get-rest-code-samples-2.ts',
       'src/rest/tests/get-rest-code-samples.ts',
-      'src/rest/tests/openapi-schema.ts',
       'src/rest/tests/rendering.ts',
       'src/search/components/hooks/useAISearchAutocomplete.ts',
       'src/search/components/hooks/useAISearchLocalStorageCache.ts',
-      'src/search/components/input/AskAIResults.tsx',
       'src/search/components/input/SearchOverlay.tsx',
       'src/search/lib/get-elasticsearch-results/ai-search-autocomplete.ts',
       'src/search/lib/get-elasticsearch-results/general-search.ts',
       'src/search/lib/routes/combined-search-route.ts',
       'src/search/lib/search-request-params/get-search-from-request-params.ts',
-      'src/search/middleware/search-routes.ts',
       'src/search/scripts/index/index-cli.ts',
       'src/search/scripts/index/utils/indexing-elasticsearch-utils.ts',
-      'src/search/scripts/scrape/lib/parse-page-sections-into-records.ts',
-      'src/tests/helpers/check-url.ts',
-      'src/tests/scripts/copy-fixture-data.ts',
-      'src/tests/vitest.setup.ts',
       'src/types/github__markdownlint-github.d.ts',
       'src/types/markdownlint-lib-rules.d.ts',
       'src/types/markdownlint-rule-helpers.d.ts',
