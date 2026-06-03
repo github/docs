@@ -182,7 +182,7 @@
     "@opentelemetry/instrumentation-undici": "^0.25.0",
     "@opentelemetry/sdk-node": "^0.218.0",
     "@primer/behaviors": "^1.10.2",
-    "@primer/css": "^21.3.1",
+    "@primer/css": "^22.2.0",
     "@primer/live-region-element": "^0.7.2",
     "@primer/octicons": "^19.22.0",
     "@primer/octicons-react": "^19.22.0",
