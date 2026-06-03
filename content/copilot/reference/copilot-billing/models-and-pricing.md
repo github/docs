@@ -37,7 +37,7 @@ All prices are **per 1 million tokens**.
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
-[^1]: {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_5_mini %} are included models.
+[^1]: {% data variables.copilot.copilot_gpt_5_mini %} is an included model.
 [^2]: {% data variables.copilot.copilot_gpt_54 %} pricing applies to prompts with ≤272K tokens.
 
 ### Anthropic

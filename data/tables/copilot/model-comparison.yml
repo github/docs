@@ -7,10 +7,6 @@
 # 2. Within each provider group, alphabetically by model name.
 
 # OpenAI
-- name: GPT-4.1
-  task_area: General-purpose coding and writing
-  excels_at: Fast, accurate code completions and explanations
-  further_reading: '[GPT-4.1 model card](https://openai.com/index/gpt-4-1/)'
 
 - name: GPT-5 mini
   task_area: General-purpose coding and writing

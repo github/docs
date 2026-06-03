@@ -18,10 +18,6 @@
 # - cli: Availability for Copilot CLI.
 
 # OpenAI
-- name: GPT-4.1
-  cloud_agent: false
-  chat: true
-  cli: false
 
 - name: GPT-5 mini
   cloud_agent: false

@@ -47,9 +47,6 @@
 - model: 'GPT-4o mini'
   new_multiplier: '0.33'
 
-- model: 'GPT-4.1'
-  new_multiplier: '1'
-
 - model: 'GPT-5.1'
   new_multiplier: '3'
 
