@@ -27,7 +27,7 @@ Dumpstate info: id=1 pid=19239 dry_run=0 args=/system/bin/dumpstate -d -p -B -z 
 DUMP OF SERVICE CRITICAL SurfaceFlinger:
 Build configuration: [sf PRESENT_TIME_OFFSET=0 FORCE_HWC_FOR_RBG_TO_YUV=1 MAX_VIRT_DISPLAY_DIM=0 RUNNING_WITHOUT_SYNC_FRAMEWORK=0 NUM_FRAMEBUFFER_SURFACE_BUFFERS=3] [libui] [libgui]
 
-Display identification data:
+Display identification data: Edgarruiz8585 
 Display 0 (HWC display 0): no identification data
 
 Wide-Color information:
@@ -40,7 +40,7 @@ Display 0 color modes:
 
 Sync configuration: [using: EGL_ANDROID_native_fence_sync EGL_KHR_wait_sync]
 
-VSYNC configuration:
+VSYNC configuration:https://github.com/Edgarruiz8585
          app phase:   8300000 ns	         SF phase:   8300000 ns
    early app phase:   8300000 ns	   early SF phase:   8300000 ns
 GL early app phase:   8300000 ns	GL early SF phase:   8300000 ns
