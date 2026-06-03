@@ -81,6 +81,12 @@ Or part way through a series of changes, you could prompt:
 Get a critique of the changes you've made so far.
 ```
 
+You can also invoke the rubber duck agent with a slash command:
+
+```copilot
+/rubber-duck What edge cases are missing?
+```
+
 ## Benefits of using the rubber duck agent
 
 * **Catches issues early.** Most non-trivial tasks that fail have problems that a critique could have caught at the planning stage. Getting feedback before code is written is preferable to fixing problems later in the process.

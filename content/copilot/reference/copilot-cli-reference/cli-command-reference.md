@@ -238,6 +238,7 @@ Holding <kbd>↑</kbd> or <kbd>↓</kbd> accelerates scrolling after the first 1
 | `/restart`                                          | Restart the CLI, preserving the current session. |
 | `/resume [SESSION-ID]`, `/continue [SESSION-ID]`    | Switch to a different session by choosing from a list (optionally specify a session ID). |
 | `/review [PROMPT]`                                  | Run the code review agent to analyze changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review). |
+| `/rubber-duck [PROMPT]`                             | Consult the rubber duck agent for a second opinion on plans, code, and tests. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck). |
 | `/sandbox [enable\|disable]`                        | Configure shell command sandboxing. |
 | `/search [QUERY]`, `/find [QUERY]`                  | Search the conversation timeline. {% data reusables.copilot.experimental %} |
 | `/session [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`, `/sessions [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`  | Show session information and manage sessions. Subcommands: `info`, `checkpoints`, `files`, `plan`, `rename`, `cleanup`, `prune`, `delete`, `delete-all`. |
