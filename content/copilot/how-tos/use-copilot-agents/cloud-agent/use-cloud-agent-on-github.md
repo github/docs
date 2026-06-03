@@ -20,6 +20,8 @@ You can start {% data variables.copilot.copilot_cloud_agent %} sessions from sev
 
 For more information about {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
+You can also start partner-built agents from these same entry points using {% data variables.copilot.agent_apps %}. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/use-agent-apps).
+
 ## Starting a session from the agents tab or panel
 
 You can start sessions from the agents tab and the agents panel. The only difference is the entry point—once you see the "New agent task" form, the steps are the same.
@@ -159,6 +161,10 @@ You can ask {% data variables.product.prodname_copilot_short %} to resolve merge
 * **Using an @copilot mention**: Mention `@copilot` in a comment on the pull request and ask it to fix the conflicts—for example, "@copilot resolve the merge conflicts on this PR."
 
 {% data variables.product.prodname_copilot_short %} analyzes the conflicting changes, resolves them, and verifies that the build, tests, and linter still pass. It then requests your review so you can confirm the resolution before merging.
+
+## Running {% data variables.copilot.copilot_cloud_agent %} automatically with {% data variables.copilot.copilot_automations %}
+
+You can set up {% data variables.copilot.copilot_automations %} to run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events such as an issue being opened. You create and manage {% data variables.copilot.copilot_automations %} from the **{% data variables.copilot.copilot_automations_cap %}** pane in the **Agents** tab of a repository. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations).
 
 ## Managing {% data variables.product.prodname_actions %} workflow runs
 

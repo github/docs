@@ -24,6 +24,7 @@ children:
   - /automate-copilot-cli/automate-with-actions
   - /automate-copilot-cli/quickstart
   - /automate-copilot-cli/run-cli-programmatically
+  - /automate-copilot-cli/schedule-prompts
   - /content/copilot/concepts/agents/about-agent-skills
   - /content/copilot/concepts/agents/copilot-cli/about-cli-plugins
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
@@ -62,9 +63,11 @@ children:
   - /set-up-copilot-cli/troubleshoot-copilot-cli-auth
   - /use-copilot-cli/agentic-code-review
   - /use-copilot-cli/allowing-tools
+  - /use-copilot-cli/voice-input
   - /use-copilot-cli/chronicle
   - /use-copilot-cli/connecting-vs-code
   - /use-copilot-cli/delegate-tasks-to-cca
+  - /use-copilot-cli/browse-issues-prs-gists
   - /use-copilot-cli/invoke-custom-agents
   - /use-copilot-cli/manage-pull-requests
   - /use-copilot-cli/overview

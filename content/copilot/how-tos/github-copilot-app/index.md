@@ -16,6 +16,7 @@ children:
   - /getting-started
   - /customize-github-copilot-app
   - /agent-sessions
+  - /working-with-canvas-extensions
   - /managing-issues-and-pull-requests
-  - /using-scheduled-workflows
+  - /using-automations
 ---

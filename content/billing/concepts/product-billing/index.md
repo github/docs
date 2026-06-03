@@ -15,6 +15,7 @@ children:
   - /github-copilot-licenses
   - /github-models
   - /github-packages
+  - /cloud-and-local-sandboxes
   - /git-lfs
   - /github-spark
 contentType: concepts

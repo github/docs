@@ -3,7 +3,7 @@
 #    - OpenAI
 #    - Anthropic
 #    - Google
-#    - xAI
+#    - Microsoft
 #    - others
 # 2. Within each provider group, alphabetically by model name.
 #
@@ -53,6 +53,12 @@
   cloud_agent: true
   chat: true
   cli: true
+
+# Microsoft
+- name: MAI-Code-1-Flash
+  cloud_agent: false
+  chat: true
+  cli: false
 
 # Fine-tuned OAI models
 - name: Raptor mini

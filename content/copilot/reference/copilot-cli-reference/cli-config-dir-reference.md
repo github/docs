@@ -122,6 +122,8 @@ Stores your saved tool and directory permission decisions, organized by project 
 
 Contains session history data, organized by session ID in subdirectories. Each session directory stores an event log (`events.jsonl`) and workspace artifacts (plans, checkpoints, tracked files). This data enables session resume (`--resume` or `--continue`).
 
+Deleting files from this directory only removes local copies. If you have synced sessions to your {% data variables.product.github %} account, the synced data is stored separately and is not affected by local file deletion. You can delete or hide synced sessions from {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle#managing-your-session-data).
+
 ### `command-history-state/`
 
 Contains command history data used for reverse search (<kbd>Ctrl</kbd>+<kbd>R</kbd>) and history navigation in the interactive interface. This directory is managed automatically and should not be edited.
@@ -129,6 +131,8 @@ Contains command history data used for reverse search (<kbd>Ctrl</kbd>+<kbd>R</k
 ### `session-store.db`
 
 A SQLite database used by the CLI for cross-session data such as checkpoint indexing and search. This file is automatically managed and should not be edited.
+
+If you delete this file, you can rebuild it using the `/chronicle reindex` command. Reindexing also syncs your session data to your account.
 
 ### `logs/`
 
@@ -238,6 +242,7 @@ These settings apply across all your sessions and repositories. You can edit thi
 | `model` | `string` | varies | AI model to use. Set to `"auto"` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically. Managed by the `/model` slash command. |
 | `mouse` | `boolean` | `true` | Enable mouse support in alt screen mode. Can also be set with `--mouse` or `--no-mouse`. |
 | `powershellFlags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell on startup. On Windows, the CLI prefers PowerShell 7+ (`pwsh`) and falls back to Windows PowerShell (`powershell.exe`) when `pwsh` is unavailable. Windows only. |
+| `remote` | `"on"` \| `"off"` | `"on"` | Controls session syncing and remote access. Set to `"off"` to keep session data local only and disable remote control. Can also be set with `--remote` or `--no-remote`. |
 | `renderMarkdown` | `boolean` | `true` | Render Markdown in terminal output. |
 | `remoteExport` | `boolean` | `true` | Export sessions remotely when session sync is available. Set to `false` to opt out of remote export by default. The `remoteSessions` setting when set to `true`, or the `--remote` flag, still enables export and steering regardless of this setting. |
 | `respectGitignore` | `boolean` | `true` | Exclude gitignored files from the `@` file mention picker. When `false`, the picker includes files normally excluded by `.gitignore`. |
