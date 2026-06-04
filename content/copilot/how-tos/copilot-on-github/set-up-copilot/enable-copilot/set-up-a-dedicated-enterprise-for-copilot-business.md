@@ -29,7 +29,14 @@ Start a trial of {% data variables.product.prodname_ghe_cloud %} to create your 
 
 <a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
-Do not create any organizations during setup. Adding users to organizations assigns {% data variables.product.prodname_enterprise %} licenses, while adding users directly to the enterprise keeps your setup limited to {% data variables.copilot.copilot_business_short %}.
+> [!WARNING]
+> **Do not create an organization during setup.** This enterprise account exists only as a billing and identity container for {% data variables.copilot.copilot_business_short %} licenses - it should have **0 seats of {% data variables.product.prodname_enterprise %}** when you are done.
+>
+> Creating an organization, or adding users to an organization later, will assign {% data variables.product.prodname_enterprise %} licenses and bill your account for {% data variables.product.prodname_enterprise %} - which you do not need for {% data variables.copilot.copilot_business_short %}.
+>
+> Instead, add users **directly to the enterprise** (see the next section). They will receive {% data variables.copilot.copilot_business_short %} licenses without any {% data variables.product.prodname_enterprise %} cost.
+
+This setup is also the recommended path for customers whose code lives outside of {% data variables.product.github %} (for example, on Azure DevOps) and who only want {% data variables.copilot.copilot_business_short %} in the IDE.
 
 ## Add users to your enterprise
 
