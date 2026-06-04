@@ -24,7 +24,6 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Show next inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>|
 |Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\\</kbd>|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Option (⌥) or Alt</kbd>+<kbd>Return</kbd> |
 
 ## Keyboard shortcuts for Windows
 
@@ -35,7 +34,6 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
 |Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 ## Keyboard shortcuts for Linux
 
@@ -46,7 +44,6 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
 |Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 {% endjetbrains %}
 
@@ -74,7 +71,6 @@ You can use the default keyboard shortcuts for {% data variables.product.prodnam
 |Show next inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> |editor.action.inlineSuggest.showPrevious|
 |Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\\</kbd><br> |editor.action.inlineSuggest.trigger|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Return</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
 ## Keyboard shortcuts for Windows
@@ -86,7 +82,6 @@ You can use the default keyboard shortcuts for {% data variables.product.prodnam
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
 |Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
 ## Keyboard shortcuts for Linux
@@ -98,7 +93,6 @@ You can use the default keyboard shortcuts for {% data variables.product.prodnam
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
 |Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
 {% endvscode %}
