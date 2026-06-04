@@ -5501,6 +5501,11 @@
           "href": "/graphql/reference/issues#object-issuefielddatevalue"
         },
         {
+          "name": "IssueFieldMultiSelectValue",
+          "id": "issuefieldmultiselectvalue",
+          "href": "/graphql/reference/issues#object-issuefieldmultiselectvalue"
+        },
+        {
           "name": "IssueFieldNumberValue",
           "id": "issuefieldnumbervalue",
           "href": "/graphql/reference/issues#object-issuefieldnumbervalue"

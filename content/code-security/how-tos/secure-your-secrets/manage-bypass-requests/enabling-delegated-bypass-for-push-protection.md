@@ -58,4 +58,3 @@ You can grant specific individuals or teams in your organization the ability to 
 1. Create (or edit) a custom organization role. For information on creating and editing custom roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles#creating-a-custom-role).
 1. When choosing which permissions to add to the custom role, select the "Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests" permission.
 1. Assign the custom role to individual members or teams in your organization. For more information on assigning custom roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles#assigning-an-organization-role).
-
