@@ -42,6 +42,8 @@ The enforcement happens at multiple levels:
 
 The models available for {% data variables.product.prodname_copilot_short %} vary by region. {% data reusables.copilot.model-compliance.models-intro %}
 
+> [!NOTE] Some models listed may only be available as utility models. See [AUTOTITLE](/copilot/concepts/models/utility-models).
+
 ### United States
 
 {% data reusables.copilot.model-compliance.us-models %}

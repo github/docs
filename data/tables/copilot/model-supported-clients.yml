@@ -122,15 +122,6 @@
   xcode: true
   jetbrains: true
 
-- name: GPT-4.1
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
 - name: MAI-Code-1-Flash
   dotcom: false
   cli: false

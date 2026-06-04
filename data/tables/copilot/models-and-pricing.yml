@@ -16,13 +16,6 @@
 # - notes: Optional notes about the model.
 
 # OpenAI
-- model: 'GPT-4.1[^1]'
-  provider: openai
-  release_status: GA
-  category: Versatile
-  input: $2.00
-  cached_input: $0.50
-  output: $8.00
 
 - model: 'GPT-5 mini[^1]'
   provider: openai
