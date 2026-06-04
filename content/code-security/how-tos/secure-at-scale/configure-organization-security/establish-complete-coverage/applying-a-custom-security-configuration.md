@@ -35,11 +35,3 @@ To learn how to create a {% data variables.product.prodname_custom_security_conf
 > If you apply an enforced configuration, this information is reported in the list of repositories. An enforced configuration means that repository owners are blocked from changing features that have been enabled or disabled in the configuration, but features that are not set aren't enforced.
 
 After you apply a configuration, each repository's configuration status reflects the result of the operation—for example, `attached`, `attaching`, or `failed`. For the full list of statuses and recommended actions, see [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-statuses).
-
-## Next steps
-
-To learn how to monitor security alerts in your organization, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/find-insecure-repositories).
-
-{% data reusables.security-configurations.edit-configuration-next-step %}
-
-{% data reusables.security-configurations.troubleshooting-next-step %}
