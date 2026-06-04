@@ -1,0 +1,1 @@
+> [!NOTE] Models with a **Long context** tier, offer extended capabilities and longer context windows. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#models-with-extended-capabilities)
