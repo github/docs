@@ -127,9 +127,6 @@ When creating a new repository, you can ask {% data variables.product.prodname_c
 
 ## Fixing a failing {% data variables.product.prodname_actions %} workflow run
 
-> [!NOTE]
-> This feature is only available to {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} users.
-
 When an {% data variables.product.prodname_actions %} workflow run fails on a pull request branch, you can ask {% data variables.product.prodname_copilot_short %} to investigate and fix the failure.
 
 1. On {% data variables.product.github %}, navigate to the failing workflow run job page.
