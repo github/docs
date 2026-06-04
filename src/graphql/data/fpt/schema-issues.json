@@ -4967,6 +4967,134 @@
       "category": "issues"
     },
     {
+      "name": "IssueFieldMultiSelect",
+      "id": "issuefieldmultiselect",
+      "href": "/graphql/reference/issues#object-issuefieldmultiselect",
+      "description": "<p>Represents a multi select issue field.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "IssueFieldCommon",
+          "id": "issuefieldcommon",
+          "href": "/graphql/reference/issues#interface-issuefieldcommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>The issue field's creation timestamp.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "href": "/graphql/reference/other#scalar-datetime"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The issue field's data type.</p>",
+          "type": "IssueFieldDataType!",
+          "id": "issuefielddatatype",
+          "href": "/graphql/reference/issues#enum-issuefielddatatype"
+        },
+        {
+          "name": "description",
+          "description": "<p>The issue field's description.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "href": "/graphql/reference/other#scalar-bigint"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldMultiSelect object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The issue field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        },
+        {
+          "name": "options",
+          "description": "<p>Options for the multi select field.</p>",
+          "type": "[IssueFieldSingleSelectOption!]!",
+          "id": "issuefieldsingleselectoption",
+          "href": "/graphql/reference/issues#object-issuefieldsingleselectoption"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>The issue field's visibility.</p>",
+          "type": "IssueFieldVisibility!",
+          "id": "issuefieldvisibility",
+          "href": "/graphql/reference/issues#enum-issuefieldvisibility"
+        }
+      ],
+      "category": "issues"
+    },
+    {
+      "name": "IssueFieldMultiSelectValue",
+      "id": "issuefieldmultiselectvalue",
+      "href": "/graphql/reference/issues#object-issuefieldmultiselectvalue",
+      "description": "<p>The value of a multi select field in an Issue item.</p>",
+      "isDeprecated": false,
+      "implements": [
+        {
+          "name": "IssueFieldValueCommon",
+          "id": "issuefieldvaluecommon",
+          "href": "/graphql/reference/issues#interface-issuefieldvaluecommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/meta#interface-node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "field",
+          "description": "<p>The issue field that contains this value.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "href": "/graphql/reference/issues#union-issuefields"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldMultiSelectValue object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "options",
+          "description": "<p>The selected options.</p>",
+          "type": "[IssueFieldSingleSelectOption!]!",
+          "id": "issuefieldsingleselectoption",
+          "href": "/graphql/reference/issues#object-issuefieldsingleselectoption"
+        },
+        {
+          "name": "value",
+          "description": "<p>Comma-separated names of the selected options.</p>",
+          "type": "String",
+          "id": "string",
+          "href": "/graphql/reference/other#scalar-string"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueFieldNumber",
       "id": "issuefieldnumber",
       "href": "/graphql/reference/issues#object-issuefieldnumber",
@@ -9494,6 +9622,11 @@
           "href": "/graphql/reference/issues#object-issuefielddatevalue"
         },
         {
+          "name": "IssueFieldMultiSelectValue",
+          "id": "issuefieldmultiselectvalue",
+          "href": "/graphql/reference/issues#object-issuefieldmultiselectvalue"
+        },
+        {
           "name": "IssueFieldNumberValue",
           "id": "issuefieldnumbervalue",
           "href": "/graphql/reference/issues#object-issuefieldnumbervalue"
@@ -9522,6 +9655,11 @@
           "name": "IssueFieldDate",
           "id": "issuefielddate",
           "href": "/graphql/reference/issues#object-issuefielddate"
+        },
+        {
+          "name": "IssueFieldMultiSelect",
+          "id": "issuefieldmultiselect",
+          "href": "/graphql/reference/issues#object-issuefieldmultiselect"
         },
         {
           "name": "IssueFieldNumber",
@@ -10831,6 +10969,13 @@
           "name": "fieldId",
           "description": "<p>The ID of the issue field.</p>",
           "type": "ID!",
+          "id": "id",
+          "href": "/graphql/reference/other#scalar-id"
+        },
+        {
+          "name": "multiSelectOptionIds",
+          "description": "<p>The IDs of the selected options, for a multi select field.</p>",
+          "type": "[ID!]",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id"
         },
