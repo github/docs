@@ -12,15 +12,6 @@ category:
   - Protect your secrets
 journeyArticlesHeading: 'All secret protection articles'
 journeyTracks:
-  - id: 'quick_start'
-    title: 'Quick start: Essential reading'
-    description: 'New to secret protection? Start here for the most important concepts and procedures. These articles provide foundational knowledge to help you understand secret risks, evaluate GitHub Secret Protection (GHSP), and begin your adoption journey.'
-    guides:
-      - href: '/code-security/concepts/secret-security/secret-leakage-risks'
-      - href: '/code-security/concepts/secret-security/about-secret-scanning'
-      - href: '/code-security/tutorials/secure-your-organization/interpreting-secret-risk-assessment-results'
-      - href: '/code-security/tutorials/remediate-leaked-secrets/assessing-ghsp-impact'
-      - href: '/code-security/concepts/secret-security/about-push-protection'
   - id: 'assess'
     title: 'Phase 1: Assess your current secret risk'
     description: 'Run a free secret risk assessment (SRA) to understand your organization exposure and establish baseline metrics. Before purchasing GHSP, identify how many secrets are exposed across your organization and build a data-driven business case for the investment.'

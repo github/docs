@@ -21,9 +21,3 @@ category:
 1. In the "{% data variables.product.prodname_secret_protection %}" section, to the right of "Push protection", click **Enable**.{% else %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}{% endif %}
-
-## Further reading
-
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning)
-* [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)
