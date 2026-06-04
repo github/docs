@@ -1,9 +1,8 @@
-By default, dynamically provisioned {% data variables.product.github %}-hosted runners do not guarantee static IP addresses. This includes the runners that are used by default with {% data variables.product.prodname_dependabot %}.
+{% data variables.product.prodname_dependabot %} is a first-party {% data variables.product.github %} App whose access to repositories is exempt from IP allow list restrictions. This means {% data variables.product.prodname_dependabot %} can read repository contents and create pull requests regardless of your IP allow list configuration.
 
-> [!WARNING]
-> In some cases, {% data variables.product.prodname_dependabot %} runs on standard {% data variables.product.github %}-hosted runners may succeed despite an IP allow list being enabled. This behavior is not guaranteed, not documented as supported, and may be changed or patched at any time without notice. Do not rely on this behavior for your security posture.
+However, if your {% data variables.product.prodname_dependabot %} workflows include additional steps that use the `GITHUB_TOKEN` or other tokens to make API calls, those steps may still be subject to IP allow list enforcement. In that case, dynamically provisioned {% data variables.product.github %}-hosted runners do not guarantee static IP addresses, so those calls may fail.
 
-If you use an IP allow list and {% data variables.product.prodname_dependabot %}, you must set up a self-hosted runner or enable {% data variables.product.prodname_dependabot %} for use with {% data variables.actions.hosted_runners %}. See [AUTOTITLE](/actions/concepts/runners/about-self-hosted-runners) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners#enabling-or-disabling-dependabot-on-larger-runners).
+If your {% data variables.product.prodname_dependabot %} workflows need to make additional authenticated API calls beyond what {% data variables.product.prodname_dependabot %} itself performs, you must set up a self-hosted runner or enable {% data variables.product.prodname_dependabot %} for use with {% data variables.actions.hosted_runners %}. See [AUTOTITLE](/actions/concepts/runners/about-self-hosted-runners) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners#enabling-or-disabling-dependabot-on-larger-runners).
 
 Additionally, to learn more about setting up a {% data variables.actions.hosted_runners %} with a static IP address configured, see [AUTOTITLE](/actions/concepts/runners/about-larger-runners).
 
