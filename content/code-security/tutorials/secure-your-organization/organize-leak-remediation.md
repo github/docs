@@ -9,6 +9,7 @@ versions:
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/organizing-remediation-efforts-for-leaked-secrets
+  - /code-security/tutorials/secure-your-organization/organizing-remediation-efforts-for-leaked-secrets
 category:
   - Plan your security strategy
 ---

@@ -1,7 +1,7 @@
 ---
 title: Preparing your code for CodeQL analysis
 intro: You can build a {% data variables.product.prodname_codeql %} database containing the data needed to analyze your code.
-shortTitle: Preparing code for analysis
+shortTitle: Prepare code for analysis
 permissions: '{% data reusables.permissions.repo-checkout %}'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -16,6 +16,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-code-scanning-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis
+  - /code-security/tutorials/customize-code-scanning/preparing-your-code-for-codeql-analysis
 contentType: tutorials
 category:
   - Customize vulnerability detection with CodeQL

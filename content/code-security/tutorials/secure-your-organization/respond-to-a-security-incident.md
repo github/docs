@@ -1,7 +1,8 @@
 ---
 title: Responding to a security incident
 shortTitle: Respond to a security incident
-allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/tutorials/secure-your-organization/responding-to-security-incidents
 intro: Respond strategically to a security incident affecting organizations or repositories in your {% data variables.product.github %} enterprise.
 versions:
   fpt: '*'

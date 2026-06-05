@@ -8,6 +8,8 @@ versions:
 contentType: tutorials
 category:
   - Secure at scale
+redirect_from:
+  - /code-security/tutorials/secure-your-organization/interpreting-code-security-risk-assessment-results
 ---
 
 ## Introduction

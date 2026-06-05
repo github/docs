@@ -9,6 +9,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/enabling-code-scanning/evaluating-default-setup-for-code-scanning
+  - /code-security/tutorials/customize-code-scanning/evaluating-default-setup-for-code-scanning
 contentType: tutorials
 category:
   - Find and fix code vulnerabilities

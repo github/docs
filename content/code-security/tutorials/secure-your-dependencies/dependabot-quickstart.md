@@ -10,6 +10,7 @@ contentType: tutorials
 shortTitle: Dependabot quickstart
 redirect_from:
   - /code-security/getting-started/dependabot-quickstart-guide
+  - /code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide
 category:
   - Secure your dependencies
 ---

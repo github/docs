@@ -1,7 +1,8 @@
 ---
 title: Preparing for a security incident
 shortTitle: Prepare for a security incident
-allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/tutorials/secure-your-organization/preparing-for-security-incidents
 intro: Ensure you have the tools and processes in place to respond effectively to a security incident.
 versions:
   fpt: '*'

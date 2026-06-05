@@ -1,5 +1,6 @@
 ---
 title: Creating and working with CodeQL packs
+shortTitle: Create and work with CodeQL packs
 intro: You can use {% data variables.product.prodname_codeql %} packs to create, share, depend on, and run {% data variables.product.prodname_codeql %} queries and libraries.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -10,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/creating-and-working-with-codeql-packs
   - /code-security/codeql-cli/using-the-codeql-cli/creating-and-working-with-codeql-packs
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs
+  - /code-security/tutorials/customize-code-scanning/creating-and-working-with-codeql-packs
+  - /code-security/tutorials/customize-code-scanning/create-codeql-packs
 contentType: tutorials
 category:
   - Customize vulnerability detection with CodeQL

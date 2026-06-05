@@ -1,5 +1,6 @@
 ---
 title: Creating CodeQL query suites
+shortTitle: Create query suites
 intro: You can create query suites for queries you frequently use in your {% data variables.product.prodname_codeql %} analyses.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -10,6 +11,7 @@ redirect_from:
   - /code-security/codeql-cli/creating-codeql-query-suites
   - /code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites
+  - /code-security/tutorials/customize-code-scanning/creating-codeql-query-suites
 contentType: tutorials
 category:
   - Customize vulnerability detection with CodeQL
