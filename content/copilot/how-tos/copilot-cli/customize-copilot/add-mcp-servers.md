@@ -20,6 +20,8 @@ The Model Context Protocol (MCP) is an open standard that defines how applicatio
 > [!NOTE]
 > The {% data variables.product.github %} MCP server is built into {% data variables.copilot.copilot_cli_short %} and is already available without any additional configuration. The steps below are for adding other MCP servers.
 
+If your organization or enterprise has configured a registry URL and allowlist policy, those settings apply to {% data variables.copilot.copilot_cli_short %}. The configured registry URL will appear as a discovery source, and only servers permitted by the allowlist policy can run.
+
 You can add MCP servers using the interactive `/mcp add` command within the CLI, or by editing the configuration file directly.
 
 For installation instructions, available tools, and URLs for specific MCP servers, see the [{% data variables.product.github %} MCP Registry](https://github.com/mcp).

@@ -5,7 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: GitHub secret types
+shortTitle: Understand secret types
 redirect_from:
   - /code-security/getting-started/understanding-github-secret-types
 contentType: reference

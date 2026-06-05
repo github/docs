@@ -1,1 +1,1 @@
-actions/checkout@v5
+actions/checkout@v6

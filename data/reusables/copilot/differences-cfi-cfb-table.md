@@ -41,6 +41,8 @@
 
 ### Models
 
+{% data reusables.copilot.gpt-53-codex-student-model-picker-note %}
+
 {% data reusables.copilot.available-models-per-plan %}
 
 ### Inline suggestions

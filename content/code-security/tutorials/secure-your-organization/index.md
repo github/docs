@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
+redirect_from:
+  - /code-security/getting-started/quickstart-for-securing-your-organization
 children:
   - /best-practices-for-preventing-data-leaks-in-your-organization
   - /best-practice-fix-alerts-at-scale
@@ -14,4 +16,7 @@ children:
   - /interpreting-secret-risk-assessment-results
   - /interpreting-code-security-risk-assessment-results
   - /organizing-remediation-efforts-for-leaked-secrets
+  - /protect-against-threats
+  - /preparing-for-security-incidents
+  - /responding-to-security-incidents
 ---

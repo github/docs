@@ -9,7 +9,7 @@ redirect_from:
   - /copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-chat
   - /copilot/how-tos/ai-models/change-the-chat-model
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -75,6 +75,7 @@ You can expand the model options that are available to power {% data variables.c
 
 * Depending on the provider or model you choose, you may need to supply an API key, or model ID, from the provider, or a {% data variables.product.github %} {% data variables.product.pat_generic %} (PAT).
 * To add models from the AI Toolkit for {% data variables.product.prodname_vscode %}, you must <a href="vscode:extension/ms-windows-ai-studio.windows-ai-studio?ref_product=copilot&ref_type=engagement&ref_style=text">install the AI Toolkit extension</a>.
+* If you are a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} customer and want to use third-party models in {% data variables.product.prodname_vscode %}, the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy must be enabled. For more information, see the [{% data variables.product.prodname_copilot_short %} settings page](https://github.com/settings/copilot/features) in {% data variables.product.prodname_dotcom_the_website %}.
 
 ### Adding models
 

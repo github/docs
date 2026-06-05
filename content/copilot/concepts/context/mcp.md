@@ -69,6 +69,8 @@ The {% data variables.product.github %} MCP server is a Model Context Protocol (
 
 To learn how to set up and use the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
 
+To find out whether your editor supports the {% data variables.product.github %} MCP server, and which connection and authentication methods are available, see [Support by host application](https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/README.md#support-by-host-application) in the `github/github-mcp-server` repository.
+
 ### Remote access
 
 You can access the {% data variables.product.github %} MCP server remotely through {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} without any local setup. The remote server has access to additional toolsets only available in the remote {% data variables.product.github %} MCP server. For a list of such tools, see [Additional toolsets](https://github.com/github/github-mcp-server?tab=readme-ov-file#additional-toolsets-in-remote-github-mcp-server) in the `github/github-mcp-server` repository.
@@ -90,7 +92,7 @@ To learn how to configure toolsets for the {% data variables.product.github %} M
 
 ### Security
 
-For all public repositories, and private repositories covered by {% data variables.product.prodname_GHAS %}, interactions with the {% data variables.product.github %} MCP server are secured by push protection, which blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the server, such as creating an issue. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
+For all public repositories, and private repositories covered by {% data variables.product.prodname_GHAS %}, interactions with the {% data variables.product.github %} MCP server are secured by push protection, which blocks secrets in AI-generated responses and prevents them from being included in actions taken on your behalf. You can also proactively scan your code for exposed secrets from within your AI coding agent. For more information, see [AUTOTITLE](/code-security/how-tos/use-ghas-with-ai-coding-agents/scan-for-secrets-with-github-mcp-server).
 
 ## About the {% data variables.product.github %} MCP Registry
 

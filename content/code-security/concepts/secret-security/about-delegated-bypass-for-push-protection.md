@@ -15,8 +15,6 @@ category:
   - Protect your secrets
 ---
 
-{% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
-
 ## About delegated bypass for push protection
 
 With delegated bypass for push protection, you can:
@@ -25,15 +23,15 @@ With delegated bypass for push protection, you can:
 * **Grant exemptions** to select actors, skipping push protection entirely for all of their commits. Exemptions should be granted to trusted automation like migration bots or service accounts that need to push frequent commits with minimal friction.{% endif %}
 * **Introduce a review cycle** for bypass requests from all other contributors. Requests expire after 7 days.
 
-{% ifversion push-protection-delegated-bypass-file-upload-support %}Delegated bypass applies to files created, edited, and uploaded on {% data variables.product.prodname_dotcom %}.{% endif %}
+Delegated bypass applies to files created, edited, and uploaded on {% data variables.product.prodname_dotcom %}.
 
 ## Users with bypass privileges
 
 The following types of users can always bypass push protection:
 * Organization owners
 * Security managers
-* Users in teams, default roles, or custom roles that have been added to the bypass list{% ifversion push-protection-bypass-fine-grained-permissions %}
-* Users who are assigned (either directly or via a team) a custom role with the "review and manage secret scanning bypass requests" fine-grained permission{% endif %}
+* Users in teams, default roles, or custom roles that have been added to the bypass list
+* Users who are assigned (either directly or via a team) a custom role with the "review and manage secret scanning bypass requests" fine-grained permission
 
 ## Next steps
 

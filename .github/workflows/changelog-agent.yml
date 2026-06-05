@@ -1,0 +1,755 @@
+name: Changelog agent — draft entry when a qualified PR merges
+
+# **What it does**: When a PR merges that closes a docs-content issue with a
+#   parent issue, uses an LLM to draft a changelog entry, opens a PR in
+#   github/docs-content, and DMs the author in Slack for review.
+# **Why we have it**: Automates the changelog drafting process so authors
+#   don't have to remember to write a changelog entry manually.
+# **Who does it impact**: docs-content team members.
+
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to test with (must be a merged PR)'
+        required: true
+        type: number
+      dry_run:
+        description: 'Dry run — log actions but do not create PR or send Slack DM'
+        required: false
+        type: boolean
+        default: true
+
+concurrency:
+  group: changelog-agent-${{ github.event.pull_request.number || github.event.inputs.pr_number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+env:
+  CHANGELOG_FILE: docs-content-docs/docs-content-workflows/changelog-internal.md
+  TARGET_REPO: github/docs-content
+
+jobs:
+  generate-changelog:
+    if: >-
+      github.repository == 'github/docs-internal' &&
+      (
+        (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main') ||
+        github.event_name == 'workflow_dispatch'
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve PR data
+        id: resolve_pr
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            let pr;
+            if (context.eventName === 'workflow_dispatch') {
+              const prNumber = parseInt('${{ inputs.pr_number }}', 10);
+              const { data } = await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber,
+              });
+              pr = data;
+              if (!pr.merged) {
+                core.setFailed(`PR #${prNumber} has not been merged. Cannot test.`);
+                return;
+              }
+            } else {
+              pr = context.payload.pull_request;
+            }
+            core.setOutput('pr_number', pr.number.toString());
+            core.setOutput('pr_author', pr.user.login);
+            core.setOutput('pr_title', pr.title);
+            core.setOutput('pr_body', pr.body || '');
+            core.setOutput('pr_url', pr.html_url);
+
+      - name: Check if PR author is in the team
+        id: check_team
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const author = '${{ steps.resolve_pr.outputs.pr_author }}';
+
+            // Fetch github-to-slack.json from docs-content via API
+            let mapping = {};
+            try {
+              const { data } = await github.rest.repos.getContent({
+                owner: 'github',
+                repo: 'docs-content',
+                path: '.github/github-to-slack.json',
+              });
+              const content = Buffer.from(data.content, 'base64').toString('utf-8');
+              mapping = JSON.parse(content);
+            } catch (err) {
+              core.setFailed(`Could not fetch github-to-slack.json from docs-content: ${err.message}`);
+              return;
+            }
+
+            // Remove non-user keys (like _comment)
+            const teamMembers = Object.keys(mapping).filter(k => !k.startsWith('_'));
+
+            if (!teamMembers.includes(author)) {
+              core.info(`PR author @${author} is not in the team mapping. Skipping.`);
+              core.setOutput('is_team_member', 'false');
+              return;
+            }
+
+            core.info(`PR author @${author} is a team member. Proceeding.`);
+            core.setOutput('is_team_member', 'true');
+
+      - name: Extract linked docs-content issue
+        if: steps.check_team.outputs.is_team_member == 'true'
+        id: extract_issue
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const body = `${{ steps.resolve_pr.outputs.pr_body }}`;
+
+            // Match closing keywords followed by docs-content issue references.
+            // Supports: closes github/docs-content#123, fixes https://github.com/github/docs-content/issues/123
+            const patterns = [
+              /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+github\/docs-content#(\d+)/gi,
+              /(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?):?\s+https:\/\/github\.com\/github\/docs-content\/issues\/(\d+)/gi,
+            ];
+
+            let issueNumber = null;
+            for (const pattern of patterns) {
+              const match = pattern.exec(body);
+              if (match) {
+                issueNumber = parseInt(match[1], 10);
+                break;
+              }
+            }
+
+            if (!issueNumber) {
+              core.info('No linked docs-content issue found in PR body. Exiting.');
+              core.setOutput('found', 'false');
+              return;
+            }
+
+            core.info(`Found linked docs-content issue: #${issueNumber}`);
+            core.setOutput('found', 'true');
+            core.setOutput('issue_number', issueNumber.toString());
+
+      - name: Check for parent issue
+        if: steps.extract_issue.outputs.found == 'true'
+        id: check_parent
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const issueNumber = parseInt('${{ steps.extract_issue.outputs.issue_number }}', 10);
+
+            let issue;
+            try {
+              const { data } = await github.rest.issues.get({
+                owner: 'github',
+                repo: 'docs-content',
+                issue_number: issueNumber,
+              });
+              issue = data;
+            } catch (err) {
+              core.info(`Could not fetch docs-content issue #${issueNumber}: ${err.message}. Skipping.`);
+              core.setOutput('has_parent', 'false');
+              return;
+            }
+
+            // Query for parent issue via GraphQL
+            const query = `
+              query($nodeId: ID!) {
+                node(id: $nodeId) {
+                  ... on Issue {
+                    parent {
+                      number
+                      title
+                      body
+                      url
+                      author { login }
+                      assignees(first: 10) {
+                        nodes { login }
+                      }
+                      repository {
+                        nameWithOwner
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+
+            let result;
+            try {
+              result = await github.graphql(query, { nodeId: issue.node_id });
+            } catch (err) {
+              core.info(`GraphQL parent query failed: ${err.message}. Skipping.`);
+              core.setOutput('has_parent', 'false');
+              return;
+            }
+
+            const parent = result.node?.parent;
+
+            if (!parent) {
+              core.info('docs-content issue has no parent issue. Exiting.');
+              core.setOutput('has_parent', 'false');
+              return;
+            }
+
+            core.info(`Found parent issue: ${parent.repository.nameWithOwner}#${parent.number}`);
+            core.setOutput('has_parent', 'true');
+            core.setOutput('parent_number', parent.number.toString());
+            core.setOutput('parent_title', parent.title);
+            core.setOutput('parent_body', parent.body || '');
+            core.setOutput('parent_url', parent.url);
+            core.setOutput('parent_author', parent.author?.login || '');
+            core.setOutput('parent_assignees', (parent.assignees?.nodes || []).map(a => a.login).join(','));
+            core.setOutput('parent_repo', parent.repository.nameWithOwner);
+
+            // Also store the docs-content issue details
+            core.setOutput('dc_issue_title', issue.title);
+            core.setOutput('dc_issue_body', issue.body || '');
+
+      - name: Gather PR context
+        if: steps.check_parent.outputs.has_parent == 'true'
+        id: gather_context
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const prNumber = parseInt('${{ steps.resolve_pr.outputs.pr_number }}', 10);
+            const prAuthor = '${{ steps.resolve_pr.outputs.pr_author }}';
+
+            // Get approved reviewers (exclude bots and PR author)
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+            });
+
+            const approvedReviewers = [...new Set(
+              reviews
+                .filter(r => r.state === 'APPROVED' && r.user.type !== 'Bot' && r.user.login !== prAuthor)
+                .map(r => r.user.login)
+            )];
+
+            // Get changed files (paths only, limit to 50)
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              per_page: 50,
+            });
+
+            const changedFiles = files.map(f => f.filename);
+
+            core.setOutput('pr_author', prAuthor);
+            core.setOutput('pr_title', '${{ steps.resolve_pr.outputs.pr_title }}');
+            core.setOutput('pr_body', `${{ steps.resolve_pr.outputs.pr_body }}`);
+            core.setOutput('pr_url', '${{ steps.resolve_pr.outputs.pr_url }}');
+            core.setOutput('pr_number', prNumber.toString());
+            core.setOutput('approved_reviewers', approvedReviewers.join(','));
+            core.setOutput('changed_files', changedFiles.join('\n'));
+
+      - name: Check for existing changelog PR
+        if: steps.check_parent.outputs.has_parent == 'true'
+        id: check_existing
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const branchName = `changelog-agent-${{ steps.resolve_pr.outputs.pr_number }}`;
+            const { data: pulls } = await github.rest.pulls.list({
+              owner: 'github',
+              repo: 'docs-content',
+              head: `github:${branchName}`,
+              state: 'open',
+            });
+
+            if (pulls.length > 0) {
+              core.info(`Changelog PR already exists: ${pulls[0].html_url}`);
+              core.setOutput('exists', 'true');
+              core.setOutput('existing_pr_url', pulls[0].html_url);
+            } else {
+              core.setOutput('exists', 'false');
+            }
+
+      - name: Read existing changelog examples
+        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
+        id: read_examples
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            // Fetch changelog-internal.md from docs-content
+            const { data } = await github.rest.repos.getContent({
+              owner: 'github',
+              repo: 'docs-content',
+              path: 'docs-content-docs/docs-content-workflows/changelog-internal.md',
+            });
+            const changelog = Buffer.from(data.content, 'base64').toString('utf-8');
+
+            // Extract the first 3 entries (each starts with **date**)
+            const lines = changelog.split('\n');
+            let count = 0;
+            let examples = [];
+            let capturing = false;
+            for (const line of lines) {
+              if (/^\*\*\d/.test(line)) {
+                count++;
+                if (count > 3) break;
+                capturing = true;
+              }
+              if (capturing) examples.push(line);
+            }
+
+            core.setOutput('examples', examples.join('\n'));
+
+      - name: Set up Node.js
+        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version-file: 'package.json'
+
+      - name: Install Copilot CLI
+        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
+        run: npm install -g @github/copilot@prerelease
+
+      - name: Prepare prompts for LLM
+        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
+        id: prepare_prompts
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          PR_TITLE: ${{ steps.gather_context.outputs.pr_title }}
+          PR_BODY: ${{ steps.gather_context.outputs.pr_body }}
+          PR_AUTHOR: ${{ steps.gather_context.outputs.pr_author }}
+          CHANGED_FILES: ${{ steps.gather_context.outputs.changed_files }}
+          APPROVED_REVIEWERS: ${{ steps.gather_context.outputs.approved_reviewers }}
+          DC_ISSUE_TITLE: ${{ steps.check_parent.outputs.dc_issue_title }}
+          DC_ISSUE_BODY: ${{ steps.check_parent.outputs.dc_issue_body }}
+          PARENT_TITLE: ${{ steps.check_parent.outputs.parent_title }}
+          PARENT_BODY: ${{ steps.check_parent.outputs.parent_body }}
+          PARENT_AUTHOR: ${{ steps.check_parent.outputs.parent_author }}
+          PARENT_ASSIGNEES: ${{ steps.check_parent.outputs.parent_assignees }}
+          CHANGELOG_EXAMPLES: ${{ steps.read_examples.outputs.examples }}
+        with:
+          script: |
+            const fs = require('fs');
+
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('en-GB', {
+              day: 'numeric', month: 'long', year: 'numeric'
+            });
+
+            const systemPrompt = `You are a technical writer for GitHub Docs. You write changelog entries for the internal docs changelog.
+
+            Rules:
+            - Write in plain, clear language suitable for an internal audience of docs team members
+            - Focus on what shipped and its impact on users of docs.github.com
+            - Use present tense or past tense consistently
+            - Include links to relevant docs pages when possible (use full https://docs.github.com/... URLs)
+            - The entry MUST include these sections in order:
+              1. A brief description paragraph of what shipped
+              2. **Anticipated impact**: One or two sentences about who is affected and how
+              3. **Authored by**: @username of the PR author
+              4. **Thanks to**: @usernames of reviewers and stakeholders who helped
+            - Do NOT include any internal issue numbers, PR numbers, or repo references in the description
+            - Do NOT disclose sensitive information
+            - Match the tone and structure of the example entries provided
+            - Output ONLY the changelog entry text (no date header, no <hr> tag — those are added automatically)`;
+
+            const reviewers = process.env.APPROVED_REVIEWERS
+              ? process.env.APPROVED_REVIEWERS.split(',').filter(r => r !== process.env.PR_AUTHOR).map(r => `@${r}`).join(', ')
+              : '';
+            const stakeholders = [
+              process.env.PARENT_AUTHOR,
+              ...(process.env.PARENT_ASSIGNEES ? process.env.PARENT_ASSIGNEES.split(',') : []),
+            ].filter(Boolean).filter(u => u !== process.env.PR_AUTHOR).filter((v, i, a) => a.indexOf(v) === i).map(u => `@${u}`).join(', ');
+
+            const thanksTo = [reviewers, stakeholders].filter(Boolean).join(', ');
+
+            const userPrompt = `Draft a changelog entry for a docs change that just shipped.
+
+            ## PR details
+            Title: ${process.env.PR_TITLE}
+            Description: ${process.env.PR_BODY}
+            Author: @${process.env.PR_AUTHOR}
+            Changed files:
+            ${process.env.CHANGED_FILES}
+
+            ## docs-content issue
+            Title: ${process.env.DC_ISSUE_TITLE}
+            Description: ${process.env.DC_ISSUE_BODY}
+
+            ## Parent issue (broader feature/initiative)
+            Title: ${process.env.PARENT_TITLE}
+            Description: ${process.env.PARENT_BODY}
+
+            ## Credits
+            Author: @${process.env.PR_AUTHOR}
+            Thanks to: ${thanksTo || 'N/A'}
+
+            ## Example entries from the existing changelog (match this style):
+            ${process.env.CHANGELOG_EXAMPLES}
+
+            Write the changelog entry now. Include the **Anticipated impact**, **Authored by**, and **Thanks to** sections.`;
+
+            fs.writeFileSync('system-prompt.txt', systemPrompt);
+            fs.writeFileSync('prompt.txt', userPrompt);
+            core.setOutput('date_str', dateStr);
+
+      - name: Generate changelog draft via Copilot
+        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
+        id: generate_draft
+        uses: actions/ai-inference@17ff458cb182449bbb2e43701fcd98f6af8f6570 # v2.1.0
+        with:
+          provider: copilot
+          model: gpt-4.1
+          prompt-file: prompt.txt
+          system-prompt-file: system-prompt.txt
+          max-completion-tokens: 1000
+          temperature: 0.3
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_COPILOT }}
+
+      - name: Dry run summary
+        if: steps.generate_draft.outputs.response != '' && inputs.dry_run == true
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            core.info('=== DRY RUN — no PR will be created, no Slack DM sent ===');
+            core.info(`PR author: ${{ steps.gather_context.outputs.pr_author }}`);
+            core.info(`Source PR: ${{ steps.gather_context.outputs.pr_url }}`);
+            core.info(`Parent issue: ${{ steps.check_parent.outputs.parent_title }}`);
+            core.info('--- Generated changelog draft ---');
+            core.info(`${{ steps.generate_draft.outputs.response }}`);
+            core.info('--- End of draft ---');
+
+      - name: Create changelog PR in docs-content
+        if: steps.generate_draft.outputs.response != '' && steps.check_existing.outputs.exists == 'false' && inputs.dry_run != true
+        id: create_pr
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          DRAFT: ${{ steps.generate_draft.outputs.response }}
+          DATE_STR: ${{ steps.prepare_prompts.outputs.date_str }}
+          PR_AUTHOR: ${{ steps.gather_context.outputs.pr_author }}
+          PR_URL: ${{ steps.gather_context.outputs.pr_url }}
+          PR_NUMBER: ${{ steps.gather_context.outputs.pr_number }}
+          APPROVED_REVIEWERS: ${{ steps.gather_context.outputs.approved_reviewers }}
+          PARENT_TITLE: ${{ steps.check_parent.outputs.parent_title }}
+          PARENT_URL: ${{ steps.check_parent.outputs.parent_url }}
+          PARENT_AUTHOR: ${{ steps.check_parent.outputs.parent_author }}
+          PARENT_ASSIGNEES: ${{ steps.check_parent.outputs.parent_assignees }}
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const branchName = `changelog-agent-${{ steps.resolve_pr.outputs.pr_number }}`;
+            const filePath = 'docs-content-docs/docs-content-workflows/changelog-internal.md';
+
+            // Get the current changelog file from docs-content
+            const { data: fileData } = await github.rest.repos.getContent({
+              owner: 'github',
+              repo: 'docs-content',
+              path: filePath,
+            });
+
+            let changelog = Buffer.from(fileData.content, 'base64').toString('utf-8');
+
+            // Build the new entry
+            const entry = `**${process.env.DATE_STR}**\n\n${process.env.DRAFT}\n\n<hr>`;
+
+            // Insert after the first H1 heading so leading frontmatter, comments,
+            // or blank lines do not affect placement.
+            const lines = changelog.split('\n');
+            const headingIndex = lines.findIndex((line) => line.startsWith('# '));
+
+            if (headingIndex === -1) {
+              changelog = `${entry}\n${changelog}`;
+            } else {
+              const beforeAndHeading = lines.slice(0, headingIndex + 1).join('\n');
+              const rest = lines.slice(headingIndex + 1).join('\n');
+              changelog = rest
+                ? `${beforeAndHeading}\n\n${entry}\n${rest}`
+                : `${beforeAndHeading}\n\n${entry}`;
+            }
+
+            // Get the default branch SHA for creating a new branch
+            const { data: ref } = await github.rest.git.getRef({
+              owner: 'github',
+              repo: 'docs-content',
+              ref: 'heads/main',
+            });
+
+            // Create the branch in docs-content
+            try {
+              await github.rest.git.createRef({
+                owner: 'github',
+                repo: 'docs-content',
+                ref: `refs/heads/${branchName}`,
+                sha: ref.object.sha,
+              });
+            } catch (err) {
+              if (err.status === 422) {
+                core.info('Branch already exists, will update file on existing branch.');
+              } else {
+                throw err;
+              }
+            }
+
+            // Fetch the file from the branch (handles both new and existing branches)
+            const { data: branchFileData } = await github.rest.repos.getContent({
+              owner: 'github',
+              repo: 'docs-content',
+              path: filePath,
+              ref: branchName,
+            });
+
+            // Update the changelog file on the new branch
+            await github.rest.repos.createOrUpdateFileContents({
+              owner: 'github',
+              repo: 'docs-content',
+              path: filePath,
+              message: `Changelog draft for docs-internal PR #${process.env.PR_NUMBER}`,
+              content: Buffer.from(changelog).toString('base64'),
+              sha: branchFileData.sha,
+              branch: branchName,
+              committer: {
+                name: 'github-actions[bot]',
+                email: 'github-actions[bot]@users.noreply.github.com',
+              },
+            });
+
+            // Build credits for the PR body
+            const reviewers = process.env.APPROVED_REVIEWERS
+              ? process.env.APPROVED_REVIEWERS.split(',').map(r => `@${r}`).join(', ')
+              : 'None';
+            const parentAuthor = process.env.PARENT_AUTHOR ? `@${process.env.PARENT_AUTHOR}` : 'Unknown';
+            const parentAssignees = process.env.PARENT_ASSIGNEES
+              ? process.env.PARENT_ASSIGNEES.split(',').map(a => `@${a}`).join(', ')
+              : 'None';
+
+            const prBody = [
+              '### Automated docs changelog draft',
+              '',
+              `_Generated by the changelog-agent workflow from [docs-internal PR #${process.env.PR_NUMBER}](${process.env.PR_URL})._`,
+              '',
+              '**⚠️ This is an AI-generated draft. Please review carefully before merging.**',
+              '',
+              `**Source PR:** [docs-internal#${process.env.PR_NUMBER}](${process.env.PR_URL})`,
+              `**Parent initiative:** [${process.env.PARENT_TITLE}](${process.env.PARENT_URL})`,
+              '',
+              '#### Credits',
+              `- **Author:** @${process.env.PR_AUTHOR}`,
+              `- **Reviewers:** ${reviewers}`,
+              `- **Parent issue author:** ${parentAuthor}`,
+              `- **Parent issue assignees:** ${parentAssignees}`,
+              '',
+              '#### Review checklist',
+              '- [ ] Entry is accurate and covers what shipped',
+              '- [ ] Content is appropriate for the internal audience',
+              '- [ ] Format is consistent with other changelog entries',
+              '- [ ] No sensitive information disclosed',
+            ].join('\n');
+
+            const { data: pullRequest } = await github.rest.pulls.create({
+              owner: 'github',
+              repo: 'docs-content',
+              title: `Changelog draft for docs-internal PR #${process.env.PR_NUMBER}`,
+              body: prBody,
+              head: branchName,
+              base: 'main',
+              draft: true,
+            });
+
+            // Add labels
+            try {
+              await github.rest.issues.addLabels({
+                owner: 'github',
+                repo: 'docs-content',
+                issue_number: pullRequest.number,
+                labels: ['ready-for-doc-review', 'skip FR board', 'llm-generated'],
+              });
+            } catch (err) {
+              core.warning(`Failed to add labels: ${err.message}`);
+            }
+
+            // Assign to PR author
+            try {
+              await github.rest.issues.addAssignees({
+                owner: 'github',
+                repo: 'docs-content',
+                issue_number: pullRequest.number,
+                assignees: [process.env.PR_AUTHOR],
+              });
+            } catch (err) {
+              core.warning(`Failed to assign PR to @${process.env.PR_AUTHOR}: ${err.message}`);
+            }
+
+            core.setOutput('changelog_pr_url', pullRequest.html_url);
+            core.setOutput('changelog_pr_number', pullRequest.number.toString());
+
+      - name: Notify author via Slack DM
+        if: steps.create_pr.outputs.changelog_pr_url != '' && inputs.dry_run != true
+        id: slack_notify
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          PR_AUTHOR: ${{ steps.gather_context.outputs.pr_author }}
+          CHANGELOG_PR_URL: ${{ steps.create_pr.outputs.changelog_pr_url }}
+          PR_URL: ${{ steps.gather_context.outputs.pr_url }}
+          APPROVED_REVIEWERS: ${{ steps.gather_context.outputs.approved_reviewers }}
+          PARENT_TITLE: ${{ steps.check_parent.outputs.parent_title }}
+          PARENT_AUTHOR: ${{ steps.check_parent.outputs.parent_author }}
+          PARENT_ASSIGNEES: ${{ steps.check_parent.outputs.parent_assignees }}
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const author = process.env.PR_AUTHOR;
+            const changelogPrUrl = process.env.CHANGELOG_PR_URL;
+
+            // Fetch GitHub-to-Slack mapping from docs-content
+            let slackMapping = {};
+            try {
+              const { data } = await github.rest.repos.getContent({
+                owner: 'github',
+                repo: 'docs-content',
+                path: '.github/github-to-slack.json',
+              });
+              const content = Buffer.from(data.content, 'base64').toString('utf-8');
+              slackMapping = JSON.parse(content);
+            } catch (err) {
+              core.warning(`Could not fetch github-to-slack.json: ${err.message}`);
+            }
+
+            const slackUserId = slackMapping[author];
+
+            // Build credits summary for the DM
+            const reviewers = process.env.APPROVED_REVIEWERS
+              ? process.env.APPROVED_REVIEWERS.split(',').join(', ')
+              : 'none';
+            const stakeholders = [
+              process.env.PARENT_AUTHOR,
+              ...(process.env.PARENT_ASSIGNEES ? process.env.PARENT_ASSIGNEES.split(',') : []),
+            ].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).join(', ');
+
+            const slackMessage = [
+              `👋 Hi! A changelog draft has been created for your merged PR:`,
+              ``,
+              `📝 *Changelog PR:* ${changelogPrUrl}`,
+              `🔗 *Source PR:* ${process.env.PR_URL}`,
+              `🎯 *Parent initiative:* ${process.env.PARENT_TITLE}`,
+              ``,
+              `*Reviewers to thank:* ${reviewers || 'none'}`,
+              `*Stakeholders to thank:* ${stakeholders || 'none'}`,
+              ``,
+              `Please review the draft changelog entry and merge or close the PR. The entry is AI-generated, so double-check accuracy and tone.`,
+            ].join('\n');
+
+            if (slackUserId) {
+              try {
+                const response = await fetch('https://slack.com/api/chat.postMessage', {
+                  method: 'POST',
+                  headers: {
+                    'Authorization': `Bearer ${process.env.SLACK_TOKEN}`,
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    channel: slackUserId,
+                    text: slackMessage,
+                  }),
+                });
+
+                const result = await response.json();
+                if (result.ok) {
+                  core.info(`Slack DM sent to ${author} (${slackUserId})`);
+                  core.setOutput('notified_via', 'slack');
+                  return;
+                } else {
+                  core.warning(`Slack API error: ${result.error}`);
+                }
+              } catch (err) {
+                core.warning(`Slack DM failed: ${err.message}`);
+              }
+            } else {
+              core.warning(`No Slack mapping found for GitHub user: ${author}`);
+            }
+
+            // Fallback: post a GitHub comment on the source PR
+            core.info('Falling back to GitHub comment notification.');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: parseInt('${{ steps.resolve_pr.outputs.pr_number }}', 10),
+              body: [
+                `👋 @${author} — A changelog draft has been created for this PR!`,
+                ``,
+                `📝 **Changelog PR:** ${changelogPrUrl}`,
+                ``,
+                `Please review the draft entry and merge or close it. The entry is AI-generated, so double-check accuracy and tone.`,
+                ``,
+                `**Reviewers to thank:** ${reviewers || 'none'}`,
+                `**Stakeholders to thank:** ${stakeholders || 'none'}`,
+              ].join('\n'),
+            });
+            core.setOutput('notified_via', 'github_comment');
+
+      - name: Post agent marker comment
+        if: steps.create_pr.outputs.changelog_pr_url != '' && inputs.dry_run != true
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            const changelogPrUrl = '${{ steps.create_pr.outputs.changelog_pr_url }}';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: parseInt('${{ steps.resolve_pr.outputs.pr_number }}', 10),
+              body: `<!-- changelog-agent-handled -->\n🤖 A changelog draft PR has been automatically created in docs-content: ${changelogPrUrl}`,
+            });
+
+      - name: Send Slack failure alert
+        if: failure()
+        env:
+          SLACK_CHANNEL_ID: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          SLACK_TOKEN: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          SERVER_URL: ${{ github.server_url }}
+        run: |
+          curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data "$(cat <<EOF
+          {
+            "channel": "${SLACK_CHANNEL_ID}",
+            "text": ":warning: Workflow failure in ${REPOSITORY}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": ":warning: *${WORKFLOW_NAME}* failed in *${REPOSITORY}*"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "<${SERVER_URL}/${REPOSITORY}/actions/runs/${RUN_ID}|View workflow run>"
+                }
+              }
+            ]
+          }
+          EOF
+          )"

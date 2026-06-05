@@ -37,13 +37,6 @@ When a new model is designated a base model, the following timeline applies:
 
 An LTS model is an AI model that {% data variables.product.github %} commits to supporting for an extended period of one year from its designation date. During that period, the model remains available, which allows users to build around the model without concern that it will be {% data variables.release-phases.closing_down %} unexpectedly.
 
-## Continuous access when premium requests are unavailable
-
-{% data variables.copilot.copilot_gpt_53_codex %} is available on paid plans with a 1x premium request multiplier, which means it consumes premium requests. To ensure continuous access to {% data variables.product.prodname_copilot_short %} when premium requests are unavailable:
-
-* Premium request quota exhausted: If a user has used their monthly premium request allowance, {% data variables.product.prodname_copilot_short %} automatically falls back to {% data variables.copilot.copilot_gpt_41 %} (the former base model) at no additional cost to the user.
-* Overage controls disabled: If an organization or enterprise has disabled premium request overages and a user reaches their limit, {% data variables.product.prodname_copilot_short %} will fall back to {% data variables.copilot.copilot_gpt_41 %}.
-
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/ai-models/supported-models)

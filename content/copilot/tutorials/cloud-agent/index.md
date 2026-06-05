@@ -9,6 +9,8 @@ children:
   - /get-the-best-results
   - /pilot-cloud-agent
   - /improve-a-project
+  - /build-guardrails
+  - /give-access-to-resources
 contentType: tutorials
 redirect_from:
   - /copilot/tutorials/coding-agent

@@ -68,9 +68,7 @@ Organization permissions do not grant read, write, or administrator access to an
 | View organization Actions metrics                                                                | View {% data variables.product.prodname_actions %} metrics for your organization. | [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions) |
 | {% endif %}                                                                                      |
 | View organization hosted runner custom images                                                    | View custom images for your organization. | [AUTOTITLE](/actions/concepts/runners/github-hosted-runners) |
-| {% ifversion push-protection-bypass-fine-grained-permissions %}                                  |
 | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests          | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection) |
-| {% endif %}                                                                                      |
 | {% ifversion secret-scanning-alert-dismiss-custom-role %}                                        |
 | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning) |
 | {% endif %}                                                                                      |

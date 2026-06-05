@@ -174,6 +174,15 @@ describe('generateExternalLinkReport', () => {
     expect(report.title).toContain('2 domains')
     expect(report.uniqueTargets).toBe(2)
   })
+
+  test('includes self-referential groups when provided', () => {
+    const report = generateExternalLinkReport([], {
+      selfReferentialLinks: [{ href: 'https://docs.github.com/en', file: 'a.md', lines: [1] }],
+    })
+
+    expect(report.selfReferentialGroups).toHaveLength(1)
+    expect(report.selfReferentialGroups?.[0].target).toBe('https://docs.github.com/en')
+  })
 })
 
 describe('reportToMarkdown', () => {
@@ -241,6 +250,28 @@ describe('reportToMarkdown', () => {
 
     expect(markdown).toContain('## ❌ Broken Links')
     expect(markdown).toContain('## ⚠️ Redirects to Update')
+  })
+
+  test('includes potential internal links section with no broken links', () => {
+    const report = generateExternalLinkReport([], {
+      selfReferentialLinks: [{ href: 'https://docs.github.com/en', file: 'a.md', lines: [1] }],
+    })
+    const markdown = reportToMarkdown(report, true)
+
+    expect(markdown).toContain('Potential Internal Links')
+    expect(markdown).not.toContain('No issues found')
+  })
+
+  test('shows unique file count for potential internal links', () => {
+    const report = generateExternalLinkReport([], {
+      selfReferentialLinks: [
+        { href: 'https://docs.github.com/en', file: 'a.md', lines: [1] },
+        { href: 'https://docs.github.com/en', file: 'a.md', lines: [2] },
+      ],
+    })
+    const markdown = reportToMarkdown(report, true)
+
+    expect(markdown).toContain('Found in 1 file')
   })
 })
 

@@ -64,7 +64,7 @@ jobs:
 
           # first sleep to give it a chance to start
           sleep 6
-          curl --retry-connrefused --retry 4 -I http://localhost:4002/
+          curl --retry-connrefused --retry 6 -I http://localhost:4002/
 
       - if: ${{ failure() }}
         name: Debug server outputs on errors

@@ -2,11 +2,12 @@ import type { Response } from 'express'
 
 import type { Failbot } from '@github/failbot'
 import { get } from 'lodash-es'
+import { createLogger } from '@/observability/logger'
 
 import { buildMiniTocFromCollected, type CollectedHeading } from '@/frame/lib/get-mini-toc-items'
 import patterns from '@/frame/lib/patterns'
 import FailBot from '@/observability/lib/failbot'
-import statsd from '@/observability/lib/statsd'
+import statsd, { adaptForTimer } from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { transformerRegistry } from '@/article-api/transformers'
@@ -15,6 +16,7 @@ import { contentTypeCacheControl, defaultCacheControl } from './cache-control'
 import { isConnectionDropped } from './halt-on-dropped-connection'
 import { nextHandleRequest } from './next'
 
+const logger = createLogger(import.meta.url)
 const STATSD_KEY_RENDER = 'middleware.render_page'
 
 async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
@@ -31,7 +33,9 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
     context.collectMiniToc = collectMiniToc
   }
 
-  const pageRenderTimed = statsd.asyncTimer(page.render, STATSD_KEY_RENDER, [`path:${path}`])
+  const pageRenderTimed = statsd.asyncTimer(adaptForTimer(page.render), STATSD_KEY_RENDER, [
+    `path:${path}`,
+  ])
 
   return (await pageRenderTimed(context)) as string
 }
@@ -69,9 +73,9 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
-      console.error(
-        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`,
-      )
+      logger.error('Tried to redirect to a page that was not found', {
+        redirectNotFound: context.redirectNotFound,
+      })
     }
 
     // send minimal 404 at this point since we ran into hydration issues trying to pass

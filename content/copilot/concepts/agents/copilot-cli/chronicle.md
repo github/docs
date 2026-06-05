@@ -23,7 +23,7 @@ This session data powers several features:
 * **Asking questions about your history**: You can ask {% data variables.product.prodname_copilot_short %} questions about your past work, and it will query your session data to answer them.
 * **The `/chronicle` slash command**: A set of purpose-built subcommands that generate standup reports, personalized tips, and suggestions for improving your custom instructions—all derived from your session history.
 
-This conceptual article explains how session data is stored, and how you can leverage it to enhance your workflow. For a practical guide to resuming a session, asking {% data variables.product.prodname_copilot_short %} about your CLI sessions, and using the `/chronicle` slash command, see [AUTOTITLE](/copilot/how-tos/copilot-cli/chronicle).
+This conceptual article explains how session data is stored, and how you can leverage it to enhance your workflow. For a practical guide to resuming a session, asking {% data variables.product.prodname_copilot_short %} about your CLI sessions, and using the `/chronicle` slash command, see [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle).
 
 {% data reusables.copilot.copilot-cli.cli-experimental-chronicle %}
 
@@ -92,5 +92,5 @@ To reindex the session store, use the following slash command in an interactive 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/copilot-cli/chronicle)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle)
 * [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)

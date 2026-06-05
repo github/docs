@@ -54,13 +54,12 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 {% data variables.actions.hosted_runner_caps %}s run on virtual machines (VMs), and {% data variables.product.prodname_dotcom %} installs a virtual hard disk (VHD) on this machine during the VM creation process. You can choose from different VM images to install on your runners.
 
-**{% data variables.product.prodname_dotcom %}-owned images:** These images are maintained by {% data variables.product.prodname_dotcom %} and are available for Linux x64, Windows x64, and macOS (x64 and arm) runners. For more information on these images and a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
+**{% data variables.product.prodname_dotcom %}-owned images:** These images are maintained by {% data variables.product.prodname_dotcom %} and are available for Linux (x64 and arm64), Windows (x64 and arm64), and macOS (x64 and arm64) runners. For more information on these images and a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
 
 **Partner Images:** Partner images are not managed by {% data variables.product.prodname_dotcom %} and are pulled from the Azure Marketplace. See below for resources on where to find more information and to report issues for partner images.
  * [Base Windows 11 desktop image](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsdesktop.windows-11?tab=Overview).
  * [NVIDIA GPU-Optimized VMI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.ngc_azure_17_11)
  * [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=overview).
- * arm64 images: [`actions/partner-runner-images` repository](https://github.com/actions/partner-runner-images).
 
 ## Available macOS {% data variables.actions.hosted_runners %} and labels
 

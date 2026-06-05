@@ -32,6 +32,7 @@ export interface LinkReport {
   title: string
   summary: string
   groups: GroupedBrokenLinks[]
+  selfReferentialGroups?: GroupedBrokenLinks[]
   uniqueTargets: number
   totalOccurrences: number
   timestamp: string
@@ -94,6 +95,25 @@ ${statusInfo}${suggestion}**Found in ${count} file${plural}:**
 | File | Line(s) |
 |------|---------|
 ${tableRows}`
+  },
+
+  // Self-referential links section
+  selfReferentialLinks: (title: string, groups: GroupedBrokenLinks[]) => {
+    const totalOccurrences = groups.reduce((sum, g) => sum + g.occurrences.length, 0)
+    const rows = groups
+      .map((g) => {
+        const uniqueFileCount = new Set(g.occurrences.map((occ) => occ.file)).size
+        const occRows = g.occurrences
+          .map((occ) => `| \`${occ.file}\` | ${occ.lines.join(', ')} |`)
+          .join('\n')
+        return `### \`${g.target}\`\n\n**Found in ${uniqueFileCount} file${uniqueFileCount === 1 ? '' : 's'}:**\n\n| File | Line(s) |\n|------|---------|\n${occRows}`
+      })
+      .join('\n\n')
+    return `## 🔗 ${title} (${groups.length} unique URL${groups.length === 1 ? '' : 's'}, ${totalOccurrences} occurrence${totalOccurrences === 1 ? '' : 's'})
+
+The following links point to \`docs.github.com\`. Consider replacing them with relative internal links using the \`[AUTOTITLE](/path/to/article)\` syntax.
+
+${rows}`
   },
 
   // Empty report
@@ -301,9 +321,12 @@ export function generateInternalLinkReport(
  */
 export function generateExternalLinkReport(
   brokenLinks: BrokenLink[],
-  options: { actionUrl?: string } = {},
+  options: { actionUrl?: string; selfReferentialLinks?: BrokenLink[] } = {},
 ): LinkReport {
   const groups = groupExternalLinksByDomain(brokenLinks)
+  const selfReferentialGroups = options.selfReferentialLinks?.length
+    ? groupBrokenLinks(options.selfReferentialLinks)
+    : undefined
   const count = groups.length
   const plural = count === 1 ? '' : 's'
 
@@ -314,6 +337,7 @@ export function generateExternalLinkReport(
         ? `Found **${brokenLinks.length}** broken external link${brokenLinks.length === 1 ? '' : 's'} across **${count}** domain${plural}.`
         : 'All external links are valid! ✅',
     groups,
+    selfReferentialGroups,
     uniqueTargets: count,
     totalOccurrences: brokenLinks.length,
     timestamp: new Date().toISOString(),
@@ -360,6 +384,8 @@ function renderGroups(groups: GroupedBrokenLinks[], isExternal: boolean): string
  */
 export function reportToMarkdown(report: LinkReport, isExternal = false): string {
   const parts: string[] = []
+  const hasBrokenOrRedirectGroups = report.groups.length > 0
+  const hasSelfReferentialGroups = Boolean(report.selfReferentialGroups?.length)
 
   // Header
   parts.push(
@@ -367,7 +393,7 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
   )
   parts.push('')
 
-  if (report.groups.length === 0) {
+  if (!hasBrokenOrRedirectGroups && !hasSelfReferentialGroups) {
     parts.push(TEMPLATES.noIssues())
     return parts.join('\n')
   }
@@ -379,7 +405,17 @@ export function reportToMarkdown(report: LinkReport, isExternal = false): string
   }
 
   // Groups
-  parts.push(renderGroups(report.groups, isExternal))
+  if (hasBrokenOrRedirectGroups) {
+    parts.push(renderGroups(report.groups, isExternal))
+  }
+
+  // Self-referential links section (external report only)
+  if (hasSelfReferentialGroups) {
+    parts.push(
+      TEMPLATES.selfReferentialLinks('Potential Internal Links', report.selfReferentialGroups!),
+    )
+    parts.push('')
+  }
 
   return parts.join('\n')
 }

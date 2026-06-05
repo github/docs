@@ -24,7 +24,7 @@
   jetbrains: true
 
 - name: Claude Opus 4.5
-  dotcom: true
+  dotcom: false
   cli: true
   vscode: true
   vs: true
@@ -50,7 +50,7 @@
   xcode: false
   jetbrains: false
 
-- name: Claude Sonnet 4
+- name: Claude Opus 4.7
   dotcom: true
   cli: true
   vscode: true
@@ -78,7 +78,7 @@
   jetbrains: false
 
 - name: Gemini 2.5 Pro
-  dotcom: true
+  dotcom: false
   cli: false
   vscode: true
   vs: true
@@ -87,7 +87,7 @@
   jetbrains: true
 
 - name: Gemini 3 Flash
-  dotcom: true
+  dotcom: false
   cli: false
   vscode: true
   vs: true
@@ -96,7 +96,16 @@
   jetbrains: true
 
 - name: Gemini 3.1 Pro
-  dotcom: true
+  dotcom: false
+  cli: false
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Gemini 3.5 Flash
+  dotcom: false
   cli: false
   vscode: true
   vs: true
@@ -114,16 +123,7 @@
   jetbrains: true
 
 - name: GPT-5 mini
-  dotcom: true
-  cli: true
-  vscode: true
-  vs: true
-  eclipse: true
-  xcode: true
-  jetbrains: true
-
-- name: GPT-5.1
-  dotcom: true
+  dotcom: false
   cli: true
   vscode: true
   vs: true
@@ -141,7 +141,7 @@
   jetbrains: true
 
 - name: GPT-5.2-Codex
-  dotcom: true
+  dotcom: false
   cli: true
   vscode: true
   vs: true
@@ -176,9 +176,18 @@
   xcode: true
   jetbrains: true
 
-- name: Grok Code Fast 1
-  dotcom: true
+- name: GPT-5.4 nano
+  dotcom: false
   cli: false
+  vscode: false
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
+- name: GPT-5.5
+  dotcom: true
+  cli: true
   vscode: true
   vs: true
   eclipse: true

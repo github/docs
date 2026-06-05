@@ -208,6 +208,9 @@ Repository permissions work for both user and organization resource owners.
 | `artifact_metadata` | Artifact Metadata | `read`, `write` |
 | {% endif %} |
 | `attestations` | Attestations | `read`, `write` |
+| {% ifversion code-quality %} |
+| `code_quality` | Code quality | `read`, `write` |
+| {% endif %} |
 | `security_events` | Code scanning alerts | `read`, `write` |
 | `codespaces` | Codespaces | `read`, `write` |
 | `codespaces_lifecycle_admin` | Codespaces lifecycle admin | `read`, `write` |

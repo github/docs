@@ -17,7 +17,12 @@ import { UtmPreserver } from '@/frame/components/UtmPreserver'
 export const CategoryLanding = () => {
   const { t } = useTranslation('cookbook_landing')
   const router = useRouter()
-  const { title, intro, tocItems, spotlight } = useCategoryLandingContext()
+  const { title, intro, tocItems, spotlight, filters } = useCategoryLandingContext()
+
+  // The category filter is always shown. Surface and complexity are opt-in via
+  // the `filters` frontmatter array on the landing page.
+  const showSurface = filters ? filters.includes('surface') : true
+  const showComplexity = filters ? filters.includes('complexity') : false
 
   // tocItems contains directories and its children, we only want the child articles
   const onlyFlatItems: ArticleCardItems = tocItems.flatMap((item) => item.childTocItems || [])
@@ -25,6 +30,7 @@ export const CategoryLanding = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedComplexity, setSelectedComplexity] = useState('All')
+  const [selectedSurface, setSelectedSurface] = useState('All')
 
   const applyFilters = () => {
     let results = onlyFlatItems
@@ -53,6 +59,10 @@ export const CategoryLanding = () => {
       results = results.filter((item) => item.complexity?.includes(selectedComplexity))
     }
 
+    if (selectedSurface !== 'All') {
+      results = results.filter((item) => item.surface?.includes(selectedSurface))
+    }
+
     return results
   }
 
@@ -62,9 +72,11 @@ export const CategoryLanding = () => {
     setSearchQuery(query)
   }
 
-  const handleFilter = (option: string, type: 'category' | 'complexity') => {
+  const handleFilter = (option: string, type: 'category' | 'complexity' | 'surface') => {
     if (type === 'category') {
       setSelectedCategory(option)
+    } else if (type === 'surface') {
+      setSelectedSurface(option)
     } else if (type === 'complexity') {
       setSelectedComplexity(option)
     }
@@ -73,6 +85,7 @@ export const CategoryLanding = () => {
   const handleResetFilter = () => {
     setSearchQuery('')
     setSelectedCategory('All')
+    setSelectedSurface('All')
     setSelectedComplexity('All')
   }
 
@@ -156,6 +169,8 @@ export const CategoryLanding = () => {
                 onSearch={handleSearch}
                 handleFilter={handleFilter}
                 handleResetFilter={handleResetFilter}
+                showSurface={showSurface}
+                showComplexity={showComplexity}
               />
             </div>
           </div>
@@ -170,6 +185,7 @@ export const CategoryLanding = () => {
                     ...(item.industry || []),
                     ...(item.category || []),
                     ...(item.complexity || []),
+                    ...(item.surface || []),
                   ]}
                   url={item.fullPath}
                 />

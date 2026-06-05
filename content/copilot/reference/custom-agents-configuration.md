@@ -114,9 +114,9 @@ For compatibility, the `stdio` type used by Claude Code and {% data variables.pr
 ### MCP server environment variables and secrets
 
 > [!NOTE]
-> If your MCP server requires secrets or environment variables, these must be configured in the {% data variables.product.prodname_copilot_short %} environment in each repository where the {% data variables.copilot.copilot_custom_agent_short %} will be used. For more information on setting up environment variables, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment#setting-environment-variables-in-copilots-environment).
+> If your MCP server requires secrets or environment variables, these must be configured as Agents secrets or variables at either the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
-{% data variables.copilot.copilot_custom_agent_caps_short %} MCP configuration supports the same environment variable and secret replacement capabilities as existing repository-level MCP configurations. Similar to repository-level configurations, secrets and variables can be sourced from the "copilot" environment in the repository's settings. The syntax for referencing these values has been expanded to support common patterns used in {% data variables.product.prodname_actions %} and Claude Code.
+{% data variables.copilot.copilot_custom_agent_caps_short %} MCP configuration supports the same environment variable and secret replacement capabilities as existing repository-level MCP configurations. Similar to repository-level configurations, secrets and variables can be sourced from Agents secrets and variables for {% data variables.copilot.copilot_cloud_agent %}, configured at either the organization or repository level. The syntax for referencing these values has been expanded to support common patterns used in {% data variables.product.prodname_actions %} and Claude Code.
 
 Both the repository-level MCP JSON configuration and the {% data variables.copilot.copilot_custom_agent_short %} YAML configuration support the following syntax patterns:
 

@@ -17,6 +17,12 @@ category:
   - Manage Copilot for a team
 ---
 
+<!-- expires 2026-06-01 -->
+
+{% data reusables.copilot.ubb-announcement-cb-ce %}
+
+<!-- end expires 2026-06-01 -->
+
 Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. If enabled, requests over the allowance are billed to your organization or enterprise. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/requests-in-github-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
 
 Premium request usage beyond the allowance is governed by two complementary control layers:

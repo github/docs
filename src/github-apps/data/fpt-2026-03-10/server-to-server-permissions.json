@@ -27,6 +27,17 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-enterprise-user-teams-report-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/user-teams-1-day",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
         "slug": "get-copilot-users-usage-metrics-for-a-specific-day",
         "subcategory": "copilot-usage-metrics",
         "verb": "get",
@@ -390,39 +401,6 @@
         "subcategory": "cache",
         "verb": "put",
         "requestPath": "/organizations/{org}/actions/cache/storage-limit",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "dependabot",
-        "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
-        "subcategory": "repository-access",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/dependabot/repository-access",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "dependabot",
-        "slug": "updates-dependabots-repository-access-list-for-an-organization",
-        "subcategory": "repository-access",
-        "verb": "patch",
-        "requestPath": "/organizations/{org}/dependabot/repository-access",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "dependabot",
-        "slug": "set-the-default-repository-access-level-for-dependabot",
-        "subcategory": "repository-access",
-        "verb": "put",
-        "requestPath": "/organizations/{org}/dependabot/repository-access/default-level",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -1144,6 +1122,39 @@
         "additional-permissions": true
       },
       {
+        "category": "dependabot",
+        "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
+        "subcategory": "repository-access",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dependabot/repository-access",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "updates-dependabots-repository-access-list-for-an-organization",
+        "subcategory": "repository-access",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/dependabot/repository-access",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-the-default-repository-access-level-for-dependabot",
+        "subcategory": "repository-access",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/dependabot/repository-access/default-level",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "orgs",
         "slug": "list-app-installations-for-an-organization",
         "subcategory": "orgs",
@@ -1442,6 +1453,216 @@
       }
     ]
   },
+  "organization_agent_secrets": {
+    "title": "Agent secrets",
+    "displayTitle": "Organization permissions for \"Agent secrets\"",
+    "permissions": [
+      {
+        "category": "agents",
+        "slug": "list-organization-secrets",
+        "subcategory": "secrets",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/agents/secrets",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "get-an-organization-public-key",
+        "subcategory": "secrets",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/agents/secrets/public-key",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "get-an-organization-secret",
+        "subcategory": "secrets",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/agents/secrets/{secret_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "create-or-update-an-organization-secret",
+        "subcategory": "secrets",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/agents/secrets/{secret_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "delete-an-organization-secret",
+        "subcategory": "secrets",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/agents/secrets/{secret_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "list-selected-repositories-for-an-organization-secret",
+        "subcategory": "secrets",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "set-selected-repositories-for-an-organization-secret",
+        "subcategory": "secrets",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "add-selected-repository-to-an-organization-secret",
+        "subcategory": "secrets",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "agents",
+        "slug": "remove-selected-repository-from-an-organization-secret",
+        "subcategory": "secrets",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
+  "organization_agent_variables": {
+    "title": "Agent variables",
+    "displayTitle": "Organization permissions for \"Agent variables\"",
+    "permissions": [
+      {
+        "category": "agents",
+        "slug": "list-organization-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/agents/variables",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "create-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/agents/variables",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "get-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/agents/variables/{name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "update-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/agents/variables/{name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "delete-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/agents/variables/{name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "list-selected-repositories-for-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/agents/variables/{name}/repositories",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "set-selected-repositories-for-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/agents/variables/{name}/repositories",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "add-selected-repository-to-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/agents/variables/{name}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "agents",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/agents/variables/{name}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "organization_user_blocking": {
     "title": "Blocking users",
     "displayTitle": "Organization permissions for \"Blocking users\"",
@@ -1553,13 +1774,129 @@
       }
     ]
   },
+  "organization_copilot_spaces": {
+    "title": "Copilot Spaces",
+    "displayTitle": "Organization permissions for \"Copilot Spaces\"",
+    "permissions": [
+      {
+        "category": "copilot-spaces",
+        "slug": "list-organization-copilot-spaces",
+        "subcategory": "copilot-spaces",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "create-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "get-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "delete-an-organization-copilot-space",
+        "subcategory": "copilot-spaces",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "list-resources-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "create-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "get-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-a-resource-for-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "delete-a-resource-from-an-organization-copilot-space",
+        "subcategory": "resources",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "organization_copilot_agent_settings": {
     "title": "Copilot agent settings",
     "displayTitle": "Organization permissions for \"Copilot agent settings\"",
     "permissions": [
       {
         "category": "copilot",
-        "slug": "get-copilot-coding-agent-permissions-for-an-organization",
+        "slug": "get-copilot-cloud-agent-permissions-for-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
@@ -1570,7 +1907,7 @@
       },
       {
         "category": "copilot",
-        "slug": "set-copilot-coding-agent-permissions-for-an-organization",
+        "slug": "set-copilot-cloud-agent-permissions-for-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
@@ -1581,7 +1918,7 @@
       },
       {
         "category": "copilot",
-        "slug": "list-repositories-enabled-for-copilot-coding-agent-in-an-organization",
+        "slug": "list-repositories-enabled-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
@@ -1592,7 +1929,7 @@
       },
       {
         "category": "copilot",
-        "slug": "set-selected-repositories-for-copilot-coding-agent-in-an-organization",
+        "slug": "set-selected-repositories-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
@@ -1603,7 +1940,7 @@
       },
       {
         "category": "copilot",
-        "slug": "enable-a-repository-for-copilot-coding-agent-in-an-organization",
+        "slug": "enable-a-repository-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "put",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
@@ -1614,7 +1951,7 @@
       },
       {
         "category": "copilot",
-        "slug": "disable-a-repository-for-copilot-coding-agent-in-an-organization",
+        "slug": "disable-a-repository-for-copilot-cloud-agent-in-an-organization",
         "subcategory": "copilot-coding-agent-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
@@ -1785,6 +2122,50 @@
     "title": "GitHub Copilot Business",
     "displayTitle": "Organization permissions for \"GitHub Copilot Business\"",
     "permissions": [
+      {
+        "category": "copilot-spaces",
+        "slug": "list-collaborators-for-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "add-a-collaborator-to-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "set-a-collaborator-role-for-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot-spaces",
+        "slug": "remove-a-collaborator-from-an-organization-copilot-space",
+        "subcategory": "collaborators",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
       {
         "category": "copilot",
         "slug": "get-copilot-seat-information-and-settings-for-an-organization",
@@ -2806,6 +3187,17 @@
         "subcategory": "copilot-usage-metrics",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-user-teams-report-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/user-teams-1-day",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -4189,6 +4581,28 @@
       },
       {
         "category": "actions",
+        "slug": "list-concurrency-groups-for-a-repository",
+        "subcategory": "concurrency-groups",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-a-concurrency-group-for-a-repository",
+        "subcategory": "concurrency-groups",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/concurrency_groups/{concurrency_group_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "get-a-job-for-a-workflow-run",
         "subcategory": "workflow-jobs",
         "verb": "get",
@@ -4348,6 +4762,17 @@
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "list-concurrency-groups-for-a-workflow-run",
+        "subcategory": "concurrency-groups",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/concurrency_groups",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -5404,6 +5829,28 @@
         "additional-permissions": false
       },
       {
+        "category": "code-quality",
+        "slug": "get-a-code-quality-setup-configuration",
+        "subcategory": "code-quality",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-quality",
+        "slug": "update-a-code-quality-setup-configuration",
+        "subcategory": "code-quality",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/code-quality/setup",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "code-scanning",
         "slug": "get-a-code-scanning-default-setup-configuration",
         "subcategory": "code-scanning",
@@ -6039,6 +6486,150 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "agent_secrets": {
+    "title": "Agent secrets",
+    "displayTitle": "Repository permissions for \"Agent secrets\"",
+    "permissions": [
+      {
+        "category": "agents",
+        "slug": "list-repository-organization-secrets",
+        "subcategory": "secrets",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/agents/organization-secrets",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "list-repository-secrets",
+        "subcategory": "secrets",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/agents/secrets",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "get-a-repository-public-key",
+        "subcategory": "secrets",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/agents/secrets/public-key",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "get-a-repository-secret",
+        "subcategory": "secrets",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "create-or-update-a-repository-secret",
+        "subcategory": "secrets",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "delete-a-repository-secret",
+        "subcategory": "secrets",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/agents/secrets/{secret_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "agent_variables": {
+    "title": "Agent variables",
+    "displayTitle": "Repository permissions for \"Agent variables\"",
+    "permissions": [
+      {
+        "category": "agents",
+        "slug": "list-repository-organization-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/agents/organization-variables",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "list-repository-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/agents/variables",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "create-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/agents/variables",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "get-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "update-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "agents",
+        "slug": "delete-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/agents/variables/{name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
         "additional-permissions": false
       }
     ]
@@ -7236,6 +7827,28 @@
       },
       {
         "category": "dependency-graph",
+        "slug": "fetch-a-software-bill-of-materials-sbom-for-a-repository",
+        "subcategory": "sboms",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/fetch-report/{sbom_uuid}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependency-graph",
+        "slug": "request-generation-of-a-software-bill-of-materials-sbom-for-a-repository",
+        "subcategory": "sboms",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dependency-graph/sbom/generate-report",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependency-graph",
         "slug": "create-a-snapshot-of-dependencies-for-a-repository",
         "subcategory": "dependency-submission",
         "verb": "post",
@@ -7705,7 +8318,18 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "releases",
@@ -7772,6 +8396,23 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
+      }
+    ]
+  },
+  "copilot_agent_settings": {
+    "title": "Copilot agent settings",
+    "displayTitle": "Repository permissions for \"Copilot agent settings\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-cloud-agent-configuration-for-a-repository",
+        "subcategory": "copilot-cloud-agent-management",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/copilot/cloud-agent/configuration",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },
@@ -8438,6 +9079,39 @@
       },
       {
         "category": "issues",
+        "slug": "add-issue-field-values-to-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "set-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-field-value-from-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "list-labels-for-an-issue",
         "subcategory": "labels",
         "verb": "get",
@@ -8729,39 +9403,6 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels",
         "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "add-issue-field-values-to-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "post",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "set-issue-field-values-for-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "put",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "delete-an-issue-field-value-from-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
-        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
@@ -9446,6 +10087,39 @@
       },
       {
         "category": "issues",
+        "slug": "add-issue-field-values-to-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "set-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-field-value-from-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "issues",
         "slug": "list-labels-for-an-issue",
         "subcategory": "labels",
         "verb": "get",
@@ -9971,39 +10645,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "issues",
-        "slug": "add-issue-field-values-to-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "post",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "set-issue-field-values-for-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "put",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "issues",
-        "slug": "delete-an-issue-field-value-from-an-issue",
-        "subcategory": "issue-field-values",
-        "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       }
     ]
   },
@@ -10509,6 +11150,17 @@
         "subcategory": "releases",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "releases",
+        "slug": "update-a-release",
+        "subcategory": "releases",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

@@ -24,16 +24,16 @@
 - name: Claude Opus 4.5
   free: false
   student: false
-  pro: true
-  pro_plus: true
+  pro: false
+  pro_plus: false
   business: true
   enterprise: true
 
 - name: Claude Opus 4.6
   free: false
   student: false
-  pro: true
-  pro_plus: true
+  pro: false
+  pro_plus: false
   business: true
   enterprise: true
 
@@ -41,14 +41,14 @@
   free: false
   student: false
   pro: false
-  pro_plus: true
+  pro_plus: false
   business: false
   enterprise: true
 
-- name: Claude Sonnet 4
+- name: Claude Opus 4.7
   free: false
   student: false
-  pro: true
+  pro: false
   pro_plus: true
   business: true
   enterprise: true
@@ -93,6 +93,14 @@
   business: true
   enterprise: true
 
+- name: Gemini 3.5 Flash
+  free: false
+  student: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: GPT-4.1
   free: true
   student: true
@@ -103,14 +111,6 @@
 
 - name: GPT-5 mini
   free: true
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.1
-  free: false
   student: true
   pro: true
   pro_plus: true
@@ -135,7 +135,7 @@
 
 - name: GPT-5.3-Codex
   free: false
-  student: true
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -157,10 +157,18 @@
   business: true
   enterprise: true
 
-- name: Grok Code Fast 1
-  free: true
-  student: true
-  pro: true
+- name: GPT-5.4 nano
+  free: false
+  student: false
+  pro: false
+  pro_plus: true
+  business: false
+  enterprise: false
+
+- name: GPT-5.5
+  free: false
+  student: false
+  pro: false
   pro_plus: true
   business: true
   enterprise: true

@@ -4,7 +4,9 @@ shortTitle: Not enough GHAS licenses
 intro: If you are on a subscription-based billing model for GHAS, you need available GHAS licenses to enable GHAS features on a private{% ifversion ghec or ghes %} or internal{% endif %} repository.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/not-enough-github-advanced-security-licenses
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/not-enough-github-advanced-security-licenses

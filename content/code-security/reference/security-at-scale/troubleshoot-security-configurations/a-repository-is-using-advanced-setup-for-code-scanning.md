@@ -4,7 +4,9 @@ shortTitle: Active advanced setup
 intro: You see an error when you try to attach a {% data variables.product.prodname_security_configuration %} with default code scanning enabled to repositories that use advanced setup for code scanning.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/a-repository-has-an-existing-advanced-setup-for-code-scanning
   - /code-security/securing-your-organization/troubleshooting-security-configurations/a-repository-is-using-advanced-setup-for-code-scanning

@@ -6,7 +6,9 @@ permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-sp-only %}'
 contentType: how-tos
 versions:
-  feature: security-overview-delegated-bypass-requests
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /code-security/security-overview/reviewing-requests-to-bypass-push-protection
 category:
@@ -27,9 +29,8 @@ You can review and manage these requests in security overview.
 1. Select the **All statuses** dropdown menu, then click **Open** to view requests that are awaiting review, or that have been approved but for which the commits haven't been pushed to the repository yet.
 1. Click the request that you want to review.
 1. Review the details of the request.
-{% ifversion push-protection-bypass-reviewer-comment -%}
 {% data reusables.repositories.bypass-requests-reviewer-comment %}
-{%- endif %}
+
 1. To allow the contributor to push the commit containing the secret, click **Approve bypass request**. Or, to require the contributor to remove the secret from the commit, click **Deny bypass request**.
 
 ## Filtering requests

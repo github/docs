@@ -10,7 +10,7 @@ category:
   - Request content removal
 ---
 
-We offer this private information removal process as an exceptional service only for high-risk content that violates [GitHub's Terms of Service](/site-policy/acceptable-use-policies/github-acceptable-use-policies#3-conduct-restrictions), such as when your security is at risk from exposed access credentials. This guide describes the information GitHub needs from you in order to process a request to remove private information from a repository.
+We offer this private information removal process as an exceptional service only for high-risk content that violates [GitHub's Terms of Service](/site-policy/acceptable-use-policies/github-acceptable-use-policies), such as when your security is at risk from exposed access credentials. This guide describes the information GitHub needs from you in order to process a request to remove private information from a repository.
 
 ## What is Private Information?
 

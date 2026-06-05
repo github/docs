@@ -1,14 +1,22 @@
 import matter from '@gr2m/gray-matter'
+import type { SchemaObject, ErrorObject } from 'ajv'
 
 import { validateJson } from '@/tests/lib/validate-json-schema'
 
 interface ReadFrontmatterOptions {
-  schema?: Record<string, any> // Schema can have arbitrary properties for validation
+  schema?: SchemaObject
   filepath?: string | null
 }
 
+interface FrontmatterError {
+  reason: string
+  message?: string
+  filepath?: string
+  property?: string
+}
+
 function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
-  const schema = opts.schema || { type: 'object', properties: {} }
+  const schema: SchemaObject = opts.schema || { type: 'object', properties: {} }
   const filepath = opts.filepath || null
 
   let content
@@ -16,18 +24,19 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
 
   try {
     ;({ content, data } = matter(markdown))
-  } catch (e: any) {
+  } catch (e: unknown) {
     const defaultReason = 'invalid frontmatter entry'
 
-    const reason = e.reason
-      ? // make this common error message a little easier to understand
-        e.reason.startsWith('can not read a block mapping entry;') ||
-        e.reason === 'bad indentation of a mapping entry'
-        ? defaultReason
-        : e.reason
-      : defaultReason
+    const reason =
+      e instanceof Error && 'reason' in e
+        ? // make this common error message a little easier to understand
+          (e as { reason: string }).reason.startsWith('can not read a block mapping entry;') ||
+          (e as { reason: string }).reason === 'bad indentation of a mapping entry'
+          ? defaultReason
+          : (e as { reason: string }).reason
+        : defaultReason
 
-    const error: any = {
+    const error: FrontmatterError = {
       reason,
       message: 'YML parsing error!',
     }
@@ -38,7 +47,7 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
     return { errors }
   }
 
-  const validate: any = validateJson(schema, data)
+  const validate = validateJson(schema, data)
 
   // Combine the AJV-supplied `instancePath` and `params` into a more user-friendly frontmatter path.
   // For example, given:
@@ -49,28 +58,39 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   //
   // The purpose is to help users understand that the error is on the `fpt` key within the `versions` object.
   // Note if the error is on a top-level FM property like `title`, the `instancePath` will be empty.
-  const cleanPropertyPath = (params: Record<string, any>, instancePath: string) => {
+  const cleanPropertyPath = (
+    params: Record<string, unknown>,
+    instancePath: string,
+  ): string | undefined => {
     const mainProps = Object.values(params)[0]
-    if (!instancePath) return mainProps
+    if (!instancePath) return mainProps as string | undefined
 
     const prefixProps = instancePath.replace('/', '').replace(/\//g, '.')
-    return typeof mainProps !== 'object' ? `${prefixProps}.${mainProps}` : prefixProps
+    return typeof mainProps === 'string' && /^[a-zA-Z_][\w-]*$/.test(mainProps)
+      ? `${prefixProps}.${mainProps}`
+      : prefixProps
   }
 
-  const errors = []
+  const errors: FrontmatterError[] = []
 
   if (!validate.isValid && filepath) {
-    const formattedErrors = validate.errors.map((error: any) => {
-      const userFriendly: any = {}
-      userFriendly.property = cleanPropertyPath(error.params, error.instancePath)
-      userFriendly.message = error.message
-      userFriendly.reason = error.keyword
-      userFriendly.filepath = filepath
+    const formattedErrors = (validate.errors as ErrorObject[]).map((error: ErrorObject) => {
+      const userFriendly: FrontmatterError = {
+        property: cleanPropertyPath(error.params, error.instancePath) || '',
+        message: error.message,
+        reason: error.keyword,
+        filepath,
+      }
       return userFriendly
     })
     errors.push(...formattedErrors)
   } else if (!validate.isValid) {
-    errors.push(...validate.errors)
+    const formattedErrors = (validate.errors as ErrorObject[]).map((error: ErrorObject) => ({
+      property: cleanPropertyPath(error.params, error.instancePath) || '',
+      message: error.message,
+      reason: error.keyword,
+    }))
+    errors.push(...formattedErrors)
   }
 
   return { content, data, errors }

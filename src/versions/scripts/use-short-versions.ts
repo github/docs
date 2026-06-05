@@ -2,7 +2,7 @@ import fs from 'fs'
 import walk from 'walk-sync'
 import path from 'path'
 import { escapeRegExp } from 'lodash-es'
-import { Tokenizer } from 'liquidjs'
+import { Tokenizer, TypeGuards, type TopLevelToken, type TagToken } from 'liquidjs'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import { allVersions } from '@/versions/lib/all-versions'
 import { deprecated, oldestSupported } from '@/versions/lib/enterprise-server-releases'
@@ -26,7 +26,7 @@ interface ReplacementsMap {
 
 interface VersionData {
   versions?: Record<string, string> | string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface OperatorsMap {
@@ -94,8 +94,15 @@ async function main() {
     if (dryRun) {
       console.log(contentReplacements)
     } else {
-      // Using any for frontmatter.stringify options as gray-matter types don't include lineWidth
-      fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 } as any))
+      fs.writeFileSync(
+        file,
+        frontmatter.stringify(
+          newContent,
+          data,
+          // lineWidth is a js-yaml option passed through gray-matter, not in gray-matter's type definitions
+          { lineWidth: 10000 } as unknown as Parameters<typeof frontmatter.stringify>[2],
+        ),
+      )
     }
   }
 
@@ -125,12 +132,14 @@ try {
   process.exit(1)
 }
 
-// Convenience function to help with readability by removing this large but unneded property.
-// Using any for token objects as liquidjs doesn't provide TypeScript types
-function removeInputProps(arrayOfObjects: any[]): any[] {
-  return arrayOfObjects.map((obj: any) => {
-    delete obj.input
-    delete obj.token.input
+// Remove verbose input properties for readability in debugging output
+function removeInputProps(arrayOfObjects: TopLevelToken[]): TopLevelToken[] {
+  return arrayOfObjects.map((obj) => {
+    const record = obj as unknown as Record<string, unknown>
+    delete record.input
+    if ('token' in record && record.token && typeof record.token === 'object') {
+      delete (record.token as Record<string, unknown>).input
+    }
     return obj
   })
 }
@@ -166,14 +175,17 @@ function getLiquidReplacements(content: string, file: string): ReplacementsMap {
 
   tokens
     .filter(
-      (token) =>
-        (token.name === 'if' || token.name === 'elsif') && token.content.includes('currentVersion'),
+      (token): token is TagToken =>
+        TypeGuards.isTagToken(token) &&
+        (token.name === 'if' || token.name === 'elsif') &&
+        token.content.includes('currentVersion'),
     )
     .map((token) => token.content)
 
   const conditionalTokens = tokens
     .filter(
-      (xtoken) =>
+      (xtoken): xtoken is TagToken =>
+        TypeGuards.isTagToken(xtoken) &&
         (xtoken.name === 'if' || xtoken.name === 'elsif') &&
         xtoken.content.includes('currentVersion'),
     )

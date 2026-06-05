@@ -272,6 +272,7 @@ export const ArticleGrid = ({
             <TextInput
               leadingVisual={SearchIcon}
               placeholder={t('article_grid.search_articles')}
+              aria-label={t('article_grid.search_articles')}
               ref={inputRef}
               autoComplete="false"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

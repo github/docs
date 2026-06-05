@@ -560,6 +560,9 @@ To see all available slash commands, type `/` in the chat prompt box. For more i
 
 ## Using plan mode
 
+> [!NOTE]
+> Plan mode is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
 {% data reusables.copilot.plan-agent-intro %}
 
 To use plan mode:
@@ -676,6 +679,9 @@ To see all available slash commands, type `/` in the chat prompt box.
 {% data reusables.copilot.change-the-ai-model %}
 
 ## Using plan mode
+
+> [!NOTE]
+> Plan mode is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% data reusables.copilot.plan-agent-intro %}
 

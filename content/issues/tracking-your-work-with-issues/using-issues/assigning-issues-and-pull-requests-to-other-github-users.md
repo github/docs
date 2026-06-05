@@ -23,7 +23,7 @@ You can assign multiple people to each issue or pull request, including: yoursel
 
 {% ifversion copilot %}
 
-You may also be able to assign {% data variables.product.prodname_copilot_short %} to an issue, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/create-a-pr).
+You may also be able to assign {% data variables.product.prodname_copilot_short %} to an issue, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 
 {% endif %}
 

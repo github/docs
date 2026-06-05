@@ -6,8 +6,6 @@ introLinks:
   quickstart: /nonprofit/quickstart
 redirect_from:
   - /billing/managing-the-plan-for-your-github-account/discounted-plans-for-github-accounts.md
-changelog:
-  label: nonprofit
 layout: discovery-landing
 includedCategories:
   - Apply for nonprofit benefits

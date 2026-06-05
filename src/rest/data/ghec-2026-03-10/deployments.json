@@ -71,7 +71,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -80,7 +80,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -719,7 +719,7 @@
         {
           "type": "array of strings",
           "name": "required_contexts",
-          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/commits/statuses\">status</a> contexts to verify against commit status checks. If you omit this parameter, GitHub verifies all unique contexts before creating a deployment. To bypass checking entirely, pass an empty array. Defaults to all unique contexts.</p>"
+          "description": "<p>The <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/commits/statuses\">status</a> contexts to verify against commit status checks. If you omit this parameter, GitHub verifies all unique contexts before creating a deployment. To bypass checking entirely, pass an empty array. Defaults to all unique contexts.</p>"
         },
         {
           "type": "object or string",
@@ -750,7 +750,7 @@
           "description": "<p>Specifies if the given environment is one that end-users directly interact with. Default: <code>true</code> when <code>environment</code> is <code>production</code> and <code>false</code> otherwise.</p>"
         }
       ],
-      "descriptionHTML": "<p>Deployments offer a few configurable parameters with certain defaults.</p>\n<p>The <code>ref</code> parameter can be any named branch, tag, or SHA. At GitHub Enterprise Cloud we often deploy branches and verify them\nbefore we merge a pull request.</p>\n<p>The <code>environment</code> parameter allows deployments to be issued to different runtime environments. Teams often have\nmultiple environments for verifying their applications, such as <code>production</code>, <code>staging</code>, and <code>qa</code>. This parameter\nmakes it easier to track which environments have requested deployments. The default environment is <code>production</code>.</p>\n<p>The <code>auto_merge</code> parameter is used to ensure that the requested ref is not behind the repository's default branch. If\nthe ref <em>is</em> behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds,\nthe API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will\nreturn a failure response.</p>\n<p>By default, <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/commits/statuses\">commit statuses</a> for every submitted context must be in a <code>success</code>\nstate. The <code>required_contexts</code> parameter allows you to specify a subset of contexts that must be <code>success</code>, or to\nspecify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do\nnot require any contexts or create any commit statuses, the deployment will always succeed.</p>\n<p>The <code>payload</code> parameter is available for any extra information that a deployment system might need. It is a JSON text\nfield that will be passed on when a deployment event is dispatched.</p>\n<p>The <code>task</code> parameter is used by the deployment system to allow different execution paths. In the web world this might\nbe <code>deploy:migrations</code> to run schema changes on the system. In the compiled world this could be a flag to compile an\napplication with debugging enabled.</p>\n<p>Merged branch response:</p>\n<p>You will see this response when GitHub automatically merges the base branch into the topic branch instead of creating\na deployment. This auto-merge happens when:</p>\n<ul>\n<li>Auto-merge option is enabled in the repository</li>\n<li>Topic branch does not include the latest changes on the base branch, which is <code>master</code> in the response example</li>\n<li>There are no merge conflicts</li>\n</ul>\n<p>If there are no new commits in the base branch, a new request to create a deployment should give a successful\nresponse.</p>\n<p>Merge conflict response:</p>\n<p>This error happens when the <code>auto_merge</code> option is enabled and when the default branch (in this case <code>master</code>), can't\nbe merged into the branch that's being deployed (in this case <code>topic-branch</code>), due to merge conflicts.</p>\n<p>Failed commit status checks:</p>\n<p>This error happens when the <code>required_contexts</code> parameter indicates that one or more contexts need to have a <code>success</code>\nstatus for the commit to be deployed, but one or more of the required contexts do not have a state of <code>success</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>repo_deployment</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Deployments offer a few configurable parameters with certain defaults.</p>\n<p>The <code>ref</code> parameter can be any named branch, tag, or SHA. At GitHub Enterprise Cloud we often deploy branches and verify them\nbefore we merge a pull request.</p>\n<p>The <code>environment</code> parameter allows deployments to be issued to different runtime environments. Teams often have\nmultiple environments for verifying their applications, such as <code>production</code>, <code>staging</code>, and <code>qa</code>. This parameter\nmakes it easier to track which environments have requested deployments. The default environment is <code>production</code>.</p>\n<p>The <code>auto_merge</code> parameter is used to ensure that the requested ref is not behind the repository's default branch. If\nthe ref <em>is</em> behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds,\nthe API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will\nreturn a failure response.</p>\n<p>By default, <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/commits/statuses\">commit statuses</a> for every submitted context must be in a <code>success</code>\nstate. The <code>required_contexts</code> parameter allows you to specify a subset of contexts that must be <code>success</code>, or to\nspecify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do\nnot require any contexts or create any commit statuses, the deployment will always succeed.</p>\n<p>The <code>payload</code> parameter is available for any extra information that a deployment system might need. It is a JSON text\nfield that will be passed on when a deployment event is dispatched.</p>\n<p>The <code>task</code> parameter is used by the deployment system to allow different execution paths. In the web world this might\nbe <code>deploy:migrations</code> to run schema changes on the system. In the compiled world this could be a flag to compile an\napplication with debugging enabled.</p>\n<p>Merged branch response:</p>\n<p>You will see this response when GitHub automatically merges the base branch into the topic branch instead of creating\na deployment. This auto-merge happens when:</p>\n<ul>\n<li>Auto-merge option is enabled in the repository</li>\n<li>Topic branch does not include the latest changes on the base branch, which is <code>master</code> in the response example</li>\n<li>There are no merge conflicts</li>\n</ul>\n<p>If there are no new commits in the base branch, a new request to create a deployment should give a successful\nresponse.</p>\n<p>Merge conflict response:</p>\n<p>This error happens when the <code>auto_merge</code> option is enabled and when the default branch (in this case <code>master</code>), can't\nbe merged into the branch that's being deployed (in this case <code>topic-branch</code>), due to merge conflicts.</p>\n<p>Failed commit status checks:</p>\n<p>This error happens when the <code>required_contexts</code> parameter indicates that one or more contexts need to have a <code>success</code>\nstatus for the commit to be deployed, but one or more of the required contexts do not have a state of <code>success</code>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>repo_deployment</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -1998,7 +1998,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>If the repository only has one deployment, you can delete the deployment regardless of its status. If the repository has more than one deployment, you can only delete inactive deployments. This ensures that repositories with multiple deployments will always have an active deployment.</p>\n<p>To set a deployment as inactive, you must:</p>\n<ul>\n<li>Create a new deployment that is active so that the system has a record of the current state, then delete the previously active deployment.</li>\n<li>Mark the active deployment as inactive by adding any non-successful deployment status.</li>\n</ul>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/deployments/deployments/#create-a-deployment\">Create a deployment</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/deployments/statuses#create-a-deployment-status\">Create a deployment status</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>repo_deployment</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>If the repository only has one deployment, you can delete the deployment regardless of its status. If the repository has more than one deployment, you can only delete inactive deployments. This ensures that repositories with multiple deployments will always have an active deployment.</p>\n<p>To set a deployment as inactive, you must:</p>\n<ul>\n<li>Create a new deployment that is active so that the system has a record of the current state, then delete the previously active deployment.</li>\n<li>Mark the active deployment as inactive by adding any non-successful deployment status.</li>\n</ul>\n<p>For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/deployments/deployments/#create-a-deployment\">Create a deployment</a>\" and \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/deployments/statuses#create-a-deployment-status\">Create a deployment status</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> or <code>repo_deployment</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -2081,7 +2081,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2090,7 +2090,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2787,7 +2787,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -2796,7 +2796,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -4835,7 +4835,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets all custom deployment protection rules that are enabled for an environment. Anyone with read access to the repository can use this endpoint. For more information about environments, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<p>For more information about the app that is providing this custom deployment rule, see the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/apps/apps#get-an-app\">documentation for the <code>GET /apps/{app_slug}</code> endpoint</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "descriptionHTML": "<p>Gets all custom deployment protection rules that are enabled for an environment. Anyone with read access to the repository can use this endpoint. For more information about environments, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<p>For more information about the app that is providing this custom deployment rule, see the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/apps/apps#get-an-app\">documentation for the <code>GET /apps/{app_slug}</code> endpoint</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5009,7 +5009,7 @@
           "description": "<p>The ID of the custom app that will be enabled on the environment.</p>"
         }
       ],
-      "descriptionHTML": "<p>Enable a custom deployment protection rule for an environment.</p>\n<p>The authenticated user must have admin or owner permissions to the repository to use this endpoint.</p>\n<p>For more information about the app that is providing this custom deployment rule, see the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/apps/apps#get-an-app\">documentation for the <code>GET /apps/{app_slug}</code> endpoint</a>, as well as the <a href=\"https://docs.github.com/enterprise-cloud@latest//actions/managing-workflow-runs-and-deployments/managing-deployments/creating-custom-deployment-protection-rules\">guide to creating custom deployment protection rules</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
+      "descriptionHTML": "<p>Enable a custom deployment protection rule for an environment.</p>\n<p>The authenticated user must have admin or owner permissions to the repository to use this endpoint.</p>\n<p>For more information about the app that is providing this custom deployment rule, see the <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/apps/apps#get-an-app\">documentation for the <code>GET /apps/{app_slug}</code> endpoint</a>, as well as the <a href=\"https://docs.github.com/enterprise-cloud@latest/actions/managing-workflow-runs-and-deployments/managing-deployments/creating-custom-deployment-protection-rules\">guide to creating custom deployment protection rules</a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5152,7 +5152,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5161,7 +5161,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5170,7 +5170,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets all custom deployment protection rule integrations that are available for an environment.</p>\n<p>The authenticated user must have admin or owner permissions to the repository to use this endpoint.</p>\n<p>For more information about environments, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<p>For more information about the app that is providing this custom deployment rule, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/apps/apps#get-an-app\">GET an app</a>\".</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "descriptionHTML": "<p>Gets all custom deployment protection rule integrations that are available for an environment.</p>\n<p>The authenticated user must have admin or owner permissions to the repository to use this endpoint.</p>\n<p>For more information about environments, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<p>For more information about the app that is providing this custom deployment rule, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/apps/apps#get-an-app\">GET an app</a>\".</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5315,7 +5315,7 @@
         }
       ],
       "bodyParameters": [],
-      "descriptionHTML": "<p>Gets an enabled custom deployment protection rule for an environment. Anyone with read access to the repository can use this endpoint. For more information about environments, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<p>For more information about the app that is providing this custom deployment rule, see <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/apps/apps#get-an-app\"><code>GET /apps/{app_slug}</code></a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
+      "descriptionHTML": "<p>Gets an enabled custom deployment protection rule for an environment. Anyone with read access to the repository can use this endpoint. For more information about environments, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment\">Using environments for deployment</a>.\"</p>\n<p>For more information about the app that is providing this custom deployment rule, see <a href=\"https://docs.github.com/enterprise-cloud@latest/rest/apps/apps#get-an-app\"><code>GET /apps/{app_slug}</code></a>.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with a private repository.</p>",
       "codeExamples": [
         {
           "request": {
@@ -5541,7 +5541,7 @@
         },
         {
           "name": "per_page",
-          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",
@@ -5550,7 +5550,7 @@
         },
         {
           "name": "page",
-          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
           "in": "query",
           "schema": {
             "type": "integer",

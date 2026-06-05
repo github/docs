@@ -1,6 +1,6 @@
 ---
 title: Viewing and updating Dependabot alerts
-intro: If {% data variables.product.github %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.
+intro: If {% data variables.product.github %} discovers insecure dependencies in your project, you can view alert details on the {% data variables.product.prodname_dependabot %} tab of your repository. Then, you can update your project to resolve or dismiss the alert.
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -20,11 +20,11 @@ category:
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}. You can filter alerts by package, ecosystem, or manifest. You can sort the list of alerts, and you can click into specific alerts for more details. You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+Your repository's {% data variables.product.prodname_dependabot %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}. You can filter alerts by package, ecosystem, or manifest. You can sort the list of alerts, and you can click into specific alerts for more details. You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
 ## About updates for vulnerable dependencies in your repository
 
-Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot_alerts %} tab filtered for that package.
+Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot %} tab filtered for that package.
 
 You can filter and sort {% data variables.product.prodname_dependabot_alerts %} using a variety of filters and sort options available on the user interface. For more information, see [Viewing and prioritizing {% data variables.product.prodname_dependabot_alerts %}](#viewing-and-prioritizing-dependabot-alerts) below.
 
@@ -38,6 +38,12 @@ By default, alerts are sorted by **Most important**, which helps you prioritize 
 
 {% data reusables.dependabot.where-to-view-dependabot-alerts %}
 
+{% ifversion dependabot-alerts-assignees %}
+
+When you assign an alert to an AI agent, the agent automatically creates a session and opens a draft pull request with a proposed fix. If the agent can't generate a fix, it remains as an assignee of the alert. You can click **View Session** on the alert timeline to review the agent's log and understand why no pull request was created. Only a user can remove the agent as an assignee.
+
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
@@ -45,7 +51,7 @@ By default, alerts are sorted by **Most important**, which helps you prioritize 
 1. Optionally, refine the list of alerts:
    * Use the dropdown menus at the top of the list to sort or filter alerts.
 
-     ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png)
+     ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png)
 
    * Type directly in the search bar to filter alerts, including full-text search across alert details and related security advisories.
    * Click a label on an alert to automatically filter the list by that label.
@@ -58,7 +64,14 @@ By default, alerts are sorted by **Most important**, which helps you prioritize 
    ![Screenshot showing the "Tags" section in the alert details page.](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% ifversion dependabot-alerts-assignees %}
-1. On the right panel, select an assignee by using the **Assignees** dropdown list. You can assign the alert to a user or team to establish clear ownership, or assign it to {% data variables.product.prodname_copilot_short %} to automatically generate a fix. This clearly communicates who is responsible for triaging the alert and helps you avoid repetitive analysis. It also ensures that alerts are not missed.
+1. On the right panel, assign ownership for the alert:
+   * Click the {% octicon "gear" aria-label="Show options" %} dropdown menu next to "Assignees" to select a user, team, or AI agent from the list. You can also click **Assign to Agent** to assign directly to an agent.
+
+   When you assign an alert to an agent, a dialog appears where you can optionally:
+   * Add a custom prompt with additional context about the fix.
+   * Select a different repository.
+   * Select the AI model to use.
+   * Select a custom agent you have configured (recommended for specialized tasks).
 {% endif %}
 
 1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
