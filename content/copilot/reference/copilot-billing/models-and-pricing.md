@@ -31,14 +31,14 @@ All prices are **per 1 million tokens**.
 
 ### OpenAI
 
-| Model | Release status | Category | Input | Cached input | Output |
-| --- | --- | --- | ---: | ---: | ---: |
+{% data reusables.copilot.extended-context-pricing %}
+
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: |
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "openai" %} |
-| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
-[^1]: {% data variables.copilot.copilot_gpt_5_mini %} is an included model.
-[^2]: {% data variables.copilot.copilot_gpt_54 %} pricing applies to prompts with ≤272K tokens.
 
 ### Anthropic
 
@@ -52,14 +52,13 @@ Anthropic models include a cache write cost in addition to cached input.
 
 ### Google
 
-| Model | Release status | Category | Input | Cached input | Output |
-| --- | --- | --- | ---: | ---: | ---: |
-| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "google" %} |
-| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
-| {% endif %}{% endfor %} |
+{% data reusables.copilot.extended-context-pricing %}
 
-[^5]: {% data variables.copilot.copilot_gemini_25_pro %} and {% data variables.copilot.copilot_gemini_31_pro %} pricing applies to prompts with ≤200K tokens.
-[^6]: {% data variables.copilot.copilot_gemini_3_flash %} has no long-context surcharge.
+| Model | Release status | Category | Tier | Threshold (input tokens) | Input | Cached input | Output |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: |
+| {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "google" %} |
+| {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
+| {% endif %}{% endfor %} |
 
 ### Fine-tuned ({% data variables.product.github %})
 
@@ -68,8 +67,6 @@ Anthropic models include a cache write cost in addition to cached input.
 | {% for entry in tables.copilot.models-and-pricing %}{% if entry.provider == "github" %} |
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
-
-[^7]: {% data variables.copilot.copilot_raptor_mini %} uses {% data variables.copilot.copilot_gpt_5_mini %} pricing.
 
 ### Microsoft
 
