@@ -1,6 +1,6 @@
 ---
 title: About built-in CodeQL queries
-shortTitle: About built-in queries
+shortTitle: Built-in queries
 allowTitleToDifferFromFilename: true
 intro: Learn about the CodeQL queries that code scanning uses to analyze code.
 product: '{% data reusables.gated-features.code-scanning %}'
@@ -10,6 +10,7 @@ versions:
   ghes: '*'
 contentType: reference
 redirect_from:
+  - /code-security/reference/code-scanning/codeql/codeql-queries/about-built-in-queries
   - /code-security/code-scanning/reference/code-ql-built-in-queries/about-built-in-queries
 category:
   - Find CodeQL CLI commands

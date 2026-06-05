@@ -5,11 +5,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-shortTitle: Troubleshoot Dependabot on Actions
+shortTitle: Dependabot on Actions
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-on-github-actions
   - /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions
   - /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-on-github-actions
+  - /code-security/reference/supply-chain-security/troubleshoot-dependabot/troubleshooting-dependabot-on-github-actions
+  - /code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-on-actions-issues
 contentType: reference
 category:
   - Troubleshoot security tools

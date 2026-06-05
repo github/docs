@@ -11,6 +11,8 @@ versions:
 contentType: reference
 category:
   - Find CodeQL CLI commands
+redirect_from:
+  - /code-security/reference/code-scanning/codeql/codeql-build-options-and-steps-for-compiled-languages
 ---
 
 ## Autobuild steps for compiled languages

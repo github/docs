@@ -9,6 +9,8 @@ versions:
 contentType: reference
 category:
   - Secure at scale
+redirect_from:
+  - /code-security/reference/permissions/security-overview-permissions
 ---
 
 The actions you can take in the security overview depend on your permissions for the repositories in your organization or enterprise.

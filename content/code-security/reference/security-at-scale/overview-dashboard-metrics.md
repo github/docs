@@ -1,5 +1,6 @@
 ---
 title: Security overview dashboard metrics
+shortTitle: Overview dashboard metrics
 intro: Detailed explanations of metrics, calculations, and data visualizations on the overview page of your security overview.
 versions:
   fpt: '*'
@@ -8,6 +9,9 @@ versions:
 contentType: reference
 category:
   - Secure at scale
+redirect_from:
+  - /code-security/reference/security-at-scale/security-overview-dashboard-metrics
+  - /code-security/reference/security-at-scale/dashboard-metrics
 ---
 
 ## Dashboard metrics

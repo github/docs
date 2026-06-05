@@ -6,6 +6,7 @@ product: '{% data reusables.gated-features.codeql %}'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql
   - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql
+  - /code-security/reference/code-scanning/codeql/recommended-hardware-resources-for-running-codeql
 versions:
   fpt: '*'
   ghes: '*'

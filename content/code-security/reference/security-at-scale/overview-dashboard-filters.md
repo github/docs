@@ -1,6 +1,6 @@
 ---
 title: Available filters for security overview
-shortTitle: Security overview filters
+shortTitle: Overview dashboard filters
 intro: Reference for all available filters you can use to narrow security overview data.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
@@ -13,6 +13,7 @@ contentType: reference
 redirect_from:
   - /code-security/reference/security-alert-management/available-filters-for-security-overview
   - /code-security/reference/security-alert-management
+  - /code-security/reference/security-at-scale/available-filters-for-security-overview
 category:
   - Secure at scale
 ---

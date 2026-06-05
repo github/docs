@@ -11,6 +11,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/integrating-with-code-scanning/sarif-support-for-code-scanning
   - /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
   - /code-security/reference/code-scanning/sarif-support-for-code-scanning
+  - /code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning
 versions:
   fpt: '*'
   ghes: '*'

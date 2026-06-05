@@ -1,6 +1,6 @@
 ---
 title: Diagnosing security configuration issues
-shortTitle: Diagnose configuration issues
+shortTitle: Configuration issue diagnosis
 intro: Identify repositories where the security configuration could not be attached, or where the configuration relationship has changed, and follow guidance to remediate the problem.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
@@ -11,6 +11,7 @@ redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/finding-repositories-with-attachment-failures
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/finding-repositories-with-attachment-failures
   - /code-security/reference/security-at-scale/troubleshoot-security-configurations/finding-repositories-with-attachment-failures
+  - /code-security/reference/security-at-scale/troubleshoot-security-configurations/diagnosing-security-configuration-issues
 contentType: reference
 category:
   - Troubleshoot security tools

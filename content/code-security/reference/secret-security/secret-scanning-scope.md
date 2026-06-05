@@ -12,6 +12,7 @@ redirect_from:
   - /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning
   - /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection
   - /code-security/how-tos/secure-your-secrets/troubleshooting-secret-scanning
+  - /code-security/reference/secret-security/secret-scanning-detection-scope
 contentType: reference
 category:
   - Protect your secrets

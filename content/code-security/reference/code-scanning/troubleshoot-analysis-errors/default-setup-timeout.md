@@ -1,5 +1,6 @@
 ---
 title: Enabling default setup takes too long
+shortTitle: Default setup timeout
 intro: If you think that enabling default setup has stalled, you can restart the process.
 allowTitleToDifferFromFilename: true
 versions:
@@ -7,6 +8,7 @@ versions:
   ghes: '*'
   ghec: '*'
 redirect_from:
+  - /code-security/reference/code-scanning/troubleshoot-analysis-errors/enabling-default-setup-takes-too-long
   - /code-security/code-scanning/troubleshooting-code-scanning/enabling-default-setup-takes-too-long
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/enabling-default-setup-takes-too-long
 contentType: reference

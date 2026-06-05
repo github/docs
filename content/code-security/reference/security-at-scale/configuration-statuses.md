@@ -1,7 +1,7 @@
 ---
 title: Security configuration statuses
 shortTitle: Configuration statuses
-intro: 'Each repository that has a {% data variables.product.prodname_security_configuration %} applied to it has a configuration status that reflects the current state of the relationship between the repository and the configuration.'
+intro: Each repository that has a {% data variables.product.prodname_security_configuration %} applied to it has a configuration status that reflects the current state of the relationship between the repository and the configuration.
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,6 +9,8 @@ versions:
 contentType: reference
 category:
   - Secure at scale
+redirect_from:
+  - /code-security/reference/security-at-scale/security-configuration-statuses
 ---
 
 A repository's configuration status tells you the current state of its relationship with the applied {% data variables.product.prodname_security_configuration %}. That relationship can change over time—for example, when a repository admin overrides a setting, an admin enables enforcement, or an attachment fails. For more about how configurations and repositories interact, see [AUTOTITLE](/code-security/concepts/security-at-scale/about-enabling-security-features-at-scale).

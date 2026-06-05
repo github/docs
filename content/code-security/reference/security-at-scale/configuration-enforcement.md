@@ -1,5 +1,6 @@
 ---
 title: Security configuration enforcement
+shortTitle: Configuration enforcement
 intro: Understand the complexities of enforcing {% data variables.product.prodname_security_configurations %}.
 versions:
   fpt: '*'
@@ -8,6 +9,8 @@ versions:
 contentType: reference
 category:
   - Secure at scale
+redirect_from:
+  - /code-security/reference/security-at-scale/security-configuration-enforcement
 ---
 
 {% data variables.product.prodname_security_configurations_caps %} can be enforced, meaning repository owners cannot change the enablement status of features that are enabled or disabled by the configuration.

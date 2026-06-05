@@ -10,6 +10,7 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/not-enough-github-advanced-security-licenses
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/not-enough-github-advanced-security-licenses
+  - /code-security/reference/security-at-scale/troubleshoot-security-configurations/not-enough-github-advanced-security-licenses
 contentType: reference
 category:
   - Troubleshoot security tools

@@ -1,7 +1,7 @@
 ---
 title: Dependabot errors
 intro: '{% data variables.product.prodname_dependabot %} automatically maintains your dependencies, keeping your code secure and current. This reference helps you diagnose and resolve issues so automated updates can continue.'
-shortTitle: Troubleshoot Dependabot errors
+shortTitle: Dependabot errors
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
   - /github/managing-security-vulnerabilities/troubleshooting-dependabot-errors
