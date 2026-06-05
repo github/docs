@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>AddLabelsToLabelableInput.labelIds</code> changed type from '[ID!]!<code>to</code>[ID!]'</p>",
+          "<p>Field <code>displayTitle</code> was added to object type <code>WorkflowRun</code></p>",
+          "<p>Field <code>runAttempt</code> was added to object type <code>WorkflowRun</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>IssueFieldMultiSelect</code> was added</p>",
           "<p><code>IssueFieldMultiSelect</code> object implements <code>IssueFieldCommon</code> interface</p>",
           "<p><code>IssueFieldMultiSelect</code> object implements <code>Node</code> interface</p>",

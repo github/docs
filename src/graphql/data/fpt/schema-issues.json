@@ -10249,7 +10249,7 @@
         {
           "name": "labelIds",
           "description": "<p>The ids of the labels to add.</p>",
-          "type": "[ID!]!",
+          "type": "[ID!]",
           "id": "id",
           "href": "/graphql/reference/other#scalar-id",
           "isDeprecated": false
@@ -11893,7 +11893,7 @@
         },
         {
           "name": "issueField",
-          "description": "<p>The field value to update.</p>",
+          "description": "<p>The field value to update. May include an optional <code>rationale</code> or be flagged\nwith <code>suggest: true</code> to be stored as a pending suggestion instead of being\napplied directly.</p>",
           "type": "IssueFieldCreateOrUpdateInput!",
           "id": "issuefieldcreateorupdateinput",
           "href": "/graphql/reference/issues#input-object-issuefieldcreateorupdateinput"
