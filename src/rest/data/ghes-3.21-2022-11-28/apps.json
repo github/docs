@@ -1832,6 +1832,7 @@
                         "type": "string",
                         "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                         "enum": [
+                          "read",
                           "write"
                         ]
                       },
@@ -2825,6 +2826,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -3625,6 +3627,7 @@
               "name": "organization_copilot_seat_management",
               "description": "<p>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</p>",
               "enum": [
+                "read",
                 "write"
               ]
             },
@@ -3846,7 +3849,7 @@
           ]
         }
       ],
-      "descriptionHTML": "<p>Creates an installation access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of <code>401 - Unauthorized</code>, and requires creating a new installation token. By default the installation token has access to all repositories that the installation can access.</p>\n<p>Optionally, you can use the <code>repositories</code> or <code>repository_ids</code> body parameters to specify individual repositories that the installation access token can access. If you don't use <code>repositories</code> or <code>repository_ids</code> to grant access to specific repositories, the installation access token will have access to all repositories that the installation was granted access to. The installation access token cannot be granted access to repositories that the installation was not granted access to. Up to 500 repositories can be listed in this manner.</p>\n<p>Optionally, use the <code>permissions</code> body parameter to specify the permissions that the installation access token should have. If <code>permissions</code> is not specified, the installation access token will have all of the permissions that were granted to the app. The installation access token cannot be granted permissions that the app was not granted.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-server@3.21/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
+      "descriptionHTML": "<p>Creates an installation access token that enables a GitHub App to make authenticated API requests for the app's installation on an organization or individual account. Installation tokens expire one hour from the time you create them. Using an expired token produces a status code of <code>401 - Unauthorized</code>, and requires creating a new installation token. By default the installation token has access to all repositories that the installation can access.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nStarting April 27, 2026, GitHub began a staged rollout of a stateless format (<code>ghs_APPID_JWT</code>) to all newly minted GitHub App installation tokens, making them more performant and improving the reliability of our API surface. If your application expects or relies on installation tokens being exactly 40 characters long, it may not handle this new token format correctly. You can now validate your apps and workflows using a temporary request header that lets you enable the token format on demand. For more information about the temporary header, see <a href=\"https://github.blog/changelog/2026-05-15-github-app-installation-tokens-per-request-override-header\">the GitHub blog</a>.</p>\n</div>\n<p>Optionally, you can use the <code>repositories</code> or <code>repository_ids</code> body parameters to specify individual repositories that the installation access token can access. If you don't use <code>repositories</code> or <code>repository_ids</code> to grant access to specific repositories, the installation access token will have access to all repositories that the installation was granted access to. The installation access token cannot be granted access to repositories that the installation was not granted access to. Up to 500 repositories can be listed in this manner.</p>\n<p>Optionally, use the <code>permissions</code> body parameter to specify the permissions that the installation access token should have. If <code>permissions</code> is not specified, the installation access token will have all of the permissions that were granted to the app. The installation access token cannot be granted permissions that the app was not granted.</p>\n<p>You must use a <a href=\"https://docs.github.com/enterprise-server@3.21/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app\">JWT</a> to access this endpoint.</p>",
       "codeExamples": [
         {
           "request": {
@@ -4297,6 +4300,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -5699,6 +5703,7 @@
               "name": "organization_copilot_seat_management",
               "description": "<p>The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.</p>",
               "enum": [
+                "read",
                 "write"
               ]
             },
@@ -6509,6 +6514,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
@@ -7892,6 +7898,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -8885,6 +8892,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -9888,6 +9896,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -10889,6 +10898,7 @@
                       "type": "string",
                       "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                       "enum": [
+                        "read",
                         "write"
                       ]
                     },
@@ -12886,6 +12896,7 @@
                             "type": "string",
                             "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                             "enum": [
+                              "read",
                               "write"
                             ]
                           },
@@ -15003,6 +15014,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },
@@ -15978,6 +15990,7 @@
                               "type": "string",
                               "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                               "enum": [
+                                "read",
                                 "write"
                               ]
                             },

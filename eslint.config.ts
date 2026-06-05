@@ -161,6 +161,17 @@ export default [
     },
   },
 
+  // Client-side files that run in the browser where the server-only logger is unavailable
+  {
+    files: [
+      'src/search/components/hooks/useAISearchAutocomplete.ts',
+      'src/search/components/hooks/useAISearchLocalStorageCache.ts',
+    ],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
   // Disable custom logger rule for logger implementation itself
   {
     files: ['src/observability/logger/**/*.{ts,js}'],
@@ -180,15 +191,9 @@ export default [
       'src/dev-toc/**/*.{ts,js}',
       'src/events/components/**/*.{ts,js}',
       'src/fixtures/**/*.{ts,js}',
-      'src/github-apps/**/*.{ts,js}',
       'src/journeys/**/*.{ts,js}',
-      'src/languages/**/*.{ts,js}',
-      'src/links/**/*.{ts,js}',
       'src/metrics/**/*.{ts,js}',
-      'src/observability/**/*.{ts,js}',
-      'src/rest/**/*.{ts,js}',
-      'src/search/**/*.{ts,js}',
-      'src/shielding/**/*.{ts,js}',
+      'src/observability/lib/handle-package-not-found.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
@@ -203,6 +208,10 @@ export default [
       'src/workflows/**/*.{ts,js}',
       'src/content-linter/**/*.{ts,js}',
       '**/*.{tsx,jsx}',
+      // Client-side module that cannot use the server-only structured logger
+      'src/languages/lib/translation-utils.ts',
+      // CLI help script — chalk-colored terminal output, not application logging
+      'src/rest/docs.ts',
     ],
     rules: {
       'custom-rules/use-custom-logger': 'off',
@@ -235,7 +244,6 @@ export default [
       'src/content-render/unified/annotate.ts',
       'src/content-render/unified/index.ts',
       'src/data-directory/lib/get-data.ts',
-      'src/fixtures/tests/guides.ts',
       'src/frame/components/context/MainContext.tsx',
       'src/frame/lib/page-data.ts',
       'src/frame/tests/page.ts',
@@ -249,7 +257,6 @@ export default [
       'src/languages/lib/correct-translation-content.ts',
       'src/languages/lib/render-with-fallback.ts',
       'src/links/lib/update-internal-links.ts',
-      'src/links/scripts/check-github-github-links.ts',
       'src/rest/components/get-rest-code-samples.ts',
       'src/rest/pages/category.tsx',
       'src/rest/pages/subcategory.tsx',
@@ -271,9 +278,6 @@ export default [
       'src/search/lib/search-request-params/get-search-from-request-params.ts',
       'src/search/scripts/index/index-cli.ts',
       'src/search/scripts/index/utils/indexing-elasticsearch-utils.ts',
-      'src/tests/helpers/check-url.ts',
-      'src/tests/scripts/copy-fixture-data.ts',
-      'src/tests/vitest.setup.ts',
       'src/types/github__markdownlint-github.d.ts',
       'src/types/markdownlint-lib-rules.d.ts',
       'src/types/markdownlint-rule-helpers.d.ts',

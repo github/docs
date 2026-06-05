@@ -76,14 +76,3 @@ Validity checks are separate from {% data variables.product.prodname_secret_scan
 ## How can I access this feature?
 
 {% data reusables.gated-features.secret-scanning %}
-
-## Next steps
-
-* **If you've received an alert**, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning) to learn how to review, resolve, and remediate exposed secrets.
-{%- ifversion secret-risk-assessment %}
-* **If you're securing an organization**, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk) to determine your organization's exposure to leaked secrets.
-{% endif %}
-
-## Further reading
-
-* For a complete list of supported secrets and service providers, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).

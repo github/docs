@@ -1455,9 +1455,21 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-ai-credit-usage-report-for-an-organization",
+      "subcategory": "usage",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/ai_credit/usage"
+    },
+    {
       "slug": "get-all-budgets-for-an-organization",
       "subcategory": "budgets",
       "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/budgets"
+    },
+    {
+      "slug": "create-a-budget-for-an-organization",
+      "subcategory": "budgets",
+      "verb": "post",
       "requestPath": "/organizations/{org}/settings/billing/budgets"
     },
     {
@@ -5125,6 +5137,12 @@
       "subcategory": "forks",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/forks"
+    },
+    {
+      "slug": "get-the-hash-algorithm-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hash-algorithm"
     },
     {
       "slug": "list-repository-webhooks",

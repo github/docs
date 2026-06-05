@@ -89,16 +89,3 @@ After you enable push protection for repositories, you can customize it by:
 * Designating contributors who can bypass push protection and approve bypass requests for other contributors{% ifversion push-protection-org-enterprise-exemptions %}, or are exempt from push protection entirely{% endif %}{% ifversion push-protected-pattern-configuration %}
 * Configuring which secret patterns are included in push protection at the enterprise or organization level{% endif %}
 
-## Next steps
-
-To enable push protection:
-* **For a repository**, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository).
-{% ifversion security-configurations-cloud -%}
-* **For an organization or enterprise**, you need to apply a {% data variables.product.prodname_security_configuration %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/applying-the-github-recommended-security-configuration-in-your-organization) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/applying-the-github-recommended-security-configuration-to-your-enterprise).
-{% elsif security-configuration-enterprise-level -%}
-* **For an organization or enterprise**, you need to apply a {% data variables.product.prodname_security_configuration %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration) and [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/creating-a-custom-security-configuration-for-your-enterprise).
-{% else -%}
-* **For an organization**, you need to apply a {% data variables.product.prodname_security_configuration %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration).
-{% endif %}
-
-For a list of secrets and service providers supported by push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).

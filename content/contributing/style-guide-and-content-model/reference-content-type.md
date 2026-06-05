@@ -46,7 +46,7 @@ For the reference content template, see [AUTOTITLE](/contributing/writing-for-gi
   * [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)
   * [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
   * [AUTOTITLE](/free-pro-team@latest/rest/reference/billing) in the REST API documentation
-  * [AUTOTITLE](/graphql/reference/mutations) in the GraphQL API documentation
+  * [AUTOTITLE](/graphql/reference) in the GraphQL API documentation
 * Reference sections within other articles
   * "Supported languages" in [AUTOTITLE](/free-pro-team@latest/get-started/using-github/github-mobile#supported-languages-for-github-mobile)
   * "Hardware considerations" in [AUTOTITLE](/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)

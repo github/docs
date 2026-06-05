@@ -2514,6 +2514,7 @@
                             "type": "string",
                             "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change.",
                             "enum": [
+                              "read",
                               "write"
                             ]
                           },
@@ -24868,6 +24869,21 @@
               "fail",
               "bypass",
               "all"
+            ]
+          }
+        },
+        {
+          "name": "evaluate_status",
+          "description": "<p>The evaluate status to filter on. When specified, only rule suites resulting from rulesets with the specified evaluate status will be returned.</p>\n<ul>\n<li><code>all</code> - all rule suites will be returned.</li>\n<li><code>active</code> - only rule suites resulting from rulesets in active (non-evaluate) mode will be returned.</li>\n<li><code>evaluate</code> - only rule suites resulting from rulesets in evaluate mode will be returned.</li>\n</ul>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "default": "all",
+            "enum": [
+              "all",
+              "active",
+              "evaluate"
             ]
           }
         },

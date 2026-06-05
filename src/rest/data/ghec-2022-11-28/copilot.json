@@ -5416,8 +5416,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_day": "2025-07-01"
             },
@@ -5513,8 +5513,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_start_day": "2025-07-01",
               "report_end_day": "2025-07-28"
@@ -5626,8 +5626,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_day": "2025-07-01"
             },
@@ -5732,8 +5732,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_day": "2025-07-01"
             },
@@ -5829,8 +5829,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_start_day": "2025-07-01",
               "report_end_day": "2025-07-28"
@@ -5942,8 +5942,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_day": "2025-07-01"
             },
@@ -6043,8 +6043,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_start_day": "2025-07-01",
               "report_end_day": "2025-07-28"
@@ -6156,8 +6156,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_day": "2025-07-01"
             },
@@ -6266,8 +6266,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_day": "2025-07-01"
             },
@@ -6367,8 +6367,8 @@
             "description": "<p>Response</p>",
             "example": {
               "download_links": [
-                "https://example.com/copilot-usage-report-1.json",
-                "https://example.com/copilot-usage-report-2.json"
+                "https://example.com/copilot-usage-report-1.ndjson",
+                "https://example.com/copilot-usage-report-2.ndjson"
               ],
               "report_start_day": "2025-07-01",
               "report_end_day": "2025-07-28"

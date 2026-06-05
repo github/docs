@@ -88,19 +88,21 @@ Command hooks run shell scripts and are supported on all hook types.
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `bash` | string | One of `bash`, `powershell`, or `command` | Shell command for Unix. |
-| `command` | string | One of `bash`, `powershell`, or `command` | Cross-platform fallback used when neither `bash` nor `powershell` is set for the current platform. |
+| `command` | string | One of `bash`, `powershell`, or `command` | Cross-platform fallback. Copied to both `bash` and `powershell` when those fields are absent; explicit `bash` or `powershell` entries take precedence on their respective platforms. |
 | `cwd` | string | No | Working directory for the command (relative to repository root or absolute). |
 | `env` | object | No | Environment variables to set (supports variable expansion). |
 | `powershell` | string | One of `bash`, `powershell`, or `command` | Shell command for Windows. |
+| `timeout` | number | No | Alias for `timeoutSec`, in seconds. Used only when `timeoutSec` is absent; `timeoutSec` takes precedence when both are present. |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
-| `type` | `"command"` | Yes | Must be `"command"`. |
+| `type` | `"command"` | No | Hook type. Defaults to `"command"` when omitted. |
 
 ### HTTP hooks
 
 HTTP hooks send the input payload as a JSON `POST` to a URL.
 
 > [!NOTE]
-> **Cloud agent only.** Outbound network from the sandbox is restricted by the cloud agent firewall, so `url` must target an allow-listed host.
+> * By default, only `https://` URLs are allowed. Non-TLS `http://` requests are rejected, except for `http://localhost`, `http://127.*`, and `http://[::1]` when `COPILOT_HOOK_ALLOW_LOCALHOST=1` is set.
+> * **Cloud agent only.** Outbound network from the sandbox is restricted by the cloud agent firewall, so `url` must target an allow-listed host.
 
 ```json
 {
@@ -123,6 +125,7 @@ HTTP hooks send the input payload as a JSON `POST` to a URL.
 |-------|------|----------|-------------|
 | `allowedEnvVars` | string[] | No | Environment variable names that may be expanded inside `headers` values. When set, `url` must use `https://`. |
 | `headers` | object | No | Request headers to include. |
+| `timeout` | number | No | Alias for `timeoutSec`, in seconds. Used only when `timeoutSec` is absent; `timeoutSec` takes precedence when both are present. |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
 | `type` | `"http"` | Yes | Must be `"http"`. |
 | `url` | string | Yes | Target URL. Must use `http:` or `https:`. For `preToolUse` and `permissionRequest`, must use `https://` because the response can grant tool permissions. |
@@ -289,6 +292,9 @@ When configured with the PascalCase event name `PreToolUse`, the payload uses sn
 }
 ```
 
+> [!IMPORTANT]
+> **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed**—a crash or non-zero exit denies the tool call. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
+
 ### `postToolUse` / `PostToolUse`
 
 **camelCase input:**
@@ -381,6 +387,9 @@ When configured with the PascalCase event name `PreToolUse`, the payload uses sn
 ```
 
 ### `subagentStart`
+
+> [!NOTE]
+> The built-in `general-purpose` agent does not emit `subagentStart` or `subagentStop` events.
 
 **Input:**
 
@@ -626,7 +635,7 @@ Several events accept an optional `matcher` regex on each hook entry that filter
 | `view` | Read file contents. |
 | `web_fetch` | Fetch web pages. |
 
-If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. Hook failures (non-zero exit codes other than `2`, or timeouts) are logged and skipped—they never block agent execution.
+If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. For most events, hook failures (non-zero exit codes other than `2`, or timeouts) are logged and skipped. **Exception: `preToolUse` is fail-closed**—a crash, non-zero exit (other than exit 2), or timeout denies the tool call rather than silently allowing it.
 
 ## Exit codes for command hooks
 
@@ -634,7 +643,10 @@ If multiple hooks of the same type are configured, they execute in order. For `p
 |-----------|---------|
 | `0` | Success. `stdout` is parsed as the hook output JSON if present. |
 | `2` | Treated as a warning by default. `stderr` is surfaced to the user but the run continues. For `permissionRequest`, exit `2` is treated as `{"behavior":"deny"}` and any `stdout` JSON is merged in. For `postToolUseFailure`, exit `2` is treated as `additionalContext` and `stdout` is appended to the failure shown to the agent. |
-| Other non-zero | Logged as a hook failure. The run continues (fail-open). |
+| Other non-zero | Logged as a hook failure. The run continues (fail-open). **Exception: `preToolUse` is fail-closed**—a non-zero exit (other than exit 2) denies the tool call with `"Denied by preToolUse hook (hook errored)"`. |
+| Timeout | Killed after `timeoutSec`. Error logged, agent continues. **Exception: `preToolUse` is fail-closed**—timeout denies the tool call. |
+
+For most events, non-zero exits and timeouts are logged and skipped—agent execution continues. `preToolUse` is the exception: errors, crashes, and timeouts deny the tool call rather than silently allowing it. This prevents a brittle hook from being bypassed when hook input triggers an unexpected crash. Exit 2 is handled per the rules above and does not block execution.
 
 ## Disable all hooks
 

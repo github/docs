@@ -232,7 +232,9 @@ The table below shows the package managers that support `cooldown`. The `default
 | {% ifversion dependabot-conda-support %} |
 | Conda                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
+| {% ifversion dependabot-deno-support %} |
 | Deno                  | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
 | Devcontainers         | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | Docker                | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | Docker Compose        | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
@@ -263,6 +265,9 @@ The table below shows the package managers that support `cooldown`. The `default
 | Pub                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain        | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
+| {% ifversion dependabot-sbt-support %} |
+| sbt                   | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
 | Swift                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | Terraform             | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
@@ -556,6 +561,9 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-conda-support %} |
 | Conda         | `conda`          | Not applicable               |
 | {% endif %} |
+| {% ifversion dependabot-deno-support %} |
+| Deno         | `deno`          | >=v2               |
+| {% endif %} |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
@@ -594,6 +602,9 @@ Package manager | YAML value      | Supported versions |
 | pub         | `pub`            | v2  |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain | `rust-toolchain` | Not applicable   |
+| {% endif %} |
+| {% ifversion dependabot-sbt-support %} |
+| sbt          | `sbt`            | Not applicable   |
 | {% endif %} |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |

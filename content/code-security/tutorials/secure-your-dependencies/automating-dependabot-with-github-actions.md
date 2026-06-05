@@ -180,6 +180,8 @@ jobs:
 > [!NOTE]
 > If you use status checks to test pull requests, you should enable **Require status checks to pass before merging** for the target branch for {% data variables.product.prodname_dependabot %} pull requests. This branch protection rule ensures that pull requests are not merged unless **all the required status checks pass**. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 
+If the target branch uses a merge queue, the built-in `GITHUB_TOKEN` cannot add pull requests to the queue. In this case, you must authenticate the workflow with a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} token that has permission to merge, and use it in place of `GITHUB_TOKEN` for the `gh pr merge` step.
+
 ## {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %} policies
 
 Normally, whether a workflow can run in a repository depends on {% data variables.product.prodname_actions %} **policy checks** and whether {% data variables.product.prodname_actions %} is **enabled** at the organization or repository level. These controls can restrict workflows from running—especially when external actions are blocked or {% data variables.product.prodname_actions %} is disabled entirely.

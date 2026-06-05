@@ -17,6 +17,8 @@ In order to use a {% data variables.product.prodname_ghe_server %} instance, you
 
 A license file has an expiration date and controls the number of people who can use {% data variables.location.product_location_enterprise %}. After you download and install {% data variables.product.prodname_ghe_server %}, you must upload the license file to unlock the application for you to use.
 
+If your enterprise uses metered (usage-based) billing, the seat count in your license file is based on the number of consumed Cloud licenses at the time you generated the license. To see this count, go to your enterprise's **Billing & Licensing > Licensing** page.
+
 If your license expires, you won't be able to access {% data variables.product.prodname_ghe_server %} via a web browser or Git. If needed, you will be able to use command-line utilities to back up all your data.
 
 ## Next steps

@@ -21,12 +21,6 @@ category:
 > [!NOTE]
 > For an introduction to {% data variables.copilot.copilot_cloud_agent %}, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-cloud-agent).
 
-## Prerequisites
-
-* For general information, see [AUTOTITLE](/copilot/tutorials/cloud-agent/pilot-cloud-agent).
-* For information on premium requests and Actions minutes, see [Allowance usage for {% data variables.copilot.copilot_cloud_agent %}](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot#allowance-usage-for-copilot-cloud-agent).
-* For information on MCP servers, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
-
 ## Enabling {% data variables.copilot.copilot_cloud_agent %} for your members
 
 > [!NOTE]
@@ -50,6 +44,17 @@ By default, {% data variables.copilot.copilot_cloud_agent %} is available in all
 1. If you choose "Selected repositories", in the "Select repositories" dialog, select the repositories that allow {% data variables.copilot.copilot_cloud_agent %}, then click **Select**.
 
 Once {% data variables.copilot.copilot_cloud_agent %} is enabled for a repository, any user with access to {% data variables.copilot.copilot_cloud_agent %} and write permission for the repository can delegate work to {% data variables.product.prodname_copilot_short %}.
+
+## Controlling {% data variables.copilot.copilot_automations %} in your repositories
+
+{% data variables.copilot.copilot_automations_cap %} let users run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+
+{% data variables.copilot.copilot_automations_cap %} are allowed by default in repositories where {% data variables.copilot.copilot_cloud_agent %} is available. You can control whether {% data variables.copilot.copilot_automations %} are allowed in repositories owned by your organization, separately from the {% data variables.copilot.copilot_cloud_agent %} policy.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.copilot.cloud-agent-settings %}
+1. To allow or block {% data variables.copilot.copilot_automations %}, toggle the **Allow automations** setting.
 
 ## Managing the agent firewall for your organization
 

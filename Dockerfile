@@ -10,7 +10,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20260505-222701-gb8f4d82d0@sha256:e5ee5190511450a452713144fb1dcd957535ec7c68705efa48b3d2cbb9871b0d AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20260527-203230-gabf2049e0@sha256:e6d4192acbdf566584c77f1306cd72cac3a381be6ff6174c85ee21bb164a8b46 AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -18,7 +18,14 @@ FROM ghcr.io/github/gh-base-image/gh-base-noble:20260505-222701-gb8f4d82d0@sha25
 # https://github.com/nodejs/release#release-schedule
 # Ubuntu's apt-get install nodejs is _very_ outdated
 # Must run as root
-RUN apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
+
+# From https://thehub.github.com/epd/engineering/devops/ci/actions/setting-up-new-github-action/
+# We passed pkg-mirror-host as a secret to the build but it is not sensitive data.
+RUN --mount=type=secret,id=pkg-mirror-host,target=/etc/pkg_mirror_host.txt \
+  if [ -f /etc/pkg_mirror_host.txt ]; then cat /etc/pkg_mirror_host.txt >> /etc/apt/mirrorlist.txt; fi
+
+RUN --mount=type=secret,id=apt-auth-conf,target=/etc/apt/auth.conf.d/apt_auth.conf \
+  apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
   && curl -sL https://deb.nodesource.com/setup_24.x | bash - \
   && apt-get install -y nodejs \
   && node --version
@@ -114,8 +121,11 @@ RUN npm run warmup-remotejson
 # --------------------------------------
 FROM build AS precompute_stage
 
-# Generate precomputed page info
-RUN npm run precompute-pageinfo -- --max-versions 2
+# Generate precomputed page info. Only English + free-pro-team@latest
+# permalinks are cached; cache misses for older versions and translated
+# pages fall through to runtime compute (which is cheap and Fastly-cached
+# per pathname after the first hit).
+RUN npm run precompute-pageinfo -- --max-versions 1
 
 # -------------------------------------------------
 # PRODUCTION STAGE: What will run on the containers
