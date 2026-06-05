@@ -26,6 +26,12 @@ There are two types:
 * **Universal user-level budget:** A default budget applied to every {% data variables.product.prodname_copilot_short %}-licensed user in your enterprise. This is your primary tool for ensuring fair access to the shared pool.
 * **Individual user-level budget:** A budget set for a specific user, which overrides the universal default and takes precedence over it entirely. Use this for power users who need higher limits, or to restrict specific users to a lower amount.
 
+#### When users appear in a universal user-level budget
+
+A universal user-level budget can apply to thousands of licensed users. {% data variables.product.github %} creates each user's budget record the first time they consume {% data variables.product.prodname_ai_credits_short %} after the budget is created, or after the start of a new billing cycle. As a result, users appear in the universal budget list gradually rather than all at once, and a licensed user who does not use {% data variables.product.prodname_copilot_short %} in a given billing cycle will not appear in the list for that billing cycle.
+
+For a complete view of all licensed users regardless of activity, use the **AI usage** or **Licensing** pages.
+
 ### Cost center budget
 
 A cost center budget caps metered charges for a defined group of users or an organization. It does not limit how much a team draws from the pool. It is only active after the shared pool is exhausted.
