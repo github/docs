@@ -108,9 +108,23 @@ public delegate Task<SessionStartHookOutput?> SessionStartHandler(
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.rpc.*;
+import java.util.concurrent.CompletableFuture;
 
-SessionStartHandler sessionStartHandler;
+public class SessionStartSignature {
+    SessionStartHandler handler = (SessionStartHookInput input, HookInvocation invocation) ->
+        CompletableFuture.completedFuture(null);
+    public static void main(String[] args) {}
+}
+```
+
+```java
+@FunctionalInterface
+public interface SessionStartHandler {
+    CompletableFuture<SessionStartHookOutput> handle(
+        SessionStartHookInput input,
+        HookInvocation invocation);
+}
 ```
 
 {% endcodetab %}
@@ -308,9 +322,23 @@ public delegate Task<SessionEndHookOutput?> SessionEndHandler(
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.rpc.*;
+import java.util.concurrent.CompletableFuture;
 
-SessionEndHandler sessionEndHandler;
+public class SessionEndSignature {
+    SessionEndHandler handler = (SessionEndHookInput input, HookInvocation invocation) ->
+        CompletableFuture.completedFuture(null);
+    public static void main(String[] args) {}
+}
+```
+
+```java
+@FunctionalInterface
+public interface SessionEndHandler {
+    CompletableFuture<SessionEndHookOutput> handle(
+        SessionEndHookInput input,
+        HookInvocation invocation);
+}
 ```
 
 {% endcodetab %}

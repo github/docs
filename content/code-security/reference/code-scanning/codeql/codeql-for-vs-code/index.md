@@ -9,7 +9,7 @@ versions:
 contentType: reference
 children:
   - /telemetry-in-codeql-for-visual-studio-code
-  - /warning-problem-with-controller-repository
+  - /controller-repository-warning
 redirect_from:
   - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-visual-studio-code
   - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code

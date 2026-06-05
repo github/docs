@@ -408,11 +408,33 @@
       },
       {
         "category": "billing",
+        "slug": "get-billing-ai-credit-usage-report-for-an-organization",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/ai_credit/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
         "slug": "get-all-budgets-for-an-organization",
         "subcategory": "budgets",
         "verb": "get",
         "requestPath": "/organizations/{org}/settings/billing/budgets",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "create-a-budget-for-an-organization",
+        "subcategory": "budgets",
+        "verb": "post",
+        "requestPath": "/organizations/{org}/settings/billing/budgets",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -11715,6 +11737,17 @@
     "title": "Plan",
     "displayTitle": "User permissions for \"Plan\"",
     "permissions": [
+      {
+        "category": "billing",
+        "slug": "get-billing-ai-credit-usage-report-for-a-user",
+        "subcategory": "usage",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/ai_credit/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
       {
         "category": "billing",
         "slug": "get-billing-premium-request-usage-report-for-a-user",

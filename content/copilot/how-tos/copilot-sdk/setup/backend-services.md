@@ -20,7 +20,7 @@ contentType: how-tos
 
 ## How it works
 
-Instead of the SDK spawning a CLI child process, you run the CLI independently in **headless server mode**. Your backend connects to it over TCP using the `Connection` option (`UriConnection`).
+Instead of the SDK spawning a CLI child process, you run the CLI independently in **headless server mode**. Your backend connects to it over TCP using the `Connection` option (`URIConnection`).
 
 ![Diagram: Flowchart showing the described process.](/assets/images/help/copilot/copilot-sdk/setup-backend-services-diagram-0.png)
 
@@ -29,6 +29,8 @@ Instead of the SDK spawning a CLI child process, you run the CLI independently i
 * SDK connects over TCP—CLI and app can run in different containers
 * Multiple SDK clients can share one CLI server
 * Works with any auth method (GitHub tokens, env vars, BYOK)
+
+For multi-user server mode, configure SDK clients with `mode: "empty"`, pass user credentials per session, and explicitly allow tools for each session. See [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy) for the full pattern.
 
 ## Architecture: auto-managed vs. external CLI
 
@@ -103,15 +105,18 @@ Restart=always
 {% codetab typescript %}
 
 ```typescript
-import { CopilotClient } from "@github/copilot-sdk";
+import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
 
 const client = new CopilotClient({
-    cliUrl: "localhost:4321",
+    connection: RuntimeConnection.forUri("localhost:4321"),
+    mode: "empty",
 });
 
 const session = await client.createSession({
     sessionId: `user-${userId}-${Date.now()}`,
     model: "gpt-4.1",
+    availableTools: ["custom:*"],
+    gitHubToken: user.githubToken,
 });
 
 const response = await session.sendAndWait({ prompt: req.body.message });
@@ -153,9 +158,9 @@ func main() {
 	userID := "user1"
 	message := "Hello"
 
-	client := copilot.NewClient(&copilot.ClientOptions{
-		Connection: copilot.UriConnection{URL: "localhost:4321"},
-	})
+    client := copilot.NewClient(&copilot.ClientOptions{
+        Connection: copilot.URIConnection{URL: "localhost:4321"},
+    })
 	client.Start(ctx)
 	defer client.Stop()
 
@@ -171,7 +176,7 @@ func main() {
 
 ```golang
 client := copilot.NewClient(&copilot.ClientOptions{
-    Connection: copilot.UriConnection{URL: "localhost:4321"},
+    Connection: copilot.URIConnection{URL: "localhost:4321"},
 })
 client.Start(ctx)
 defer client.Stop()
@@ -228,9 +233,8 @@ var response = await session.SendAndWaitAsync(
 {% codetab java %}
 
 ```java
-import com.github.copilot.sdk.CopilotClient;
-import com.github.copilot.sdk.events.*;
-import com.github.copilot.sdk.json.*;
+import com.github.copilot.CopilotClient;
+import com.github.copilot.rpc.*;
 
 var userId = "user1";
 var message = "Hello!";
@@ -277,17 +281,18 @@ copilot --headless --port 4321
 Pass individual user tokens when creating sessions. See [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/github-oauth) for the full flow.
 
 ```typescript
+const client = new CopilotClient({
+    connection: RuntimeConnection.forUri("localhost:4321"),
+    mode: "empty",
+});
+
 // Your API receives user tokens from your auth layer
 app.post("/chat", authMiddleware, async (req, res) => {
-    const client = new CopilotClient({
-        cliUrl: "localhost:4321",
-        gitHubToken: req.user.githubToken,
-        useLoggedInUser: false,
-    });
-
     const session = await client.createSession({
         sessionId: `user-${req.user.id}-chat`,
         model: "gpt-4.1",
+        availableTools: ["custom:*"],
+        gitHubToken: req.user.githubToken,
     });
 
     const response = await session.sendAndWait({
@@ -304,7 +309,7 @@ Use your own API keys for the model provider. See [AUTOTITLE](/copilot/how-tos/c
 
 ```typescript
 const client = new CopilotClient({
-    cliUrl: "localhost:4321",
+    connection: RuntimeConnection.forUri("localhost:4321"),
 });
 
 const session = await client.createSession({
@@ -325,14 +330,15 @@ const session = await client.createSession({
 
 ```typescript
 import express from "express";
-import { CopilotClient } from "@github/copilot-sdk";
+import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
 
 const app = express();
 app.use(express.json());
 
-// Single shared CLI connection
+// Single shared CLI connection for multi-user server mode
 const client = new CopilotClient({
-    cliUrl: process.env.CLI_URL || "localhost:4321",
+    connection: RuntimeConnection.forUri(process.env.CLI_URL || "localhost:4321"),
+    mode: "empty",
 });
 
 app.post("/api/chat", async (req, res) => {
@@ -346,6 +352,8 @@ app.post("/api/chat", async (req, res) => {
         session = await client.createSession({
             sessionId,
             model: "gpt-4.1",
+            availableTools: ["custom:*"],
+            gitHubToken: req.user.githubToken,
         });
     }
 
@@ -362,10 +370,10 @@ app.listen(3000);
 ### Background worker
 
 ```typescript
-import { CopilotClient } from "@github/copilot-sdk";
+import { CopilotClient, RuntimeConnection } from "@github/copilot-sdk";
 
 const client = new CopilotClient({
-    cliUrl: process.env.CLI_URL || "localhost:4321",
+    connection: RuntimeConnection.forUri(process.env.CLI_URL || "localhost:4321"),
 });
 
 // Process jobs from a queue
@@ -468,11 +476,13 @@ setInterval(() => cleanupSessions(24 * 60 * 60 * 1000), 60 * 60 * 1000);
 | Need | Next Guide |
 |------|-----------|
 | Multiple CLI servers / high availability | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/scaling) |
+| SDK isolation for concurrent users | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy) |
 | GitHub account auth for users | [AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/github-oauth) |
 | Your own model keys | [AUTOTITLE](/copilot/how-tos/copilot-sdk/auth/byok) |
 
 ## Next steps
 
+* **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/multi-tenancy)**: Configure SDK isolation for concurrent users
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/scaling)**: Handle more users, add redundancy
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/features/session-persistence)**: Resume sessions across restarts
 * **[AUTOTITLE](/copilot/how-tos/copilot-sdk/setup/github-oauth)**: Add user authentication

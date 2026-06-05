@@ -7,8 +7,9 @@ versions:
   ghec: '*'
 contentType: tutorials
 children:
-  - /calculating-the-cost-savings-of-push-protection
+  - /calculate-cost-savings
   - /assessing-ghsp-impact
   - /evaluating-alerts
   - /remediating-a-leaked-secret
 ---
+

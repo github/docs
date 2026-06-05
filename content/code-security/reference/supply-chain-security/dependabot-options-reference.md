@@ -232,7 +232,9 @@ The table below shows the package managers that support `cooldown`. The `default
 | {% ifversion dependabot-conda-support %} |
 | Conda                 | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
 | {% endif %} |
+| {% ifversion dependabot-deno-support %} |
 | Deno                  | {% octicon "check" aria-label="Supported" %}              | {% octicon "check" aria-label="Supported" %} |
+| {% endif %} |
 | Devcontainers         | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | Docker                | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
 | Docker Compose        | {% octicon "check" aria-label="Supported" %}              | {% octicon "x" aria-label="Not supported" %} |
@@ -558,6 +560,9 @@ Package manager | YAML value      | Supported versions |
 | Composer       | `composer`       | v2         |
 | {% ifversion dependabot-conda-support %} |
 | Conda         | `conda`          | Not applicable               |
+| {% endif %} |
+| {% ifversion dependabot-deno-support %} |
+| Deno         | `deno`          | >=v2               |
 | {% endif %} |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |

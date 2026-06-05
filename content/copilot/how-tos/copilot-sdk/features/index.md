@@ -12,10 +12,13 @@ redirect_from:
 contentType: how-tos
 children:
   - /agent-loop
+  - /cloud-sessions
   - /custom-agents
+  - /fleet-mode
   - /hooks
   - /image-input
   - /mcp
+  - /plugin-directories
   - /remote-sessions
   - /session-persistence
   - /skills

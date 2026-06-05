@@ -649,6 +649,8 @@
     "issuefieldchangedevent": "issues",
     "issuefielddate": "issues",
     "issuefielddatevalue": "issues",
+    "issuefieldmultiselect": "issues",
+    "issuefieldmultiselectvalue": "issues",
     "issuefieldnumber": "issues",
     "issuefieldnumbervalue": "issues",
     "issuefieldremovedevent": "issues",

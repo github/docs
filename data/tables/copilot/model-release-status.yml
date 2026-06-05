@@ -18,12 +18,6 @@
 # - edit_mode: true = ✓, false = ✗
 
 # OpenAI models
-- name: 'GPT-4.1'
-  provider: 'OpenAI'
-  release_status: 'Closing down 2026-06-01'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'GPT-5 mini'
   provider: 'OpenAI'
@@ -164,6 +158,14 @@
 - name: 'Gemini 3.5 Flash'
   provider: 'Google'
   release_status: GA
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+# Microsoft models
+- name: 'MAI-Code-1-Flash'
+  provider: 'Microsoft'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true

@@ -4,6 +4,55 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>AddLabelsToLabelableInput.labelIds</code> changed type from '[ID!]!<code>to</code>[ID!]'</p>",
+          "<p>Field <code>displayTitle</code> was added to object type <code>WorkflowRun</code></p>",
+          "<p>Field <code>runAttempt</code> was added to object type <code>WorkflowRun</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>IssueFieldMultiSelect</code> was added</p>",
+          "<p><code>IssueFieldMultiSelect</code> object implements <code>IssueFieldCommon</code> interface</p>",
+          "<p><code>IssueFieldMultiSelect</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>dataType</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>options</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Field <code>visibility</code> was added to object type <code>IssueFieldMultiSelect</code></p>",
+          "<p>Type <code>IssueFieldMultiSelectValue</code> was added</p>",
+          "<p><code>IssueFieldMultiSelectValue</code> object implements <code>IssueFieldValueCommon</code> interface</p>",
+          "<p><code>IssueFieldMultiSelectValue</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>field</code> was added to object type <code>IssueFieldMultiSelectValue</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldMultiSelectValue</code></p>",
+          "<p>Field <code>options</code> was added to object type <code>IssueFieldMultiSelectValue</code></p>",
+          "<p>Field <code>value</code> was added to object type <code>IssueFieldMultiSelectValue</code></p>",
+          "<p>Input field <code>multiSelectOptionIds</code> of type '[ID!]<code>was added to input object type</code>IssueFieldCreateOrUpdateInput'</p>",
+          "<p>Member <code>IssueFieldMultiSelectValue</code> was added to Union type <code>IssueFieldValue</code></p>",
+          "<p>Member <code>IssueFieldMultiSelect</code> was added to Union type <code>IssueFields</code></p>",
+          "<p>Member <code>IssueFieldMultiSelectValue</code> was added to Union type 'ProjectV2IssueFieldValues'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'LOW_QUALITY<code>was added to enum</code>ReportedContentClassifiers'</p>"
         ]
       }
