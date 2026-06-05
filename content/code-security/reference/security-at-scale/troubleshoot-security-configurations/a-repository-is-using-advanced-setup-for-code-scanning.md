@@ -1,6 +1,6 @@
 ---
 title: A repository is using advanced setup for code scanning
-shortTitle: Active advanced setup
+shortTitle: A repository is using advanced setup for code scanning
 intro: You see an error when you try to attach a {% data variables.product.prodname_security_configuration %} with default code scanning enabled to repositories that use advanced setup for code scanning.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
@@ -11,6 +11,7 @@ redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/a-repository-has-an-existing-advanced-setup-for-code-scanning
   - /code-security/securing-your-organization/troubleshooting-security-configurations/a-repository-is-using-advanced-setup-for-code-scanning
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/a-repository-is-using-advanced-setup-for-code-scanning
+  - /code-security/reference/security-at-scale/troubleshoot-security-configurations/active-advanced-setup
 contentType: reference
 category:
   - Troubleshoot security tools
