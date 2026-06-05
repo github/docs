@@ -10,6 +10,7 @@ contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection
 children:
-  - /working-with-push-protection-from-the-command-line
-  - /working-with-push-protection-in-the-github-ui
+  - /push-protection-on-the-command-line
+  - /push-protection-in-the-github-ui
 ---
+
