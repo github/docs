@@ -1,3 +1,7 @@
+config/trastation.md
+https://raw.githubusercontent.com/aptos-labs/aptos-core/main/LICENSE
+
+
 // In this benchmark, we connect a client to the server, and write
 // as many bytes as we can in the specified time (default = 10s)
 'use strict';
