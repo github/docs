@@ -1,13 +1,5 @@
 
-# Contributing to github/docs
 
-Check out our [contributing guide](../.github/CONTRIBUTING.md) to see all the ways you can participate in the GitHub docs community :sparkling_heart:
-
-Visit [Contributing to GitHub Docs documentation](https://docs.github.com/en/contributing) for additional information about how to write and collaborate the GitHub Docs way.
-
-Here, you'll find additional information that might be helpful as you work on a pull request in this repo.
-
-- [development](./development.md) - steps for getting this app running on your local machine
 - [deployments](./deployments.md) - how our staging and production environments work
 - [liquid helpers](./liquid-helpers.md) - using liquid helpers for versioning in our docs
 - [translations guide for writers](./translations-for-writers.md) - making sure your content is ready to be translated
