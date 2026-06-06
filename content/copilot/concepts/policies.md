@@ -6,7 +6,7 @@ intro: 'Learn about the policies that control the availability of {% data variab
 versions:
   feature: copilot
 contentType: concepts
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -40,7 +40,7 @@ Enterprise owners can choose to set policies for {% data variables.product.prodn
 
 ### Policy defined
 
-If a policy is defined at the enterprise level, the policy applies to all users and control of the policy is disabled at the organization level.
+If a policy is defined at the enterprise level, then control of the policy is disabled at the organization level.
 
 ### Granular organization selection
 
@@ -53,6 +53,10 @@ If an enterprise owner selects **No policy**, the impact depends on whether a us
 For members who receive a {% data variables.product.prodname_copilot_short %} license from the organization, organization owners can choose their policy. If a member receives access to {% data variables.product.prodname_copilot_short %} through multiple organizations with conflicting policies, either the least or most permissive policy may apply, depending on the policy. For more information, see [AUTOTITLE](/copilot/reference/feature-availability-enterprise).
 
 For users who receive access to {% data variables.product.prodname_copilot_short %} directly from the enterprise rather than from an organization, the **Policies for enterprise-assigned users** setting determines whether "No policy" defaults to enabled or disabled.
+
+## User opt-out
+
+The {% data variables.copilot.copilot_memory %} feature has a unique policy model. The feature can be enabled in enterprise or organization policies, but individual users can then opt out of using the feature in their personal settings.
 
 ## Next steps
 

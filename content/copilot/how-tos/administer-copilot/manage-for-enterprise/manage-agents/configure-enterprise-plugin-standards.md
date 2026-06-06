@@ -14,6 +14,8 @@ category:
 
 > [!NOTE] This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
+You can apply settings to control users' available plugin marketplaces and default-installed plugins. These settings apply to users on your enterprise's {% data variables.product.prodname_copilot_short %} plan. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards).
+
 1. In your enterprise's `.github-private` repository, navigate to the `.github/copilot/` directory. If you don't have a `.github-private` repository yet, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
 1. Create or edit the `settings.json` file at `.github/copilot/settings.json`.
 1. Add your plugin policy configuration to the file. The `settings.json` file supports the following top-level properties:
@@ -39,4 +41,6 @@ category:
 
 1. Commit and push your changes to the default branch of the `.github-private` repository.
 
-Once the configuration is committed, enterprise users will see the specified marketplaces and pre-installed plugins the next time they authenticate with {% data variables.copilot.copilot_cli_short %}.
+Once the configuration is committed, users will see the specified marketplaces and pre-installed plugins the next time they authenticate with {% data variables.copilot.copilot_cli_short %}.
+
+If a user does not see these settings, ensure they receive access to {% data variables.product.prodname_copilot_short %} through your enterprise or one of its organizations. If a user receives a license from multiple billing entities, ensure they have selected your enterprise in the "Usage billed to" dropdown in their [personal {% data variables.product.prodname_copilot_short %} settings](https://github.com/settings/copilot/features).

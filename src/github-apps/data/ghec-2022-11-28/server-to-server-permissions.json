@@ -11012,6 +11012,17 @@
       },
       {
         "category": "repos",
+        "slug": "get-the-hash-algorithm-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/hash-algorithm",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
         "slug": "list-repository-languages",
         "subcategory": "repos",
         "verb": "get",

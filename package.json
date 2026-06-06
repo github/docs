@@ -224,7 +224,7 @@
     "javascript-stringify": "^2.1.0",
     "js-cookie": "^3.0.7",
     "js-yaml": "^4.1.1",
-    "liquidjs": "^10.25.7",
+    "liquidjs": "^10.27.0",
     "lodash": "^4.18.0",
     "lodash-es": "^4.18.0",
     "lowdb": "7.0.1",
@@ -279,7 +279,7 @@
     "@graphql-inspector/core": "^7.1.2",
     "@graphql-tools/load": "^8.1.8",
     "@octokit/rest": "22.0.0",
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.60.0",
     "@types/accept-language-parser": "1.5.7",
     "@types/cookie": "0.6.0",
     "@types/cookie-parser": "1.4.8",
@@ -342,7 +342,7 @@
     "start-server-and-test": "^3.0.0",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
-    "vitest": "^4.0.18",
+    "vitest": "^4.1.0",
     "website-scraper": "^5.3.1"
   },
   "overrides": {

@@ -7,16 +7,23 @@ versions:
   feature: copilot
 children:
   - /start-copilot-sessions
-  - /track-copilot-sessions
+  - /create-automations
+  - /changing-the-ai-model
+  - /configuring-agent-settings
+  - /create-custom-agents-in-your-ide
+  - /use-cloud-agent-on-github
+  - /use-cloud-agent-on-mobile
+  - /use-agent-apps
+  - /use-cloud-agent-in-your-ide
+  - /use-cloud-agent-via-the-api
+  - /use-cloud-agent-from-cli
+  - /use-cloud-agent-with-mcp
   - /integrate-cloud-agent-with-jira
   - /integrate-cloud-agent-with-slack
   - /integrate-cloud-agent-with-teams
   - /integrate-cloud-agent-with-linear
   - /integrate-cloud-agent-with-azure-boards
-  - /use-cloud-agent-via-the-api
-  - /changing-the-ai-model
-  - /configuring-agent-settings
-  - /create-custom-agents-in-your-ide
+  - /use-cloud-agent-from-raycast
   - /troubleshoot-cloud-agent
 redirect_from:
   - /copilot/how-tos/use-copilot-agents/coding-agent

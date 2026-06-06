@@ -8,10 +8,11 @@ versions:
   ghec: '*'
 contentType: reference
 children:
-  - /recommended-hardware-resources-for-running-codeql
-  - /codeql-build-options-and-steps-for-compiled-languages
+  - /hardware-resources-for-codeql
+  - /build-options-for-compiled-languages
   - /codeql-queries
   - /codeql-cli
   - /codeql-cli-manual
   - /codeql-for-vs-code
 ---
+

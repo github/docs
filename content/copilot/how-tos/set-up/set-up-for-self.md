@@ -16,14 +16,19 @@ category:
 
 ## 1. Get access to {% data variables.product.prodname_copilot %}
 
+> [!IMPORTANT]
+> * {% data reusables.copilot.plans.individual-plans-paused %}
+> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
+
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and 50 premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and limited chat and agent usage-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
-* **Sign up for a paid plan**. You can subscribe to either:
+* **Sign up for a paid plan**. You can subscribe to one of these plans:
 
-  * **{% data variables.copilot.copilot_pro_short %}**, which includes 300 monthly premium requests. [Subscribe to {% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
-  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes 1,500 monthly premium requests and full access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
+  * **{% data variables.copilot.copilot_pro_short %}**, which includes access to premium models and a monthly allowance of {% data variables.product.prodname_ai_credits_short %}. [Subscribe to {% data variables.copilot.copilot_pro_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
+  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes a higher monthly allowance of {% data variables.product.prodname_ai_credits_short %} and access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
+  * **{% data variables.copilot.copilot_max_short %}**, which includes advanced AI models and our highest individual monthly allowance of {% data variables.product.prodname_ai_credits_short %}. [Subscribe to {% data variables.copilot.copilot_max_short %}](https://github.com/settings/billing/licensing?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=max).
 
 * **Use {% data variables.product.prodname_copilot_short %} through your organization or enterprise**. If you're part of an organization or enterprise with a {% data variables.product.prodname_copilot_short %} plan, you can request access at [https://github.com/settings/copilot](https://github.com/settings/copilot) under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 

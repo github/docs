@@ -10,6 +10,7 @@ import { MiniTocs } from '@/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
 import { ClientSideHighlight } from '@/frame/components/ClientSideHighlight'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
+import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
 
 type Props = {
   children?: React.ReactNode
@@ -18,8 +19,18 @@ type Props = {
 }
 
 export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
-  const { title, intro, renderedPage, miniTocItems, product, permissions, currentLayout } =
-    useAutomatedPageContext()
+  const {
+    title,
+    intro,
+    renderedPage,
+    miniTocItems,
+    product,
+    permissions,
+    currentLayout,
+    currentJourneyTrack,
+  } = useAutomatedPageContext()
+  const isJourneyTrack = !!currentJourneyTrack?.trackId
+  const hasTocContent = isJourneyTrack || miniTocItems.length > 1
 
   const articleContents = (
     <div id="article-contents">
@@ -40,21 +51,33 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
     </>
   )
 
-  const toc = miniTocItems.length > 1 ? <MiniTocs miniTocItems={miniTocItems} /> : undefined
+  const toc = hasTocContent ? (
+    <>
+      {isJourneyTrack && <JourneyTrackCard journey={currentJourneyTrack} />}
+      {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
+    </>
+  ) : undefined
 
   return (
     <DefaultLayout>
       <ClientSideHighlight />
 
       {currentLayout === 'inline' ? (
-        <ArticleInlineLayout
-          topper={<ArticleTitle>{title}</ArticleTitle>}
-          intro={introProp}
-          toc={toc}
-          breadcrumbs={<Breadcrumbs />}
-        >
-          {articleContents}
-        </ArticleInlineLayout>
+        <>
+          <ArticleInlineLayout
+            topper={<ArticleTitle>{title}</ArticleTitle>}
+            intro={introProp}
+            toc={toc}
+            breadcrumbs={<Breadcrumbs />}
+          >
+            {articleContents}
+          </ArticleInlineLayout>
+          {isJourneyTrack ? (
+            <div className="container-lg mt-4 px-3">
+              <JourneyTrackNav context={currentJourneyTrack} />
+            </div>
+          ) : null}
+        </>
       ) : (
         <div className="container-xl px-3 px-md-6 my-4">
           <ArticleGridLayout
@@ -72,6 +95,12 @@ export const AutomatedPage = ({ children, rawChildren, fullWidth }: Props) => {
           >
             {articleContents}
           </ArticleGridLayout>
+
+          {isJourneyTrack ? (
+            <div className="container-lg mt-4 px-3">
+              <JourneyTrackNav context={currentJourneyTrack} />
+            </div>
+          ) : null}
         </div>
       )}
     </DefaultLayout>
