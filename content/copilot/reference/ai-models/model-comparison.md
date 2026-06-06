@@ -18,18 +18,17 @@ contentType: reference
 {% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by {% data variables.copilot.copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} inline suggestions. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks. This guide helps you pick the best model based on your task, not just model names.
 
 > [!NOTE]
-> * Different models have different premium request multipliers, which can affect how much of your monthly usage allowance is consumed. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+> * Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 > * {% data reusables.copilot.auto-model-selection %}
 
 ### Recommended models by task
 
 Use this table to find a suitable model quickly, see more detail in the sections below.
 
-
 | Model                                              | Task area             | Excels at (primary use case) | Further reading             |
 |----------------------------------------------------|-----------------------|------------------------------|-----------------------------|
 | {% for model in tables.copilot.model-comparison %} |
-| {{ model.name }}                                   | {{ model.task_area }} | {{ model.excels_at }}        | {{ model.further_reading }} |
+| {{ model.name }}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}                                   | {{ model.task_area }} | {{ model.excels_at }}        | {{ model.further_reading }} |
 | {% endfor %}                                       |
 
 ## Task: General-purpose coding and writing
@@ -41,6 +40,7 @@ Use these models for common development tasks that require a balance of quality,
 | {% data variables.copilot.copilot_gpt_53_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
 | {% data variables.copilot.copilot_gpt_5_mini %}   | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
 | {% data variables.copilot.copilot_raptor_mini %}  | Specialized for fast, accurate inline suggestions and explanations.                                        |
+| {% data variables.copilot.copilot_mai_code_1_flash %} | Strong instruction-following and adaptive reasoning make it a reliable default for everyday coding tasks, writing, and multi-turn development workflows. |
 
 ### When to use these models
 
@@ -64,6 +64,7 @@ These models are optimized for speed and responsiveness. They’re ideal for qui
 | Model                                                 | Why it's a good fit                                                                                        |
 |-------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | {% data variables.copilot.copilot_claude_haiku_45 %}  | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations.      |
+| {% data variables.copilot.copilot_mai_code_1_flash %} | Handles quick coding tasks with adaptive efficiency, stays concise for simple requests and delivers fast, accurate responses without unnecessary depth. |
 
 ### When to use these models
 
@@ -92,7 +93,6 @@ These models are designed for tasks that require step-by-step reasoning, complex
 | {% data variables.copilot.copilot_claude_sonnet_46 %} | Improves on Sonnet 4.5 with more reliable completions and smarter reasoning under pressure.                                                                     |
 | {% data variables.copilot.copilot_claude_opus_47 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus_46 %}.                                                               |
 | {% data variables.copilot.copilot_gemini_31_pro %}    | Advanced reasoning across long contexts and scientific or technical analysis.                                                                                   |
-| {% data variables.copilot.copilot_goldeneye %}        | Complex problem-solving challenges and sophisticated reasoning.                                                                                                 |
 
 ### When to use these models
 
@@ -136,7 +136,9 @@ If your task involves deep reasoning or large-scale refactoring, consider a mode
 
 ## Next steps
 
-Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_41 %}, then adjust based on your needs.
+[^mai-code-1-flash]: {% data variables.copilot.copilot_mai_code_1_flash %} is a continuously improving model. Performance and behavior may evolve over time as new checkpoints are released.
+
+Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_5_mini %}, then adjust based on your needs.
 
 * For detailed model specs and pricing, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot).
 * For more examples of how to use different models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).

@@ -7,7 +7,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /creating-a-custom-security-configuration
-  - /applying-a-custom-security-configuration
-  - /configuring-global-security-settings-for-your-organization
+  - /create-custom-configuration
+  - /apply-custom-configuration
+  - /configure-global-settings
 ---
+

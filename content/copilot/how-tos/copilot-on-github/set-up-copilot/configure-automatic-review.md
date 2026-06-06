@@ -17,12 +17,6 @@ category:
   - Configure Copilot
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.code-review-actions-minutes-note %}
-
-<!-- end expires 2026-06-01 -->
-
 ## Introduction
 
 You can configure {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review#about-automatic-pull-request-reviews).
@@ -30,7 +24,7 @@ You can configure {% data variables.copilot.copilot_code-review_short %} to revi
 ## Configuring automatic code review for your own pull requests
 
 > [!NOTE]
-> This is only available if you are on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
+> This is only available if you are on the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} plans.
 
 {% data reusables.copilot.your-copilot %}
 1. Locate the **Automatic {% data variables.copilot.copilot_code-review_short %}** option and click the dropdown button.
@@ -66,3 +60,20 @@ You can configure {% data variables.copilot.copilot_code-review_short %} to revi
    > You can add multiple targeting criteria to the same ruleset. Exclusion patterns are applied after inclusion patterns. For example, you could include any repositories matching the pattern `*cat*`, and specifically exclude a repository matching the pattern `not-a-cat`.
 
 {% data reusables.copilot.auto-code-review-steps %}
+
+## Configuring review effort level for a repository
+
+> [!NOTE]
+> Medium review effort is in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can set the default review effort level that {% data variables.copilot.copilot_code-review_short %} uses for automatic reviews in a repository. For an overview of review effort levels, see [AUTOTITLE](/copilot/concepts/agents/code-review#review-effort-level).
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
+1. Next to "Review effort level," select the effort level for automatic reviews in this repository.
+   * **Low**: Standard review (default).
+   * **Medium**: Deeper analysis of complex logic, security-sensitive code, and cross-service changes.
+
+Medium reviews use more {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_ai_credits_short %}. If you use Medium effort, consider configuring larger or self-hosted runners for better performance. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-runners).
+

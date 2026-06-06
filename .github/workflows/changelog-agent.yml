@@ -112,10 +112,12 @@ jobs:
         if: steps.check_team.outputs.is_team_member == 'true'
         id: extract_issue
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          PR_BODY: ${{ steps.resolve_pr.outputs.pr_body }}
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
-            const body = `${{ steps.resolve_pr.outputs.pr_body }}`;
+            const body = process.env.PR_BODY || '';
 
             // Match closing keywords followed by docs-content issue references.
             // Supports: closes github/docs-content#123, fixes https://github.com/github/docs-content/issues/123
@@ -224,6 +226,10 @@ jobs:
         if: steps.check_parent.outputs.has_parent == 'true'
         id: gather_context
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          PR_TITLE: ${{ steps.resolve_pr.outputs.pr_title }}
+          PR_BODY: ${{ steps.resolve_pr.outputs.pr_body }}
+          PR_URL: ${{ steps.resolve_pr.outputs.pr_url }}
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
@@ -254,9 +260,9 @@ jobs:
             const changedFiles = files.map(f => f.filename);
 
             core.setOutput('pr_author', prAuthor);
-            core.setOutput('pr_title', '${{ steps.resolve_pr.outputs.pr_title }}');
-            core.setOutput('pr_body', `${{ steps.resolve_pr.outputs.pr_body }}`);
-            core.setOutput('pr_url', '${{ steps.resolve_pr.outputs.pr_url }}');
+            core.setOutput('pr_title', process.env.PR_TITLE || '');
+            core.setOutput('pr_body', process.env.PR_BODY || '');
+            core.setOutput('pr_url', process.env.PR_URL || '');
             core.setOutput('pr_number', prNumber.toString());
             core.setOutput('approved_reviewers', approvedReviewers.join(','));
             core.setOutput('changed_files', changedFiles.join('\n'));
@@ -320,10 +326,6 @@ jobs:
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
           node-version-file: 'package.json'
-
-      - name: Install Copilot CLI
-        if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
-        run: npm install -g @github/copilot@prerelease
 
       - name: Prepare prompts for LLM
         if: steps.check_parent.outputs.has_parent == 'true' && steps.check_existing.outputs.exists == 'false'
@@ -425,14 +427,19 @@ jobs:
       - name: Dry run summary
         if: steps.generate_draft.outputs.response != '' && inputs.dry_run == true
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          PR_AUTHOR: ${{ steps.gather_context.outputs.pr_author }}
+          PR_URL: ${{ steps.gather_context.outputs.pr_url }}
+          PARENT_TITLE: ${{ steps.check_parent.outputs.parent_title }}
+          DRAFT: ${{ steps.generate_draft.outputs.response }}
         with:
           script: |
             core.info('=== DRY RUN — no PR will be created, no Slack DM sent ===');
-            core.info(`PR author: ${{ steps.gather_context.outputs.pr_author }}`);
-            core.info(`Source PR: ${{ steps.gather_context.outputs.pr_url }}`);
-            core.info(`Parent issue: ${{ steps.check_parent.outputs.parent_title }}`);
+            core.info(`PR author: ${process.env.PR_AUTHOR || ''}`);
+            core.info(`Source PR: ${process.env.PR_URL || ''}`);
+            core.info(`Parent issue: ${process.env.PARENT_TITLE || ''}`);
             core.info('--- Generated changelog draft ---');
-            core.info(`${{ steps.generate_draft.outputs.response }}`);
+            core.info((process.env.DRAFT || '').replace(/^::/gm, ': :'));
             core.info('--- End of draft ---');
 
       - name: Create changelog PR in docs-content

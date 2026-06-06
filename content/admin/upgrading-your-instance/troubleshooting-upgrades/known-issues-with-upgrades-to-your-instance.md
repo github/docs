@@ -17,6 +17,8 @@ category:
 
 {% data variables.product.company_short %} is aware of the following issues that could impact upgrades to new releases of {% data variables.product.prodname_ghe_server %}. For more information, see "Known issues" in the [{% data variables.product.prodname_ghe_server %} release notes](/admin/release-notes).
 
+If you see the error `The file provided is not a valid GitHub Enterprise Server package` when attempting an upgrade, you may need to rotate the GPG signing key on your instance. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/troubleshooting-upgrades/rotating-the-signing-key-for-upgrade-packages).
+
 {% data variables.product.company_short %} strongly recommends regular backups of your instance's configuration and data. Before you proceed with any upgrade, back up your instance, then validate the backup in a staging environment. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) and [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
 ## Lifting the pause on upgrades to version 3.15 and above

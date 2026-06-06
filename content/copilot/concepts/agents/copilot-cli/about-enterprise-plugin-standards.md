@@ -15,7 +15,7 @@ docsTeamMetrics:
 
 > [!NOTE] This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
-Enterprise-managed plugin standards allow administrators to **define and enforce policies for plugin availability** in {% data variables.copilot.copilot_cli_short %} across their enterprise. By configuring a `settings.json` file in the enterprise's `.github-private` repository, administrators can specify which plugin marketplaces are available to users and which plugins are automatically installed for all enterprise users.
+Enterprise-managed plugin standards allow administrators to **define and enforce policies for plugin availability** in {% data variables.copilot.copilot_cli_short %} for users on the enterprise's {% data variables.product.prodname_copilot_short %} plan. By configuring a `settings.json` file in the enterprise's `.github-private` repository, administrators can specify which plugin marketplaces are available to users and which plugins are installed automatically.
 
 ## How plugin standards work
 
@@ -24,7 +24,7 @@ Enterprise plugin standards use a configuration file stored in your enterprise's
 For plugin standards, the file can define:
 
 * **Known marketplaces**. Plugin marketplaces that are available to users for browsing and installing plugins.
-* **Default-enabled plugins**. Specific plugins that are automatically installed for all enterprise users when they authenticate with the CLI.
+* **Default-enabled plugins**. Specific plugins that are automatically installed when users authenticate with the CLI.
 
 When a user signs in to {% data variables.copilot.copilot_cli_short %}, the client queries an API endpoint that reads the `settings.json` from the enterprise's `.github-private` repository. The policies defined in the file are then applied to the user's CLI session.
 

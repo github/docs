@@ -18,12 +18,6 @@
 # - edit_mode: true = ✓, false = ✗
 
 # OpenAI models
-- name: 'GPT-4.1'
-  provider: 'OpenAI'
-  release_status: 'Closing down 2026-06-01'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'GPT-5 mini'
   provider: 'OpenAI'
@@ -117,6 +111,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'Claude Opus 4.8'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 - name: 'Claude Sonnet 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -161,16 +162,17 @@
   ask_mode: true
   edit_mode: true
 
-# Fine-tuned OAI models
-- name: 'Raptor mini'
-  provider: 'Fine-tuned GPT-5 mini'
-  release_status: 'Public preview'
+# Microsoft models
+- name: 'MAI-Code-1-Flash'
+  provider: 'Microsoft'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
 
-- name: 'Goldeneye'
-  provider: 'Fine-tuned GPT-5.1-Codex'
+# Fine-tuned OAI models
+- name: 'Raptor mini'
+  provider: 'Fine-tuned GPT-5 mini'
   release_status: 'Public preview'
   agent_mode: true
   ask_mode: true

@@ -20,7 +20,6 @@ contentType: reference
 
 Used for:
 
-* {% data variables.copilot.copilot_gpt_41 %}
 * {% data variables.copilot.copilot_gpt_5_mini %}
 * {% data variables.copilot.copilot_gpt_52 %}
 * {% data variables.copilot.copilot_gpt_52_codex %}
@@ -43,7 +42,6 @@ All input requests and output responses processed by {% data variables.product.p
 Used for:
 
 * {% data variables.copilot.copilot_raptor_mini %}
-* {% data variables.copilot.copilot_goldeneye %}
 
 These models are deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
 
@@ -57,6 +55,7 @@ Used for:
 * {% data variables.copilot.copilot_claude_opus_46 %}
 * {% data variables.copilot.copilot_claude_opus_46_fast %}
 * {% data variables.copilot.copilot_claude_opus_47 %}
+* {% data variables.copilot.copilot_claude_opus_48 %}
 * {% data variables.copilot.copilot_claude_sonnet_46 %}
 
 These models are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
@@ -85,6 +84,10 @@ Used for:
 To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance#customer_data_retention_and_achieving_zero_data_retention).
 
 When using {% data variables.copilot.copilot_gemini %} models, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
+
+## Microsoft models
+
+{% data variables.copilot.copilot_mai_code_1_flash %} is a first-party Microsoft model hosted on Azure in {% data variables.product.github %}'s tenant. 
 
 ## Inline suggestions
 

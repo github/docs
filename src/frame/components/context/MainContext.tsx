@@ -183,6 +183,9 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
 
   const ui: UIStrings = {}
   addUINamespaces(req, ui, DEFAULT_UI_NAMESPACES)
+  if (req.context.currentJourneyTrack?.trackId) {
+    addUINamespaces(req, ui, ['journey_track_nav'])
+  }
 
   // Product index pages (depth-2 index.md, e.g. actions/index.md) need the
   // full product tree for landing rendering.

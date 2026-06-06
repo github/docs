@@ -8,8 +8,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
-  - /preventing-changes-to-your-releases
-  - /exporting-a-software-bill-of-materials-for-your-repository
+  - /prevent-release-changes
+  - /export-dependencies-as-sbom
   - /upload-linked-artifacts
   - /view-linked-artifacts
   - /remove-linked-artifacts

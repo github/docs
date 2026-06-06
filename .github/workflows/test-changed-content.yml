@@ -49,9 +49,16 @@ jobs:
         uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: 'content/**'
+          # Needed to expose `all_old_new_renamed_files` (old,new pairs for renames).
+          # Without this, files git classifies as renames (status R) are invisible to
+          # the deleted-file redirect check below and old URLs can silently 404.
+          include_all_old_new_renamed_files: true
 
       - name: Run tests
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
           DELETED_FILES: ${{ steps.changed_files.outputs.deleted_files }}
+          # Space-separated `oldPath,newPath` pairs. The test treats the old paths
+          # like deleted files so missing redirects on renames are caught.
+          RENAMED_FILES: ${{ steps.changed_files.outputs.all_old_new_renamed_files }}
         run: npm test -- src/content-render/tests/render-changed-and-deleted-files.ts

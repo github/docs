@@ -9,22 +9,22 @@ category:
   - Track spending and control costs
 ---
 
-Budgets and alerts allow you to track spending on metered products for your enterprise, organizations, cost centers (enterprise only), and repositories. Budgets and alerts are not available for pre-paid volume licenses.
+Budgets and alerts allow you to track spending on metered products for your enterprise, organizations, cost centers (enterprise only), users, and repositories. Budgets and alerts are not available for pre-paid volume licenses.
 
 By setting a monthly budget, you can monitor your spending and receive notifications by email when your spending exceeds certain preset percentages of your budget threshold. This can help you stay within your budget and avoid overspending.
 
 ## Stopping usage
 
-For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_enterprise %}, setting a budget does not prevent usage over the budget amount but does provide alerts.
+For most license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_enterprise %}, setting a budget does not prevent usage over the budget amount but does provide alerts. {% data variables.product.prodname_GHAS %} SKUs are an exception to this, as they can be set to stop usage when the budget amount is reached. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security#hard-budgets-for-github-advanced-security-skus).
 
-For metered products such as {% data variables.product.prodname_actions %} or {% data variables.product.prodname_copilot %} premium requests, you can choose for budgets to prevent usage once the budget amount is reached.
+For metered products such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}, or cloud sandboxes, you can set budgets to prevent usage once the budget threshold is reached.
 
 ## Types and scopes
 
 Each budget has a type and a scope that define which paid use contributes to spending against the budget.
 
 * **Type**: Defines which metered product or SKU is measured.
-* **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, or cost centers (enterprise only).
+* **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, cost centers (enterprise only), or users. User-scoped budgets are currently only supported for {% data variables.product.prodname_copilot_short %} {% data variables.product.prodname_ai_credits_short %}. There are two types: a universal budget that applies to all licensed users by default, and individual budgets that override the universal for specific users. See [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing).
 
 ## Budget alerts
 
