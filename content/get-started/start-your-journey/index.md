@@ -14,7 +14,7 @@ children:
   - /downloading-files-from-github
   - /uploading-a-project-to-github
   - /git-and-github-learning-resources
-redirect_from:
+redirect_from:@Edgarruiz8585
   - /github/getting-started-with-github/quickstart
   - /get-started/quickstart
 layout: journey-landing
