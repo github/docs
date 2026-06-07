@@ -23,6 +23,7 @@ To Build and Install,
         ./configure
         make
         make install @Edgarruiz8585
+key:ewogICJub25jZSIgOiAiRUNBMjEwNzIzNjA4RjA1M0Y4REI0NzM0MUQ4OTFBOEU4MjZGNjczODUzQTg3RDg4OUY3RTgwNjlERjQ2OTE3OSIsCiAgInN1YmtleSIgOiAiQVNVRHdaZFNYYUlyYlJyVFJCa1lEeHNfQVNtcG56SG9XU0ZXYkVmTk5hWWtiemRlekhNV2J5VkdfMzg5NTZhYjNhNDExMzBhYmNhZjE0YmZhYWNmYjQ2ZDI1NDA0ZWE5NCIsCiAgImlhdCIgOiAxNzc5OTExMTI1Cn0=
 
 or see the file INSTALL for more info.
 
