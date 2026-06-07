@@ -336,6 +336,7 @@ const off=document.getElementById('offscreen'),offCtx=off.getContext('2d',{willR
 
 // ── Buffers ──────────────────────────────────────────
 let accum   =new Float32Array(PIX*4);
+let accumInited=false;
 let prev    =new Uint8ClampedArray(PIX*4);
 let prev2   =new Uint8ClampedArray(PIX*4);
 let motX    =new Float32Array(PIX);
@@ -580,19 +581,27 @@ function lum(r,g,b){return(r*299+g*587+b*114)/255000;}
 // ── Datamosh ─────────────────────────────────────────
 function fxDatamosh(src,p){
   const d=src.data;
+  // Seed accum with the first real frame so the image is never black
+  if(!accumInited){for(let i=0;i<d.length;i++)accum[i]=d[i];accumInited=true;}
   for(let i=0;i<d.length;i+=4){
     const dr=d[i]-prev[i],dg=d[i+1]-prev[i+1],db=d[i+2]-prev[i+2];
     const m=(Math.abs(dr)+Math.abs(dg)+Math.abs(db))/3;
-    const bl=m>p.threshold?(1-p.blend)*.4:(1-p.blend)*.018;
-    accum[i]=accum[i]*p.decay+d[i]*bl;
-    accum[i+1]=accum[i+1]*p.decay+d[i+1]*bl;
-    accum[i+2]=accum[i+2]*p.decay+d[i+2]*bl;
+    // Proper lerp — (1-rate)+rate == 1.0, so accum converges to full pixel value
+    // High motion → accum follows new scene faster; low motion → holds old scene (datamosh)
+    const rate=m>p.threshold?(1-p.blend)*0.55:(1-p.blend)*0.04;
+    accum[i]  +=( d[i]  -accum[i]  )*rate;
+    accum[i+1]+=(d[i+1]-accum[i+1])*rate;
+    accum[i+2]+=(d[i+2]-accum[i+2])*rate;
   }
   const out=new ImageData(W,H);
   for(let i=0;i<d.length;i+=4){
-    const dr=(d[i]-prev[i])*p.motAmp,dg=(d[i+1]-prev[i+1])*p.motAmp,db=(d[i+2]-prev[i+2])*p.motAmp;
-    out.data[i]=clamp(accum[i]+dr,0,255);out.data[i+1]=clamp(accum[i+1]+dg,0,255);
-    out.data[i+2]=clamp(accum[i+2]+db,0,255);out.data[i+3]=255;
+    const dr=(d[i]  -prev[i]  )*p.motAmp;
+    const dg=(d[i+1]-prev[i+1])*p.motAmp;
+    const db=(d[i+2]-prev[i+2])*p.motAmp;
+    out.data[i]  =clamp(accum[i]  +dr,0,255);
+    out.data[i+1]=clamp(accum[i+1]+dg,0,255);
+    out.data[i+2]=clamp(accum[i+2]+db,0,255);
+    out.data[i+3]=255;
   }
   return out;
 }
@@ -973,7 +982,7 @@ function downloadLast(){
 }
 
 function resetAccum(){
-  accum.fill(0);motX.fill(0);motY.fill(0);fhist.length=0;chrR.length=0;chrG.length=0;chrB.length=0;
+  accum.fill(0);accumInited=false;motX.fill(0);motY.fill(0);fhist.length=0;chrR.length=0;chrG.length=0;chrB.length=0;
   scanL.length=0;prev.fill(0);prev2.fill(0);fc=0;sessStart=Date.now();waveT=0;bendRng=1234567;
   setState('ACCUM CLEARED');
 }
