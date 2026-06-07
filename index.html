@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daredream Studios</title>
+<meta name="description" content="Creative tools for video, audio, and generative art — by Daredream Studios">
+<meta property="og:title" content="Daredream Studios">
+<meta property="og:description" content="Creative tools for video, audio, and generative art">
+<meta property="og:url" content="https://dylusive.github.io/docs/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07001a;--surface:#0e0028;--border:#2e0858;
+  --pink:#ff71ce;--cyan:#01cdfe;--yellow:#fffb96;
+  --purple:#b967ff;--green:#05ffa1;
+  --font-head:'Orbitron',monospace;--font-body:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#e0d6ff;font-family:var(--font-body);overflow-x:hidden}
+
+/* ── Grid background ── */
+#grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ── CRT overlay ── */
+body::after{
+  content:'';position:fixed;inset:0;z-index:999;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0px,rgba(0,0,0,.08) 1px,transparent 1px,transparent 3px);
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 2rem;
+  background:rgba(7,0,26,.85);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+.nav-logo{
+  font-family:var(--font-head);font-size:.85rem;letter-spacing:.18em;
+  color:var(--pink);text-shadow:0 0 14px var(--pink);
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{
+  color:#a090c8;font-size:.8rem;letter-spacing:.08em;text-decoration:none;
+  text-transform:uppercase;transition:color .2s;
+}
+.nav-links a:hover{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+
+/* ── HERO ── */
+#hero{
+  position:relative;z-index:1;
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:2rem;
+}
+.hero-eyebrow{
+  font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--green);text-shadow:0 0 10px var(--green);margin-bottom:1.4rem;
+}
+.hero-title{
+  font-family:var(--font-head);font-size:clamp(2.2rem,8vw,6rem);
+  font-weight:900;line-height:1.05;margin-bottom:1rem;
+  background:linear-gradient(135deg,var(--pink),var(--cyan),var(--purple));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 30px rgba(255,113,206,.4));
+}
+.hero-sub{
+  font-size:clamp(.9rem,2.5vw,1.2rem);color:#a090c8;
+  max-width:560px;line-height:1.7;margin-bottom:2.4rem;
+}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn{
+  display:inline-block;padding:.7rem 1.6rem;border-radius:4px;
+  font-family:var(--font-head);font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;text-decoration:none;cursor:pointer;
+  transition:all .2s;border:1.5px solid transparent;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;
+  box-shadow:0 0 20px rgba(255,113,206,.4);
+}
+.btn-primary:hover{box-shadow:0 0 35px rgba(255,113,206,.7);transform:translateY(-2px)}
+.btn-outline{
+  border-color:var(--cyan);color:var(--cyan);
+  text-shadow:0 0 8px var(--cyan);
+}
+.btn-outline:hover{background:rgba(1,205,254,.12);box-shadow:0 0 20px rgba(1,205,254,.4);transform:translateY(-2px)}
+.scroll-hint{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:#4a3a6a;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  animation:bounce 2s infinite;
+}
+.scroll-hint::after{content:'↓';font-size:1.2rem}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ── SECTIONS ── */
+section{position:relative;z-index:1;padding:6rem 2rem}
+.section-label{
+  font-family:var(--font-head);font-size:.65rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--purple);
+  text-shadow:0 0 10px var(--purple);margin-bottom:.6rem;
+}
+.section-title{
+  font-family:var(--font-head);font-size:clamp(1.4rem,4vw,2.4rem);
+  color:#e0d6ff;margin-bottom:1rem;
+}
+.section-sub{color:#7060a0;max-width:520px;line-height:1.7;margin-bottom:3rem}
+.container{max-width:1100px;margin:0 auto}
+
+/* ── PROJECT CARDS ── */
+.filter-bar{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-btn{
+  padding:.4rem 1rem;border-radius:20px;border:1.5px solid var(--border);
+  background:transparent;color:#7060a0;font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;cursor:pointer;transition:all .2s;font-family:var(--font-body);
+}
+.filter-btn.active,.filter-btn:hover{
+  border-color:var(--cyan);color:var(--cyan);
+  background:rgba(1,205,254,.08);text-shadow:0 0 8px var(--cyan);
+}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.project-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  overflow:hidden;transition:all .25s;cursor:pointer;text-decoration:none;color:inherit;
+  display:block;
+}
+.project-card:hover{
+  border-color:var(--pink);
+  box-shadow:0 0 30px rgba(255,113,206,.2);
+  transform:translateY(-4px);
+}
+.card-thumb{
+  height:160px;background:var(--bg);display:flex;align-items:center;justify-content:center;
+  font-size:3rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;
+}
+.card-thumb-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(185,103,255,.15),rgba(255,113,206,.1),rgba(1,205,254,.1));
+}
+.card-body{padding:1.2rem}
+.card-tag{
+  display:inline-block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.2rem .6rem;border-radius:3px;margin-bottom:.7rem;
+}
+.tag-video{background:rgba(255,113,206,.15);color:var(--pink);border:1px solid rgba(255,113,206,.3)}
+.tag-audio{background:rgba(1,205,254,.15);color:var(--cyan);border:1px solid rgba(1,205,254,.3)}
+.tag-art{background:rgba(185,103,255,.15);color:var(--purple);border:1px solid rgba(185,103,255,.3)}
+.tag-coming{background:rgba(255,251,150,.1);color:var(--yellow);border:1px solid rgba(255,251,150,.2)}
+.card-title{font-family:var(--font-head);font-size:.85rem;color:#e0d6ff;margin-bottom:.5rem}
+.card-desc{font-size:.78rem;color:#6050a0;line-height:1.6}
+.card-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  margin-top:1rem;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--cyan);text-decoration:none;
+}
+.card-link:hover{text-shadow:0 0 10px var(--cyan)}
+
+/* ── ABOUT ── */
+#about{background:linear-gradient(180deg,transparent,rgba(14,0,40,.6),transparent)}
+.about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:center}
+.about-avatar{
+  width:200px;height:200px;border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  display:flex;align-items:center;justify-content:center;
+  font-size:4rem;margin:0 auto;
+  box-shadow:0 0 60px rgba(185,103,255,.4);
+}
+.about-text p{color:#7060a0;line-height:1.8;margin-bottom:1rem}
+.stack-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.stack-tag{
+  padding:.3rem .8rem;border-radius:3px;font-size:.68rem;letter-spacing:.06em;
+  background:rgba(185,103,255,.1);color:var(--purple);border:1px solid rgba(185,103,255,.25);
+}
+
+/* ── CONTACT ── */
+#contact{text-align:center}
+.social-links{display:flex;gap:1.5rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.social-link{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.6rem 1.4rem;border:1.5px solid var(--border);border-radius:4px;
+  color:#a090c8;text-decoration:none;font-size:.8rem;letter-spacing:.06em;
+  transition:all .2s;
+}
+.social-link:hover{border-color:var(--green);color:var(--green);box-shadow:0 0 20px rgba(5,255,161,.2)}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;text-align:center;padding:2rem;
+  border-top:1px solid var(--border);color:#3a2a5a;
+  font-family:var(--font-head);font-size:.6rem;letter-spacing:.2em;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .about-grid{grid-template-columns:1fr;text-align:center}
+  .about-avatar{width:140px;height:140px;font-size:2.8rem}
+  nav{padding:.9rem 1.2rem}
+  .nav-links{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<canvas id="grid-bg"></canvas>
+
+<nav>
+  <a class="nav-logo" href="#">DAREDREAM STUDIOS</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">Creative Tools &amp; Generative Art</p>
+  <h1 class="hero-title">DAREDREAM<br>STUDIOS</h1>
+  <p class="hero-sub">Browser-based creative tools for video manipulation, audio visualization, and generative art — built with pure web tech, no installs.</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#projects">View Work</a>
+    <a class="btn btn-outline" href="datamosh-editor.html">Open Datamosh Editor</a>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">// Tools &amp; Experiments</p>
+    <h2 class="section-title">Creative Work</h2>
+    <p class="section-sub">Open-source browser tools. Click to launch — no download, no login.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+      <button class="filter-btn" data-filter="audio">Audio</button>
+      <button class="filter-btn" data-filter="art">Art</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <a class="project-card" href="datamosh-editor.html" data-category="video">
+        <div class="card-thumb">
+          <div class="card-thumb-gradient"></div>
+          🎬
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-video">Video</span>
+          <h3 class="card-title">Datamosh Editor</h3>
+          <p class="card-desc">Real-time datamoshing with 14 effects — pixel sort, block shift, chroma bleed, entropy field and more. Export as WebM.</p>
+          <span class="card-link">Launch tool →</span>
+        </div>
+      </a>
+
+      <div class="project-card" data-category="audio">
+        <div class="card-thumb">
+          <div class="card-thumb-gradient"></div>
+          🎵
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-coming">Coming Soon</span>
+          <h3 class="card-title">Audio Visualizer</h3>
+          <p class="card-desc">Beat-synced visual themes for music — FFT spectrum analyzer, waveform oscilloscope, BPM detection, WebM export.</p>
+          <span class="card-link" style="color:#4a3a6a">In development ⬡</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="art">
+        <div class="card-thumb">
+          <div class="card-thumb-gradient"></div>
+          ✦
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-coming">Coming Soon</span>
+          <h3 class="card-title">Generative Art Studio</h3>
+          <p class="card-desc">Particle systems, Perlin noise flow fields, reaction-diffusion, kaleidoscope tools. Export PNG or animated GIF.</p>
+          <span class="card-link" style="color:#4a3a6a">In development ⬡</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="video">
+        <div class="card-thumb">
+          <div class="card-thumb-gradient"></div>
+          🌈
+        </div>
+        <div class="card-body">
+          <span class="card-tag tag-coming">Coming Soon</span>
+          <h3 class="card-title">Color Grading Tool</h3>
+          <p class="card-desc">Curves editor, HSL adjustments, LUT import/export, before/after split preview. Works on video files and webcam.</p>
+          <span class="card-link" style="color:#4a3a6a">In development ⬡</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="about-avatar">🌸</div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">// About</p>
+        <h2 class="section-title">Daredream Studios</h2>
+        <p>Building creative browser tools at the intersection of art and code. Everything runs in your browser — no installs, no accounts, no limits.</p>
+        <p>Inspired by vaporwave aesthetics, glitch art, and the raw expressive power of the web platform.</p>
+        <div class="stack-tags">
+          <span class="stack-tag">Web Audio API</span>
+          <span class="stack-tag">Canvas 2D</span>
+          <span class="stack-tag">WebGL</span>
+          <span class="stack-tag">MediaRecorder</span>
+          <span class="stack-tag">HTML / CSS / JS</span>
+          <span class="stack-tag">GitHub Pages</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">// Get in touch</p>
+    <h2 class="section-title">Let's Build Something</h2>
+    <p class="section-sub" style="margin:0 auto 1rem">Open to collabs, commissions, and conversations about creative tech.</p>
+    <div class="social-links">
+      <a class="social-link" href="https://github.com/Dylusive">⬡ GitHub</a>
+      <a class="social-link" href="mailto:aquarian.alchemist.777@gmail.com">✉ Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 DAREDREAM STUDIOS — BLOOM HOUR MIRAGE
+</footer>
+
+<script>
+// ── Animated grid background ──
+(function(){
+  const c=document.getElementById('grid-bg');
+  const ctx=c.getContext('2d');
+  let W,H,t=0;
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight}
+  resize();window.addEventListener('resize',resize);
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.save();
+    // Perspective grid
+    const vp={x:W/2,y:H*0.72};
+    const cols=14,rows=10;
+    const spread=W*1.4,depth=H*1.1;
+    ctx.strokeStyle='rgba(46,8,88,0.55)';
+    ctx.lineWidth=1;
+    // Vertical lines
+    for(let i=0;i<=cols;i++){
+      const px=vp.x+(i/cols-.5)*spread;
+      ctx.beginPath();ctx.moveTo(px,vp.y);ctx.lineTo(vp.x,vp.y-depth*.05);ctx.stroke();
+    }
+    // Horizontal lines (scrolling)
+    const scroll=(t*.4)%1;
+    for(let j=0;j<rows;j++){
+      const frac=(j+scroll)/rows;
+      const ease=frac*frac;
+      const y=vp.y+ease*depth;
+      const xL=vp.x-ease*spread*.5;
+      const xR=vp.x+ease*spread*.5;
+      ctx.beginPath();ctx.moveTo(xL,y);ctx.lineTo(xR,y);ctx.stroke();
+    }
+    ctx.restore();
+    t+=0.016;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── Project filter ──
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card=>{
+      const show=f==='all'||card.dataset.category===f;
+      card.style.opacity=show?'1':'0.2';
+      card.style.pointerEvents=show?'':'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
