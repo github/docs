@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAREDREAM STUDIOS // DATAMOSH ENGINE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+:root{
+  --bg:#07001a;--panel:#0e0028;--panel2:#160038;--border:#2e0858;
+  --c1:#ff71ce;--c2:#01cdfe;--c3:#fffb96;--c4:#b967ff;--c5:#05ffa1;
+  --text:#d8b8ff;--dim:#5a3888;
+  --g1:rgba(255,113,206,.55);--g2:rgba(1,205,254,.5);--g4:rgba(185,103,255,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Courier New',monospace;font-size:12px}
+body{display:flex;flex-direction:column}
+
+/* ── Header ── */
+#hdr{display:flex;align-items:center;gap:12px;padding:0 14px;height:44px;flex-shrink:0;position:relative;overflow:hidden;
+  background:linear-gradient(90deg,#1a0040,#05001a 50%,#001030)}
+#hdr::before{content:'';position:absolute;inset:0;opacity:.1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,113,206,.5) 1px,transparent 1px) 0 0/28px 28px,
+             linear-gradient(rgba(255,113,206,.5) 1px,transparent 1px) 0 0/28px 28px}
+#hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--c1) 20%,var(--c4) 50%,var(--c2) 80%,transparent);
+  animation:borderflow 4s linear infinite}
+@keyframes borderflow{0%{background-position:0 0}100%{background-position:200px 0}}
+.logo-main{font-family:'Orbitron','Courier New',monospace;font-size:15px;font-weight:900;letter-spacing:3px;
+  background:linear-gradient(135deg,var(--c1),var(--c4) 50%,var(--c2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 10px var(--g1));animation:logoglitch 6s infinite}
+.logo-sub{font-size:7px;letter-spacing:6px;color:var(--c4);text-shadow:0 0 8px var(--g4);margin-top:1px}
+@keyframes logoglitch{0%,93%{transform:none}94%{transform:translate(-2px,1px);filter:drop-shadow(2px 0 var(--c2)) drop-shadow(-2px 0 var(--c1))}96%{transform:translate(2px,-1px)}97%{transform:none}100%{transform:none}}
+.hud{display:flex;gap:12px;font-size:9px;margin-left:6px}
+.hi{color:var(--dim)}.hv{color:var(--c2);text-shadow:0 0 5px var(--g2)}
+
+/* ── Layout ── */
+#main{display:flex;flex:1;overflow:hidden}
+#left{width:198px;display:flex;flex-direction:column;background:var(--panel);border-right:1px solid var(--border);overflow-y:auto;flex-shrink:0}
+#center{flex:1;display:flex;flex-direction:column;background:#000;position:relative;overflow:hidden}
+#right{width:258px;display:flex;flex-direction:column;background:var(--panel);border-left:1px solid var(--border);overflow-y:auto;flex-shrink:0}
+#btm{height:124px;background:#080018;border-top:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0}
+
+/* ── Panel headers ── */
+.ph{padding:5px 10px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--c1);
+  background:rgba(255,113,206,.05);border-bottom:1px solid var(--border);flex-shrink:0;text-shadow:0 0 8px var(--g1)}
+
+/* ── Preview ── */
+#cwrap{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;background:#000}
+#preview{display:block;max-width:100%;max-height:100%;image-rendering:pixelated;position:relative;z-index:1}
+#offscreen{display:none}
+/* CRT scanlines */
+#cwrap::after{content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,.16) 1px,rgba(0,0,0,.16) 2px);
+  pointer-events:none;z-index:4}
+/* Vignette */
+#cwrap::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,transparent 52%,rgba(8,0,26,.85) 100%);
+  pointer-events:none;z-index:5}
+/* Retro sun + grid bg */
+#vpbg{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.vp-sky{position:absolute;inset:0;background:linear-gradient(180deg,#07001a 0%,#1a003a 50%,#2d0050 75%,#3d0840 100%)}
+.vp-sun{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:240px;height:120px;
+  background:conic-gradient(from 180deg at 50% 100%,#ff71ce,#ff8c00,#fffb96,#ff8c00,#ff71ce);
+  clip-path:ellipse(50% 50% at 50% 100%);opacity:.25;
+  animation:sunpulse 4s ease-in-out infinite}
+@keyframes sunpulse{0%,100%{opacity:.22}50%{opacity:.32}}
+.vp-sunlines{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:240px;height:120px;
+  clip-path:ellipse(50% 50% at 50% 100%);overflow:hidden}
+.vp-sunlines::after{content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 8px,rgba(8,0,26,.5) 8px,rgba(8,0,26,.5) 12px)}
+.vp-grid{position:absolute;bottom:0;left:0;right:0;height:55%;
+  background:linear-gradient(90deg,rgba(185,103,255,.18) 1px,transparent 1px) 0 0/44px 44px,
+             linear-gradient(rgba(185,103,255,.18) 1px,transparent 1px) 0 0/44px 44px;
+  transform:perspective(260px) rotateX(58deg);transform-origin:bottom;opacity:.5}
+/* Overlays */
+.ovt{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;pointer-events:none;z-index:6}
+.ovb{position:absolute;bottom:8px;left:8px;right:8px;display:flex;justify-content:space-between;pointer-events:none;z-index:6}
+.badge{background:rgba(0,0,16,.82);border:1px solid var(--c1);padding:2px 8px;font-size:8px;
+  color:var(--c1);letter-spacing:2px;text-shadow:0 0 5px var(--g1)}
+.badge.rec{border-color:#ff1144;color:#ff1144;text-shadow:0 0 6px rgba(255,17,68,.6);animation:recblink 1s infinite}
+.badge.cut-flash{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-size:18px;letter-spacing:6px;border-color:var(--c3);color:var(--c3);animation:cutpop .4s ease forwards;z-index:7}
+@keyframes recblink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes cutpop{0%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-50%) scale(.8)}}
+.src-badge{background:rgba(0,0,16,.82);border:1px solid var(--c4);padding:2px 8px;
+  font-size:8px;color:var(--c4);letter-spacing:1px;text-shadow:0 0 5px var(--g4)}
+.watermark{font-family:'Orbitron','Courier New',monospace;font-size:7px;letter-spacing:3px;
+  color:rgba(185,103,255,.3);text-shadow:none;border:none;background:none;padding:0}
+
+/* ── Source slots ── */
+.src-slot{margin:5px;border:1px dashed var(--border);border-radius:4px;cursor:pointer;transition:all .2s;overflow:hidden}
+.src-slot:hover,.src-slot.drag{border-color:var(--c1);background:rgba(255,113,206,.04)}
+.src-slot.loaded{border-style:solid;border-color:var(--c4)}
+.src-slot.active-src{border-color:var(--c2) !important;box-shadow:0 0 10px var(--g2)}
+.src-thumb{width:100%;aspect-ratio:16/9;background:#0c001e;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;font-size:8px;color:var(--dim);letter-spacing:2px}
+.src-thumb video{width:100%;height:100%;object-fit:cover}
+.src-meta{padding:3px 6px 1px;font-size:8px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.src-ctrls{padding:2px 6px 5px;display:flex;flex-direction:column;gap:2px}
+.trow{display:flex;align-items:center;gap:4px;font-size:8px;color:var(--dim)}
+.tlb{width:20px;flex-shrink:0;font-size:7px}
+
+/* ── Sliders ── */
+input[type=range]{-webkit-appearance:none;appearance:none;height:2px;background:var(--border);border-radius:2px;cursor:pointer;flex:1;min-width:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:9px;height:9px;border-radius:50%;background:var(--c1);box-shadow:0 0 5px var(--g1)}
+.prow{display:flex;align-items:center;gap:5px;padding:3px 8px}
+.pl{width:68px;font-size:8px;color:var(--dim);text-transform:uppercase;flex-shrink:0}
+.pv{width:32px;text-align:right;font-size:8px;color:var(--c3);flex-shrink:0}
+
+/* ── Effect cards ── */
+.cat-sep{padding:5px 10px 2px;font-size:8px;color:var(--c4);letter-spacing:3px;text-shadow:0 0 5px var(--g4);margin-top:4px}
+.ecard{margin:3px 6px;border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .2s}
+.ecard.on{border-color:var(--c1);box-shadow:0 0 10px rgba(255,113,206,.18)}
+.ehead{display:flex;align-items:center;gap:7px;padding:6px 8px;cursor:pointer;background:rgba(255,255,255,.015)}
+.ehead:hover{background:rgba(255,113,206,.04)}
+.edot{width:10px;height:10px;border-radius:50%;border:1px solid var(--dim);flex-shrink:0;transition:all .25s}
+.edot.on{background:var(--c1);border-color:var(--c1);box-shadow:0 0 7px var(--g1)}
+.ename{flex:1;font-size:9px;color:#e0d0ff;letter-spacing:2px}
+.ehint{font-size:8px;color:var(--dim);padding:1px 8px 4px;line-height:1.6;font-style:italic}
+
+/* ── Buttons ── */
+.btn{padding:5px 10px;border:1px solid var(--c1);background:transparent;color:var(--c1);
+  font-family:'Courier New',monospace;font-size:9px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;transition:all .2s;border-radius:2px}
+.btn:hover{background:rgba(255,113,206,.1);box-shadow:0 0 10px var(--g1)}
+.btn.b{border-color:var(--c2);color:var(--c2)}.btn.b:hover{background:rgba(1,205,254,.1);box-shadow:0 0 8px var(--g2)}
+.btn.y{border-color:var(--c3);color:var(--c3)}.btn.y:hover{background:rgba(255,251,150,.07)}
+.btn.p{border-color:var(--c4);color:var(--c4)}.btn.p:hover{background:rgba(185,103,255,.1);box-shadow:0 0 8px var(--g4)}
+.btn.m{border-color:var(--c5);color:var(--c5)}.btn.m:hover{background:rgba(5,255,161,.07)}
+.btn.r{border-color:#ff1144;color:#ff1144}.btn.r.on{background:#ff1144;color:#000;animation:recblink 1s infinite}
+.btn.cut{border-color:var(--c3);color:var(--c3);font-weight:bold;font-size:10px;padding:6px 14px;letter-spacing:3px}
+.btn.cut:hover{background:rgba(255,251,150,.12);box-shadow:0 0 14px rgba(255,251,150,.35)}
+.btn.full{width:100%;text-align:center;font-size:8px}
+
+/* ── Transport ── */
+#transport{display:flex;align-items:center;gap:5px;padding:5px 8px;border-bottom:1px solid var(--border);flex-shrink:0;flex-wrap:wrap;gap:4px}
+.ttime{font-family:'Orbitron','Courier New',monospace;font-size:13px;color:var(--c3);letter-spacing:3px;min-width:92px;text-shadow:0 0 8px rgba(255,251,150,.5)}
+
+/* ── Clip strip ── */
+#cstrip{display:flex;align-items:center;gap:5px;padding:3px 8px;border-bottom:1px solid var(--border);overflow-x:auto;flex-shrink:0;min-height:30px}
+.citem{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border:1px solid var(--border);border-radius:3px;
+  background:rgba(185,103,255,.08);font-size:8px;color:var(--c4);cursor:pointer;white-space:nowrap;transition:all .2s;flex-shrink:0}
+.citem:hover{border-color:var(--c4)}.citem.active{border-color:var(--c2);background:rgba(1,205,254,.12);color:var(--c2)}
+.citem .x{color:var(--dim);margin-left:2px}.citem .x:hover{color:var(--c1)}
+.cempty{font-size:8px;color:var(--dim);letter-spacing:1px;padding:0 4px}
+
+/* ── Timeline ── */
+#timeline{flex:1;overflow:hidden;position:relative;padding:4px 8px;display:flex;flex-direction:column;gap:3px}
+#ph{position:absolute;top:0;bottom:0;width:2px;background:var(--c1);box-shadow:0 0 6px var(--g1);pointer-events:none;z-index:10}
+.ttrack{height:20px;background:rgba(185,103,255,.04);border:1px solid var(--border);border-radius:2px;position:relative;overflow:hidden;cursor:pointer}
+.trlb{position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:7px;color:var(--dim);letter-spacing:1px;pointer-events:none}
+.trfill{position:absolute;top:0;left:0;bottom:0;width:0;background:rgba(255,113,206,.22);border-right:1px solid var(--c1);pointer-events:none;transition:width .05s}
+
+/* ── Presets ── */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:5px}
+.pbtn{padding:4px 2px;border:1px solid var(--border);background:none;color:var(--dim);font-family:'Courier New',monospace;
+  font-size:7px;letter-spacing:.5px;cursor:pointer;border-radius:3px;text-align:center;transition:all .2s;line-height:1.4}
+.pbtn:hover{border-color:var(--c1);color:var(--c1);background:rgba(255,113,206,.06)}
+.pbtn.active{border-color:var(--c1);color:var(--c1)}
+
+/* ── Select ── */
+select{background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:'Courier New',monospace;font-size:9px;padding:3px 5px;cursor:pointer;border-radius:2px}
+select:focus{outline:none;border-color:var(--c1)}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:3px;height:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border)}
+
+/* ── Misc ── */
+.scanlines{position:fixed;top:0;left:0;width:100%;height:100%;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.04) 2px,rgba(0,0,0,.04) 4px);pointer-events:none;z-index:9999}
+.ndiv{height:1px;background:linear-gradient(90deg,transparent,var(--c4),var(--c1),var(--c4),transparent);margin:3px 0;opacity:.5}
+.kbhint{font-size:8px;color:var(--dim);padding:2px 8px;letter-spacing:1px}
+
+/* BPM beat flash */
+#beat-flash{position:fixed;inset:0;pointer-events:none;z-index:998;animation:beatflash .12s ease forwards}
+@keyframes beatflash{0%{background:rgba(255,113,206,.08)}100%{background:transparent}}
+</style>
+</head>
+<body>
+<div class="scanlines"></div>
+
+<!-- HEADER -->
+<div id="hdr">
+  <div>
+    <div class="logo-main">∅ DATAMOSH ENGINE ∅</div>
+    <div class="logo-sub">DAREDREAM STUDIOS</div>
+  </div>
+  <div class="hud">
+    <span class="hi">FPS <span class="hv" id="h-fps">--</span></span>
+    <span class="hi">FRAME <span class="hv" id="h-frame">0</span></span>
+    <span class="hi">GLITCH <span class="hv" id="h-glitch">0%</span></span>
+    <span class="hi">BPM <span class="hv" id="h-bpm">--</span></span>
+    <span class="hi">STATE <span class="hv" id="h-state">READY</span></span>
+  </div>
+  <div style="flex:1"></div>
+  <div style="font-size:8px;color:var(--dim);text-align:right;line-height:1.6">
+    <span style="color:var(--c4)">SPACE</span>=play &nbsp;
+    <span style="color:var(--c3)">K</span>=cut &nbsp;
+    <span style="color:var(--c1)">R</span>=rec &nbsp;
+    <span style="color:var(--c2)">1–4</span>=src &nbsp;
+    <span style="color:var(--dim)">C</span>=clear
+  </div>
+  <button class="btn" onclick="resetAccum()" style="font-size:8px;margin-left:8px">CLEAR</button>
+  <button class="btn p" onclick="shuffleEffects()" style="font-size:8px">RANDOM</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+  <!-- LEFT -->
+  <div id="left">
+    <div class="ph">∅ Sources</div>
+    <div id="slots"></div>
+    <div style="padding:5px">
+      <button class="btn full b" onclick="addSlot()">+ ADD SOURCE</button>
+    </div>
+    <div class="ndiv"></div>
+
+    <div class="ph">∅ Blend</div>
+    <div class="prow">
+      <span class="pl">Mode</span>
+      <select id="bsel" oninput="blendMode=this.value" style="flex:1;font-size:8px">
+        <option value="primary">PRIMARY</option>
+        <option value="average">AVERAGE</option>
+        <option value="diff">DIFFERENCE</option>
+        <option value="multiply">MULTIPLY</option>
+        <option value="screen">SCREEN</option>
+        <option value="additive">ADDITIVE</option>
+      </select>
+    </div>
+    <div class="prow">
+      <span class="pl">Amount</span>
+      <input type="range" min="0" max="1" step=".01" value=".5"
+        oninput="mixAmt=+this.value;document.getElementById('mixv').textContent=(+this.value).toFixed(2)">
+      <span class="pv" id="mixv">0.50</span>
+    </div>
+    <div class="ndiv"></div>
+
+    <div class="ph">∅ BPM Sync</div>
+    <div style="padding:5px 8px;display:flex;flex-direction:column;gap:4px">
+      <div style="display:flex;gap:4px">
+        <button class="btn b full" onclick="tapBeat()" style="font-size:9px;flex:2">TAP BEAT</button>
+        <button class="btn full" onclick="resetBpm()" style="font-size:8px;flex:1;border-color:var(--dim);color:var(--dim)">RST</button>
+      </div>
+      <div class="prow" style="padding:0">
+        <span class="pl">Auto-Cut</span>
+        <input type="checkbox" id="beatcut" onchange="beatCutEnabled=this.checked" style="cursor:pointer">
+        <span class="pv" style="width:auto;color:var(--c4);font-size:8px" id="bpm-disp">-- BPM</span>
+      </div>
+      <div class="prow" style="padding:0">
+        <span class="pl">Auto-Cut ↺</span>
+        <input type="checkbox" id="autocut" onchange="autoCutEnabled=this.checked" style="cursor:pointer">
+        <input type="range" min="1" max="30" step=".5" value="4" style="flex:1;margin-left:6px"
+          oninput="autoCutSec=+this.value;document.getElementById('acv').textContent=this.value+'s'">
+        <span class="pv" id="acv">4s</span>
+      </div>
+    </div>
+    <div class="ndiv"></div>
+
+    <div class="ph">∅ Presets</div>
+    <div class="pgrid" id="pgrid"></div>
+    <div style="height:8px"></div>
+  </div>
+
+  <!-- CENTER -->
+  <div id="center">
+    <div id="cwrap">
+      <div id="vpbg">
+        <div class="vp-sky"></div>
+        <div class="vp-sun"></div>
+        <div class="vp-sunlines"></div>
+        <div class="vp-grid"></div>
+      </div>
+      <div class="ovt">
+        <div class="badge">854×480 // DAREDREAM</div>
+        <div style="display:flex;flex-direction:column;gap:3px;align-items:flex-end">
+          <div class="badge rec" id="rec-badge" style="display:none">● REC</div>
+        </div>
+      </div>
+      <div class="ovb">
+        <div class="src-badge" id="srcbadge">SRC 1 — LIVE</div>
+        <div class="watermark">DAREDREAM STUDIOS</div>
+      </div>
+      <div id="cut-flash" style="display:none" class="badge cut-flash">✂ CUT</div>
+      <canvas id="preview" width="854" height="480"></canvas>
+      <canvas id="offscreen" width="854" height="480"></canvas>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div id="right">
+    <div class="ph">∅ Effect Chain</div>
+    <div id="efxlist"></div>
+    <div style="height:16px"></div>
+  </div>
+</div>
+
+<!-- BOTTOM -->
+<div id="btm">
+  <div id="cstrip">
+    <span style="font-size:8px;color:var(--c4);letter-spacing:2px;flex-shrink:0">SEQ</span>
+    <div id="clipstrip"><div class="cempty">— add clips to sequence —</div></div>
+    <button class="btn m" onclick="addClip()" style="font-size:8px;flex-shrink:0">+ ADD CLIP</button>
+    <button class="btn" onclick="clearClips()" style="font-size:8px;border-color:var(--dim);color:var(--dim);flex-shrink:0">CLR</button>
+    <span style="font-size:8px;color:var(--dim);flex-shrink:0;margin-left:6px">SEQ <span class="hv" id="seqpos">—</span></span>
+  </div>
+  <div id="transport">
+    <div class="ttime" id="ttime">00:00:00</div>
+    <button class="btn" id="pbtn" onclick="togglePlay()">▶ PLAY</button>
+    <button class="btn cut" onclick="manualCut()">✂ CUT</button>
+    <button class="btn r" id="rbtn" onclick="toggleRecord()">⏺ REC</button>
+    <button class="btn y" id="dlbtn" onclick="downloadLast()" style="display:none">⬇ SAVE</button>
+    <div style="flex:1"></div>
+    <span style="font-size:8px;color:var(--dim)">DUR</span>
+    <input type="range" min="3" max="120" value="15" id="durslider" style="width:56px"
+      oninput="document.getElementById('durv').textContent=this.value+'s'">
+    <span class="pv" id="durv">15s</span>
+  </div>
+  <div id="timeline">
+    <div id="ph"></div>
+    <div class="ttrack"><div class="trlb">GLITCH</div><div class="trfill" id="tf-g"></div></div>
+    <div class="ttrack"><div class="trlb">MOTION</div><div class="trfill" id="tf-m"></div></div>
+    <div class="ttrack"><div class="trlb">TIME</div><div class="trfill" id="tf-t"></div></div>
+  </div>
+</div>
+
+<div id="beat-flash" style="display:none"></div>
+<input type="file" id="finput" accept="video/*" style="display:none" onchange="fileSelected(this)">
+
+<script>
+'use strict';
+const W=854,H=480,PIX=W*H;
+const cvs=document.getElementById('preview'),ctx=cvs.getContext('2d',{willReadFrequently:true});
+const off=document.getElementById('offscreen'),offCtx=off.getContext('2d',{willReadFrequently:true});
+
+// ── Buffers ──────────────────────────────────────────
+let accum   =new Float32Array(PIX*4);
+let prev    =new Uint8ClampedArray(PIX*4);
+let prev2   =new Uint8ClampedArray(PIX*4);
+let motX    =new Float32Array(PIX);
+let motY    =new Float32Array(PIX);
+const fhist =[];const FHSZ=48;
+const chrR=[],chrG=[],chrB=[];const CHLAG=24;
+const scanL=[];
+let bendRng =1234567;
+let waveT   =0;
+
+// ── Runtime ──────────────────────────────────────────
+let playing=false,recording=false,rafId=null,fc=0;
+let sessStart=Date.now(),lastFpsTs=performance.now(),fpsAcc=0;
+let mediaRec=null,recChunks=[],lastBlob=null;
+let blendMode='primary',mixAmt=.5;
+let pendingSlot=-1,slotCount=0,motMeter=0;
+let activeSrc=0;
+const clips=[];let clipPos=0,autoAdvance=false;
+
+// BPM
+let tapTimes=[],bpm=0,lastBeatMs=0;
+let beatCutEnabled=false,autoCutEnabled=false,autoCutSec=4,lastAutoCut=Date.now();
+
+// ── Sources ───────────────────────────────────────────
+const srcs=[]; // {video,prevFrame,weight,inPct,outPct,speed,name}
+
+function addSlot(){
+  const idx=slotCount++;
+  srcs.push({video:null,prevFrame:null,weight:idx===0?1:.5,inPct:0,outPct:100,speed:1,name:''});
+  const w=document.createElement('div');
+  w.className='src-slot';w.id=`sl-${idx}`;
+  w.innerHTML=`
+    <div class="src-thumb" id="th-${idx}">∅ EMPTY</div>
+    <div class="src-meta" id="sm-${idx}">SOURCE ${idx+1}</div>
+    <div class="src-ctrls">
+      <div class="trow"><span class="tlb">IN</span>
+        <input type="range" min="0" max="100" step=".5" value="0" oninput="srcs[${idx}].inPct=+this.value;utd(${idx})" id="in${idx}">
+        <span class="pv" id="inv${idx}" style="width:26px">0%</span></div>
+      <div class="trow"><span class="tlb">OUT</span>
+        <input type="range" min="0" max="100" step=".5" value="100" oninput="srcs[${idx}].outPct=+this.value;utd(${idx})" id="out${idx}">
+        <span class="pv" id="outv${idx}" style="width:26px">100%</span></div>
+      <div class="trow"><span class="tlb">SPD</span>
+        <input type="range" min=".1" max="4" step=".1" value="1" oninput="setSpeed(${idx},+this.value)" id="spd${idx}">
+        <span class="pv" id="spdv${idx}" style="width:26px">1.0×</span>
+        <button class="btn b" onclick="setActive(${idx})" style="padding:1px 5px;font-size:7px;flex-shrink:0;margin-left:4px">LIVE</button>
+      </div>
+    </div>`;
+  w.addEventListener('click',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='BUTTON')return;pendingSlot=idx;document.getElementById('finput').click();});
+  w.addEventListener('dragover',e=>{e.preventDefault();w.classList.add('drag');});
+  w.addEventListener('dragleave',()=>w.classList.remove('drag'));
+  w.addEventListener('drop',e=>{e.preventDefault();w.classList.remove('drag');const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('video/'))loadFile(idx,f);});
+  document.getElementById('slots').appendChild(w);
+}
+
+function utd(i){
+  document.getElementById(`inv${i}`).textContent=srcs[i].inPct.toFixed(0)+'%';
+  document.getElementById(`outv${i}`).textContent=srcs[i].outPct.toFixed(0)+'%';
+}
+
+function setSpeed(i,v){
+  srcs[i].speed=v;
+  document.getElementById(`spdv${i}`).textContent=v.toFixed(1)+'×';
+  if(srcs[i].video)srcs[i].video.playbackRate=v;
+}
+
+function setActive(i){
+  if(!srcs[i]?.video)return;
+  activeSrc=i;seekToIn(i);hlSlot(i);
+  document.getElementById('srcbadge').textContent=`SRC ${i+1} — LIVE`;
+}
+
+function hlSlot(i){document.querySelectorAll('.src-slot').forEach((e,j)=>e.classList.toggle('active-src',j===i));}
+
+function seekToIn(i){
+  const s=srcs[i];if(!s?.video||!s.video.duration)return;
+  s.video.currentTime=s.video.duration*(s.inPct/100);
+}
+
+function fileSelected(inp){
+  if(!inp.files[0]||pendingSlot<0)return;
+  loadFile(pendingSlot,inp.files[0]);inp.value='';
+}
+
+function loadFile(idx,file){
+  const url=URL.createObjectURL(file);
+  const v=document.createElement('video');
+  v.src=url;v.loop=true;v.muted=true;v.autoplay=true;v.playsInline=true;
+  v.playbackRate=srcs[idx].speed||1;
+  v.play().catch(()=>{});
+  v.addEventListener('timeupdate',()=>enforceOut(idx));
+  srcs[idx].video=v;srcs[idx].prevFrame=null;srcs[idx].name=file.name;
+  const th=document.getElementById(`th-${idx}`);th.innerHTML='';th.appendChild(v);
+  document.getElementById(`sm-${idx}`).textContent=file.name.length>22?file.name.slice(0,19)+'…':file.name;
+  document.getElementById(`sl-${idx}`).classList.add('loaded');
+  if(idx===0||!srcs.slice(0,idx).some(s=>s.video))setActive(idx);
+  setState('SRC '+(idx+1)+' LOADED');
+  if(!playing)togglePlay();
+}
+
+function enforceOut(i){
+  const s=srcs[i];if(!s?.video||!s.video.duration)return;
+  const pct=(s.video.currentTime/s.video.duration)*100;
+  if(pct>=s.outPct){s.video.currentTime=s.video.duration*(s.inPct/100);
+    if(autoAdvance&&i===activeSrc&&clips.length>1)advSeq();}
+}
+
+// ── Clip Sequencer ────────────────────────────────────
+function addClip(){
+  const s=srcs[activeSrc];if(!s?.video){setState('LOAD SOURCE FIRST');return;}
+  clips.push({si:activeSrc,inPct:s.inPct,outPct:s.outPct,label:`S${activeSrc+1} ${s.inPct.toFixed(0)}–${s.outPct.toFixed(0)}%`});
+  autoAdvance=true;renderStrip();setState('CLIP ADDED');
+}
+function clearClips(){clips.length=0;clipPos=0;autoAdvance=false;renderStrip();}
+function removeClip(i){clips.splice(i,1);if(clipPos>=clips.length)clipPos=Math.max(0,clips.length-1);renderStrip();}
+function renderStrip(){
+  const el=document.getElementById('clipstrip');
+  if(!clips.length){el.innerHTML='<div class="cempty">— add clips to sequence —</div>';return;}
+  el.innerHTML='';
+  clips.forEach((c,i)=>{
+    const d=document.createElement('div');d.className='citem'+(i===clipPos?' active':'');
+    d.innerHTML=`${c.label} <span class="x" onclick="removeClip(${i});event.stopPropagation()">✕</span>`;
+    d.addEventListener('click',()=>{clipPos=i;activeSrc=c.si;srcs[c.si].inPct=c.inPct;srcs[c.si].outPct=c.outPct;seekToIn(c.si);renderStrip();});
+    el.appendChild(d);
+  });
+}
+function advSeq(){
+  clipPos=(clipPos+1)%clips.length;const c=clips[clipPos];
+  activeSrc=c.si;srcs[c.si].inPct=c.inPct;srcs[c.si].outPct=c.outPct;
+  seekToIn(c.si);hlSlot(c.si);
+  document.getElementById('srcbadge').textContent=`SRC ${c.si+1} — LIVE`;
+  renderStrip();
+}
+
+function manualCut(){
+  if(clips.length>0){advSeq();}
+  else{
+    const loaded=srcs.map((s,i)=>s.video?i:-1).filter(i=>i>=0);
+    if(!loaded.length)return;
+    const ci=loaded.indexOf(activeSrc);
+    setActive(loaded[(ci+1)%loaded.length]);
+  }
+  const f=document.getElementById('cut-flash');
+  f.style.display='block';setTimeout(()=>f.style.display='none',400);
+  setState('✂ CUT');
+}
+
+// ── BPM ───────────────────────────────────────────────
+function tapBeat(){
+  const now=performance.now();
+  tapTimes.push(now);if(tapTimes.length>8)tapTimes.shift();
+  if(tapTimes.length>=2){
+    const ints=[];for(let i=1;i<tapTimes.length;i++)ints.push(tapTimes[i]-tapTimes[i-1]);
+    const avg=ints.reduce((a,b)=>a+b,0)/ints.length;
+    bpm=Math.round(60000/avg);
+    document.getElementById('h-bpm').textContent=bpm;
+    document.getElementById('bpm-disp').textContent=bpm+' BPM';
+  }
+  // Visual beat flash
+  const bf=document.getElementById('beat-flash');
+  bf.style.display='block';setTimeout(()=>bf.style.display='none',120);
+}
+function resetBpm(){tapTimes=[];bpm=0;document.getElementById('h-bpm').textContent='--';document.getElementById('bpm-disp').textContent='-- BPM';}
+
+function checkBeat(){
+  const now=performance.now();
+  if(beatCutEnabled&&bpm>0){
+    const interval=60000/bpm;
+    if(now-lastBeatMs>=interval){lastBeatMs=now;manualCut();}
+  }
+  if(autoCutEnabled){
+    const nowMs=Date.now();
+    if(nowMs-lastAutoCut>=autoCutSec*1000){lastAutoCut=nowMs;manualCut();}
+  }
+}
+
+// ── EFFECTS ───────────────────────────────────────────
+const EFFECTS=[
+  {id:'datamosh',name:'DATAMOSH',cat:'CORE',
+   hint:'P-frame accumulation — temporal ghost bleeds through new motion vectors.',enabled:true,
+   params:[{k:'decay',lb:'Decay',mn:.80,mx:.999,st:.002,v:.962},{k:'blend',lb:'Blend',mn:0,mx:1,st:.01,v:.87},
+           {k:'threshold',lb:'Threshold',mn:0,mx:60,st:1,v:8},{k:'motAmp',lb:'Mot.Amp',mn:0,mx:4,st:.05,v:1.2}]},
+  {id:'pixelsort',name:'PIXEL SORT',cat:'CORE',
+   hint:'Luminance/hue threshold sorting — melt & streak artifacts.',enabled:false,
+   params:[{k:'threshold',lb:'Threshold',mn:0,mx:255,st:1,v:80},{k:'direction',lb:'Direction',mn:0,mx:1,st:1,v:0,disc:['HORIZ','VERT']},
+           {k:'span',lb:'Span',mn:.01,mx:1,st:.01,v:.5},{k:'mode',lb:'Sort By',mn:0,mx:2,st:1,v:0,disc:['LUM','HUE','SAT']}]},
+  {id:'blockshift',name:'BLOCK SHIFT',cat:'COMPRESSION',
+   hint:'Macroblock displacement — simulates H.264 P-frame drift in corrupted bitstreams.',enabled:false,
+   params:[{k:'bsize',lb:'Block',mn:4,mx:64,st:4,v:16},{k:'dx',lb:'Drift X',mn:-60,mx:60,st:1,v:0},
+           {k:'dy',lb:'Drift Y',mn:-40,mx:40,st:1,v:0},{k:'chaos',lb:'Chaos',mn:0,mx:1,st:.01,v:.15}]},
+  {id:'glitchscan',name:'GLITCH SCAN',cat:'COMPRESSION',
+   hint:'Horizontal scanline displacement — corrupted VHS read-head simulation.',enabled:false,
+   params:[{k:'density',lb:'Density',mn:0,mx:1,st:.01,v:.12},{k:'amplitude',lb:'Amplitude',mn:0,mx:320,st:1,v:50},
+           {k:'height',lb:'Height',mn:1,mx:32,st:1,v:4},{k:'stutter',lb:'Stutter',mn:0,mx:1,st:.01,v:.2}]},
+  {id:'chromableed',name:'CHROMA BLEED',cat:'COLOR',
+   hint:'Independent R/G/B temporal lag — holographic prismatic dispersion.',enabled:false,
+   params:[{k:'rLag',lb:'R Lag',mn:-CHLAG,mx:CHLAG,st:1,v:-5},{k:'gLag',lb:'G Lag',mn:-CHLAG,mx:CHLAG,st:1,v:0},
+           {k:'bLag',lb:'B Lag',mn:-CHLAG,mx:CHLAG,st:1,v:5},{k:'vShift',lb:'V Shift',mn:-20,mx:20,st:1,v:0}]},
+  {id:'colorburn',name:'COLOR BURN',cat:'COLOR',
+   hint:'Per-channel gain amplification with luminance crush floor.',enabled:false,
+   params:[{k:'rGain',lb:'R Gain',mn:0,mx:4,st:.05,v:1},{k:'gGain',lb:'G Gain',mn:0,mx:4,st:.05,v:1},
+           {k:'bGain',lb:'B Gain',mn:0,mx:4,st:.05,v:1},{k:'crush',lb:'Crush',mn:0,mx:1,st:.01,v:0}]},
+  {id:'colormap',name:'COLOR MAP',cat:'COLOR',
+   hint:'Luminance-driven palette replacement — vaporwave, sunset, heat & void maps.',enabled:false,
+   params:[{k:'palette',lb:'Palette',mn:0,mx:3,st:1,v:0,disc:['VAPOR','SUNSET','HEAT','VOID']},
+           {k:'strength',lb:'Strength',mn:0,mx:1,st:.01,v:.7},{k:'hue',lb:'Hue Rot',mn:0,mx:360,st:1,v:0},
+           {k:'invert',lb:'Invert',mn:0,mx:1,st:1,v:0,disc:['OFF','ON']}]},
+  {id:'echoghost',name:'ECHO GHOST',cat:'TEMPORAL',
+   hint:'Multi-layer frame echo with geometric opacity decay and spatial drift.',enabled:false,
+   params:[{k:'layers',lb:'Layers',mn:1,mx:8,st:1,v:3},{k:'spacing',lb:'Spacing',mn:1,mx:16,st:1,v:5},
+           {k:'decay',lb:'Decay',mn:.05,mx:.99,st:.01,v:.55},{k:'shift',lb:'Shift X',mn:-30,mx:30,st:1,v:0}]},
+  {id:'motionxfer',name:'MOTION XFER',cat:'TEMPORAL',
+   hint:'Motion delta from Src A applied to pixels of Src B — the fusion datamosh.',enabled:false,
+   params:[{k:'srcA',lb:'Src A',mn:0,mx:3,st:1,v:0},{k:'srcB',lb:'Src B',mn:0,mx:3,st:1,v:1},
+           {k:'strength',lb:'Strength',mn:0,mx:5,st:.05,v:1.5},{k:'memDecay',lb:'Memory',mn:0,mx:.99,st:.01,v:.8}]},
+  {id:'mirror',name:'MIRROR',cat:'DISTORT',
+   hint:'Geometric reflection — horizontal, vertical, quad, or radial kaleidoscope.',enabled:false,
+   params:[{k:'mode',lb:'Mode',mn:0,mx:3,st:1,v:0,disc:['H','V','QUAD','RADIAL']},
+           {k:'segments',lb:'Segments',mn:2,mx:16,st:1,v:6},{k:'angle',lb:'Angle',mn:0,mx:360,st:1,v:0},
+           {k:'blend',lb:'Blend',mn:0,mx:1,st:.01,v:1}]},
+  {id:'wavewarp',name:'WAVE WARP',cat:'DISTORT',
+   hint:'Animated sinusoidal pixel displacement on X and Y axes independently.',enabled:false,
+   params:[{k:'ampX',lb:'Amp X',mn:0,mx:80,st:.5,v:12},{k:'ampY',lb:'Amp Y',mn:0,mx:60,st:.5,v:6},
+           {k:'freqX',lb:'Freq X',mn:.1,mx:10,st:.1,v:2},{k:'freqY',lb:'Freq Y',mn:.1,mx:10,st:.1,v:3}]},
+  {id:'bloom',name:'BLOOM',cat:'DISTORT',
+   hint:'Bright-pixel luminance bloom — neon glow halo added around highlights.',enabled:false,
+   params:[{k:'threshold',lb:'Threshold',mn:0,mx:255,st:1,v:180},{k:'strength',lb:'Strength',mn:0,mx:3,st:.05,v:.8},
+           {k:'radius',lb:'Radius',mn:1,mx:12,st:1,v:4},{k:'tint',lb:'Tint',mn:0,mx:2,st:1,v:0,disc:['WHITE','PINK','BLUE']}]},
+  {id:'databend',name:'DATABEND',cat:'CORRUPT',
+   hint:'Raw byte-level pixel corruption — the original analogue datamosh technique.',enabled:false,
+   params:[{k:'rate',lb:'Rate',mn:0,mx:.08,st:.001,v:.004},{k:'blockLen',lb:'Block',mn:1,mx:600,st:1,v:100},
+           {k:'mode',lb:'Fill',mn:0,mx:3,st:1,v:2,disc:['ZERO','MAX','RAND','COPY']},{k:'seed',lb:'Seed',mn:0,mx:9999,st:1,v:42}]},
+  {id:'entropy',name:'ENTROPY FIELD',cat:'CORRUPT',
+   hint:'Motion-responsive blocks — still regions crystallize, high-motion regions shatter.',enabled:false,
+   params:[{k:'threshold',lb:'Threshold',mn:0,mx:60,st:1,v:12},{k:'crystal',lb:'Crystal',mn:0,mx:1,st:.01,v:.35},
+           {k:'shatter',lb:'Shatter',mn:0,mx:1,st:.01,v:.7},{k:'scale',lb:'Scale',mn:2,mx:32,st:1,v:8}]},
+];
+
+function P(fx){const o={};for(const p of fx.params)o[p.k]=p.v;return o;}
+function clamp(v,a,b){return v<a?a:v>b?b:v;}
+function lum(r,g,b){return(r*299+g*587+b*114)/255000;}
+
+// ── Datamosh ─────────────────────────────────────────
+function fxDatamosh(src,p){
+  const d=src.data;
+  for(let i=0;i<d.length;i+=4){
+    const dr=d[i]-prev[i],dg=d[i+1]-prev[i+1],db=d[i+2]-prev[i+2];
+    const m=(Math.abs(dr)+Math.abs(dg)+Math.abs(db))/3;
+    const bl=m>p.threshold?(1-p.blend)*.4:(1-p.blend)*.018;
+    accum[i]=accum[i]*p.decay+d[i]*bl;
+    accum[i+1]=accum[i+1]*p.decay+d[i+1]*bl;
+    accum[i+2]=accum[i+2]*p.decay+d[i+2]*bl;
+  }
+  const out=new ImageData(W,H);
+  for(let i=0;i<d.length;i+=4){
+    const dr=(d[i]-prev[i])*p.motAmp,dg=(d[i+1]-prev[i+1])*p.motAmp,db=(d[i+2]-prev[i+2])*p.motAmp;
+    out.data[i]=clamp(accum[i]+dr,0,255);out.data[i+1]=clamp(accum[i+1]+dg,0,255);
+    out.data[i+2]=clamp(accum[i+2]+db,0,255);out.data[i+3]=255;
+  }
+  return out;
+}
+
+// ── Pixel Sort ───────────────────────────────────────
+function fxPixelSort(src,p){
+  const out=new ImageData(new Uint8ClampedArray(src.data),W,H);
+  const thr=p.threshold/255,span=p.span,dir=p.direction|0,mode=p.mode|0;
+  function key(d,i){const r=d[i],g=d[i+1],b=d[i+2];
+    if(mode===0)return lum(r,g,b);
+    const mx=Math.max(r,g,b),mn=Math.min(r,g,b),dd=mx-mn;
+    if(mode===2)return mx===0?0:dd/mx;if(!dd)return 0;
+    let h=mx===r?(g-b)/dd:mx===g?2+(b-r)/dd:4+(r-g)/dd;return((h*60+360)%360)/360;}
+  function run(idxFn,len,maxSp){
+    let s=0;while(s<len){const bi=idxFn(s);
+      if(key(out.data,bi)>=thr){let e=s+1;const lim=Math.min(len,s+Math.floor(maxSp));
+        while(e<lim&&key(out.data,idxFn(e))>=thr)e++;
+        if(e-s>1){const seg=[];for(let i=s;i<e;i++){const ii=idxFn(i);seg.push([out.data[ii],out.data[ii+1],out.data[ii+2],key(out.data,ii)]);}
+          seg.sort((a,b)=>a[3]-b[3]);for(let i=s;i<e;i++){const ii=idxFn(i);out.data[ii]=seg[i-s][0];out.data[ii+1]=seg[i-s][1];out.data[ii+2]=seg[i-s][2];}}s=e;}else s++;}}
+  if(dir===0)for(let y=0;y<H;y++)run(x=>(y*W+x)*4,W,W*span);
+  else for(let x=0;x<W;x++)run(y=>(y*W+x)*4,H,H*span);
+  return out;
+}
+
+// ── Block Shift ──────────────────────────────────────
+function fxBlockShift(src,p){
+  const bs=Math.max(4,p.bsize|0),dx=p.dx|0,dy=p.dy|0,ch=p.chaos;
+  const out=new ImageData(new Uint8ClampedArray(src.data),W,H);
+  for(let by=0;by<H;by+=bs)for(let bx=0;bx<W;bx+=bs){
+    if(!ch&&!dx&&!dy)continue;if(ch>0&&Math.random()>ch+.1&&!dx&&!dy)continue;
+    const ox=dx+(ch>0?Math.round((Math.random()-.5)*ch*70):0);
+    const oy=dy+(ch>0?Math.round((Math.random()-.5)*ch*35):0);
+    for(let ry=0;ry<bs&&by+ry<H;ry++)for(let rx=0;rx<bs&&bx+rx<W;rx++){
+      const sx=((bx+rx-ox)+W*8)%W,sy=((by+ry-oy)+H*8)%H;
+      const di=((by+ry)*W+(bx+rx))*4,si=(sy*W+sx)*4;
+      out.data[di]=src.data[si];out.data[di+1]=src.data[si+1];out.data[di+2]=src.data[si+2];}
+  }return out;
+}
+
+// ── Glitch Scan ──────────────────────────────────────
+function fxGlitchScan(src,p){
+  const out=new ImageData(new Uint8ClampedArray(src.data),W,H);
+  if(Math.random()<p.density){const n=Math.floor(Math.random()*3)+1;
+    for(let i=0;i<n;i++)scanL.push({y:Math.floor(Math.random()*H),offset:Math.round((Math.random()-.5)*p.amplitude*2),life:Math.floor(Math.random()*8)+1,h:Math.floor(Math.random()*p.height)+1});}
+  for(let i=scanL.length-1;i>=0;i--)if(--scanL[i].life<=0)scanL.splice(i,1);
+  for(const sl of scanL){const xtra=Math.random()<p.stutter?Math.round((Math.random()-.5)*p.amplitude):0,off=sl.offset+xtra;
+    for(let dy=0;dy<sl.h&&sl.y+dy<H;dy++){const y=sl.y+dy;for(let x=0;x<W;x++){
+      const sx=((x-off)+W*8)%W,di=(y*W+x)*4,si=(y*W+sx)*4;
+      out.data[di]=src.data[si];out.data[di+1]=src.data[si+1];out.data[di+2]=src.data[si+2];}}}
+  return out;
+}
+
+// ── Chroma Bleed ─────────────────────────────────────
+function fxChromaBleed(src,p){
+  const R=new Uint8ClampedArray(PIX),G=new Uint8ClampedArray(PIX),B=new Uint8ClampedArray(PIX);
+  for(let i=0,j=0;i<src.data.length;i+=4,j++){R[j]=src.data[i];G[j]=src.data[i+1];B[j]=src.data[i+2];}
+  chrR.unshift(R);if(chrR.length>CHLAG)chrR.pop();chrG.unshift(G);if(chrG.length>CHLAG)chrG.pop();chrB.unshift(B);if(chrB.length>CHLAG)chrB.pop();
+  const ri=Math.min(Math.abs(p.rLag|0),chrR.length-1),gi=Math.min(Math.abs(p.gLag|0),chrG.length-1),bi=Math.min(Math.abs(p.bLag|0),chrB.length-1);
+  const rS=chrR[ri],gS=chrG[gi],bS=chrB[bi],vs=p.vShift|0;
+  const out=new ImageData(W,H);
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    const di=(y*W+x)*4,vy=((y-vs)+H*8)%H;
+    out.data[di]=rS?rS[(p.rLag>=0?y:vy)*W+x]:src.data[di];
+    out.data[di+1]=gS?gS[y*W+x]:src.data[di+1];
+    out.data[di+2]=bS?bS[(p.bLag>=0?y:vy)*W+x]:src.data[di+2];
+    out.data[di+3]=255;}
+  return out;
+}
+
+// ── Color Burn ───────────────────────────────────────
+function fxColorBurn(src,p){
+  const out=new ImageData(W,H),crush=p.crush*255;
+  for(let i=0;i<src.data.length;i+=4){
+    let r=src.data[i]*p.rGain,g=src.data[i+1]*p.gGain,b=src.data[i+2]*p.bGain;
+    if(r*.3+g*.59+b*.11<crush){r=0;g=0;b=0;}
+    out.data[i]=clamp(r,0,255);out.data[i+1]=clamp(g,0,255);out.data[i+2]=clamp(b,0,255);out.data[i+3]=255;}
+  return out;
+}
+
+// ── Color Map ────────────────────────────────────────
+const PALETTES=[
+  [[16,0,48],[80,0,140],[180,0,180],[255,100,200],[100,200,255],[200,255,255],[255,255,255]],  // vapor
+  [[20,0,40],[100,10,80],[200,40,60],[255,120,20],[255,200,50],[255,240,180],[255,255,255]],   // sunset
+  [[0,0,0],[100,0,0],[220,40,0],[255,200,0],[255,255,100],[255,255,255]],                      // heat
+  [[0,0,10],[0,10,60],[0,60,120],[20,120,200],[100,220,255],[220,255,255]],                    // void
+];
+function buildLUT(mapIdx){
+  const map=PALETTES[mapIdx%PALETTES.length];
+  const lut=new Uint8Array(256*3);
+  for(let i=0;i<256;i++){const t=(i/255)*(map.length-1),lo=Math.floor(t),hi=Math.min(lo+1,map.length-1),f=t-lo;
+    lut[i*3]=Math.round(map[lo][0]*(1-f)+map[hi][0]*f);lut[i*3+1]=Math.round(map[lo][1]*(1-f)+map[hi][1]*f);lut[i*3+2]=Math.round(map[lo][2]*(1-f)+map[hi][2]*f);}
+  return lut;
+}
+let lutCache=[null,null,null,null];
+function getLUT(i){if(!lutCache[i])lutCache[i]=buildLUT(i);return lutCache[i];}
+
+function fxColorMap(src,p){
+  const out=new ImageData(new Uint8ClampedArray(src.data),W,H);
+  const lut=getLUT(p.palette|0),str=p.strength,inv=p.invert|0;
+  for(let i=0;i<out.data.length;i+=4){
+    let l=Math.round(lum(out.data[i],out.data[i+1],out.data[i+2])*255);
+    if(inv)l=255-l;
+    const lr=lut[l*3],lg=lut[l*3+1],lb=lut[l*3+2];
+    out.data[i]=Math.round(out.data[i]*(1-str)+lr*str);
+    out.data[i+1]=Math.round(out.data[i+1]*(1-str)+lg*str);
+    out.data[i+2]=Math.round(out.data[i+2]*(1-str)+lb*str);}
+  return out;
+}
+
+// ── Echo Ghost ───────────────────────────────────────
+function fxEchoGhost(src,p){
+  const out=new ImageData(new Uint8ClampedArray(src.data),W,H);
+  const layers=p.layers|0,spacing=p.spacing|0,decay=p.decay,shift=p.shift|0;
+  for(let l=0;l<layers;l++){const fi=(l+1)*spacing;if(fi>=fhist.length)break;
+    const hist=fhist[fi],alpha=Math.pow(decay,l+1),ia=1-alpha;
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){const di=(y*W+x)*4,sx=((x-shift*(l+1))+W*8)%W,si=(y*W+sx)*4;
+      out.data[di]=clamp(out.data[di]*ia+hist[si]*alpha,0,255);
+      out.data[di+1]=clamp(out.data[di+1]*ia+hist[si+1]*alpha,0,255);
+      out.data[di+2]=clamp(out.data[di+2]*ia+hist[si+2]*alpha,0,255);}}
+  return out;
+}
+
+// ── Motion Xfer ──────────────────────────────────────
+function fxMotionXfer(src,frames,p){
+  const aI=clamp(p.srcA|0,0,frames.length-1),bI=clamp(p.srcB|0,0,frames.length-1);
+  const sA=frames[aI]||src,sB=frames[bI]||src,pA=(srcs[aI]&&srcs[aI].prevFrame)||prev;
+  const s=p.strength,md=p.memDecay;
+  const out=new ImageData(W,H);
+  for(let i=0;i<PIX;i++){const pi=i*4;
+    const dr=(sA.data[pi]-pA[pi])*s,dg=(sA.data[pi+1]-pA[pi+1])*s,db=(sA.data[pi+2]-pA[pi+2])*s;
+    const disp=(dr+dg+db)/3;
+    motX[i]=motX[i]*md+disp*.3;motY[i]=motY[i]*md+disp*.15;
+    const tx=clamp(Math.round((i%W)+motX[i]),0,W-1),ty=clamp(Math.round(Math.floor(i/W)+motY[i]),0,H-1);
+    const si=(ty*W+tx)*4;
+    out.data[pi]=clamp(sB.data[si]+dr*.4,0,255);out.data[pi+1]=clamp(sB.data[si+1]+dg*.4,0,255);
+    out.data[pi+2]=clamp(sB.data[si+2]+db*.4,0,255);out.data[pi+3]=255;}
+  return out;
+}
+
+// ── Mirror / Kaleidoscope ─────────────────────────────
+function fxMirror(src,p){
+  const out=new ImageData(W,H),mode=p.mode|0,segs=Math.max(2,p.segments|0),blend=p.blend;
+  const cx=W/2,cy=H/2;
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    let sx,sy;
+    if(mode===0){sx=x<cx?x:W-1-x;sy=y;}
+    else if(mode===1){sx=x;sy=y<cy?y:H-1-y;}
+    else if(mode===2){sx=x<cx?x:W-1-x;sy=y<cy?y:H-1-y;}
+    else{const dx=x-cx,dy=y-cy,ang=Math.atan2(dy,dx),r=Math.sqrt(dx*dx+dy*dy);
+      const segA=Math.PI*2/segs,na=((ang%segA)+segA)%segA,fa=na>segA/2?segA-na:na;
+      sx=Math.round(cx+r*Math.cos(fa));sy=Math.round(cy+r*Math.sin(fa));}
+    sx=clamp(sx,0,W-1);sy=clamp(sy,0,H-1);
+    const di=(y*W+x)*4,si=(sy*W+sx)*4;
+    out.data[di]=Math.round(src.data[di]*(1-blend)+src.data[si]*blend);
+    out.data[di+1]=Math.round(src.data[di+1]*(1-blend)+src.data[si+1]*blend);
+    out.data[di+2]=Math.round(src.data[di+2]*(1-blend)+src.data[si+2]*blend);
+    out.data[di+3]=255;}
+  return out;
+}
+
+// ── Wave Warp ────────────────────────────────────────
+function fxWaveWarp(src,p){
+  const out=new ImageData(W,H);waveT+=.038;
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    const di=(y*W+x)*4;
+    const ox=Math.round(p.ampX*Math.sin(y/H*Math.PI*2*p.freqY+waveT));
+    const oy=Math.round(p.ampY*Math.sin(x/W*Math.PI*2*p.freqX+waveT*1.3));
+    const sx=clamp(x+ox,0,W-1),sy=clamp(y+oy,0,H-1),si=(sy*W+sx)*4;
+    out.data[di]=src.data[si];out.data[di+1]=src.data[si+1];out.data[di+2]=src.data[si+2];out.data[di+3]=255;}
+  return out;
+}
+
+// ── Bloom ────────────────────────────────────────────
+function fxBloom(src,p){
+  const thr=p.threshold,str=p.strength,rad=Math.max(1,p.radius|0),tint=p.tint|0;
+  // Extract brights
+  const bright=new Uint8ClampedArray(PIX*4);
+  for(let i=0;i<src.data.length;i+=4){
+    const l=src.data[i]*.3+src.data[i+1]*.59+src.data[i+2]*.11;
+    if(l>thr){bright[i]=src.data[i];bright[i+1]=src.data[i+1];bright[i+2]=src.data[i+2];}
+    bright[i+3]=255;}
+  // Box blur horizontal pass
+  const tmp=new Uint8ClampedArray(PIX*4);
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    let r=0,g=0,b=0,c=0;
+    for(let dx=-rad;dx<=rad;dx++){const sx=clamp(x+dx,0,W-1),i=(y*W+sx)*4;r+=bright[i];g+=bright[i+1];b+=bright[i+2];c++;}
+    const i=(y*W+x)*4;tmp[i]=r/c;tmp[i+1]=g/c;tmp[i+2]=b/c;tmp[i+3]=255;}
+  // Vertical pass
+  const blr=new Uint8ClampedArray(PIX*4);
+  for(let x=0;x<W;x++)for(let y=0;y<H;y++){
+    let r=0,g=0,b=0,c=0;
+    for(let dy=-rad;dy<=rad;dy++){const sy=clamp(y+dy,0,H-1),i=(sy*W+x)*4;r+=tmp[i];g+=tmp[i+1];b+=tmp[i+2];c++;}
+    const i=(y*W+x)*4;blr[i]=r/c;blr[i+1]=g/c;blr[i+2]=b/c;blr[i+3]=255;}
+  // Composite
+  const out=new ImageData(new Uint8ClampedArray(src.data),W,H);
+  const tintR=tint===1?1.8:tint===2?.6:1;
+  const tintG=tint===1?1:tint===2?1:1;
+  const tintB=tint===1?1.5:tint===2?2.2:1;
+  for(let i=0;i<out.data.length;i+=4){
+    out.data[i]=clamp(out.data[i]+blr[i]*str*tintR,0,255);
+    out.data[i+1]=clamp(out.data[i+1]+blr[i+1]*str*tintG,0,255);
+    out.data[i+2]=clamp(out.data[i+2]+blr[i+2]*str*tintB,0,255);}
+  return out;
+}
+
+// ── Databend ─────────────────────────────────────────
+function xors(n){n^=n<<13;n^=n>>17;n^=n<<5;return n>>>0;}
+function fxDatabend(src,p){
+  const out=new ImageData(new Uint8ClampedArray(src.data),W,H);
+  const rate=p.rate,blen=p.blockLen|0,mode=p.mode|0,total=out.data.length;
+  bendRng=p.seed||1;
+  for(let i=0;i<total;i+=4){bendRng=xors(bendRng);if((bendRng/0xffffffff)<rate){
+    bendRng=xors(bendRng);const len=Math.floor((bendRng/0xffffffff)*blen*4);
+    for(let j=0;j<len&&i+j<total;j++){if((i+j)%4===3){out.data[i+j]=255;continue;}
+      bendRng=xors(bendRng);
+      switch(mode){case 0:out.data[i+j]=0;break;case 1:out.data[i+j]=255;break;
+        case 2:out.data[i+j]=bendRng%256;break;case 3:out.data[i+j]=out.data[clamp(i+j-blen*4,0,total-4)+((i+j)%4)];break;}}}}
+  return out;
+}
+
+// ── Entropy Field ────────────────────────────────────
+function fxEntropy(src,p){
+  const out=new ImageData(new Uint8ClampedArray(src.data),W,H);
+  const sc=p.scale|0,thr=p.threshold,cry=p.crystal,sha=p.shatter;
+  for(let by=0;by<H;by+=sc)for(let bx=0;bx<W;bx+=sc){
+    let mot=0,cnt=0;
+    for(let ry=0;ry<sc&&by+ry<H;ry+=2)for(let rx=0;rx<sc&&bx+rx<W;rx+=2){
+      const i=((by+ry)*W+(bx+rx))*4;mot+=(Math.abs(src.data[i]-prev[i])+Math.abs(src.data[i+1]-prev[i+1])+Math.abs(src.data[i+2]-prev[i+2]))/3;cnt++;}
+    mot/=cnt;
+    if(mot<thr){if(Math.random()<cry){let r=0,g=0,b=0,c=0;
+        for(let ry=0;ry<sc&&by+ry<H;ry++)for(let rx=0;rx<sc&&bx+rx<W;rx++){const i=((by+ry)*W+(bx+rx))*4;r+=src.data[i];g+=src.data[i+1];b+=src.data[i+2];c++;}
+        r/=c;g/=c;b/=c;for(let ry=0;ry<sc&&by+ry<H;ry++)for(let rx=0;rx<sc&&bx+rx<W;rx++){const i=((by+ry)*W+(bx+rx))*4;out.data[i]=r;out.data[i+1]=g;out.data[i+2]=b;}}}
+    else if(Math.random()<sha){for(let ry=0;ry<sc&&by+ry<H;ry++)for(let rx=0;rx<sc&&bx+rx<W;rx++){
+        const di=((by+ry)*W+(bx+rx))*4,sx=clamp(bx+Math.floor(Math.random()*sc),0,W-1),sy=clamp(by+Math.floor(Math.random()*sc),0,H-1),si=(sy*W+sx)*4;
+        out.data[di]=src.data[si];out.data[di+1]=src.data[si+1];out.data[di+2]=src.data[si+2];}}}
+  return out;
+}
+
+function applyFx(fx,src,frames){
+  const p=P(fx);
+  switch(fx.id){
+    case 'datamosh':    return fxDatamosh(src,p);
+    case 'pixelsort':   return fxPixelSort(src,p);
+    case 'blockshift':  return fxBlockShift(src,p);
+    case 'glitchscan':  return fxGlitchScan(src,p);
+    case 'chromableed': return fxChromaBleed(src,p);
+    case 'colorburn':   return fxColorBurn(src,p);
+    case 'colormap':    return fxColorMap(src,p);
+    case 'echoghost':   return fxEchoGhost(src,p);
+    case 'motionxfer':  return fxMotionXfer(src,frames,p);
+    case 'mirror':      return fxMirror(src,p);
+    case 'wavewarp':    return fxWaveWarp(src,p);
+    case 'bloom':       return fxBloom(src,p);
+    case 'databend':    return fxDatabend(src,p);
+    case 'entropy':     return fxEntropy(src,p);
+    default:            return src;
+  }
+}
+
+// ── Source blending ──────────────────────────────────
+function captureFrames(){
+  const frames=[];
+  for(const s of srcs){
+    if(!s.video||s.video.readyState<2){frames.push(null);continue;}
+    offCtx.drawImage(s.video,0,0,W,H);
+    const id=offCtx.getImageData(0,0,W,H);frames.push(id);
+    if(!s.prevFrame)s.prevFrame=new Uint8ClampedArray(PIX*4);
+    s.prevFrame.set(id.data);
+  }
+  return frames;
+}
+
+function blendFrames(frames){
+  const primary=frames[activeSrc]||frames.find(f=>f);if(!primary)return null;
+  const loaded=frames.map((f,i)=>f?i:-1).filter(i=>i>=0);
+  if(loaded.length<=1||blendMode==='primary')return primary;
+  const tw=loaded.reduce((s,i)=>s+(srcs[i].weight||1),0);
+  const comp=new ImageData(W,H);
+  for(let pi=0;pi<PIX*4;pi+=4){
+    let r=0,g=0,b=0;
+    for(const si of loaded){const f=frames[si],w=(srcs[si].weight||1)/tw;
+      const fr=f.data[pi],fg=f.data[pi+1],fb=f.data[pi+2];
+      if(blendMode==='average'){r+=fr*w;g+=fg*w;b+=fb*w;}
+      else if(blendMode==='diff'){if(si===loaded[0]){r=fr;g=fg;b=fb;}else{r=Math.abs(r-fr);g=Math.abs(g-fg);b=Math.abs(b-fb);}}
+      else if(blendMode==='multiply'){if(si===loaded[0]){r=fr;g=fg;b=fb;}else{r=r*fr/255;g=g*fg/255;b=b*fb/255;}}
+      else if(blendMode==='screen'){if(si===loaded[0]){r=fr;g=fg;b=fb;}else{r=255-(255-r)*(255-fr)/255;g=255-(255-g)*(255-fg)/255;b=255-(255-b)*(255-fb)/255;}}
+      else if(blendMode==='additive'){r+=fr*w;g+=fg*w;b+=fb*w;}}
+    comp.data[pi]=clamp(r,0,255);comp.data[pi+1]=clamp(g,0,255);comp.data[pi+2]=clamp(b,0,255);comp.data[pi+3]=255;}
+  return comp;
+}
+
+// ── Render ────────────────────────────────────────────
+function renderPlaceholder(){
+  ctx.fillStyle='#07001a';ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#18003a';
+  for(let y=0;y<H;y+=50)ctx.fillRect(0,y,W,1);
+  for(let x=0;x<W;x+=66)ctx.fillRect(x,0,1,H);
+  ctx.textAlign='center';
+  ctx.fillStyle='#3a1060';ctx.font='bold 13px Courier New';
+  ctx.fillText('∅ DAREDREAM STUDIOS // DATAMOSH ENGINE ∅',W/2,H/2-14);
+  ctx.fillStyle='#28004a';ctx.font='10px Courier New';
+  ctx.fillText('DROP VIDEO FILES INTO SOURCE SLOTS TO BEGIN',W/2,H/2+10);
+  ctx.textAlign='left';
+}
+
+function render(){
+  const frames=captureFrames();
+  let cur=blendFrames(frames);
+  if(!cur){renderPlaceholder();return;}
+  for(const fx of EFFECTS){if(!fx.enabled)continue;cur=applyFx(fx,cur,frames);}
+  const snap=new Uint8ClampedArray(cur.data);
+  fhist.unshift(snap);if(fhist.length>FHSZ)fhist.pop();
+  prev2.set(prev);prev.set(cur.data);
+  ctx.putImageData(cur,0,0);
+  let mot=0;const st=200;
+  for(let i=0;i<PIX*4;i+=4*st)mot+=Math.abs(cur.data[i]-prev2[i])+Math.abs(cur.data[i+1]-prev2[i+1])+Math.abs(cur.data[i+2]-prev2[i+2]);
+  motMeter=motMeter*.82+(mot/(PIX/st*3))/255*.18;
+}
+
+function updateHUD(){
+  fc++;document.getElementById('h-frame').textContent=fc;
+  fpsAcc++;const now=performance.now();
+  if(now-lastFpsTs>600){document.getElementById('h-fps').textContent=Math.round(fpsAcc*1000/(now-lastFpsTs));fpsAcc=0;lastFpsTs=now;}
+  const ac=EFFECTS.filter(e=>e.enabled).length;
+  document.getElementById('h-glitch').textContent=Math.round(ac/EFFECTS.length*100)+'%';
+  const el=(Date.now()-sessStart)/1000,m=Math.floor(el/60),s=Math.floor(el%60),fr=fc%30;
+  document.getElementById('ttime').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+':'+String(fr).padStart(2,'0');
+  const dur=parseInt(document.getElementById('durslider').value),pct=((el%dur)/dur)*100;
+  document.getElementById('ph').style.left=pct+'%';
+  document.getElementById('tf-g').style.width=(ac/EFFECTS.length*100)+'%';
+  document.getElementById('tf-m').style.width=clamp(motMeter*800,0,100)+'%';
+  document.getElementById('tf-t').style.width=pct+'%';
+  document.getElementById('seqpos').textContent=clips.length?(clipPos+1)+'/'+clips.length:'—';
+}
+
+function loop(){
+  if(playing){checkBeat();render();updateHUD();}
+  rafId=requestAnimationFrame(loop);
+}
+
+// ── Transport ─────────────────────────────────────────
+function togglePlay(){
+  playing=!playing;
+  document.getElementById('pbtn').textContent=playing?'⏸ PAUSE':'▶ PLAY';
+  setState(playing?'PLAYING':'PAUSED');
+  if(playing)sessStart=Date.now()-fc*(1000/30);
+}
+
+function toggleRecord(){if(!recording)startRec();else stopRec();}
+
+function startRec(){
+  const stream=cvs.captureStream(30);
+  const types=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'];
+  let opts;for(const t of types)if(MediaRecorder.isTypeSupported(t)){opts={mimeType:t};break;}
+  mediaRec=opts?new MediaRecorder(stream,opts):new MediaRecorder(stream);
+  recChunks=[];mediaRec.ondataavailable=e=>{if(e.data.size>0)recChunks.push(e.data);};
+  mediaRec.start(100);recording=true;
+  if(!playing)togglePlay();
+  document.getElementById('rbtn').classList.add('on');document.getElementById('rbtn').textContent='⏹ STOP';
+  document.getElementById('rec-badge').style.display='block';setState('RECORDING');
+}
+
+function stopRec(){
+  if(!mediaRec||mediaRec.state==='inactive')return;
+  mediaRec.stop();mediaRec.onstop=()=>{
+    lastBlob=new Blob(recChunks,{type:recChunks[0]?.type||'video/webm'});
+    document.getElementById('dlbtn').style.display='';setState('DONE — CLICK ⬇ SAVE');};
+  recording=false;
+  document.getElementById('rbtn').classList.remove('on');document.getElementById('rbtn').textContent='⏺ REC';
+  document.getElementById('rec-badge').style.display='none';
+}
+
+function downloadLast(){
+  if(!lastBlob)return;
+  const url=URL.createObjectURL(lastBlob);
+  const a=document.createElement('a');a.href=url;a.download='daredream_datamosh_'+Date.now()+'.webm';
+  a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);setState('DOWNLOADING…');
+}
+
+function resetAccum(){
+  accum.fill(0);motX.fill(0);motY.fill(0);fhist.length=0;chrR.length=0;chrG.length=0;chrB.length=0;
+  scanL.length=0;prev.fill(0);prev2.fill(0);fc=0;sessStart=Date.now();waveT=0;bendRng=1234567;
+  setState('ACCUM CLEARED');
+}
+
+function setState(s){document.getElementById('h-state').textContent=s;}
+
+// ── Keyboard shortcuts ────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
+  switch(e.key){
+    case ' ':e.preventDefault();togglePlay();break;
+    case 'k':case 'K':manualCut();break;
+    case 'r':case 'R':toggleRecord();break;
+    case 'c':case 'C':resetAccum();break;
+    case '1':setActive(0);break;case '2':setActive(1);break;
+    case '3':setActive(2);break;case '4':setActive(3);break;
+  }
+});
+
+// ── Randomize ─────────────────────────────────────────
+function shuffleEffects(){
+  setAll(false);const n=Math.floor(Math.random()*4)+1;const pool=[...EFFECTS];
+  for(let i=0;i<n&&pool.length;i++){const ri=Math.floor(Math.random()*pool.length);const fx=pool.splice(ri,1)[0];
+    enableFx(fx.id);for(const p of fx.params){p.v=p.mn+Math.random()*(p.mx-p.mn);const s=document.getElementById(`s-${fx.id}-${p.k}`);if(s)s.value=p.v;setParam(fx.id,p.k,p.v,p.disc?p.disc.join(','):'');}}
+  resetAccum();setState('RANDOMIZED');
+}
+
+// ── UI Builders ───────────────────────────────────────
+function buildEffectPanel(){
+  const list=document.getElementById('efxlist');let lastCat='';
+  for(const fx of EFFECTS){
+    if(fx.cat!==lastCat){lastCat=fx.cat;const sep=document.createElement('div');sep.className='cat-sep';sep.textContent='// '+fx.cat;list.appendChild(sep);}
+    const card=document.createElement('div');card.className='ecard'+(fx.enabled?' on':'');card.id='card-'+fx.id;
+    let ph='';
+    for(const param of fx.params){const isD=!!param.disc;const dv=isD?(param.disc[Math.round(param.v)]||param.v):param.v.toFixed(param.st<.01?3:param.st<.1?2:param.st<1?1:0);
+      ph+=`<div class="prow"><span class="pl">${param.lb}</span><input type="range" min="${param.mn}" max="${param.mx}" step="${param.st}" value="${param.v}" oninput="setParam('${fx.id}','${param.k}',+this.value,'${isD?param.disc.join(','):''}')" id="s-${fx.id}-${param.k}"><span class="pv" id="v-${fx.id}-${param.k}">${dv}</span></div>`;}
+    card.innerHTML=`<div class="ehead" onclick="toggleFx('${fx.id}')"><div class="edot ${fx.enabled?'on':''}" id="dot-${fx.id}"></div><div class="ename">${fx.name}</div></div><div class="ehint">${fx.hint}</div>${ph}`;
+    list.appendChild(card);
+  }
+}
+
+function toggleFx(id){const fx=EFFECTS.find(e=>e.id===id);if(!fx)return;fx.enabled=!fx.enabled;document.getElementById('card-'+id).classList.toggle('on',fx.enabled);document.getElementById('dot-'+id).classList.toggle('on',fx.enabled);}
+function enableFx(id){const fx=EFFECTS.find(e=>e.id===id);if(!fx)return;fx.enabled=true;document.getElementById('card-'+id)?.classList.add('on');document.getElementById('dot-'+id)?.classList.add('on');}
+function setAll(val){for(const fx of EFFECTS){fx.enabled=val;document.getElementById('card-'+fx.id)?.classList.toggle('on',val);document.getElementById('dot-'+fx.id)?.classList.toggle('on',val);}}
+function setP(fxId,key,val){const el=document.getElementById(`s-${fxId}-${key}`);if(el)el.value=val;setParam(fxId,key,val,'');}
+function setParam(fxId,key,val,discStr){
+  const fx=EFFECTS.find(e=>e.id===fxId);if(!fx)return;const param=fx.params.find(p=>p.k===key);if(!param)return;param.v=val;
+  const el=document.getElementById(`v-${fxId}-${key}`);if(!el)return;
+  if(discStr){const d=discStr.split(',');el.textContent=d[Math.round(val)]||val;}
+  else el.textContent=val.toFixed(param.st<.01?3:param.st<.1?2:param.st<1?1:0);
+}
+
+// ── Presets ───────────────────────────────────────────
+const PRESETS=[
+  {name:'DREAMWASH',apply(){setAll(false);enableFx('datamosh');setP('datamosh','decay',.974);setP('datamosh','blend',.90);setP('datamosh','threshold',5);setP('datamosh','motAmp',1.3);}},
+  {name:'VORTEX',apply(){setAll(false);enableFx('datamosh');enableFx('blockshift');setP('blockshift','bsize',16);setP('blockshift','chaos',.72);setP('datamosh','decay',.942);}},
+  {name:'CHROMA',apply(){setAll(false);enableFx('chromableed');enableFx('colorburn');enableFx('bloom');setP('chromableed','rLag',-9);setP('chromableed','bLag',9);setP('colorburn','rGain',1.5);setP('colorburn','bGain',1.7);setP('bloom','threshold',160);setP('bloom','tint',1);}},
+  {name:'VAPOR',apply(){setAll(false);enableFx('colormap');enableFx('bloom');enableFx('datamosh');setP('colormap','palette',0);setP('colormap','strength',.75);setP('bloom','threshold',150);setP('bloom','tint',1);setP('datamosh','decay',.96);}},
+  {name:'ENTROPY',apply(){setAll(false);enableFx('entropy');enableFx('datamosh');setP('entropy','crystal',.55);setP('entropy','shatter',.88);setP('datamosh','decay',.966);}},
+  {name:'TIMEWARP',apply(){setAll(false);enableFx('echoghost');enableFx('datamosh');enableFx('chromableed');setP('echoghost','layers',5);setP('echoghost','decay',.62);setP('echoghost','shift',4);setP('datamosh','blend',.92);}},
+  {name:'CORRUPT',apply(){setAll(false);enableFx('databend');enableFx('glitchscan');enableFx('blockshift');setP('databend','rate',.007);setP('glitchscan','density',.18);setP('blockshift','chaos',.6);}},
+  {name:'FUSION',apply(){setAll(false);enableFx('motionxfer');enableFx('datamosh');enableFx('chromableed');setP('motionxfer','strength',2.0);setP('motionxfer','memDecay',.85);setP('datamosh','decay',.96);}},
+  {name:'MELT',apply(){setAll(false);enableFx('pixelsort');enableFx('datamosh');setP('pixelsort','threshold',60);setP('pixelsort','direction',1);setP('pixelsort','span',.8);setP('datamosh','blend',.94);}},
+  {name:'KALEID',apply(){setAll(false);enableFx('mirror');enableFx('datamosh');enableFx('colormap');setP('mirror','mode',3);setP('mirror','segments',8);setP('colormap','palette',0);setP('colormap','strength',.6);}},
+  {name:'WAVE',apply(){setAll(false);enableFx('wavewarp');enableFx('datamosh');enableFx('chromableed');setP('wavewarp','ampX',20);setP('wavewarp','ampY',12);setP('datamosh','decay',.96);}},
+  {name:'∅ CLEAN',apply(){setAll(false);resetAccum();}},
+];
+
+function buildPresets(){
+  const g=document.getElementById('pgrid');
+  for(const pr of PRESETS){const btn=document.createElement('button');btn.className='pbtn';btn.textContent=pr.name;
+    btn.onclick=()=>{pr.apply();resetAccum();g.querySelectorAll('.pbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');setState(pr.name+' LOADED');};
+    g.appendChild(btn);}
+}
+
+// ── INIT ──────────────────────────────────────────────
+buildEffectPanel();
+buildPresets();
+addSlot();addSlot();
+renderPlaceholder();
+loop();
+</script>
+</body>
+</html>
