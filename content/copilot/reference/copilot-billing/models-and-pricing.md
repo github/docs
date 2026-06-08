@@ -39,7 +39,6 @@ All prices are **per 1 million tokens**.
 | {{ entry.model }} | {{ entry.release_status }} | {{ entry.category }} | {{ entry.tier }} | {{ entry.threshold }} | {{ entry.input }} | {{ entry.cached_input }} | {{ entry.output }} |
 | {% endif %}{% endfor %} |
 
-
 ### Anthropic
 
 Anthropic models include a cache write cost in addition to cached input.

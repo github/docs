@@ -776,7 +776,20 @@
             "contentType": "application/json",
             "description": "<p>Budget created successfully</p>",
             "example": {
-              "message": "Budget successfully created."
+              "message": "Budget successfully created.",
+              "budget": {
+                "id": "f5236c62-157f-4d8f-a79e-ffb91058ee97",
+                "budget_type": "ProductPricing",
+                "budget_product_sku": "actions",
+                "budget_scope": "organization",
+                "budget_entity_name": "example-organization",
+                "budget_amount": 100,
+                "prevent_further_usage": true,
+                "budget_alerting": {
+                  "will_alert": false,
+                  "alert_recipients": []
+                }
+              }
             },
             "schema": {
               "type": "object",
@@ -809,9 +822,8 @@
                       "description": "The name of the entity to apply the budget to"
                     },
                     "budget_amount": {
-                      "type": "number",
-                      "format": "float",
-                      "description": "The budget amount in dollars",
+                      "type": "integer",
+                      "description": "The budget amount in whole dollars. For license-based products, this represents the number of licenses.",
                       "minimum": 0
                     },
                     "prevent_further_usage": {
@@ -1200,7 +1212,7 @@
                 "budget_product_sku": "actions_linux",
                 "budget_scope": "repository",
                 "budget_entity_name": "org-name/example-repo-name",
-                "budget_amount": 0,
+                "budget_amount": 10,
                 "prevent_further_usage": true,
                 "budget_alerting": {
                   "will_alert": true,
@@ -1240,9 +1252,8 @@
                       "description": "The name of the entity to apply the budget to"
                     },
                     "budget_amount": {
-                      "type": "number",
-                      "format": "float",
-                      "description": "The budget amount in dollars",
+                      "type": "integer",
+                      "description": "The budget amount in whole dollars. For license-based products, this represents the number of licenses.",
                       "minimum": 0
                     },
                     "prevent_further_usage": {

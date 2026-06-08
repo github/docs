@@ -12,6 +12,7 @@ children:
   - /code-review
   - /copilot-memory
   - /hooks
+  - /about-enterprise-plugin-standards
   - /about-third-party-coding-agents
   - /agent-apps
   - /openai-codex
@@ -20,3 +21,4 @@ children:
   - /enterprise-management
 contentType: concepts
 ---
+
