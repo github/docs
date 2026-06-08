@@ -18,7 +18,6 @@
 # - notes: Optional notes about the model.
 
 # OpenAI
-
 - model: 'GPT-5 mini'
   provider: openai
   release_status: GA
@@ -28,26 +27,6 @@
   input: $0.25
   cached_input: $0.025
   output: $2.00
-
-- model: GPT-5.2
-  provider: openai
-  release_status: GA
-  category: Versatile
-  threshold: Not applicable
-  tier: Default
-  input: $1.75
-  cached_input: $0.175
-  output: $14.00
-
-- model: GPT-5.2-Codex
-  provider: openai
-  release_status: GA
-  category: Powerful
-  threshold: Not applicable
-  tier: Default
-  input: $1.75
-  cached_input: $0.175
-  output: $14.00
 
 - model: GPT-5.3-Codex
   provider: openai

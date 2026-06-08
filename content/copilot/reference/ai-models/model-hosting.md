@@ -21,8 +21,6 @@ contentType: reference
 Used for:
 
 * {% data variables.copilot.copilot_gpt_5_mini %}
-* {% data variables.copilot.copilot_gpt_52 %}
-* {% data variables.copilot.copilot_gpt_52_codex %}
 * {% data variables.copilot.copilot_gpt_53_codex %}
 * {% data variables.copilot.copilot_gpt_54 %}
 * {% data variables.copilot.copilot_gpt_54_mini %}
