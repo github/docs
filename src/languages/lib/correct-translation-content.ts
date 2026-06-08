@@ -177,6 +177,9 @@ export function correctTranslatedContentStrings(
     // `{% icono "X" ... %}` — "icono" = "icon" = octicon
     content = content.replaceAll('{% icono ', '{% octicon ')
     content = content.replaceAll('{%- icono ', '{%- octicon ')
+    // `{% alto "X" ... %}` — "alto" used as alias for octicon (observed in billing reusable)
+    content = content.replaceAll('{% alto ', '{% octicon ')
+    content = content.replaceAll('{%- alto ', '{%- octicon ')
     // `{% octicon "bombilla" %}` — Spanish "bombilla" = "light-bulb" (translated octicon name)
     content = content.replaceAll('{% octicon "bombilla"', '{% octicon "light-bulb"')
     content = content.replaceAll('{%- octicon "bombilla"', '{%- octicon "light-bulb"')
@@ -642,6 +645,12 @@ export function correctTranslatedContentStrings(
     content = content.replace(
       /\{%(-?)\s*(fpt|ghec|ghes)\s+ifversion\s*%\}/g,
       '{%$1 ifversion $2 %}',
+    )
+    // Multi-plan word-order swap: `{% ghes ifversion ou ghec %}` → `{% ifversion ghes or ghec %}`
+    // Handles the combination of word-order inversion AND Portuguese "ou" for "or".
+    content = content.replace(
+      /\{%(-?)\s*(fpt|ghec|ghes|ghae)\s+ifversion\s+(?:ou|or)\s+(fpt|ghec|ghes|ghae)\s*(-?)%\}/g,
+      '{%$1 ifversion $2 or $3 $4%}',
     )
     // With extra "de" word: `{% ghes de ifversion %}` → `{% ifversion ghes %}`
     content = content.replace(
@@ -1329,6 +1338,30 @@ export function correctTranslatedContentStrings(
       /\{%(-?)\s*des(?:\s+[^{}%\n]+?)?\s+variables\.([A-Za-z0-9._-]+)(\s*-?%\})/g,
       '{%$1 data variables.$2$3',
     )
+    // `{% modules réutilisables.X %}` — French "modules réutilisables" = "reusable modules"
+    // used in place of `{% data reusables.X %}`.
+    content = content.replaceAll('{% modules réutilisables.', '{% data reusables.')
+    content = content.replaceAll('{%- modules réutilisables.', '{%- data reusables.')
+    // `{% flux de travail variables.X %}` — French "flux de travail" = "workflow" was
+    // mistakenly substituted for the "data" keyword in data variable references.
+    content = content.replaceAll('{% flux de travail variables.', '{% data variables.')
+    content = content.replaceAll('{%- flux de travail variables.', '{%- data variables.')
+    // `{% invite %}` / `{%- invite %}` — French "invite" = "prompt"; translator used the
+    // French word as the tag opener for the `{% prompt %}` block tag.
+    content = content.replaceAll('{% invite %}', '{% prompt %}')
+    content = content.replaceAll('{%- invite %}', '{%- prompt %}')
+    content = content.replaceAll('{% invite -%}', '{% prompt -%}')
+    content = content.replaceAll('{%- invite -%}', '{%- prompt -%}')
+    // `{% collaborateurs invités ifversion %}` — French translation of
+    // `{% ifversion guest-collaborators %}` with both word-order swap and full translation.
+    content = content.replaceAll(
+      '{% collaborateurs invités ifversion %}',
+      '{% ifversion guest-collaborators %}',
+    )
+    content = content.replaceAll(
+      '{%- collaborateurs invités ifversion %}',
+      '{%- ifversion guest-collaborators %}',
+    )
   }
 
   if (context.code === 'ko') {
@@ -1677,6 +1710,15 @@ export function correctTranslatedContentStrings(
   }
 
   // --- Generic fixes (all languages) ---
+
+  // [copilot/tutorials/learn-a-new-language] The `${numCats}` JS template literal inside
+  // a backtick code span confused translators and caused the closing `{% endprompt %}` to
+  // be dropped from the JavaScript-conditional-example prompt block. Fix by appending
+  // `{% endprompt %}` to the line that contains the distinctive code.
+  content = content.replace(
+    /(\* \{%[- ]prompt [-]?%\}(?![^\n]*\{%-?\s*endprompt\s*-?%\})[^\n]*'cat is' : 'cats are'\} hungry\.[^\n]*(?:\?|？)[^\n]*)(\n|$)/g,
+    '$1{% endprompt %}$2',
+  )
 
   // Inside ANY Liquid tag `{% ... %}` (including `{% octicon ... %}`,
   // `{% data ... %}`, `{% assign ... %}` etc.), normalize typographic
