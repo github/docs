@@ -8278,6 +8278,21 @@
         },
         {
           "type": "boolean",
+          "name": "has_pull_requests",
+          "description": "<p>Either <code>true</code> to allow pull requests for this repository or <code>false</code> to prevent pull requests.</p>",
+          "default": true
+        },
+        {
+          "type": "string",
+          "name": "pull_request_creation_policy",
+          "description": "<p>The policy that controls who can create pull requests for this repository: <code>all</code> or <code>collaborators_only</code>.</p>",
+          "enum": [
+            "all",
+            "collaborators_only"
+          ]
+        },
+        {
+          "type": "boolean",
           "name": "is_template",
           "description": "<p>Either <code>true</code> to make this repo available as a template repository or <code>false</code> to prevent it.</p>",
           "default": false
