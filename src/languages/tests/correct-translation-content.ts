@@ -124,6 +124,13 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{%- icono "check" %}', 'es')).toBe('{%- octicon "check" %}')
     })
 
+    test('fixes alto → octicon', () => {
+      expect(fix('{% alto "link-external":16 aria-label="link-external" %}', 'es')).toBe(
+        '{% octicon "link-external":16 aria-label="link-external" %}',
+      )
+      expect(fix('{%- alto "check" %}', 'es')).toBe('{%- octicon "check" %}')
+    })
+
     test('fixes octicon "bombilla" → octicon "light-bulb"', () => {
       expect(fix('{% octicon "bombilla" aria-label="The light-bulb icon" %}', 'es')).toBe(
         '{% octicon "light-bulb" aria-label="The light-bulb icon" %}',
@@ -422,6 +429,14 @@ describe('correctTranslatedContentStrings', () => {
 
     test('fixes ou → or in if tags', () => {
       expect(fix('{% if condition ou other %}', 'pt')).toBe('{% if condition or other %}')
+    })
+
+    test('fixes multi-plan word-order swap with ou (ghes ifversion ou ghec)', () => {
+      // `{% ghes ifversion ou ghec %}` — word-order swap + Portuguese "ou" for "or"
+      expect(fix('{% ghes ifversion ou ghec %}', 'pt')).toBe('{% ifversion ghes or ghec %}')
+      expect(fix('{%- ghes ifversion ou ghec %}', 'pt')).toBe('{%- ifversion ghes or ghec %}')
+      expect(fix('{% fpt ifversion ou ghec %}', 'pt')).toBe('{% ifversion fpt or ghec %}')
+      expect(fix('{% ghec ifversion ou ghes %}', 'pt')).toBe('{% ifversion ghec or ghes %}')
     })
 
     test('fixes fully translated reutilizáveis reusables path', () => {
@@ -955,6 +970,41 @@ describe('correctTranslatedContentStrings', () => {
       expect(
         fix('{% données réutilisables propriétés-personnalisées valeurs-requises %}', 'fr'),
       ).toBe('{% data reusables.organizations.custom-properties-required-values %}')
+    })
+
+    test('fixes modules réutilisables → data reusables', () => {
+      expect(fix('{% modules réutilisables.enterprise_migrations.ready-to-import %}', 'fr')).toBe(
+        '{% data reusables.enterprise_migrations.ready-to-import %}',
+      )
+      expect(fix('{%- modules réutilisables.foo.bar %}', 'fr')).toBe(
+        '{%- data reusables.foo.bar %}',
+      )
+    })
+
+    test('fixes flux de travail variables → data variables', () => {
+      // `{% flux de travail variables.` — French "flux de travail" (workflow) mistakenly
+      // used as the Liquid tag name instead of "data".
+      expect(fix('{% flux de travail variables.product.prodname_actions %}', 'fr')).toBe(
+        '{% data variables.product.prodname_actions %}',
+      )
+      expect(fix('{%- flux de travail variables.copilot.foo %}', 'fr')).toBe(
+        '{%- data variables.copilot.foo %}',
+      )
+    })
+
+    test('fixes invite → prompt', () => {
+      expect(fix('{% invite %}', 'fr')).toBe('{% prompt %}')
+      expect(fix('{%- invite %}', 'fr')).toBe('{%- prompt %}')
+      expect(fix('{% invite -%}', 'fr')).toBe('{% prompt -%}')
+    })
+
+    test('fixes collaborateurs invités ifversion → ifversion guest-collaborators', () => {
+      expect(fix('{% collaborateurs invités ifversion %}', 'fr')).toBe(
+        '{% ifversion guest-collaborators %}',
+      )
+      expect(fix('{%- collaborateurs invités ifversion %}', 'fr')).toBe(
+        '{%- ifversion guest-collaborators %}',
+      )
     })
   })
 
@@ -1604,6 +1654,24 @@ describe('correctTranslatedContentStrings', () => {
       expect(fix('{% data variables.product.github Привет', 'ru')).toBe(
         '{% data variables.product.github %} Привет',
       )
+    })
+
+    test('fixes missing endprompt on the JS-numCats line (all translation languages)', () => {
+      // The `${}` template literal inside a backtick confused translators and they dropped
+      // `{% endprompt %}` from the line. Fix is applied universally across all languages.
+      const input =
+        "* {% prompt %}How do I write `The ${'cat is' : 'cats are'} hungry.`?{% endprompt %}\n" +
+        "* {% prompt %}In JS I'd write: `The ${'cat is' : 'cats are'} hungry.`. ¿How in NEW-LANGUAGE?\n" +
+        '* {% prompt %}Next question?{% endprompt %}'
+      const output =
+        "* {% prompt %}How do I write `The ${'cat is' : 'cats are'} hungry.`?{% endprompt %}\n" +
+        "* {% prompt %}In JS I'd write: `The ${'cat is' : 'cats are'} hungry.`. ¿How in NEW-LANGUAGE?{% endprompt %}\n" +
+        '* {% prompt %}Next question?{% endprompt %}'
+      expect(fix(input, 'es')).toBe(output)
+      expect(fix(input, 'pt')).toBe(output)
+      expect(fix(input, 'zh')).toBe(output)
+      expect(fix(input, 'de')).toBe(output)
+      expect(fix(input, 'fr')).toBe(output)
     })
 
     test('recovers linebreaks from English', () => {
