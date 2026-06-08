@@ -877,9 +877,9 @@ Supported values: `true` or `false`
 ## `versioning-strategy` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
 {% ifversion dependabot-uv-support %}
-Supported by: `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip`, `pub`, and `uv`
+Supported by: `bundler`, `cargo`, `composer`, `helm`, `mix`, `npm`, `pip`, `pub`, and `uv`
 {% else %}
-Supported by: `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip`, and `pub`
+Supported by: `bundler`, `cargo`, `composer`, `helm`, `mix`, `npm`, `pip`, and `pub`
 {% endif %}
 
 Define how {% data variables.product.prodname_dependabot %} should edit manifest files. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-a-versioning-strategy).
