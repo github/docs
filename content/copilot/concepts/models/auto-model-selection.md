@@ -48,16 +48,20 @@ When you select **Auto**, {% data variables.copilot.copilot_auto_model_selection
 * Models not available in your plan.
 * Models excluded by administrator policies. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 * Models excluded by policies restricting {% data variables.product.prodname_copilot_short %} to data-resident or FedRAMP-compliant models.
-* Models with premium request multipliers greater than one.
+* Models excluded by policies restricting [Evaluation models](/copilot/reference/ai-models/supported-models#evaluation-models).
 
-### Multiplier discounts
+### Disabling evaluation models in {% data variables.copilot.copilot_auto_model_selection_short %}
 
-{% data reusables.copilot.auto-model-multiplier-discount %} See [AUTOTITLE](/copilot/concepts/billing/copilot-requests#model-multipliers).
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} may serve evaluation models to users on {% data variables.product.prodname_copilot_short %} plans for individuals. Individuals can disable use of these models at any time. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#evaluation-models).
+
+### Discount for using {% data variables.copilot.copilot_auto_model_selection_short %}
+
+{% data reusables.copilot.auto-model-discount %}
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.product.prodname_copilot_short %}
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is available in these {% data variables.product.prodname_copilot_short %} products:
-* {% data variables.copilot.copilot_chat_short %}
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %}, optimized for model reliability and availability, is available in these {% data variables.product.prodname_copilot_short %} products: 
+* {% data variables.copilot.copilot_chat_short %}, on the {% data variables.product.github %} website and supported IDEs
 * {% data variables.copilot.copilot_cli_short %}
 * {% data variables.copilot.copilot_cloud_agent %}
 

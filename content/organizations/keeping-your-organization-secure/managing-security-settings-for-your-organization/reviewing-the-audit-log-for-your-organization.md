@@ -46,9 +46,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `billing` | Contains all activities related to your organization's billing.
 | `business` | Contains activities related to business settings for an enterprise. |
 | {% endif %} |
-| {% ifversion fpt or ghec or ghes > 3.16 %} |
 | `code-scanning` | Contains all activities related to your organization's code scanning alerts. |
-| {% endif %} |
 | {% ifversion fpt or ghec %} |
 | `codespaces` | Contains all activities related to your organization's codespaces. |
 | `copilot` | Contains all activities related to your {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} subscription.
@@ -211,7 +209,7 @@ Note that you can't retrieve Git events using the GraphQL API. To retrieve Git e
 
 The GraphQL response can include data for up to 90 to 120 days.
 
-For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the [AUTOTITLE](/graphql/reference/interfaces#auditentry/).
+For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the [AUTOTITLE](/graphql/reference/enterprise-admin#interface-auditentry/).
 
 {% ifversion ghec %}
 

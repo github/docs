@@ -40,13 +40,9 @@ You can use {% data variables.product.prodname_copilot_short %} to:
 * Ask for help using the command line.
 * Organize and share context with {% data variables.copilot.copilot_spaces %} to get more relevant answers.
 * Generate descriptions of changes in a pull request.
-* Research, plan, make code changes, and create pull requests for you to review. Available in {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} only.
-
-{% ifversion ghec %}
+* Research, plan, make code changes, and create pull requests for you to review. 
 
 **For enterprises and organizations with data residency requirements:** If you use {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_copilot_short %} can enforce geographic data residency. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency).
-
-{% endif %}
 
 Use {% data variables.product.prodname_copilot_short %} in the following places:
 
@@ -64,11 +60,11 @@ You can start using {% data variables.product.prodname_copilot_short %} in sever
 
 ### Individuals
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > {% data reusables.copilot.plans.individual-plans-paused %}
 
 * **Try {% data variables.product.prodname_copilot_short %} for free.** Use {% data variables.copilot.copilot_free_short %} to explore core features with no paid plan required.
-* **Subscribe to a paid plan.** Upgrade to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} for full access to premium features and more generous usage limits.
+* **Subscribe to a paid plan.** Upgrade to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_max_short %} for access to premium features, increased access to models, and higher available monthly allowance of {% data variables.product.prodname_ai_credits_short %}.
 * **Get free access if you're eligible.** Students, teachers, and open source maintainers may qualify for access to premium features at no cost. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) and [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers).
 * **Request access from your organization.** If your organization or enterprise has a {% data variables.product.prodname_copilot %} plan, you can request access by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and request access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 

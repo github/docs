@@ -10,10 +10,11 @@ contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features
 children:
-  - /defining-custom-patterns-for-secret-scanning
+  - /define-custom-patterns
   - /generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning
-  - /managing-custom-patterns
-  - /excluding-folders-and-files-from-secret-scanning
-  - /enabling-validity-checks-for-your-repository
-  - /enabling-extended-metadata-checks-for-your-repository
+  - /manage-custom-patterns
+  - /exclude-folders-and-files
+  - /enable-validity-checks
+  - /enable-metadata-checks
 ---
+

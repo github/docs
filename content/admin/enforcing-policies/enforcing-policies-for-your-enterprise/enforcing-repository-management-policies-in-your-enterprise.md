@@ -194,7 +194,7 @@ Across all organizations owned by your enterprise, you can allow members with ad
 
 ## Enforcing a policy for renaming protected branches
 
-By default, repository administrators can rename branches that are targeted by enterprise-level rules, provided the new branch name is still targeted by those rules. You can restrict this ability to enterprise owners only.
+By default, repository administrators can rename branches that are targeted by enterprise-level rules, provided the new branch name is still targeted by those same rules, or the administrator has permission to bypass the rule in question. You can restrict this ability to enterprise owners only.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

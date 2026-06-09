@@ -7,25 +7,10 @@
 # 2. Within each provider group, alphabetically by model name.
 
 # OpenAI
-- name: GPT-4.1
-  task_area: General-purpose coding and writing
-  excels_at: Fast, accurate code completions and explanations
-  further_reading: '[GPT-4.1 model card](https://openai.com/index/gpt-4-1/)'
-
 - name: GPT-5 mini
   task_area: General-purpose coding and writing
   excels_at: Fast, accurate code completions and explanations
   further_reading: '[GPT-5 mini model card](https://cdn.openai.com/gpt-5-system-card.pdf)'
-
-- name: GPT-5.2
-  task_area: Deep reasoning and debugging
-  excels_at: Multi-step problem solving and architecture-level code analysis
-  further_reading: '[GPT-5.2 model card](https://cdn.openai.com/pdf/3a4153c8-c748-4b71-8e31-aecbde944f8d/oai_5_2_system-card.pdf)'
-
-- name: GPT-5.2-Codex
-  task_area: Agentic software development
-  excels_at: Agentic tasks
-  further_reading: '[GPT-5.2-Codex model card](https://cdn.openai.com/pdf/ac7c37ae-7f4c-4442-b741-2eabdeaf77e0/oai_5_2_Codex.pdf)'
 
 - name: GPT-5.3-Codex
   task_area: Agentic software development
@@ -63,6 +48,16 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 4.7 model card](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf)'
 
+- name: Claude Opus 4.8
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: 'Not available'
+
+- name: Claude Fable 5
+  task_area: Long-horizon, autonomous coding and knowledge-work
+  excels_at: First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging
+  further_reading: 'Not available'
+
 - name: Claude Sonnet 4.5
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning
@@ -93,6 +88,12 @@
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Gemini 3.5 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-5-Flash-Model-Card.pdf)'
+
+# Microsoft
+- name: MAI-Code-1-Flash
+  task_area: General-purpose coding and writing
+  excels_at: Fast, accurate code completions and explanations
+  further_reading: '[MAI-Code-1-Flash model card](https://aka.ms/mai-code-1-flash-modelcard)'
 
 # Other providers (alphabetized by model name)
 - name: Qwen2.5

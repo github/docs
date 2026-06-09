@@ -27,11 +27,7 @@ You can upload up to 100 files to {% data variables.product.github %} at the sam
 
 {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
-{% ifversion push-rulesets %}
-
 {% data reusables.repositories.rulesets-push-rules-general-info-for-related-articles %}
-
-{% endif %}
 
 Your repository may be secured by push protection. With push protection, {% data variables.product.prodname_dotcom %} will block uploading a file to the repository if the file contains a supported secret, such as a token. You should remove the secret from the file before attempting to upload the file again. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui) and [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#resolving-a-blocked-commit).
 

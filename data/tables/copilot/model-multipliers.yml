@@ -29,6 +29,10 @@
   multiplier_paid: 15
   multiplier_free: Not applicable
 
+- name: Claude Opus 4.8
+  multiplier_paid: 15
+  multiplier_free: Not applicable
+
 - name: Claude Sonnet 4.5
   multiplier_paid: 1
   multiplier_free: Not applicable
@@ -53,10 +57,6 @@
   multiplier_paid: 14
   multiplier_free: Not applicable
 
-- name: GPT-4.1
-  multiplier_paid: 0
-  multiplier_free: 1
-
 - name: GPT-4o
   multiplier_paid: 0
   multiplier_free: 1
@@ -64,14 +64,6 @@
 - name: GPT-5 mini
   multiplier_paid: 0
   multiplier_free: 1
-
-- name: GPT-5.2
-  multiplier_paid: 1.0
-  multiplier_free: Not applicable
-
-- name: GPT-5.2-Codex
-  multiplier_paid: 1.0
-  multiplier_free: Not applicable
 
 - name: GPT-5.3-Codex
   multiplier_paid: 1.0
@@ -93,10 +85,10 @@
   multiplier_paid: 7.5
   multiplier_free: Not applicable
 
+- name: MAI-Code-1-Flash
+  multiplier_paid: 0.33
+  multiplier_free: Not applicable
+
 - name: Raptor mini
   multiplier_paid: 0
-  multiplier_free: 1
-
-- name: Goldeneye
-  multiplier_paid: Not applicable
   multiplier_free: 1

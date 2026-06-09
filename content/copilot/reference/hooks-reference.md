@@ -30,8 +30,9 @@ The locations where hooks run, and where you can store hook configuration files,
 
 * **{% data variables.copilot.copilot_cli_short %}** — hooks run on the developer's local machine in the same shell as the CLI. All hook events described in this article are supported by the CLI.
 
-  Hooks are loaded from the following sources in order (user, then project, then plugins) and combined. When the same event appears in multiple sources, all hook entries from all sources are run.
+  Hooks are loaded from the following sources in order (policy, then user, then project, then plugins) and combined. When the same event appears in multiple sources, all hook entries from all sources are run.
 
+  * **Policy-level hook files** — JSON files in the platform-appropriate policy directory, loaded in alphabetical order. Policy hooks are machine-wide and load before all other hooks. They cannot be disabled by `disableAllHooks` and are available regardless of folder trust state. See [Policy hooks](#policy-hooks) below.
   * **Repository-level hook files** — `.github/hooks/*.json` in the repository root.
   * **User-level hook files** — `*.json` files in the user-level hooks directory. By default this is `~/.copilot/hooks/` on macOS and Linux, or `%USERPROFILE%\.copilot\hooks\` on Windows. If `COPILOT_HOME` is set, it is `$COPILOT_HOME/hooks/`.
   * **Inline `hooks` block in repository settings** — the `hooks` field at the top level of `.github/copilot/settings.json` (Git committed) or `.github/copilot/settings.local.json` (typically gitignored and user specific) in the repository. Cross-tool `.claude/settings.json` and `.claude/settings.local.json` files in the repository are also read.
@@ -41,6 +42,24 @@ The locations where hooks run, and where you can store hook configuration files,
 * **{% data variables.copilot.copilot_cloud_agent %}** — hooks run inside the ephemeral Linux sandbox that cloud agent provisions for each job. The sandbox is non-interactive, has a constrained network, and is destroyed when the job ends. A subset of events fires, and only `bash` (or `command`) entries are honored.
 
   Hook configuration is loaded from `.github/hooks/*.json` files in the cloned repository.
+
+### Policy hooks
+
+> [!NOTE]
+> **{% data variables.copilot.copilot_cli_short %} only.** Policy hooks are not supported under {% data variables.copilot.copilot_cloud_agent %}.
+
+Policy hooks are machine-wide hooks loaded by administrators. They load before all other hooks and cannot be disabled by `disableAllHooks`.
+
+Policy hooks are discovered from two sources:
+
+* **Filesystem**: JSON files in the platform-appropriate policy directory, loaded in alphabetical order:
+  * Linux/macOS: `/etc/github-copilot/policy.d/*.json`
+  * Windows: `C:\ProgramData\GitHub\Copilot\policy.d\*.json`
+* **Windows Registry**: Values under `HKLM\Software\Policies\GitHub\Copilot` (each subkey holds a `Policy` REG_SZ value containing a JSON policy document).
+
+Policy hook files use the same hook configuration format as user and project hooks (`{ "version": 1, "hooks": { ... } }`). On POSIX systems, policy files must be owned by root and must not be group- or world-writable.
+
+Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them.
 
 ## Cloud agent execution environment
 
@@ -291,6 +310,9 @@ When configured with the PascalCase event name `PreToolUse`, the payload uses sn
     tool_input: unknown;    // Tool arguments (parsed from JSON string when possible)
 }
 ```
+
+> [!IMPORTANT]
+> **Command vs HTTP fail behavior for `preToolUse`:** Command `preToolUse` hooks are **fail-closed**—a crash or non-zero exit denies the tool call. HTTP `preToolUse` hooks are **fail-open**—a network error, timeout, or non-2xx response falls through to the default permission flow. Choose the variant that matches your security requirements.
 
 ### `postToolUse` / `PostToolUse`
 
@@ -632,7 +654,7 @@ Several events accept an optional `matcher` regex on each hook entry that filter
 | `view` | Read file contents. |
 | `web_fetch` | Fetch web pages. |
 
-If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. Hook failures (non-zero exit codes other than `2`, or timeouts) are logged and skipped—they never block agent execution.
+If multiple hooks of the same type are configured, they execute in order. For `preToolUse`, if any hook returns `"deny"`, the tool is blocked. For most events, hook failures (non-zero exit codes other than `2`, or timeouts) are logged and skipped. **Exception: `preToolUse` is fail-closed**—a crash, non-zero exit (other than exit 2), or timeout denies the tool call rather than silently allowing it.
 
 ## Exit codes for command hooks
 
@@ -640,7 +662,10 @@ If multiple hooks of the same type are configured, they execute in order. For `p
 |-----------|---------|
 | `0` | Success. `stdout` is parsed as the hook output JSON if present. |
 | `2` | Treated as a warning by default. `stderr` is surfaced to the user but the run continues. For `permissionRequest`, exit `2` is treated as `{"behavior":"deny"}` and any `stdout` JSON is merged in. For `postToolUseFailure`, exit `2` is treated as `additionalContext` and `stdout` is appended to the failure shown to the agent. |
-| Other non-zero | Logged as a hook failure. The run continues (fail-open). |
+| Other non-zero | Logged as a hook failure. The run continues (fail-open). **Exception: `preToolUse` is fail-closed**—a non-zero exit (other than exit 2) denies the tool call with `"Denied by preToolUse hook (hook errored)"`. |
+| Timeout | Killed after `timeoutSec`. Error logged, agent continues. **Exception: `preToolUse` is fail-closed**—timeout denies the tool call. |
+
+For most events, non-zero exits and timeouts are logged and skipped—agent execution continues. `preToolUse` is the exception: errors, crashes, and timeouts deny the tool call rather than silently allowing it. This prevents a brittle hook from being bypassed when hook input triggers an unexpected crash. Exit 2 is handled per the rules above and does not block execution.
 
 ## Disable all hooks
 
@@ -666,7 +691,7 @@ Set `disableAllHooks` to `true` at the top level to skip every hook in the file 
 Behavior depends on where you set the flag:
 
 * **Inside a single `.github/hooks/*.json` file** — only the hooks declared in that file are skipped. Honored by both {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}.
-* **At the top level of repository `settings.json`** — **{% data variables.copilot.copilot_cli_short %} only.** Every hook from every source (repository files, user files, plugins, and inline hook blocks) is skipped for sessions in that repository. Cloud agent does not load `settings.json`.
+* **At the top level of repository `settings.json`** — **{% data variables.copilot.copilot_cli_short %} only.** Every hook from every source (repository files, user files, plugins, and inline hook blocks) is skipped for sessions in that repository. Policy hooks are not affected and continue to run. Cloud agent does not load `settings.json`.
 
 ## Further reading
 

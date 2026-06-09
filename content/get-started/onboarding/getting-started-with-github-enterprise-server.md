@@ -112,7 +112,7 @@ You can implement required status checks and commit verifications to enforce you
 
 ### 4. Enabling {% data variables.product.prodname_GHAS %} features
 
-You can upgrade your {% data variables.product.prodname_ghe_server %} license to include {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %}. Upgrading will provide extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise).
+You can upgrade your {% data variables.product.prodname_ghe_server %} license to include {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}. Upgrading will provide extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise).
 
 ## Part 4: Customizing and automating your enterprise's work on {% data variables.product.github %}
 

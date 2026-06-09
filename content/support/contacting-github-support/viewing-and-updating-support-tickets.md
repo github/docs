@@ -65,6 +65,9 @@ You can also comment on tickets opened by someone else and associated with your 
 
 If your account includes {% data variables.contact.premium_support %}, you can request a callback for urgent or high priority tickets. From the ticket, click **Request a callback from GitHub Support**.
 
+> [!NOTE]
+> Callbacks are not available for security-related tickets, such as incident notifications or account compromise investigations. These tickets are handled exclusively in writing through support tickets.
+
 ## Requesting an escalation
 
 You can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent{% ifversion ghec %} if your account includes {% data variables.contact.premium_support %}{% endif %}. From the ticket, click **Request an escalation**. For more information about requesting an escalation, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket).

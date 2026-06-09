@@ -6,185 +6,162 @@
 #
 # Column keys:
 # - name: The model name.
-# - free: Availability on Copilot Free.
-# - student: Availability on Copilot Student.
 # - pro: Availability on Copilot Pro.
 # - pro_plus: Availability on Copilot Pro+.
+# - max: Availability on Copilot Max.
 # - business: Availability on Copilot Business.
 # - enterprise: Availability on Copilot Enterprise.
 
 - name: Claude Haiku 4.5
-  free: true
-  student: true
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: Claude Opus 4.5
-  free: false
-  student: false
   pro: false
   pro_plus: false
+  max: false
   business: true
   enterprise: true
 
 - name: Claude Opus 4.6
-  free: false
-  student: false
   pro: false
   pro_plus: false
+  max: false
   business: true
   enterprise: true
 
 - name: Claude Opus 4.6 (fast mode) (preview)
-  free: false
-  student: false
   pro: false
   pro_plus: false
+  max: false
   business: false
   enterprise: true
 
 - name: Claude Opus 4.7
-  free: false
-  student: false
   pro: false
   pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.8
+  pro: false
+  pro_plus: true
+  max: true
+  business: true
+  enterprise: true
+
+- name: Claude Fable 5
+  pro: false
+  pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: Claude Sonnet 4.5
-  free: false
-  student: false
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: Claude Sonnet 4.6
-  free: false
-  student: false
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: Gemini 2.5 Pro
-  free: false
-  student: true
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: Gemini 3 Flash
-  free: false
-  student: true
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: Gemini 3.1 Pro
-  free: false
-  student: true
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: Gemini 3.5 Flash
-  free: false
-  student: false
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
-- name: GPT-4.1
-  free: true
-  student: true
+- name: MAI-Code-1-Flash
   pro: true
   pro_plus: true
-  business: true
-  enterprise: true
+  max: true
+  business: false
+  enterprise: false
 
 - name: GPT-5 mini
-  free: true
-  student: true
   pro: true
   pro_plus: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.2
-  free: false
-  student: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
-- name: GPT-5.2-Codex
-  free: false
-  student: true
-  pro: true
-  pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: GPT-5.3-Codex
-  free: false
-  student: false
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: GPT-5.4
-  free: false
-  student: false
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: GPT-5.4 mini
-  free: false
-  student: true
   pro: true
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: GPT-5.4 nano
-  free: false
-  student: false
   pro: false
   pro_plus: true
+  max: true
   business: false
   enterprise: false
 
 - name: GPT-5.5
-  free: false
-  student: false
   pro: false
   pro_plus: true
+  max: true
   business: true
   enterprise: true
 
 - name: Raptor mini
-  free: true
-  student: true
   pro: true
   pro_plus: true
+  max: true
   business: false
   enterprise: false
 
 - name: Goldeneye
-  free: true
-  student: false
   pro: false
   pro_plus: false
+  max: false
   business: false
   enterprise: false

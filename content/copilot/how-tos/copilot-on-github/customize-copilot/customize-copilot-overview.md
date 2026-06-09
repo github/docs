@@ -2,6 +2,7 @@
 title: 'Customize {% data variables.product.prodname_copilot_short %} for your project'
 shortTitle: Customize {% data variables.product.prodname_copilot_short %} overview
 intro: 'Set up custom instructions, create a specialized agent, and organize project context on {% data variables.product.github %}.'
+product: '{% data reusables.copilot.plans.permission-paid-plans-cfi %}'
 versions:
   feature: copilot
 contentType: how-tos
@@ -14,7 +15,7 @@ This quickstart walks you through customizing {% data variables.product.prodname
 
 ## Prerequisites
 
-* A {% data variables.product.prodname_copilot_short %} plan that includes {% data variables.copilot.copilot_cloud_agent %} ({% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, or {% data variables.copilot.copilot_enterprise_short %}). For more information, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* Any paid {% data variables.product.prodname_copilot_short %} plan. For more information, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 * {% data variables.copilot.copilot_cloud_agent_short_cap_c %} enabled for your organization or account. For more information, see [AUTOTITLE](/copilot/concepts/agents/cloud-agent/access-management).
 * Write access to a {% data variables.product.github %} repository.
 
@@ -90,5 +91,5 @@ Your bug-fixer agent now appears in the agents dropdown on the agents tab. Selec
 
 * **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-personal-instructions)** — Set personal preferences that apply across all your repositories.
 * **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills)** — Add new capabilities to your agents.
-* **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/extend-cloud-agent-with-mcp)** — Connect agents to external tools and services.
+* **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)** — Configure repository MCP servers used by {% data variables.copilot.copilot_cloud_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 * **[AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/collaborate-with-others)** — Share your spaces with teammates.

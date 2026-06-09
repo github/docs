@@ -8,4 +8,5 @@ export const codeLanguages: Record<string, string> = {
   shell: 'Shell',
   javascript: 'JavaScript',
   dotnet: '.NET',
+  rust: 'Rust',
 }

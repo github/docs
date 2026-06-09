@@ -25,15 +25,9 @@ category:
 
 ## Licenses for {% data variables.product.prodname_GHAS %}
 
-{% ifversion ghas-products %}
-
 The {% data variables.product.prodname_AS %} product has two license SKUs (stock keeping units):
 
 {% data reusables.advanced-security.ghas-products-bullets+ghas %}
-
-{% else %}
-You can make extra features available to users by buying a license for {% data variables.product.prodname_AS %} products.
-{% endif %}
 
 For more information, see [feature summary and pricing information](https://github.com/enterprise/advanced-security#pricing) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
@@ -125,6 +119,26 @@ The options available for managing committers and costs depend on your billing m
 
 You can control usage and costs with budgets and alerts. If you use {% data variables.product.prodname_ghe_cloud %}, then you can also use cost centers and policies to control costs.
 See {% data reusables.advanced-security.control-use-cost-links %}.
+
+{% ifversion enhanced-billing-platform %}
+
+#### Hard budgets for {% data variables.product.prodname_GHAS %} SKUs
+
+SKU-level budgets for {% data variables.product.prodname_AS %} products ({% data variables.product.prodname_secret_protection %} and {% data variables.product.prodname_code_security %}) support the **Limit usage when budget limit is reached** option. For {% data variables.product.prodname_AS %}, this option prevents new enablement. It does **not** disable {% data variables.product.prodname_AS %} on repositories where it is already active.
+
+When the budget limit is reached:
+
+* Repositories where {% data variables.product.prodname_AS %} is already enabled continue to function normally. Active committers in those repositories are still counted and billed.
+* {% data variables.product.prodname_AS %} cannot be enabled on any additional repositories until the budget is increased or a new billing cycle begins.
+
+There are two scenarios where usage may exceed the budget:
+
+* A new committer becomes active in a repository where {% data variables.product.prodname_AS %} is already enabled. You are billed for the additional license cost.
+* When you enable {% data variables.product.prodname_AS %} on a repository with more active committers than the remaining budget allows, the enablement succeeds but you are billed for any usage beyond the budget limit.
+
+For more information about budgets, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).
+
+{% endif %}
 
 {% data reusables.billing.actions-usage-delay %}
 
