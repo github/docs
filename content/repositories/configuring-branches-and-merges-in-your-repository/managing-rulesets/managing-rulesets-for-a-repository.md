@@ -25,13 +25,9 @@ You can use the REST and GraphQL APIs to manage rulesets. For more information, 
 
 ## Viewing rulesets for a repository
 
-On the "Rulesets" page, anyone with read access to the repository can view the active rulesets targeting a certain {% ifversion push-rulesets %}branch, tag, or push restriction.{% else %}branch or tag.{% endif %} {% ifversion repo-rules-enterprise %}You will also see rulesets running in "Evaluate" mode, which are not enforced.{% endif %}
-
-{% ifversion push-rulesets %}
+On the "Rulesets" page, anyone with read access to the repository can view the active rulesets targeting a certain branch, tag, or push restriction. {% ifversion repo-rules-enterprise %}You will also see rulesets running in "Evaluate" mode, which are not enforced.{% endif %}
 
 For push rulesets for forked repositories, the "Rulesets" page will indicate that the ruleset is managed by the source repository where the rule is applied.
-
-{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}

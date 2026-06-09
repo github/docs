@@ -71,6 +71,8 @@ To analyze the efficiency and reliability of your workflows using metrics, see [
 
 ## Troubleshooting workflow triggers
 
+First, make sure that your workflow wasn't disabled manually, see [AUTOTITLE](/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows). A disabled workflow does not respond to its triggers.
+
 You can review your workflow's `on:` field to understand what is expected to trigger the workflow. For more information, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow).
 
 For a full list of available events, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows).

@@ -16,7 +16,7 @@ Organization owners can prevent {% data variables.product.pat_generic_plural %} 
 * **Restrict access via {% data variables.product.pat_generic_plural %}:** {% data variables.product.pat_v1_caps_plural %} or {% data variables.product.pat_v2_plural %} cannot access resources owned by the organization. SSH keys created by {% data variables.product.pat_generic_plural %} will continue to work.
 * **Allow access via {% data variables.product.pat_generic_plural %}:** {% data variables.product.pat_v1_caps_plural %} or {% data variables.product.pat_v2_plural %} can access resources owned by the organization.
 
-Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plural %} will have access to public resources within the organization. {% ifversion fpt or ghec or ghes > 3.16 %}By default, both {% data variables.product.pat_v1_caps_plural %} and {% data variables.product.pat_v2_plural %} are enabled.{% endif %}
+Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plural %} will have access to public resources within the organization. By default, both {% data variables.product.pat_v1_caps_plural %} and {% data variables.product.pat_v2_plural %} are enabled.
 
 {% ifversion ghec or ghes %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_generic_caps_plural %}, you cannot override the policy in your organization. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).{% endif %}
 
@@ -26,8 +26,6 @@ Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plur
 1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type. 
 1. Under **{% data variables.product.pat_v2_caps_plural %}** or **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select your access policy.
 1. Click **Save**.
-
-{% ifversion pats-maximum-lifetime %}
 
 ## Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}
 
@@ -42,8 +40,7 @@ When you set a policy, tokens with non-compliant lifetimes will be blocked from 
 1. In the left sidebar, click **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**.
 1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type.
 1. Under **Set maximum lifetimes for {% data variables.product.pat_generic_plural %}**, set the maximum lifetime.
-1. Click **Save**.  
-{% endif %}
+1. Click **Save**.
 
 ## Enforcing an approval policy for {% data variables.product.pat_v2_plural %}
 

@@ -39603,6 +39603,11 @@ type ProjectV2 implements Closable & Node & Updatable @docsCategory(name: "proje
     after: String
 
     """
+    Filter items by their archived state. Defaults to only returning items that are not archived.
+    """
+    archivedStates: [ProjectV2ItemArchivedState!] = [NOT_ARCHIVED]
+
+    """
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
@@ -40468,6 +40473,21 @@ type ProjectV2Item implements Node @docsCategory(name: "projects") {
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+}
+
+"""
+The possible archived states of a `ProjectV2Item`.
+"""
+enum ProjectV2ItemArchivedState @docsCategory(name: "projects") {
+  """
+  A project item that is archived
+  """
+  ARCHIVED
+
+  """
+  A project item that is not archived
+  """
+  NOT_ARCHIVED
 }
 
 """
@@ -59309,6 +59329,11 @@ enum SocialAccountProvider @docsCategory(name: "users") {
   Social news aggregation and discussion website.
   """
   REDDIT
+
+  """
+  Microblogging social platform.
+  """
+  THREADS
 
   """
   Live-streaming service.

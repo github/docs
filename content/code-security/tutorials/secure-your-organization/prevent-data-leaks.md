@@ -83,12 +83,10 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
   * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_code_security %}{% endif %}
 {% endif %}
 
-{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
+{% ifversion secret-risk-assessment %}
 
 > [!TIP]
-> Regardless of the enablement status of {% data variables.product.prodname_secret_scanning %} and push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% else %}
-
-{% endif %}
+> Regardless of the enablement status of {% data variables.product.prodname_secret_scanning %} and push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}
 
 {% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance).{% endif %}
 

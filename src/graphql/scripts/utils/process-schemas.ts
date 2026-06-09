@@ -8,6 +8,7 @@ import type {
   InputValueDefinitionNode,
   ConstDirectiveNode,
   DefinitionNode,
+  TypeNode,
 } from 'graphql/language'
 import helpers from './schema-helpers'
 import { OTHER_CATEGORY, isValidCategory } from '@/graphql/lib/categories'
@@ -21,7 +22,8 @@ interface PreviewInfo {
 // Interface for arguments returned by helpers.getArguments()
 interface FieldArgumentInfo {
   name: string
-  defaultValue?: any // GraphQL default values can be any JSON-serializable type
+  // GraphQL scalar default values come through the AST as a string or boolean.
+  defaultValue?: string | boolean
   description: string
   type: {
     name: string
@@ -42,7 +44,8 @@ interface ScalarInfo {
 
 interface QueryArgumentInfo {
   name: string
-  defaultValue?: any // GraphQL default values can be any JSON-serializable type
+  // GraphQL scalar default values come through the AST as a string or boolean.
+  defaultValue?: string | boolean
   type: string
   id: string
   href: string
@@ -322,10 +325,10 @@ export default async function processSchemas(
     mutationFieldCategoryMap.get(mutFieldName) ?? fallbackMutationMap[mutFieldName.toLowerCase()]
 
   // Walk through a TypeNode chain (NonNull/List wrappers) to the NamedType.
-  const namedTypeName = (typeNode: any): string | undefined => {
-    let t = typeNode
-    while (t && t.type) t = t.type
-    return t?.name?.value
+  const namedTypeName = (typeNode: TypeNode): string | undefined => {
+    let t: TypeNode = typeNode
+    while ('type' in t) t = t.type
+    return t.kind === 'NamedType' ? t.name.value : undefined
   }
 
   // (a) input objects from mutation field args
@@ -459,12 +462,11 @@ export default async function processSchemas(
               (field.arguments || []).map(async (arg: InputValueDefinitionNode) => {
                 const queryArg: Partial<QueryArgumentInfo> = {}
                 queryArg.name = arg.name.value
-                // ConstValueNode is a complex union; accessing value property generically
-                queryArg.defaultValue = arg.defaultValue
-                  ? (arg.defaultValue as any).value
-                  : undefined
-                // InputValueDefinitionNode.type is compatible with getType's expected structure
-                const argType = helpers.getType(arg as any)
+                queryArg.defaultValue =
+                  arg.defaultValue && 'value' in arg.defaultValue
+                    ? arg.defaultValue.value
+                    : undefined
+                const argType = helpers.getType(arg)
                 if (!argType) return
                 queryArg.type = argType
                 queryArg.id = helpers.getId(queryArg.type)
@@ -539,8 +541,7 @@ export default async function processSchemas(
               (field.arguments || []).map(async (arg: InputValueDefinitionNode) => {
                 const inputField: Partial<InputFieldInfo> = {}
                 inputField.name = arg.name.value
-                // InputValueDefinitionNode.type is compatible with getType's expected structure
-                const argType = helpers.getType(arg as any)
+                const argType = helpers.getType(arg)
                 if (!argType) return
                 inputField.type = argType
                 inputField.id = helpers.getId(inputField.type)
@@ -663,11 +664,7 @@ export default async function processSchemas(
               const fieldKind = helpers.getTypeKind(objectField.type, schema)
               if (!fieldKind) return
               objectField.href = linkTo(fieldKind, objectField.id)
-              // InputValueDefinitionNode structure is compatible with ArgumentNode expected by getArguments
-              objectField.arguments = await helpers.getArguments(
-                (field.arguments || []) as any,
-                schema,
-              )
+              objectField.arguments = await helpers.getArguments(field.arguments || [], schema)
               objectField.isDeprecated = helpers.getDeprecationStatus(
                 (field.directives || []) as readonly ConstDirectiveNode[],
               )
@@ -732,11 +729,7 @@ export default async function processSchemas(
               const fieldKind = helpers.getTypeKind(interfaceField.type, schema)
               if (!fieldKind) return
               interfaceField.href = linkTo(fieldKind, interfaceField.id)
-              // InputValueDefinitionNode structure is compatible with ArgumentNode expected by getArguments
-              interfaceField.arguments = await helpers.getArguments(
-                (field.arguments || []) as any,
-                schema,
-              )
+              interfaceField.arguments = await helpers.getArguments(field.arguments || [], schema)
               interfaceField.isDeprecated = helpers.getDeprecationStatus(
                 (field.directives || []) as readonly ConstDirectiveNode[],
               )
@@ -874,8 +867,7 @@ export default async function processSchemas(
 
               inputField.name = field.name.value
               inputField.description = await helpers.getDescription(field.description?.value || '')
-              // InputValueDefinitionNode.type is compatible with getType's expected structure
-              const fieldType = helpers.getType(field as any)
+              const fieldType = helpers.getType(field)
               if (!fieldType) return
               inputField.type = fieldType
               inputField.id = helpers.getId(inputField.type)

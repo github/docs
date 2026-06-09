@@ -93,7 +93,7 @@ To update private dependencies of repositories in your organization, {% data var
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-{% ifversion ghes > 3.16 %}
+{% ifversion ghes %}
 <!-- There is only one bullet point in this section, so we don't display a list for GHES 3.17+. -->
 
 You can recommend that repositories in your organization use the "Extended" query suite instead of the "Default" query suite for broader {% data variables.product.prodname_code_scanning %} coverage across your organization. See [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup).
@@ -104,8 +104,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 {% ifversion code-scanning-autofix %}* [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql){% endif %}
 * [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup)
-* [Expanding {% data variables.product.prodname_codeql %} analysis](#expanding-codeql-analysis){% ifversion ghes < 3.17 %}
-* [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests).{% endif %}
+* [Expanding {% data variables.product.prodname_codeql %} analysis](#expanding-codeql-analysis)
 
 {% endif %}
 
@@ -124,14 +123,6 @@ You can select **{% data variables.copilot.copilot_autofix_short %}** to enable 
 ### Expanding {% data variables.product.prodname_codeql %} analysis
 
 You can expand {% data variables.product.prodname_codeql %} analysis coverage for all repositories in your organization that use default setup by configuring {% data variables.product.prodname_codeql %} model packs. Model packs extend the {% data variables.product.prodname_codeql %} analysis to recognize additional frameworks and libraries that are not included in the standard {% data variables.product.prodname_codeql %} libraries. This global configuration applies to repositories using default setup and allows you to specify model packs published via the container registry. For more information, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization).
-
-{% ifversion ghes < 3.17 %}
-
-### Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests
-
-You can choose the severity levels at which {% data variables.product.prodname_code_scanning %} check runs on pull requests will fail. To choose a security severity level, select the **Security: SECURITY-SEVERITY-LEVEL** dropdown menu, then click a security severity level. To choose an alert severity level, select the **OTHER: ALERT-SEVERITY-LEVEL** dropdown menu, then click an alert severity level. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
-
-{% endif %}
 
 ## Configuring global {% data variables.product.prodname_secret_scanning %} settings
 
@@ -175,4 +166,3 @@ The security manager role grants members of your organization the ability to man
 To learn more about the security manager role, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 
 To assign the security manager role, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles#assigning-an-organization-role).
-

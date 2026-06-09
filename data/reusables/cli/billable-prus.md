@@ -1,1 +1,0 @@
-The {% data variables.product.prodname_ai_credits_short %} consumed depends on the model used. Use the `/model` slash command to see the currently selected model and change it if required. See [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).

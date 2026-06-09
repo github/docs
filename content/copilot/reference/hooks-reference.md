@@ -30,8 +30,9 @@ The locations where hooks run, and where you can store hook configuration files,
 
 * **{% data variables.copilot.copilot_cli_short %}** — hooks run on the developer's local machine in the same shell as the CLI. All hook events described in this article are supported by the CLI.
 
-  Hooks are loaded from the following sources in order (user, then project, then plugins) and combined. When the same event appears in multiple sources, all hook entries from all sources are run.
+  Hooks are loaded from the following sources in order (policy, then user, then project, then plugins) and combined. When the same event appears in multiple sources, all hook entries from all sources are run.
 
+  * **Policy-level hook files** — JSON files in the platform-appropriate policy directory, loaded in alphabetical order. Policy hooks are machine-wide and load before all other hooks. They cannot be disabled by `disableAllHooks` and are available regardless of folder trust state. See [Policy hooks](#policy-hooks) below.
   * **Repository-level hook files** — `.github/hooks/*.json` in the repository root.
   * **User-level hook files** — `*.json` files in the user-level hooks directory. By default this is `~/.copilot/hooks/` on macOS and Linux, or `%USERPROFILE%\.copilot\hooks\` on Windows. If `COPILOT_HOME` is set, it is `$COPILOT_HOME/hooks/`.
   * **Inline `hooks` block in repository settings** — the `hooks` field at the top level of `.github/copilot/settings.json` (Git committed) or `.github/copilot/settings.local.json` (typically gitignored and user specific) in the repository. Cross-tool `.claude/settings.json` and `.claude/settings.local.json` files in the repository are also read.
@@ -41,6 +42,24 @@ The locations where hooks run, and where you can store hook configuration files,
 * **{% data variables.copilot.copilot_cloud_agent %}** — hooks run inside the ephemeral Linux sandbox that cloud agent provisions for each job. The sandbox is non-interactive, has a constrained network, and is destroyed when the job ends. A subset of events fires, and only `bash` (or `command`) entries are honored.
 
   Hook configuration is loaded from `.github/hooks/*.json` files in the cloned repository.
+
+### Policy hooks
+
+> [!NOTE]
+> **{% data variables.copilot.copilot_cli_short %} only.** Policy hooks are not supported under {% data variables.copilot.copilot_cloud_agent %}.
+
+Policy hooks are machine-wide hooks loaded by administrators. They load before all other hooks and cannot be disabled by `disableAllHooks`.
+
+Policy hooks are discovered from two sources:
+
+* **Filesystem**: JSON files in the platform-appropriate policy directory, loaded in alphabetical order:
+  * Linux/macOS: `/etc/github-copilot/policy.d/*.json`
+  * Windows: `C:\ProgramData\GitHub\Copilot\policy.d\*.json`
+* **Windows Registry**: Values under `HKLM\Software\Policies\GitHub\Copilot` (each subkey holds a `Policy` REG_SZ value containing a JSON policy document).
+
+Policy hook files use the same hook configuration format as user and project hooks (`{ "version": 1, "hooks": { ... } }`). On POSIX systems, policy files must be owned by root and must not be group- or world-writable.
+
+Policy hooks are intended for use by enterprise IT administrators and require elevated privileges to install. End users cannot modify them.
 
 ## Cloud agent execution environment
 
@@ -672,7 +691,7 @@ Set `disableAllHooks` to `true` at the top level to skip every hook in the file 
 Behavior depends on where you set the flag:
 
 * **Inside a single `.github/hooks/*.json` file** — only the hooks declared in that file are skipped. Honored by both {% data variables.copilot.copilot_cli_short %} and {% data variables.copilot.copilot_cloud_agent %}.
-* **At the top level of repository `settings.json`** — **{% data variables.copilot.copilot_cli_short %} only.** Every hook from every source (repository files, user files, plugins, and inline hook blocks) is skipped for sessions in that repository. Cloud agent does not load `settings.json`.
+* **At the top level of repository `settings.json`** — **{% data variables.copilot.copilot_cli_short %} only.** Every hook from every source (repository files, user files, plugins, and inline hook blocks) is skipped for sessions in that repository. Policy hooks are not affected and continue to run. Cloud agent does not load `settings.json`.
 
 ## Further reading
 

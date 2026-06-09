@@ -15,6 +15,13 @@
   retirement_date: '2026-06-01'
   suggested_alternative: 'GPT-5.5'
 
+- name: 'GPT-5.2'
+  retirement_date: '2026-06-01'
+  suggested_alternative: 'GPT-5.5'
+
+- name: 'GPT-5.2-Codex'
+  retirement_date: '2026-06-01'
+  suggested_alternative: 'GPT-5.3-Codex'
 - name: 'Grok Code Fast 1'
   retirement_date: '2026-05-15'
   suggested_alternative: 'GPT-5 mini'
@@ -49,11 +56,11 @@
 
 - name: 'GPT-5'
   retirement_date: '2026-02-17'
-  suggested_alternative: 'GPT-5.2'
+  suggested_alternative: 'GPT-5.5'
 
 - name: 'GPT-5-Codex'
   retirement_date: '2026-02-17'
-  suggested_alternative: 'GPT-5.2-Codex'
+  suggested_alternative: 'GPT-5.3-Codex'
 
 - name: 'Claude Sonnet 3.5'
   retirement_date: '2025-11-06'
@@ -81,7 +88,7 @@
 
 - name: 'o3'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'GPT-5.2'
+  suggested_alternative: 'GPT-5.5'
 
 - name: 'o3-mini'
   retirement_date: '2025-10-23'

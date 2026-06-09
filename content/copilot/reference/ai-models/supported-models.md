@@ -40,10 +40,12 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | Model name                                             | Provider  | Release status             | Agent mode | Ask mode | Edit mode |
 |--------------------------------------------------------|-----------|----------------------------|------------|----------|-----------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %} | {{ model.provider }} | {{ model.release_status }} | {% if model.agent_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.ask_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.edit_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} | {% if model.agent_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.ask_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.edit_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
+
+[^claude-fable-5]: When {% data variables.copilot.copilot_claude_fable_5 %} is used, Anthropic retains data, including prompts and outputs, to operate safety classifiers that detect harmful use. Other Claude models in {% data variables.product.prodname_copilot %} remain covered by {% data variables.product.github %}'s existing data retention agreements, as documented at [AUTOTITLE](/copilot/reference/ai-models/model-hosting#anthropic-models). Enterprise and business users need to enable the {% data variables.copilot.copilot_claude_fable_5 %} model to make it available for your organization. You can read more about Anthropic's data handling practices for this model under section F of their [Service Specific Terms](https://www.anthropic.com/legal/service-specific-terms). To enable {% data variables.copilot.copilot_claude_fable_5 %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 
 ## Supported AI models in {% data variables.copilot.copilot_auto_model_selection_short_cap_a %}
 
@@ -81,6 +83,7 @@ Choosing a larger context window or higher reasoning will impact {% data variabl
 | {% data variables.copilot.copilot_claude_opus_46_fast %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_47 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_claude_opus_48 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.copilot.copilot_claude_fable_5 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_53_codex %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_54 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.copilot.copilot_gpt_55 %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -131,7 +134,8 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_gpt_54 %}              | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 | {% data variables.copilot.copilot_gpt_54_mini %}         | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 | {% data variables.copilot.copilot_gpt_55 %}              | `v1.117` and later   | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
-| {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` and later   | `17.14.19` and later                     | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` and later   | `17.14.6` and later                     | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.123.2` and later   | `17.14.6` and later                    | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` and later   | Not available                            | Not available | Not available | Not available |
 
 {% endrowheaders %}

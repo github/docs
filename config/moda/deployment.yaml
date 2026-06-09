@@ -12,8 +12,6 @@ environments:
 
   # 15 staging environments, evergreens only
   # they should all contain the same configs
-  # intentionally pinned to a single cluster via the `name` selector
-
   - name: staging-balsam
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
@@ -24,7 +22,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':balsam: Review at https://docs-internal-staging-balsam.githubapp.com/'
 
   - name: staging-boxwood
@@ -37,7 +34,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':boxwood: Review at https://docs-internal-staging-boxwood.githubapp.com/'
 
   - name: staging-cedar
@@ -50,7 +46,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':cedar: Review at https://docs-internal-staging-cedar.githubapp.com/'
 
   - name: staging-cypress
@@ -63,7 +58,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':cypress: Review at https://docs-internal-staging-cypress.githubapp.com/'
 
   - name: staging-fir
@@ -76,7 +70,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':fir: Review at https://docs-internal-staging-fir.githubapp.com/'
 
   - name: staging-hemlock
@@ -89,7 +82,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':hemlock: Review at https://docs-internal-staging-hemlock.githubapp.com/'
 
   - name: staging-hinoki
@@ -102,7 +94,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':hinoki: Review at https://docs-internal-staging-hinoki.githubapp.com/'
 
   - name: staging-holly
@@ -115,7 +106,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':holly_: Review at https://docs-internal-staging-holly.githubapp.com/'
 
   - name: staging-juniper
@@ -128,7 +118,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':juniper: Review at https://docs-internal-staging-juniper.githubapp.com/'
 
   - name: staging-laurel
@@ -141,7 +130,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':laurel: Review at https://docs-internal-staging-laurel.githubapp.com/'
 
   - name: staging-pine
@@ -154,7 +142,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':pine: Review at https://docs-internal-staging-pine.githubapp.com/'
 
   - name: staging-redwood
@@ -167,7 +154,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':redwood: Review at https://docs-internal-staging-redwood.githubapp.com/'
 
   - name: staging-sequoia
@@ -180,7 +166,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':sequoia: Review at https://docs-internal-staging-sequoia.githubapp.com/'
 
   - name: staging-spruce
@@ -193,7 +178,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':spruce: Review at https://docs-internal-staging-spruce.githubapp.com/'
 
   - name: staging-yew
@@ -206,7 +190,6 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-      name: general-2-ash1-iad
     extra_completed_message: ':yew: Review at https://docs-internal-staging-yew.githubapp.com/'
 
 required_builds:

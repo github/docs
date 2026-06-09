@@ -10,6 +10,8 @@ import processPreviews from './utils/process-previews'
 import processUpcomingChanges from './utils/process-upcoming-changes'
 import processSchemas from './utils/process-schemas'
 import { bucketSchemaByCategory, writeCategoryFiles } from './utils/bucket-by-category'
+import { syncCategoryContentFiles, type CategoryPresence } from './utils/sync-category-content'
+import { ALL_KIND_KEYS } from '@/graphql/lib/categories'
 import {
   prependDatedEntry,
   createChangelogEntry,
@@ -64,6 +66,12 @@ if (!process.env.GITHUB_TOKEN) {
 }
 
 const versionsToBuild = Object.keys(allVersions)
+
+// Tracks, per category, the set of docs versions in which the category has at
+// least one type. Populated inside the per-version loop and consumed after it
+// to manage the per-category content pages. Declared before `main()` runs so
+// the loop never reads it in the temporal dead zone.
+const categoryPresence: CategoryPresence = new Map()
 
 main()
 
@@ -145,6 +153,17 @@ async function main() {
     const perCategoryFiles = bucketSchemaByCategory(schemaJsonPerVersion)
     await writeCategoryFiles(path.join(graphqlStaticDir, graphqlVersion), perCategoryFiles)
 
+    // Record which categories have at least one type in this version so the
+    // content pages and their `versions` frontmatter can be managed after the
+    // loop. `version` is the docs version key (e.g. `enterprise-server@3.22`),
+    // which is the format `convertVersionsToFrontmatter` expects.
+    for (const [cat, bucket] of perCategoryFiles.entries()) {
+      const hasTypes = ALL_KIND_KEYS.some((kind) => (bucket[kind]?.length ?? 0) > 0)
+      if (!hasTypes) continue
+      if (!categoryPresence.has(cat)) categoryPresence.set(cat, new Set())
+      categoryPresence.get(cat)!.add(version)
+    }
+
     // 4. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {
       // The changelog is only built for free-pro-team@latest
@@ -172,6 +191,11 @@ async function main() {
       }
     }
   }
+
+  // Manage the per-category content pages (create new categories, delete
+  // emptied ones, narrow `versions` frontmatter) plus the reference index
+  // children and disappearance redirects, based on the presence collected above.
+  await syncCategoryContentFiles(categoryPresence)
 
   // Ensure the YAML linter runs before checkinging in files
   execSync('npx prettier -w "**/*.{yml,yaml}"')

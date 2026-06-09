@@ -46,7 +46,7 @@ mutation($repositoryId:ID!,$branch:String!,$requiredReviews:Int!) {
 }' -f repositoryId="$repositoryId" -f branch=main -F requiredReviews=1 --silent
 echo "--- Enable GitHub Pages, set source to main in root directory, and make the pages site public"
 gh api -X POST "/repos/github/docs-ghes-$version/pages" \
-  -f "source[branch]=main" -f "source[path]=/" -f "public=true" --silent
+  -f "source[branch]=main" -f "source[path]=/" -F "public=true" --silent
 echo "--- Update custom properties"
 gh api --method PATCH /repos/github/docs-ghes-$version/properties/values \
   -f "properties[][property_name]=ownership-name" \

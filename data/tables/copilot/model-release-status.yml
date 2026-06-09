@@ -18,24 +18,9 @@
 # - edit_mode: true = ✓, false = ✗
 
 # OpenAI models
-
 - name: 'GPT-5 mini'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5.2'
-  provider: 'OpenAI'
-  release_status: 'Closing down 2026-06-01'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5.2-Codex'
-  provider: 'OpenAI'
-  release_status: 'Closing down 2026-06-01'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -112,6 +97,13 @@
   edit_mode: true
 
 - name: 'Claude Opus 4.8'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Claude Fable 5'
   provider: 'Anthropic'
   release_status: 'GA'
   agent_mode: true

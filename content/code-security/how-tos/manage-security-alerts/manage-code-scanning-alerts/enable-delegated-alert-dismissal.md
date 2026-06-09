@@ -3,7 +3,9 @@ title: Enabling delegated alert dismissal for code scanning
 intro: You can use delegated alert dismissal to control who can dismiss an alert found by {% data variables.product.prodname_code_scanning %}.
 permissions: '{% data reusables.permissions.delegated-alert-dismissal %}'
 versions:
-  feature: security-delegated-alert-dismissal
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: how-tos
 shortTitle: Enable delegated alert dismissal
 redirect_from:
@@ -21,8 +23,7 @@ category:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}{% else %}
-{% data reusables.repositories.navigate-to-ghas-settings %}{% endif %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "{% data variables.product.UI_code_security_scanning %}",  click **Enable** for "Prevent direct alert dismissals".
 
 ## Configuring delegated dismissal for an organization

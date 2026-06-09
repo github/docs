@@ -116,9 +116,6 @@ You can limit the data to repositories owned by a single organization in your en
 
 | Qualifier | Description |
 | -------- | -------- |
-| {% ifversion ghes < 3.17 %} |
-| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GHAS %} is enabled or not enabled. |
-| {% endif %} |
 | `code-scanning-default-setup`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled using {% data variables.product.prodname_codeql %} default setup. |
 | `code-scanning-pull-request-alerts`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled to run on pull requests. |
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |
@@ -244,17 +241,12 @@ You can click any result to see full details of the relevant query and the line 
 | Qualifier | Description |
 | -------- | -------- |
 |`bypassed`|Display {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).|
-|`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`){% ifversion ghes < 3.17 %} or closed (`closed`){% else %}, closed (`closed`), publicly leaked (`publicly-leaked`), or multi-repository (`multi-repository`){% endif %}.|
+|`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`), closed (`closed`), publicly leaked (`publicly-leaked`), or multi-repository (`multi-repository`).|
 |`props`|Display alerts for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
 |`provider`|Display alerts for all secrets issued by a specified provider, for example: `adafruit`.  |
 |`repo`|Display alerts detected in a specified repository, for example: `repo:octo-repository`.|
 |`resolution`|Display {% data variables.secret-scanning.alerts %} closed as "false positive" (`false-positive`), "hidden by config" (`hidden-by-config`), "pattern deleted" (`pattern-deleted`), "pattern edited" (`pattern-edited`), "revoked" (`revoked`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
-|{% ifversion secret-scanning-generic-tab %}|
 |`results`|Display default (`default`) or generic (`generic`) {% data variables.secret-scanning.alerts %}.|
-|{% endif %}|
-|{% ifversion ghes = 3.16 %}|
-|`results`|Display default (`default`) or experimental (`experimental`) {% data variables.secret-scanning.alerts %}.|
-|{% endif %}|
 |`secret-type`|Display alerts for the specified secret and provider (`provider-pattern`) or custom pattern (`custom-pattern`).|
 |`sort`|Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|
 |`team`|Display alerts owned by members of the specified team, for example: `team:octocat-dependabot-team`.|

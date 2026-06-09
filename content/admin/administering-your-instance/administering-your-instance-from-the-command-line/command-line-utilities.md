@@ -134,7 +134,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run). Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. 
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run). Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag.
 
 ```shell
 ghe-config-apply
@@ -375,12 +375,8 @@ ghe-reactivate-admin-login
 
 ### ghe-saml-mapping-csv
 
-{% ifversion scim-for-ghes-ga %}
-
 > [!NOTE]
 > This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
-
-{% endif %}
 
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
 
@@ -406,8 +402,6 @@ To update SAML mappings on the instance with new values from the file, run the f
 ghe-saml-mapping-csv -u -f /PATH/TO/FILE
 ```
 
-{% ifversion scim-for-ghes-ga %}
-
 ### ghe-scim-identities-csv
 
 > [!NOTE]
@@ -428,8 +422,6 @@ ghe-scim-identities-csv -f /PATH/TO/FILE
 ```
 
 We recommend writing to a file in `/data/user/tmp`.
-
-{% endif %}
 
 ### ghe-service-list
 
