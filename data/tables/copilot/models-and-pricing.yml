@@ -171,6 +171,15 @@
   output: $25.00
   cache_write: $6.25
 
+- model: Claude Fable 5
+  provider: anthropic
+  release_status: GA
+  category: Powerful
+  input: $10.00
+  cached_input: $1.00
+  output: $50.00
+  cache_write: $12.50
+
 # Google
 - model: 'Gemini 2.5 Pro'
   provider: google
