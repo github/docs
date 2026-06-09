@@ -50,15 +50,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.code-scanning-enable %}
 
-   {% ifversion ghas-products %}
-
    ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup-ghas.png)
-
-   {% else %}
-
-   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
-
-   {% endif %}
 
    You will then see a "{% data variables.product.prodname_codeql %} default configuration" dialog summarizing the {% data variables.product.prodname_code_scanning %} configuration automatically created by default setup.
 

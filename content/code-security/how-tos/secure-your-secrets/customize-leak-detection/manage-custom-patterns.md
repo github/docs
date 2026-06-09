@@ -24,7 +24,7 @@ At the enterprise level, only the creator of a custom pattern can edit the patte
 When you save a change to a custom pattern, this closes all the {% data variables.secret-scanning.alerts %} that were created using the previous version of the pattern.
 
 {% data reusables.secret-scanning.view-custom-pattern %}
-1. Under {% ifversion ghas-products %}"Custom patterns"{% else %}"{% data variables.product.prodname_secret_scanning_caps %}"{% endif %}, to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
+1. Under "Custom patterns", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
 1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
 1. When you have reviewed and tested your changes, click **Publish changes**.
 {% data reusables.advanced-security.secret-scanning-enable-push-protection-custom-pattern %}
@@ -87,10 +87,8 @@ Before enabling push protection for a custom pattern at repository level, you mu
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
-1. Under "{% data variables.product.prodname_secret_protection %}", under "Custom patterns", click {% octicon "pencil" aria-label="Edit custom pattern" %} for the pattern of interest.{% else %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}{% endif %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "{% data variables.product.prodname_secret_protection %}", under "Custom patterns", click {% octicon "pencil" aria-label="Edit custom pattern" %} for the pattern of interest.
 1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
 
    {% data reusables.secret-scanning.custom-pattern-push-protection-enable-button %}

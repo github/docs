@@ -51,7 +51,7 @@ We recommend reviewing the following caveats before you change the visibility of
 {%- endif %}
 {%- ifversion fpt or ghec %}
 * {% data variables.product.prodname_dotcom %} will no longer include the repository in the {% data variables.product.prodname_archive %}. For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/about-archiving-content-and-data-on-github#about-the-github-archive-program).
-* {% data variables.product.prodname_GHAS %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working unless the repository is owned by an organization that has access to the feature in private repositories with a {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} license and sufficient spare seats. {% data reusables.advanced-security.more-info-ghas %}
+* {% data variables.product.prodname_GHAS %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working unless the repository is owned by an organization that has access to the feature in private repositories with a {% data variables.product.prodname_GHAS %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %} license and sufficient spare seats. {% data reusables.advanced-security.more-info-ghas %}
 {%- endif %}
 {%- ifversion ghes %}
 * Anonymous Git read access is no longer available. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository).

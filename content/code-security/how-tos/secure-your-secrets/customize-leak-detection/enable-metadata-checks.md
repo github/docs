@@ -32,9 +32,8 @@ Before enabling metadata checks, you need to ensure that validity checks are ena
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
-1. Under "{% data variables.product.prodname_secret_protection %}" and "Validity checks", to the right of "Extended metadata", click **Enable**.{% else %}
-1. Under "{% data variables.product.prodname_secret_protection %}" and "Validity checks", to the right of "Extended metadata", click **Enable**.{% endif %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under "{% data variables.product.prodname_secret_protection %}" and "Validity checks", to the right of "Extended metadata", click **Enable**.
 
 {% elsif ghes %}
 
