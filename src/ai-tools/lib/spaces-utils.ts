@@ -1,7 +1,7 @@
 /**
  * Copilot Space API response types
  */
-import { fetchWithRetry, readBodyWithTimeout } from '@/frame/lib/fetch-utils'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 
 export interface SpaceResource {
   id: number
@@ -85,7 +85,7 @@ export async function fetchCopilotSpace(spaceUrl: string): Promise<SpaceData> {
     }
   }
 
-  return (await readBodyWithTimeout(response, () => response.json(), 30_000)) as SpaceData
+  return (await response.json()) as SpaceData
 }
 
 /**

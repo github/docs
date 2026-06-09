@@ -3021,7 +3021,6 @@
                           "enum": [
                             "text",
                             "single_select",
-                            "multi_select",
                             "number",
                             "date"
                           ]
@@ -3072,36 +3071,6 @@
                             "name",
                             "color"
                           ]
-                        },
-                        "multi_select_options": {
-                          "description": "Details about the selected options",
-                          "type": [
-                            "array",
-                            "null"
-                          ],
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier for the option.",
-                                "type": "integer",
-                                "format": "int64"
-                              },
-                              "name": {
-                                "description": "The name of the option",
-                                "type": "string"
-                              },
-                              "color": {
-                                "description": "The color of the option",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "color"
-                            ]
-                          }
                         }
                       },
                       "required": [
@@ -6172,7 +6141,6 @@
                           "enum": [
                             "text",
                             "single_select",
-                            "multi_select",
                             "number",
                             "date"
                           ]
@@ -6223,36 +6191,6 @@
                             "name",
                             "color"
                           ]
-                        },
-                        "multi_select_options": {
-                          "description": "Details about the selected options",
-                          "type": [
-                            "array",
-                            "null"
-                          ],
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier for the option.",
-                                "type": "integer",
-                                "format": "int64"
-                              },
-                              "name": {
-                                "description": "The name of the option",
-                                "type": "string"
-                              },
-                              "color": {
-                                "description": "The color of the option",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "color"
-                            ]
-                          }
                         }
                       },
                       "required": [
@@ -9251,7 +9189,6 @@
                           "enum": [
                             "text",
                             "single_select",
-                            "multi_select",
                             "number",
                             "date"
                           ]
@@ -9302,36 +9239,6 @@
                             "name",
                             "color"
                           ]
-                        },
-                        "multi_select_options": {
-                          "description": "Details about the selected options",
-                          "type": [
-                            "array",
-                            "null"
-                          ],
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier for the option.",
-                                "type": "integer",
-                                "format": "int64"
-                              },
-                              "name": {
-                                "description": "The name of the option",
-                                "type": "string"
-                              },
-                              "color": {
-                                "description": "The color of the option",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "color"
-                            ]
-                          }
                         }
                       },
                       "required": [
@@ -9466,9 +9373,9 @@
               "isRequired": true
             },
             {
-              "type": "string or number or array",
+              "type": "string or number",
               "name": "value",
-              "description": "<p>The value to set for the field. For multi-select fields, provide an array of option names.</p>",
+              "description": "<p>The value to set for the field</p>",
               "isRequired": true
             }
           ]
@@ -12247,7 +12154,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -12298,36 +12204,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -15202,7 +15078,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -15253,36 +15128,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -18128,7 +17973,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -18179,36 +18023,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -18375,9 +18189,9 @@
               "isRequired": true
             },
             {
-              "type": "string or number or array",
+              "type": "string or number",
               "name": "value",
-              "description": "<p>The value to set for the field. For multi-select fields, provide an array of option names.</p>",
+              "description": "<p>The value to set for the field</p>",
               "isRequired": true
             }
           ]
@@ -21158,7 +20972,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -21209,36 +21022,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -24497,7 +24280,6 @@
                           "enum": [
                             "text",
                             "single_select",
-                            "multi_select",
                             "number",
                             "date"
                           ]
@@ -24548,36 +24330,6 @@
                             "name",
                             "color"
                           ]
-                        },
-                        "multi_select_options": {
-                          "description": "Details about the selected options",
-                          "type": [
-                            "array",
-                            "null"
-                          ],
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier for the option.",
-                                "type": "integer",
-                                "format": "int64"
-                              },
-                              "name": {
-                                "description": "The name of the option",
-                                "type": "string"
-                              },
-                              "color": {
-                                "description": "The color of the option",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "color"
-                            ]
-                          }
                         }
                       },
                       "required": [
@@ -27754,7 +27506,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -27805,36 +27556,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -30699,7 +30420,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -30750,36 +30470,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -38933,7 +38623,6 @@
                                   "enum": [
                                     "text",
                                     "single_select",
-                                    "multi_select",
                                     "number",
                                     "date"
                                   ]
@@ -38984,36 +38673,6 @@
                                     "name",
                                     "color"
                                   ]
-                                },
-                                "multi_select_options": {
-                                  "description": "Details about the selected options",
-                                  "type": [
-                                    "array",
-                                    "null"
-                                  ],
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "description": "Unique identifier for the option.",
-                                        "type": "integer",
-                                        "format": "int64"
-                                      },
-                                      "name": {
-                                        "description": "The name of the option",
-                                        "type": "string"
-                                      },
-                                      "color": {
-                                        "description": "The color of the option",
-                                        "type": "string"
-                                      }
-                                    },
-                                    "required": [
-                                      "id",
-                                      "name",
-                                      "color"
-                                    ]
-                                  }
                                 }
                               },
                               "required": [
@@ -43208,7 +42867,6 @@
                                 "enum": [
                                   "text",
                                   "single_select",
-                                  "multi_select",
                                   "number",
                                   "date"
                                 ]
@@ -43259,36 +42917,6 @@
                                   "name",
                                   "color"
                                 ]
-                              },
-                              "multi_select_options": {
-                                "description": "Details about the selected options",
-                                "type": [
-                                  "array",
-                                  "null"
-                                ],
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "description": "Unique identifier for the option.",
-                                      "type": "integer",
-                                      "format": "int64"
-                                    },
-                                    "name": {
-                                      "description": "The name of the option",
-                                      "type": "string"
-                                    },
-                                    "color": {
-                                      "description": "The color of the option",
-                                      "type": "string"
-                                    }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "name",
-                                    "color"
-                                  ]
-                                }
                               }
                             },
                             "required": [
@@ -55648,7 +55276,6 @@
                           "enum": [
                             "text",
                             "single_select",
-                            "multi_select",
                             "number",
                             "date"
                           ]
@@ -55699,36 +55326,6 @@
                             "name",
                             "color"
                           ]
-                        },
-                        "multi_select_options": {
-                          "description": "Details about the selected options",
-                          "type": [
-                            "array",
-                            "null"
-                          ],
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier for the option.",
-                                "type": "integer",
-                                "format": "int64"
-                              },
-                              "name": {
-                                "description": "The name of the option",
-                                "type": "string"
-                              },
-                              "color": {
-                                "description": "The color of the option",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "color"
-                            ]
-                          }
                         }
                       },
                       "required": [
@@ -58602,7 +58199,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -58653,36 +58249,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -61562,7 +61128,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -61613,36 +61178,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -64558,7 +64093,6 @@
                           "enum": [
                             "text",
                             "single_select",
-                            "multi_select",
                             "number",
                             "date"
                           ]
@@ -64609,36 +64143,6 @@
                             "name",
                             "color"
                           ]
-                        },
-                        "multi_select_options": {
-                          "description": "Details about the selected options",
-                          "type": [
-                            "array",
-                            "null"
-                          ],
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier for the option.",
-                                "type": "integer",
-                                "format": "int64"
-                              },
-                              "name": {
-                                "description": "The name of the option",
-                                "type": "string"
-                              },
-                              "color": {
-                                "description": "The color of the option",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "color"
-                            ]
-                          }
                         }
                       },
                       "required": [
@@ -64809,24 +64313,6 @@
                 "node_id": "IFD_DUEDATE",
                 "data_type": "date",
                 "value": "2025-12-25"
-              },
-              {
-                "issue_field_id": 5,
-                "node_id": "IFMS_LABELS",
-                "data_type": "multi_select",
-                "value": "Frontend,Backend",
-                "multi_select_options": [
-                  {
-                    "id": 1,
-                    "name": "Frontend",
-                    "color": "blue"
-                  },
-                  {
-                    "id": 2,
-                    "name": "Backend",
-                    "color": "green"
-                  }
-                ]
               }
             ],
             "schema": {
@@ -64850,7 +64336,6 @@
                     "enum": [
                       "text",
                       "single_select",
-                      "multi_select",
                       "number",
                       "date"
                     ]
@@ -64901,36 +64386,6 @@
                       "name",
                       "color"
                     ]
-                  },
-                  "multi_select_options": {
-                    "description": "Details about the selected options",
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Unique identifier for the option.",
-                          "type": "integer",
-                          "format": "int64"
-                        },
-                        "name": {
-                          "description": "The name of the option",
-                          "type": "string"
-                        },
-                        "color": {
-                          "description": "The color of the option",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "name",
-                        "color"
-                      ]
-                    }
                   }
                 },
                 "required": [
@@ -65024,9 +64479,9 @@
               "isRequired": true
             },
             {
-              "type": "string or number or array",
+              "type": "string or number",
               "name": "value",
-              "description": "<p>The value to set for the field. The type depends on the field's data type:</p>\n<ul>\n<li>For text fields: provide a string value</li>\n<li>For single_select fields: provide the option name as a string (must match an existing option)</li>\n<li>For number fields: provide a numeric value</li>\n<li>For multi_select fields: provide an array of option names (must match existing options)</li>\n<li>For date fields: provide an ISO 8601 date string</li>\n</ul>",
+              "description": "<p>The value to set for the field. The type depends on the field's data type:</p>\n<ul>\n<li>For text fields: provide a string value</li>\n<li>For single_select fields: provide the option name as a string (must match an existing option)</li>\n<li>For number fields: provide a numeric value</li>\n<li>For date fields: provide an ISO 8601 date string</li>\n</ul>",
               "isRequired": true
             }
           ]
@@ -65094,24 +64549,6 @@
                 "node_id": "IFD_DUEDATE",
                 "data_type": "date",
                 "value": "2025-12-25"
-              },
-              {
-                "issue_field_id": 5,
-                "node_id": "IFMS_LABELS",
-                "data_type": "multi_select",
-                "value": "Frontend,Backend",
-                "multi_select_options": [
-                  {
-                    "id": 1,
-                    "name": "Frontend",
-                    "color": "blue"
-                  },
-                  {
-                    "id": 2,
-                    "name": "Backend",
-                    "color": "green"
-                  }
-                ]
               }
             ],
             "schema": {
@@ -65136,7 +64573,6 @@
                     "enum": [
                       "text",
                       "single_select",
-                      "multi_select",
                       "number",
                       "date"
                     ]
@@ -65187,36 +64623,6 @@
                       "name",
                       "color"
                     ]
-                  },
-                  "multi_select_options": {
-                    "description": "Details about the selected options",
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Unique identifier for the option.",
-                          "type": "integer",
-                          "format": "int64"
-                        },
-                        "name": {
-                          "description": "The name of the option",
-                          "type": "string"
-                        },
-                        "color": {
-                          "description": "The color of the option",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "name",
-                        "color"
-                      ]
-                    }
                   }
                 },
                 "required": [
@@ -65390,24 +64796,6 @@
                 "node_id": "IFD_DUEDATE",
                 "data_type": "date",
                 "value": "2025-12-25"
-              },
-              {
-                "issue_field_id": 5,
-                "node_id": "IFMS_LABELS",
-                "data_type": "multi_select",
-                "value": "Frontend,Backend",
-                "multi_select_options": [
-                  {
-                    "id": 1,
-                    "name": "Frontend",
-                    "color": "blue"
-                  },
-                  {
-                    "id": 2,
-                    "name": "Backend",
-                    "color": "green"
-                  }
-                ]
               }
             ],
             "schema": {
@@ -65432,7 +64820,6 @@
                     "enum": [
                       "text",
                       "single_select",
-                      "multi_select",
                       "number",
                       "date"
                     ]
@@ -65483,36 +64870,6 @@
                       "name",
                       "color"
                     ]
-                  },
-                  "multi_select_options": {
-                    "description": "Details about the selected options",
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "Unique identifier for the option.",
-                          "type": "integer",
-                          "format": "int64"
-                        },
-                        "name": {
-                          "description": "The name of the option",
-                          "type": "string"
-                        },
-                        "color": {
-                          "description": "The color of the option",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "name",
-                        "color"
-                      ]
-                    }
                   }
                 },
                 "required": [
@@ -71620,7 +70977,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -71671,36 +71027,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -74573,7 +73899,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -74624,36 +73949,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -77552,7 +76847,6 @@
                           "enum": [
                             "text",
                             "single_select",
-                            "multi_select",
                             "number",
                             "date"
                           ]
@@ -77603,36 +76897,6 @@
                             "name",
                             "color"
                           ]
-                        },
-                        "multi_select_options": {
-                          "description": "Details about the selected options",
-                          "type": [
-                            "array",
-                            "null"
-                          ],
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier for the option.",
-                                "type": "integer",
-                                "format": "int64"
-                              },
-                              "name": {
-                                "description": "The name of the option",
-                                "type": "string"
-                              },
-                              "color": {
-                                "description": "The color of the option",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "name",
-                              "color"
-                            ]
-                          }
                         }
                       },
                       "required": [
@@ -80507,7 +79771,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -80558,36 +79821,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -83474,7 +82707,6 @@
                         "enum": [
                           "text",
                           "single_select",
-                          "multi_select",
                           "number",
                           "date"
                         ]
@@ -83525,36 +82757,6 @@
                           "name",
                           "color"
                         ]
-                      },
-                      "multi_select_options": {
-                        "description": "Details about the selected options",
-                        "type": [
-                          "array",
-                          "null"
-                        ],
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier for the option.",
-                              "type": "integer",
-                              "format": "int64"
-                            },
-                            "name": {
-                              "description": "The name of the option",
-                              "type": "string"
-                            },
-                            "color": {
-                              "description": "The color of the option",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "id",
-                            "name",
-                            "color"
-                          ]
-                        }
                       }
                     },
                     "required": [
@@ -94243,7 +93445,6 @@
                                       "enum": [
                                         "text",
                                         "single_select",
-                                        "multi_select",
                                         "number",
                                         "date"
                                       ]
@@ -94294,36 +93495,6 @@
                                         "name",
                                         "color"
                                       ]
-                                    },
-                                    "multi_select_options": {
-                                      "description": "Details about the selected options",
-                                      "type": [
-                                        "array",
-                                        "null"
-                                      ],
-                                      "items": {
-                                        "type": "object",
-                                        "properties": {
-                                          "id": {
-                                            "description": "Unique identifier for the option.",
-                                            "type": "integer",
-                                            "format": "int64"
-                                          },
-                                          "name": {
-                                            "description": "The name of the option",
-                                            "type": "string"
-                                          },
-                                          "color": {
-                                            "description": "The color of the option",
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "id",
-                                          "name",
-                                          "color"
-                                        ]
-                                      }
                                     }
                                   },
                                   "required": [

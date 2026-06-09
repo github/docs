@@ -2474,7 +2474,6 @@
                 "enum": [
                   "text",
                   "single_select",
-                  "multi_select",
                   "number",
                   "date"
                 ]
@@ -2489,31 +2488,6 @@
                 "type": "object or null",
                 "name": "single_select_option",
                 "description": "<p>Details about the selected option (only present for single_select fields)</p>",
-                "childParamsGroups": [
-                  {
-                    "type": "integer",
-                    "name": "id",
-                    "description": "<p>Unique identifier for the option.</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "name",
-                    "description": "<p>The name of the option</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "color",
-                    "description": "<p>The color of the option</p>",
-                    "isRequired": true
-                  }
-                ]
-              },
-              {
-                "type": "array of objects or null",
-                "name": "multi_select_options",
-                "description": "<p>Details about the selected options</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -5821,7 +5795,6 @@
                 "enum": [
                   "text",
                   "single_select",
-                  "multi_select",
                   "number",
                   "date"
                 ]
@@ -5836,31 +5809,6 @@
                 "type": "object or null",
                 "name": "single_select_option",
                 "description": "<p>Details about the selected option (only present for single_select fields)</p>",
-                "childParamsGroups": [
-                  {
-                    "type": "integer",
-                    "name": "id",
-                    "description": "<p>Unique identifier for the option.</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "name",
-                    "description": "<p>The name of the option</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "color",
-                    "description": "<p>The color of the option</p>",
-                    "isRequired": true
-                  }
-                ]
-              },
-              {
-                "type": "array of objects or null",
-                "name": "multi_select_options",
-                "description": "<p>Details about the selected options</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -8396,7 +8344,6 @@
                 "enum": [
                   "text",
                   "single_select",
-                  "multi_select",
                   "number",
                   "date"
                 ]
@@ -8411,31 +8358,6 @@
                 "type": "object or null",
                 "name": "single_select_option",
                 "description": "<p>Details about the selected option (only present for single_select fields)</p>",
-                "childParamsGroups": [
-                  {
-                    "type": "integer",
-                    "name": "id",
-                    "description": "<p>Unique identifier for the option.</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "name",
-                    "description": "<p>The name of the option</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "color",
-                    "description": "<p>The color of the option</p>",
-                    "isRequired": true
-                  }
-                ]
-              },
-              {
-                "type": "array of objects or null",
-                "name": "multi_select_options",
-                "description": "<p>Details about the selected options</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -11743,7 +11665,6 @@
                 "enum": [
                   "text",
                   "single_select",
-                  "multi_select",
                   "number",
                   "date"
                 ]
@@ -11758,31 +11679,6 @@
                 "type": "object or null",
                 "name": "single_select_option",
                 "description": "<p>Details about the selected option (only present for single_select fields)</p>",
-                "childParamsGroups": [
-                  {
-                    "type": "integer",
-                    "name": "id",
-                    "description": "<p>Unique identifier for the option.</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "name",
-                    "description": "<p>The name of the option</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "color",
-                    "description": "<p>The color of the option</p>",
-                    "isRequired": true
-                  }
-                ]
-              },
-              {
-                "type": "array of objects or null",
-                "name": "multi_select_options",
-                "description": "<p>Details about the selected options</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -14318,7 +14214,6 @@
                 "enum": [
                   "text",
                   "single_select",
-                  "multi_select",
                   "number",
                   "date"
                 ]
@@ -14333,31 +14228,6 @@
                 "type": "object or null",
                 "name": "single_select_option",
                 "description": "<p>Details about the selected option (only present for single_select fields)</p>",
-                "childParamsGroups": [
-                  {
-                    "type": "integer",
-                    "name": "id",
-                    "description": "<p>Unique identifier for the option.</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "name",
-                    "description": "<p>The name of the option</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "color",
-                    "description": "<p>The color of the option</p>",
-                    "isRequired": true
-                  }
-                ]
-              },
-              {
-                "type": "array of objects or null",
-                "name": "multi_select_options",
-                "description": "<p>Details about the selected options</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -17665,7 +17535,6 @@
                 "enum": [
                   "text",
                   "single_select",
-                  "multi_select",
                   "number",
                   "date"
                 ]
@@ -17680,31 +17549,6 @@
                 "type": "object or null",
                 "name": "single_select_option",
                 "description": "<p>Details about the selected option (only present for single_select fields)</p>",
-                "childParamsGroups": [
-                  {
-                    "type": "integer",
-                    "name": "id",
-                    "description": "<p>Unique identifier for the option.</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "name",
-                    "description": "<p>The name of the option</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "color",
-                    "description": "<p>The color of the option</p>",
-                    "isRequired": true
-                  }
-                ]
-              },
-              {
-                "type": "array of objects or null",
-                "name": "multi_select_options",
-                "description": "<p>Details about the selected options</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -20240,7 +20084,6 @@
                 "enum": [
                   "text",
                   "single_select",
-                  "multi_select",
                   "number",
                   "date"
                 ]
@@ -20255,31 +20098,6 @@
                 "type": "object or null",
                 "name": "single_select_option",
                 "description": "<p>Details about the selected option (only present for single_select fields)</p>",
-                "childParamsGroups": [
-                  {
-                    "type": "integer",
-                    "name": "id",
-                    "description": "<p>Unique identifier for the option.</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "name",
-                    "description": "<p>The name of the option</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "color",
-                    "description": "<p>The color of the option</p>",
-                    "isRequired": true
-                  }
-                ]
-              },
-              {
-                "type": "array of objects or null",
-                "name": "multi_select_options",
-                "description": "<p>Details about the selected options</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
@@ -23587,7 +23405,6 @@
                 "enum": [
                   "text",
                   "single_select",
-                  "multi_select",
                   "number",
                   "date"
                 ]
@@ -23602,31 +23419,6 @@
                 "type": "object or null",
                 "name": "single_select_option",
                 "description": "<p>Details about the selected option (only present for single_select fields)</p>",
-                "childParamsGroups": [
-                  {
-                    "type": "integer",
-                    "name": "id",
-                    "description": "<p>Unique identifier for the option.</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "name",
-                    "description": "<p>The name of the option</p>",
-                    "isRequired": true
-                  },
-                  {
-                    "type": "string",
-                    "name": "color",
-                    "description": "<p>The color of the option</p>",
-                    "isRequired": true
-                  }
-                ]
-              },
-              {
-                "type": "array of objects or null",
-                "name": "multi_select_options",
-                "description": "<p>Details about the selected options</p>",
                 "childParamsGroups": [
                   {
                     "type": "integer",
