@@ -2230,7 +2230,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.cancel",
@@ -2266,7 +2266,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.create",
@@ -2302,7 +2302,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.deny",
@@ -2338,7 +2338,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About Dependabot alerts"
+    "docs_reference_titles": "Dependabot alerts"
   },
   {
     "action": "dependabot_repository_access.repositories_updated",
