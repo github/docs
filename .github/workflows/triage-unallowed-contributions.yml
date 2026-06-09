@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Get files changed
-        uses: dorny/paths-filter@0bc4621a3135347011ad047f9ecf449bf72ce2bd
+        uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d
         id: filter
         with:
           # Base branch used to get changed files

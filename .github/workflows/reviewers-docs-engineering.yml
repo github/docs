@@ -49,7 +49,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       # Detect PRs that only changed package-lock.json (no engineering source files).
       # These are usually cross-platform `npm install` churn from contributors

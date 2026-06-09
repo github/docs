@@ -20,7 +20,9 @@ AI agents are autonomous systems that can evaluate their environment, make decis
 
 Agents bring automation and assistance to every stage of the software development process on {% data variables.product.github %}. You can run multiple agent sessions concurrently, allowing you to efficiently delegate work items. 
 
-Alongside {% data variables.product.prodname_copilot_short %}, you can use {% data variables.product.prodname_anthropic_claude %} and {% data variables.product.prodname_openai_codex %}, giving you more flexibility and choice to find the right agent for a task. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents).
+Alongside {% data variables.product.prodname_copilot_short %}, you can use {% data variables.product.prodname_anthropic_claude %} and {% data variables.product.prodname_openai_codex %}, giving you more flexibility and choice to find the right agent for a task. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents).
+
+{% data variables.product.company_short %} partners can also offer their own agents as {% data variables.copilot.agent_apps %}, which you install as {% data variables.product.prodname_github_apps %} and trigger from issues, pull requests, and the Agents UI. See [AUTOTITLE](/copilot/concepts/agents/agent-apps).
 
 Utilizing {% data variables.copilot.custom_agents_short %} you can build out a team of task-specific agents with customized system prompts to handle simpler tasks like writing tests and refactoring, giving you bandwidth to prioritize problem-solving and collaboration. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-custom-agents). 
 
@@ -37,10 +39,12 @@ From the Agents tab, you can:
 * **Kick off new agent tasks**: Select an AI model of your choice, and optionally choose from third-party agents or {% data variables.copilot.custom_agents_short %} best suited for the task. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions).
 * **Monitor live session logs**: Once the agent starts working, you can click any agent session to open the session log and follow its progress and thought process in real time.
 * **Track active sessions**: You can view all active agent sessions that have been started in the repository.
-* **Steer agents mid-session**: If you realize you didn't scope a request correctly, or want the agent to use a specific tool or service, you can step in and provide **steering input** without stopping the run. Steering uses **one premium request** per message. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions#steering-a-copilot-session-from-the-agents-tab).
+* **Steer agents mid-session**: If you realize you didn't scope a request correctly, or want the agent to use a specific tool or service, you can step in and provide **steering input** without stopping the run. Steering consumes {% data variables.product.prodname_ai_credits_short %} per message. See [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents#steer-an-agent-session).
 * **Open a session in {% data variables.product.prodname_vscode_shortname %} or {% data variables.copilot.copilot_cli %}**: When you want to start working on changes to an agent session in your local development environment, click **{% octicon "vscode" aria-label="VS Code" %} Open in {% data variables.product.prodname_vscode_shortname %}** or **{% octicon "agent" aria-label="Agent" %} Continue in {% data variables.copilot.copilot_cli %}** to bring the session to your local machine.
     {% data reusables.copilot.cloud-agent.use-latest-vscode %}
 * **Review and merge agent code**: Once the agent completes a session, you can jump to the pull request to review the changes, request further improvements, or approve and merge. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/review-copilot-prs).
+* **Set up {% data variables.copilot.copilot_automations %}**: Run {% data variables.copilot.copilot_cloud_agent %} automatically, on a schedule or in response to events such as an issue being opened. See [AUTOTITLE](/copilot/concepts/agents/cloud-agent/about-automations).
+* **Query your past sessions**: You can search and reference your past agent sessions using natural language from {% data variables.copilot.copilot_cli_short %} or {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/chronicle).
 
 ## Next steps
 

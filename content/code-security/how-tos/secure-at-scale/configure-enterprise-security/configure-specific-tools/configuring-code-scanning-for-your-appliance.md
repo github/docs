@@ -36,7 +36,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 ## Prerequisites for {% data variables.product.prodname_code_scanning %}
 
-* A license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% endif %}{% data variables.product.prodname_GHAS %}, (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security))
+* A license for {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %}, (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security))
 
 * {% data variables.product.prodname_code_scanning_caps %} enabled in the management console (see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise))
 

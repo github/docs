@@ -2,7 +2,7 @@ import fs, { promises as fsPromises } from 'fs'
 import path from 'path'
 
 import QuickLRU from 'quick-lru'
-import { brotliDecompress } from 'zlib'
+import { brotliDecompress, deflateSync, inflateSync } from 'zlib'
 import { promisify } from 'util'
 import { getAutomatedPageMiniTocItems, type MiniTocItem } from '@/frame/lib/get-mini-toc-items'
 import { allVersions, getOpenApiVersion } from '@/versions/lib/all-versions'
@@ -60,7 +60,7 @@ const restOperationData = new Map<
 // they account for >90% of traffic and each version needs ~100 slots alone.
 // All other versions (ghes) go into a bounded LRU cache.
 const PINNED_OPEN_API_VERSIONS = new Set(['fpt', 'ghec'])
-export const pinnedCache = new Map<string, RestOperationCategory>() // @internal
+export const pinnedCache = new Map<string, Buffer>() // @internal — stores deflate-compressed JSON
 const LRU_MAX_SIZE = Math.max(1, parseInt(process.env.REST_SCHEMA_LRU_SIZE ?? '', 10) || 96)
 export const lruCache = new QuickLRU<string, RestOperationCategory>({ maxSize: LRU_MAX_SIZE }) // @internal
 
@@ -106,9 +106,14 @@ export default async function getRest(
   const openapiSchemaName = apiVersion ? `${openApiVersion}-${apiVersion}` : `${openApiVersion}`
   const lruKey = `${openApiVersion}:${apiDate}:${category}`
 
-  const cache = PINNED_OPEN_API_VERSIONS.has(openApiVersion) ? pinnedCache : lruCache
+  const isPinned = PINNED_OPEN_API_VERSIONS.has(openApiVersion)
 
-  if (!cache.has(lruKey)) {
+  // Pinned cache: store deflate-compressed JSON Buffers to save ~100–500 MB heap.
+  // LRU cache: store parsed objects (bounded size, low traffic).
+  if (isPinned) {
+    if (pinnedCache.has(lruKey)) {
+      return JSON.parse(inflateSync(pinnedCache.get(lruKey)!).toString()) as RestOperationCategory
+    }
     const basePath = path.join(REST_DATA_DIR, openapiSchemaName, `${category}.json`)
     if (!inflight.has(lruKey)) {
       inflight.set(
@@ -116,10 +121,24 @@ export default async function getRest(
         loadCategoryFile(basePath).finally(() => inflight.delete(lruKey)),
       )
     }
-    cache.set(lruKey, await inflight.get(lruKey)!)
+    const data = await inflight.get(lruKey)!
+    pinnedCache.set(lruKey, deflateSync(Buffer.from(JSON.stringify(data))))
+    return data
+  } else {
+    if (lruCache.has(lruKey)) {
+      return lruCache.get(lruKey)!
+    }
+    const basePath = path.join(REST_DATA_DIR, openapiSchemaName, `${category}.json`)
+    if (!inflight.has(lruKey)) {
+      inflight.set(
+        lruKey,
+        loadCategoryFile(basePath).finally(() => inflight.delete(lruKey)),
+      )
+    }
+    const data = await inflight.get(lruKey)!
+    lruCache.set(lruKey, data)
+    return data
   }
-
-  return cache.get(lruKey)!
 }
 
 // Read asynchronously to avoid blocking the event loop on a cache miss.

@@ -7,11 +7,9 @@ versions:
 children:
   - /usage-based-billing-for-individuals
   - /usage-based-billing-for-organizations-and-enterprises
-  - /copilot-requests
+  - /budgets-for-usage-based-billing
   - /individual-plans
-  - /billing-for-individuals
   - /organizations-and-enterprises
-  - /premium-request-management
 redirect_from:
   - /managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments
   - /copilot/managing-copilot/understanding-and-managing-copilot-usage
@@ -19,8 +17,3 @@ redirect_from:
 contentType: concepts
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cfi-cb-ce %}
-
-<!-- end expires 2026-06-01 -->

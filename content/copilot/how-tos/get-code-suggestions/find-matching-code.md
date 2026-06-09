@@ -233,7 +233,7 @@ To see details of the matching code:
 
 ## View code references for {% data variables.copilot.copilot_cloud_agent %}
 
-When {% data variables.product.prodname_copilot_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions).
+When {% data variables.product.prodname_copilot_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents).
 
 {% endwebui %}
 

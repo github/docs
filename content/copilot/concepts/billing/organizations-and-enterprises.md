@@ -21,18 +21,19 @@ category:
   - Manage Copilot for a team
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cb-ce %}
-
-<!-- end expires 2026-06-01 -->
-
 ## Available plans
 
 {% data variables.product.company_short %} offers the following plans for organization accounts:
 
-* **{% data variables.copilot.copilot_business_short %}** at {% data variables.copilot.cfb_price_per_month %} per user per month (Purchase additional premium requests at {% data variables.copilot.additional_premium_requests %} per request)
-* **{% data variables.copilot.copilot_enterprise_short %}** at {% data variables.copilot.ce_price_per_month %} per user per month ({% data variables.product.prodname_ghe_cloud %} only, purchase additional premium requests at {% data variables.copilot.additional_premium_requests %} per request)
+* **{% data variables.copilot.copilot_business_short %}** at {% data variables.copilot.cfb_price_per_month %} per user per month, includes {% data variables.copilot.ai_credits_per_user_business %} {% data variables.product.prodname_ai_credits_short %} per user, and access to a broad model catalog.
+* **{% data variables.copilot.copilot_enterprise_short %}** at {% data variables.copilot.ce_price_per_month %} per user per month, includes {% data variables.copilot.ai_credits_per_user_enterprise %} {% data variables.product.prodname_ai_credits_short %} per user ({% data variables.product.prodname_ghe_cloud %} only), and priority access to new models and features.
+
+<!-- expires 2026-09-01 -->
+
+> [!NOTE]
+> Existing customers receive higher included {% data variables.product.prodname_ai_credits_short %} during the promotional period (June–August 2026). See [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises#promotional-amounts-for-existing-customers).
+
+<!-- end expires 2026-09-01 -->
 
 With {% data variables.product.prodname_ghe_cloud %}:
 
@@ -40,9 +41,11 @@ With {% data variables.product.prodname_ghe_cloud %}:
 
 * Data-resident and FedRAMP-compliant {% data variables.product.prodname_copilot_short %} requests include a 10% model multiplier increase. See [AUTOTITLE](/admin/data-residency/github-copilot-with-data-residency#pricing-for-data-resident-copilot).
 
-## Premium requests
+## {% data variables.product.prodname_ai_credits %}
 
-Paid {% data variables.product.prodname_copilot_short %} plans include premium requests. Premium requests use advanced models and features and are subject to monthly allowances or potential overage costs. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+{% data variables.product.prodname_copilot_short %} usage is measured in {% data variables.product.prodname_ai_credits_short %} under usage-based billing. Each license contributes {% data variables.product.prodname_ai_credits_short %} to a shared enterprise pool, and usage beyond the pool is charged at {% data variables.product.prodname_ai_credits_value %} per {% data variables.product.prodname_ai_credit_singular %}. Code completions and {% data variables.copilot.next_edit_suggestions %} are not billed in {% data variables.product.prodname_ai_credits_short %} and remain unlimited for all paid plans.
+
+For a full explanation of how {% data variables.product.prodname_ai_credits_short %} work, including pooling, additional usage, and what happens when credits run out, see [AUTOTITLE](/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises).
 
 ## Seat assignment
 
@@ -55,6 +58,10 @@ If a user receives a seat from multiple organizations in the same enterprise, th
 ## Billing cycles
 
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. Although you can add or remove seats at any time during the billing cycle, billing for removed seats continues until the end of the current billing cycle. See [AUTOTITLE](/copilot/reference/copilot-billing/license-changes).
+
+## Managing costs
+
+You can control {% data variables.product.prodname_ai_credits_short %} spend using budget controls at the user, cost center, and enterprise level. For an overview of how budget controls work, see [AUTOTITLE](/copilot/concepts/billing/budgets-for-usage-based-billing). For guidance on choosing a configuration, see [AUTOTITLE](/copilot/tutorials/budgets/optimizing-your-budget-configuration).
 
 ## Reference
 

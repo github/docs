@@ -8,12 +8,8 @@
 
    ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form.](/assets/images/help/repository/secret-scanning-create-custom-pattern.png)
 
-{% elsif ghes > 3.16 %}
+{% elsif ghes %}
 
    ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form.](/assets/images/help/repository/secret-scanning-create-custom-pattern-ghes17.png)
-
-{% elsif ghes < 3.17 %}
-
-   ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form.](/assets/images/help/repository/secret-scanning-create-custom-pattern-ghas.png)
 
 {% endif %}

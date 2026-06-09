@@ -1,6 +1,6 @@
 ## About {% data variables.copilot.copilot_sku_isolation %}
 
-As an enterprise or organization owner, you can use your network firewall to explicitly allow access to {% data variables.copilot.copilot_for_business %}, {% data variables.copilot.copilot_enterprise %}, or both, and/or block access to {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_free %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
+As an enterprise or organization owner, you can use your network firewall to explicitly allow access to {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or both, and/or block access to {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, or {% data variables.copilot.copilot_free_short %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
 
 Configuring {% data variables.copilot.copilot_sku_isolation %} will affect the following {% data variables.product.prodname_copilot_short %} features:
 

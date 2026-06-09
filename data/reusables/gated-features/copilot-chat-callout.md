@@ -1,3 +1,0 @@
-All users with a {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, or {% data variables.copilot.copilot_free_short %} plan can access {% data variables.copilot.copilot_chat_short %} in supported IDEs and on the {% data variables.product.github %} website.
-
-Owners of organizations {% ifversion ghec %}or enterprises {% endif %}with a {% data variables.copilot.copilot_business_short %}{% ifversion ghec %} or a {% data variables.copilot.copilot_enterprise_short %}{% endif %} plan can decide whether to grant access to {% data variables.copilot.copilot_chat_short %}.

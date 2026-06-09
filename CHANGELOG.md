@@ -1,5 +1,24 @@
 # Docs changelog
 
+**4 June 2026**
+
+We consolidated all Copilot and code security responsible use articles into structured application cards. Previously, each feature had its own standalone transparency note with inconsistent formatting. Now there are four standardized cards covering Chat, Agents, Inline Suggestions, and Code Security AI features, all following the same template with numbered sections for overview, key terms, capabilities, intended uses, models, limitations, and more.
+
+* [Application card: GitHub Copilot Chat](https://docs.github.com/en/copilot/responsible-use/chat)
+* [Application card: GitHub Copilot Agents](https://docs.github.com/en/copilot/responsible-use/agents)
+* [Application card: GitHub Copilot Inline Suggestions](https://docs.github.com/en/copilot/responsible-use/inline-suggestions)
+* [Application card: Security and code quality AI features](https://docs.github.com/en/code-security/responsible-use/security-and-quality-ai-features)
+
+<hr>
+
+**28 May 2026**
+
+We published a new guide for teams that run the CodeQL CLI in their own CI/CD systems and want faster scans. The article covers two techniques that can reduce scan times: diff-informed analysis (report only alerts in changed lines) and overlay analysis (reuse a cached base database instead of rebuilding from scratch).
+
+[Using incremental analysis with the CodeQL CLI](https://docs.github.com/en/code-security/how-tos/find-and-fix-code-vulnerabilities/scan-from-the-command-line/incremental-analysis)
+
+<hr>
+
 **19 May 2026**
 
 We published the first iteration of a [journey landing page](https://docs.github.com/en/enterprise-cloud@latest/copilot/get-started/enterprise-ai-governance) for enterprises adopting and governing GitHub Copilot. The journey covers sign-off and adoption, governance of core features, and agent adoption. It includes six newly published guides alongside some refreshed existing content.

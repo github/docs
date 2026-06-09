@@ -1,11 +1,14 @@
 ---
 title: Multi-repository variant analysis
+shortTitle: Multi-repository variant analysis
 intro: MRVA lets you test a query in {% data variables.product.prodname_vscode %} by running it against a large number of repositories.
 versions:
   feature: codeql-vs-code-mrva
 contentType: concepts
 category:
   - Customize vulnerability detection with CodeQL
+redirect_from:
+  - /code-security/concepts/code-scanning/variant-analysis
 ---
 
 ## About MRVA

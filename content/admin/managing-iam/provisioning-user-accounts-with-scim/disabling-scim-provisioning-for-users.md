@@ -9,8 +9,6 @@ category:
   - Provision and manage enterprise users
 ---
 
-{% data reusables.scim.ghes-beta-note %}
-
 ## How do I disable SCIM?
 
 To disable SCIM provisioning while keeping SAML on:

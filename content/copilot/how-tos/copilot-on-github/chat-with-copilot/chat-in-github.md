@@ -50,7 +50,7 @@ category:
 
 ### Changing and comparing AI models
 
-You can choose from a selection of AI models, each with different strengths. Different models have different premium request multipliers, which affect your monthly usage allowance. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+You can choose from a selection of AI models, each with different strengths. Different models consume {% data variables.product.prodname_ai_credits_short %} at different rates based on their token pricing. For details, see [AUTOTITLE](/copilot/reference/copilot-billing/models-and-pricing).
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 

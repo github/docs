@@ -1,5 +1,6 @@
 ---
 title: Two CodeQL workflows
+shortTitle: Two CodeQL workflows
 allowTitleToDifferFromFilename: true
 intro: If you see two workflows named "{% data variables.product.prodname_codeql %}", one workflow may be a pre-existing {% data variables.product.prodname_codeql %} workflow file which has been disabled by default setup.
 versions:

@@ -12,10 +12,13 @@ children:
   - /code-review
   - /copilot-memory
   - /hooks
-  - /about-third-party-agents
+  - /about-enterprise-plugin-standards
+  - /about-third-party-coding-agents
+  - /agent-apps
   - /openai-codex
   - /anthropic-claude
   - /about-agent-skills
   - /enterprise-management
 contentType: concepts
 ---
+

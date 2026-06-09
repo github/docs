@@ -1,8 +1,11 @@
 ---
 title: Delegated alert dismissal
-intro: 'Increase your governance over security alerts with delegated alert dismissal.'
+shortTitle: Delegated alert dismissal
+intro: Increase your governance over security alerts with delegated alert dismissal.
 versions:
-  feature: security-delegated-alert-dismissal
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 contentType: concepts
 category:
   - Secure at scale
