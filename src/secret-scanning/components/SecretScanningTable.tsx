@@ -1,10 +1,31 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { DataTable, Table } from '@primer/react/experimental'
-import { TextInput, ActionMenu, ActionList, Pagination } from '@primer/react'
+import { TextInput, ActionMenu, ActionList, Pagination, Button } from '@primer/react'
+import debounce from 'lodash/debounce'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { sendEvent } from '@/events/components/events'
+import { EventType } from '@/events/types'
+import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
 import type { SecretScanningData } from '@/types'
 
 const PAGE_SIZE = 25
+
+// Identifies this table in the docs.v0.TableInteractionEvent analytics.
+const TABLE_INTERACTION_NAME = 'secret-scanning-patterns'
+
+// Maps DataTable column ids to the canonical analytics field name so that a
+// filter and a sort on the same column report the same
+// table_interaction_field_name. Filter keys already use these canonical names.
+const COLUMN_FIELD_NAMES: Record<string, string> = {
+  provider: 'provider',
+  supportedSecret: 'secret',
+  isPublic: 'partnerAlert',
+  isPrivateWithGhas: 'userAlert',
+  hasPushProtection: 'pushProtection',
+  hasValidityCheck: 'validityCheck',
+  hasExtendedMetadata: 'metadata',
+  base64Supported: 'base64',
+}
 
 type SecretScanningRow = SecretScanningData & { id: string }
 
@@ -17,19 +38,80 @@ type FilterState = {
   base64: 'all' | 'yes' | 'no'
 }
 
+type FilterKey = Exclude<keyof FilterState, 'search'>
+
+const DEFAULT_FILTERS: FilterState = {
+  search: '',
+  pushProtection: 'all',
+  validityCheck: 'all',
+  partnerAlert: 'all',
+  metadata: 'all',
+  base64: 'all',
+}
+
+type TableInteractionType = 'search' | 'filter' | 'sort' | 'paginate' | 'reset'
+
 export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
   const { t } = useTranslation('secret_scanning')
-  const [filters, setFilters] = useState<FilterState>({
-    search: '',
-    pushProtection: 'all',
-    validityCheck: 'all',
-    partnerAlert: 'all',
-    metadata: 'all',
-    base64: 'all',
-  })
+  const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS)
   const [currentPage, setCurrentPage] = useState(1)
   const [sortColumn, setSortColumn] = useState<string | undefined>(undefined)
   const [sortDirection, setSortDirection] = useState<'ASC' | 'DESC'>('ASC')
+
+  // Emit a TableInteractionEvent for analytics (github/docs-engineering#6593).
+  const trackInteraction = useCallback(
+    (interactionType: TableInteractionType, fieldName?: string, fieldValue?: string) => {
+      sendEvent({
+        type: EventType.tableInteraction,
+        table_interaction_name: TABLE_INTERACTION_NAME,
+        table_interaction_type: interactionType,
+        table_interaction_field_name: fieldName,
+        table_interaction_field_value: fieldValue,
+      })
+    },
+    [],
+  )
+
+  // Debounce search tracking so we record the settled query, not every keystroke.
+  const debouncedTrackSearchRef = useRef<ReturnType<typeof debounce> | null>(null)
+  useEffect(() => {
+    debouncedTrackSearchRef.current = debounce((query: string) => {
+      // Sanitize before logging: users may paste a real secret into this
+      // table's search to check support, and the query is sent to analytics.
+      trackInteraction('search', 'search', sanitizeSearchQuery(query))
+    }, 500)
+    return () => {
+      debouncedTrackSearchRef.current?.flush()
+      debouncedTrackSearchRef.current?.cancel()
+    }
+  }, [trackInteraction])
+
+  const handleFilterChange = useCallback(
+    (field: FilterKey, value: 'all' | 'yes' | 'no') => {
+      setFilters((f) => ({ ...f, [field]: value }))
+      setCurrentPage(1)
+      trackInteraction('filter', field, value)
+    },
+    [trackInteraction],
+  )
+
+  const handleReset = useCallback(() => {
+    setFilters(DEFAULT_FILTERS)
+    setCurrentPage(1)
+    setSortColumn(undefined)
+    setSortDirection('ASC')
+    debouncedTrackSearchRef.current?.cancel()
+    trackInteraction('reset')
+  }, [trackInteraction])
+
+  const hasActiveFilters =
+    filters.search !== '' ||
+    filters.pushProtection !== 'all' ||
+    filters.validityCheck !== 'all' ||
+    filters.partnerAlert !== 'all' ||
+    filters.metadata !== 'all' ||
+    filters.base64 !== 'all' ||
+    sortColumn !== undefined
 
   // Add stable IDs once based on original data order
   const dataWithIds: SecretScanningRow[] = useMemo(() => {
@@ -92,51 +174,49 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
           <FilterDropdown
             label={t('filter_push_protection')}
             value={filters.pushProtection}
-            onChange={(v) => {
-              setFilters((f) => ({ ...f, pushProtection: v }))
-              setCurrentPage(1)
-            }}
+            onChange={(v) => handleFilterChange('pushProtection', v)}
           />
           <FilterDropdown
             label={t('filter_validity_check')}
             value={filters.validityCheck}
-            onChange={(v) => {
-              setFilters((f) => ({ ...f, validityCheck: v }))
-              setCurrentPage(1)
-            }}
+            onChange={(v) => handleFilterChange('validityCheck', v)}
           />
           <FilterDropdown
             label={t('filter_partner_alert')}
             value={filters.partnerAlert}
-            onChange={(v) => {
-              setFilters((f) => ({ ...f, partnerAlert: v }))
-              setCurrentPage(1)
-            }}
+            onChange={(v) => handleFilterChange('partnerAlert', v)}
           />
           <FilterDropdown
             label={t('filter_metadata')}
             value={filters.metadata}
-            onChange={(v) => {
-              setFilters((f) => ({ ...f, metadata: v }))
-              setCurrentPage(1)
-            }}
+            onChange={(v) => handleFilterChange('metadata', v)}
           />
           <FilterDropdown
             label={t('filter_base64')}
             value={filters.base64}
-            onChange={(v) => {
-              setFilters((f) => ({ ...f, base64: v }))
-              setCurrentPage(1)
-            }}
+            onChange={(v) => handleFilterChange('base64', v)}
           />
+          {hasActiveFilters && (
+            <Button
+              variant="invisible"
+              size="small"
+              onClick={handleReset}
+              aria-label={t('clear_filters_aria_label')}
+            >
+              {t('clear_filters')}
+            </Button>
+          )}
         </div>
         <TextInput
           aria-label={t('search_aria_label')}
           placeholder={t('search_placeholder')}
           value={filters.search}
           onChange={(e) => {
-            setFilters((f) => ({ ...f, search: e.target.value }))
+            const value = e.target.value
+            setFilters((f) => ({ ...f, search: value }))
             setCurrentPage(1)
+            if (value.trim()) debouncedTrackSearchRef.current?.(value)
+            else debouncedTrackSearchRef.current?.cancel()
           }}
         />
       </div>
@@ -168,6 +248,11 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
               setSortColumn(String(columnId))
               setSortDirection(direction)
               setCurrentPage(1)
+              trackInteraction(
+                'sort',
+                COLUMN_FIELD_NAMES[String(columnId)] ?? String(columnId),
+                direction,
+              )
             }}
             columns={[
               {
@@ -280,7 +365,10 @@ export function SecretScanningTable({ data }: { data: SecretScanningData[] }) {
           aria-label={t('pagination_label')}
           pageCount={pageCount}
           currentPage={currentPage}
-          onPageChange={(_e: React.MouseEvent, page: number) => setCurrentPage(page)}
+          onPageChange={(_e: React.MouseEvent, page: number) => {
+            setCurrentPage(page)
+            trackInteraction('paginate', 'page', String(page))
+          }}
         />
       )}
     </div>

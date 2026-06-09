@@ -35,7 +35,7 @@
     "deleted-assets-pr-comment": "tsx src/assets/scripts/deleted-assets-pr-comment.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
     "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
-    "deprecate-ghes-archive": "cross-env NODE_OPTIONS=--max-old-space-size=16384 tsx src/ghes-releases/scripts/deprecate/archive-version.ts",
+    "deprecate-ghes-archive": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=16384 tsx src/ghes-releases/scripts/deprecate/archive-version.ts",
     "dev": "cross-env npm start",
     "dev-toc": "tsx src/dev-toc/generate.ts",
     "enable-automerge": "tsx src/workflows/enable-automerge.ts",

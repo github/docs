@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>THREADS</code> was added to enum <code>SocialAccountProvider</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-06-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'ProjectV2ItemArchivedState' was added</p>",
           "<p>Enum value <code>ARCHIVED</code> was added to enum 'ProjectV2ItemArchivedState'</p>",
           "<p>Enum value 'NOT_ARCHIVED<code>was added to enum</code>ProjectV2ItemArchivedState'</p>",
