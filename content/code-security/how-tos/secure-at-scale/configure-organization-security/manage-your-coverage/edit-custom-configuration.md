@@ -18,7 +18,7 @@ category:
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
-1. {% ifversion ghas-products %}Under "{% data variables.product.prodname_security_configurations_caps %}"{% else %}In the "Code {% data variables.product.prodname_security_configurations %}" section{% endif %}, click the name of the {% data variables.product.prodname_custom_security_configuration %} you want to edit.
+1. Under "{% data variables.product.prodname_security_configurations_caps %}", click the name of the {% data variables.product.prodname_custom_security_configuration %} you want to edit.
 
     {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
 

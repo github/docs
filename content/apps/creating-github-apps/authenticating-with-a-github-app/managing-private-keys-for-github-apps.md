@@ -14,7 +14,7 @@ category:
 
 After you create a {% data variables.product.prodname_github_app %}, you'll need to generate a private key in order to make requests to the {% data variables.product.github %} API as the application itself. For example, you need a private key to sign a JSON Web Token (JWT) in order to request an installation access token. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)
 
-You can create {% ifversion app-key-limit %}up to 25 {% else %}multiple {% endif %}private keys for an app. You should use multiple keys in order to rotate keys without downtime in the event of a key compromise. {% ifversion app-key-limit %}If your application has 25 or more keys, you must delete some before you can create more. {% endif %}
+You can create up to 25 private keys for an app. You should use multiple keys in order to rotate keys without downtime in the event of a key compromise. If your application has 25 or more keys, you must delete some before you can create more.
 
 Private keys do not expire and instead need to be manually revoked. For more information about how to revoke or delete a private key, see [Deleting private keys](#deleting-private-keys).
 

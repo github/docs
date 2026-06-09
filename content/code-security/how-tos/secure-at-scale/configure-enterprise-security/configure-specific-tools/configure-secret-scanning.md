@@ -30,7 +30,7 @@ When the enterprise has [{% data variables.product.prodname_GH_secret_protection
 
 * The SSSE3 (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.product.prodname_ghe_server %}. For more information about SSSE3, see [Intel 64 and IA-32 Architectures Optimization Reference Manual](https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf) in the Intel documentation.
 
-* A license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_secret_protection %} or {% endif %}{% data variables.product.prodname_GHAS %} (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security))
+* A license for {% data variables.product.prodname_GH_secret_protection %} or {% data variables.product.prodname_GHAS %} (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security))
 
 * {% data variables.product.prodname_secret_scanning_caps %} enabled in the management console (see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise))
 
@@ -60,7 +60,7 @@ The SSSE3 set of instructions is required because {% data variables.product.prod
 {% data reusables.enterprise_management_console.save-settings %}
 
     Optionally, to allow your users to enable validity checks at the enterprise, organization, or repository level, configure validity checks for {% data variables.product.prodname_secret_scanning %}.
-    
+
 1. Click **{% data variables.product.prodname_secret_scanning %} validity checks**. For information about validity checks, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository#about-validity-checks).
 
     >[!NOTE]

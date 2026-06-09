@@ -15,19 +15,11 @@ category:
 
 For customers on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans you can create rulesets in your organization to control how users can interact with repositories in your organization. You can control things like who can push commits to a certain branch and how the commits must be formatted, or who can delete or rename a tag. You can also prevent people from renaming repositories.
 
-{% ifversion push-rulesets %}
-
 {% data reusables.repositories.rulesets-push-rulesets-intro %}
-
-{% endif %}
 
 Forks do not inherit branch or tag rulesets from their upstream repositories. However, forks owned by your organization are subject to the rulesets you create, like any other repository.
 
-{% ifversion push-rulesets %}
-
 Forks _do_ inherit push rulesets from their root repository. {% data reusables.repositories.rulesets-push-rulesets-fork-network-information %}
-
-{% endif %}
 
 ## Importing prebuilt rulesets
 
@@ -93,8 +85,6 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
 
-{% ifversion push-rulesets %}
-
 ## Creating a push ruleset
 
 {% data reusables.repositories.push-rules-fork-network-note %}
@@ -124,5 +114,3 @@ You can create a push ruleset for private or internal repositories in your organ
 ### Finalizing your push ruleset and next steps
 
 {% data reusables.repositories.rulesets-create-and-insights-step %}
-
-{% endif %}

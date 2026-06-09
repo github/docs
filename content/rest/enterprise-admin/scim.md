@@ -92,8 +92,6 @@ To use other IdPs for SAML, the following SAML claims and SCIM attribute must ma
 
 {% ifversion ghes %}
 
-{% data reusables.scim.ghes-beta-note %}
-
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
 {% data variables.product.github %} provides endpoints for use by SCIM-enabled Identity Providers (IdPs). An integration on the IdP can use the REST API to automatically provision, manage, or deprovision user accounts on a {% data variables.product.prodname_ghe_server %} instance that uses SAML single sign-on (SSO) for authentication. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes).

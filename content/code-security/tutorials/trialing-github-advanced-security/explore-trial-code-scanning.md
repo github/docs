@@ -100,7 +100,7 @@ By default, users request a review from {% data variables.product.prodname_copil
 
 There are two levels of control:
 
-* Enterprises can allow or block use of {% data variables.copilot.copilot_autofix_short %} throughout the enterprise using an "{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% else %}Code security{% endif %}" policy, see: [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+* Enterprises can allow or block use of {% data variables.copilot.copilot_autofix_short %} throughout the enterprise using an "{% data variables.product.prodname_AS %}" policy, see: [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 * Organizations can enable or disable {% data variables.copilot.copilot_autofix_short %} for all organization-owned repositories in the "Global settings" for the organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).
 
 ## Engage developers in security remediation

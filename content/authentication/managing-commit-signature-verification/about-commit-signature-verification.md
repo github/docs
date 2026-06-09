@@ -43,8 +43,6 @@ Signing commits differs from signing off on a commit. For more information about
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.16 %}
-
 ### Persistent commit signature verification
 
 Regardless of the signature choice - GPG, SSH, or S/MIME - once a commit signature is verified, it remains verified within its repository's network. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
@@ -68,8 +66,6 @@ Persistent commit signature verification reflects the verified state of a commit
 #### The verification record is scoped to its repository network
 
 The verification record is persistent across the repository network, meaning that if the same commit is pushed again to the same repository or to any of its forks, the existing verification record is reused. This allows {% data variables.product.github %} to maintain a consistent verified status across related repositories without re-verifying the commit each time it appears within the network. This persistence reinforces a unified and reliable view of commit authenticity across all instances of the commit within the repository network.
-
-{% endif %}
 
 ### Signature verification for rebase and merge
 

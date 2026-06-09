@@ -62,8 +62,4 @@ Scenario | Enforcement = Enabled | Enforcement = Disabled/Testing
 Exit code ≠ 0 | Push rejected | Push continues (warning only)
 Timeout exceeded | Push rejected | Warning + push may still fail
 
-{% ifversion ghes > 3.16 %}
-
 {% data reusables.repositories.push-rule-and-prereceive-hooks %}
-
-{% endif %}
