@@ -53,6 +53,11 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: 'Not available'
 
+- name: Claude Fable 5
+  task_area: Long-horizon, autonomous coding and knowledge-work
+  excels_at: First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging
+  further_reading: 'Not available'
+
 - name: Claude Sonnet 4.5
   task_area: General-purpose coding and agent tasks
   excels_at: Complex problem-solving challenges, sophisticated reasoning
