@@ -92,7 +92,7 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 |-------------------------------------|---------------------------------------|
 | `@ FILENAME`                        | Include file contents in the context. |
 | `# NUMBER`                          | Include a {% data variables.product.github %} issue or pull request in the context. |
-| `! COMMAND`                         | Execute a command in your local shell, bypassing {% data variables.product.prodname_copilot_short %}. |
+| `! COMMAND`                                         | Execute a command in your local shell, bypassing {% data variables.product.prodname_copilot_short %}. Enter `!` alone on an empty prompt to enter shell mode for running multiple shell commands in sequence. Press <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>C</kbd> on an empty prompt to exit shell mode. |
 | `?`                                 | Open quick help (on an empty prompt). |
 | <kbd>Esc</kbd>                      | Cancel the current operation.         |
 | <kbd>Ctrl</kbd>+<kbd>C</kbd>        | Cancel operation / clear input. Press twice to exit. |
@@ -154,10 +154,12 @@ When diff mode is open (entered via `/diff`):
 | <kbd>↓</kbd> / `j` | Move selection down one line. |
 | <kbd>←</kbd> / `h` | Jump to the previous file. |
 | <kbd>→</kbd> / `l` | Jump to the next file. |
-| <kbd>Home</kbd> | Jump to the first line. |
-| <kbd>End</kbd> | Jump to the last line. |
+| <kbd>Home</kbd> / `g` | Jump to the first line. |
+| <kbd>End</kbd> / `G` | Jump to the last line. |
 | <kbd>Page Up</kbd> | Scroll up one page. |
 | <kbd>Page Down</kbd> | Scroll down one page. |
+| <kbd>Ctrl</kbd>+<kbd>U</kbd> | Scroll up half a page. |
+| <kbd>Ctrl</kbd>+<kbd>D</kbd> | Scroll down half a page. |
 | `Click` | Select the clicked diff line (requires mouse support). |
 | Mouse scroll | Scroll up or down. |
 | `c` | Add or edit a comment on the selected line. |
@@ -210,7 +212,7 @@ Holding <kbd>↑</kbd> or <kbd>↓</kbd> accelerates scrolling after the first 1
 | `/delegate [PROMPT]`                                | Delegate changes to a remote repository with an AI-generated pull request. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca). |
 | `/diff`                                             | Review changes in the current directory; auto-switches to branch diff when the working tree is clean (experimental). |
 | `/downgrade <VERSION>`                              | Download and restart into a specific CLI version. Available for team accounts. |
-| `/env`                                              | Show loaded environment details (instructions, MCP servers, skills, agents, plugins, LSPs, extensions). |
+| `/env`                                              | Show loaded environment details (instructions, MCP servers, skills, agents, plugins, LSPs, hooks, extensions). |
 | `/exit`, `/quit`                                    | Exit the CLI. |
 | `/extensions [manage\|mode]`, `/extension`          | Manage CLI extensions. |
 | `/experimental [on\|off\|show]`                     | Toggle, set, or show experimental features. |
@@ -254,6 +256,7 @@ Holding <kbd>↑</kbd> or <kbd>↓</kbd> accelerates scrolling after the first 1
 | `/usage`                                            | Display session usage metrics and statistics. |
 | `/user [show\|list\|switch]`                        | Manage the current {% data variables.product.github %} user. |
 | `/version`                                          | Display version information and check for updates. |
+| `/worktree [branch]`, `/move [branch]`              | Create a new git worktree and switch to it, moving any uncommitted changes along. If you omit the branch name, a name is auto-generated from the conversation. Requires a git repository. {% data reusables.copilot.experimental %} |
 
 For a complete list of available slash commands enter `/help` in the CLI's interactive interface.
 
@@ -284,7 +287,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--disable-builtin-mcps`           | Disable all built-in MCP servers (currently: `github-mcp-server`). |
 | `--disable-mcp-server=SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
 | `--disallow-temp-dir`              | Prevent automatic access to the system temporary directory. |
-| `--effort=LEVEL`, `--reasoning-effort=LEVEL` | Set the reasoning effort level (`low`, `medium`, `high`). |
+| `--effort=LEVEL`, `--reasoning-effort=LEVEL` | Set the reasoning effort level (`low`, `medium`, `high`, `xhigh`, `max`). `max` is the highest-depth tier for Anthropic models. |
 | `--enable-all-github-mcp-tools`    | Enable all {% data variables.product.github %} MCP server tools, instead of the default CLI subset. Overrides the `--add-github-mcp-toolset` and `--add-github-mcp-tool` options. |
 | `--enable-reasoning-summaries`     | Request reasoning summaries for OpenAI models that support it. |
 | `--excluded-tools=TOOL ...`        | These tools will not be available to the model. For multiple tools, use a quoted, comma-separated list. |
@@ -799,6 +802,47 @@ The **This location** option appears when the CLI can determine a location key (
 
 Use `/permissions reset` to clear in-memory approvals for the current session.
 
+## Security
+
+### Command safety analysis
+
+Shell commands are analyzed before execution to identify potentially dangerous patterns:
+
+* File deletion (`rm -rf`)
+* System modifications (`sudo`, `chmod 777`)
+* Network exfiltration (`curl` with sensitive paths)
+* Credential access (reading `.env`, SSH keys)
+* Inline environment variable assignments that override dangerous variables (for example, `PATH=...`, `LD_PRELOAD=...`)
+
+High-risk commands display additional warnings and require explicit confirmation.
+
+#### Environment variable denylist
+
+The CLI blocks inline assignment of environment variables that can be exploited to execute arbitrary code even in otherwise read-only commands. Blocked categories include:
+
+| Category | Examples |
+|----------|----------|
+| Dynamic-linker injection | `LD_*`, `DYLD_*` (all prefixes) |
+| Git indexed config overrides | `GIT_CONFIG_COUNT`, `GIT_CONFIG_KEY_*`, `GIT_CONFIG_VALUE_*` (all `GIT_CONFIG_` prefixes) |
+| Git external program hooks | `GIT_EXTERNAL_DIFF`, `GIT_PROXY_COMMAND` |
+| Git config file overrides | `GIT_CONFIG`, `GIT_CONFIG_GLOBAL`, `GIT_CONFIG_SYSTEM` |
+| Shell PATH and startup files | `PATH`, `BASH_ENV`, `ENV` |
+| Existing blocked vars | `PAGER`, `GIT_PAGER`, `GIT_EDITOR`, `VISUAL`, `EDITOR`, `GIT_SSH`, `GIT_SSH_COMMAND`, `GIT_ASKPASS`, `BROWSER`, `GH_BROWSER` |
+
+### `web_fetch` SSRF protection
+
+The `web_fetch` tool enforces server-side request forgery (SSRF) protections before making any HTTP request:
+
+* **Protocol allowlist**: Only `http://` and `https://` URLs are permitted. `file://` and other schemes are rejected.
+* **IP blocklist**: Requests to loopback addresses (`127.x.x.x`, `::1`), RFC-1918 private ranges (`10.x`, `172.16–31.x`, `192.168.x`), and cloud metadata endpoints (for example, `169.254.169.254`) are blocked by IP-literal check and DNS pre-resolution.
+* **No automatic redirects**: `3xx` redirects are not followed automatically. The redirect target URL is re-validated against the same IP blocklist before following.
+
+To allow `web_fetch` to reach `localhost` during development—for example, for a local docs server—set the following environment variable:
+
+```bash
+export COPILOT_WEB_FETCH_ALLOW_LOCALHOST=1
+```
+
 ## OpenTelemetry monitoring
 
 {% data variables.copilot.copilot_cli_short %} can export traces and metrics via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions-genai/tree/main/docs/gen-ai/).
@@ -816,6 +860,9 @@ OTel is off by default with zero overhead. It activates when any of the followin
 | `COPILOT_OTEL_ENABLED` | `false` | Explicitly enable OTel. Not required if `OTEL_EXPORTER_OTLP_ENDPOINT` is set. |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | — | OTLP endpoint URL. Setting this automatically enables OTel. |
 | `COPILOT_OTEL_EXPORTER_TYPE` | `otlp-http` | Exporter type: `otlp-http` or `file`. Auto-selects `file` when `COPILOT_OTEL_FILE_EXPORTER_PATH` is set. |
+| `OTEL_EXPORTER_OTLP_PROTOCOL` | `http/json` | OTLP HTTP wire protocol: `http/json` or `http/protobuf`. Only applies to the `otlp-http` exporter. |
+| `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL` | — | Override `OTEL_EXPORTER_OTLP_PROTOCOL` for traces only. |
+| `OTEL_EXPORTER_OTLP_METRICS_PROTOCOL` | — | Override `OTEL_EXPORTER_OTLP_PROTOCOL` for metrics only. |
 | `OTEL_SERVICE_NAME` | `github-copilot` | Service name in resource attributes. |
 | `OTEL_RESOURCE_ATTRIBUTES` | — | Extra resource attributes as comma-separated `key=value` pairs. Use percent-encoding for special characters. |
 | `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` | `false` | Capture full prompt and response content. See [Content capture](#content-capture). |
