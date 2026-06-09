@@ -498,12 +498,15 @@ export function correctTranslatedContentStrings(
     // structurally scrambled. Scoped by unique broken substring so they are
     // no-ops everywhere except the affected file.
 
-    // code-security/.../enabling-github-advanced-security-for-your-enterprise.md
-    // (title): `{% ifversion ghas-products %}` opens but never closes.
-    // Append `{% endif %}`. (versions: ghes: '*')
+    // [SCRAPE-6608] code-security/.../enabling-github-advanced-security-for-your-enterprise.md
+    // (title): `{% ifversion ghas-products %}` opens but never closes (versions: ghes: '*').
+    // The corrector runs on the PARSED title — a `|2-` block scalar whose trailing
+    // newline is stripped — so the earlier `...有効にする\n` pattern never matched at
+    // render time. Match the newline-free value and close after the gated word `製品`
+    // (EN gates only "products"), not the whole phrase.
     content = content.replaceAll(
-      '{% ifversion ghas-products %}製品をあなたの企業のために有効にする\n',
-      '{% ifversion ghas-products %}製品をあなたの企業のために有効にする{% endif %}\n',
+      '{% ifversion ghas-products %}製品をあなたの企業のために有効にする',
+      '{% ifversion ghas-products %}製品{% endif %}をあなたの企業のために有効にする',
     )
 
     // admin/managing-iam/.../configuring-scim-provisioning-with-okta.md
@@ -850,11 +853,16 @@ export function correctTranslatedContentStrings(
     // → `{% capture IDENTIFIER %}`
     content = content.replace(/\{%(-?)\s*捕获\s*(\w+)\s*(-?)%\}/g, '{%$1 capture $2 $3%}')
 
-    // [SCRAPE-6604] Per-file fix:
-    // organizations/.../permissions-of-custom-organization-roles.md (intro):
-    // `{% ifversion org-custom-role-with-repo-permissions %}...{% else %}` never
-    // closes. Append `{% endif %}` at the end of the intro value.
-    content = content.replaceAll("{% else %} 的访问权限。'", "{% else %} 的访问权限{% endif %}。'")
+    // [SCRAPE-6608] organizations/.../permissions-of-custom-organization-roles.md
+    // (intro): `{% ifversion org-custom-role-with-repo-permissions %}...{% else %}`
+    // never closes. The corrector runs on the PARSED intro (no surrounding YAML
+    // quote), so the earlier quote-suffixed pattern never matched at render time.
+    // Restore the else-branch object (`组织的设置`, already used in the if-branch)
+    // and close before the shared trailing text so both branches render correctly.
+    content = content.replaceAll(
+      '{% else %} 的访问权限。',
+      '{% else %}组织的设置{% endif %} 的访问权限。',
+    )
   }
 
   if (context.code === 'ru') {
@@ -1516,13 +1524,15 @@ export function correctTranslatedContentStrings(
       '자체 호스팅된 실행기에서 실행 중인 {% data variables.product.prodname_dependabot %}에 대한 액세스를 구성할 수도 있습니다.{% endif %}',
     )
 
-    // [SCRAPE-6604] Per-file fix:
-    // organizations/.../permissions-of-custom-organization-roles.md (intro):
-    // `{% ifversion org-custom-role-with-repo-permissions %}...{% else %}` never
-    // closes. Append `{% endif %}` at the end of the intro value.
+    // [SCRAPE-6608] organizations/.../permissions-of-custom-organization-roles.md
+    // (intro): `{% ifversion org-custom-role-with-repo-permissions %}...{% else %}`
+    // never closes. The corrector runs on the PARSED intro (no surrounding YAML
+    // quote), so the earlier quote-suffixed pattern never matched at render time.
+    // Restore the else-branch object (`조직의 설정`, already used in the if-branch)
+    // and close before the shared trailing text so both branches render correctly.
     content = content.replaceAll(
-      "{% else %}에 대한 액세스를 제어할 수 있습니다.'",
-      "{% else %}에 대한 액세스를 제어할 수 있습니다.{% endif %}'",
+      '{% else %}에 대한 액세스를 제어할 수 있습니다.',
+      '{% else %}조직의 설정{% endif %}에 대한 액세스를 제어할 수 있습니다.',
     )
   }
 

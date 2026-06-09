@@ -2248,4 +2248,41 @@ Para más información, consulta "[AUTOTITLE](/path)".
       expect(out).toMatch(/\{% ifversion fpt or ghec %\} и его зависимости\{% endif %\}\.$/)
     })
   })
+
+  // ─── SCRAPE-6608: discovery-landing index-scrape failures ────────────
+  // The discovery-landing index pages render every descendant's title+intro.
+  // A descendant whose translated title/intro drops its `{% endif %}` throws,
+  // 500s `/api/article`, and the index "fails to scrape" (github/docs-engineering#6608).
+  // The earlier 6604 attempts matched the RAW file text (block-scalar trailing
+  // newline / YAML quote), but the corrector runs on the PARSED value, so they
+  // never fired at render time. These assert the parsed values are corrected.
+  describe('SCRAPE-6608 per-file fixes', () => {
+    test('ja: enabling-github-advanced-security-for-your-enterprise title closes ghas-products', () => {
+      // Parsed `|2-` block-scalar title (trailing newline stripped).
+      const broken =
+        '{% data variables.product.prodname_GHAS %}\n{% ifversion ghas-products %}製品をあなたの企業のために有効にする'
+      const out = fix(broken, 'ja')
+      expect(out).toBe(
+        '{% data variables.product.prodname_GHAS %}\n{% ifversion ghas-products %}製品{% endif %}をあなたの企業のために有効にする',
+      )
+    })
+
+    test('ko: permissions-of-custom-organization-roles intro closes org-custom-role conditional', () => {
+      const broken =
+        '사용자 지정 조직 역할을 사용하여 {% ifversion org-custom-role-with-repo-permissions %}조직의 설정 및 리포지토리{% else %}에 대한 액세스를 제어할 수 있습니다.'
+      const out = fix(broken, 'ko')
+      expect(out).toBe(
+        '사용자 지정 조직 역할을 사용하여 {% ifversion org-custom-role-with-repo-permissions %}조직의 설정 및 리포지토리{% else %}조직의 설정{% endif %}에 대한 액세스를 제어할 수 있습니다.',
+      )
+    })
+
+    test('zh: permissions-of-custom-organization-roles intro closes org-custom-role conditional', () => {
+      const broken =
+        '可以使用自定义组织角色控制对 {% ifversion org-custom-role-with-repo-permissions %}组织的设置和存储库{% else %} 的访问权限。'
+      const out = fix(broken, 'zh')
+      expect(out).toBe(
+        '可以使用自定义组织角色控制对 {% ifversion org-custom-role-with-repo-permissions %}组织的设置和存储库{% else %}组织的设置{% endif %} 的访问权限。',
+      )
+    })
+  })
 })
