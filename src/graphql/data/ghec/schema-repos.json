@@ -4236,6 +4236,13 @@
           ]
         },
         {
+          "name": "issueCreationPolicy",
+          "description": "<p>The policy controlling who can create issues in this repository.</p>",
+          "type": "IssueCreationPolicy",
+          "id": "issuecreationpolicy",
+          "href": "/graphql/reference/issues#enum-issuecreationpolicy"
+        },
+        {
           "name": "issueFields",
           "description": "<p>A list of the repository's issue fields, inherited from the organization.</p>",
           "type": "IssueFieldsConnection",
@@ -6151,6 +6158,13 @@
         {
           "name": "viewerCanAdminister",
           "description": "<p>Indicates whether the viewer has admin permissions on this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "viewerCanCreateIssues",
+          "description": "<p>Indicates whether the current user can create issues in this repository.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
@@ -8334,6 +8348,13 @@
           "type": "Boolean!",
           "id": "boolean",
           "href": "/graphql/reference/other#scalar-boolean"
+        },
+        {
+          "name": "issueCreationPolicy",
+          "description": "<p>The policy controlling who can create issues in this repository.</p>",
+          "type": "IssueCreationPolicy",
+          "id": "issuecreationpolicy",
+          "href": "/graphql/reference/issues#enum-issuecreationpolicy"
         },
         {
           "name": "licenseInfo",

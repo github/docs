@@ -1213,6 +1213,7 @@
     "commentcannotupdatereason": "issues",
     "issueclosedstatereason": "issues",
     "issuecommentorderfield": "issues",
+    "issuecreationpolicy": "issues",
     "issuedependencyorderfield": "issues",
     "issuefielddatatype": "issues",
     "issuefieldorderfield": "issues",

@@ -9169,6 +9169,24 @@
       "category": "issues"
     },
     {
+      "name": "IssueCreationPolicy",
+      "id": "issuecreationpolicy",
+      "href": "/graphql/reference/issues#enum-issuecreationpolicy",
+      "description": "<p>The policy controlling who can create issues in a repository.</p>",
+      "isDeprecated": false,
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Anyone can create issues.</p>"
+        },
+        {
+          "name": "COLLABORATORS_ONLY",
+          "description": "<p>Only collaborators can create issues.</p>"
+        }
+      ],
+      "category": "issues"
+    },
+    {
       "name": "IssueDependencyOrderField",
       "id": "issuedependencyorderfield",
       "href": "/graphql/reference/issues#enum-issuedependencyorderfield",
