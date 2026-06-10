@@ -236,7 +236,6 @@ export default [
     files: [
       'src/article-api/transformers/audit-logs-transformer.ts',
       'src/article-api/transformers/rest-transformer.ts',
-      'src/content-linter/scripts/lint-content.ts',
       'src/content-render/unified/annotate.ts',
       'src/frame/components/context/MainContext.tsx',
       'src/landings/components/CookBookFilter.tsx',
