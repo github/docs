@@ -135,7 +135,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_gpt_54_mini %}         | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 | {% data variables.copilot.copilot_gpt_55 %}              | `v1.117` and later   | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 | {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` and later   | `17.14.6` and later                     | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.123.2` and later   | `17.14.6` and later                    | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` and later   | `17.14.6` and later                    | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` and later   | Not available                            | Not available | Not available | Not available |
 
 {% endrowheaders %}

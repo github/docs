@@ -55,7 +55,7 @@ async function purgeFastlyBySurrogateKey({
 }
 
 export default async function purgeEdgeCache(
-  surrogateKey: string,
+  surrogateKey: string | undefined,
   {
     purgeTwice = true,
     delayBeforeFirstPurge = DELAY_BEFORE_FIRST_PURGE,

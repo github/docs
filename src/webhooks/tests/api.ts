@@ -1,10 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
 import { get } from '@/tests/helpers/e2etest'
-import {
-  SURROGATE_ENUMS,
-  makeLanguageSurrogateKey,
-} from '@/frame/middleware/set-fastly-surrogate-key'
+import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 
 describe('webhooks v1 middleware', () => {
   test('basic get webhook', async () => {
@@ -28,7 +25,6 @@ describe('webhooks v1 middleware', () => {
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 
