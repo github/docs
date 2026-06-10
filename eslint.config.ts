@@ -246,7 +246,6 @@ export default [
       'src/landings/components/CookBookFilter.tsx',
       'src/languages/lib/correct-translation-content.ts',
       'src/languages/lib/render-with-fallback.ts',
-      'src/links/lib/update-internal-links.ts',
       'src/rest/components/get-rest-code-samples.ts',
       'src/rest/pages/category.tsx',
       'src/rest/pages/subcategory.tsx',
