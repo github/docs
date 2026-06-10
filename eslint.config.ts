@@ -240,7 +240,6 @@ export default [
       'src/content-render/unified/annotate.ts',
       'src/data-directory/lib/get-data.ts',
       'src/frame/components/context/MainContext.tsx',
-      'src/frame/lib/page-data.ts',
       'src/landings/components/CookBookFilter.tsx',
       'src/languages/lib/correct-translation-content.ts',
       'src/languages/lib/render-with-fallback.ts',
