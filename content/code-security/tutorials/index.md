@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 contentType: tutorials
 children:
+  - /secret-protection-adoption-path
   - /trialing-github-advanced-security
   - /adopting-github-advanced-security-at-scale
   - /secure-your-organization
@@ -20,3 +21,4 @@ children:
   - /improve-code-quality
   - /fix-reported-vulnerabilities
 ---
+

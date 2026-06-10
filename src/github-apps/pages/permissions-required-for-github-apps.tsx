@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     props: {
       mainContext: await getMainContext(context.req, context.res),
       currentVersion,
-      appsItems,
+      appsItems: appsItems as PermissionListT,
       automatedPageContext: getAutomatedPageContextFromRequest(context.req),
       categoriesWithoutSubcategories,
     },

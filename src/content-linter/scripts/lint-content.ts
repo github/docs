@@ -89,7 +89,7 @@ type FormattedResults = Record<string, FormattedResult[]>
  */
 export const globalConfig = {
   // Do not ever lint these filepaths
-  excludePaths: ['content/contributing/'],
+  excludePaths: ['content/contributing/', 'data/llms-txt/'],
 }
 
 program

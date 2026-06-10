@@ -3,7 +3,7 @@
 #    - OpenAI
 #    - Anthropic
 #    - Google
-#    - xAI
+#    - Microsoft
 #    - others
 # 2. Within each provider group, alphabetically by model name.
 #
@@ -18,23 +18,18 @@
 # - cli: Availability for Copilot CLI.
 
 # OpenAI
-- name: GPT-4.1
-  cloud_agent: false
-  chat: true
-  cli: false
-
 - name: GPT-5 mini
   cloud_agent: false
-  chat: false
+  chat: true
   cli: true
 
 - name: GPT-5.3-Codex
-  cloud_agent: false
+  cloud_agent: true
   chat: true
   cli: true
 
 - name: GPT-5.4
-  cloud_agent: false
+  cloud_agent: true
   chat: true
   cli: true
 
@@ -49,18 +44,13 @@
   chat: true
   cli: true
 
-- name: Claude Sonnet 4.5
-  cloud_agent: true
-  chat: false
-  cli: false
-
 - name: Claude Sonnet 4.6
-  cloud_agent: false
+  cloud_agent: true
   chat: true
   cli: true
 
-# xAI
-- name: Grok Code Fast 1
+# Microsoft
+- name: MAI-Code-1-Flash
   cloud_agent: false
   chat: true
   cli: false

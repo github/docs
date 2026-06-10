@@ -57,6 +57,7 @@ If you run analysis in an external CI system, we recommend using the same versio
 
 | {% data variables.product.prodname_ghe_server %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
 | ------------------------------------------------- | ---------------------- |
+| 3.21 | 2.24.3 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.3/)) |
 | 3.20 | 2.23.9 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.9/)) |
 | 3.19 | 2.22.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.22.4/)) |
 | 3.18 | 2.21.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.21.4/)) |
@@ -79,6 +80,7 @@ For instances with {% data variables.product.prodname_actions %} enabled, self-h
 
 | {% data variables.product.prodname_ghe_server %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |
+| 3.21 | 2.331.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.331.0)) |
 | 3.20 | 2.330.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.330.0)) |
 | 3.19 | 2.328.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.328.0)) |
 | 3.18 | 2.324.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.324.0)) |

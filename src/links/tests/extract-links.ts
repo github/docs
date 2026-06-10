@@ -219,6 +219,100 @@ See [Using [brackets] in text](/guides/brackets).
 
     expect(result.internalLinks).toHaveLength(2)
   })
+
+  test('extracts reference-style link definitions', () => {
+    const content = `
+See [the guide][ssh-agent] for details.
+Also [generating keys][gen-keys].
+
+[ssh-agent]: /authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding
+[gen-keys]: /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks[0].href).toBe(
+      '/authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding',
+    )
+    // Anchor fragment should be stripped from the href
+    expect(result.internalLinks[1].href).toBe(
+      '/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent',
+    )
+  })
+
+  test('reports correct line numbers for reference-style link definitions', () => {
+    const content = `Line 1
+Line 2
+
+[ref-a]: /path/one
+[ref-b]: /path/two
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks[0].line).toBe(4)
+    expect(result.internalLinks[1].line).toBe(5)
+  })
+
+  test('does not extract external reference-style link definitions', () => {
+    const content = `
+[external]: https://example.com
+[internal]: /docs/overview
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/docs/overview')
+  })
+})
+
+describe('liquidPrefixedLinks', () => {
+  test('extracts links whose href starts with a Liquid tag', () => {
+    const content = `
+See [About EMUs]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/about-enterprise-managed-users).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.liquidPrefixedLinks).toHaveLength(1)
+    expect(result.liquidPrefixedLinks[0].href).toBe(
+      '{% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/about-enterprise-managed-users',
+    )
+  })
+
+  test('does not include Liquid-prefixed links in internalLinks', () => {
+    const content = `
+See [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview).
+Also see [normal link](/actions/overview).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(1)
+    expect(result.internalLinks[0].href).toBe('/actions/overview')
+    expect(result.liquidPrefixedLinks).toHaveLength(1)
+  })
+
+  test('reports correct line numbers for Liquid-prefixed links', () => {
+    const content = `Line 1
+Line 2
+See [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview).
+Line 4
+See [AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/billing/overview).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.liquidPrefixedLinks).toHaveLength(2)
+    expect(result.liquidPrefixedLinks[0].line).toBe(3)
+    expect(result.liquidPrefixedLinks[1].line).toBe(5)
+  })
+
+  test('returns empty liquidPrefixedLinks when none present', () => {
+    const content = `
+See [normal link](/actions/overview) for details.
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.liquidPrefixedLinks).toHaveLength(0)
+  })
 })
 
 describe('normalizeLinkPath', () => {

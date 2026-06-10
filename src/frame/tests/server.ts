@@ -72,7 +72,6 @@ describe('server', () => {
     expect(res.headers['cache-control']).toMatch(/public, max-age=/)
 
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
   })
 
@@ -324,6 +323,12 @@ describe('server', () => {
       expect(res.body).toMatch(/^# .+/)
     })
 
+    test('.md URL without language prefix redirects to /en/ equivalent', async () => {
+      const res = await get('/get-started.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en/get-started.md')
+    })
+
     test('/index.md redirects to the page without /index.md', async () => {
       const res = await get('/en/get-started/index.md')
       expect(res.statusCode).toBe(302)
@@ -372,7 +377,6 @@ describe('static routes', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
 
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 

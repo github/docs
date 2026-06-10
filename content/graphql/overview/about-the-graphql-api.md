@@ -45,9 +45,9 @@ For more details about why GitHub invested in GraphQL, see the original [announc
 
 The docs in the sidebar are generated from the {% data variables.product.prodname_dotcom %} GraphQL [schema](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api). All calls are validated and executed against the schema. Use these docs to find out what data you can call:
 
-* Allowed operations: [queries](/graphql/reference/queries) and [mutations](/graphql/reference/mutations).
+* Allowed operations: queries and mutations.
 
-* Schema-defined types: [scalars](/graphql/reference/scalars), [objects](/graphql/reference/objects), [enums](/graphql/reference/enums), [interfaces](/graphql/reference/interfaces), [unions](/graphql/reference/unions), and [input objects](/graphql/reference/input-objects).
+* Schema-defined types: scalars, objects, enums, interfaces, unions, and input objects.
 
 For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).
 

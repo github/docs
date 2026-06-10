@@ -24,10 +24,12 @@ children:
   - /automate-copilot-cli/automate-with-actions
   - /automate-copilot-cli/quickstart
   - /automate-copilot-cli/run-cli-programmatically
+  - /automate-copilot-cli/schedule-prompts
   - /content/copilot/concepts/agents/about-agent-skills
   - /content/copilot/concepts/agents/copilot-cli/about-cli-plugins
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
-  - /content/copilot/concepts/agents/copilot-cli/about-remote-access
+  - /content/copilot/concepts/agents/copilot-cli/about-custom-agents
+  - /content/copilot/concepts/agents/copilot-cli/about-remote-control
   - /content/copilot/concepts/agents/copilot-cli/autopilot
   - /content/copilot/concepts/agents/copilot-cli/cancel-and-roll-back
   - /content/copilot/concepts/agents/copilot-cli/chronicle
@@ -36,12 +38,13 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/lsp-servers
   - /content/copilot/concepts/agents/copilot-cli/research
+  - /content/copilot/concepts/agents/copilot-cli/rubber-duck
   - /content/copilot/reference/copilot-cli-reference/acp-server
   - /content/copilot/reference/copilot-cli-reference/cli-command-reference
   - /content/copilot/reference/copilot-cli-reference/cli-plugin-reference
   - /content/copilot/reference/copilot-cli-reference/cli-programmatic-reference
-  - /content/copilot/reference/hooks-configuration
-  - /content/copilot/responsible-use/copilot-cli
+  - /content/copilot/reference/hooks-reference
+  - /content/copilot/responsible-use/agents
   - /content/copilot/tutorials/copilot-cli-hooks
   - /customize-copilot/add-custom-instructions
   - /customize-copilot/add-mcp-servers
@@ -60,9 +63,11 @@ children:
   - /set-up-copilot-cli/troubleshoot-copilot-cli-auth
   - /use-copilot-cli/agentic-code-review
   - /use-copilot-cli/allowing-tools
+  - /use-copilot-cli/voice-input
   - /use-copilot-cli/chronicle
   - /use-copilot-cli/connecting-vs-code
   - /use-copilot-cli/delegate-tasks-to-cca
+  - /use-copilot-cli/browse-issues-prs-gists
   - /use-copilot-cli/invoke-custom-agents
   - /use-copilot-cli/manage-pull-requests
   - /use-copilot-cli/overview

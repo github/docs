@@ -14,6 +14,9 @@ category:
 
 Issue fields appear in the right-hand sidebar of issues, alongside system fields like assignees, labels, and type. You can set values when creating or editing an issue. When you select an issue type while creating an issue, any fields pinned to that type automatically appear in the sidebar.
 
+> [!NOTE]
+> Issue fields are currently available on issues only. Pull requests do not support issue fields.
+
 ## Setting a field value
 
 1. Navigate to the issue you want to update.
@@ -25,6 +28,9 @@ Issue fields appear in the right-hand sidebar of issues, alongside system fields
    * For **number** fields, enter a numeric value.
    * For **date** fields, use the date picker to select a date, or type the date directly.
 1. Changes are saved automatically.
+
+> [!NOTE]
+> Issue fields cannot currently be pre-filled via URL query parameters or set through issue templates. To set field values, use the issue sidebar, projects, the API, or {% data variables.product.prodname_actions %}.
 
 ## Editing a field value
 
@@ -86,4 +92,21 @@ Issue fields have full REST and GraphQL API support. You can automate field mana
 
 * **Managing fields**: Create, update, and delete organization-level fields. See the [Organization issue fields REST API](/rest/orgs/issue-fields).
 * **Using fields**: Get, set, and clear field values on individual issues. See the [Issue field values REST API](/rest/issues/issue-field-values).
-* **GraphQL**: Issue field types and mutations are also available via GraphQL. See the [`IssueFields` union](/graphql/reference/unions#issuefields), [issue field objects](/graphql/reference/objects#issuefieldtext) (such as `IssueFieldText`, `IssueFieldSingleSelect`, `IssueFieldNumber`, and `IssueFieldDate`), and [mutations](/graphql/reference/mutations#createissuefield) (such as `createIssueField`, `updateIssueField`, and `setIssueFieldValue`).
+* **GraphQL**: Issue field types and mutations are also available via GraphQL. See the [`IssueFields` union](/graphql/reference/issues#union-issuefields), [issue field objects](/graphql/reference/issues#object-issuefieldtext) (such as `IssueFieldText`, `IssueFieldSingleSelect`, `IssueFieldNumber`, and `IssueFieldDate`), and [mutations](/graphql/reference/issues#mutation-createissuefield) (such as `createIssueField`, `updateIssueField`, and `setIssueFieldValue`).
+
+## Automating with {% data variables.product.prodname_actions %}
+
+Issue field changes trigger webhook events on the `issues` event. You can use these as workflow triggers:
+
+* `field_added`: fires when a field value is set or updated.
+* `field_removed`: fires when a field value is cleared.
+
+For example, to run a workflow whenever a field value changes:
+
+```yaml
+on:
+  issues:
+    types: [field_added, field_removed]
+```
+
+The event payload includes the field name, type, value, and previous value. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#issues).

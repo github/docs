@@ -24,11 +24,7 @@ For organizations on the {% data variables.product.prodname_enterprise %} plan, 
 
 {% endif %}
 
-{% ifversion push-rulesets %}
-
 You can use rulesets to target branches or tags in a repository or to block pushes to a repository and the repository's entire fork network.
-
-{% endif %}
 
 {% ifversion push-rule-delegated-bypass %}
 
@@ -42,36 +38,17 @@ You can create rulesets to control how people can interact with selected branche
 
 For each ruleset you create, you specify which branches or tags in your repository{% ifversion repo-rules-enterprise %}, or which repositories in your organization,{% endif %} the ruleset applies to. You can use `fnmatch` syntax to define a pattern to target specific {% ifversion repo-rules-enterprise %}branches, tags, and repositories{% else %}branches and tags{% endif %}. For example, you could use the pattern `releases/**/*` to target all branches in your repository whose name starts with the string `releases/`. For more information on `fnmatch` syntax, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
 
-{% ifversion push-rulesets %}
-
 ### Push rulesets
 
 {% data reusables.repositories.push-rulesets-overview %}
 
-{% endif %}
-
-{% ifversion ghes < 3.16 %}
-
-## About rulesets, protected branches, and protected tags
-
-{% else %}
-
 ## About rulesets and protected branches
 
-{% endif %}
+Rulesets work alongside any branch protection rules in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules.
 
-Rulesets work alongside any branch protection rules{% ifversion ghes < 3.16 %} and tag protection rules{% endif %} in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules.
+Rulesets have the following advantages over branch protection rules.
 
-{% ifversion ghes < 3.16 %}
-
-Additionally, you can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#about-importing-tag-protection-rules-to-repository-rulesets).
-
-{% endif %}
-
-Rulesets have the following advantages over branch {% ifversion ghes < 3.16 %}
-and tag{% endif %} protection rules.
-
-* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch {% ifversion ghes < 3.16 %}or tag{% endif %} in your repository will be evaluated when someone interacts with that branch{% ifversion ghes < 3.16 %} or tag{% endif %}. See [About rule layering](#about-rule-layering).
+* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch in your repository will be evaluated when someone interacts with that branch. See [About rule layering](#about-rule-layering).
 * Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
 * Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
 * You can create additional rules to control the metadata of commits entering a repository, such as the commit message and the author's email address. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#metadata-restrictions){% ifversion ghec %}."{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}

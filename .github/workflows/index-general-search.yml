@@ -98,7 +98,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
@@ -246,7 +245,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue
@@ -294,25 +292,7 @@ jobs:
             echo 'EOF'
           } >> "$GITHUB_OUTPUT"
 
-      - name: Close previous scraping failure issues
-        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
-        env:
-          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          open_issues=$(gh issue list \
-            --repo github/docs-engineering \
-            --label "search-scraping-failures" \
-            --state open \
-            --json number \
-            --jq '.[].number')
-          for issue in $open_issues; do
-            gh issue close "$issue" \
-              --repo github/docs-engineering \
-              --comment "Closing in favor of a newer scraping failure report from $RUN_URL"
-          done
-
-      - name: Create scraping failure issue
+      - name: Comment on or create scraping failure issue
         if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -321,6 +301,33 @@ jobs:
           FILE_URL: ${{ github.server_url }}/${{ github.repository }}/blob/main/.github/workflows/index-general-search.yml
           WORKFLOW_NAME: ${{ github.workflow }}
         run: |
+          # Reuse the oldest open scraping-failures issue if one exists,
+          # to keep the noise down. Otherwise open a new one.
+          existing_issue=$(gh issue list \
+            --repo github/docs-engineering \
+            --label "search-scraping-failures" \
+            --state open \
+            --limit 200 \
+            --json number,createdAt \
+            --jq 'sort_by(.createdAt) | .[0].number // empty')
+
+          today=$(date -u +%Y-%m-%d)
+
+          if [ -n "$existing_issue" ]; then
+            comment_body=$(cat <<EOF
+          ### Search index scraping failures ($today)
+
+          $FAILURE_MESSAGE
+
+          **Workflow run:** $RUN_URL
+          EOF
+          )
+            gh issue comment "$existing_issue" \
+              --repo github/docs-engineering \
+              --body "$comment_body"
+            exit 0
+          fi
+
           body=$(cat <<EOF
           ### Search index scraping failures
 
@@ -331,27 +338,57 @@ jobs:
           **Workflow file:** $FILE_URL
 
           This issue was automatically created by the \`$WORKFLOW_NAME\` workflow.
+          Subsequent failures from later workflow runs will be added as comments
+          on this issue rather than opening a new issue each day.
+
+          ---
+
+          ## Instructions for the issue analysis agent
+
+          These scraping failures are **almost never timeouts**. They are
+          almost always caused by Liquid/Markdown corruptions in the
+          translated source that make the page fail to render. Please do not
+          file this as a transient/timeout issue.
+
+          To investigate:
+
+          1. Pull the translation repos locally:
+             \`\`\`
+             npm run clone-translations
+             \`\`\`
+          2. Identify the specific corruptions with the canonical reporter
+             (verify the exact script name in \`package.json\` before running):
+             \`\`\`
+             npm run count-translation-corruptions
+             \`\`\`
+             The script writes a structured JSON report to stdout listing each
+             corrupted file, its location, the error message, and the
+             offending/illegal tag token when available.
+          3. **Open a pull request that fixes the corruptions** rather than
+             just commenting the findings on this issue. The issue body above
+             (and any subsequent comments) already lists the affected pages;
+             the value the agent adds is the fix. Where possible, fix the
+             underlying pattern in
+             \`src/languages/lib/correct-translation-content.ts\` so the same
+             corruption is corrected on future syncs.
           EOF
           )
           gh issue create \
             --repo github/docs-engineering \
             --label "search-scraping-failures" \
-            --title "[Search Scraping Failures] $(date -u +%Y-%m-%d)" \
+            --title "[Search Scraping Failures] $today" \
             --body "$body"
 
       - name: Send consolidated Slack notification
         if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
         uses: ./.github/actions/slack-alert
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: warning
           message: ${{ fromJSON(steps.aggregate.outputs.result || '{"message":""}').message }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue

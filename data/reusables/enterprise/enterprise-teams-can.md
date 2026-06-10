@@ -6,3 +6,6 @@ Enterprise teams can:
 * Be assigned **predefined and custom enterprise roles**, giving members access to enterprise settings.
 * Be **added to organizations**, where organization administrators can grant the team additional access and permissions.
 * Receive **bypass access** on rulesets.
+{%- ifversion enterprise-teams-ga %}
+* Be mentioned, assigned, or requested for review in **issues and pull requests**.
+{%- endif %}

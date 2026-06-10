@@ -1,6 +1,9 @@
 import fs from 'fs'
 import type { Element, Node } from 'hast'
 import { visit } from 'unist-util-visit'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 // Process-level cache for stat results — file sizes don't change between deploys.
 const statCache = new Map<string, number | null>()
@@ -59,9 +62,6 @@ function getNewSrc(node: Element): string | undefined {
     return split.join('/')
   } catch {
     statCache.set(filePath, null)
-    console.warn(
-      `Failed to get a hash for ${src} ` +
-        '(This is mostly harmless and can happen with outdated translations).',
-    )
+    logger.warn('Failed to get a hash for asset URL', { src })
   }
 }

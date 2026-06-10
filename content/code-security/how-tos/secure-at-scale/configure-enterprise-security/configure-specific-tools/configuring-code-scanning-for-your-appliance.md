@@ -36,7 +36,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 ## Prerequisites for {% data variables.product.prodname_code_scanning %}
 
-* A license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% endif %}{% data variables.product.prodname_GHAS %}, (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security))
+* A license for {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %}, (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security))
 
 * {% data variables.product.prodname_code_scanning_caps %} enabled in the management console (see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise))
 
@@ -65,7 +65,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 {% ifversion default-setup-self-hosted-runners-GHEC %}
 If you are provisioning a self-hosted runner for {% data variables.product.prodname_codeql %} analysis, your runner must use a {% data variables.product.prodname_codeql %}-supported operating system version and CPU architecture. See the [{% data variables.product.prodname_codeql %} system requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/).
 
-If you are using default setup for {% data variables.product.prodname_code_scanning %}, you can assign self-hosted runners {% ifversion code-scanning-default-setup-customize-labels %}with the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners.{% else %}with the `code-scanning` label.{% endif %} See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
+If you are using default setup for {% data variables.product.prodname_code_scanning %}, you can assign self-hosted runners with the default `code-scanning` label, or you can optionally give them custom labels so that individual repositories can use different runners. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
 
 For information about using default setup for code scanning analysis of compiled languages, see [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages).
 

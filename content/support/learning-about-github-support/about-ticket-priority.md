@@ -28,6 +28,8 @@ Ticket priority helps to ensure that support requests are handled in order, and 
 
 Please note that {% data variables.contact.github_support %} can only assist with issues that fall within {% data variables.product.company_short %}'s Scope of Support. Requests related to out-of-scope areas, such as third-party integration issues, custom scripts, or unsupported platforms, cannot be prioritized or addressed by {% data variables.contact.github_support %}.
 
+{% data reusables.support.discontinued-versions %}
+
 For more details and examples of what is considered out of scope for {% data variables.contact.github_support %}, see {% data variables.product.company_short %}'s [Scope of Support documentation](/support/learning-about-github-support/about-github-support#scope-of-support). If your request falls outside this scope, please refer to the relevant third-party’s support resources, community forums, or consult [{% data variables.product.prodname_expert_services %}](https://github.com/services/).
 
 ## Ticket priorities
@@ -72,6 +74,17 @@ All tickets regarding security features follow this logic for ticket prioritizat
 | {% data variables.product.support_ticket_priority_normal %} / {% data variables.product.support_ticket_priority_low %} | Any other minor issues not classified as {% data variables.product.support_ticket_priority_urgent %} or {% data variables.product.support_ticket_priority_high %} should be directed to [the open source {% data variables.product.prodname_actions_runner_controller %} repository](https://github.com/actions/actions-runner-controller) issues/discussions.  | Customization, performance analysis, initial setup. |
 
 For more information about what {% data variables.contact.github_support %} can assist with, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
+
+## Ticket priorities for {% data variables.product.prodname_copilot %}
+
+{% data variables.product.prodname_copilot_short %} is a developer productivity tool that accelerates workflows but does not gate core platform operations. If {% data variables.product.prodname_copilot_short %} is unavailable, developers can continue to write, commit, review, and deploy code using the underlying {% data variables.product.github %} platform. Platform-level outages that affect {% data variables.product.prodname_copilot_short %} availability across all users are handled through {% data variables.product.company_short %}'s incident process and reflected on [githubstatus.com](https://www.githubstatus.com).
+
+| Priority | Description | Examples |
+| --- | --- | --- |
+| {% data variables.product.support_ticket_priority_normal %} | Issues with {% data variables.product.prodname_copilot_short %} features that affect usage or productivity for members of your organization or enterprise. | <ul><li>Code completion suggestions not appearing or returning errors</li><li>{% data variables.copilot.copilot_chat_short %} not responding or producing unexpected results</li><li>{% data variables.product.prodname_copilot_short %} features not working as expected after configuration or policy changes</li><li>Seat assignment or access issues within your organization or enterprise</li></ul> |
+| {% data variables.product.support_ticket_priority_low %} | Questions, suggestions, or minor issues related to {% data variables.product.prodname_copilot_short %} that are not time-sensitive. | <ul><li>Feature requests</li><li>Product feedback</li><li>Adoption guidance or best practices</li><li>Usage reporting and analytics questions</li></ul> |
+
+{% ifversion ghec %}For troubleshooting steps before contacting {% data variables.contact.github_support %}, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues). Many {% data variables.product.prodname_copilot_short %} issues are caused by network configuration, firewalls, or proxy settings in your environment. For guidance on resolving these, see [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-firewall-settings) and [AUTOTITLE](/copilot/how-tos/troubleshoot-copilot/troubleshoot-network-errors). To provide feedback on preview features, use {% data variables.contact.community_support_forum %}.{% endif %} 
 
 ## Further reading
 

@@ -1,6 +1,16 @@
 import { describe, it, expect, vi } from 'vitest'
 import { renderContent } from '@/content-render/index'
 
+const { mockWarn } = vi.hoisted(() => ({ mockWarn: vi.fn() }))
+vi.mock('@/observability/logger', () => ({
+  createLogger: () => ({
+    info: vi.fn(),
+    warn: mockWarn,
+    error: vi.fn(),
+    debug: vi.fn(),
+  }),
+}))
+
 describe('code-header plugin', () => {
   describe('copilot language code blocks', () => {
     it('should render basic copilot code block without header (no copy meta)', async () => {
@@ -126,18 +136,17 @@ Improve the variable names in this function
 
   describe('edge cases', () => {
     it('should handle missing reference gracefully and fall back to current code only', async () => {
-      // Mock console.warn to capture warning
-      const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+      mockWarn.mockClear()
 
       const markdown =
         '```copilot copy prompt ref=nonexistent-id\nImprove the variable names in this function\n```'
 
       const html = await renderContent(markdown)
 
-      // Should warn about missing reference
-      expect(consoleWarnSpy).toHaveBeenCalledWith(
-        expect.stringContaining("Can't find referenced code block with id=nonexistent-id"),
-      )
+      // Should warn about missing reference via structured logger
+      expect(mockWarn).toHaveBeenCalledWith('Cannot find referenced code block', {
+        ref: 'nonexistent-id',
+      })
 
       // Should still render with prompt button using current code only
       expect(html).toContain('https://github.com/copilot?prompt=')
@@ -149,8 +158,7 @@ Improve the variable names in this function
       // Should not crash or fail
       expect(html).toContain('code-example')
 
-      // Restore console.warn
-      consoleWarnSpy.mockRestore()
+      mockWarn.mockClear()
     })
 
     it('should not process annotated code blocks', async () => {

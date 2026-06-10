@@ -25,18 +25,13 @@ category:
   - Configure Copilot
 ---
 
-<!-- expires 2026-06-01 -->
-
-{% data reusables.copilot.ubb-announcement-cfi %}
-
-<!-- end expires 2026-06-01 -->
-
 > [!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and student plans are temporarily paused. However, existing {% data variables.product.prodname_copilot_short %} plans can still be upgraded, downgraded, or canceled.
+> * {% data reusables.copilot.plans.individual-plans-paused %} {% data variables.product.prodname_copilot_short %} plans may still also be downgraded, or canceled.
+> * {% data reusables.copilot.plans.copilot-max-upgrade-only %}
 
 You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan.
 
-If you have access to {% data variables.product.prodname_copilot %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to modify your plan.
+If you have access to {% data variables.product.prodname_copilot %} through an organization or enterprise, you will not be able to modify your plan.
 
 ## Viewing your {% data variables.product.prodname_copilot_short %} plan
 
@@ -55,30 +50,26 @@ You can upgrade or downgrade your {% data variables.product.prodname_copilot_sho
 {% data reusables.user-settings.billing-plans-two-platforms %}
 
 1. In the "{% data variables.product.prodname_copilot %}" section, click the option to upgrade on the right.
-
-   * If you're on {% data variables.copilot.copilot_free_short %}, click **Upgrade {% data variables.product.prodname_copilot_short %}** to choose a paid plan.
-   * If you're on {% data variables.copilot.copilot_pro_short %}, click **Upgrade to {% data variables.copilot.copilot_pro_plus_short %}**.
-
 1. Follow the prompts to confirm your selection and billing details.
 
-### Downgrading your {% data variables.copilot.copilot_pro_plus_short %} plan
+### Downgrading your {% data variables.product.prodname_copilot_short %} plan
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing-plans-two-platforms %}
 
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Downgrade to {% data variables.copilot.copilot_pro_short %}**.
+1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click the downgrade option available to you.
 1. In the downgrade modal, you'll see options to:
 
-   * **Keep {% data variables.copilot.copilot_pro_plus_short %}**, which cancels the downgrade process.
-   * **Downgrade to {% data variables.copilot.copilot_pro_short %}**, which switches you to {% data variables.copilot.copilot_pro_short %} at the start of your next billing cycle.
+   * Keep your existing plan, which cancels the downgrade process.
+   * Downgrade to the plan level below your current plan, which switches you at the start of your next billing cycle.
 
-   Select **Downgrade to {% data variables.copilot.copilot_pro_short %}** to confirm.
+   Select the downgrade button to confirm.
 
 ## Canceling your {% data variables.product.prodname_copilot_short %} plan
 
 You can cancel your {% data variables.product.prodname_copilot_short %} plan at any time. You’ll retain access to your current features until your billing cycle ends. You will automatically be downgraded to {% data variables.copilot.copilot_free_short %} at the end of your billing cycle.
 
-If you have been granted a free access to {% data variables.product.prodname_copilot_short %} as a verified student, teacher, or maintainer of a popular open source project, you won’t be able to cancel your plan. If you have access to {% data variables.product.prodname_copilot_short %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
+If you have been granted free access to {% data variables.product.prodname_copilot_short %} as a verified student, teacher, or maintainer of a popular open source project, you won’t be able to cancel your plan. If you have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
 
 {% data reusables.copilot.copilot-one-account-short %}
 
@@ -86,6 +77,6 @@ If you have been granted a free access to {% data variables.product.prodname_cop
 {% data reusables.user-settings.billing-plans-two-platforms %}
 
 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel subscription**.
-1. Select **Cancel {% data variables.copilot.copilot_pro_plus_short %}/{% data variables.copilot.copilot_pro_short %}** to cancel your plan at the end of your current billing cycle.
+1. Select **Cancel {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}/{% data variables.copilot.copilot_max_short %}** to cancel your plan at the end of your current billing cycle.
 
 {% data reusables.billing.billing-info %}

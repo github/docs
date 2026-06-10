@@ -31,6 +31,10 @@ updates:
       day: tuesday
     cooldown:
       default-days: 7
+    groups:
+      actions:
+        patterns:
+          - '*'
     ignore:
       - dependency-name: '*'
         update-types:

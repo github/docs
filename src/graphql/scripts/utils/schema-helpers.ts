@@ -9,8 +9,10 @@ import {
   isInputObjectType,
   GraphQLSchema,
 } from 'graphql'
-import type { ConstDirectiveNode } from 'graphql/language'
+import type { ConstDirectiveNode, TypeNode, InputValueDefinitionNode } from 'graphql/language'
 import path from 'path'
+
+import { slugPrefixForUrlKind } from '@/graphql/lib/categories'
 
 interface GraphQLTypeInfo {
   type: string
@@ -25,21 +27,15 @@ interface TypeInfo {
 
 interface ArgumentInfo {
   name: string
-  defaultValue?: any // GraphQL default values can be of various types
+  // GraphQL scalar default values come through the AST as a string or boolean.
+  defaultValue?: string | boolean
   description: string
   type: TypeInfo
 }
 
 interface FieldNode {
   name: { value: string }
-  type: any // GraphQL AST type nodes have complex nested structure
-}
-
-interface ArgumentNode {
-  name: { value: string }
-  defaultValue?: { value: any } // GraphQL default values can be of various types
-  description: { value: string }
-  type: any // GraphQL AST type nodes have complex nested structure
+  type: TypeNode
 }
 
 interface SchemaMember {
@@ -62,7 +58,7 @@ function addPeriod(string: string): string {
 }
 
 async function getArguments(
-  args: ArgumentNode[],
+  args: readonly InputValueDefinitionNode[],
   schema: GraphQLSchema,
 ): Promise<ArgumentInfo[] | undefined> {
   if (!args.length) return
@@ -73,20 +69,32 @@ async function getArguments(
     const newArg: Partial<ArgumentInfo> = {}
     const type: Partial<TypeInfo> = {}
     newArg.name = arg.name.value
-    newArg.defaultValue = arg.defaultValue ? arg.defaultValue.value : undefined
-    newArg.description = await getDescription(arg.description.value)
+    newArg.defaultValue =
+      arg.defaultValue && 'value' in arg.defaultValue ? arg.defaultValue.value : undefined
+    newArg.description = arg.description ? await getDescription(arg.description.value) : ''
     const typeName = getType(arg)
     if (!typeName) continue // Skip if type cannot be determined
     type.name = typeName
     type.id = getId(typeName)
     const typeKind = getTypeKind(typeName, schema)
     if (!typeKind) continue // Skip if type kind cannot be determined
-    type.href = getFullLink(typeKind, type.id)
+    // process-schemas always emits legacy `/graphql/reference/<urlKind>#<id>`
+    // hrefs. bucket-by-category rewrites them into the category-aware form
+    // when splitting into per-category files, so monolithic schema.json stays
+    // byte-stable with what the existing runtime expects.
+    type.href = getFullLink(typeKind, type.id!)
     newArg.type = type as TypeInfo
     newArgs.push(newArg as ArgumentInfo)
   }
 
   return newArgs
+}
+
+// Build a category-aware anchor link for a type, e.g.
+// `/graphql/reference/repos#object-repository`. Exposed for the bucketer's
+// href-rewrite pass; process-schemas itself uses the legacy `getFullLink`.
+export function buildCategoryHref(category: string, urlKind: string, id: string): string {
+  return `/graphql/reference/${category}#${slugPrefixForUrlKind(urlKind)}-${id}`
 }
 
 async function getDeprecationReason(
@@ -104,10 +112,9 @@ async function getDeprecationReason(
 
   const arg = deprecationDirective[0]?.arguments?.[0]
   if (!arg) return
-  // ConstDirectiveNode arguments have deeply nested union types not fully exposed in GraphQL's type definitions
-  const value = (arg as any).value?.value
-  if (!value) return
-  return renderContent(value)
+  const value = arg.value
+  if (!value || value.kind !== 'StringValue' || !value.value) return
+  return renderContent(value.value)
 }
 
 function getDeprecationStatus(directives: readonly ConstDirectiveNode[]): boolean | undefined {
@@ -124,6 +131,18 @@ async function getDescription(rawDescription: string): Promise<string> {
 
 function getFullLink(baseType: string, id: string): string {
   return `/graphql/reference/${baseType}#${id}`
+}
+
+// Extract the `@docsCategory(name: "...")` value from a directive list.
+// Returns undefined when the directive is absent.
+function getDocsCategory(directives: readonly ConstDirectiveNode[]): string | undefined {
+  const directive = directives.find((dir) => dir.name.value === 'docsCategory')
+  if (!directive) return
+  const nameArg = directive.arguments?.find((arg) => arg.name.value === 'name')
+  if (!nameArg) return
+  const value = nameArg.value
+  if (!value || value.kind !== 'StringValue') return
+  return value.value
 }
 
 function getId(typeName: string): string {
@@ -153,8 +172,7 @@ async function getPreview(
   // an input object's input field may have a ListValue directive that is not relevant to previews
   const firstArg = previewDirective[0]?.arguments?.[0]
   if (!firstArg) return
-  // ConstDirectiveNode arguments have deeply nested union types not fully exposed in GraphQL's type definitions
-  const argValue = (firstArg as any).value
+  const argValue = firstArg.value
   if (!argValue || argValue.kind !== 'StringValue') return
 
   const previewName = argValue.value
@@ -256,6 +274,7 @@ export default {
   getDeprecationReason,
   getDeprecationStatus,
   getDescription,
+  getDocsCategory,
   getFullLink,
   getId,
   getKind,

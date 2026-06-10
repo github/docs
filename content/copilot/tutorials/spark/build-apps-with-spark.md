@@ -27,7 +27,7 @@ This tutorial will guide you through the full lifecycle of building and deployin
 
 ### Prerequisites
 
-* A {% data variables.product.github %} account with {% data variables.copilot.copilot_pro_plus_short %} or {% data variables.copilot.copilot_enterprise_short %} license.
+* A {% data variables.product.github %} account with {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, or {% data variables.copilot.copilot_enterprise_short %} license.
 
 ## Step 1: Create your web app
 

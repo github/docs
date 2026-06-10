@@ -45,7 +45,7 @@ Define the agent's behavior, expertise, and instructions in the Markdown content
 
 The {% data variables.copilot.copilot_custom_agent_short %} `tools` property controls which tools are available to your agent, including those from MCP servers.
 
-Your {% data variables.copilot.copilot_custom_agent_short %} will have access to MCP server tools that have been configured in both its {% data variables.copilot.agent_profile %} and/or the repository settings. For more information on configuring MCP servers for cloud agent in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp).
+Your {% data variables.copilot.copilot_custom_agent_short %} will have access to MCP server tools that have been configured in both its {% data variables.copilot.agent_profile %} and/or the repository settings. For more information on configuring shared repository MCP servers on {% data variables.product.github %}, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
 
 You can configure `tools` using the following approaches:
 
@@ -103,9 +103,9 @@ mcp-servers:
 Prompt with suggestions for behavior and output
 ```
 
-The `mcp-servers` property in an {% data variables.copilot.agent_profile %} is a YAML representation of the JSON configuration format used to configure MCP servers for {% data variables.copilot.copilot_cloud_agent %}.
+The `mcp-servers` property in an {% data variables.copilot.agent_profile %} is a YAML representation of the JSON configuration format used to configure MCP servers for repositories on {% data variables.product.github %}.
 
-Most sub-properties are the same as the JSON representation. The following sections describe changes from the initial implementation of MCP configuration in {% data variables.copilot.copilot_cloud_agent %} that are relevant to {% data variables.copilot.custom_agents_short %}. For more information about the JSON configuration format, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+Most sub-properties are the same as the JSON representation. The following sections describe changes from the initial implementation of MCP configuration in repositories on {% data variables.product.github %} that are relevant to {% data variables.copilot.custom_agents_short %}. For more information about the JSON configuration format, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#writing-a-json-configuration-for-mcp-servers).
 
 ### MCP server type
 
@@ -114,9 +114,9 @@ For compatibility, the `stdio` type used by Claude Code and {% data variables.pr
 ### MCP server environment variables and secrets
 
 > [!NOTE]
-> If your MCP server requires secrets or environment variables, these must be configured in the {% data variables.product.prodname_copilot_short %} environment in each repository where the {% data variables.copilot.copilot_custom_agent_short %} will be used. For more information on setting up environment variables, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment#setting-environment-variables-in-copilots-environment).
+> If your MCP server requires secrets or environment variables, these must be configured as Agents secrets or variables at either the organization or repository level. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/configure-secrets-and-variables).
 
-{% data variables.copilot.copilot_custom_agent_caps_short %} MCP configuration supports the same environment variable and secret replacement capabilities as existing repository-level MCP configurations. Similar to repository-level configurations, secrets and variables can be sourced from the "copilot" environment in the repository's settings. The syntax for referencing these values has been expanded to support common patterns used in {% data variables.product.prodname_actions %} and Claude Code.
+{% data variables.copilot.copilot_custom_agent_caps_short %} MCP configuration supports the same environment variable and secret replacement capabilities as existing repository-level MCP configurations. Similar to repository-level configurations, secrets and variables can be sourced from Agents secrets and variables for {% data variables.copilot.copilot_cloud_agent %}, configured at either the organization or repository level. The syntax for referencing these values has been expanded to support common patterns used in {% data variables.product.prodname_actions %} and Claude Code.
 
 Both the repository-level MCP JSON configuration and the {% data variables.copilot.copilot_custom_agent_short %} YAML configuration support the following syntax patterns:
 

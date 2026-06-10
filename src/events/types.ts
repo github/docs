@@ -12,6 +12,7 @@ export enum EventType {
   preference = 'preference',
   clipboard = 'clipboard',
   print = 'print',
+  tableInteraction = 'tableInteraction',
 }
 
 export type EventProps = {
@@ -134,5 +135,11 @@ export type EventPropsByType = {
     survey_rating?: number
     survey_comment_language?: string
     survey_connected_event_id?: string
+  }
+  [EventType.tableInteraction]: {
+    table_interaction_name: string
+    table_interaction_type: 'search' | 'filter' | 'sort' | 'paginate' | 'reset'
+    table_interaction_field_name?: string
+    table_interaction_field_value?: string
   }
 }

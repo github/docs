@@ -3,7 +3,7 @@ title: Understanding the snapshot file structure
 shortTitle: Snapshot structure
 intro: Understand the structure and contents of backup snapshot directories, including what is stored and how hard links are used.
 versions:
-  ghes: '>= 3.17'
+  ghes: '*'
 contentType: reference
 category:
   - Back up and upgrade your instance

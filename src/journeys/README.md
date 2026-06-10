@@ -51,6 +51,7 @@ journeyTracks:
   - id: 'getting_started'
     title: 'Getting started with {% data variables.product.prodname_ghe_cloud %}'
     description: 'Master the fundamentals and get started with a trial.'
+    timeCommitment: '2-4 hours'
     guides:
       - '/enterprise-onboarding/choose-an-enterprise-type'
       - '/enterprise-onboarding/setting-up-a-trial'

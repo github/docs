@@ -1,5 +1,6 @@
 ---
 title: CodeQL CLI SARIF output
+shortTitle: SARIF output
 intro: You can output SARIF from the {% data variables.product.prodname_codeql_cli %} and share static analysis results with other systems.
 product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true

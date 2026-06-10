@@ -86,4 +86,4 @@ You can change the email address associated with commits you make in a single re
 
 For reference information, see [AUTOTITLE](/account-and-profile/reference/email-addresses-reference).
 
-To learn more about using a private email address, see [AUTOTITLE](/account-and-profile/reference/email-addresses-reference#your-noreply-email-address).
+For more information about setting your Git username, see [AUTOTITLE](/get-started/git-basics/setting-your-username-in-git).

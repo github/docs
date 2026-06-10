@@ -1,0 +1,1 @@
+Authorship for Git commits is not associated with mannequins and cannot be attributed to {% data variables.product.prodname_dotcom %} users by reclaiming mannequins. Instead, commit authorship is attributed to user accounts on {% data variables.product.github %} based on the email address that was used to author the commit in Git.

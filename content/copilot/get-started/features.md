@@ -45,13 +45,13 @@ These features can work autonomously without direct human supervision. However, 
 
 A command line interface that lets you use {% data variables.product.prodname_copilot_short %} in your terminal. Use the CLI to add features or fix bugs, then create a pull request. Start {% data variables.product.prodname_copilot_short %} working on a task in your terminal, then continue working in the same session on {% data variables.product.prodname_dotcom_the_website %}, or on your mobile. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 
-### {% data variables.copilot.copilot_cloud_agent_tmp %}
+### {% data variables.copilot.copilot_cloud_agent %}
 
 An autonomous AI agent that can research a repository, create an implementation plan, and make code changes on a branch. You can review the diff, iterate, and create a pull request when you're ready. You can also assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} or ask it to open a pull request directly to complete a task. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent).
 
 ### Third-party coding agents ({% data variables.release-phases.public_preview %})
 
-You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %}. Third-party agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-agents).
+You can use third-party coding agents alongside {% data variables.copilot.copilot_cloud_agent %}. Third-party agents are subject to the same security protections, mitigations, and limitations as {% data variables.copilot.copilot_cloud_agent %}. See [AUTOTITLE](/copilot/concepts/agents/about-third-party-coding-agents).
 
 ### {% data variables.copilot.copilot_code-review_short %}
 

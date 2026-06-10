@@ -42,4 +42,5 @@ category:
 ## Next steps
 
 * **For your repository:** Explore your code quality findings and merge your first fix. See [AUTOTITLE](/code-security/tutorials/improve-code-quality/quickstart).
+* **Add code coverage:** Upload test coverage reports to see coverage results directly on pull requests. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/set-up-code-coverage).
 * **For your organization:** Understand the code health of your repositories at a glance. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/explore-code-quality).
