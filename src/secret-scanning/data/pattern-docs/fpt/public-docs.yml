@@ -4837,7 +4837,7 @@
 - provider: Unkey
   supportedSecret: Unkey Root Key
   secretType: unkey_root_key
-  isPublic: true
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: true
