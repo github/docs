@@ -4655,11 +4655,31 @@
   base64Supported: false
   isduplicate: false
 - provider: Supabase
+  supportedSecret: Supabase OAuth Access Token
+  secretType: supabase_oauth_access_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
   supportedSecret: Supabase Personal Access Token
   secretType: supabase_personal_access_token
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
+  supportedSecret: Supabase Personal Access Token (scoped)
+  secretType: supabase_scoped_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -4674,16 +4694,6 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
-- provider: Supabase
-  supportedSecret: Supabase Service Key
-  secretType: supabase_service_key
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  hasExtendedMetadata: false
-  base64Supported: false
-  isduplicate: true
 - provider: Tableau
   supportedSecret: Tableau Personal Access Token
   secretType: tableau_personal_access_token
