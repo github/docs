@@ -72,7 +72,6 @@ describe('server', () => {
     expect(res.headers['cache-control']).toMatch(/public, max-age=/)
 
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
   })
 
@@ -378,7 +377,6 @@ describe('static routes', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
 
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
-    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 

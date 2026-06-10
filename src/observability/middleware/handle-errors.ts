@@ -3,7 +3,10 @@ import type { NextFunction, Response } from 'express'
 import FailBot from '../lib/failbot'
 import { nextApp } from '@/frame/middleware/next'
 import { minimumNotFoundHtml } from '@/frame/lib/constants'
-import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import {
+  setFastlySurrogateKey,
+  makeLanguageSurrogateKey,
+} from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
 import { toError } from '@/observability/lib/to-error'
 import { ExtendedRequest } from '@/types'
@@ -61,8 +64,9 @@ async function handleError(
       errorCacheControl(res)
       // Makes sure the surrogate key is NOT the manual one if it failed.
       // This basically unsets what was assumed in the beginning of
-      // loading all the middlewares.
-      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      // loading all the middlewares. Falls back to `no-language` when
+      // `req.language` isn't set yet (e.g. errors before language detection).
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
     }
   } else if (DEBUG_MIDDLEWARE_TESTS) {
     logger.warn('An error occurred in some middleware handler', { error })
@@ -88,7 +92,7 @@ async function handleError(
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
       errorCacheControl(res)
-      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+      setFastlySurrogateKey(res, makeLanguageSurrogateKey(req.language), true)
       res.status(404).type('html').send(minimumNotFoundHtml)
       return
     }

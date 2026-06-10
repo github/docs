@@ -1,20 +1,16 @@
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import purgeEdgeCache from './purge-edge-cache'
 
 // This will purge every response that *contains*
-// `process.env.FASTLY_SURROGATE_KEY || SURROGATE_ENUMS.DEFAULT`.
-// We normally send Surrogate-Key values like:
+// `process.env.FASTLY_SURROGATE_KEY`.
+// We send Surrogate-Key values like:
 //
-//    every-deployment language:en
-//    every-deployment language:fr
-//    every-deployment language:ja
+//    language:en
+//    language:fr
+//    language:ja
 // or
-//    every-deployment no-language
+//    no-language
 //
-// But if you send a purge request for just:
-//
-//    every-deployment
-//
-// It will cover all surrogate keys that contain that.
-// So this the nuclear option for all keys with this prefix.
-await purgeEdgeCache(process.env.FASTLY_SURROGATE_KEY || SURROGATE_ENUMS.DEFAULT)
+// `purgeEdgeCache` throws if no key is set, so a `FASTLY_SURROGATE_KEY` must be
+// provided. This is the manual/targeted purge entry point; routine per-deploy
+// purging is handled by `purge-fastly-edge-cache-per-language.ts`.
+await purgeEdgeCache(process.env.FASTLY_SURROGATE_KEY)
