@@ -652,7 +652,7 @@ input AddLabelsToLabelableInput {
   """
   The ids of the labels to add.
   """
-  labelIds: [ID!]! @possibleTypes(concreteTypes: ["Label"])
+  labelIds: [ID!] @possibleTypes(concreteTypes: ["Label"])
 
   """
   The id of the labelable object to add labels to.
@@ -8788,7 +8788,13 @@ input CreateProjectV2IssueFieldInput {
   """
   issueFieldId: ID!
     @possibleTypes(
-      concreteTypes: ["IssueFieldDate", "IssueFieldNumber", "IssueFieldSingleSelect", "IssueFieldText"]
+      concreteTypes: [
+        "IssueFieldDate"
+        "IssueFieldMultiSelect"
+        "IssueFieldNumber"
+        "IssueFieldSingleSelect"
+        "IssueFieldText"
+      ]
       abstractType: "IssueFields"
     )
 
@@ -10375,7 +10381,13 @@ input DeleteIssueFieldInput {
   """
   fieldId: ID!
     @possibleTypes(
-      concreteTypes: ["IssueFieldDate", "IssueFieldNumber", "IssueFieldSingleSelect", "IssueFieldText"]
+      concreteTypes: [
+        "IssueFieldDate"
+        "IssueFieldMultiSelect"
+        "IssueFieldNumber"
+        "IssueFieldSingleSelect"
+        "IssueFieldText"
+      ]
       abstractType: "IssueFields"
     )
 }
@@ -21189,6 +21201,11 @@ input IssueFieldCreateOrUpdateInput @docsCategory(name: "issues") {
   fieldId: ID!
 
   """
+  The IDs of the selected options, for a multi select field
+  """
+  multiSelectOptionIds: [ID!]
+
+  """
   The numeric value, for a number field
   """
   numberValue: Float
@@ -21292,6 +21309,76 @@ type IssueFieldDateValue implements IssueFieldValueCommon & Node @docsCategory(n
   Value of the field.
   """
   value: String!
+}
+
+"""
+Represents a multi select issue field.
+"""
+type IssueFieldMultiSelect implements IssueFieldCommon & Node @docsCategory(name: "issues") {
+  """
+  The issue field's creation timestamp.
+  """
+  createdAt: DateTime!
+
+  """
+  The issue field's data type.
+  """
+  dataType: IssueFieldDataType!
+
+  """
+  The issue field's description.
+  """
+  description: String
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
+  The Node ID of the IssueFieldMultiSelect object
+  """
+  id: ID!
+
+  """
+  The issue field's name.
+  """
+  name: String!
+
+  """
+  Options for the multi select field
+  """
+  options: [IssueFieldSingleSelectOption!]!
+
+  """
+  The issue field's visibility.
+  """
+  visibility: IssueFieldVisibility!
+}
+
+"""
+The value of a multi select field in an Issue item.
+"""
+type IssueFieldMultiSelectValue implements IssueFieldValueCommon & Node @docsCategory(name: "issues") {
+  """
+  The issue field that contains this value.
+  """
+  field: IssueFields
+
+  """
+  The Node ID of the IssueFieldMultiSelectValue object
+  """
+  id: ID!
+
+  """
+  The selected options.
+  """
+  options: [IssueFieldSingleSelectOption!]!
+
+  """
+  Comma-separated names of the selected options.
+  """
+  value: String
 }
 
 """
@@ -21669,6 +21756,7 @@ Issue field values
 """
 union IssueFieldValue @docsCategory(name: "issues") =
   | IssueFieldDateValue
+  | IssueFieldMultiSelectValue
   | IssueFieldNumberValue
   | IssueFieldSingleSelectValue
   | IssueFieldTextValue
@@ -21743,6 +21831,7 @@ Possible issue fields.
 """
 union IssueFields @docsCategory(name: "issues") =
   | IssueFieldDate
+  | IssueFieldMultiSelect
   | IssueFieldNumber
   | IssueFieldSingleSelect
   | IssueFieldText
@@ -39514,6 +39603,11 @@ type ProjectV2 implements Closable & Node & Updatable @docsCategory(name: "proje
     after: String
 
     """
+    Filter items by their archived state. Defaults to only returning items that are not archived.
+    """
+    archivedStates: [ProjectV2ItemArchivedState!] = [NOT_ARCHIVED]
+
+    """
     Returns the elements in the list that come before the specified cursor.
     """
     before: String
@@ -40278,6 +40372,7 @@ Possible issue field values for a Project item.
 """
 union ProjectV2IssueFieldValues @docsCategory(name: "projects") =
   | IssueFieldDateValue
+  | IssueFieldMultiSelectValue
   | IssueFieldNumberValue
   | IssueFieldSingleSelectValue
   | IssueFieldTextValue
@@ -40378,6 +40473,21 @@ type ProjectV2Item implements Node @docsCategory(name: "projects") {
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+}
+
+"""
+The possible archived states of a `ProjectV2Item`.
+"""
+enum ProjectV2ItemArchivedState @docsCategory(name: "projects") {
+  """
+  A project item that is archived
+  """
+  ARCHIVED
+
+  """
+  A project item that is not archived
+  """
+  NOT_ARCHIVED
 }
 
 """
@@ -58880,7 +58990,7 @@ input SetIssueFieldValueInput {
   clientMutationId: String
 
   """
-  The issue fields to set on the issue
+  The issue fields to set on the issue.
   """
   issueFields: [IssueFieldCreateOrUpdateInput!]!
 
@@ -59219,6 +59329,11 @@ enum SocialAccountProvider @docsCategory(name: "users") {
   Social news aggregation and discussion website.
   """
   REDDIT
+
+  """
+  Microblogging social platform.
+  """
+  THREADS
 
   """
   Live-streaming service.
@@ -67781,7 +67896,13 @@ input UpdateIssueFieldInput {
   """
   id: ID!
     @possibleTypes(
-      concreteTypes: ["IssueFieldDate", "IssueFieldNumber", "IssueFieldSingleSelect", "IssueFieldText"]
+      concreteTypes: [
+        "IssueFieldDate"
+        "IssueFieldMultiSelect"
+        "IssueFieldNumber"
+        "IssueFieldSingleSelect"
+        "IssueFieldText"
+      ]
       abstractType: "IssueFields"
     )
 
@@ -67826,7 +67947,9 @@ input UpdateIssueFieldValueInput {
   clientMutationId: String
 
   """
-  The field value to update.
+  The field value to update. May include an optional `rationale` or be flagged
+  with `suggest: true` to be stored as a pending suggestion instead of being
+  applied directly.
   """
   issueField: IssueFieldCreateOrUpdateInput!
 
@@ -72282,6 +72405,11 @@ type WorkflowRun implements Node & UniformResourceLocatable @docsCategory(name: 
   ): DeploymentReviewConnection!
 
   """
+  The human-readable title of the workflow run.
+  """
+  displayTitle: String
+
+  """
   The event that triggered the workflow run
   """
   event: String!
@@ -72325,6 +72453,11 @@ type WorkflowRun implements Node & UniformResourceLocatable @docsCategory(name: 
   The HTTP path for this workflow run
   """
   resourcePath: URI!
+
+  """
+  The attempt number of this workflow run.
+  """
+  runAttempt: Int!
 
   """
   A number that uniquely identifies this workflow run in its parent workflow.

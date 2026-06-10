@@ -7,321 +7,249 @@ labels:
   - workflow-generated
 ---
 
-# Deprecation steps for GHES releases
+# Deprecate a GitHub Enterprise Server release
 
-The day after a GHES version's [deprecation date](https://github.com/github/docs-internal/tree/main/src/ghes-releases/lib/enterprise-dates.json), a banner on the docs will say: `This version was deprecated on <date>.` This lets users know that the release is deprecated. However, until the release is fully deprecated, it will show up in the Versions dropdown on the docs.github.com site.
+This issue is the runbook for fully deprecating a GHES version on docs.github.com. Fully deprecate means: scrape the version's docs into a static archive repository, remove all Markdown, YAML, and JSON content versioned for that release or lower from `github/docs-internal`, and deprecate its OpenAPI description in `github/github`.
 
-When we fully deprecate the release, we remove all any content (YML, JSON, Markdown) versioned for that release or lower. Follow the steps in this issue to fully **deprecate** the docs.
+Human: A coding agent such as Copilot CLI drives this runbook while a human supervises. Point your agent at this issue and work through it one step at a time.
 
-**Note**: Each step below, except step 0, must be done in order. Only move on to the next step after successfully completing the previous step.
+Throughout, `{{ release-number }}` stands for the version being deprecated. When this runbook is generated as a deprecation issue, the placeholder is filled in for you.
 
-The following large repositories are used throughout this checklist, it may be useful to clone them before you begin:
+- Do the steps in order. One at a time. Tell the human each time you start a new step.
+- Only move on after the previous step succeeds.
+- Keep process notes as you go. The final step uses them.
+- A callout appears in the steps: 🛑 **HUMAN**. This means stop and get explicit human sign-off before continuing. These mark points where a mistake is expensive or hard to undo, or actions only a human can perform. Text on these lines are meant for the human to do; any text on a line that does not have the flag is for the agent.
+- When a step is ambiguous or a tool misbehaves, look at the two most recent deprecation pull requests in `github/docs-internal` for how it was handled. Search for pull requests titled "Deprecate GitHub Enterprise Server", and read the content team's review comments so you can fix the same problems before requesting review. 
+- Clone `github/docs-internal` and `github/github` before you begin.
 
-- `github/github`
-- `github/docs-internal`
+## Step 1: Confirm the deprecation date
 
-## Step 0: Confirm the deprecation date
+Look up `{{ release-number }}` in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json), find the corresponding `prp` owner, and draft a short Slack message asking them to confirm the deprecation date.
 
-Before beginning the deprecation, ensure the date of the deprecation is correctly defined:
+🛑 **HUMAN**: Send a Slack message. If there is no `prp` owner, ask in #docs-content-enterprise or #ghes-releases instead.
 
-1. Check that the deprecation date is correct by looking up the version you are deprecating in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json) and finding the corresponding `prp` owner. Send them a slack message to confirm that the date is correct. If the date is being pushed out, you can ask the `prp` to update the date in the release date list. If the release date list does not get updated (it doesn't always) we have to prepare that our version of that file (`src/ghes-releases/lib/enterprise-dates.json`) will also be inaccurate.
+* If the date is being pushed out, ask the `prp` to update the release date list, update this issue's target date, and pause until the new date arrives.
+* The release date list is often not updated. If it isn't, our copy in `src/ghes-releases/lib/enterprise-dates.json` may also be wrong. You fix that in Step 6.
 
-   If there is no `prp` defined, reach out to our content friends for help in the #docs-content-enterprise or #ghes-releases Slack channel.
+## Step 2: Remove the version from the github/docs-content release tracker
 
-1. If this release is being pushed out, update the target date of this issue and you can wait to proceed with any futher steps.
+In the `github/docs-content` repository, remove `{{ release-number }}` from the `options` list in [`release-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tracking.yml), ensure the list of versions matches the available versions, and open a pull request.
 
-1. In the `docs-content` repo, remove the deprecated GHES version number from the `options` list in [`release-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tracking.yml).
+🛑 **HUMAN**: Review the `github/docs-content` pull request. Acknowledge this will need to be merged in the next few days.
 
-1. When the PR is approved, merge it in.
+You can continue once the human reviews the `github/docs-content` pull request and acknowledges they are responsible for getting it merged.
 
-<details><summary><strong>🤖 Copilot prompt for Step 0</strong></summary>
+## Step 3: Clone the translation repositories
 
-> I'm preparing to deprecate GHES VERSION_NUMBER. Read `src/ghes-releases/lib/enterprise-dates.json` in docs-internal and find the deprecation date for this version. Then draft a Slack message I can send to the PRP owner to confirm the date is correct. Also check `github/enterprise-releases/releases.json` and identify the PRP owner for this version.
-
-</details>
-
-## Step 1: Create the new archived repository
-
-All previously archived content lives in its own repository. For example, GHES 3.11 archived content is located in https://github.com/github/docs-ghes-3.11.
-
-1. Create a new repository that will store the scraped deprecated files:
-
-   ```shell
-   npm run deprecate-ghes -- create-repo --version <release to deprecate>
-   ```
-
-   For example, to deprecate GHES 3.11, you would run:
-
-   ```shell
-   npm run deprecate-ghes -- create-repo --version 3.11
-   ```
-
-1. From the new repository's home page, click the gear icon next to the "About" section and deselect the "Releases", "Packages", and "Deployments" checkboxes. Click "Save changes".
-
-<details><summary><strong>🤖 Copilot prompt for Step 1</strong></summary>
-
-> Run `npm run deprecate-ghes -- create-repo --version VERSION_NUMBER` and show me the output. If the script fails (API errors, permission issues, path problems), diagnose the error and suggest a fix. The `create-docs-ghes-version-repo.sh` script may have hardcoded paths or assumptions that need updating.
-
-</details>
-
-## Step 2: Dry run: Scrape the docs and archive the files
-
-**Note:** You may want to perform the following dry run steps on a new temporary branch that you can delete after the dry run is complete.
-
-1. If the release date documented in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json) is incorrect or differs from what we have documented in `src/ghes-releases/lib/enterprise-dates.json`, update the date in `src/ghes-releases/lib/enterprise-dates.json` to the correct deprecation date before proceeding with the deprecation. A banner is displayed on each page with a version that will be deprecated soon. The banner uses the dates defined in `src/ghes-releases/lib/enterprise-dates.json`.
-
-1. Ensure you have local clones of the [translation repositories](#configuring-the-translation-repositories).
-
-1. Update all translation directories to the latest `main` branch.
-
-1. Hide search components temporarily while scraping docs by adding the `visually-hidden` class to the search components:
-
-   **In `src/search/components/input/SearchBarButton.tsx`**, wrap the return statement content:
-
-   ```javascript
-   return (
-     <div className="visually-hidden">
-       {/* existing search button content */}
-     </div>
-   );
-   ```
-
-   **In `src/search/components/input/SearchOverlayContainer.tsx`**, wrap the return statement content:
-
-   ```javascript
-   if (isSearchOpen) {
-     return (
-       <div className="visually-hidden">
-         <SearchOverlay
-         // ... existing props
-         />
-       </div>
-     );
-   }
-   ```
-
-1. Ensure your build is up to date:
-
-   ```shell
-   npm run build
-   ```
-
-1. Do a dry run by scraping a small amount of files to test locally on your machine. This command does not overwrite the references to asset files so they will render on your machine.
-
-   ```shell
-   npm run deprecate-ghes-archive -- --dry-run --local-dev
-   ```
-
-1. Navigate to the scraped files directory (`tmpArchivalDir_<VERSION_TO_DEPRECATE>`) inside your docs-internal checkout. Open a few HTML files and ensure they render and drop-down pickers work correctly.
-
-1. If the dry-run looks good, scrape all content files. This will take about 20-30 minutes. **Note:** This will overwrite the directory that was previously generated with new files. You can also create a specific output directory using the `--output` flag.
-
-   ```shell
-   npm run deprecate-ghes-archive
-   ```
-
-1. Revert changes to `src/search/components/input/SearchBarButton.tsx` and `src/search/components/input/SearchOverlayContainer.tsx`.
-
-1. Check in any change to `src/ghes-releases/lib/enterprise-dates.json`.
-
-<details><summary><strong>🤖 Copilot prompt for Step 2</strong></summary>
-
-> I'm doing a dry run of the GHES VERSION_NUMBER deprecation archive scrape.
->
-> First, in `src/search/components/input/SearchBarButton.tsx`, wrap the return statement content in a `<div className="visually-hidden">` wrapper. Do the same in `src/search/components/input/SearchOverlayContainer.tsx` for the SearchOverlay component when `isSearchOpen` is true.
->
-> Then run `npm run build` and show me the output. If the build succeeds, run `npm run deprecate-ghes-archive -- --dry-run --local-dev` and show me the output. Tell me if any errors occurred.
->
-> After I've reviewed the dry run output, run the full scrape: `npm run deprecate-ghes-archive`. This will take 20-30 minutes.
->
-> When the scrape completes, revert the search component changes: `git checkout src/search/components/input/SearchBarButton.tsx src/search/components/input/SearchOverlayContainer.tsx`. Verify the files are reverted.
-
-</details>
-
-## Step 3: Commit the scraped docs to the new repository
-
-1. Copy the scraped files from the `tmpArchivalDir_<VERSION_TO_DEPRECATE>` directory in `docs-internal` over to the new `github/docs-ghes-<RELEASE_NUM>` repository.
-
-1. Commit the files. A GitHub Pages build should automatically begin, creating the static site that serves these docs.
-
-1. Preview a few pages, by navigating to the full URL checked into the repo. For example, for GHES 3.11, you can view `https://github.github.com/docs-ghes-3.11/en/enterprise-server@3.11/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications/index.html`.
-
-1. Remove the `tmpArchivalDir_<VERSION_TO_DEPRECATE>` directory from your `github/docs-internal` checkout.
-
-<details><summary><strong>🤖 Copilot prompt for Step 3</strong></summary>
-
-> Copy the scraped files from `tmpArchivalDir_<VERSION_TO_DEPRECATE>` to the `github/docs-ghes-<RELEASE_NUM>` repository. Commit all the files with the message "Archive GHES <RELEASE_NUM> docs". Verify the commit succeeded and show me the file count. Then remove the `tmpArchivalDir_<VERSION_TO_DEPRECATE>` directory from docs-internal.
-
-</details>
-
-## Step 4: Deprecate the GHES release in docs-internal
-
-1. In your `docs-internal` checkout, create a new branch: `git checkout -b deprecate-<version>`.
-
-1. In your `docs-internal` checkout, edit `src/versions/lib/enterprise-server-releases.ts` by removing the version number to be deprecated from the `supported` array and move it to the `deprecatedWithFunctionalRedirects` array.
-
-1. Deprecate the automated pipelines data files (including audit logs, REST, GraphQL, webhooks, GitHub Apps, CodeQL CLI, and secret scanning):
-
-   ```shell
-   npm run deprecate-ghes -- pipelines
-   ```
-
-1. Remove deprecated content files and update the versions frontmatter:
-
-   ```shell
-   npm run deprecate-ghes -- content
-   ```
-
-1. Remove deprecated Liquid from content and data files. **Note:** The previous step to update content file frontmatter must have run successfully for this step to work because the updated frontmatter is used to determine file versions.
-
-   ```shell
-   npm run lint-content -- --paths content data --rules liquid-ifversion-versions --fix
-   ```
-
-1. There are some `data/variables/*.yml` files that can't be autofixed. These will show up as errors. You can manually make the changes to these files. For example, this means open file data/variables/code-scanning and find the code_scanning_thread_model_support key. Edit the key’s value to remove the deprecated liquid:
-
-   ![Output from script that indicates manual fixes to variable files are needed](./variable-example.png)
-
-1. Deprecate any data files that are now empty, remove data resuables references that were deleted:
-
-   ```shell
-   npm run deprecate-ghes -- data
-   ```
-
-1. Run the linter again to remove whitespace and check for any other errors:
-
-   ```shell
-   npm run lint-content -- --fix
-   ```
-
-1. Use VSCode find/replace to remove any remaining table pipes after liquid has been removed. For example lines that only contain 1 or two pipes: ` |` or ` | |`. You can use the following regexes: `^\|\s*\|$` and `^\s?\|\s?$`.
-
-1. Test the changes by running the site locally:
-
-   ```shell
-   npm run start
-   ```
-
-1. Poke around several deprecated pages by navigating to `docs.github.com/enterprise/<DEPRECATED VERSION>`, and ensure that:
-
-   - Stylesheets are working properly
-   - Images are rendering properly
-   - The search functionality was disabled during scraping
-   - Look at any console errors to ensure that no new unexpected errors were introduced. You can look at previous errors by viewing a previously completed deprecation page.
-   - You should see a banner on the top of every deprecated page with the date that the version was deprecated.
-   - You should see a banner at the top of every page for the oldes currently supported version with the date that it will be deprecated in the ~3 months.
-
-1. If everything looks good, check in all changes and create a pull request.
-
-1. Ensure that CI is passing or make any changes to content needed to get tests to pass.
-
-1. Add the PR to the [docs-content review board](https://github.com/orgs/github/projects/2936/views/2).
-
-1. 🚢 Ship the change.
-
-<details><summary><strong>🤖 Copilot prompt for Step 4 — initial setup</strong></summary>
-
-> I'm deprecating GHES VERSION_NUMBER in docs-internal. In `src/versions/lib/enterprise-server-releases.ts`, remove `'VERSION_NUMBER'` from the `supported` array and add it as the first element of the `deprecatedWithFunctionalRedirects` array. Show me the diff.
-
-</details>
-
-<details><summary><strong>🤖 Copilot prompt for Step 4 — run deprecation scripts</strong></summary>
-
-> Run `npm run deprecate-ghes -- pipelines` and show me the output. If there are errors, diagnose and fix them.
->
-> Then run `npm run deprecate-ghes -- content` and show me the output. If there are errors, diagnose and fix them.
-
-</details>
-
-<details><summary><strong>🤖 Copilot prompt for Step 4 — lint and fix Liquid</strong></summary>
-
-> Run `npm run lint-content -- --paths content data --rules liquid-ifversion-versions --fix`. Some `data/variables/*.yml` files can't be auto-fixed and will show as errors. For each error, open the file, find the key mentioned in the error, and remove the deprecated Liquid conditional for GHES VERSION_NUMBER while preserving the content for supported versions. Show me each change you make.
-
-</details>
-
-<details><summary><strong>🤖 Copilot prompt for Step 4 — clean up data and remaining issues</strong></summary>
-
-> Run `npm run deprecate-ghes -- data` and show me the output.
->
-> Then run `npm run lint-content -- --fix` to remove whitespace and check for other errors.
->
-> Search the codebase for any remaining table pipe artifacts from removed Liquid conditionals. Look for lines matching `^\|\s*\|$` or `^\s?\|\s?$` across all content and data files. Remove any you find.
->
-> Show me a summary of all changes made.
-
-</details>
-
-<details><summary><strong>🤖 Copilot prompt for Step 4 — final validation</strong></summary>
-
-> Run `npm run lint-content` and show me any remaining errors. For each error, fix it and show me the change.
->
-> Then run `npm run test -- src/versions` to check version-related tests still pass.
->
-> Summarize all changes made so far so I can review before committing.
-
-</details>
-
-## Step 5: Create a tag
-
-1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-deprecation`. On your local, `git checkout main`, `git pull`, `git tag enterprise-<version>-deprecation`, then `git push --tags --no-verify`.
-
-<details><summary><strong>🤖 Copilot prompt for Step 5</strong></summary>
-
-> Run `git checkout main && git pull` then `git tag enterprise-VERSION_NUMBER-deprecation && git push --tags --no-verify`. Show me the output.
-
-</details>
-
-## Step 6: Deprecate the OpenAPI description in `github/github`
-
-1. In `github/github`, edit the release's config file in `app/api/description/config/releases/`, and change `deprecated: false` to `deprecated: true`.
-
-1. Open a new PR, and get the required code owner approvals. A docs-content team member can approve it for the docs team.
-
-1. When the PR is approved, [deploy the `github/github` PR](https://thehub.github.com/epd/engineering/devops/deployment/deploying-dotcom/). If you haven't deployed a `github/github` PR before, work with someone that has -- the process isn't too involved depending on how you deploy, but there are a lot of details that can potentially be confusing as you can see from the documentation.
-
-<details><summary><strong>🤖 Copilot prompt for Step 6</strong></summary>
-
-> In the `github/github` repository, find the config file for GHES VERSION_NUMBER in `app/api/description/config/releases/`. Change `deprecated: false` to `deprecated: true`. Show me the diff and open a PR with the title "Deprecate GHES VERSION_NUMBER OpenAPI description".
-
-</details>
-
-## Configuring the translation repositories
-
-You can clone the translation repositories directly inside of your docs-internal checkout, but I'd recommend cloning them in a separate directory. For example, create a `translations` directory at the same level as your `docs-internal` directory. Inside of the `translations` directory, clone the following repoisitories (ensure this list includes all languages that we are supporting):
-
-- [docs-internal.es-es](https://github.com/github/docs-internal.es-es)
-- [docs-internal.ja-jp](https://github.com/github/docs-internal.ja-jp)
-- [docs-internal.pt-br](https://github.com/github/docs-internal.pt-br)
-- [docs-internal.zh-cn](https://github.com/github/docs-internal.zh-cn)
-- [docs-internal.ru-ru](https://github.com/github/docs-internal.ru-ru)
-- [docs-internal.fr-fr](https://github.com/github/docs-internal.fr-fr)
-- [docs-internal.ko-kr](https://github.com/github/docs-internal.ko-kr)
-- [docs-internal.de-de](https://github.com/github/docs-internal.de-de)
-
-To map the location of each translation repository, edit your `.env` file with the mapping. For example, if following the locations suggested above, your `.env` file might look like this:
+The full scrape needs local clones of the eight translation repositories:
 
 ```shell
-TRANSLATIONS=/Users/mona/repos/github-repos/translations
-TRANSLATIONS_ROOT_ES_ES=${TRANSLATIONS}/docs-internal.es-es
-TRANSLATIONS_ROOT_JA_JP=${TRANSLATIONS}/docs-internal.ja-jp
-TRANSLATIONS_ROOT_PT_BR=${TRANSLATIONS}/docs-internal.pt-br
-TRANSLATIONS_ROOT_ZH_CN=${TRANSLATIONS}/docs-internal.zh-cn
-TRANSLATIONS_ROOT_RU_RU=${TRANSLATIONS}/docs-internal.ru-ru
-TRANSLATIONS_ROOT_FR_FR=${TRANSLATIONS}/docs-internal.fr-fr
-TRANSLATIONS_ROOT_KO_KR=${TRANSLATIONS}/docs-internal.ko-kr
-TRANSLATIONS_ROOT_DE_DE=${TRANSLATIONS}/docs-internal.de-de
+npm run clone-translations
 ```
 
-## Re-scraping a page or all pages
+This clones every language into `./translations/<lang>` inside your `github/docs-internal` checkout, which the scrape reads by default. No `.env` configuration is needed. It clones eight repositories and can take several minutes. To keep your clones elsewhere, use per-language `TRANSLATIONS_ROOT_*` variables instead, described in [the appendix](#reference-configuring-the-translation-repositories).
 
-Occasionally, a change will need to be added to our archived enterprise versions. If this occurs, you can check out the `enterprise-<release number>-release` branch and re-scrape the page or all pages using `npm run deprecate-ghes-archive`. To scrape a single page you can use the `—page <page relative path>` option.
+## Step 4: Create the archive repository
 
-For each language, upload the new file to the `github/docs-ghes-<RELEASE_NUM>` repo.
+Each deprecated version's docs live in their own repository, for example `github/docs-ghes-3.11`. Create the new one:
 
-After uploading the new files, you will need to purge the Fastly cache for the single page. From Okta, go to Fastly and select `docs`. Click `Purge` then `Purge URL`. If you need to purge a whole path, just do a `Purge All`
+```shell
+npm run deprecate-ghes -- create-repo --version {{ release-number }}
+```
 
-![The Fastly UI URL purge drop-down selector options.](/contributing/images/fastly_purge.jpg)
+🛑 **HUMAN**: On the new repository's home page, click the gear next to "About" and clear the "Releases", "Packages", and "Deployments" checkboxes, then save. No public API covers these toggles.
 
-Enter the URL or path and do a soft purge.
+You can continue once the human has said they completed that step.
 
-![The Fastly UI purging guide.](/contributing/images/fastly_purge_url.jpg)
+## Step 5: Create the deprecation branch
+
+Create the branch that holds every `github/docs-internal` change in this deprecation. Keep it through Step 13:
+
+```shell
+git checkout -b deprecate-{{ release-number }}
+```
+
+## Step 6: Fix the deprecation date if needed
+
+If the date in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json) differs from `src/ghes-releases/lib/enterprise-dates.json`, update `enterprise-dates.json` to match and commit it on your branch. The pre-deprecation banner reads its dates from that file, so fix it before scraping.
+
+## Step 7: Dry-run the scrape
+
+Update your translation clones to the latest `main`. Then hide the search components so they don't get scraped into the static archive: in `src/search/components/input/SearchBarButton.tsx`, wrap the returned content in a `<div className="visually-hidden">`, and do the same for the `SearchOverlay` in `src/search/components/input/SearchOverlayContainer.tsx`.
+
+Build, then scrape a few pages locally:
+
+```shell
+npm run build
+npm run deprecate-ghes-archive -- --dry-run --local-dev
+```
+
+Open a few HTML files in `tmpArchivalDir_{{ release-number }}` and confirm they render, styles load, and the version dropdowns work.
+
+Offer to open the files for the human in their text editor or browser.
+
+🛑 **HUMAN**: Review the dry-run output before the full scrape.
+
+You can continue after the human confirms they have reviewed the dry-run output.
+
+## Step 8: Run the full scrape
+
+Scrape every page. This takes 20-30 minutes and overwrites the dry-run output:
+
+```shell
+npm run deprecate-ghes-archive
+```
+
+Revert the search component edits:
+
+```shell
+git checkout src/search/components/input/SearchBarButton.tsx src/search/components/input/SearchOverlayContainer.tsx
+```
+
+## Step 9: Publish the archive
+
+The scrape writes the publishable site to an inner directory, `tmpArchivalDir_{{ release-number }}/{{ release-number }}/`, which holds `en/`, the other language directories, and the redirect files. Copy the contents of that inner directory into the root of the `github/docs-ghes-{{ release-number }}` repository, so pages land at `/en/...` with no nested `{{ release-number }}/` directory. If you are unsure, please look at some previous `github/docs-ghes-*` repos for the right organization.
+
+🛑 **HUMAN**: Confirm the file count, organization, and contents.
+
+After the human confirms, commit and push. GitHub Pages builds the static site automatically. Wait a few minutes. Preview a few pages at the full Pages URL, for example `https://github.github.com/docs-ghes-{{ release-number }}/en/enterprise-server@{{ release-number }}/get-started/index.html`, across a couple of languages. Then remove `tmpArchivalDir_{{ release-number }}` from `github/docs-internal`.
+
+## Step 10: Remove the version from github/docs-internal
+
+Back on your `deprecate-{{ release-number }}` branch, move the version out of the supported list. In `src/versions/lib/enterprise-server-releases.ts`, remove `'{{ release-number }}'` from `supported` and add it as the first element of `deprecatedWithFunctionalRedirects`.
+
+Run the deprecation scripts in order. Each depends on the previous one succeeding:
+
+```shell
+npm run deprecate-ghes -- pipelines
+npm run deprecate-ghes -- content
+npm run lint-content -- --paths content data --rules liquid-ifversion-versions --fix
+```
+
+Some `data/variables/*.yml` files can't be autofixed and show as lint errors. Open each one, find the key named in the error, and remove the deprecated Liquid while keeping the content for supported versions.
+
+Then clean up empty data files and run the linter again:
+
+```shell
+npm run deprecate-ghes -- data
+npm run lint-content -- --fix
+```
+
+## Step 11: Clean up content artifacts
+
+The content team flags issues on every deprecation, so fix them before requesting review:
+
+* Collapse consecutive blank lines left behind by removed Liquid. Run `npm run deprecate-ghes -- collapse-blank-lines` to auto-fix any run of 2+ blank lines in the markdown files this deprecation changed. The linter doesn't catch these because MD012 is off. Use `--check` to list offenders without writing.
+* Review each Liquid-removal site for a stray single blank line the codemod introduced, one at a time. The auto-fix above only touches 2+ blank lines, because a lone blank line is often legitimate (for example, before a nested sub-list), so a human must judge each one.
+* Remove leftover table-pipe rows from removed Liquid, for example lines matching `^\|\s*\|$` or `^\s?\|\s?$`.
+* Fix paragraphs missing a leading space, and any `ifversion` left in the wrong place after a reusable was removed.
+* Revert codemod churn on autogenerated REST files. The codemod edits `content/rest/**` files marked `autogenerated: rest`, stripping the `# DO NOT MANUALLY EDIT` marker from their `versions:` block, rewriting `ghes: '>=X'` to `'*'`, and reflowing `intro: >-` scalars. The REST sync bot owns these files and will overwrite the edits, so restore the churned frontmatter to match `main` and keep only genuinely-removed pages. Alternatively, regenerate with `npm run sync-rest`, which needs a `github/github` checkout.
+* Close up double spaces left in inline `ifversion` chains. When the codemod drops a version from an inline chain it can leave a double space, for example `upgrading to {% ifversion ghes = 3.17 %}3.17{% endif %} {% ifversion ghes = 3.18 %}3.18{% endif %} with caution.` Move the trailing space inside each conditional (`3.17 {% endif %}`) so only the matched branch renders one space.
+* Prune empty `else` branches and dead conditionals. When the codemod removes the only content inside an `{% else %}`, often a now-unused reusable, delete the empty `{% else %}`. Also remove `{% ifversion ghes < <new-oldest> %}` blocks, which are always false after the deprecation.
+* Add redirects for content removed on every version. When a deprecation fully removes a feature, not just one version of it, there's no auto-generated redirect, so add redirects to the current docs by hand and repoint version-pinned entries in `src/fixtures/fixtures/rest-redirects.json` at the current location. Expect a large list. There's no helper for this yet.
+
+The list in this step should increase after each deprecation to improve the output of this process and reduce human effort.
+
+## Step 12: Fix CI the codemod doesn't touch
+
+The deprecation scripts only rewrite `content/` and `data/`, so version references in tests and fixtures can break CI. Run:
+
+```shell
+npm test -- src/versions/tests src/redirects/tests
+```
+
+Fix any failures. For example, when a deprecation fully removes content rather than just a version of it, redirect fixtures in `src/fixtures/fixtures/rest-redirects.json` may still point at the removed version; repoint them at the current location.
+
+## Step 13: Review, smoke test, and open the pull request
+
+🛑 **HUMAN**: Review the full diff before the smoke test.
+
+After the human confirms they reviewed the full diff, smoke test locally with `npm run start` and visit a few pages at `docs.github.com/enterprise/{{ release-number }}`. Confirm stylesheets and images load, search is disabled, there are no new console errors, every deprecated page shows the "deprecated on <date>" banner, and the new oldest supported version shows its upcoming-deprecation banner.
+
+Commit, push, and open a draft pull request labelled `llm-generated`. Use this body so the reviewer has context and a way to feed findings back into the runbook, filling in the placeholders:
+
+````markdown
+```markdown
+Copilot generated this pull request. 
+
+This pull request deprecates GHES {{ release-number }} on docs.github.com.
+
+## What this does
+
+- Moves `{{ release-number }}` out of `supported` in `enterprise-server-releases.ts`.
+- Runs the deprecation codemods over content and pipeline data.
+- Removes the `{{ release-number }}` pipeline data and archives the version.
+- {Note any content removed entirely, with redirect counts.}
+
+## For reviewers
+
+[Step 11 of the runbook](https://github.com/github/docs-internal/blob/main/src/ghes-releases/lib/deprecation-steps.md#step-11-clean-up-content-artifacts) lists the content problems that recur. If you spot issues this pull request missed, please add to Step 11 so the next deprecation catches it.
+```
+````
+
+> [!NOTE]
+> The `dont-delete-features` check can fail when a deprecation removes more than one feature file. It guards against translations still referencing deleted features. This is expected on deprecations that fully remove features, and the docs-bot "Delete orphaned features" automation cleans them up. Don't block the pull request on it.
+
+Offer to open the pull request in the human's browser.
+
+🛑 **HUMAN**: Review the draft pull request. Comment any changes needed.
+
+Once the humans approves the pull request, mark as ready for review. Add the pull request to the [docs-content review board](https://github.com/orgs/github/projects/2936/views/2).
+
+🛑 **HUMAN**: Get a content team review before merging the pull request. You should add any issues the content team finds to Step 11 of this runbook.
+
+You can proceed once the human acknowledges they will need to get a content team review and handle merging the pull request and adding any feedback. You do not need to wait for the pull request to get a content team review or to be merged.
+
+## Step 14: Tag the deprecation
+
+Tag `main` so we can find where in history the version was removed. You can tag now. There's no need to wait for the deprecation pull request to merge, which matches the recent deprecations.
+
+```shell
+git checkout main && git pull
+git tag enterprise-{{ release-number }}-deprecation
+git push --tags --no-verify
+```
+
+## Step 15: Deprecate the OpenAPI description in github/github
+
+In `github/github`, edit `app/api/description/config/releases/ghes-{{ release-number }}.yaml` and change `deprecated: false` to `deprecated: true`. Open a pull request and get the required code owner approvals. A docs-content team member can approve for the docs team.
+
+🛑 **HUMAN**: Once approved, [deploy the `github/github` pull request](https://thehub.github.com/epd/engineering/devops/deployment/deploying-dotcom/). If you haven't deployed `github/github` before, pair with someone who has.
+
+Continue on after the human acknowledges they will need to deploy the `github/github` pull request after the `github/docs-internal` pull request merges.
+
+## Step 16: Capture process improvements
+
+Keep notes throughout the deprecation of anything wrong, slow, or confusing: runbook bugs, tooling failures, manual workarounds, and content-team feedback. When you finish, open a separate pull request, not part of the deprecation pull request, that fixes this runbook and the deprecation tooling for the next release. Write it for the next deprecation's agent.
+
+🛑 **HUMAN**: Review the process improvement pull request.
+
+After the human approves the process improvement pull request, you can continue.
+
+## Step 17: Summarize
+
+Summarize the work completed in this workflow, and link to each of the pull requests with the next action needed from the human.
+
+## Reference: Configuring the translation repositories
+
+`npm run clone-translations` from Step 3 is the simplest setup: it clones every language into `./translations/<lang>`, which the scrape reads by default with no extra configuration.
+
+To keep your clones elsewhere instead, clone the repositories below and map each one with a `TRANSLATIONS_ROOT_*` variable in your `.env` file:
+
+* `docs-internal.es-es`
+* `docs-internal.ja-jp`
+* `docs-internal.pt-br`
+* `docs-internal.zh-cn`
+* `docs-internal.ru-ru`
+* `docs-internal.fr-fr`
+* `docs-internal.ko-kr`
+* `docs-internal.de-de`
+
+## Reference: Re-scraping a page or all pages
+
+Occasionally a change needs to land in an already-archived version. The archive script always scrapes the current oldest supported version, so check out the `enter
+ise-{{ release-number }}-deprecation` tag, which points at history from before the version left `supported`, and re-scrape with `npm run deprecate-ghes-archive`. To scrape a single page, use the `--page <relative path>` option, passing the path without a version or language prefix. Upload the new files to `github/docs-ghes-{{ release-number }}` for each language.
+
+Human: After uploading, purge the Fastly cache. From Okta, open Fastly, select `docs`, and click "Purge" then "Purge URL", or "Purge All" for a whole path. Enter the URL or path and do a soft purge.
+
+/cc @github/docs-engineering

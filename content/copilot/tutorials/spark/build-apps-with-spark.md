@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how to build and deploy an intelligent web app with natural language using {% data variables.product.prodname_spark %}.'
 versions:
   feature: spark
-product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_max_short %}, {% data variables.copilot.copilot_enterprise_short %}'
+product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_enterprise_short %}'
 redirect_from:
   - /copilot/tutorials/building-ai-app-prototypes
   - /copilot/tutorials/build-apps-with-spark

@@ -430,6 +430,17 @@
       },
       {
         "category": "billing",
+        "slug": "create-a-budget-for-an-organization",
+        "subcategory": "budgets",
+        "verb": "post",
+        "requestPath": "/organizations/{org}/settings/billing/budgets",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
         "slug": "get-a-budget-by-id-for-an-organization",
         "subcategory": "budgets",
         "verb": "get",

@@ -20,7 +20,7 @@ docsTeamMetrics:
 |------------------------|----------------------------------------------------|
 | `copilot`              | Launch the interactive user interface.             |
 | `copilot completion SHELL` | Print a shell script for the chosen shell that can be used to enable tab completion for {% data variables.copilot.copilot_cli_short %}. Supported shells: `bash`, `zsh`, `fish`. See [Using `copilot completion`](#using-copilot-completion). |
-| `copilot help [TOPIC]` | Display help information. Help topics include: `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, and `providers`. |
+| `copilot help [TOPIC]` | Display help information. Help topics include: `billing`, `config`, `commands`, `environment`, `logging`, `monitoring`, `permissions`, and `providers`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot login`        | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. Accepts `--host HOST` to specify the {% data variables.product.github %} host URL (default: `https://github.com`). |
 | `copilot login` [OPTION] | Authenticate with {% data variables.product.prodname_copilot_short %} via the OAuth device flow. See [`copilot login` options](#copilot-login-options). |
@@ -92,7 +92,7 @@ copilot completion fish > ~/.config/fish/completions/copilot.fish
 |-------------------------------------|---------------------------------------|
 | `@ FILENAME`                        | Include file contents in the context. |
 | `# NUMBER`                          | Include a {% data variables.product.github %} issue or pull request in the context. |
-| `! COMMAND`                         | Execute a command in your local shell, bypassing {% data variables.product.prodname_copilot_short %}. |
+| `! COMMAND`                                         | Execute a command in your local shell, bypassing {% data variables.product.prodname_copilot_short %}. Enter `!` alone on an empty prompt to enter shell mode for running multiple shell commands in sequence. Press <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>C</kbd> on an empty prompt to exit shell mode. |
 | `?`                                 | Open quick help (on an empty prompt). |
 | <kbd>Esc</kbd>                      | Cancel the current operation.         |
 | <kbd>Ctrl</kbd>+<kbd>C</kbd>        | Cancel operation / clear input. Press twice to exit. |
@@ -154,10 +154,12 @@ When diff mode is open (entered via `/diff`):
 | <kbd>↓</kbd> / `j` | Move selection down one line. |
 | <kbd>←</kbd> / `h` | Jump to the previous file. |
 | <kbd>→</kbd> / `l` | Jump to the next file. |
-| <kbd>Home</kbd> | Jump to the first line. |
-| <kbd>End</kbd> | Jump to the last line. |
+| <kbd>Home</kbd> / `g` | Jump to the first line. |
+| <kbd>End</kbd> / `G` | Jump to the last line. |
 | <kbd>Page Up</kbd> | Scroll up one page. |
 | <kbd>Page Down</kbd> | Scroll down one page. |
+| <kbd>Ctrl</kbd>+<kbd>U</kbd> | Scroll up half a page. |
+| <kbd>Ctrl</kbd>+<kbd>D</kbd> | Scroll down half a page. |
 | `Click` | Select the clicked diff line (requires mouse support). |
 | Mouse scroll | Scroll up or down. |
 | `c` | Add or edit a comment on the selected line. |
@@ -210,7 +212,7 @@ Holding <kbd>↑</kbd> or <kbd>↓</kbd> accelerates scrolling after the first 1
 | `/delegate [PROMPT]`                                | Delegate changes to a remote repository with an AI-generated pull request. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca). |
 | `/diff`                                             | Review changes in the current directory; auto-switches to branch diff when the working tree is clean (experimental). |
 | `/downgrade <VERSION>`                              | Download and restart into a specific CLI version. Available for team accounts. |
-| `/env`                                              | Show loaded environment details (instructions, MCP servers, skills, agents, plugins, LSPs, extensions). |
+| `/env`                                              | Show loaded environment details (instructions, MCP servers, skills, agents, plugins, LSPs, hooks, extensions). |
 | `/exit`, `/quit`                                    | Exit the CLI. |
 | `/extensions [manage\|mode]`, `/extension`          | Manage CLI extensions. |
 | `/experimental [on\|off\|show]`                     | Toggle, set, or show experimental features. |
@@ -241,7 +243,7 @@ Holding <kbd>↑</kbd> or <kbd>↓</kbd> accelerates scrolling after the first 1
 | `/rubber-duck [PROMPT]`                             | Consult the rubber duck agent for a second opinion on plans, code, and tests. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/rubber-duck). |
 | `/sandbox [enable\|disable]`                        | Configure shell command sandboxing. |
 | `/search [QUERY]`, `/find [QUERY]`                  | Search the conversation timeline. {% data reusables.copilot.experimental %} |
-| `/session [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`, `/sessions [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`  | Show session information and manage sessions. Subcommands: `info`, `checkpoints`, `files`, `plan`, `rename`, `cleanup`, `prune`, `delete`, `delete-all`. |
+| `/session [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`, `/sessions [info\|checkpoints [n]\|files\|plan\|rename [NAME]\|cleanup\|prune\|delete [ID]\|delete-all]`  | Show session information and manage sessions. The `info` subcommand shows session details including the session link (when available). Subcommands: `info`, `checkpoints`, `files`, `plan`, `rename`, `cleanup`, `prune`, `delete`, `delete-all`. |
 | `/share [file\|html\|gist] [session\|research] [PATH]`, `/export [file\|html\|gist] [session\|research] [PATH]` | Share the session to a Markdown file, interactive HTML file, or {% data variables.product.github %} gist. |
 | `/skills [list\|info\|add\|remove\|reload] [ARGS...]`   | Manage skills for enhanced capabilities. See [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills). |
 | `/statusline`, `/footer`                            | Configure which items appear in the status line. |
@@ -254,6 +256,7 @@ Holding <kbd>↑</kbd> or <kbd>↓</kbd> accelerates scrolling after the first 1
 | `/usage`                                            | Display session usage metrics and statistics. |
 | `/user [show\|list\|switch]`                        | Manage the current {% data variables.product.github %} user. |
 | `/version`                                          | Display version information and check for updates. |
+| `/worktree [branch]`, `/move [branch]`              | Create a new git worktree and switch to it, moving any uncommitted changes along. If you omit the branch name, a name is auto-generated from the conversation. Requires a git repository. {% data reusables.copilot.experimental %} |
 
 For a complete list of available slash commands enter `/help` in the CLI's interactive interface.
 
@@ -284,7 +287,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--disable-builtin-mcps`           | Disable all built-in MCP servers (currently: `github-mcp-server`). |
 | `--disable-mcp-server=SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
 | `--disallow-temp-dir`              | Prevent automatic access to the system temporary directory. |
-| `--effort=LEVEL`, `--reasoning-effort=LEVEL` | Set the reasoning effort level (`low`, `medium`, `high`). |
+| `--effort=LEVEL`, `--reasoning-effort=LEVEL` | Set the reasoning effort level (`low`, `medium`, `high`, `xhigh`, `max`). `max` is the highest-depth tier for Anthropic models. |
 | `--enable-all-github-mcp-tools`    | Enable all {% data variables.product.github %} MCP server tools, instead of the default CLI subset. Overrides the `--add-github-mcp-toolset` and `--add-github-mcp-tool` options. |
 | `--enable-reasoning-summaries`     | Request reasoning summaries for OpenAI models that support it. |
 | `--excluded-tools=TOOL ...`        | These tools will not be available to the model. For multiple tools, use a quoted, comma-separated list. |
@@ -312,7 +315,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
 | `--plugin-dir=DIRECTORY`           | Load a plugin from a local directory (can be used multiple times). |
 | `--remote`                         | Enable remote access to this session from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli/steer-remotely). |
-| `--resume[=VALUE]`                 | Resume a previous interactive session by choosing from a list. Optionally specify a session ID, ID prefix, or session name. Name matching is exact and case-insensitive; falls back to the auto-generated summary when no explicit name matches. |
+| `-r`, `--resume[=VALUE]`           | Resume a previous interactive session by choosing from a list. Optionally specify a session ID, ID prefix, or session name. Name matching is exact and case-insensitive; falls back to the auto-generated summary when no explicit name matches. |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
 | `--screen-reader`                  | Enable screen reader optimizations. |
 | `--secret-env-vars=VAR ...`        | Redact an environment variable from shell and MCP server environments (can be used multiple times). For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted from output by default. |
@@ -328,6 +331,24 @@ For a complete list of commands and options, run `copilot help`.
 > The `--remote`, `--no-remote`, and `--connect` options require the remote sessions feature to be available on your account.
 
 You can use `--remote` with `--resume <TASK-ID>` to resume a remote task locally. This works even when the task was originally created outside a Git repository.
+
+> [!NOTE]
+> When `permissions.disableBypassPermissionsMode` is set to `"disable"` in your settings, all allow-all flags (`--allow-all-tools`, `--allow-all-paths`, `--allow-all-urls`, `--allow-all`, `--yolo`) are suppressed at startup and cannot be used to grant elevated permissions.
+
+## Supported models
+
+Use `--model=MODEL` or the `COPILOT_MODEL` environment variable to select the AI model. Pass `auto` to let {% data variables.product.prodname_copilot_short %} pick the best available model automatically.
+
+| Model | Best for |
+|-------|----------|
+| `claude-sonnet-4.6` | General-purpose coding (default) |
+| `gpt-5.4` | Complex reasoning tasks |
+| `claude-haiku-4.5` | Fast, lightweight operations |
+| `gpt-5.3-codex` | Code-focused tasks |
+| `gemini-3.1-pro-preview` | Google Gemini reasoning |
+| `gemini-3.5-flash` | Fast Google Gemini responses |
+
+You can also switch models during an interactive session using the `/model` slash command.
 
 ## Tool availability values
 
@@ -408,6 +429,7 @@ copilot --allow-tool='MyMCP'
 | `COPILOT_CACHE_HOME` | Override the cache directory (used for marketplace caches, auto-update packages, and other ephemeral data). See [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-config-dir-reference#changing-the-location-of-the-configuration-directory) for platform defaults. |
 | `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` | Comma-separated list of additional directories for custom instructions. |
 | `COPILOT_EDITOR` | Editor command for interactive editing (checked after `$VISUAL` and `$EDITOR`). Defaults to `vi` if none are set. |
+| `COPILOT_ENABLE_HTTP2` | Set to `1` or `true` to opt into HTTP/2 transport. HTTP/1.1 is the default. |
 | `COPILOT_GH_HOST` |{% data variables.product.github %} hostname for {% data variables.copilot.copilot_cli_short %} only, overriding `GH_HOST`. Use when `GH_HOST` targets {% data variables.product.prodname_ghe_server %} but {% data variables.product.prodname_copilot_short %} needs to authenticate against {% data variables.product.prodname_dotcom_the_website %} or a {% data variables.product.prodname_ghe_cloud %} hostname. |
 | `COPILOT_GITHUB_TOKEN` | Authentication token. Takes precedence over `GH_TOKEN` and `GITHUB_TOKEN`. |
 | `COPILOT_HOME` | Override the configuration and state directory. Default: `$HOME/.copilot`. |
@@ -780,6 +802,47 @@ The **This location** option appears when the CLI can determine a location key (
 
 Use `/permissions reset` to clear in-memory approvals for the current session.
 
+## Security
+
+### Command safety analysis
+
+Shell commands are analyzed before execution to identify potentially dangerous patterns:
+
+* File deletion (`rm -rf`)
+* System modifications (`sudo`, `chmod 777`)
+* Network exfiltration (`curl` with sensitive paths)
+* Credential access (reading `.env`, SSH keys)
+* Inline environment variable assignments that override dangerous variables (for example, `PATH=...`, `LD_PRELOAD=...`)
+
+High-risk commands display additional warnings and require explicit confirmation.
+
+#### Environment variable denylist
+
+The CLI blocks inline assignment of environment variables that can be exploited to execute arbitrary code even in otherwise read-only commands. Blocked categories include:
+
+| Category | Examples |
+|----------|----------|
+| Dynamic-linker injection | `LD_*`, `DYLD_*` (all prefixes) |
+| Git indexed config overrides | `GIT_CONFIG_COUNT`, `GIT_CONFIG_KEY_*`, `GIT_CONFIG_VALUE_*` (all `GIT_CONFIG_` prefixes) |
+| Git external program hooks | `GIT_EXTERNAL_DIFF`, `GIT_PROXY_COMMAND` |
+| Git config file overrides | `GIT_CONFIG`, `GIT_CONFIG_GLOBAL`, `GIT_CONFIG_SYSTEM` |
+| Shell PATH and startup files | `PATH`, `BASH_ENV`, `ENV` |
+| Existing blocked vars | `PAGER`, `GIT_PAGER`, `GIT_EDITOR`, `VISUAL`, `EDITOR`, `GIT_SSH`, `GIT_SSH_COMMAND`, `GIT_ASKPASS`, `BROWSER`, `GH_BROWSER` |
+
+### `web_fetch` SSRF protection
+
+The `web_fetch` tool enforces server-side request forgery (SSRF) protections before making any HTTP request:
+
+* **Protocol allowlist**: Only `http://` and `https://` URLs are permitted. `file://` and other schemes are rejected.
+* **IP blocklist**: Requests to loopback addresses (`127.x.x.x`, `::1`), RFC-1918 private ranges (`10.x`, `172.16–31.x`, `192.168.x`), and cloud metadata endpoints (for example, `169.254.169.254`) are blocked by IP-literal check and DNS pre-resolution.
+* **No automatic redirects**: `3xx` redirects are not followed automatically. The redirect target URL is re-validated against the same IP blocklist before following.
+
+To allow `web_fetch` to reach `localhost` during development—for example, for a local docs server—set the following environment variable:
+
+```bash
+export COPILOT_WEB_FETCH_ALLOW_LOCALHOST=1
+```
+
 ## OpenTelemetry monitoring
 
 {% data variables.copilot.copilot_cli_short %} can export traces and metrics via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions-genai/tree/main/docs/gen-ai/).
@@ -797,6 +860,9 @@ OTel is off by default with zero overhead. It activates when any of the followin
 | `COPILOT_OTEL_ENABLED` | `false` | Explicitly enable OTel. Not required if `OTEL_EXPORTER_OTLP_ENDPOINT` is set. |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | — | OTLP endpoint URL. Setting this automatically enables OTel. |
 | `COPILOT_OTEL_EXPORTER_TYPE` | `otlp-http` | Exporter type: `otlp-http` or `file`. Auto-selects `file` when `COPILOT_OTEL_FILE_EXPORTER_PATH` is set. |
+| `OTEL_EXPORTER_OTLP_PROTOCOL` | `http/json` | OTLP HTTP wire protocol: `http/json` or `http/protobuf`. Only applies to the `otlp-http` exporter. |
+| `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL` | — | Override `OTEL_EXPORTER_OTLP_PROTOCOL` for traces only. |
+| `OTEL_EXPORTER_OTLP_METRICS_PROTOCOL` | — | Override `OTEL_EXPORTER_OTLP_PROTOCOL` for metrics only. |
 | `OTEL_SERVICE_NAME` | `github-copilot` | Service name in resource attributes. |
 | `OTEL_RESOURCE_ATTRIBUTES` | — | Extra resource attributes as comma-separated `key=value` pairs. Use percent-encoding for special characters. |
 | `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` | `false` | Capture full prompt and response content. See [Content capture](#content-capture). |

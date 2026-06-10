@@ -12,7 +12,7 @@ contentType: concepts
 ---
 
 > [!NOTE]
-> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, the {% data variables.copilot.copilot_cli %}, and agent mode in {% data variables.product.prodname_vscode %}.
+> Agent skills work with {% data variables.copilot.copilot_cloud_agent %}, {% data variables.copilot.copilot_code-review_short %}, the {% data variables.copilot.copilot_cli %}, the {% data variables.copilot.github_copilot_app %}, and agent mode in {% data variables.product.prodname_vscode %}.
 
 ## About agent skills
 
@@ -35,4 +35,5 @@ To create or add agent skills, see:
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-skills)
+* [AUTOTITLE](/copilot/how-tos/github-copilot-app/customize-github-copilot-app)
 * [AUTOTITLE](/copilot/reference/customization-cheat-sheet)

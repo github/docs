@@ -161,12 +161,20 @@ jobs:
             PR_BODY="_GitHub Copilot generated this pull request._"$'\n\n'
             PR_BODY+="> [!NOTE]"$'\n'
             PR_BODY+="> This PR is **automatically generated** by the [content pipeline update workflow](${{ github.server_url }}/${{ github.repository }}/actions/workflows/content-pipelines.yml). Each run adds a new commit with any documentation changes detected."$'\n\n'
+            PR_BODY+="> [!WARNING]"$'\n'
+            PR_BODY+="> **Review with care before merging.** The agent generally does a good job, but these PRs can contain:"$'\n'
+            PR_BODY+="> * Information customers don't need to know"$'\n'
+            PR_BODY+="> * Internal or feature-flagged details that shouldn't be public"$'\n'
+            PR_BODY+="> * Excessive or low-value detail"$'\n'
+            PR_BODY+=">"$'\n'
+            PR_BODY+="> Cross-check changes against the source docs linked below. If in doubt, leave the review to a subject-matter expert on the docs team."$'\n\n'
             PR_BODY+="## What this does"$'\n\n'
             PR_BODY+="Runs the \`content-pipeline-update\` agent (${PIPELINE_ID}) against the latest source docs and updates official articles under \`content/\` that have fallen out of sync."$'\n\n'
             PR_BODY+="## Source changes"$'\n\n'
             PR_BODY+="${SOURCE_LINK}"$'\n\n'
             PR_BODY+="## Review"$'\n\n'
-            PR_BODY+="* Review each commit for accuracy — the agent uses AI, so spot-check important changes"$'\n'
+            PR_BODY+="* Review each commit for accuracy — the agent uses AI, so spot-check important changes against the source docs"$'\n'
+            PR_BODY+="* Watch especially for invented examples, internal-only content, and excessive detail (see warning above)"$'\n'
             PR_BODY+="* To adjust agent behavior, see [Modifying results](${{ github.server_url }}/${{ github.repository }}/blob/main/src/content-pipelines/README.md#modifying-results)"$'\n'
             PR_BODY+="* Once satisfied, merge to keep docs up to date"$'\n'
             PR_BODY+="* A new PR will be created on the next run if there are further changes"
@@ -182,7 +190,6 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue

@@ -7537,6 +7537,10 @@
           "description": "<p>Social news aggregation and discussion website.</p>"
         },
         {
+          "name": "THREADS",
+          "description": "<p>Microblogging social platform.</p>"
+        },
+        {
           "name": "TWITCH",
           "description": "<p>Live-streaming service.</p>"
         },

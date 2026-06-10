@@ -32,6 +32,9 @@ The Agent Client Protocol (ACP) is a protocol that standardizes communication be
 
 {% data variables.copilot.copilot_cli %} can be started as an ACP server using the `--acp` flag. The server supports two modes, `stdio` and `TCP`.
 
+> [!NOTE]
+> When running in ACP mode, the tool-filtering flags (`--available-tools`, `--excluded-tools`) and the reasoning flag (`--effort`, `--reasoning-effort`) are applied to each session started by the ACP client.
+
 ### stdio mode (recommended for IDE integration)
 
 By default, when providing the `--acp` flag, `stdio` mode will be inferred. The `--stdio` flag can also be provided for disambiguation.

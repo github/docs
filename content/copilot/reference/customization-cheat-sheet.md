@@ -55,9 +55,9 @@ This table shows which customization features are supported in each IDE and surf
 |---------|:-------:|:-------------:|:---------:|:-------:|:-----:|:-------:|:---:|
 | Custom instructions | ✓ | ✓ | P | P | P | ✓ | ✓ |
 | Prompt files | ✓ | ✓ | P | ✗ | P | ✗ | ✗ |
-| {% data variables.copilot.custom_agents_caps_short %} | ✓ | ✗ | P | P | P | ✓ | ✓ |
+| {% data variables.copilot.custom_agents_caps_short %} | ✓ | ✓ | P | P | P | ✓ | ✓ |
 | {% data variables.copilot.subagents_caps_short %} | ✓ | ✗ | P | P | P | ✗ | ✓ |
-| Agent skills | ✓ | ✗ | P | ✗ | ✗ | ✓ | ✓ |
+| Agent skills | ✓ | ✓ | P | ✗ | ✗ | ✓ | ✓ |
 | Hooks | P | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ |
 | MCP servers | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 

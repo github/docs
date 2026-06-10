@@ -8816,6 +8816,32 @@
                 ],
                 "created_at": "2024-12-11T14:39:09Z",
                 "updated_at": "2024-12-11T14:39:09Z"
+              },
+              {
+                "id": 3,
+                "node_id": "IFMS_kwDNAd3NAZt",
+                "name": "Categories",
+                "description": "Issue categories",
+                "data_type": "multi_select",
+                "options": [
+                  {
+                    "id": 4,
+                    "name": "Frontend",
+                    "color": "blue"
+                  },
+                  {
+                    "id": 5,
+                    "name": "Backend",
+                    "color": "green"
+                  },
+                  {
+                    "id": 6,
+                    "name": "Infrastructure",
+                    "color": "purple"
+                  }
+                ],
+                "created_at": "2024-12-11T14:39:09Z",
+                "updated_at": "2024-12-11T14:39:09Z"
               }
             ],
             "schema": {
@@ -8854,6 +8880,7 @@
                       "text",
                       "date",
                       "single_select",
+                      "multi_select",
                       "number"
                     ]
                   },
@@ -8866,7 +8893,7 @@
                     ]
                   },
                   "options": {
-                    "description": "Available options for single select fields.",
+                    "description": "Available options for single select and multi select fields.",
                     "type": [
                       "array",
                       "null"
@@ -9014,6 +9041,7 @@
             "text",
             "date",
             "single_select",
+            "multi_select",
             "number"
           ]
         },
@@ -9029,7 +9057,7 @@
         {
           "type": "array of objects or null",
           "name": "options",
-          "description": "<p>Options for single select fields. Required when data_type is 'single_select'.</p>",
+          "description": "<p>Options for select fields. Required when data_type is 'single_select' or 'multi_select'.</p>",
           "childParamsGroups": [
             {
               "type": "string",
@@ -9176,6 +9204,7 @@
                     "text",
                     "date",
                     "single_select",
+                    "multi_select",
                     "number"
                   ]
                 },
@@ -9188,7 +9217,7 @@
                   ]
                 },
                 "options": {
-                  "description": "Available options for single select fields.",
+                  "description": "Available options for single select and multi select fields.",
                   "type": [
                     "array",
                     "null"
@@ -9350,7 +9379,7 @@
         {
           "type": "array of objects",
           "name": "options",
-          "description": "<p>Options for single select fields. Only applicable when updating single_select fields. When provided, this array <strong>replaces</strong> the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its <code>id</code>. Options sent without an <code>id</code> are treated as new options and may cause existing options to be deleted and recreated.</p>",
+          "description": "<p>Options for select fields. Only applicable when updating single_select or multi_select fields. When provided, this array <strong>replaces</strong> the entire existing set of options rather than adding to or updating individual options. To retain or update an existing option, include it in the array with its <code>id</code>. Options sent without an <code>id</code> are treated as new options and may cause existing options to be deleted and recreated.</p>",
           "childParamsGroups": [
             {
               "type": "integer",
@@ -9485,6 +9514,7 @@
                     "text",
                     "date",
                     "single_select",
+                    "multi_select",
                     "number"
                   ]
                 },
@@ -9497,7 +9527,7 @@
                   ]
                 },
                 "options": {
-                  "description": "Available options for single select fields.",
+                  "description": "Available options for single select and multi select fields.",
                   "type": [
                     "array",
                     "null"

@@ -88,28 +88,9 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-{% ifversion ghas-products %}
 1. In the "Policies" section, under "Repository administrators can enable or disable `PRODUCT`", use the dropdown menu to define whether repository administrators can change the enablement of {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %}.
-{% else %}
-1. In the "{% data variables.product.prodname_GHAS %} policies" section, under "Enable or disable {% data variables.product.prodname_GHAS %} by repository admins", select the dropdown menu and click a policy.
-{% endif %}
 
-{% ifversion ghas-products %}
 <!--This option is included automatically by the "Repository Admins can Enable or Disable Secret Protection" option, which is why this section is omitted for `ghas-products` versions.-->
-{% else %}
-
-## Enforcing a policy to manage the use of {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
-
-Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage and configure {% data variables.product.prodname_secret_scanning %} for the repositories. {% data variables.product.prodname_GHAS %} must be enabled for the organization for this policy to take effect.
-
-{% data reusables.enterprise.role-permission-hierarchy %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. In the "Policies" section, under "Enable or disable {% data variables.product.prodname_secret_scanning %} by repository admins", select the dropdown menu and click a policy.
-
-{% endif %}
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 

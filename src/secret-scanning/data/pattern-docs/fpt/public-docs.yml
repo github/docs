@@ -105,7 +105,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Airtable
@@ -115,7 +115,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Aiven
@@ -144,7 +144,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -356,7 +356,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -366,7 +366,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -376,7 +376,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -466,7 +466,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -516,7 +516,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -546,7 +546,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -556,7 +556,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -586,7 +586,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -896,7 +896,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -1026,7 +1026,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
@@ -2451,7 +2451,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  hasExtendedMetadata: false
+  hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Grafana
