@@ -111,12 +111,6 @@ You can download the executables directly from [the `copilot-cli` repository](ht
 
 Download the executable for your platform, unpack it, and run.
 
-## Updating {% data variables.copilot.copilot_cli_short %}
-
-Once {% data variables.copilot.copilot_cli_short %} is installed, you can update it to the latest version by running `/update` inside an active session, or `copilot update` from your shell. Either method updates your installation in place, so you don't need to rerun the original install command for your package manager.
-
-For all available commands, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).
-
 ## Authenticating with {% data variables.copilot.copilot_cli_short %}
 
 On first launch, if you're not currently logged in to {% data variables.product.github %}, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate. For more information on the authentication process, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli).
@@ -130,3 +124,5 @@ You can also authenticate using a {% data variables.product.pat_v2 %} with the "
 ## Next steps
 
 You can now use {% data variables.product.prodname_copilot_short %} from the command line. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli).
+
+For a list of commands for {% data variables.copilot.copilot_cli_short %}, including the command to update, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference).
