@@ -67,7 +67,7 @@ jobs:
 
       - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve
-        uses: juliangruber/approve-pull-request-action@68fcc9a5a73b5641cadf757cf99d73720dcb05d0 # v2.1.0
+        uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
