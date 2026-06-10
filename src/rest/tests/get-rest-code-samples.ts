@@ -70,7 +70,7 @@ describe('getGHExample - GitHub CLI code generation', () => {
               },
             },
           ],
-        } as any,
+        } as unknown as CodeSample['request']['bodyParameters'],
         parameters: {
           org: 'ORG',
         },
@@ -144,7 +144,7 @@ describe('getGHExample - GitHub CLI code generation', () => {
               timeout: '30',
             },
           },
-        } as any,
+        } as unknown as CodeSample['request']['bodyParameters'],
         parameters: {},
       },
       response: {
