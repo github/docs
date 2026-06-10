@@ -259,9 +259,6 @@ export default [
       'src/search/lib/search-request-params/get-search-from-request-params.ts',
       'src/search/scripts/index/index-cli.ts',
       'src/search/scripts/index/utils/indexing-elasticsearch-utils.ts',
-      'src/types/github__markdownlint-github.d.ts',
-      'src/types/markdownlint-lib-rules.d.ts',
-      'src/types/markdownlint-rule-helpers.d.ts',
     ],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
