@@ -1,0 +1,32 @@
+{
+  "updated": {
+    "new_property_values": [
+      {
+        "type": "string",
+        "name": "property_name",
+        "description": "<p>The name of the property</p>",
+        "isRequired": true
+      },
+      {
+        "type": "null or string or array",
+        "name": "value",
+        "description": "<p>The value assigned to the property</p>",
+        "isRequired": true
+      }
+    ],
+    "old_property_values": [
+      {
+        "type": "string",
+        "name": "property_name",
+        "description": "<p>The name of the property</p>",
+        "isRequired": true
+      },
+      {
+        "type": "null or string or array",
+        "name": "value",
+        "description": "<p>The value assigned to the property</p>",
+        "isRequired": true
+      }
+    ]
+  }
+}
