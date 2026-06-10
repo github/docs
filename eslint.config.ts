@@ -237,8 +237,6 @@ export default [
       'src/article-api/transformers/audit-logs-transformer.ts',
       'src/article-api/transformers/rest-transformer.ts',
       'src/content-linter/scripts/lint-content.ts',
-      'src/content-render/scripts/liquid-tags.ts',
-      'src/content-render/scripts/move-content.ts',
       'src/content-render/unified/annotate.ts',
       'src/data-directory/lib/get-data.ts',
       'src/frame/components/context/MainContext.tsx',
