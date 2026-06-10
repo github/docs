@@ -1,19 +1,4 @@
-// Because we use shielding, it's recommended that you purge twice
-// so it purges the edge nodes *and* the origin.
-// The documentation says:
-//
-//    One solution to this race condition problem is simply to purge
-//    twice. For purge-all operations, the two purges should be
-//    around 30 seconds apart and, for single object and surrogate
-//    key purges, around 2 seconds apart.
-//
-// See https://developer.fastly.com/learning/concepts/purging/#shielding
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
-
-const DELAY_BEFORE_FIRST_PURGE = 0 * 1000
-const DELAY_BEFORE_SECOND_PURGE = 2 * 1000
-
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 async function purgeFastlyBySurrogateKey({
   apiToken,
@@ -54,14 +39,7 @@ async function purgeFastlyBySurrogateKey({
   return response
 }
 
-export default async function purgeEdgeCache(
-  surrogateKey: string | undefined,
-  {
-    purgeTwice = true,
-    delayBeforeFirstPurge = DELAY_BEFORE_FIRST_PURGE,
-    delayBeforeSecondPurge = DELAY_BEFORE_SECOND_PURGE,
-  } = {},
-) {
+export default async function purgeEdgeCache(surrogateKey: string | undefined) {
   if (!surrogateKey) {
     throw new Error('No key set and/or no FASTLY_SURROGATE_KEY env var set')
   }
@@ -78,24 +56,7 @@ export default async function purgeEdgeCache(
     surrogateKey,
   }
 
-  // Give the app some extra time to wake up before the thundering herd of
-  // Fastly requests.
-  if (delayBeforeFirstPurge) {
-    console.log('Waiting extra time to prevent a Thundering Herd problem...')
-    await sleep(delayBeforeFirstPurge)
-  }
-
-  console.log('Attempting first Fastly purge...')
-  const firstPurge = await purgeFastlyBySurrogateKey(purgingParams)
-  console.log('First Fastly purge result:', firstPurge.body || firstPurge)
-
-  // See comment above about why we purge twice. (Hint, it's shielding)
-  if (purgeTwice) {
-    console.log('Waiting to purge a second time...')
-    await sleep(delayBeforeSecondPurge)
-
-    console.log('Attempting second Fastly purge...')
-    const secondPurge = await purgeFastlyBySurrogateKey(purgingParams)
-    console.log('Second Fastly purge result:', secondPurge.body || secondPurge)
-  }
+  console.log('Attempting Fastly purge...')
+  const result = await purgeFastlyBySurrogateKey(purgingParams)
+  console.log('Fastly purge result:', result.status)
 }
