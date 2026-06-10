@@ -234,20 +234,16 @@ export default [
   // Legacy files with @typescript-eslint/no-explicit-any violations (see github/docs-engineering#5797)
   {
     files: [
-      'src/article-api/transformers/audit-logs-transformer.ts',
       'src/article-api/transformers/rest-transformer.ts',
       'src/content-render/unified/annotate.ts',
       'src/frame/components/context/MainContext.tsx',
       'src/landings/components/CookBookFilter.tsx',
       'src/languages/lib/correct-translation-content.ts',
-      'src/languages/lib/render-with-fallback.ts',
       'src/search/components/hooks/useAISearchAutocomplete.ts',
       'src/search/components/hooks/useAISearchLocalStorageCache.ts',
       'src/search/components/input/SearchOverlay.tsx',
       'src/search/lib/get-elasticsearch-results/ai-search-autocomplete.ts',
       'src/search/lib/get-elasticsearch-results/general-search.ts',
-      'src/search/lib/routes/combined-search-route.ts',
-      'src/search/lib/search-request-params/get-search-from-request-params.ts',
       'src/search/scripts/index/index-cli.ts',
       'src/search/scripts/index/utils/indexing-elasticsearch-utils.ts',
     ],
