@@ -244,8 +244,6 @@ export default [
       'src/data-directory/lib/get-data.ts',
       'src/frame/components/context/MainContext.tsx',
       'src/frame/lib/page-data.ts',
-      'src/frame/tests/page.ts',
-      'src/frame/tests/server.ts',
       'src/landings/components/CookBookFilter.tsx',
       'src/languages/lib/correct-translation-content.ts',
       'src/languages/lib/render-with-fallback.ts',
