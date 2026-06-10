@@ -80,14 +80,14 @@ For complete style guidance, see our [style guide](https://docs.github.com/en/co
 
 **Make changes in a codespace:** See "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)" for documentation-specific setup.
 
-**Make changes locally:** 
+**Make changes locally:**
 1. Fork the repository (see [official forking guide](https://docs.github.com/en/contributing))
 2. Install Node.js at the version specified in `.node-version` (see [development guide](../contributing/development.md))
 3. Create a working branch and start with your changes
 
 ### Commit your update
 
-Follow the guidelines at [docs.github.com/en/contributing](https://docs.github.com/en/contributing) for commit best practices. 
+Follow the guidelines at [docs.github.com/en/contributing](https://docs.github.com/en/contributing) for commit best practices.
 
 Use our "[Self review checklist](https://docs.github.com/en/contributing/collaborating-on-github-docs/self-review-checklist)" before committing.
 
@@ -106,7 +106,7 @@ A Docs team member will review following our [standard review process](https://d
 
 Congratulations :tada::tada: The GitHub team thanks you :sparkles:.
 
-Once merged, your contributions will be visible on [GitHub docs](https://docs.github.com/en). 
+Once merged, your contributions will be visible on [GitHub docs](https://docs.github.com/en).
 
 Continue contributing using our [types of contributions guide](/contributing/types-of-contributions.md) or explore more opportunities at [docs.github.com/en/contributing](https://docs.github.com/en/contributing).
 
