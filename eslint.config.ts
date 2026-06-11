@@ -239,13 +239,6 @@ export default [
       'src/frame/components/context/MainContext.tsx',
       'src/landings/components/CookBookFilter.tsx',
       'src/languages/lib/correct-translation-content.ts',
-      'src/search/components/hooks/useAISearchAutocomplete.ts',
-      'src/search/components/hooks/useAISearchLocalStorageCache.ts',
-      'src/search/components/input/SearchOverlay.tsx',
-      'src/search/lib/get-elasticsearch-results/ai-search-autocomplete.ts',
-      'src/search/lib/get-elasticsearch-results/general-search.ts',
-      'src/search/scripts/index/index-cli.ts',
-      'src/search/scripts/index/utils/indexing-elasticsearch-utils.ts',
     ],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
