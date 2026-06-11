@@ -49,7 +49,7 @@ Once an index has been created for a repository, it can be used by:
 
 ## Semantic indexing for non-GitHub repositories
 
-{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %} can use semantic indexing for workspace files from repositories hosted outside {% data variables.product.github %}, such as GitLab, Azure DevOps, and local repositories.
+{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %} can use semantic indexing for workspace files from repositories hosted outside {% data variables.product.github %}, such as GitLab and local repositories.
 
 This feature is controlled by policy and is disabled by default. For organizations and enterprises with {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, an enterprise owner or organization owner must explicitly set this policy to **Enabled** before members can use it. If the policy remains **Unconfigured**, the feature stays unavailable. See:
 
