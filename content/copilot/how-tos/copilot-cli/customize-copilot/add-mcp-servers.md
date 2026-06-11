@@ -84,16 +84,16 @@ For more information on MCP server configuration, see [AUTOTITLE](/copilot/how-t
 
 You can configure MCP servers for a specific project by adding a JSON file to the repository. This is useful when you want servers to be available only when working in that project, or when you want to share an MCP setup with collaborators by committing it to the repository.
 
-{% data variables.copilot.copilot_cli_short %} reads project-level configuration from two locations:
+{% data variables.copilot.copilot_cli_short %} looks for project-level configuration in the following locations:
 
 | Path | Recommended use |
 |------|-----------------|
 | `.mcp.json` (in any directory from your working directory up to the repository root) | Local or per-checkout configuration; commonly placed at the project root |
 | `.github/mcp.json` | Shared configuration that is committed to the repository |
 
-When you start {% data variables.copilot.copilot_cli_short %} inside a Git repository, the CLI walks from your current working directory up to the repository root, loading every `.mcp.json` it finds along the way. When server names conflict, definitions in files closer to your working directory take precedence. Project-level definitions also take precedence over those in `~/.copilot/mcp-config.json`. For more information on relative trust, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#mcp-server-trust-levels).
+When you start {% data variables.copilot.copilot_cli_short %} inside a Git repository, the CLI walks from your current working directory up to the repository root, loading the first MCP configuration file it finds at each directory level. If both files exist in the same directory, `.mcp.json` takes precedence over `.github/mcp.json`. When server names conflict, definitions in files closer to your working directory take precedence. Project-level definitions also take precedence over those in `~/.copilot/mcp-config.json`. For more information on relative trust, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#mcp-server-trust-levels).
 
-Project-level files can use either the `mcpServers` top-level object shown in `~/.copilot/mcp-config.json`, or the bare top-level format where each key is an MCP server name, such as `{ "playwright": { ... } }`. For example:
+Project-level files can use either the `mcpServers` top-level object shown in `~/.copilot/mcp-config.json`, or the bare top-level format where each key is an MCP server name. For example, this configuration uses the `mcpServers` object:
 
 ```json copy
 {
@@ -103,6 +103,18 @@ Project-level files can use either the `mcpServers` top-level object shown in `~
       "command": "npx",
       "args": ["@playwright/mcp@latest"]
     }
+  }
+}
+```
+
+The same server can also be configured with the bare top-level format:
+
+```json copy
+{
+  "playwright": {
+    "type": "local",
+    "command": "npx",
+    "args": ["@playwright/mcp@latest"]
   }
 }
 ```
