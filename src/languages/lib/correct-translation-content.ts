@@ -12,7 +12,8 @@ interface CorrectionContext {
   code?: string
   dottedPath?: string
   relativePath?: string
-  [key: string]: any
+  skipOrphanStripping?: boolean
+  [key: string]: unknown
 }
 
 export function correctTranslatedContentStrings(

@@ -236,8 +236,6 @@ export default [
     files: [
       'src/article-api/transformers/rest-transformer.ts',
       'src/frame/components/context/MainContext.tsx',
-      'src/landings/components/CookBookFilter.tsx',
-      'src/languages/lib/correct-translation-content.ts',
     ],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
