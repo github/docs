@@ -1,6 +1,6 @@
 import { TextInput, ActionMenu, ActionList, Button } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, type ChangeEvent } from 'react'
 import { ArticleCardItems } from '@/landings/types'
 import { useTranslation } from '@/languages/components/useTranslation'
 
@@ -76,8 +76,7 @@ export const CookBookFilter = ({
             placeholder={t('search_articles')}
             ref={inputRef}
             autoComplete="false"
-            // Using any because Primer React's TextInput doesn't export proper event types
-            onChange={(e: any) => {
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
               const query = e.target.value || ''
               onSearch(query)
             }}

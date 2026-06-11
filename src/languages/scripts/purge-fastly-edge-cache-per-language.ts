@@ -15,8 +15,7 @@ import purgeEdgeCache from '@/workflows/purge-edge-cache'
  * ...and so on for all languages.
  *
  * Each surrogate key is purged twice because of Fastly shielding: the first
- * purge clears the edge nodes and the second clears the origin shield. See
- * `purge-edge-cache.ts` for the details.
+ * purge clears the edge nodes and the second clears the origin shield.
  *
  * Two delays shape the schedule:
  *
@@ -93,10 +92,10 @@ const purges: Promise<PurgeOutcome>[] = []
 async function runPurge(key: string, phase: PurgePhase, targetTime: number): Promise<PurgeOutcome> {
   await sleep(Math.max(0, targetTime - Date.now()))
   try {
-    // `purgeEdgeCache` logs its own "first Fastly purge" line; word this as the
-    // scheduled phase trigger so the two purges of a key are distinguishable.
+    // `purgeEdgeCache` logs its own "Attempting Fastly purge..." line; word this
+    // as the scheduled phase trigger so the two purges of a key are distinguishable.
     console.log(`Triggering ${phase}-phase purge for '${key}'...`)
-    await purgeEdgeCache(key, { purgeTwice: false })
+    await purgeEdgeCache(key)
     return { key, phase }
   } catch (error) {
     return { key, phase, error }

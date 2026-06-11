@@ -13,95 +13,56 @@
 # - name: Model name
 # - provider: Provider
 # - release_status: Release status
-# - agent_mode: true = ✓, false = ✗
-# - ask_mode: true = ✓, false = ✗
-# - edit_mode: true = ✓, false = ✗
 
 # OpenAI models
 - name: 'GPT-5 mini'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'GPT-5.3-Codex'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'GPT-5.4'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'GPT-5.4 mini'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'GPT-5.4 nano'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: false
-  ask_mode: false
-  edit_mode: false
 
 - name: 'GPT-5.5'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 # Anthropic models
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Claude Opus 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Claude Opus 4.6'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Claude Opus 4.6 (fast mode) (preview)'
   provider: 'Anthropic'
   release_status: 'Public preview'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Claude Opus 4.7'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Claude Opus 4.8'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Claude Fable 5'
   provider: 'Anthropic'
@@ -113,59 +74,35 @@
 - name: 'Claude Sonnet 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Claude Sonnet 4.6'
   provider: 'Anthropic'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 # Google models
 
 - name: 'Gemini 2.5 Pro'
   provider: 'Google'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Gemini 3 Flash'
   provider: 'Google'
   release_status: 'Public preview'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Gemini 3.1 Pro'
   provider: 'Google'
   release_status: 'Public preview'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 - name: 'Gemini 3.5 Flash'
   provider: 'Google'
   release_status: GA
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 # Microsoft models
 - name: 'MAI-Code-1-Flash'
   provider: 'Microsoft'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
 
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'
   release_status: 'Public preview'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true

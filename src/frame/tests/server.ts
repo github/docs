@@ -85,7 +85,7 @@ describe('server', () => {
     // Important to use the prefix /en/ on the failing URL or else
     // it will render a very basic plain text 404 response.
     const $ = await getDOM('/en/not-a-real-page', { allow404: true })
-    expect(($ as any).text()).toContain('Page not found.')
+    expect(($ as unknown as { text(): string }).text()).toContain('Page not found.')
     expect($.res.statusCode).toBe(404)
   })
 
@@ -107,9 +107,11 @@ describe('server', () => {
     const $ = await getDOM('/_500', { allow500s: true })
     expect($('h1').first().text()).toBe('Ooops!')
     // Using type assertion because cheerio v1 types don't include text() on root
-    expect(($ as any).text().includes('It looks like something went wrong.')).toBe(true)
     expect(
-      ($ as any)
+      ($ as unknown as { text(): string }).text().includes('It looks like something went wrong.'),
+    ).toBe(true)
+    expect(
+      ($ as unknown as { text(): string })
         .text()
         .includes(
           'We track these errors automatically, but if the problem persists please feel free to contact us.',

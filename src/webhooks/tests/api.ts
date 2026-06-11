@@ -61,4 +61,29 @@ describe('webhooks v1 middleware', () => {
     expect(res.statusCode).toBe(404)
     expect(JSON.parse(res.body).error).toBeTruthy()
   })
+
+  test('drill-down endpoint returns childParamsGroups', async () => {
+    const sp = new URLSearchParams()
+    // projects_v2_item is known to have non-empty childParamsGroups
+    sp.set('category', 'projects_v2_item')
+    sp.set('version', 'free-pro-team@latest')
+    const res = await get(`/api/webhooks/v1?${sp}`)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    const actionTypes = Object.keys(results)
+    expect(actionTypes.length).toBeGreaterThan(0)
+
+    // At least one body parameter should have non-empty childParamsGroups
+    let foundNonEmpty = false
+    for (const action of actionTypes) {
+      for (const bp of results[action].bodyParameters ?? []) {
+        if (bp.childParamsGroups && bp.childParamsGroups.length > 0) {
+          foundNonEmpty = true
+          break
+        }
+      }
+      if (foundNonEmpty) break
+    }
+    expect(foundNonEmpty).toBe(true)
+  })
 })

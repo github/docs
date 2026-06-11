@@ -1,6 +1,7 @@
 import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import type { CategorizedEvents } from '@/audit-logs/types'
+import type { TitleResolutionContext } from '@/audit-logs/lib/index'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import matter from '@gr2m/gray-matter'
@@ -94,7 +95,10 @@ export class AuditLogsTransformer implements PageTransformer {
     categoryNotes: Record<string, string>,
     context: Context,
     manualContent: string,
-    resolveReferenceLinksToMarkdown: (docsReferenceLinks: string, context: any) => Promise<string>,
+    resolveReferenceLinksToMarkdown: (
+      docsReferenceLinks: string,
+      context: TitleResolutionContext,
+    ) => Promise<string>,
   ): Promise<Record<string, unknown>> {
     // Prepare page intro
     const intro = page.intro ? await page.renderProp('intro', context, { textOnly: true }) : ''
@@ -115,7 +119,7 @@ export class AuditLogsTransformer implements PageTransformer {
           if (newEvent.docs_reference_links && newEvent.docs_reference_links !== 'N/A') {
             newEvent.docs_reference_links = await resolveReferenceLinksToMarkdown(
               newEvent.docs_reference_links,
-              context,
+              context as TitleResolutionContext,
             )
           }
           if (newEvent.fields) {

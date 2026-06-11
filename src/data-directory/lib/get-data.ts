@@ -8,11 +8,12 @@ import { merge, get } from 'lodash-es'
 import languages from '@/languages/lib/languages-server'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 import { createLogger } from '@/observability/logger'
+import type { UIStrings } from '@/frame/components/context/MainContext'
 
 const logger = createLogger(import.meta.url)
 
 interface YAMLException extends Error {
-  mark?: any
+  mark?: unknown
 }
 
 interface FileSystemError extends Error {
@@ -35,7 +36,7 @@ const ALWAYS_ENGLISH_MD_FILES = new Set([
 
 // Returns all the things inside a directory
 export const getDeepDataByLanguage = memoize(
-  (dottedPath: string, langCode: string, dir: string | null = null): any => {
+  (dottedPath: string, langCode: string, dir: string | null = null): Record<string, unknown> => {
     if (!(langCode in languages)) {
       throw new Error(`langCode '${langCode}' not a recognized language code`)
     }
@@ -53,12 +54,12 @@ export const getDeepDataByLanguage = memoize(
 
 // Doesn't need to be memoized because it's used by getDataKeysByLanguage
 // which is already memoized.
-function getDeepDataByDir(dottedPath: string, dir: string): any {
+function getDeepDataByDir(dottedPath: string, dir: string): Record<string, unknown> {
   const fullPath = ['data']
   const split = dottedPath.split(/\./g)
   fullPath.push(...split)
 
-  const things: any = {}
+  const things: Record<string, unknown> = {}
   const relPath = fullPath.join(path.sep)
   for (const dirent of getDirents(dir, relPath)) {
     if (dirent.name === 'README.md') continue
@@ -81,30 +82,30 @@ function getDirents(root: string, relPath: string): fs.Dirent[] {
   return fs.readdirSync(filePath, { withFileTypes: true })
 }
 
-export const getUIDataMerged = memoize((langCode: string): any => {
+export const getUIDataMerged = memoize((langCode: string): UIStrings => {
   const uiEnglish = getUIData('en')
-  if (langCode === 'en') return uiEnglish
+  if (langCode === 'en') return uiEnglish as UIStrings
   // Got to combine. Start with the English and put the translation on top.
   // E.g.
   //    english = {food: "Food", drink: "Drink"}
   //    swedish = {food: "Mat"}
   //    =>
   //    combind = {food: "Mat", drink: "Drink"}
-  const combined: any = {}
+  const combined: Record<string, unknown> = {}
   merge(combined, uiEnglish)
   merge(combined, getUIData(langCode))
-  return combined
+  return combined as UIStrings
 })
 
 // Doesn't need to be memoized because it's used by another function
 // that is memoized.
-const getUIData = (langCode: string): any => {
+const getUIData = (langCode: string): Record<string, unknown> => {
   const fullPath = ['data', 'ui.yml']
   const { dir } = languages[langCode]
-  return getYamlContent(dir, fullPath.join(path.sep))
+  return getYamlContent(dir, fullPath.join(path.sep)) as Record<string, unknown>
 }
 
-export const getDataByLanguage = memoize((dottedPath: string, langCode: string): any => {
+export const getDataByLanguage = memoize((dottedPath: string, langCode: string): unknown => {
   if (!(langCode in languages))
     throw new Error(`langCode '${langCode}' not a recognized language code`)
   const { dir } = languages[langCode]
@@ -151,7 +152,7 @@ function getDataByDir(
   dir: string,
   englishRoot?: string,
   langCode?: string,
-): any {
+): unknown {
   const fullPath = ['data']
 
   // Using English here because it doesn't matter. We just want to
@@ -186,17 +187,23 @@ function getDataByDir(
     const basename = split.pop()!
     fullPath.push(...split)
     fullPath.push(`${basename}.yml`)
-    const allData = getYamlContent(dir, fullPath.join(path.sep), englishRoot)
+    const allData = getYamlContent(dir, fullPath.join(path.sep), englishRoot) as
+      | Record<string, unknown>
+      | undefined
     if (allData && key) {
       const value = allData[key]
       if (value) {
-        let content = matter(value).content
+        let content = matter(value as string).content
         if (dir !== englishRoot) {
           let englishContent = content
           try {
-            const englishData = getYamlContent(englishRoot, fullPath.join(path.sep), englishRoot)
+            const englishData = getYamlContent(
+              englishRoot,
+              fullPath.join(path.sep),
+              englishRoot,
+            ) as Record<string, unknown> | undefined
             if (englishData?.[key]) {
-              englishContent = matter(englishData[key]).content
+              englishContent = matter(englishData[key] as string).content
             }
           } catch (error) {
             if ((error as FileSystemError).code !== 'ENOENT') {
@@ -312,7 +319,7 @@ function getSmartSplit(dottedPath: string): string[] {
 //          -> cache HIT    (Yay!)
 //
 const getYamlContent = memoize(
-  (root: string | undefined, relPath: string, englishRoot?: string): any => {
+  (root: string | undefined, relPath: string, englishRoot?: string): unknown => {
     // Certain Yaml files we know we always want the English one
     // no matter what the specified language is.
     // For example, we never want `data/variables/product.yml` translated
@@ -368,9 +375,11 @@ const getFileContent = (
   }
 }
 
-function memoize<T extends (...args: any[]) => any>(func: T): T {
-  const cache = new Map<string, any>()
-  return ((...args: any[]) => {
+function memoize<Args extends unknown[], Return>(
+  func: (...args: Args) => Return,
+): (...args: Args) => Return {
+  const cache = new Map<string, Return>()
+  return (...args: Args) => {
     if (process.env.NODE_ENV === 'development') {
       // It is very possible that certain files, when caching is disabled,
       // are read multiple times in short succession. E.g. `product.yml`.
@@ -391,6 +400,6 @@ function memoize<T extends (...args: any[]) => any>(func: T): T {
     if (!cache.has(key)) {
       cache.set(key, func(...args))
     }
-    return cache.get(key)
-  }) as T
+    return cache.get(key) as Return
+  }
 }
