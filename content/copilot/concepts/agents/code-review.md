@@ -61,7 +61,7 @@ When both policies are enabled, users without a {% data variables.product.prodna
 
 In repositories where automatic code review is enabled, {% data variables.product.prodname_copilot_short %} automatically reviews all pull requests. This happens regardless of whether the author has a {% data variables.product.prodname_copilot_short %} license.
 
-You can scope automatic code review to specific repositories by configuring repository or organization rulesets.
+You can scope automatic code review to specific repositories by configuring repository or organization rulesets. For more information, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/configuring-automatic-code-review-by-copilot).
 
 {% data variables.copilot.copilot_code-review_short %} for users without a license is not available in IDEs.
 
