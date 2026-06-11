@@ -69,6 +69,11 @@ copilot_cloud_agent_short: 'cloud agent'
 copilot_cloud_agent_short_cap_c: 'Cloud agent'
 copilot_cloud_agent_tmp: 'Copilot cloud agent (formerly Copilot coding agent)'
 
+## GitHub Agentic Workflows -> {% data variables.copilot.github_agentic_workflows %}
+github_agentic_workflows: 'GitHub Agentic Workflows'
+agentic_workflows_short: 'agentic workflows'
+agentic_workflows_short_cap: 'Agentic workflows'
+
 ## Copilot automations (powered by Copilot cloud agent)
 copilot_automations_cap: 'Automations'
 copilot_automations: 'automations'
