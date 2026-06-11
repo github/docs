@@ -1,14 +1,7 @@
-date: '2026-05-12'
-release_candidate: true
-deprecated: true
+date: '2026-06-11'
+release_candidate: false
+deprecated: false
 intro: |
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
-  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
 
   features:
@@ -27,7 +20,10 @@ sections:
         # https://github.com/github/releases/issues/8862
         - |
           The capability to configure multiple data disks to host MySQL and repository data is now generally available in {% data variables.product.prodname_ghe_server %} version 3.21 and the latest patch versions of 3.17, 3.18, 3.19, and 3.20. This applies to standalone and high availability topologies. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks).
-        
+        # https://github.com/github/releases/issues/9571
+        - |
+          You can add additional nodes to a high-availability datacenter to offload CPU-intensive tasks from the primary data node, allowing horizontal scaling for {% data variables.product.prodname_ghe_server %}. This capability applies only to high-availability topologies. It does not apply to standalone or to cluster topologies. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/additional-nodes/configuring-additional-nodes).
+                  
     - heading: Authentication
       notes:
         # https://github.com/github/releases/issues/6243
@@ -73,10 +69,10 @@ sections:
           * Users working with JavaScript/TypeScript benefit from new framework models for Next.js 16, MobX observer-wrapped React components, and improved vue-router taint detection.
           * Read more in the changelogs for the CodeQL versions included in this release:
 
-            * [Code QL 2.24.0](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.0/)
-            * [Code QL 2.24.1](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.1/)
-            * [Code QL 2.24.2](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.2/)
-            * [Code QL 2.24.3](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.3/)
+            * [CodeQL 2.24.0](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.0/)
+            * [CodeQL 2.24.1](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.1/)
+            * [CodeQL 2.24.2](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.2/)
+            * [CodeQL 2.24.3](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.3/)
         
     - heading: Secret scanning
       notes:    
@@ -89,7 +85,7 @@ sections:
 
           * Anyone with the ability to dismiss or reopen a {% data variables.product.prodname_secret_scanning %} alert can now add or remove alert assignees.
           * Alert assignees can now modify alerts, including resolving alerts and removing themselves as assignees.
-          * Enterprise teams, roles, and apps can be added as bypass reviewers from  security configurations.
+          * Enterprise teams, roles, and apps can be added as bypass reviewers from security configurations.
           * Enterprise owners and enterprise security managers can edit any custom patterns, regardless of whether they created them.
 
           For details, see the [changelog](https://github.blog/changelog/2025-12-16-enterprise-governance-and-policy-improvements-for-secret-scanning-now-generally-available/).
@@ -266,6 +262,8 @@ sections:
       An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running ghe-cluster-repl-status if a new organization and repositories are created before using the ghe-cluster-repl-bootstrap command. To avoid this issue, complete the cluster HA setup with ghe-cluster-repl-bootstrap before creating new organizations and repositories.
     - |
       In a cluster, the host running restore requires access the storage nodes via their private IPs.
     - |
