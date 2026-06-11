@@ -5339,6 +5339,13 @@
           ]
         },
         {
+          "name": "pullRequestCreationCapConfig",
+          "description": "<p>A list of users who are exempt from the pull request creation cap on this repository. Only visible to repository admins.</p>",
+          "type": "PullRequestCreationCapConfig",
+          "id": "pullrequestcreationcapconfig",
+          "href": "/graphql/reference/pulls#object-pullrequestcreationcapconfig"
+        },
+        {
           "name": "pullRequestCreationPolicy",
           "description": "<p>The policy controlling who can create pull requests in this repository.</p>",
           "type": "PullRequestCreationPolicy",
