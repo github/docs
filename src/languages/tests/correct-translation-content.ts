@@ -2285,4 +2285,57 @@ Para más información, consulta "[AUTOTITLE](/path)".
       )
     })
   })
+
+  // ─── SCRAPE-6642: search-scrape failures ─────────────────────────────
+  // Six translated title/intro corruptions from the June 10 batch broke the
+  // admin and code-security index scrapes (github/docs-engineering#6642).
+  // The corrector runs on the PARSED title/intro value, so the title fixes
+  // must match the unquoted substring (no surrounding YAML quote).
+  describe('SCRAPE-6642 per-file fixes', () => {
+    test('es: configuring-scim-provisioning-with-okta title closes ghec conditional', () => {
+      const broken =
+        'Configuración de la autenticación de {% ifversion ghec %}SCIM{% else %} con Okta'
+      expect(fix(broken, 'es')).toBe(
+        'Configuración de la autenticación de {% ifversion ghec %}SCIM{% else %} con Okta{% endif %}',
+      )
+    })
+
+    test('zh: configuring-scim-provisioning-with-okta intro unswaps endif/ifversion', () => {
+      const broken =
+        '在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}上的企业{% ifversion ghec %}进行通信。'
+      expect(fix(broken, 'zh')).toBe(
+        '的企业{% ifversion ghec %}在{% data variables.product.prodname_dotcom_the_website %}或{% data variables.enterprise.data_residency_site %}{% endif %}进行通信。',
+      )
+    })
+
+    test('ru: configuring-scim-provisioning-with-okta title unswaps branches', () => {
+      const broken =
+        'Настройка {% ifversion ghec %}аутентификации и{% endif %} провизионирования SCIM{% else %}с помощью Okta'
+      expect(fix(broken, 'ru')).toBe(
+        'Настройка {% ifversion ghec %}SCIM{% else %}аутентификации и{% endif %} провизионирования с помощью Okta',
+      )
+    })
+
+    test('ko: configuring-code-scanning-for-your-appliance intro closes ifversion', () => {
+      const broken =
+        '에서 {% data variables.product.prodname_dotcom %}.{% ifversion default-setup-self-hosted-runners-GHEC %}'
+      expect(fix(broken, 'ko')).toBe(
+        '에서 {% data variables.product.prodname_dotcom %}.{% endif %}',
+      )
+    })
+
+    test('de: configuring-authentication-and-provisioning-with-pingfederate intro unswaps branches', () => {
+      const broken =
+        '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %} für Ihr Unternehmen{% else %} zentral zu verwalten.'
+      expect(fix(broken, 'de')).toBe(
+        '{% ifversion ghes %}ein, um Authentifizierung und Provisionierung für Ihr Unternehmen zentral zu verwalten{% else %}für {% data variables.product.prodname_emus %} auf {% data variables.product.prodname_dotcom_the_website %} oder {% data variables.enterprise.data_residency_site %}{% endif %}.',
+      )
+    })
+
+    test('de: configure-access-to-private-registries intro restores endif', () => {
+      const broken =
+        'auf selbst-gehosteten Runnern ausführen.{% data variables.product.prodname_dependabot %}'
+      expect(fix(broken, 'de')).toBe('auf selbst-gehosteten Runnern ausführen.{% endif %}')
+    })
+  })
 })
