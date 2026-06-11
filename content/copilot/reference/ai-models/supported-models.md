@@ -33,14 +33,14 @@ For all of the default AI models, input prompts and output completions run throu
 
 ## Supported AI models in {% data variables.product.prodname_copilot_short %}
 
-This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status and availability in different modes.
+This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status.
 
 {% rowheaders %}
 
-| Model name                                             | Provider  | Release status             | Agent mode | Ask mode | Edit mode |
-|--------------------------------------------------------|-----------|----------------------------|------------|----------|-----------|
+| Model name                                             | Provider  | Release status             |
+|--------------------------------------------------------|-----------|----------------------------|
 | {% for model in tables.copilot.model-release-status %} |
-| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} | {% if model.agent_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.ask_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} | {% if model.edit_mode == true %}{% octicon "check" aria-label="Included" %}{% else %}{% octicon "x" aria-label="Not included" %}{% endif %} |
+| {{ model.name }}{% if model.name == 'GPT-5.4 nano' %}[^gpt54nano]{% endif %}{% if model.name == 'MAI-Code-1-Flash' %}[^mai-code-1-flash]{% endif %}{% if model.name == 'Claude Fable 5' %}[^claude-fable-5]{% endif %}| {{ model.provider }} | {{ model.release_status }} |
 | {% endfor %}                                           |
 
 {% endrowheaders %}
@@ -135,7 +135,7 @@ Some {% data variables.product.prodname_copilot_short %} models require minimum 
 | {% data variables.copilot.copilot_gpt_54_mini %}         | `v1.104.1` and later | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 | {% data variables.copilot.copilot_gpt_55 %}              | `v1.117` and later   | `17.14.19` and later                     | `1.5.66` and later | `0.47.0` and later | `0.15.0` and later |
 | {% data variables.copilot.copilot_claude_opus_48 %}      | `v1.118` and later   | `17.14.6` and later                     | TBD | TBD | TBD |
-| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.123.2` and later   | `17.14.6` and later                    | TBD | TBD | TBD |
+| {% data variables.copilot.copilot_claude_fable_5 %}      | `v1.124` and later   | `17.14.6` and later                    | TBD | TBD | TBD |
 | {% data variables.copilot.copilot_mai_code_1_flash %}    | `v1.121` and later   | Not available                            | Not available | Not available | Not available |
 
 {% endrowheaders %}
@@ -160,7 +160,7 @@ For more information about fallback and LTS models, see [AUTOTITLE](/copilot/con
 {% data variables.product.prodname_copilot %} offers access to evaluation models.
 
 > [!IMPORTANT]
-> * Testing revealed evaluation models may perform worse than other models on security-related, or other categories of prompts. 
+> * Testing revealed evaluation models may perform worse than other models on security-related, or other categories of prompts.
 > * Users should always carefully review and validate code, including code security, using a range of models and with a thorough human review before incorporating suggestions into production.
 
 Evaluation models may appear in product with codenames rather than official model or provider names. These models come from, or are fine-tuned by, one or more of the following providers: Microsoft, OpenAI, Anthropic, Google. Data handling for each provider is limited to GitHub's existing agreement with that provider, and evaluation models undergo GitHub and Microsoft testing and verification before release.

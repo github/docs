@@ -159,7 +159,9 @@ describe('REST references docs', () => {
   })
 })
 
-function formatErrors(differences: Record<string, any>): string {
+function formatErrors(
+  differences: Record<string, Record<string, { contentDir: string[]; openAPI: string[] }>>,
+): string {
   let errorMessage = 'There are differences in Categories/Subcategories in:\n'
   for (const schema in differences) {
     errorMessage += `Version: ${schema}\n`

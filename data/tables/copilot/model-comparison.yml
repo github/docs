@@ -33,6 +33,11 @@
   further_reading: '[GPT-5.5 model card](https://deploymentsafety.openai.com/gpt-5-5/gpt-5-5.pdf)'
 
 # Anthropic
+- name: Claude Fable 5
+  task_area: Long-horizon, autonomous coding and knowledge-work
+  excels_at: First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging
+  further_reading: '[Claude Fable 5 model card](https://anthropic.com/claude-fable-5-mythos-5-system-card)'
+
 - name: Claude Haiku 4.5
   task_area: Fast help with simple or repetitive tasks
   excels_at: Fast, reliable answers to lightweight coding questions
@@ -51,11 +56,6 @@
 - name: Claude Opus 4.8
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: 'Not available'
-
-- name: Claude Fable 5
-  task_area: Long-horizon, autonomous coding and knowledge-work
-  excels_at: First-attempt correctness through upfront reasoning, aggressive parallel tool batching, and proactive verification of pre-existing test state before debugging
   further_reading: 'Not available'
 
 - name: Claude Sonnet 4.5
