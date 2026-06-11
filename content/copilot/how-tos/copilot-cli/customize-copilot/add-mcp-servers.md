@@ -93,7 +93,7 @@ You can configure MCP servers for a specific project by adding a JSON file to th
 
 When you start {% data variables.copilot.copilot_cli_short %} inside a Git repository, the CLI walks from your current working directory up to the repository root, loading every `.mcp.json` it finds along the way. When server names conflict, definitions in files closer to your working directory take precedence. Project-level definitions also take precedence over those in `~/.copilot/mcp-config.json`. For more information on relative trust, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#mcp-server-trust-levels).
 
-The file format is the same as `~/.copilot/mcp-config.json`. For example:
+Project-level files can use either the `mcpServers` top-level object shown in `~/.copilot/mcp-config.json`, or the bare top-level format where each key is an MCP server name, such as `{ "playwright": { ... } }`. For example:
 
 ```json copy
 {
@@ -110,7 +110,7 @@ The file format is the same as `~/.copilot/mcp-config.json`. For example:
 > [!NOTE]
 > * Project-level MCP servers are loaded only after you confirm folder trust on first launch. They are silently skipped in untrusted directories. For more information on folder trust, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#trusted-directories).
 > * In prompt mode (`copilot -p`), project-level MCP servers are not loaded by default. To enable them, set the `GITHUB_COPILOT_PROMPT_MODE_WORKSPACE_MCP` environment variable to `true`. For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#environment-variables).
-> * {% data variables.product.prodname_vscode_shortname %}'s `.vscode/mcp.json` is not read by {% data variables.copilot.copilot_cli_short %}. It uses a different top-level key (`servers` rather than `mcpServers`). To migrate an existing `.vscode/mcp.json` to a format the CLI accepts, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#migrating-from-vscodemcpjson).
+> * {% data variables.product.prodname_vscode_shortname %}'s `.vscode/mcp.json` is not read by {% data variables.copilot.copilot_cli_short %}. It uses the unsupported top-level key `servers`. To migrate an existing `.vscode/mcp.json` to a format the CLI accepts, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#migrating-from-vscodemcpjson).
 
 ## Managing MCP servers
 
