@@ -52,7 +52,7 @@ To allow organization members without a {% data variables.product.prodname_copil
 The second policy has these characteristics:
 
 * It is disabled by default.
-* Once this policy is set it at the enterprise level, it becomes **visible, but not editable** at the organization level.
+* Once this policy is set at the enterprise level, it becomes **visible, but not editable** at the organization level.
 * The policy is **most restrictive**.
 
 ### How it works for users without a license
