@@ -101,16 +101,18 @@ There are several containment actions you can choose to perform to limit the att
 
 For exposed or exploited credentials, the most immediate action you can take is to revoke the affected credentials to prevent further misuse.
 
-{% ifversion fpt or ghec or ghes > 3.17 %}
+{% ifversion fpt or ghec %}
+
 * **Revoke via the API**
   
   If the token is one of the following types, and the literal value of the token is known, you (or anybody) can revoke it by **submitting a request via the REST API**. See [AUTOTITLE](/rest/credentials/revoke?apiVersion=2022-11-28#revoke-a-list-of-credentials).
   
   * {% data variables.product.pat_v1_caps %}
-  * {% data variables.product.pat_v2_caps %}{% ifversion fpt or ghec or ghes > 3.20 %}
+  * {% data variables.product.pat_v2_caps %}
   * {% data variables.product.prodname_oauth_app %} access token
   * {% data variables.product.prodname_github_app %} user access token
-  * {% data variables.product.prodname_github_app %} refresh token{% endif %}
+  * {% data variables.product.prodname_github_app %} refresh token
+  
 {% endif %}
 
 * **Revocation and containment options**
