@@ -77,7 +77,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 1. Optionally, to view your default setup configuration after enablement, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} View {% data variables.product.prodname_codeql %} configuration**.
 
 > [!NOTE]
-> If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.
+> If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.{% ifversion code-scanning-inactive-repos %} Organization owners can enable monthly scans of inactive repositories. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#continuing-scans-on-inactive-repositories).{% endif %}
 
 {% ifversion fpt or ghec %}
 

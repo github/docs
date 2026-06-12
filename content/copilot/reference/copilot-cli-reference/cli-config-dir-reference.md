@@ -50,7 +50,7 @@ The following files are designed to be edited by you directly, or managed throug
 
 ### `settings.json`
 
-This is the primary configuration file for {% data variables.copilot.copilot_cli_short %}. You can edit it directly in a text editor, or use interactive commands like `/model` and `/theme` to change specific values from within a session. The file supports JSON with comments (JSONC).
+This is the primary configuration file for {% data variables.copilot.copilot_cli_short %}. Within a session, you can use the interactive `/settings` command to change specific values, or run `/settings KEY VALUE` to set a single value, or edit the file directly in a text editor. The file supports JSON with comments (JSONC).
 
 > [!NOTE]
 > User-editable settings were originally stored in `config.json`. They have been moved to `settings.json`. Any user settings present in `config.json` on startup are automatically migrated to `settings.json`.
@@ -204,7 +204,7 @@ Settings cascade from user to repository to local, with more specific scopes ove
 
 ### User settings (`~/.copilot/settings.json`)
 
-These settings apply across all your sessions and repositories. You can edit this file directly, or use slash commands to update individual values.
+These settings apply across all your sessions and repositories. You can use the `/settings` slash command to run an interactive dialog, or use specific slash commands to update individual values, or edit this file directly.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|

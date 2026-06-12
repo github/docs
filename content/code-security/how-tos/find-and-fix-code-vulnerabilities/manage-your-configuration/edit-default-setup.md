@@ -83,6 +83,19 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 
 1. The model packs will be automatically detected and used when {% data variables.product.prodname_code_scanning %} runs on any repository in the organization with default setup enabled.
 
+{% ifversion code-scanning-inactive-repos %}
+
+## Continuing scans on inactive repositories
+
+{% data reusables.code-scanning.inactive-repos-scan %} You can override this behavior in an organization, though the scan period is not configurable.
+
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.security-configurations.display-global-settings %}
+1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, enable the **Keep scheduled scans running every 30 days for inactive repositories** setting.
+
+{% endif %}
+
 ## Further customization
 
 If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
