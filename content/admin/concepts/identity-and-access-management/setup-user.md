@@ -38,7 +38,6 @@ Unlike provisioned managed users, the setup user cannot sign in via SSO.
 
 > [!NOTE]
 > Once authentication has been configured on the enterprise, the setup user requires the [enterprise recovery codes](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes) to be able to login.
-> To enter the recovery codes, sign in as admin on the SSO prompt, enter username and password which will bring up the dialogue for recovery codes.
 
 ## Can I delete the setup user?
 
