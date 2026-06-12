@@ -29,6 +29,4 @@ For more information, see [AUTOTITLE](/education/contribute-with-github-communit
 
 {% data reusables.education.access-github-community-exchange %}
 
-## Further reading
 
-* [AUTOTITLE](/education/contribute-with-github-community-exchange/getting-started-with-github-community-exchange)
