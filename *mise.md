@@ -1,3 +1,4 @@
+/running by Edgarruiz8585 
 2025-09-07T19:46:22.5324473Z ##[group]Run jdx/mise-action@5ac50f778e26fac95da98d50503682459e86d566
 2025-09-07T19:46:22.5325813Z with:
 2025-09-07T19:46:22.5326194Z   install: true
