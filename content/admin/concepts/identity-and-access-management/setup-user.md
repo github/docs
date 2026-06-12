@@ -36,6 +36,9 @@ Unlike provisioned managed users, the setup user cannot sign in via SSO.
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
+> [!NOTE]
+> Once authentication has been configured on the enterprise, the setup user requires the [enterprise recovery codes](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes) to be able to login.
+
 ## Can I delete the setup user?
 
 The setup user **cannot** be deleted, because it is essential for maintaining authentication and provisioning. The only way to remove the setup user is to delete your enterprise account. See [AUTOTITLE](/admin/managing-your-enterprise-account/deleting-an-enterprise-account).
