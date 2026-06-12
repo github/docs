@@ -1440,6 +1440,16 @@
   hasExtendedMetadata: false
   base64Supported: false
   isduplicate: false
+- provider: Cloudsmith
+  supportedSecret: Cloudsmith API Key
+  secretType: cloudsmith_api_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Cockroach Labs
   supportedSecret: CockroachDB Cloud API Key
   secretType: ccdb_api_key

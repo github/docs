@@ -51,15 +51,16 @@ The AI model being used by the CLI can choose to delegate a task to a subsidiary
 
 You can define your own {% data variables.copilot.custom_agents_short %} using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify what expertise the agent should have, what tools it can use, and any specific instructions for how it should respond.
 
-You can define {% data variables.copilot.custom_agents_short %} at the user, repository, or organization/enterprise level:
+You can define {% data variables.copilot.custom_agents_short %} at the user, repository, organization, or enterprise level:
 
 | Type | Location | Scope |
 | --- | --- | --- |
 | User-level {% data variables.copilot.copilot_custom_agent_short %} | local `~/.copilot/agents` directory | All projects |
 | Repository-level {% data variables.copilot.copilot_custom_agent_short %} | `.github/agents` directory in your local and remote repositories | Current project |
-| Organization and Enterprise-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the `.github-private` repository in an organization or enterprise | All projects under your organization and enterprise account |
+| Organization-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the organization's `.github` or `.github-private` repository | All projects within the organization |
+| Enterprise-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the `.github-private` repository of an organization designated in enterprise settings. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents#enabling-and-protecting-custom-agents-in-your-enterprise). | All projects under the enterprise account |
 
-In the case of naming conflicts, a system-level agent overrides a repository-level agent, and the repository-level agent would override an organization-level agent.
+In the case of naming conflicts (where agents share the same filename), a user-level agent overrides a repository-level agent, a repository-level agent overrides an organization-level agent, and an organization-level agent overrides an enterprise-level agent.
 
 {% data variables.copilot.custom_agents_caps_short %} can be used in three ways:
 
